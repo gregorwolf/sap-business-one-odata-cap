@@ -1,0 +1,23 @@
+{
+  "name": "sap-business-one-odata-cap",
+  "version": "0.0.1",
+  "description": "SAP Business One OData Service with CAP",
+  "repository": "https://github.com/gregorwolf/sap-business-one-odata-cap",
+  "license": "Apache 2.0",
+  "private": false,
+  "dependencies": {
+    "@sap/cds": "^3",
+    "express": "^4"
+  },
+  "scripts": {
+    "start": "npx cds run"
+  },
+  "cds": {
+    "requires": {
+      "SAPB1": {
+        "kind": "odata",
+        "model": "srv/external/Orders"
+      }
+    }
+  }
+}
