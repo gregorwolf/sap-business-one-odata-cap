@@ -1,0 +1,1 @@
+using { SAPB1 as external } from './external/SAPB1.csn';
