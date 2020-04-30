@@ -18973,9 +18973,6 @@
         },
         "AlertManagementRecipients": {
           "type": "SAPB1.AlertManagementRecipient"
-        },
-        "AlertManagementDocuments": {
-          "type": "SAPB1.AlertManagementDocument"
         }
       }
     },
@@ -30763,9 +30760,6 @@
         "ApprovalTemplateStages": {
           "type": "SAPB1.ApprovalTemplateStage"
         },
-        "ApprovalTemplateDocuments": {
-          "type": "SAPB1.ApprovalTemplateDocument"
-        },
         "ApprovalTemplateTerms": {
           "type": "SAPB1.ApprovalTemplateTerm"
         },
@@ -33251,10 +33245,6 @@
         }
       }
     },
-    "SAPB1.RclRecurringExecutionParams": {
-      "kind": "type",
-      "elements": {}
-    },
     "SAPB1.RclRecurringTransaction": {
       "kind": "type",
       "elements": {
@@ -35062,10 +35052,6 @@
         }
       }
     },
-    "SAPB1.DataSensitiveStatus": {
-      "kind": "type",
-      "elements": {}
-    },
     "SAPB1.U_BLD_BLOBParams": {
       "kind": "type",
       "elements": {
@@ -35845,10 +35831,6 @@
           "type": "cds.LargeString"
         }
       }
-    },
-    "SAPB1.AlertManagementDocument": {
-      "kind": "type",
-      "elements": {}
     },
     "SAPB1.ItemPropertyParams": {
       "kind": "type",
@@ -42352,10 +42334,6 @@
         }
       }
     },
-    "SAPB1.MaterialRevaluationFIFO": {
-      "kind": "type",
-      "elements": {}
-    },
     "SAPB1.DepreciationTypePoolParams": {
       "kind": "type",
       "elements": {
@@ -44978,10 +44956,6 @@
           "type": "cds.Double"
         }
       }
-    },
-    "SAPB1.ApprovalTemplateDocument": {
-      "kind": "type",
-      "elements": {}
     },
     "SAPB1.WithholdingTaxCodeParams": {
       "kind": "type",

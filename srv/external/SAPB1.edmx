@@ -3237,9 +3237,6 @@
         <Property Name="PortAddress" Type="Edm.String"/>
         <Property Name="PortState" Type="Edm.String"/>
       </ComplexType>
-      <ComplexType Name="RclRecurringExecutionParams">
-        <Property Name="OnError" Type="SAPB1.RclRecurringExecutionHandlingEnum"/>
-      </ComplexType>
       <ComplexType Name="RclRecurringTransaction">
         <Property Name="TransactionID" Type="Edm.Int32"/>
         <Property Name="TemplateID" Type="Edm.Int32"/>
@@ -4060,9 +4057,6 @@
       <ComplexType Name="U_BLD_PDLNParams">
         <Property Name="Code" Type="Edm.String"/>
       </ComplexType>
-      <ComplexType Name="DataSensitiveStatus">
-        <Property Name="DataSensitiveStatus" Type="SAPB1.DataSensitiveStatusEnum"/>
-      </ComplexType>
       <ComplexType Name="U_BLD_BLOBParams">
         <Property Name="Code" Type="Edm.String"/>
       </ComplexType>
@@ -4359,10 +4353,6 @@
         <Property Name="Code" Type="Edm.Int32"/>
         <Property Name="Type" Type="SAPB1.AlertManagementTypeEnum"/>
         <Property Name="Name" Type="Edm.String"/>
-      </ComplexType>
-      <ComplexType Name="AlertManagementDocument">
-        <Property Name="Document" Type="SAPB1.AlertManagementDocumentEnum"/>
-        <Property Name="Active" Type="SAPB1.BoYesNoEnum"/>
       </ComplexType>
       <ComplexType Name="ItemPropertyParams">
         <Property Name="Number" Type="Edm.Int32"/>
@@ -6827,9 +6817,6 @@
       <ComplexType Name="InventoryCyclesParams">
         <Property Name="CycleCode" Type="Edm.Int32"/>
       </ComplexType>
-      <ComplexType Name="MaterialRevaluationFIFO">
-        <Property Name="Layers" Type="Collection(SAPB1.Layer)"/>
-      </ComplexType>
       <ComplexType Name="DepreciationTypePoolParams">
         <Property Name="Code" Type="Edm.String"/>
         <Property Name="Description" Type="Edm.String"/>
@@ -7816,9 +7803,6 @@
         <Property Name="AccumulatedAPQuantity" Type="Edm.Double"/>
         <Property Name="AccumulatedARQuantity" Type="Edm.Double"/>
         <Property Name="AccumulatedRelocatedQuantity" Type="Edm.Double"/>
-      </ComplexType>
-      <ComplexType Name="ApprovalTemplateDocument">
-        <Property Name="DocumentType" Type="SAPB1.ApprovalTemplatesDocumentTypeEnum"/>
       </ComplexType>
       <ComplexType Name="WithholdingTaxCodeParams">
         <Property Name="WTCode" Type="Edm.String"/>
