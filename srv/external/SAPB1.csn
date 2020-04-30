@@ -13774,9 +13774,6 @@
         "Description": {
           "type": "cds.LargeString"
         },
-        "Group": {
-          "type": "cds.LargeString"
-        },
         "Items": {
           "type": "cds.Association",
           "target": "SAPB1.Items",
@@ -15981,9 +15978,6 @@
         "Locked": {
           "type": "cds.Integer"
         },
-        "Group": {
-          "type": "cds.Integer"
-        },
         "MaxDiscountGeneral": {
           "type": "cds.Double"
         },
@@ -16697,9 +16691,6 @@
         "Type": {
           "type": "cds.Integer"
         },
-        "Group": {
-          "type": "cds.Integer"
-        },
         "UnitOfMeasure": {
           "type": "cds.LargeString"
         },
@@ -17006,27 +16997,6 @@
           "cardinality": {
             "max": "*"
           }
-        },
-        "ResourceGroup": {
-          "type": "cds.Association",
-          "target": "SAPB1.ResourceGroups",
-          "cardinality": {
-            "max": 1
-          },
-          "on": [
-            {
-              "ref": [
-                "ResourceGroup",
-                "Code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "Group"
-              ]
-            }
-          ]
         },
         "Item": {
           "type": "cds.Association",
@@ -26163,9 +26133,6 @@
         "KeyName": {
           "type": "cds.LargeString"
         },
-        "Unique": {
-          "type": "cds.Integer"
-        },
         "UserKeysMD_Elements": {
           "type": "SAPB1.UserKeysMD_Element"
         }
@@ -28844,52 +28811,6 @@
         }
       }
     },
-    "SAPB1.FormattedSearches": {
-      "kind": "entity",
-      "@cds.persistence.skip": true,
-      "elements": {
-        "FormID": {
-          "type": "cds.LargeString"
-        },
-        "ItemID": {
-          "type": "cds.LargeString"
-        },
-        "ColumnID": {
-          "type": "cds.LargeString"
-        },
-        "Action": {
-          "type": "cds.Integer"
-        },
-        "QueryID": {
-          "type": "cds.Integer"
-        },
-        "Index": {
-          "key": true,
-          "type": "cds.Integer"
-        },
-        "Refresh": {
-          "type": "cds.Integer"
-        },
-        "FieldID": {
-          "type": "cds.LargeString"
-        },
-        "ForceRefresh": {
-          "type": "cds.Integer"
-        },
-        "ByField": {
-          "type": "cds.Integer"
-        },
-        "ByFieldEx": {
-          "type": "cds.Integer"
-        },
-        "UserValidValues": {
-          "type": "SAPB1.UserValidValue"
-        },
-        "FieldIDs": {
-          "type": "SAPB1.FieldID"
-        }
-      }
-    },
     "SAPB1.Attachments2": {
       "kind": "entity",
       "@cds.persistence.skip": true,
@@ -30570,9 +30491,6 @@
         "Guid": {
           "key": true,
           "type": "cds.LargeString"
-        },
-        "Order": {
-          "type": "cds.Integer"
         },
         "UserId": {
           "type": "cds.Integer"

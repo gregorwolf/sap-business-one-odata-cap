@@ -13817,7 +13817,6 @@
         </Key>
         <Property Name="Code" Type="Edm.String"/>
         <Property Name="Description" Type="Edm.String"/>
-        <Property Name="Group" Type="Edm.String"/>
         <NavigationProperty Name="Items" Partner="AssetDepreciationGroup" Type="Collection(SAPB1.Item)"/>
       </EntityType>
       <EntityType Name="BinLocationField">
@@ -14482,7 +14481,6 @@
         <Property Name="Department" Type="Edm.Int32"/>
         <Property Name="LanguageCode" Type="SAPB1.BoSuppLangs"/>
         <Property Name="Locked" Type="SAPB1.BoYesNoEnum"/>
-        <Property Name="Group" Type="SAPB1.BoUserGroup"/>
         <Property Name="MaxDiscountGeneral" Type="Edm.Double"/>
         <Property Name="MaxDiscountSales" Type="Edm.Double"/>
         <Property Name="MaxDiscountPurchase" Type="Edm.Double"/>
@@ -14682,7 +14680,6 @@
         <Property Name="Name" Type="Edm.String"/>
         <Property Name="ForeignName" Type="Edm.String"/>
         <Property Name="Type" Type="SAPB1.ResourceTypeEnum"/>
-        <Property Name="Group" Type="Edm.Int32"/>
         <Property Name="UnitOfMeasure" Type="Edm.String"/>
         <Property Name="IssueMethod" Type="SAPB1.ResourceIssueMethodEnum"/>
         <Property Name="Cost1" Type="Edm.Double"/>
@@ -14784,9 +14781,6 @@
         <Property Name="ResourceEmployees" Type="Collection(SAPB1.ResourceEmployee)"/>
         <Property Name="ResourceDailyCapacities" Type="Collection(SAPB1.ResourceDailyCapacity)"/>
         <NavigationProperty Name="Items" Partner="Resource" Type="Collection(SAPB1.Item)"/>
-        <NavigationProperty Name="ResourceGroup" Partner="Resources" Type="SAPB1.ResourceGroup">
-          <ReferentialConstraint Property="Group" ReferencedProperty="Code"/>
-        </NavigationProperty>
         <NavigationProperty Name="Item" Partner="Resources" Type="SAPB1.Item">
           <ReferentialConstraint Property="LinkedItem" ReferencedProperty="ItemCode"/>
         </NavigationProperty>
@@ -17155,7 +17149,6 @@
         <Property Name="TableName" Type="Edm.String"/>
         <Property Name="KeyIndex" Type="Edm.Int32"/>
         <Property Name="KeyName" Type="Edm.String"/>
-        <Property Name="Unique" Type="SAPB1.BoYesNoEnum"/>
         <Property Name="UserKeysMD_Elements" Type="Collection(SAPB1.UserKeysMD_Element)"/>
       </EntityType>
       <EntityType Name="Dimension">
@@ -17885,24 +17878,6 @@
         <Property Name="ObjectName" Type="Edm.String"/>
         <Property Name="ChooseFromList_Lines" Type="Collection(SAPB1.ChooseFromList_Line)"/>
       </EntityType>
-      <EntityType Name="FormattedSearch">
-        <Key>
-          <PropertyRef Name="Index"/>
-        </Key>
-        <Property Name="FormID" Type="Edm.String"/>
-        <Property Name="ItemID" Type="Edm.String"/>
-        <Property Name="ColumnID" Type="Edm.String"/>
-        <Property Name="Action" Type="SAPB1.BoFormattedSearchActionEnum"/>
-        <Property Name="QueryID" Type="Edm.Int32"/>
-        <Property Name="Index" Type="Edm.Int32"/>
-        <Property Name="Refresh" Type="SAPB1.BoYesNoEnum"/>
-        <Property Name="FieldID" Type="Edm.String"/>
-        <Property Name="ForceRefresh" Type="SAPB1.BoYesNoEnum"/>
-        <Property Name="ByField" Type="SAPB1.BoYesNoEnum"/>
-        <Property Name="ByFieldEx" Type="SAPB1.FormattedSearchByFieldEnum"/>
-        <Property Name="UserValidValues" Type="Collection(SAPB1.UserValidValue)"/>
-        <Property Name="FieldIDs" Type="Collection(SAPB1.FieldID)"/>
-      </EntityType>
       <EntityType Name="Attachments2">
         <Key>
           <PropertyRef Name="AbsoluteEntry"/>
@@ -18383,7 +18358,6 @@
           <PropertyRef Name="Guid"/>
         </Key>
         <Property Name="Guid" Type="Edm.String"/>
-        <Property Name="Order" Type="Edm.Int32"/>
         <Property Name="UserId" Type="Edm.Int32"/>
         <Property Name="ViewType" Type="Edm.String"/>
         <Property Name="SubViewType" Type="Edm.String"/>
@@ -22972,7 +22946,6 @@
           <NavigationPropertyBinding Path="Department" Target="Departments"/>
           <NavigationPropertyBinding Path="POSDailySummary" Target="POSDailySummary"/>
         </EntitySet>
-        <EntitySet EntityType="SAPB1.FormattedSearch" Name="FormattedSearches"/>
         <EntitySet EntityType="SAPB1.MultiLanguageTranslation" Name="MultiLanguageTranslations"/>
         <EntitySet EntityType="SAPB1.HouseBankAccount" Name="HouseBankAccounts">
           <NavigationPropertyBinding Path="BankStatements" Target="BankStatements"/>
