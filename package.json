@@ -16,7 +16,7 @@
     "requires": {
       "SAPB1": {
         "kind": "odata",
-        "model": "srv/external/Orders"
+        "model": "srv/external/SAPB1"
       }
     }
   }
