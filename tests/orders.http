@@ -1,0 +1,9 @@
+### Order 1 can't be read due to this error:
+### 
+### An error occurred during serialization of the entity. 
+### Serialization of the 'DocType' property failed. 
+### Invalid value dDocument_Items (JavaScript string). 
+### A number without decimals must be specified as value for type Edm.Int32.
+GET http://localhost:4004/sapb1/Orders/1
+### Order 2 can be read, but Enums get returned as their Edm.Int32 representation
+GET http://localhost:4004/sapb1/Orders/2

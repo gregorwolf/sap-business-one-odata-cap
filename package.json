@@ -10,7 +10,7 @@
     "express": "^4.17.1"
   },
   "scripts": {
-    "start": "npx cds run"
+    "start": "cds watch"
   },
   "cds": {
     "requires": {
