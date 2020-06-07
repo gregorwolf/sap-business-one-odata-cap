@@ -10,6 +10,7 @@
     "express": "^4.17.1"
   },
   "scripts": {
+    "generate-odata-client": "generate-odata-client --inputDir srv/external --outputDir srv/odata-client --forceOverwrite",
     "start": "cds watch"
   },
   "cds": {
@@ -19,5 +20,8 @@
         "model": "srv/external/SAPB1"
       }
     }
+  },
+  "devDependencies": {
+    "@sap-cloud-sdk/generator": "^1.21.1"
   }
 }
