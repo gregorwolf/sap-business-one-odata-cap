@@ -1,0 +1,356 @@
+import { ResourceGroupsRequestBuilder } from './ResourceGroupsRequestBuilder';
+import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+/**
+ * This class represents the entity "ResourceGroups" of service "SAPB1".
+ */
+export declare class ResourceGroups extends Entity implements ResourceGroupsType {
+    /**
+     * Technical entity name for ResourceGroups.
+     */
+    static _entityName: string;
+    /**
+     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
+     * Technical service name for ResourceGroups.
+     */
+    static _serviceName: string;
+    /**
+     * Default url path for the according service.
+     */
+    static _defaultServicePath: string;
+    /**
+     * Code.
+     * @nullable
+     */
+    code?: number;
+    /**
+     * Name.
+     * @nullable
+     */
+    name?: string;
+    /**
+     * Cost Name 1.
+     * @nullable
+     */
+    costName1?: string;
+    /**
+     * Cost 1.
+     * @nullable
+     */
+    cost1?: number;
+    /**
+     * Cost Name 2.
+     * @nullable
+     */
+    costName2?: string;
+    /**
+     * Cost 2.
+     * @nullable
+     */
+    cost2?: number;
+    /**
+     * Cost Name 3.
+     * @nullable
+     */
+    costName3?: string;
+    /**
+     * Cost 3.
+     * @nullable
+     */
+    cost3?: number;
+    /**
+     * Cost Name 4.
+     * @nullable
+     */
+    costName4?: string;
+    /**
+     * Cost 4.
+     * @nullable
+     */
+    cost4?: number;
+    /**
+     * Cost Name 5.
+     * @nullable
+     */
+    costName5?: string;
+    /**
+     * Cost 5.
+     * @nullable
+     */
+    cost5?: number;
+    /**
+     * Cost Name 6.
+     * @nullable
+     */
+    costName6?: string;
+    /**
+     * Cost 6.
+     * @nullable
+     */
+    cost6?: number;
+    /**
+     * Cost Name 7.
+     * @nullable
+     */
+    costName7?: string;
+    /**
+     * Cost 7.
+     * @nullable
+     */
+    cost7?: number;
+    /**
+     * Cost Name 8.
+     * @nullable
+     */
+    costName8?: string;
+    /**
+     * Cost 8.
+     * @nullable
+     */
+    cost8?: number;
+    /**
+     * Cost Name 9.
+     * @nullable
+     */
+    costName9?: string;
+    /**
+     * Cost 9.
+     * @nullable
+     */
+    cost9?: number;
+    /**
+     * Cost Name 10.
+     * @nullable
+     */
+    costName10?: string;
+    /**
+     * Cost 10.
+     * @nullable
+     */
+    cost10?: number;
+    /**
+     * Num Of Units Text.
+     * @nullable
+     */
+    numOfUnitsText?: string;
+    /**
+     * One-to-many navigation property to the [[Resources]] entity.
+     */
+    resources: Resources[];
+    /**
+     * Returns an entity builder to construct instances `ResourceGroups`.
+     * @returns A builder that constructs instances of entity type `ResourceGroups`.
+     */
+    static builder(): EntityBuilderType<ResourceGroups, ResourceGroupsTypeForceMandatory>;
+    /**
+     * Returns a request builder to construct requests for operations on the `ResourceGroups` entity type.
+     * @returns A `ResourceGroups` request builder.
+     */
+    static requestBuilder(): ResourceGroupsRequestBuilder;
+    /**
+     * Returns a selectable object that allows the selection of custom field in a get request for the entity `ResourceGroups`.
+     * @param fieldName Name of the custom field to select
+     * @returns A builder that constructs instances of entity type `ResourceGroups`.
+     */
+    static customField(fieldName: string): CustomField<ResourceGroups>;
+    /**
+     * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
+     * @returns An object containing all instance variables + custom fields.
+     */
+    toJSON(): {
+        [key: string]: any;
+    };
+}
+import { Resources, ResourcesType } from './Resources';
+export interface ResourceGroupsType {
+    code?: number;
+    name?: string;
+    costName1?: string;
+    cost1?: number;
+    costName2?: string;
+    cost2?: number;
+    costName3?: string;
+    cost3?: number;
+    costName4?: string;
+    cost4?: number;
+    costName5?: string;
+    cost5?: number;
+    costName6?: string;
+    cost6?: number;
+    costName7?: string;
+    cost7?: number;
+    costName8?: string;
+    cost8?: number;
+    costName9?: string;
+    cost9?: number;
+    costName10?: string;
+    cost10?: number;
+    numOfUnitsText?: string;
+    resources: ResourcesType[];
+}
+export interface ResourceGroupsTypeForceMandatory {
+    code: number;
+    name: string;
+    costName1: string;
+    cost1: number;
+    costName2: string;
+    cost2: number;
+    costName3: string;
+    cost3: number;
+    costName4: string;
+    cost4: number;
+    costName5: string;
+    cost5: number;
+    costName6: string;
+    cost6: number;
+    costName7: string;
+    cost7: number;
+    costName8: string;
+    cost8: number;
+    costName9: string;
+    cost9: number;
+    costName10: string;
+    cost10: number;
+    numOfUnitsText: string;
+    resources: ResourcesType[];
+}
+export declare namespace ResourceGroups {
+    /**
+     * Static representation of the [[code]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CODE: NumberField<ResourceGroups>;
+    /**
+     * Static representation of the [[name]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const NAME: StringField<ResourceGroups>;
+    /**
+     * Static representation of the [[costName1]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_NAME_1: StringField<ResourceGroups>;
+    /**
+     * Static representation of the [[cost1]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_1: NumberField<ResourceGroups>;
+    /**
+     * Static representation of the [[costName2]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_NAME_2: StringField<ResourceGroups>;
+    /**
+     * Static representation of the [[cost2]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_2: NumberField<ResourceGroups>;
+    /**
+     * Static representation of the [[costName3]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_NAME_3: StringField<ResourceGroups>;
+    /**
+     * Static representation of the [[cost3]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_3: NumberField<ResourceGroups>;
+    /**
+     * Static representation of the [[costName4]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_NAME_4: StringField<ResourceGroups>;
+    /**
+     * Static representation of the [[cost4]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_4: NumberField<ResourceGroups>;
+    /**
+     * Static representation of the [[costName5]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_NAME_5: StringField<ResourceGroups>;
+    /**
+     * Static representation of the [[cost5]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_5: NumberField<ResourceGroups>;
+    /**
+     * Static representation of the [[costName6]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_NAME_6: StringField<ResourceGroups>;
+    /**
+     * Static representation of the [[cost6]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_6: NumberField<ResourceGroups>;
+    /**
+     * Static representation of the [[costName7]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_NAME_7: StringField<ResourceGroups>;
+    /**
+     * Static representation of the [[cost7]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_7: NumberField<ResourceGroups>;
+    /**
+     * Static representation of the [[costName8]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_NAME_8: StringField<ResourceGroups>;
+    /**
+     * Static representation of the [[cost8]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_8: NumberField<ResourceGroups>;
+    /**
+     * Static representation of the [[costName9]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_NAME_9: StringField<ResourceGroups>;
+    /**
+     * Static representation of the [[cost9]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_9: NumberField<ResourceGroups>;
+    /**
+     * Static representation of the [[costName10]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_NAME_10: StringField<ResourceGroups>;
+    /**
+     * Static representation of the [[cost10]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COST_10: NumberField<ResourceGroups>;
+    /**
+     * Static representation of the [[numOfUnitsText]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const NUM_OF_UNITS_TEXT: StringField<ResourceGroups>;
+    /**
+     * Static representation of the one-to-many navigation property [[resources]] for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RESOURCES: OneToManyLink<ResourceGroups, Resources>;
+    /**
+     * All fields of the ResourceGroups entity.
+     */
+    const _allFields: Array<NumberField<ResourceGroups> | StringField<ResourceGroups> | OneToManyLink<ResourceGroups, Resources>>;
+    /**
+     * All fields selector.
+     */
+    const ALL_FIELDS: AllFields<ResourceGroups>;
+    /**
+     * All key fields of the ResourceGroups entity.
+     */
+    const _keyFields: Array<Field<ResourceGroups>>;
+    /**
+     * Mapping of all key field names to the respective static field property ResourceGroups.
+     */
+    const _keys: {
+        [keys: string]: Field<ResourceGroups>;
+    };
+}
+//# sourceMappingURL=ResourceGroups.d.ts.map

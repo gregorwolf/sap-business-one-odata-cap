@@ -1,0 +1,623 @@
+/*
+ * Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
+ *
+ * This is a generated file powered by the SAP Cloud SDK for JavaScript.
+ */
+import { BlanketAgreementsRequestBuilder } from './BlanketAgreementsRequestBuilder';
+import { Moment } from 'moment';
+import { BlanketAgreementsItemsLine, BlanketAgreementsItemsLineField } from './BlanketAgreementsItemsLine';
+import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+
+/**
+ * This class represents the entity "BlanketAgreements" of service "SAPB1".
+ */
+export class BlanketAgreements extends Entity implements BlanketAgreementsType {
+  /**
+   * Technical entity name for BlanketAgreements.
+   */
+  static _entityName = 'BlanketAgreements';
+  /**
+   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
+   * Technical service name for BlanketAgreements.
+   */
+  static _serviceName = 'SAPB1';
+  /**
+   * Default url path for the according service.
+   */
+  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  /**
+   * Agreement No.
+   * @nullable
+   */
+  agreementNo?: number;
+  /**
+   * Bp Code.
+   * @nullable
+   */
+  bpCode?: string;
+  /**
+   * Bp Name.
+   * @nullable
+   */
+  bpName?: string;
+  /**
+   * Contact Person Code.
+   * @nullable
+   */
+  contactPersonCode?: number;
+  /**
+   * Start Date.
+   * @nullable
+   */
+  startDate?: Moment;
+  /**
+   * End Date.
+   * @nullable
+   */
+  endDate?: Moment;
+  /**
+   * Terminate Date.
+   * @nullable
+   */
+  terminateDate?: Moment;
+  /**
+   * Description.
+   * @nullable
+   */
+  description?: string;
+  /**
+   * Owner.
+   * @nullable
+   */
+  owner?: number;
+  /**
+   * Remind Time.
+   * @nullable
+   */
+  remindTime?: number;
+  /**
+   * Remarks.
+   * @nullable
+   */
+  remarks?: string;
+  /**
+   * Attachment Entry.
+   * @nullable
+   */
+  attachmentEntry?: number;
+  /**
+   * Settlement Probability.
+   * @nullable
+   */
+  settlementProbability?: number;
+  /**
+   * Payment Terms.
+   * @nullable
+   */
+  paymentTerms?: number;
+  /**
+   * Price List.
+   * @nullable
+   */
+  priceList?: number;
+  /**
+   * Signing Date.
+   * @nullable
+   */
+  signingDate?: Moment;
+  /**
+   * Amendment To.
+   * @nullable
+   */
+  amendmentTo?: number;
+  /**
+   * Series.
+   * @nullable
+   */
+  series?: number;
+  /**
+   * Doc Num.
+   * @nullable
+   */
+  docNum?: number;
+  /**
+   * Period Indicator.
+   * @nullable
+   */
+  periodIndicator?: string;
+  /**
+   * Payment Method.
+   * @nullable
+   */
+  paymentMethod?: string;
+  /**
+   * Exchange Rate.
+   * @nullable
+   */
+  exchangeRate?: number;
+  /**
+   * Shipping Type.
+   * @nullable
+   */
+  shippingType?: number;
+  /**
+   * Num At Card.
+   * @nullable
+   */
+  numAtCard?: string;
+  /**
+   * Project.
+   * @nullable
+   */
+  project?: string;
+  /**
+   * Bp Currency.
+   * @nullable
+   */
+  bpCurrency?: string;
+  /**
+   * Blanket Agreements Items Lines.
+   * @nullable
+   */
+  blanketAgreementsItemsLines?: BlanketAgreementsItemsLine[];
+  /**
+   * One-to-many navigation property to the [[VendorPayments]] entity.
+   */
+  vendorPayments!: VendorPayments[];
+  /**
+   * One-to-many navigation property to the [[JournalEntries]] entity.
+   */
+  journalEntries!: JournalEntries[];
+  /**
+   * One-to-many navigation property to the [[BusinessPartners]] entity.
+   */
+  businessPartners!: BusinessPartners[];
+  /**
+   * One-to-one navigation property to the [[BusinessPartners]] entity.
+   */
+  businessPartner!: BusinessPartners;
+  /**
+   * One-to-one navigation property to the [[EmployeesInfo]] entity.
+   */
+  employeeInfo!: EmployeesInfo;
+  /**
+   * One-to-one navigation property to the [[Attachments2]] entity.
+   */
+  attachments2!: Attachments2;
+  /**
+   * One-to-one navigation property to the [[PaymentTermsTypes]] entity.
+   */
+  paymentTermsType!: PaymentTermsTypes;
+  /**
+   * One-to-one navigation property to the [[PriceLists]] entity.
+   */
+  priceList2!: PriceLists;
+  /**
+   * One-to-one navigation property to the [[WizardPaymentMethods]] entity.
+   */
+  wizardPaymentMethod!: WizardPaymentMethods;
+  /**
+   * One-to-one navigation property to the [[ShippingTypes]] entity.
+   */
+  shippingType2!: ShippingTypes;
+  /**
+   * One-to-one navigation property to the [[Projects]] entity.
+   */
+  project2!: Projects;
+  /**
+   * One-to-one navigation property to the [[Currencies]] entity.
+   */
+  currency!: Currencies;
+  /**
+   * One-to-many navigation property to the [[PaymentDrafts]] entity.
+   */
+  paymentDrafts!: PaymentDrafts[];
+  /**
+   * One-to-many navigation property to the [[IncomingPayments]] entity.
+   */
+  incomingPayments!: IncomingPayments[];
+
+  /**
+   * Returns an entity builder to construct instances `BlanketAgreements`.
+   * @returns A builder that constructs instances of entity type `BlanketAgreements`.
+   */
+  static builder(): EntityBuilderType<BlanketAgreements, BlanketAgreementsTypeForceMandatory> {
+    return Entity.entityBuilder(BlanketAgreements);
+  }
+
+  /**
+   * Returns a request builder to construct requests for operations on the `BlanketAgreements` entity type.
+   * @returns A `BlanketAgreements` request builder.
+   */
+  static requestBuilder(): BlanketAgreementsRequestBuilder {
+    return new BlanketAgreementsRequestBuilder();
+  }
+
+  /**
+   * Returns a selectable object that allows the selection of custom field in a get request for the entity `BlanketAgreements`.
+   * @param fieldName Name of the custom field to select
+   * @returns A builder that constructs instances of entity type `BlanketAgreements`.
+   */
+  static customField(fieldName: string): CustomField<BlanketAgreements> {
+    return Entity.customFieldSelector(fieldName, BlanketAgreements);
+  }
+
+  /**
+   * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
+   * @returns An object containing all instance variables + custom fields.
+   */
+  toJSON(): { [key: string]: any } {
+    return { ...this, ...this._customFields };
+  }
+}
+
+import { VendorPayments, VendorPaymentsType } from './VendorPayments';
+import { JournalEntries, JournalEntriesType } from './JournalEntries';
+import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
+import { EmployeesInfo, EmployeesInfoType } from './EmployeesInfo';
+import { Attachments2, Attachments2Type } from './Attachments2';
+import { PaymentTermsTypes, PaymentTermsTypesType } from './PaymentTermsTypes';
+import { PriceLists, PriceListsType } from './PriceLists';
+import { WizardPaymentMethods, WizardPaymentMethodsType } from './WizardPaymentMethods';
+import { ShippingTypes, ShippingTypesType } from './ShippingTypes';
+import { Projects, ProjectsType } from './Projects';
+import { Currencies, CurrenciesType } from './Currencies';
+import { PaymentDrafts, PaymentDraftsType } from './PaymentDrafts';
+import { IncomingPayments, IncomingPaymentsType } from './IncomingPayments';
+
+export interface BlanketAgreementsType {
+  agreementNo?: number;
+  bpCode?: string;
+  bpName?: string;
+  contactPersonCode?: number;
+  startDate?: Moment;
+  endDate?: Moment;
+  terminateDate?: Moment;
+  description?: string;
+  owner?: number;
+  remindTime?: number;
+  remarks?: string;
+  attachmentEntry?: number;
+  settlementProbability?: number;
+  paymentTerms?: number;
+  priceList?: number;
+  signingDate?: Moment;
+  amendmentTo?: number;
+  series?: number;
+  docNum?: number;
+  periodIndicator?: string;
+  paymentMethod?: string;
+  exchangeRate?: number;
+  shippingType?: number;
+  numAtCard?: string;
+  project?: string;
+  bpCurrency?: string;
+  blanketAgreementsItemsLines?: BlanketAgreementsItemsLine[];
+  vendorPayments: VendorPaymentsType[];
+  journalEntries: JournalEntriesType[];
+  businessPartners: BusinessPartnersType[];
+  businessPartner: BusinessPartnersType;
+  employeeInfo: EmployeesInfoType;
+  attachments2: Attachments2Type;
+  paymentTermsType: PaymentTermsTypesType;
+  priceList2: PriceListsType;
+  wizardPaymentMethod: WizardPaymentMethodsType;
+  shippingType2: ShippingTypesType;
+  project2: ProjectsType;
+  currency: CurrenciesType;
+  paymentDrafts: PaymentDraftsType[];
+  incomingPayments: IncomingPaymentsType[];
+}
+
+export interface BlanketAgreementsTypeForceMandatory {
+  agreementNo: number;
+  bpCode: string;
+  bpName: string;
+  contactPersonCode: number;
+  startDate: Moment;
+  endDate: Moment;
+  terminateDate: Moment;
+  description: string;
+  owner: number;
+  remindTime: number;
+  remarks: string;
+  attachmentEntry: number;
+  settlementProbability: number;
+  paymentTerms: number;
+  priceList: number;
+  signingDate: Moment;
+  amendmentTo: number;
+  series: number;
+  docNum: number;
+  periodIndicator: string;
+  paymentMethod: string;
+  exchangeRate: number;
+  shippingType: number;
+  numAtCard: string;
+  project: string;
+  bpCurrency: string;
+  blanketAgreementsItemsLines: BlanketAgreementsItemsLine[];
+  vendorPayments: VendorPaymentsType[];
+  journalEntries: JournalEntriesType[];
+  businessPartners: BusinessPartnersType[];
+  businessPartner: BusinessPartnersType;
+  employeeInfo: EmployeesInfoType;
+  attachments2: Attachments2Type;
+  paymentTermsType: PaymentTermsTypesType;
+  priceList2: PriceListsType;
+  wizardPaymentMethod: WizardPaymentMethodsType;
+  shippingType2: ShippingTypesType;
+  project2: ProjectsType;
+  currency: CurrenciesType;
+  paymentDrafts: PaymentDraftsType[];
+  incomingPayments: IncomingPaymentsType[];
+}
+
+export namespace BlanketAgreements {
+  /**
+   * Static representation of the [[agreementNo]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const AGREEMENT_NO: NumberField<BlanketAgreements> = new NumberField('AgreementNo', BlanketAgreements, 'Edm.Int32');
+  /**
+   * Static representation of the [[bpCode]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BP_CODE: StringField<BlanketAgreements> = new StringField('BPCode', BlanketAgreements, 'Edm.String');
+  /**
+   * Static representation of the [[bpName]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BP_NAME: StringField<BlanketAgreements> = new StringField('BPName', BlanketAgreements, 'Edm.String');
+  /**
+   * Static representation of the [[contactPersonCode]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CONTACT_PERSON_CODE: NumberField<BlanketAgreements> = new NumberField('ContactPersonCode', BlanketAgreements, 'Edm.Int32');
+  /**
+   * Static representation of the [[startDate]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const START_DATE: DateField<BlanketAgreements> = new DateField('StartDate', BlanketAgreements, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[endDate]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const END_DATE: DateField<BlanketAgreements> = new DateField('EndDate', BlanketAgreements, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[terminateDate]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TERMINATE_DATE: DateField<BlanketAgreements> = new DateField('TerminateDate', BlanketAgreements, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[description]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DESCRIPTION: StringField<BlanketAgreements> = new StringField('Description', BlanketAgreements, 'Edm.String');
+  /**
+   * Static representation of the [[owner]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const OWNER: NumberField<BlanketAgreements> = new NumberField('Owner', BlanketAgreements, 'Edm.Int32');
+  /**
+   * Static representation of the [[remindTime]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REMIND_TIME: NumberField<BlanketAgreements> = new NumberField('RemindTime', BlanketAgreements, 'Edm.Int32');
+  /**
+   * Static representation of the [[remarks]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REMARKS: StringField<BlanketAgreements> = new StringField('Remarks', BlanketAgreements, 'Edm.String');
+  /**
+   * Static representation of the [[attachmentEntry]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ATTACHMENT_ENTRY: NumberField<BlanketAgreements> = new NumberField('AttachmentEntry', BlanketAgreements, 'Edm.Int32');
+  /**
+   * Static representation of the [[settlementProbability]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SETTLEMENT_PROBABILITY: NumberField<BlanketAgreements> = new NumberField('SettlementProbability', BlanketAgreements, 'Edm.Double');
+  /**
+   * Static representation of the [[paymentTerms]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PAYMENT_TERMS: NumberField<BlanketAgreements> = new NumberField('PaymentTerms', BlanketAgreements, 'Edm.Int32');
+  /**
+   * Static representation of the [[priceList]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRICE_LIST: NumberField<BlanketAgreements> = new NumberField('PriceList', BlanketAgreements, 'Edm.Int32');
+  /**
+   * Static representation of the [[signingDate]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SIGNING_DATE: DateField<BlanketAgreements> = new DateField('SigningDate', BlanketAgreements, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[amendmentTo]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const AMENDMENT_TO: NumberField<BlanketAgreements> = new NumberField('AmendmentTo', BlanketAgreements, 'Edm.Int32');
+  /**
+   * Static representation of the [[series]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SERIES: NumberField<BlanketAgreements> = new NumberField('Series', BlanketAgreements, 'Edm.Int32');
+  /**
+   * Static representation of the [[docNum]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOC_NUM: NumberField<BlanketAgreements> = new NumberField('DocNum', BlanketAgreements, 'Edm.Int32');
+  /**
+   * Static representation of the [[periodIndicator]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PERIOD_INDICATOR: StringField<BlanketAgreements> = new StringField('PeriodIndicator', BlanketAgreements, 'Edm.String');
+  /**
+   * Static representation of the [[paymentMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PAYMENT_METHOD: StringField<BlanketAgreements> = new StringField('PaymentMethod', BlanketAgreements, 'Edm.String');
+  /**
+   * Static representation of the [[exchangeRate]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const EXCHANGE_RATE: NumberField<BlanketAgreements> = new NumberField('ExchangeRate', BlanketAgreements, 'Edm.Double');
+  /**
+   * Static representation of the [[shippingType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SHIPPING_TYPE: NumberField<BlanketAgreements> = new NumberField('ShippingType', BlanketAgreements, 'Edm.Int32');
+  /**
+   * Static representation of the [[numAtCard]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const NUM_AT_CARD: StringField<BlanketAgreements> = new StringField('NumAtCard', BlanketAgreements, 'Edm.String');
+  /**
+   * Static representation of the [[project]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROJECT: StringField<BlanketAgreements> = new StringField('Project', BlanketAgreements, 'Edm.String');
+  /**
+   * Static representation of the [[bpCurrency]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BP_CURRENCY: StringField<BlanketAgreements> = new StringField('BPCurrency', BlanketAgreements, 'Edm.String');
+  /**
+   * Static representation of the [[blanketAgreementsItemsLines]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BLANKET_AGREEMENTS_ITEMS_LINES: CollectionField<BlanketAgreements> = new CollectionField('BlanketAgreements_ItemsLines', BlanketAgreements, new BlanketAgreementsItemsLineField('', BlanketAgreements));
+  /**
+   * Static representation of the one-to-many navigation property [[vendorPayments]] for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const VENDOR_PAYMENTS: OneToManyLink<BlanketAgreements, VendorPayments> = new OneToManyLink('VendorPayments', BlanketAgreements, VendorPayments);
+  /**
+   * Static representation of the one-to-many navigation property [[journalEntries]] for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const JOURNAL_ENTRIES: OneToManyLink<BlanketAgreements, JournalEntries> = new OneToManyLink('JournalEntries', BlanketAgreements, JournalEntries);
+  /**
+   * Static representation of the one-to-many navigation property [[businessPartners]] for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BUSINESS_PARTNERS: OneToManyLink<BlanketAgreements, BusinessPartners> = new OneToManyLink('BusinessPartners', BlanketAgreements, BusinessPartners);
+  /**
+   * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BUSINESS_PARTNER: OneToOneLink<BlanketAgreements, BusinessPartners> = new OneToOneLink('BusinessPartner', BlanketAgreements, BusinessPartners);
+  /**
+   * Static representation of the one-to-one navigation property [[employeeInfo]] for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const EMPLOYEE_INFO: OneToOneLink<BlanketAgreements, EmployeesInfo> = new OneToOneLink('EmployeeInfo', BlanketAgreements, EmployeesInfo);
+  /**
+   * Static representation of the one-to-one navigation property [[attachments2]] for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ATTACHMENTS_2: OneToOneLink<BlanketAgreements, Attachments2> = new OneToOneLink('Attachments2', BlanketAgreements, Attachments2);
+  /**
+   * Static representation of the one-to-one navigation property [[paymentTermsType]] for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PAYMENT_TERMS_TYPE: OneToOneLink<BlanketAgreements, PaymentTermsTypes> = new OneToOneLink('PaymentTermsType', BlanketAgreements, PaymentTermsTypes);
+  /**
+   * Static representation of the one-to-one navigation property [[priceList2]] for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRICE_LIST_2: OneToOneLink<BlanketAgreements, PriceLists> = new OneToOneLink('PriceList2', BlanketAgreements, PriceLists);
+  /**
+   * Static representation of the one-to-one navigation property [[wizardPaymentMethod]] for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const WIZARD_PAYMENT_METHOD: OneToOneLink<BlanketAgreements, WizardPaymentMethods> = new OneToOneLink('WizardPaymentMethod', BlanketAgreements, WizardPaymentMethods);
+  /**
+   * Static representation of the one-to-one navigation property [[shippingType2]] for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SHIPPING_TYPE_2: OneToOneLink<BlanketAgreements, ShippingTypes> = new OneToOneLink('ShippingType2', BlanketAgreements, ShippingTypes);
+  /**
+   * Static representation of the one-to-one navigation property [[project2]] for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROJECT_2: OneToOneLink<BlanketAgreements, Projects> = new OneToOneLink('Project2', BlanketAgreements, Projects);
+  /**
+   * Static representation of the one-to-one navigation property [[currency]] for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CURRENCY: OneToOneLink<BlanketAgreements, Currencies> = new OneToOneLink('Currency', BlanketAgreements, Currencies);
+  /**
+   * Static representation of the one-to-many navigation property [[paymentDrafts]] for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PAYMENT_DRAFTS: OneToManyLink<BlanketAgreements, PaymentDrafts> = new OneToManyLink('PaymentDrafts', BlanketAgreements, PaymentDrafts);
+  /**
+   * Static representation of the one-to-many navigation property [[incomingPayments]] for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INCOMING_PAYMENTS: OneToManyLink<BlanketAgreements, IncomingPayments> = new OneToManyLink('IncomingPayments', BlanketAgreements, IncomingPayments);
+  /**
+   * All fields of the BlanketAgreements entity.
+   */
+  export const _allFields: Array<NumberField<BlanketAgreements> | StringField<BlanketAgreements> | DateField<BlanketAgreements> | CollectionField<BlanketAgreements> | OneToManyLink<BlanketAgreements, VendorPayments> | OneToManyLink<BlanketAgreements, JournalEntries> | OneToManyLink<BlanketAgreements, BusinessPartners> | OneToOneLink<BlanketAgreements, BusinessPartners> | OneToOneLink<BlanketAgreements, EmployeesInfo> | OneToOneLink<BlanketAgreements, Attachments2> | OneToOneLink<BlanketAgreements, PaymentTermsTypes> | OneToOneLink<BlanketAgreements, PriceLists> | OneToOneLink<BlanketAgreements, WizardPaymentMethods> | OneToOneLink<BlanketAgreements, ShippingTypes> | OneToOneLink<BlanketAgreements, Projects> | OneToOneLink<BlanketAgreements, Currencies> | OneToManyLink<BlanketAgreements, PaymentDrafts> | OneToManyLink<BlanketAgreements, IncomingPayments>> = [
+    BlanketAgreements.AGREEMENT_NO,
+    BlanketAgreements.BP_CODE,
+    BlanketAgreements.BP_NAME,
+    BlanketAgreements.CONTACT_PERSON_CODE,
+    BlanketAgreements.START_DATE,
+    BlanketAgreements.END_DATE,
+    BlanketAgreements.TERMINATE_DATE,
+    BlanketAgreements.DESCRIPTION,
+    BlanketAgreements.OWNER,
+    BlanketAgreements.REMIND_TIME,
+    BlanketAgreements.REMARKS,
+    BlanketAgreements.ATTACHMENT_ENTRY,
+    BlanketAgreements.SETTLEMENT_PROBABILITY,
+    BlanketAgreements.PAYMENT_TERMS,
+    BlanketAgreements.PRICE_LIST,
+    BlanketAgreements.SIGNING_DATE,
+    BlanketAgreements.AMENDMENT_TO,
+    BlanketAgreements.SERIES,
+    BlanketAgreements.DOC_NUM,
+    BlanketAgreements.PERIOD_INDICATOR,
+    BlanketAgreements.PAYMENT_METHOD,
+    BlanketAgreements.EXCHANGE_RATE,
+    BlanketAgreements.SHIPPING_TYPE,
+    BlanketAgreements.NUM_AT_CARD,
+    BlanketAgreements.PROJECT,
+    BlanketAgreements.BP_CURRENCY,
+    BlanketAgreements.BLANKET_AGREEMENTS_ITEMS_LINES,
+    BlanketAgreements.VENDOR_PAYMENTS,
+    BlanketAgreements.JOURNAL_ENTRIES,
+    BlanketAgreements.BUSINESS_PARTNERS,
+    BlanketAgreements.BUSINESS_PARTNER,
+    BlanketAgreements.EMPLOYEE_INFO,
+    BlanketAgreements.ATTACHMENTS_2,
+    BlanketAgreements.PAYMENT_TERMS_TYPE,
+    BlanketAgreements.PRICE_LIST_2,
+    BlanketAgreements.WIZARD_PAYMENT_METHOD,
+    BlanketAgreements.SHIPPING_TYPE_2,
+    BlanketAgreements.PROJECT_2,
+    BlanketAgreements.CURRENCY,
+    BlanketAgreements.PAYMENT_DRAFTS,
+    BlanketAgreements.INCOMING_PAYMENTS
+  ];
+  /**
+   * All fields selector.
+   */
+  export const ALL_FIELDS: AllFields<BlanketAgreements> = new AllFields('*', BlanketAgreements);
+  /**
+   * All key fields of the BlanketAgreements entity.
+   */
+  export const _keyFields: Array<Field<BlanketAgreements>> = [BlanketAgreements.AGREEMENT_NO];
+  /**
+   * Mapping of all key field names to the respective static field property BlanketAgreements.
+   */
+  export const _keys: { [keys: string]: Field<BlanketAgreements> } = BlanketAgreements._keyFields.reduce((acc: { [keys: string]: Field<BlanketAgreements> }, field: Field<BlanketAgreements>) => {
+    acc[field._fieldName] = field;
+    return acc;
+  }, {});
+}

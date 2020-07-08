@@ -1,0 +1,514 @@
+import { ServiceContractsRequestBuilder } from './ServiceContractsRequestBuilder';
+import { Moment } from 'moment';
+import { ServiceContractLine } from './ServiceContractLine';
+import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+/**
+ * This class represents the entity "ServiceContracts" of service "SAPB1".
+ */
+export declare class ServiceContracts extends Entity implements ServiceContractsType {
+    /**
+     * Technical entity name for ServiceContracts.
+     */
+    static _entityName: string;
+    /**
+     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
+     * Technical service name for ServiceContracts.
+     */
+    static _serviceName: string;
+    /**
+     * Default url path for the according service.
+     */
+    static _defaultServicePath: string;
+    /**
+     * Contract Id.
+     * @nullable
+     */
+    contractId?: number;
+    /**
+     * Customer Code.
+     * @nullable
+     */
+    customerCode?: string;
+    /**
+     * Customer Name.
+     * @nullable
+     */
+    customerName?: string;
+    /**
+     * Contact Code.
+     * @nullable
+     */
+    contactCode?: number;
+    /**
+     * Owner.
+     * @nullable
+     */
+    owner?: number;
+    /**
+     * Contract Template.
+     * @nullable
+     */
+    contractTemplate?: string;
+    /**
+     * Reminder Time.
+     * @nullable
+     */
+    reminderTime?: number;
+    /**
+     * Duration Of Coverage.
+     * @nullable
+     */
+    durationOfCoverage?: number;
+    /**
+     * Start Date.
+     * @nullable
+     */
+    startDate?: Moment;
+    /**
+     * End Date.
+     * @nullable
+     */
+    endDate?: Moment;
+    /**
+     * Resolution Time.
+     * @nullable
+     */
+    resolutionTime?: number;
+    /**
+     * Description.
+     * @nullable
+     */
+    description?: string;
+    /**
+     * Monday Start.
+     * @nullable
+     */
+    mondayStart?: Time;
+    /**
+     * Monday End.
+     * @nullable
+     */
+    mondayEnd?: Time;
+    /**
+     * Tuesday Start.
+     * @nullable
+     */
+    tuesdayStart?: Time;
+    /**
+     * Tuesday End.
+     * @nullable
+     */
+    tuesdayEnd?: Time;
+    /**
+     * Wednesday Start.
+     * @nullable
+     */
+    wednesdayStart?: Time;
+    /**
+     * Wednesday End.
+     * @nullable
+     */
+    wednesdayEnd?: Time;
+    /**
+     * Thursday Start.
+     * @nullable
+     */
+    thursdayStart?: Time;
+    /**
+     * Thursday End.
+     * @nullable
+     */
+    thursdayEnd?: Time;
+    /**
+     * Friday Start.
+     * @nullable
+     */
+    fridayStart?: Time;
+    /**
+     * Friday End.
+     * @nullable
+     */
+    fridayEnd?: Time;
+    /**
+     * Saturday Start.
+     * @nullable
+     */
+    saturdayStart?: Time;
+    /**
+     * Saturday End.
+     * @nullable
+     */
+    saturdayEnd?: Time;
+    /**
+     * Sunday Start.
+     * @nullable
+     */
+    sundayStart?: Time;
+    /**
+     * Sunday End.
+     * @nullable
+     */
+    sundayEnd?: Time;
+    /**
+     * Template Remarks.
+     * @nullable
+     */
+    templateRemarks?: string;
+    /**
+     * Remarks.
+     * @nullable
+     */
+    remarks?: string;
+    /**
+     * Response Time.
+     * @nullable
+     */
+    responseTime?: number;
+    /**
+     * Termination Date.
+     * @nullable
+     */
+    terminationDate?: Moment;
+    /**
+     * Attachment Entry.
+     * @nullable
+     */
+    attachmentEntry?: number;
+    /**
+     * Service Contract Lines.
+     * @nullable
+     */
+    serviceContractLines?: ServiceContractLine[];
+    /**
+     * One-to-one navigation property to the [[BusinessPartners]] entity.
+     */
+    businessPartner: BusinessPartners;
+    /**
+     * One-to-one navigation property to the [[Users]] entity.
+     */
+    user: Users;
+    /**
+     * One-to-one navigation property to the [[ContractTemplates]] entity.
+     */
+    contractTemplate2: ContractTemplates;
+    /**
+     * One-to-one navigation property to the [[Attachments2]] entity.
+     */
+    attachments2: Attachments2;
+    /**
+     * One-to-many navigation property to the [[ServiceCalls]] entity.
+     */
+    serviceCalls: ServiceCalls[];
+    /**
+     * Returns an entity builder to construct instances `ServiceContracts`.
+     * @returns A builder that constructs instances of entity type `ServiceContracts`.
+     */
+    static builder(): EntityBuilderType<ServiceContracts, ServiceContractsTypeForceMandatory>;
+    /**
+     * Returns a request builder to construct requests for operations on the `ServiceContracts` entity type.
+     * @returns A `ServiceContracts` request builder.
+     */
+    static requestBuilder(): ServiceContractsRequestBuilder;
+    /**
+     * Returns a selectable object that allows the selection of custom field in a get request for the entity `ServiceContracts`.
+     * @param fieldName Name of the custom field to select
+     * @returns A builder that constructs instances of entity type `ServiceContracts`.
+     */
+    static customField(fieldName: string): CustomField<ServiceContracts>;
+    /**
+     * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
+     * @returns An object containing all instance variables + custom fields.
+     */
+    toJSON(): {
+        [key: string]: any;
+    };
+}
+import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
+import { Users, UsersType } from './Users';
+import { ContractTemplates, ContractTemplatesType } from './ContractTemplates';
+import { Attachments2, Attachments2Type } from './Attachments2';
+import { ServiceCalls, ServiceCallsType } from './ServiceCalls';
+export interface ServiceContractsType {
+    contractId?: number;
+    customerCode?: string;
+    customerName?: string;
+    contactCode?: number;
+    owner?: number;
+    contractTemplate?: string;
+    reminderTime?: number;
+    durationOfCoverage?: number;
+    startDate?: Moment;
+    endDate?: Moment;
+    resolutionTime?: number;
+    description?: string;
+    mondayStart?: Time;
+    mondayEnd?: Time;
+    tuesdayStart?: Time;
+    tuesdayEnd?: Time;
+    wednesdayStart?: Time;
+    wednesdayEnd?: Time;
+    thursdayStart?: Time;
+    thursdayEnd?: Time;
+    fridayStart?: Time;
+    fridayEnd?: Time;
+    saturdayStart?: Time;
+    saturdayEnd?: Time;
+    sundayStart?: Time;
+    sundayEnd?: Time;
+    templateRemarks?: string;
+    remarks?: string;
+    responseTime?: number;
+    terminationDate?: Moment;
+    attachmentEntry?: number;
+    serviceContractLines?: ServiceContractLine[];
+    businessPartner: BusinessPartnersType;
+    user: UsersType;
+    contractTemplate2: ContractTemplatesType;
+    attachments2: Attachments2Type;
+    serviceCalls: ServiceCallsType[];
+}
+export interface ServiceContractsTypeForceMandatory {
+    contractId: number;
+    customerCode: string;
+    customerName: string;
+    contactCode: number;
+    owner: number;
+    contractTemplate: string;
+    reminderTime: number;
+    durationOfCoverage: number;
+    startDate: Moment;
+    endDate: Moment;
+    resolutionTime: number;
+    description: string;
+    mondayStart: Time;
+    mondayEnd: Time;
+    tuesdayStart: Time;
+    tuesdayEnd: Time;
+    wednesdayStart: Time;
+    wednesdayEnd: Time;
+    thursdayStart: Time;
+    thursdayEnd: Time;
+    fridayStart: Time;
+    fridayEnd: Time;
+    saturdayStart: Time;
+    saturdayEnd: Time;
+    sundayStart: Time;
+    sundayEnd: Time;
+    templateRemarks: string;
+    remarks: string;
+    responseTime: number;
+    terminationDate: Moment;
+    attachmentEntry: number;
+    serviceContractLines: ServiceContractLine[];
+    businessPartner: BusinessPartnersType;
+    user: UsersType;
+    contractTemplate2: ContractTemplatesType;
+    attachments2: Attachments2Type;
+    serviceCalls: ServiceCallsType[];
+}
+export declare namespace ServiceContracts {
+    /**
+     * Static representation of the [[contractId]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CONTRACT_ID: NumberField<ServiceContracts>;
+    /**
+     * Static representation of the [[customerCode]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CUSTOMER_CODE: StringField<ServiceContracts>;
+    /**
+     * Static representation of the [[customerName]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CUSTOMER_NAME: StringField<ServiceContracts>;
+    /**
+     * Static representation of the [[contactCode]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CONTACT_CODE: NumberField<ServiceContracts>;
+    /**
+     * Static representation of the [[owner]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const OWNER: NumberField<ServiceContracts>;
+    /**
+     * Static representation of the [[contractTemplate]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CONTRACT_TEMPLATE: StringField<ServiceContracts>;
+    /**
+     * Static representation of the [[reminderTime]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REMINDER_TIME: NumberField<ServiceContracts>;
+    /**
+     * Static representation of the [[durationOfCoverage]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DURATION_OF_COVERAGE: NumberField<ServiceContracts>;
+    /**
+     * Static representation of the [[startDate]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const START_DATE: DateField<ServiceContracts>;
+    /**
+     * Static representation of the [[endDate]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const END_DATE: DateField<ServiceContracts>;
+    /**
+     * Static representation of the [[resolutionTime]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RESOLUTION_TIME: NumberField<ServiceContracts>;
+    /**
+     * Static representation of the [[description]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DESCRIPTION: StringField<ServiceContracts>;
+    /**
+     * Static representation of the [[mondayStart]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const MONDAY_START: TimeField<ServiceContracts>;
+    /**
+     * Static representation of the [[mondayEnd]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const MONDAY_END: TimeField<ServiceContracts>;
+    /**
+     * Static representation of the [[tuesdayStart]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TUESDAY_START: TimeField<ServiceContracts>;
+    /**
+     * Static representation of the [[tuesdayEnd]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TUESDAY_END: TimeField<ServiceContracts>;
+    /**
+     * Static representation of the [[wednesdayStart]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const WEDNESDAY_START: TimeField<ServiceContracts>;
+    /**
+     * Static representation of the [[wednesdayEnd]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const WEDNESDAY_END: TimeField<ServiceContracts>;
+    /**
+     * Static representation of the [[thursdayStart]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const THURSDAY_START: TimeField<ServiceContracts>;
+    /**
+     * Static representation of the [[thursdayEnd]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const THURSDAY_END: TimeField<ServiceContracts>;
+    /**
+     * Static representation of the [[fridayStart]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const FRIDAY_START: TimeField<ServiceContracts>;
+    /**
+     * Static representation of the [[fridayEnd]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const FRIDAY_END: TimeField<ServiceContracts>;
+    /**
+     * Static representation of the [[saturdayStart]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SATURDAY_START: TimeField<ServiceContracts>;
+    /**
+     * Static representation of the [[saturdayEnd]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SATURDAY_END: TimeField<ServiceContracts>;
+    /**
+     * Static representation of the [[sundayStart]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SUNDAY_START: TimeField<ServiceContracts>;
+    /**
+     * Static representation of the [[sundayEnd]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SUNDAY_END: TimeField<ServiceContracts>;
+    /**
+     * Static representation of the [[templateRemarks]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TEMPLATE_REMARKS: StringField<ServiceContracts>;
+    /**
+     * Static representation of the [[remarks]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REMARKS: StringField<ServiceContracts>;
+    /**
+     * Static representation of the [[responseTime]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RESPONSE_TIME: NumberField<ServiceContracts>;
+    /**
+     * Static representation of the [[terminationDate]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TERMINATION_DATE: DateField<ServiceContracts>;
+    /**
+     * Static representation of the [[attachmentEntry]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ATTACHMENT_ENTRY: NumberField<ServiceContracts>;
+    /**
+     * Static representation of the [[serviceContractLines]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SERVICE_CONTRACT_LINES: CollectionField<ServiceContracts>;
+    /**
+     * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BUSINESS_PARTNER: OneToOneLink<ServiceContracts, BusinessPartners>;
+    /**
+     * Static representation of the one-to-one navigation property [[user]] for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const USER: OneToOneLink<ServiceContracts, Users>;
+    /**
+     * Static representation of the one-to-one navigation property [[contractTemplate2]] for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CONTRACT_TEMPLATE_2: OneToOneLink<ServiceContracts, ContractTemplates>;
+    /**
+     * Static representation of the one-to-one navigation property [[attachments2]] for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ATTACHMENTS_2: OneToOneLink<ServiceContracts, Attachments2>;
+    /**
+     * Static representation of the one-to-many navigation property [[serviceCalls]] for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SERVICE_CALLS: OneToManyLink<ServiceContracts, ServiceCalls>;
+    /**
+     * All fields of the ServiceContracts entity.
+     */
+    const _allFields: Array<NumberField<ServiceContracts> | StringField<ServiceContracts> | DateField<ServiceContracts> | TimeField<ServiceContracts> | CollectionField<ServiceContracts> | OneToOneLink<ServiceContracts, BusinessPartners> | OneToOneLink<ServiceContracts, Users> | OneToOneLink<ServiceContracts, ContractTemplates> | OneToOneLink<ServiceContracts, Attachments2> | OneToManyLink<ServiceContracts, ServiceCalls>>;
+    /**
+     * All fields selector.
+     */
+    const ALL_FIELDS: AllFields<ServiceContracts>;
+    /**
+     * All key fields of the ServiceContracts entity.
+     */
+    const _keyFields: Array<Field<ServiceContracts>>;
+    /**
+     * Mapping of all key field names to the respective static field property ServiceContracts.
+     */
+    const _keys: {
+        [keys: string]: Field<ServiceContracts>;
+    };
+}
+//# sourceMappingURL=ServiceContracts.d.ts.map

@@ -1,0 +1,233 @@
+/*
+ * Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
+ *
+ * This is a generated file powered by the SAP Cloud SDK for JavaScript.
+ */
+import { UserFieldsMdRequestBuilder } from './UserFieldsMdRequestBuilder';
+import { ValidValueMd, ValidValueMdField } from './ValidValueMd';
+import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+
+/**
+ * This class represents the entity "UserFieldsMD" of service "SAPB1".
+ */
+export class UserFieldsMd extends Entity implements UserFieldsMdType {
+  /**
+   * Technical entity name for UserFieldsMd.
+   */
+  static _entityName = 'UserFieldsMD';
+  /**
+   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
+   * Technical service name for UserFieldsMd.
+   */
+  static _serviceName = 'SAPB1';
+  /**
+   * Default url path for the according service.
+   */
+  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  /**
+   * Name.
+   * @nullable
+   */
+  name?: string;
+  /**
+   * Size.
+   * @nullable
+   */
+  size?: number;
+  /**
+   * Description.
+   * @nullable
+   */
+  description?: string;
+  /**
+   * Linked Table.
+   * @nullable
+   */
+  linkedTable?: string;
+  /**
+   * Default Value.
+   * @nullable
+   */
+  defaultValue?: string;
+  /**
+   * Table Name.
+   * @nullable
+   */
+  tableName?: string;
+  /**
+   * Field Id.
+   * @nullable
+   */
+  fieldId?: number;
+  /**
+   * Edit Size.
+   * @nullable
+   */
+  editSize?: number;
+  /**
+   * Linked Udo.
+   * @nullable
+   */
+  linkedUdo?: string;
+  /**
+   * Valid Values Md.
+   * @nullable
+   */
+  validValuesMd?: ValidValueMd[];
+  /**
+   * One-to-one navigation property to the [[UserTablesMd]] entity.
+   */
+  userTablesMd!: UserTablesMd;
+
+  /**
+   * Returns an entity builder to construct instances `UserFieldsMd`.
+   * @returns A builder that constructs instances of entity type `UserFieldsMd`.
+   */
+  static builder(): EntityBuilderType<UserFieldsMd, UserFieldsMdTypeForceMandatory> {
+    return Entity.entityBuilder(UserFieldsMd);
+  }
+
+  /**
+   * Returns a request builder to construct requests for operations on the `UserFieldsMd` entity type.
+   * @returns A `UserFieldsMd` request builder.
+   */
+  static requestBuilder(): UserFieldsMdRequestBuilder {
+    return new UserFieldsMdRequestBuilder();
+  }
+
+  /**
+   * Returns a selectable object that allows the selection of custom field in a get request for the entity `UserFieldsMd`.
+   * @param fieldName Name of the custom field to select
+   * @returns A builder that constructs instances of entity type `UserFieldsMd`.
+   */
+  static customField(fieldName: string): CustomField<UserFieldsMd> {
+    return Entity.customFieldSelector(fieldName, UserFieldsMd);
+  }
+
+  /**
+   * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
+   * @returns An object containing all instance variables + custom fields.
+   */
+  toJSON(): { [key: string]: any } {
+    return { ...this, ...this._customFields };
+  }
+}
+
+import { UserTablesMd, UserTablesMdType } from './UserTablesMd';
+
+export interface UserFieldsMdType {
+  name?: string;
+  size?: number;
+  description?: string;
+  linkedTable?: string;
+  defaultValue?: string;
+  tableName?: string;
+  fieldId?: number;
+  editSize?: number;
+  linkedUdo?: string;
+  validValuesMd?: ValidValueMd[];
+  userTablesMd: UserTablesMdType;
+}
+
+export interface UserFieldsMdTypeForceMandatory {
+  name: string;
+  size: number;
+  description: string;
+  linkedTable: string;
+  defaultValue: string;
+  tableName: string;
+  fieldId: number;
+  editSize: number;
+  linkedUdo: string;
+  validValuesMd: ValidValueMd[];
+  userTablesMd: UserTablesMdType;
+}
+
+export namespace UserFieldsMd {
+  /**
+   * Static representation of the [[name]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const NAME: StringField<UserFieldsMd> = new StringField('Name', UserFieldsMd, 'Edm.String');
+  /**
+   * Static representation of the [[size]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SIZE: NumberField<UserFieldsMd> = new NumberField('Size', UserFieldsMd, 'Edm.Int32');
+  /**
+   * Static representation of the [[description]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DESCRIPTION: StringField<UserFieldsMd> = new StringField('Description', UserFieldsMd, 'Edm.String');
+  /**
+   * Static representation of the [[linkedTable]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LINKED_TABLE: StringField<UserFieldsMd> = new StringField('LinkedTable', UserFieldsMd, 'Edm.String');
+  /**
+   * Static representation of the [[defaultValue]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DEFAULT_VALUE: StringField<UserFieldsMd> = new StringField('DefaultValue', UserFieldsMd, 'Edm.String');
+  /**
+   * Static representation of the [[tableName]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TABLE_NAME: StringField<UserFieldsMd> = new StringField('TableName', UserFieldsMd, 'Edm.String');
+  /**
+   * Static representation of the [[fieldId]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const FIELD_ID: NumberField<UserFieldsMd> = new NumberField('FieldID', UserFieldsMd, 'Edm.Int32');
+  /**
+   * Static representation of the [[editSize]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const EDIT_SIZE: NumberField<UserFieldsMd> = new NumberField('EditSize', UserFieldsMd, 'Edm.Int32');
+  /**
+   * Static representation of the [[linkedUdo]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LINKED_UDO: StringField<UserFieldsMd> = new StringField('LinkedUDO', UserFieldsMd, 'Edm.String');
+  /**
+   * Static representation of the [[validValuesMd]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const VALID_VALUES_MD: CollectionField<UserFieldsMd> = new CollectionField('ValidValuesMD', UserFieldsMd, new ValidValueMdField('', UserFieldsMd));
+  /**
+   * Static representation of the one-to-one navigation property [[userTablesMd]] for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const USER_TABLES_MD: OneToOneLink<UserFieldsMd, UserTablesMd> = new OneToOneLink('UserTablesMD', UserFieldsMd, UserTablesMd);
+  /**
+   * All fields of the UserFieldsMd entity.
+   */
+  export const _allFields: Array<StringField<UserFieldsMd> | NumberField<UserFieldsMd> | CollectionField<UserFieldsMd> | OneToOneLink<UserFieldsMd, UserTablesMd>> = [
+    UserFieldsMd.NAME,
+    UserFieldsMd.SIZE,
+    UserFieldsMd.DESCRIPTION,
+    UserFieldsMd.LINKED_TABLE,
+    UserFieldsMd.DEFAULT_VALUE,
+    UserFieldsMd.TABLE_NAME,
+    UserFieldsMd.FIELD_ID,
+    UserFieldsMd.EDIT_SIZE,
+    UserFieldsMd.LINKED_UDO,
+    UserFieldsMd.VALID_VALUES_MD,
+    UserFieldsMd.USER_TABLES_MD
+  ];
+  /**
+   * All fields selector.
+   */
+  export const ALL_FIELDS: AllFields<UserFieldsMd> = new AllFields('*', UserFieldsMd);
+  /**
+   * All key fields of the UserFieldsMd entity.
+   */
+  export const _keyFields: Array<Field<UserFieldsMd>> = [UserFieldsMd.TABLE_NAME, UserFieldsMd.FIELD_ID];
+  /**
+   * Mapping of all key field names to the respective static field property UserFieldsMd.
+   */
+  export const _keys: { [keys: string]: Field<UserFieldsMd> } = UserFieldsMd._keyFields.reduce((acc: { [keys: string]: Field<UserFieldsMd> }, field: Field<UserFieldsMd>) => {
+    acc[field._fieldName] = field;
+    return acc;
+  }, {});
+}
