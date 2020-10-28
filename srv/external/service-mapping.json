@@ -1,7 +1,7 @@
 {
   "SAPB1": {
     "directoryName": "sapb-1-service",
-    "servicePath": "VALUE_IS_UNDEFINED",
+    "servicePath": "/b1s/v2/",
     "npmPackageName": "sapb-1-service"
   }
 }
