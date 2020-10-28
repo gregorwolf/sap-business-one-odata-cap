@@ -6,7 +6,7 @@
   "license": "Apache 2.0",
   "private": false,
   "dependencies": {
-    "@sap/cds": "^4.2.7",
+    "@sap/cds": "^4.2.8",
     "express": "^4.17.1"
   },
   "scripts": {
