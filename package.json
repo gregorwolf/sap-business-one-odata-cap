@@ -6,11 +6,15 @@
   "license": "Apache 2.0",
   "private": false,
   "dependencies": {
-    "@sap/cds": "^4.2.8",
+    "@sap/cds": "^4.3.0",
     "express": "^4.17.1"
   },
   "scripts": {
     "generate-odata-client": "generate-odata-client --inputDir srv/external --outputDir srv/odata-client --forceOverwrite",
+    "import": "cds import srv/external/SAPB1.edmx",
+    "build": "npx -p @sap/cds-dk cds build --production",
+    "build:log": "npm run build > build.log 2> build-error.log",
+    "compile:log": "cds c srv > compile.log 2> compile-error.log",
     "start": "cds watch"
   },
   "cds": {
@@ -22,6 +26,7 @@
     }
   },
   "devDependencies": {
-    "@sap-cloud-sdk/generator": "^1.30.0"
+    "@sap-cloud-sdk/generator": "^1.31.0",
+    "@sap/cds-dk": "^3.2.0"
   }
 }
