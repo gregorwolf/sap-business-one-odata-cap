@@ -5,25 +5,20 @@
  */
 import { Oty1RequestBuilder } from './Oty1RequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, Field, NumberField, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "OTY1" of service "SAPB1".
  */
-export class Oty1 extends Entity implements Oty1Type {
+export class Oty1 extends EntityV4 implements Oty1Type {
   /**
    * Technical entity name for Oty1.
    */
   static _entityName = 'OTY1';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for Oty1.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -91,11 +86,11 @@ export class Oty1 extends Entity implements Oty1Type {
   dataSource?: string;
 
   /**
-   * Returns an entity builder to construct instances `Oty1`.
+   * Returns an entity builder to construct instances of `Oty1`.
    * @returns A builder that constructs instances of entity type `Oty1`.
    */
-  static builder(): EntityBuilderType<Oty1, Oty1TypeForceMandatory> {
-    return Entity.entityBuilder(Oty1);
+  static builder(): EntityBuilderType<Oty1, Oty1Type> {
+    return EntityV4.entityBuilder(Oty1);
   }
 
   /**
@@ -111,8 +106,8 @@ export class Oty1 extends Entity implements Oty1Type {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `Oty1`.
    */
-  static customField(fieldName: string): CustomField<Oty1> {
-    return Entity.customFieldSelector(fieldName, Oty1);
+  static customField(fieldName: string): CustomFieldV4<Oty1> {
+    return EntityV4.customFieldSelector(fieldName, Oty1);
   }
 
   /**
@@ -125,35 +120,19 @@ export class Oty1 extends Entity implements Oty1Type {
 }
 
 export interface Oty1Type {
-  code?: string;
-  name?: string;
-  docEntry?: number;
-  canceled?: string;
-  object?: string;
-  logInst?: number;
-  userSign?: number;
-  transfered?: string;
-  createDate?: Moment;
-  createTime?: Time;
-  updateDate?: Moment;
-  updateTime?: Time;
-  dataSource?: string;
-}
-
-export interface Oty1TypeForceMandatory {
-  code: string;
-  name: string;
-  docEntry: number;
-  canceled: string;
-  object: string;
-  logInst: number;
-  userSign: number;
-  transfered: string;
-  createDate: Moment;
-  createTime: Time;
-  updateDate: Moment;
-  updateTime: Time;
-  dataSource: string;
+  code?: string | null;
+  name?: string | null;
+  docEntry?: number | null;
+  canceled?: string | null;
+  object?: string | null;
+  logInst?: number | null;
+  userSign?: number | null;
+  transfered?: string | null;
+  createDate?: Moment | null;
+  createTime?: Time | null;
+  updateDate?: Moment | null;
+  updateTime?: Time | null;
+  dataSource?: string | null;
 }
 
 export namespace Oty1 {

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * GlAccountAdvancedRuleParams
@@ -72,7 +72,7 @@ export function createGlAccountAdvancedRuleParams(json: any): GlAccountAdvancedR
  * GlAccountAdvancedRuleParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class GlAccountAdvancedRuleParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class GlAccountAdvancedRuleParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, GlAccountAdvancedRuleParams> {
   /**
    * Representation of the [[GlAccountAdvancedRuleParams.absoluteEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -123,21 +123,78 @@ export class GlAccountAdvancedRuleParamsField<EntityT extends Entity> extends Co
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   shipToState: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('ShipToState', this, 'Edm.String');
+
+  /**
+   * Creates an instance of GlAccountAdvancedRuleParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, GlAccountAdvancedRuleParams);
+  }
 }
 
 export namespace GlAccountAdvancedRuleParams {
+  /**
+   * Metadata information on all properties of the `GlAccountAdvancedRuleParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<GlAccountAdvancedRuleParams>[] = [{
+    originalName: 'AbsoluteEntry',
+    name: 'absoluteEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Period',
+    name: 'period',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Code',
+    name: 'code',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemCode',
+    name: 'itemCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemGroup',
+    name: 'itemGroup',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Warehouse',
+    name: 'warehouse',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPGroup',
+    name: 'bpGroup',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'FederalTaxID',
+    name: 'federalTaxId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShipToCountry',
+    name: 'shipToCountry',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShipToState',
+    name: 'shipToState',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): GlAccountAdvancedRuleParams {
-    return createComplexType(json, {
-      AbsoluteEntry: (absoluteEntry: number) => ({ absoluteEntry: edmToTs(absoluteEntry, 'Edm.Int32') }),
-      Period: (period: string) => ({ period: edmToTs(period, 'Edm.String') }),
-      Code: (code: string) => ({ code: edmToTs(code, 'Edm.String') }),
-      ItemCode: (itemCode: string) => ({ itemCode: edmToTs(itemCode, 'Edm.String') }),
-      ItemGroup: (itemGroup: number) => ({ itemGroup: edmToTs(itemGroup, 'Edm.Int32') }),
-      Warehouse: (warehouse: string) => ({ warehouse: edmToTs(warehouse, 'Edm.String') }),
-      BPGroup: (bpGroup: number) => ({ bpGroup: edmToTs(bpGroup, 'Edm.Int32') }),
-      FederalTaxID: (federalTaxId: string) => ({ federalTaxId: edmToTs(federalTaxId, 'Edm.String') }),
-      ShipToCountry: (shipToCountry: string) => ({ shipToCountry: edmToTs(shipToCountry, 'Edm.String') }),
-      ShipToState: (shipToState: string) => ({ shipToState: edmToTs(shipToState, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, GlAccountAdvancedRuleParams);
   }
 }

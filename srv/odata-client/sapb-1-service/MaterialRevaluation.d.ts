@@ -1,20 +1,16 @@
 import { MaterialRevaluationRequestBuilder } from './MaterialRevaluationRequestBuilder';
 import { Moment } from 'moment';
 import { MaterialRevaluationLine } from './MaterialRevaluationLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "MaterialRevaluation" of service "SAPB1".
  */
-export declare class MaterialRevaluation extends Entity implements MaterialRevaluationType {
+export declare class MaterialRevaluation extends EntityV4 implements MaterialRevaluationType {
     /**
      * Technical entity name for MaterialRevaluation.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for MaterialRevaluation.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -110,6 +106,11 @@ export declare class MaterialRevaluation extends Entity implements MaterialReval
      */
     userSignature?: number;
     /**
+     * Inflation Revaluation.
+     * @nullable
+     */
+    inflationRevaluation?: BoYesNoEnum;
+    /**
      * Card Code.
      * @nullable
      */
@@ -137,10 +138,10 @@ export declare class MaterialRevaluation extends Entity implements MaterialReval
      */
     businessPartner: BusinessPartners;
     /**
-     * Returns an entity builder to construct instances `MaterialRevaluation`.
+     * Returns an entity builder to construct instances of `MaterialRevaluation`.
      * @returns A builder that constructs instances of entity type `MaterialRevaluation`.
      */
-    static builder(): EntityBuilderType<MaterialRevaluation, MaterialRevaluationTypeForceMandatory>;
+    static builder(): EntityBuilderType<MaterialRevaluation, MaterialRevaluationType>;
     /**
      * Returns a request builder to construct requests for operations on the `MaterialRevaluation` entity type.
      * @returns A `MaterialRevaluation` request builder.
@@ -151,7 +152,7 @@ export declare class MaterialRevaluation extends Entity implements MaterialReval
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `MaterialRevaluation`.
      */
-    static customField(fieldName: string): CustomField<MaterialRevaluation>;
+    static customField(fieldName: string): CustomFieldV4<MaterialRevaluation>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -164,53 +165,28 @@ import { JournalEntries, JournalEntriesType } from './JournalEntries';
 import { Users, UsersType } from './Users';
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 export interface MaterialRevaluationType {
-    docNum?: number;
-    docDate?: Moment;
-    reference1?: string;
-    reference2?: string;
-    comments?: string;
-    journalMemo?: string;
-    docTime?: Time;
-    series?: number;
-    taxDate?: Moment;
-    docEntry?: number;
-    creationDate?: Moment;
-    updateDate?: Moment;
-    transNum?: number;
-    revalType?: string;
-    revaluationIncomeAccount?: string;
-    revaluationExpenseAccount?: string;
-    dataSource?: string;
-    userSignature?: number;
-    cardCode?: string;
-    cardName?: string;
-    materialRevaluationLines?: MaterialRevaluationLine[];
-    journalEntry: JournalEntriesType;
-    user: UsersType;
-    businessPartner: BusinessPartnersType;
-}
-export interface MaterialRevaluationTypeForceMandatory {
-    docNum: number;
-    docDate: Moment;
-    reference1: string;
-    reference2: string;
-    comments: string;
-    journalMemo: string;
-    docTime: Time;
-    series: number;
-    taxDate: Moment;
-    docEntry: number;
-    creationDate: Moment;
-    updateDate: Moment;
-    transNum: number;
-    revalType: string;
-    revaluationIncomeAccount: string;
-    revaluationExpenseAccount: string;
-    dataSource: string;
-    userSignature: number;
-    cardCode: string;
-    cardName: string;
-    materialRevaluationLines: MaterialRevaluationLine[];
+    docNum?: number | null;
+    docDate?: Moment | null;
+    reference1?: string | null;
+    reference2?: string | null;
+    comments?: string | null;
+    journalMemo?: string | null;
+    docTime?: Time | null;
+    series?: number | null;
+    taxDate?: Moment | null;
+    docEntry?: number | null;
+    creationDate?: Moment | null;
+    updateDate?: Moment | null;
+    transNum?: number | null;
+    revalType?: string | null;
+    revaluationIncomeAccount?: string | null;
+    revaluationExpenseAccount?: string | null;
+    dataSource?: string | null;
+    userSignature?: number | null;
+    inflationRevaluation?: BoYesNoEnum | null;
+    cardCode?: string | null;
+    cardName?: string | null;
+    materialRevaluationLines?: MaterialRevaluationLine[] | null;
     journalEntry: JournalEntriesType;
     user: UsersType;
     businessPartner: BusinessPartnersType;
@@ -307,6 +283,11 @@ export declare namespace MaterialRevaluation {
      */
     const USER_SIGNATURE: NumberField<MaterialRevaluation>;
     /**
+     * Static representation of the [[inflationRevaluation]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const INFLATION_REVALUATION: EnumField<MaterialRevaluation>;
+    /**
      * Static representation of the [[cardCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -320,7 +301,7 @@ export declare namespace MaterialRevaluation {
      * Static representation of the [[materialRevaluationLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const MATERIAL_REVALUATION_LINES: CollectionField<MaterialRevaluation>;
+    const MATERIAL_REVALUATION_LINES: CollectionField<MaterialRevaluation, MaterialRevaluationLine>;
     /**
      * Static representation of the one-to-one navigation property [[journalEntry]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -339,7 +320,7 @@ export declare namespace MaterialRevaluation {
     /**
      * All fields of the MaterialRevaluation entity.
      */
-    const _allFields: Array<NumberField<MaterialRevaluation> | DateField<MaterialRevaluation> | StringField<MaterialRevaluation> | TimeField<MaterialRevaluation> | CollectionField<MaterialRevaluation> | OneToOneLink<MaterialRevaluation, JournalEntries> | OneToOneLink<MaterialRevaluation, Users> | OneToOneLink<MaterialRevaluation, BusinessPartners>>;
+    const _allFields: Array<NumberField<MaterialRevaluation> | DateField<MaterialRevaluation> | StringField<MaterialRevaluation> | TimeField<MaterialRevaluation> | EnumField<MaterialRevaluation> | CollectionField<MaterialRevaluation, MaterialRevaluationLine> | OneToOneLink<MaterialRevaluation, JournalEntries> | OneToOneLink<MaterialRevaluation, Users> | OneToOneLink<MaterialRevaluation, BusinessPartners>>;
     /**
      * All fields selector.
      */

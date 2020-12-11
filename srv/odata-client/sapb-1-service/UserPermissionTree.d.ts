@@ -1,19 +1,16 @@
 import { UserPermissionTreeRequestBuilder } from './UserPermissionTreeRequestBuilder';
 import { UserPermissionForm } from './UserPermissionForm';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoUptOptions } from './BoUptOptions';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "UserPermissionTree" of service "SAPB1".
  */
-export declare class UserPermissionTree extends Entity implements UserPermissionTreeType {
+export declare class UserPermissionTree extends EntityV4 implements UserPermissionTreeType {
     /**
      * Technical entity name for UserPermissionTree.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for UserPermissionTree.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -34,6 +31,11 @@ export declare class UserPermissionTree extends Entity implements UserPermission
      */
     permissionId?: string;
     /**
+     * Options.
+     * @nullable
+     */
+    options?: BoUptOptions;
+    /**
      * Name.
      * @nullable
      */
@@ -43,6 +45,11 @@ export declare class UserPermissionTree extends Entity implements UserPermission
      * @nullable
      */
     levels?: number;
+    /**
+     * Is Item.
+     * @nullable
+     */
+    isItem?: BoYesNoEnum;
     /**
      * Parent Id.
      * @nullable
@@ -58,10 +65,10 @@ export declare class UserPermissionTree extends Entity implements UserPermission
      */
     user: Users;
     /**
-     * Returns an entity builder to construct instances `UserPermissionTree`.
+     * Returns an entity builder to construct instances of `UserPermissionTree`.
      * @returns A builder that constructs instances of entity type `UserPermissionTree`.
      */
-    static builder(): EntityBuilderType<UserPermissionTree, UserPermissionTreeTypeForceMandatory>;
+    static builder(): EntityBuilderType<UserPermissionTree, UserPermissionTreeType>;
     /**
      * Returns a request builder to construct requests for operations on the `UserPermissionTree` entity type.
      * @returns A `UserPermissionTree` request builder.
@@ -72,7 +79,7 @@ export declare class UserPermissionTree extends Entity implements UserPermission
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `UserPermissionTree`.
      */
-    static customField(fieldName: string): CustomField<UserPermissionTree>;
+    static customField(fieldName: string): CustomFieldV4<UserPermissionTree>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -83,23 +90,15 @@ export declare class UserPermissionTree extends Entity implements UserPermission
 }
 import { Users, UsersType } from './Users';
 export interface UserPermissionTreeType {
-    userSignature?: number;
-    displayOrder?: number;
-    permissionId?: string;
-    name?: string;
-    levels?: number;
-    parentId?: string;
-    userPermissionForms?: UserPermissionForm[];
-    user: UsersType;
-}
-export interface UserPermissionTreeTypeForceMandatory {
-    userSignature: number;
-    displayOrder: number;
-    permissionId: string;
-    name: string;
-    levels: number;
-    parentId: string;
-    userPermissionForms: UserPermissionForm[];
+    userSignature?: number | null;
+    displayOrder?: number | null;
+    permissionId?: string | null;
+    options?: BoUptOptions | null;
+    name?: string | null;
+    levels?: number | null;
+    isItem?: BoYesNoEnum | null;
+    parentId?: string | null;
+    userPermissionForms?: UserPermissionForm[] | null;
     user: UsersType;
 }
 export declare namespace UserPermissionTree {
@@ -119,6 +118,11 @@ export declare namespace UserPermissionTree {
      */
     const PERMISSION_ID: StringField<UserPermissionTree>;
     /**
+     * Static representation of the [[options]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const OPTIONS: EnumField<UserPermissionTree>;
+    /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -129,6 +133,11 @@ export declare namespace UserPermissionTree {
      */
     const LEVELS: NumberField<UserPermissionTree>;
     /**
+     * Static representation of the [[isItem]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IS_ITEM: EnumField<UserPermissionTree>;
+    /**
      * Static representation of the [[parentId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -137,7 +146,7 @@ export declare namespace UserPermissionTree {
      * Static representation of the [[userPermissionForms]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const USER_PERMISSION_FORMS: CollectionField<UserPermissionTree>;
+    const USER_PERMISSION_FORMS: CollectionField<UserPermissionTree, UserPermissionForm>;
     /**
      * Static representation of the one-to-one navigation property [[user]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -146,7 +155,7 @@ export declare namespace UserPermissionTree {
     /**
      * All fields of the UserPermissionTree entity.
      */
-    const _allFields: Array<NumberField<UserPermissionTree> | StringField<UserPermissionTree> | CollectionField<UserPermissionTree> | OneToOneLink<UserPermissionTree, Users>>;
+    const _allFields: Array<NumberField<UserPermissionTree> | StringField<UserPermissionTree> | EnumField<UserPermissionTree> | CollectionField<UserPermissionTree, UserPermissionForm> | OneToOneLink<UserPermissionTree, Users>>;
     /**
      * All fields selector.
      */

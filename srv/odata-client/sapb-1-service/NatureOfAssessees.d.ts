@@ -1,18 +1,14 @@
 import { NatureOfAssesseesRequestBuilder } from './NatureOfAssesseesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AssesseeTypeEnum } from './AssesseeTypeEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "NatureOfAssessees" of service "SAPB1".
  */
-export declare class NatureOfAssessees extends Entity implements NatureOfAssesseesType {
+export declare class NatureOfAssessees extends EntityV4 implements NatureOfAssesseesType {
     /**
      * Technical entity name for NatureOfAssessees.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for NatureOfAssessees.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -33,14 +29,19 @@ export declare class NatureOfAssessees extends Entity implements NatureOfAssesse
      */
     description?: string;
     /**
+     * Assessee Type.
+     * @nullable
+     */
+    assesseeType?: AssesseeTypeEnum;
+    /**
      * One-to-many navigation property to the [[WithholdingTaxCodes]] entity.
      */
     withholdingTaxCodes: WithholdingTaxCodes[];
     /**
-     * Returns an entity builder to construct instances `NatureOfAssessees`.
+     * Returns an entity builder to construct instances of `NatureOfAssessees`.
      * @returns A builder that constructs instances of entity type `NatureOfAssessees`.
      */
-    static builder(): EntityBuilderType<NatureOfAssessees, NatureOfAssesseesTypeForceMandatory>;
+    static builder(): EntityBuilderType<NatureOfAssessees, NatureOfAssesseesType>;
     /**
      * Returns a request builder to construct requests for operations on the `NatureOfAssessees` entity type.
      * @returns A `NatureOfAssessees` request builder.
@@ -51,7 +52,7 @@ export declare class NatureOfAssessees extends Entity implements NatureOfAssesse
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `NatureOfAssessees`.
      */
-    static customField(fieldName: string): CustomField<NatureOfAssessees>;
+    static customField(fieldName: string): CustomFieldV4<NatureOfAssessees>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -62,15 +63,10 @@ export declare class NatureOfAssessees extends Entity implements NatureOfAssesse
 }
 import { WithholdingTaxCodes, WithholdingTaxCodesType } from './WithholdingTaxCodes';
 export interface NatureOfAssesseesType {
-    absEntry?: number;
-    code?: string;
-    description?: string;
-    withholdingTaxCodes: WithholdingTaxCodesType[];
-}
-export interface NatureOfAssesseesTypeForceMandatory {
-    absEntry: number;
-    code: string;
-    description: string;
+    absEntry?: number | null;
+    code?: string | null;
+    description?: string | null;
+    assesseeType?: AssesseeTypeEnum | null;
     withholdingTaxCodes: WithholdingTaxCodesType[];
 }
 export declare namespace NatureOfAssessees {
@@ -90,6 +86,11 @@ export declare namespace NatureOfAssessees {
      */
     const DESCRIPTION: StringField<NatureOfAssessees>;
     /**
+     * Static representation of the [[assesseeType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ASSESSEE_TYPE: EnumField<NatureOfAssessees>;
+    /**
      * Static representation of the one-to-many navigation property [[withholdingTaxCodes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -97,7 +98,7 @@ export declare namespace NatureOfAssessees {
     /**
      * All fields of the NatureOfAssessees entity.
      */
-    const _allFields: Array<NumberField<NatureOfAssessees> | StringField<NatureOfAssessees> | OneToManyLink<NatureOfAssessees, WithholdingTaxCodes>>;
+    const _allFields: Array<NumberField<NatureOfAssessees> | StringField<NatureOfAssessees> | EnumField<NatureOfAssessees> | OneToManyLink<NatureOfAssessees, WithholdingTaxCodes>>;
     /**
      * All fields selector.
      */

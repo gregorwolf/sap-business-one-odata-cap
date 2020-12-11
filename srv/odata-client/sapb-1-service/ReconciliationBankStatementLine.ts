@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ReconciliationBankStatementLine
@@ -53,7 +53,7 @@ export function createReconciliationBankStatementLine(json: any): Reconciliation
  * ReconciliationBankStatementLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ReconciliationBankStatementLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ReconciliationBankStatementLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ReconciliationBankStatementLine> {
   /**
    * Representation of the [[ReconciliationBankStatementLine.bankStatementAccountCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -84,17 +84,58 @@ export class ReconciliationBankStatementLineField<EntityT extends Entity> extend
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   details: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Details', this, 'Edm.String');
+
+  /**
+   * Creates an instance of ReconciliationBankStatementLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ReconciliationBankStatementLine);
+  }
 }
 
 export namespace ReconciliationBankStatementLine {
+  /**
+   * Metadata information on all properties of the `ReconciliationBankStatementLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ReconciliationBankStatementLine>[] = [{
+    originalName: 'BankStatementAccountCode',
+    name: 'bankStatementAccountCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Sequence',
+    name: 'sequence',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Date',
+    name: 'date',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Ref1',
+    name: 'ref1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Amount',
+    name: 'amount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Details',
+    name: 'details',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ReconciliationBankStatementLine {
-    return createComplexType(json, {
-      BankStatementAccountCode: (bankStatementAccountCode: string) => ({ bankStatementAccountCode: edmToTs(bankStatementAccountCode, 'Edm.String') }),
-      Sequence: (sequence: number) => ({ sequence: edmToTs(sequence, 'Edm.Int32') }),
-      Date: (date: Moment) => ({ date: edmToTs(date, 'Edm.DateTimeOffset') }),
-      Ref1: (ref1: string) => ({ ref1: edmToTs(ref1, 'Edm.String') }),
-      Amount: (amount: number) => ({ amount: edmToTs(amount, 'Edm.Double') }),
-      Details: (details: string) => ({ details: edmToTs(details, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, ReconciliationBankStatementLine);
   }
 }

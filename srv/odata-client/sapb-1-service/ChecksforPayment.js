@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.ChecksforPayment = void 0;
  */
 var ChecksforPaymentRequestBuilder_1 = require("./ChecksforPaymentRequestBuilder");
 var ChecksforPaymentLine_1 = require("./ChecksforPaymentLine");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "ChecksforPayment" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var ChecksforPayment = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `ChecksforPayment`.
+     * Returns an entity builder to construct instances of `ChecksforPayment`.
      * @returns A builder that constructs instances of entity type `ChecksforPayment`.
      */
     ChecksforPayment.builder = function () {
-        return v4_1.Entity.entityBuilder(ChecksforPayment);
+        return core_1.EntityV4.entityBuilder(ChecksforPayment);
     };
     /**
      * Returns a request builder to construct requests for operations on the `ChecksforPayment` entity type.
@@ -61,7 +61,7 @@ var ChecksforPayment = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `ChecksforPayment`.
      */
     ChecksforPayment.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, ChecksforPayment);
+        return core_1.EntityV4.customFieldSelector(fieldName, ChecksforPayment);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,16 +75,11 @@ var ChecksforPayment = /** @class */ (function (_super) {
      */
     ChecksforPayment._entityName = 'ChecksforPayment';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ChecksforPayment.
-     */
-    ChecksforPayment._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    ChecksforPayment._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    ChecksforPayment._defaultServicePath = '/b1s/v2/';
     return ChecksforPayment;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.ChecksforPayment = ChecksforPayment;
 var JournalEntries_1 = require("./JournalEntries");
 var Countries_1 = require("./Countries");
@@ -93,157 +88,187 @@ var Countries_1 = require("./Countries");
      * Static representation of the [[checkKey]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.CHECK_KEY = new v4_1.NumberField('CheckKey', ChecksforPayment, 'Edm.Int32');
+    ChecksforPayment.CHECK_KEY = new core_1.NumberField('CheckKey', ChecksforPayment, 'Edm.Int32');
     /**
      * Static representation of the [[checkNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.CHECK_NUMBER = new v4_1.NumberField('CheckNumber', ChecksforPayment, 'Edm.Int32');
+    ChecksforPayment.CHECK_NUMBER = new core_1.NumberField('CheckNumber', ChecksforPayment, 'Edm.Int32');
     /**
      * Static representation of the [[bankCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.BANK_CODE = new v4_1.StringField('BankCode', ChecksforPayment, 'Edm.String');
+    ChecksforPayment.BANK_CODE = new core_1.StringField('BankCode', ChecksforPayment, 'Edm.String');
     /**
      * Static representation of the [[branch]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.BRANCH = new v4_1.StringField('Branch', ChecksforPayment, 'Edm.String');
+    ChecksforPayment.BRANCH = new core_1.StringField('Branch', ChecksforPayment, 'Edm.String');
     /**
      * Static representation of the [[bankName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.BANK_NAME = new v4_1.StringField('BankName', ChecksforPayment, 'Edm.String');
+    ChecksforPayment.BANK_NAME = new core_1.StringField('BankName', ChecksforPayment, 'Edm.String');
     /**
      * Static representation of the [[checkDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.CHECK_DATE = new v4_1.DateField('CheckDate', ChecksforPayment, 'Edm.DateTimeOffset');
+    ChecksforPayment.CHECK_DATE = new core_1.DateField('CheckDate', ChecksforPayment, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[accountNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.ACCOUNT_NUMBER = new v4_1.StringField('AccountNumber', ChecksforPayment, 'Edm.String');
+    ChecksforPayment.ACCOUNT_NUMBER = new core_1.StringField('AccountNumber', ChecksforPayment, 'Edm.String');
     /**
      * Static representation of the [[details]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.DETAILS = new v4_1.StringField('Details', ChecksforPayment, 'Edm.String');
+    ChecksforPayment.DETAILS = new core_1.StringField('Details', ChecksforPayment, 'Edm.String');
     /**
      * Static representation of the [[journalEntryReference]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.JOURNAL_ENTRY_REFERENCE = new v4_1.StringField('JournalEntryReference', ChecksforPayment, 'Edm.String');
+    ChecksforPayment.JOURNAL_ENTRY_REFERENCE = new core_1.StringField('JournalEntryReference', ChecksforPayment, 'Edm.String');
     /**
      * Static representation of the [[paymentDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.PAYMENT_DATE = new v4_1.DateField('PaymentDate', ChecksforPayment, 'Edm.DateTimeOffset');
+    ChecksforPayment.PAYMENT_DATE = new core_1.DateField('PaymentDate', ChecksforPayment, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[paymentNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.PAYMENT_NO = new v4_1.NumberField('PaymentNo', ChecksforPayment, 'Edm.Int32');
+    ChecksforPayment.PAYMENT_NO = new core_1.NumberField('PaymentNo', ChecksforPayment, 'Edm.Int32');
     /**
      * Static representation of the [[checkAmount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.CHECK_AMOUNT = new v4_1.NumberField('CheckAmount', ChecksforPayment, 'Edm.Double');
+    ChecksforPayment.CHECK_AMOUNT = new core_1.NumberField('CheckAmount', ChecksforPayment, 'Edm.Double');
+    /**
+     * Static representation of the [[transferable]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ChecksforPayment.TRANSFERABLE = new core_1.EnumField('Transferable', ChecksforPayment);
     /**
      * Static representation of the [[vendorCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.VENDOR_CODE = new v4_1.StringField('VendorCode', ChecksforPayment, 'Edm.String');
+    ChecksforPayment.VENDOR_CODE = new core_1.StringField('VendorCode', ChecksforPayment, 'Edm.String');
     /**
      * Static representation of the [[checkCurrency]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.CHECK_CURRENCY = new v4_1.StringField('CheckCurrency', ChecksforPayment, 'Edm.String');
+    ChecksforPayment.CHECK_CURRENCY = new core_1.StringField('CheckCurrency', ChecksforPayment, 'Edm.String');
+    /**
+     * Static representation of the [[canceled]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ChecksforPayment.CANCELED = new core_1.EnumField('Canceled', ChecksforPayment);
+    /**
+     * Static representation of the [[cardOrAccount]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ChecksforPayment.CARD_OR_ACCOUNT = new core_1.EnumField('CardOrAccount', ChecksforPayment);
+    /**
+     * Static representation of the [[printed]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ChecksforPayment.PRINTED = new core_1.EnumField('Printed', ChecksforPayment);
     /**
      * Static representation of the [[vendorName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.VENDOR_NAME = new v4_1.StringField('VendorName', ChecksforPayment, 'Edm.String');
+    ChecksforPayment.VENDOR_NAME = new core_1.StringField('VendorName', ChecksforPayment, 'Edm.String');
     /**
      * Static representation of the [[signature]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.SIGNATURE = new v4_1.StringField('Signature', ChecksforPayment, 'Edm.String');
+    ChecksforPayment.SIGNATURE = new core_1.StringField('Signature', ChecksforPayment, 'Edm.String');
     /**
      * Static representation of the [[customerAccountCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.CUSTOMER_ACCOUNT_CODE = new v4_1.StringField('CustomerAccountCode', ChecksforPayment, 'Edm.String');
+    ChecksforPayment.CUSTOMER_ACCOUNT_CODE = new core_1.StringField('CustomerAccountCode', ChecksforPayment, 'Edm.String');
     /**
      * Static representation of the [[transactionNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.TRANSACTION_NUMBER = new v4_1.NumberField('TransactionNumber', ChecksforPayment, 'Edm.Int32');
+    ChecksforPayment.TRANSACTION_NUMBER = new core_1.NumberField('TransactionNumber', ChecksforPayment, 'Edm.Int32');
     /**
      * Static representation of the [[address]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.ADDRESS = new v4_1.StringField('Address', ChecksforPayment, 'Edm.String');
+    ChecksforPayment.ADDRESS = new core_1.StringField('Address', ChecksforPayment, 'Edm.String');
+    /**
+     * Static representation of the [[createJournalEntry]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ChecksforPayment.CREATE_JOURNAL_ENTRY = new core_1.EnumField('CreateJournalEntry', ChecksforPayment);
     /**
      * Static representation of the [[updateDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.UPDATE_DATE = new v4_1.DateField('UpdateDate', ChecksforPayment, 'Edm.DateTimeOffset');
+    ChecksforPayment.UPDATE_DATE = new core_1.DateField('UpdateDate', ChecksforPayment, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[creationDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.CREATION_DATE = new v4_1.DateField('CreationDate', ChecksforPayment, 'Edm.DateTimeOffset');
+    ChecksforPayment.CREATION_DATE = new core_1.DateField('CreationDate', ChecksforPayment, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[taxTotal]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.TAX_TOTAL = new v4_1.NumberField('TaxTotal', ChecksforPayment, 'Edm.Double');
+    ChecksforPayment.TAX_TOTAL = new core_1.NumberField('TaxTotal', ChecksforPayment, 'Edm.Double');
     /**
      * Static representation of the [[taxDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.TAX_DATE = new v4_1.DateField('TaxDate', ChecksforPayment, 'Edm.DateTimeOffset');
+    ChecksforPayment.TAX_DATE = new core_1.DateField('TaxDate', ChecksforPayment, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[deductionRefundAmount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.DEDUCTION_REFUND_AMOUNT = new v4_1.NumberField('DeductionRefundAmount', ChecksforPayment, 'Edm.Double');
+    ChecksforPayment.DEDUCTION_REFUND_AMOUNT = new core_1.NumberField('DeductionRefundAmount', ChecksforPayment, 'Edm.Double');
     /**
      * Static representation of the [[printedBy]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.PRINTED_BY = new v4_1.NumberField('PrintedBy', ChecksforPayment, 'Edm.Int32');
+    ChecksforPayment.PRINTED_BY = new core_1.NumberField('PrintedBy', ChecksforPayment, 'Edm.Int32');
     /**
      * Static representation of the [[countryCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.COUNTRY_CODE = new v4_1.StringField('CountryCode', ChecksforPayment, 'Edm.String');
+    ChecksforPayment.COUNTRY_CODE = new core_1.StringField('CountryCode', ChecksforPayment, 'Edm.String');
     /**
      * Static representation of the [[totalinWords]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.TOTALIN_WORDS = new v4_1.StringField('TotalinWords', ChecksforPayment, 'Edm.String');
+    ChecksforPayment.TOTALIN_WORDS = new core_1.StringField('TotalinWords', ChecksforPayment, 'Edm.String');
     /**
      * Static representation of the [[addressName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.ADDRESS_NAME = new v4_1.StringField('AddressName', ChecksforPayment, 'Edm.String');
+    ChecksforPayment.ADDRESS_NAME = new core_1.StringField('AddressName', ChecksforPayment, 'Edm.String');
+    /**
+     * Static representation of the [[manualCheck]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ChecksforPayment.MANUAL_CHECK = new core_1.EnumField('ManualCheck', ChecksforPayment);
     /**
      * Static representation of the [[checksforPaymentLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.CHECKSFOR_PAYMENT_LINES = new v4_1.CollectionField('ChecksforPaymentLines', ChecksforPayment, new ChecksforPaymentLine_1.ChecksforPaymentLineField('', ChecksforPayment));
+    ChecksforPayment.CHECKSFOR_PAYMENT_LINES = new core_1.CollectionField('ChecksforPaymentLines', ChecksforPayment, ChecksforPaymentLine_1.ChecksforPaymentLine);
     /**
      * Static representation of the one-to-one navigation property [[journalEntry]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.JOURNAL_ENTRY = new v4_1.OneToOneLink('JournalEntry', ChecksforPayment, JournalEntries_1.JournalEntries);
+    ChecksforPayment.JOURNAL_ENTRY = new core_1.OneToOneLink('JournalEntry', ChecksforPayment, JournalEntries_1.JournalEntries);
     /**
      * Static representation of the one-to-one navigation property [[country]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChecksforPayment.COUNTRY = new v4_1.OneToOneLink('Country', ChecksforPayment, Countries_1.Countries);
+    ChecksforPayment.COUNTRY = new core_1.OneToOneLink('Country', ChecksforPayment, Countries_1.Countries);
     /**
      * All fields of the ChecksforPayment entity.
      */
@@ -260,13 +285,18 @@ var Countries_1 = require("./Countries");
         ChecksforPayment.PAYMENT_DATE,
         ChecksforPayment.PAYMENT_NO,
         ChecksforPayment.CHECK_AMOUNT,
+        ChecksforPayment.TRANSFERABLE,
         ChecksforPayment.VENDOR_CODE,
         ChecksforPayment.CHECK_CURRENCY,
+        ChecksforPayment.CANCELED,
+        ChecksforPayment.CARD_OR_ACCOUNT,
+        ChecksforPayment.PRINTED,
         ChecksforPayment.VENDOR_NAME,
         ChecksforPayment.SIGNATURE,
         ChecksforPayment.CUSTOMER_ACCOUNT_CODE,
         ChecksforPayment.TRANSACTION_NUMBER,
         ChecksforPayment.ADDRESS,
+        ChecksforPayment.CREATE_JOURNAL_ENTRY,
         ChecksforPayment.UPDATE_DATE,
         ChecksforPayment.CREATION_DATE,
         ChecksforPayment.TAX_TOTAL,
@@ -276,6 +306,7 @@ var Countries_1 = require("./Countries");
         ChecksforPayment.COUNTRY_CODE,
         ChecksforPayment.TOTALIN_WORDS,
         ChecksforPayment.ADDRESS_NAME,
+        ChecksforPayment.MANUAL_CHECK,
         ChecksforPayment.CHECKSFOR_PAYMENT_LINES,
         ChecksforPayment.JOURNAL_ENTRY,
         ChecksforPayment.COUNTRY
@@ -283,7 +314,7 @@ var Countries_1 = require("./Countries");
     /**
      * All fields selector.
      */
-    ChecksforPayment.ALL_FIELDS = new v4_1.AllFields('*', ChecksforPayment);
+    ChecksforPayment.ALL_FIELDS = new core_1.AllFields('*', ChecksforPayment);
     /**
      * All key fields of the ChecksforPayment entity.
      */

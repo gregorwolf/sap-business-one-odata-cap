@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.Queue = void 0;
  */
 var QueueRequestBuilder_1 = require("./QueueRequestBuilder");
 var QueueMember_1 = require("./QueueMember");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "Queue" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var Queue = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `Queue`.
+     * Returns an entity builder to construct instances of `Queue`.
      * @returns A builder that constructs instances of entity type `Queue`.
      */
     Queue.builder = function () {
-        return v4_1.Entity.entityBuilder(Queue);
+        return core_1.EntityV4.entityBuilder(Queue);
     };
     /**
      * Returns a request builder to construct requests for operations on the `Queue` entity type.
@@ -61,7 +61,7 @@ var Queue = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `Queue`.
      */
     Queue.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, Queue);
+        return core_1.EntityV4.customFieldSelector(fieldName, Queue);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,16 +75,11 @@ var Queue = /** @class */ (function (_super) {
      */
     Queue._entityName = 'Queue';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Queue.
-     */
-    Queue._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    Queue._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    Queue._defaultServicePath = '/b1s/v2/';
     return Queue;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.Queue = Queue;
 var Users_1 = require("./Users");
 var ServiceCalls_1 = require("./ServiceCalls");
@@ -93,43 +88,49 @@ var ServiceCalls_1 = require("./ServiceCalls");
      * Static representation of the [[queueId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Queue.QUEUE_ID = new v4_1.StringField('QueueID', Queue, 'Edm.String');
+    Queue.QUEUE_ID = new core_1.StringField('QueueID', Queue, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Queue.DESCRIPTION = new v4_1.StringField('Description', Queue, 'Edm.String');
+    Queue.DESCRIPTION = new core_1.StringField('Description', Queue, 'Edm.String');
+    /**
+     * Static representation of the [[inactive]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Queue.INACTIVE = new core_1.EnumField('Inactive', Queue);
     /**
      * Static representation of the [[queueManager]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Queue.QUEUE_MANAGER = new v4_1.NumberField('QueueManager', Queue, 'Edm.Int32');
+    Queue.QUEUE_MANAGER = new core_1.NumberField('QueueManager', Queue, 'Edm.Int32');
     /**
      * Static representation of the [[queueEmail]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Queue.QUEUE_EMAIL = new v4_1.StringField('QueueEmail', Queue, 'Edm.String');
+    Queue.QUEUE_EMAIL = new core_1.StringField('QueueEmail', Queue, 'Edm.String');
     /**
      * Static representation of the [[queueMembers]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Queue.QUEUE_MEMBERS = new v4_1.CollectionField('QueueMembers', Queue, new QueueMember_1.QueueMemberField('', Queue));
+    Queue.QUEUE_MEMBERS = new core_1.CollectionField('QueueMembers', Queue, QueueMember_1.QueueMember);
     /**
      * Static representation of the one-to-one navigation property [[user]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Queue.USER = new v4_1.OneToOneLink('User', Queue, Users_1.Users);
+    Queue.USER = new core_1.OneToOneLink('User', Queue, Users_1.Users);
     /**
      * Static representation of the one-to-many navigation property [[serviceCalls]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Queue.SERVICE_CALLS = new v4_1.OneToManyLink('ServiceCalls', Queue, ServiceCalls_1.ServiceCalls);
+    Queue.SERVICE_CALLS = new core_1.OneToManyLink('ServiceCalls', Queue, ServiceCalls_1.ServiceCalls);
     /**
      * All fields of the Queue entity.
      */
     Queue._allFields = [
         Queue.QUEUE_ID,
         Queue.DESCRIPTION,
+        Queue.INACTIVE,
         Queue.QUEUE_MANAGER,
         Queue.QUEUE_EMAIL,
         Queue.QUEUE_MEMBERS,
@@ -139,7 +140,7 @@ var ServiceCalls_1 = require("./ServiceCalls");
     /**
      * All fields selector.
      */
-    Queue.ALL_FIELDS = new v4_1.AllFields('*', Queue);
+    Queue.ALL_FIELDS = new core_1.AllFields('*', Queue);
     /**
      * All key fields of the Queue entity.
      */

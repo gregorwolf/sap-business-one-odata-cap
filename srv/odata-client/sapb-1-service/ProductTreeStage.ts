@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ProductTreeStage
@@ -52,7 +52,7 @@ export function createProductTreeStage(json: any): ProductTreeStage {
  * ProductTreeStageField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ProductTreeStageField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ProductTreeStageField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ProductTreeStage> {
   /**
    * Representation of the [[ProductTreeStage.father]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -83,17 +83,58 @@ export class ProductTreeStageField<EntityT extends Entity> extends ComplexTypeFi
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   waitingDays: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('WaitingDays', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of ProductTreeStageField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ProductTreeStage);
+  }
 }
 
 export namespace ProductTreeStage {
+  /**
+   * Metadata information on all properties of the `ProductTreeStage` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ProductTreeStage>[] = [{
+    originalName: 'Father',
+    name: 'father',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StageID',
+    name: 'stageId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SequenceNumber',
+    name: 'sequenceNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'StageEntry',
+    name: 'stageEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Name',
+    name: 'name',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WaitingDays',
+    name: 'waitingDays',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ProductTreeStage {
-    return createComplexType(json, {
-      Father: (father: string) => ({ father: edmToTs(father, 'Edm.String') }),
-      StageID: (stageId: number) => ({ stageId: edmToTs(stageId, 'Edm.Int32') }),
-      SequenceNumber: (sequenceNumber: number) => ({ sequenceNumber: edmToTs(sequenceNumber, 'Edm.Int32') }),
-      StageEntry: (stageEntry: number) => ({ stageEntry: edmToTs(stageEntry, 'Edm.Int32') }),
-      Name: (name: string) => ({ name: edmToTs(name, 'Edm.String') }),
-      WaitingDays: (waitingDays: number) => ({ waitingDays: edmToTs(waitingDays, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, ProductTreeStage);
   }
 }

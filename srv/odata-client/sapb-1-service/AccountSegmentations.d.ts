@@ -1,19 +1,15 @@
 import { AccountSegmentationsRequestBuilder } from './AccountSegmentationsRequestBuilder';
 import { AccountSegmentationsCategory } from './AccountSegmentationsCategory';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AccountSegmentationTypeEnum } from './AccountSegmentationTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "AccountSegmentations" of service "SAPB1".
  */
-export declare class AccountSegmentations extends Entity implements AccountSegmentationsType {
+export declare class AccountSegmentations extends EntityV4 implements AccountSegmentationsType {
     /**
      * Technical entity name for AccountSegmentations.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for AccountSegmentations.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -34,6 +30,11 @@ export declare class AccountSegmentations extends Entity implements AccountSegme
      */
     size?: number;
     /**
+     * Type.
+     * @nullable
+     */
+    type?: AccountSegmentationTypeEnum;
+    /**
      * Account Segmentations Categories.
      * @nullable
      */
@@ -43,10 +44,10 @@ export declare class AccountSegmentations extends Entity implements AccountSegme
      */
     accountSegmentationCategories: AccountSegmentationCategories[];
     /**
-     * Returns an entity builder to construct instances `AccountSegmentations`.
+     * Returns an entity builder to construct instances of `AccountSegmentations`.
      * @returns A builder that constructs instances of entity type `AccountSegmentations`.
      */
-    static builder(): EntityBuilderType<AccountSegmentations, AccountSegmentationsTypeForceMandatory>;
+    static builder(): EntityBuilderType<AccountSegmentations, AccountSegmentationsType>;
     /**
      * Returns a request builder to construct requests for operations on the `AccountSegmentations` entity type.
      * @returns A `AccountSegmentations` request builder.
@@ -57,7 +58,7 @@ export declare class AccountSegmentations extends Entity implements AccountSegme
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `AccountSegmentations`.
      */
-    static customField(fieldName: string): CustomField<AccountSegmentations>;
+    static customField(fieldName: string): CustomFieldV4<AccountSegmentations>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -68,17 +69,11 @@ export declare class AccountSegmentations extends Entity implements AccountSegme
 }
 import { AccountSegmentationCategories, AccountSegmentationCategoriesType } from './AccountSegmentationCategories';
 export interface AccountSegmentationsType {
-    numerator?: number;
-    name?: string;
-    size?: number;
-    accountSegmentationsCategories?: AccountSegmentationsCategory[];
-    accountSegmentationCategories: AccountSegmentationCategoriesType[];
-}
-export interface AccountSegmentationsTypeForceMandatory {
-    numerator: number;
-    name: string;
-    size: number;
-    accountSegmentationsCategories: AccountSegmentationsCategory[];
+    numerator?: number | null;
+    name?: string | null;
+    size?: number | null;
+    type?: AccountSegmentationTypeEnum | null;
+    accountSegmentationsCategories?: AccountSegmentationsCategory[] | null;
     accountSegmentationCategories: AccountSegmentationCategoriesType[];
 }
 export declare namespace AccountSegmentations {
@@ -98,10 +93,15 @@ export declare namespace AccountSegmentations {
      */
     const SIZE: NumberField<AccountSegmentations>;
     /**
+     * Static representation of the [[type]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TYPE: EnumField<AccountSegmentations>;
+    /**
      * Static representation of the [[accountSegmentationsCategories]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const ACCOUNT_SEGMENTATIONS_CATEGORIES: CollectionField<AccountSegmentations>;
+    const ACCOUNT_SEGMENTATIONS_CATEGORIES: CollectionField<AccountSegmentations, AccountSegmentationsCategory>;
     /**
      * Static representation of the one-to-many navigation property [[accountSegmentationCategories]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -110,7 +110,7 @@ export declare namespace AccountSegmentations {
     /**
      * All fields of the AccountSegmentations entity.
      */
-    const _allFields: Array<NumberField<AccountSegmentations> | StringField<AccountSegmentations> | CollectionField<AccountSegmentations> | OneToManyLink<AccountSegmentations, AccountSegmentationCategories>>;
+    const _allFields: Array<NumberField<AccountSegmentations> | StringField<AccountSegmentations> | EnumField<AccountSegmentations> | CollectionField<AccountSegmentations, AccountSegmentationsCategory> | OneToManyLink<AccountSegmentations, AccountSegmentationCategories>>;
     /**
      * All fields selector.
      */

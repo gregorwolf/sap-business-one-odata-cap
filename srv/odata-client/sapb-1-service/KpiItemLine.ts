@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * KpiItemLine
@@ -187,7 +187,7 @@ export function createKpiItemLine(json: any): KpiItemLine {
  * KpiItemLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class KpiItemLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class KpiItemLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, KpiItemLine> {
   /**
    * Representation of the [[KpiItemLine.kpiCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -353,44 +353,193 @@ export class KpiItemLineField<EntityT extends Entity> extends ComplexTypeField<E
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   kpiValue30: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('KPIValue30', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of KpiItemLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, KpiItemLine);
+  }
 }
 
 export namespace KpiItemLine {
+  /**
+   * Metadata information on all properties of the `KpiItemLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<KpiItemLine>[] = [{
+    originalName: 'KPICode',
+    name: 'kpiCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'KPILineNumber',
+    name: 'kpiLineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'KPIName',
+    name: 'kpiName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue1',
+    name: 'kpiValue1',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue2',
+    name: 'kpiValue2',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue3',
+    name: 'kpiValue3',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue4',
+    name: 'kpiValue4',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue5',
+    name: 'kpiValue5',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue6',
+    name: 'kpiValue6',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue7',
+    name: 'kpiValue7',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue8',
+    name: 'kpiValue8',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue9',
+    name: 'kpiValue9',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue10',
+    name: 'kpiValue10',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue11',
+    name: 'kpiValue11',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue12',
+    name: 'kpiValue12',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue13',
+    name: 'kpiValue13',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue14',
+    name: 'kpiValue14',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue15',
+    name: 'kpiValue15',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue16',
+    name: 'kpiValue16',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue17',
+    name: 'kpiValue17',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue18',
+    name: 'kpiValue18',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue19',
+    name: 'kpiValue19',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue20',
+    name: 'kpiValue20',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue21',
+    name: 'kpiValue21',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue22',
+    name: 'kpiValue22',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue23',
+    name: 'kpiValue23',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue24',
+    name: 'kpiValue24',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue25',
+    name: 'kpiValue25',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue26',
+    name: 'kpiValue26',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue27',
+    name: 'kpiValue27',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue28',
+    name: 'kpiValue28',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue29',
+    name: 'kpiValue29',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'KPIValue30',
+    name: 'kpiValue30',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): KpiItemLine {
-    return createComplexType(json, {
-      KPICode: (kpiCode: string) => ({ kpiCode: edmToTs(kpiCode, 'Edm.String') }),
-      KPILineNumber: (kpiLineNumber: number) => ({ kpiLineNumber: edmToTs(kpiLineNumber, 'Edm.Int32') }),
-      KPIName: (kpiName: string) => ({ kpiName: edmToTs(kpiName, 'Edm.String') }),
-      KPIValue1: (kpiValue1: number) => ({ kpiValue1: edmToTs(kpiValue1, 'Edm.Double') }),
-      KPIValue2: (kpiValue2: number) => ({ kpiValue2: edmToTs(kpiValue2, 'Edm.Double') }),
-      KPIValue3: (kpiValue3: number) => ({ kpiValue3: edmToTs(kpiValue3, 'Edm.Double') }),
-      KPIValue4: (kpiValue4: number) => ({ kpiValue4: edmToTs(kpiValue4, 'Edm.Double') }),
-      KPIValue5: (kpiValue5: number) => ({ kpiValue5: edmToTs(kpiValue5, 'Edm.Double') }),
-      KPIValue6: (kpiValue6: number) => ({ kpiValue6: edmToTs(kpiValue6, 'Edm.Double') }),
-      KPIValue7: (kpiValue7: number) => ({ kpiValue7: edmToTs(kpiValue7, 'Edm.Double') }),
-      KPIValue8: (kpiValue8: number) => ({ kpiValue8: edmToTs(kpiValue8, 'Edm.Double') }),
-      KPIValue9: (kpiValue9: number) => ({ kpiValue9: edmToTs(kpiValue9, 'Edm.Double') }),
-      KPIValue10: (kpiValue10: number) => ({ kpiValue10: edmToTs(kpiValue10, 'Edm.Double') }),
-      KPIValue11: (kpiValue11: number) => ({ kpiValue11: edmToTs(kpiValue11, 'Edm.Double') }),
-      KPIValue12: (kpiValue12: number) => ({ kpiValue12: edmToTs(kpiValue12, 'Edm.Double') }),
-      KPIValue13: (kpiValue13: number) => ({ kpiValue13: edmToTs(kpiValue13, 'Edm.Double') }),
-      KPIValue14: (kpiValue14: number) => ({ kpiValue14: edmToTs(kpiValue14, 'Edm.Double') }),
-      KPIValue15: (kpiValue15: number) => ({ kpiValue15: edmToTs(kpiValue15, 'Edm.Double') }),
-      KPIValue16: (kpiValue16: number) => ({ kpiValue16: edmToTs(kpiValue16, 'Edm.Double') }),
-      KPIValue17: (kpiValue17: number) => ({ kpiValue17: edmToTs(kpiValue17, 'Edm.Double') }),
-      KPIValue18: (kpiValue18: number) => ({ kpiValue18: edmToTs(kpiValue18, 'Edm.Double') }),
-      KPIValue19: (kpiValue19: number) => ({ kpiValue19: edmToTs(kpiValue19, 'Edm.Double') }),
-      KPIValue20: (kpiValue20: number) => ({ kpiValue20: edmToTs(kpiValue20, 'Edm.Double') }),
-      KPIValue21: (kpiValue21: number) => ({ kpiValue21: edmToTs(kpiValue21, 'Edm.Double') }),
-      KPIValue22: (kpiValue22: number) => ({ kpiValue22: edmToTs(kpiValue22, 'Edm.Double') }),
-      KPIValue23: (kpiValue23: number) => ({ kpiValue23: edmToTs(kpiValue23, 'Edm.Double') }),
-      KPIValue24: (kpiValue24: number) => ({ kpiValue24: edmToTs(kpiValue24, 'Edm.Double') }),
-      KPIValue25: (kpiValue25: number) => ({ kpiValue25: edmToTs(kpiValue25, 'Edm.Double') }),
-      KPIValue26: (kpiValue26: number) => ({ kpiValue26: edmToTs(kpiValue26, 'Edm.Double') }),
-      KPIValue27: (kpiValue27: number) => ({ kpiValue27: edmToTs(kpiValue27, 'Edm.Double') }),
-      KPIValue28: (kpiValue28: number) => ({ kpiValue28: edmToTs(kpiValue28, 'Edm.Double') }),
-      KPIValue29: (kpiValue29: number) => ({ kpiValue29: edmToTs(kpiValue29, 'Edm.Double') }),
-      KPIValue30: (kpiValue30: number) => ({ kpiValue30: edmToTs(kpiValue30, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, KpiItemLine);
   }
 }

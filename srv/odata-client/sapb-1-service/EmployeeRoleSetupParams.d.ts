@@ -1,4 +1,4 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * EmployeeRoleSetupParams
  */
@@ -22,7 +22,7 @@ export declare function createEmployeeRoleSetupParams(json: any): EmployeeRoleSe
  * EmployeeRoleSetupParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class EmployeeRoleSetupParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class EmployeeRoleSetupParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, EmployeeRoleSetupParams> {
     /**
      * Representation of the [[EmployeeRoleSetupParams.typeId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -33,8 +33,22 @@ export declare class EmployeeRoleSetupParamsField<EntityT extends Entity> extend
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     name: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Creates an instance of EmployeeRoleSetupParamsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace EmployeeRoleSetupParams {
+    /**
+     * Metadata information on all properties of the `EmployeeRoleSetupParams` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<EmployeeRoleSetupParams>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): EmployeeRoleSetupParams;

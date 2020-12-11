@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { BranchesRequestBuilder } from './BranchesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "Branches" of service "SAPB1".
  */
-export class Branches extends Entity implements BranchesType {
+export class Branches extends EntityV4 implements BranchesType {
   /**
    * Technical entity name for Branches.
    */
   static _entityName = 'Branches';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for Branches.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -144,11 +139,11 @@ export class Branches extends Entity implements BranchesType {
   goodsReturnRequest!: GoodsReturnRequest[];
 
   /**
-   * Returns an entity builder to construct instances `Branches`.
+   * Returns an entity builder to construct instances of `Branches`.
    * @returns A builder that constructs instances of entity type `Branches`.
    */
-  static builder(): EntityBuilderType<Branches, BranchesTypeForceMandatory> {
-    return Entity.entityBuilder(Branches);
+  static builder(): EntityBuilderType<Branches, BranchesType> {
+    return EntityV4.entityBuilder(Branches);
   }
 
   /**
@@ -164,8 +159,8 @@ export class Branches extends Entity implements BranchesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `Branches`.
    */
-  static customField(fieldName: string): CustomField<Branches> {
-    return Entity.customFieldSelector(fieldName, Branches);
+  static customField(fieldName: string): CustomFieldV4<Branches> {
+    return EntityV4.customFieldSelector(fieldName, Branches);
   }
 
   /**
@@ -205,41 +200,9 @@ import { PurchaseOrders, PurchaseOrdersType } from './PurchaseOrders';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 
 export interface BranchesType {
-  code?: number;
-  name?: string;
-  description?: string;
-  inventoryGenEntries: InventoryGenEntriesType[];
-  purchaseQuotations: PurchaseQuotationsType[];
-  deliveryNotes: DeliveryNotesType[];
-  quotations: QuotationsType[];
-  inventoryGenExits: InventoryGenExitsType[];
-  purchaseRequests: PurchaseRequestsType[];
-  returnRequest: ReturnRequestType[];
-  users: UsersType[];
-  purchaseReturns: PurchaseReturnsType[];
-  invoices: InvoicesType[];
-  creditNotes: CreditNotesType[];
-  orders: OrdersType[];
-  downPayments: DownPaymentsType[];
-  drafts: DraftsType[];
-  returns: ReturnsType[];
-  correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-  correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-  correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-  purchaseInvoices: PurchaseInvoicesType[];
-  purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-  correctionInvoice: CorrectionInvoiceType[];
-  purchaseCreditNotes: PurchaseCreditNotesType[];
-  purchaseDownPayments: PurchaseDownPaymentsType[];
-  employeesInfo: EmployeesInfoType[];
-  purchaseOrders: PurchaseOrdersType[];
-  goodsReturnRequest: GoodsReturnRequestType[];
-}
-
-export interface BranchesTypeForceMandatory {
-  code: number;
-  name: string;
-  description: string;
+  code?: number | null;
+  name?: string | null;
+  description?: string | null;
   inventoryGenEntries: InventoryGenEntriesType[];
   purchaseQuotations: PurchaseQuotationsType[];
   deliveryNotes: DeliveryNotesType[];

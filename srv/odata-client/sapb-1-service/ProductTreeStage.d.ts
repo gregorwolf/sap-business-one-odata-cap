@@ -1,4 +1,4 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * ProductTreeStage
  */
@@ -42,7 +42,7 @@ export declare function createProductTreeStage(json: any): ProductTreeStage;
  * ProductTreeStageField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class ProductTreeStageField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class ProductTreeStageField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ProductTreeStage> {
     /**
      * Representation of the [[ProductTreeStage.father]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -73,8 +73,22 @@ export declare class ProductTreeStageField<EntityT extends Entity> extends Compl
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     waitingDays: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of ProductTreeStageField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace ProductTreeStage {
+    /**
+     * Metadata information on all properties of the `ProductTreeStage` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<ProductTreeStage>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): ProductTreeStage;

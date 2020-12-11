@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Attachments2Line = exports.Attachments2LineField = exports.createAttachments2Line = void 0;
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[Attachments2Line.build]] instead.
  */
@@ -28,42 +28,90 @@ exports.createAttachments2Line = createAttachments2Line;
  */
 var Attachments2LineField = /** @class */ (function (_super) {
     __extends(Attachments2LineField, _super);
-    function Attachments2LineField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of Attachments2LineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function Attachments2LineField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, Attachments2Line) || this;
         /**
          * Representation of the [[Attachments2Line.sourcePath]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.sourcePath = new v4_1.ComplexTypeStringPropertyField('SourcePath', _this, 'Edm.String');
+        _this.sourcePath = new core_1.ComplexTypeStringPropertyField('SourcePath', _this, 'Edm.String');
         /**
          * Representation of the [[Attachments2Line.fileName]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.fileName = new v4_1.ComplexTypeStringPropertyField('FileName', _this, 'Edm.String');
+        _this.fileName = new core_1.ComplexTypeStringPropertyField('FileName', _this, 'Edm.String');
         /**
          * Representation of the [[Attachments2Line.fileExtension]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.fileExtension = new v4_1.ComplexTypeStringPropertyField('FileExtension', _this, 'Edm.String');
+        _this.fileExtension = new core_1.ComplexTypeStringPropertyField('FileExtension', _this, 'Edm.String');
         /**
          * Representation of the [[Attachments2Line.attachmentDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.attachmentDate = new v4_1.ComplexTypeDatePropertyField('AttachmentDate', _this, 'Edm.DateTimeOffset');
+        _this.attachmentDate = new core_1.ComplexTypeDatePropertyField('AttachmentDate', _this, 'Edm.DateTimeOffset');
+        /**
+         * Representation of the [[Attachments2Line.userId]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.userId = new core_1.ComplexTypeEnumPropertyField('UserID', _this);
+        /**
+         * Representation of the [[Attachments2Line.override]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.override = new core_1.ComplexTypeEnumPropertyField('Override', _this);
         return _this;
     }
     return Attachments2LineField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.Attachments2LineField = Attachments2LineField;
 var Attachments2Line;
 (function (Attachments2Line) {
+    /**
+     * Metadata information on all properties of the `Attachments2Line` complex type.
+     */
+    Attachments2Line._propertyMetadata = [{
+            originalName: 'SourcePath',
+            name: 'sourcePath',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'FileName',
+            name: 'fileName',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'FileExtension',
+            name: 'fileExtension',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'AttachmentDate',
+            name: 'attachmentDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'UserID',
+            name: 'userId',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'Override',
+            name: 'override',
+            type: 'Edm.Enum',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            SourcePath: function (sourcePath) { return ({ sourcePath: v4_1.edmToTs(sourcePath, 'Edm.String') }); },
-            FileName: function (fileName) { return ({ fileName: v4_1.edmToTs(fileName, 'Edm.String') }); },
-            FileExtension: function (fileExtension) { return ({ fileExtension: v4_1.edmToTs(fileExtension, 'Edm.String') }); },
-            AttachmentDate: function (attachmentDate) { return ({ attachmentDate: v4_1.edmToTs(attachmentDate, 'Edm.DateTimeOffset') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, Attachments2Line);
     }
     Attachments2Line.build = build;
 })(Attachments2Line = exports.Attachments2Line || (exports.Attachments2Line = {}));

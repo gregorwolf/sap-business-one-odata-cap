@@ -1,18 +1,13 @@
 import { IndiaSacCodeRequestBuilder } from './IndiaSacCodeRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "IndiaSacCode" of service "SAPB1".
  */
-export declare class IndiaSacCode extends Entity implements IndiaSacCodeType {
+export declare class IndiaSacCode extends EntityV4 implements IndiaSacCodeType {
     /**
      * Technical entity name for IndiaSacCode.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for IndiaSacCode.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -37,10 +32,10 @@ export declare class IndiaSacCode extends Entity implements IndiaSacCodeType {
      */
     items: Items[];
     /**
-     * Returns an entity builder to construct instances `IndiaSacCode`.
+     * Returns an entity builder to construct instances of `IndiaSacCode`.
      * @returns A builder that constructs instances of entity type `IndiaSacCode`.
      */
-    static builder(): EntityBuilderType<IndiaSacCode, IndiaSacCodeTypeForceMandatory>;
+    static builder(): EntityBuilderType<IndiaSacCode, IndiaSacCodeType>;
     /**
      * Returns a request builder to construct requests for operations on the `IndiaSacCode` entity type.
      * @returns A `IndiaSacCode` request builder.
@@ -51,7 +46,7 @@ export declare class IndiaSacCode extends Entity implements IndiaSacCodeType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `IndiaSacCode`.
      */
-    static customField(fieldName: string): CustomField<IndiaSacCode>;
+    static customField(fieldName: string): CustomFieldV4<IndiaSacCode>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -62,15 +57,9 @@ export declare class IndiaSacCode extends Entity implements IndiaSacCodeType {
 }
 import { Items, ItemsType } from './Items';
 export interface IndiaSacCodeType {
-    absEntry?: number;
-    serviceCode?: string;
-    serviceName?: string;
-    items: ItemsType[];
-}
-export interface IndiaSacCodeTypeForceMandatory {
-    absEntry: number;
-    serviceCode: string;
-    serviceName: string;
+    absEntry?: number | null;
+    serviceCode?: string | null;
+    serviceName?: string | null;
     items: ItemsType[];
 }
 export declare namespace IndiaSacCode {

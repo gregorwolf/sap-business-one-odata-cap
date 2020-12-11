@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { BusinessPartnerGroupsRequestBuilder } from './BusinessPartnerGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoBusinessPartnerGroupTypes } from './BoBusinessPartnerGroupTypes';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "BusinessPartnerGroups" of service "SAPB1".
  */
-export class BusinessPartnerGroups extends Entity implements BusinessPartnerGroupsType {
+export class BusinessPartnerGroups extends EntityV4 implements BusinessPartnerGroupsType {
   /**
    * Technical entity name for BusinessPartnerGroups.
    */
   static _entityName = 'BusinessPartnerGroups';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for BusinessPartnerGroups.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -34,6 +30,11 @@ export class BusinessPartnerGroups extends Entity implements BusinessPartnerGrou
    */
   name?: string;
   /**
+   * Type.
+   * @nullable
+   */
+  type?: BoBusinessPartnerGroupTypes;
+  /**
    * One-to-many navigation property to the [[BusinessPartners]] entity.
    */
   businessPartners!: BusinessPartners[];
@@ -43,11 +44,11 @@ export class BusinessPartnerGroups extends Entity implements BusinessPartnerGrou
   glAccountAdvancedRules!: GlAccountAdvancedRules[];
 
   /**
-   * Returns an entity builder to construct instances `BusinessPartnerGroups`.
+   * Returns an entity builder to construct instances of `BusinessPartnerGroups`.
    * @returns A builder that constructs instances of entity type `BusinessPartnerGroups`.
    */
-  static builder(): EntityBuilderType<BusinessPartnerGroups, BusinessPartnerGroupsTypeForceMandatory> {
-    return Entity.entityBuilder(BusinessPartnerGroups);
+  static builder(): EntityBuilderType<BusinessPartnerGroups, BusinessPartnerGroupsType> {
+    return EntityV4.entityBuilder(BusinessPartnerGroups);
   }
 
   /**
@@ -63,8 +64,8 @@ export class BusinessPartnerGroups extends Entity implements BusinessPartnerGrou
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `BusinessPartnerGroups`.
    */
-  static customField(fieldName: string): CustomField<BusinessPartnerGroups> {
-    return Entity.customFieldSelector(fieldName, BusinessPartnerGroups);
+  static customField(fieldName: string): CustomFieldV4<BusinessPartnerGroups> {
+    return EntityV4.customFieldSelector(fieldName, BusinessPartnerGroups);
   }
 
   /**
@@ -80,15 +81,9 @@ import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 import { GlAccountAdvancedRules, GlAccountAdvancedRulesType } from './GlAccountAdvancedRules';
 
 export interface BusinessPartnerGroupsType {
-  code?: number;
-  name?: string;
-  businessPartners: BusinessPartnersType[];
-  glAccountAdvancedRules: GlAccountAdvancedRulesType[];
-}
-
-export interface BusinessPartnerGroupsTypeForceMandatory {
-  code: number;
-  name: string;
+  code?: number | null;
+  name?: string | null;
+  type?: BoBusinessPartnerGroupTypes | null;
   businessPartners: BusinessPartnersType[];
   glAccountAdvancedRules: GlAccountAdvancedRulesType[];
 }
@@ -105,6 +100,11 @@ export namespace BusinessPartnerGroups {
    */
   export const NAME: StringField<BusinessPartnerGroups> = new StringField('Name', BusinessPartnerGroups, 'Edm.String');
   /**
+   * Static representation of the [[type]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TYPE: EnumField<BusinessPartnerGroups> = new EnumField('Type', BusinessPartnerGroups);
+  /**
    * Static representation of the one-to-many navigation property [[businessPartners]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -117,9 +117,10 @@ export namespace BusinessPartnerGroups {
   /**
    * All fields of the BusinessPartnerGroups entity.
    */
-  export const _allFields: Array<NumberField<BusinessPartnerGroups> | StringField<BusinessPartnerGroups> | OneToManyLink<BusinessPartnerGroups, BusinessPartners> | OneToManyLink<BusinessPartnerGroups, GlAccountAdvancedRules>> = [
+  export const _allFields: Array<NumberField<BusinessPartnerGroups> | StringField<BusinessPartnerGroups> | EnumField<BusinessPartnerGroups> | OneToManyLink<BusinessPartnerGroups, BusinessPartners> | OneToManyLink<BusinessPartnerGroups, GlAccountAdvancedRules>> = [
     BusinessPartnerGroups.CODE,
     BusinessPartnerGroups.NAME,
+    BusinessPartnerGroups.TYPE,
     BusinessPartnerGroups.BUSINESS_PARTNERS,
     BusinessPartnerGroups.GL_ACCOUNT_ADVANCED_RULES
   ];

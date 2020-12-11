@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { WtdDetailType } from './WtdDetailType';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * Wtdbp
  */
@@ -34,6 +35,11 @@ export interface Wtdbp {
      * @nullable
      */
     rate?: number;
+    /**
+     * Detail Type.
+     * @nullable
+     */
+    detailType?: WtdDetailType;
 }
 /**
  * @deprecated Since v1.6.0. Use [[Wtdbp.build]] instead.
@@ -43,7 +49,7 @@ export declare function createWtdbp(json: any): Wtdbp;
  * WtdbpField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class WtdbpField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class WtdbpField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, Wtdbp> {
     /**
      * Representation of the [[Wtdbp.bpKeyPart1]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -74,8 +80,27 @@ export declare class WtdbpField<EntityT extends Entity> extends ComplexTypeField
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     rate: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[Wtdbp.detailType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    detailType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Creates an instance of WtdbpField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace Wtdbp {
+    /**
+     * Metadata information on all properties of the `Wtdbp` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<Wtdbp>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): Wtdbp;

@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { AlternateCatNumRequestBuilder } from './AlternateCatNumRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "AlternateCatNum" of service "SAPB1".
  */
-export class AlternateCatNum extends Entity implements AlternateCatNumType {
+export class AlternateCatNum extends EntityV4 implements AlternateCatNumType {
   /**
    * Technical entity name for AlternateCatNum.
    */
   static _entityName = 'AlternateCatNum';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for AlternateCatNum.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Item Code.
    * @nullable
@@ -39,6 +35,11 @@ export class AlternateCatNum extends Entity implements AlternateCatNumType {
    */
   substitute?: string;
   /**
+   * Display Bp Catalog Number.
+   * @nullable
+   */
+  displayBpCatalogNumber?: BoYesNoEnum;
+  /**
    * One-to-one navigation property to the [[Items]] entity.
    */
   item!: Items;
@@ -48,11 +49,11 @@ export class AlternateCatNum extends Entity implements AlternateCatNumType {
   businessPartner!: BusinessPartners;
 
   /**
-   * Returns an entity builder to construct instances `AlternateCatNum`.
+   * Returns an entity builder to construct instances of `AlternateCatNum`.
    * @returns A builder that constructs instances of entity type `AlternateCatNum`.
    */
-  static builder(): EntityBuilderType<AlternateCatNum, AlternateCatNumTypeForceMandatory> {
-    return Entity.entityBuilder(AlternateCatNum);
+  static builder(): EntityBuilderType<AlternateCatNum, AlternateCatNumType> {
+    return EntityV4.entityBuilder(AlternateCatNum);
   }
 
   /**
@@ -68,8 +69,8 @@ export class AlternateCatNum extends Entity implements AlternateCatNumType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `AlternateCatNum`.
    */
-  static customField(fieldName: string): CustomField<AlternateCatNum> {
-    return Entity.customFieldSelector(fieldName, AlternateCatNum);
+  static customField(fieldName: string): CustomFieldV4<AlternateCatNum> {
+    return EntityV4.customFieldSelector(fieldName, AlternateCatNum);
   }
 
   /**
@@ -85,17 +86,10 @@ import { Items, ItemsType } from './Items';
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 
 export interface AlternateCatNumType {
-  itemCode?: string;
-  cardCode?: string;
-  substitute?: string;
-  item: ItemsType;
-  businessPartner: BusinessPartnersType;
-}
-
-export interface AlternateCatNumTypeForceMandatory {
-  itemCode: string;
-  cardCode: string;
-  substitute: string;
+  itemCode?: string | null;
+  cardCode?: string | null;
+  substitute?: string | null;
+  displayBpCatalogNumber?: BoYesNoEnum | null;
   item: ItemsType;
   businessPartner: BusinessPartnersType;
 }
@@ -117,6 +111,11 @@ export namespace AlternateCatNum {
    */
   export const SUBSTITUTE: StringField<AlternateCatNum> = new StringField('Substitute', AlternateCatNum, 'Edm.String');
   /**
+   * Static representation of the [[displayBpCatalogNumber]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DISPLAY_BP_CATALOG_NUMBER: EnumField<AlternateCatNum> = new EnumField('DisplayBPCatalogNumber', AlternateCatNum);
+  /**
    * Static representation of the one-to-one navigation property [[item]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -129,10 +128,11 @@ export namespace AlternateCatNum {
   /**
    * All fields of the AlternateCatNum entity.
    */
-  export const _allFields: Array<StringField<AlternateCatNum> | OneToOneLink<AlternateCatNum, Items> | OneToOneLink<AlternateCatNum, BusinessPartners>> = [
+  export const _allFields: Array<StringField<AlternateCatNum> | EnumField<AlternateCatNum> | OneToOneLink<AlternateCatNum, Items> | OneToOneLink<AlternateCatNum, BusinessPartners>> = [
     AlternateCatNum.ITEM_CODE,
     AlternateCatNum.CARD_CODE,
     AlternateCatNum.SUBSTITUTE,
+    AlternateCatNum.DISPLAY_BP_CATALOG_NUMBER,
     AlternateCatNum.ITEM,
     AlternateCatNum.BUSINESS_PARTNER
   ];

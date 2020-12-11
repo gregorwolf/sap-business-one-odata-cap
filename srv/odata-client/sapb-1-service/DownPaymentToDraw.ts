@@ -4,8 +4,10 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { DownPaymentToDrawDetails, DownPaymentToDrawDetailsField } from './DownPaymentToDrawDetails';
-import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { DownPaymentToDrawDetails } from './DownPaymentToDrawDetails';
+import { DownPaymentTypeEnum } from './DownPaymentTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * DownPaymentToDraw
@@ -41,6 +43,11 @@ export interface DownPaymentToDraw {
    * @nullable
    */
   amountToDraw?: number;
+  /**
+   * Down Payment Type.
+   * @nullable
+   */
+  downPaymentType?: DownPaymentTypeEnum;
   /**
    * Amount To Draw Fc.
    * @nullable
@@ -97,10 +104,15 @@ export interface DownPaymentToDraw {
    */
   grossAmountToDrawSc?: number;
   /**
+   * Is Gross Line.
+   * @nullable
+   */
+  isGrossLine?: BoYesNoEnum;
+  /**
    * Down Payments To Draw Details.
    * @nullable
    */
-  downPaymentsToDrawDetails?: DownPaymentToDrawDetails;
+  downPaymentsToDrawDetails?: DownPaymentToDrawDetails[];
 }
 
 /**
@@ -114,7 +126,7 @@ export function createDownPaymentToDraw(json: any): DownPaymentToDraw {
  * DownPaymentToDrawField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class DownPaymentToDrawField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class DownPaymentToDrawField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, DownPaymentToDraw> {
   /**
    * Representation of the [[DownPaymentToDraw.docEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -145,6 +157,11 @@ export class DownPaymentToDrawField<EntityT extends Entity> extends ComplexTypeF
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   amountToDraw: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('AmountToDraw', this, 'Edm.Double');
+  /**
+   * Representation of the [[DownPaymentToDraw.downPaymentType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  downPaymentType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DownPaymentType', this);
   /**
    * Representation of the [[DownPaymentToDraw.amountToDrawFc]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -201,33 +218,137 @@ export class DownPaymentToDrawField<EntityT extends Entity> extends ComplexTypeF
    */
   grossAmountToDrawSc: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('GrossAmountToDrawSC', this, 'Edm.Double');
   /**
+   * Representation of the [[DownPaymentToDraw.isGrossLine]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  isGrossLine: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IsGrossLine', this);
+  /**
    * Representation of the [[DownPaymentToDraw.downPaymentsToDrawDetails]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  downPaymentsToDrawDetails: DownPaymentToDrawDetailsField<EntityT> = new DownPaymentToDrawDetailsField('DownPaymentsToDrawDetails', this);
+  downPaymentsToDrawDetails: CollectionField<EntityT, DownPaymentToDrawDetails> = new CollectionField('DownPaymentsToDrawDetails', this, DownPaymentToDrawDetails);
+
+  /**
+   * Creates an instance of DownPaymentToDrawField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, DownPaymentToDraw);
+  }
 }
 
 export namespace DownPaymentToDraw {
+  /**
+   * Metadata information on all properties of the `DownPaymentToDraw` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<DownPaymentToDraw>[] = [{
+    originalName: 'DocEntry',
+    name: 'docEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PostingDate',
+    name: 'postingDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'DueDate',
+    name: 'dueDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Name',
+    name: 'name',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Details',
+    name: 'details',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AmountToDraw',
+    name: 'amountToDraw',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DownPaymentType',
+    name: 'downPaymentType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AmountToDrawFC',
+    name: 'amountToDrawFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AmountToDrawSC',
+    name: 'amountToDrawSc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DocInternalID',
+    name: 'docInternalId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'RowNum',
+    name: 'rowNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DocNumber',
+    name: 'docNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Tax',
+    name: 'tax',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxFC',
+    name: 'taxFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxSC',
+    name: 'taxSc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'GrossAmountToDraw',
+    name: 'grossAmountToDraw',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'GrossAmountToDrawFC',
+    name: 'grossAmountToDrawFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'GrossAmountToDrawSC',
+    name: 'grossAmountToDrawSc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'IsGrossLine',
+    name: 'isGrossLine',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DownPaymentsToDrawDetails',
+    name: 'downPaymentsToDrawDetails',
+    type: DownPaymentToDrawDetails,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | DownPaymentToDrawDetails }): DownPaymentToDraw {
-    return createComplexType(json, {
-      DocEntry: (docEntry: number) => ({ docEntry: edmToTs(docEntry, 'Edm.Int32') }),
-      PostingDate: (postingDate: Moment) => ({ postingDate: edmToTs(postingDate, 'Edm.DateTimeOffset') }),
-      DueDate: (dueDate: Moment) => ({ dueDate: edmToTs(dueDate, 'Edm.DateTimeOffset') }),
-      Name: (name: string) => ({ name: edmToTs(name, 'Edm.String') }),
-      Details: (details: string) => ({ details: edmToTs(details, 'Edm.String') }),
-      AmountToDraw: (amountToDraw: number) => ({ amountToDraw: edmToTs(amountToDraw, 'Edm.Double') }),
-      AmountToDrawFC: (amountToDrawFc: number) => ({ amountToDrawFc: edmToTs(amountToDrawFc, 'Edm.Double') }),
-      AmountToDrawSC: (amountToDrawSc: number) => ({ amountToDrawSc: edmToTs(amountToDrawSc, 'Edm.Double') }),
-      DocInternalID: (docInternalId: number) => ({ docInternalId: edmToTs(docInternalId, 'Edm.Int32') }),
-      RowNum: (rowNum: number) => ({ rowNum: edmToTs(rowNum, 'Edm.Int32') }),
-      DocNumber: (docNumber: number) => ({ docNumber: edmToTs(docNumber, 'Edm.Int32') }),
-      Tax: (tax: number) => ({ tax: edmToTs(tax, 'Edm.Double') }),
-      TaxFC: (taxFc: number) => ({ taxFc: edmToTs(taxFc, 'Edm.Double') }),
-      TaxSC: (taxSc: number) => ({ taxSc: edmToTs(taxSc, 'Edm.Double') }),
-      GrossAmountToDraw: (grossAmountToDraw: number) => ({ grossAmountToDraw: edmToTs(grossAmountToDraw, 'Edm.Double') }),
-      GrossAmountToDrawFC: (grossAmountToDrawFc: number) => ({ grossAmountToDrawFc: edmToTs(grossAmountToDrawFc, 'Edm.Double') }),
-      GrossAmountToDrawSC: (grossAmountToDrawSc: number) => ({ grossAmountToDrawSc: edmToTs(grossAmountToDrawSc, 'Edm.Double') }),
-      DownPaymentsToDrawDetails: (downPaymentsToDrawDetails: DownPaymentToDrawDetails) => ({ downPaymentsToDrawDetails: DownPaymentToDrawDetails.build(downPaymentsToDrawDetails) })
-    });
+    return deserializeComplexTypeV4(json, DownPaymentToDraw);
   }
 }

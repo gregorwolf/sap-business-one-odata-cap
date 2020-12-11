@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.DeductionTaxGroups = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var DeductionTaxGroupsRequestBuilder_1 = require("./DeductionTaxGroupsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "DeductionTaxGroups" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var DeductionTaxGroups = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `DeductionTaxGroups`.
+     * Returns an entity builder to construct instances of `DeductionTaxGroups`.
      * @returns A builder that constructs instances of entity type `DeductionTaxGroups`.
      */
     DeductionTaxGroups.builder = function () {
-        return v4_1.Entity.entityBuilder(DeductionTaxGroups);
+        return core_1.EntityV4.entityBuilder(DeductionTaxGroups);
     };
     /**
      * Returns a request builder to construct requests for operations on the `DeductionTaxGroups` entity type.
@@ -60,7 +60,7 @@ var DeductionTaxGroups = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `DeductionTaxGroups`.
      */
     DeductionTaxGroups.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, DeductionTaxGroups);
+        return core_1.EntityV4.customFieldSelector(fieldName, DeductionTaxGroups);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var DeductionTaxGroups = /** @class */ (function (_super) {
      */
     DeductionTaxGroups._entityName = 'DeductionTaxGroups';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for DeductionTaxGroups.
-     */
-    DeductionTaxGroups._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    DeductionTaxGroups._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    DeductionTaxGroups._defaultServicePath = '/b1s/v2/';
     return DeductionTaxGroups;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.DeductionTaxGroups = DeductionTaxGroups;
 var BusinessPartners_1 = require("./BusinessPartners");
 var DeductionTaxSubGroups_1 = require("./DeductionTaxSubGroups");
@@ -92,37 +87,43 @@ var DeductionTaxSubGroups_1 = require("./DeductionTaxSubGroups");
      * Static representation of the [[groupKey]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DeductionTaxGroups.GROUP_KEY = new v4_1.NumberField('GroupKey', DeductionTaxGroups, 'Edm.Int32');
+    DeductionTaxGroups.GROUP_KEY = new core_1.NumberField('GroupKey', DeductionTaxGroups, 'Edm.Int32');
+    /**
+     * Static representation of the [[groupCode]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    DeductionTaxGroups.GROUP_CODE = new core_1.EnumField('GroupCode', DeductionTaxGroups);
     /**
      * Static representation of the [[groupName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DeductionTaxGroups.GROUP_NAME = new v4_1.StringField('GroupName', DeductionTaxGroups, 'Edm.String');
+    DeductionTaxGroups.GROUP_NAME = new core_1.StringField('GroupName', DeductionTaxGroups, 'Edm.String');
     /**
      * Static representation of the [[maxRedin]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DeductionTaxGroups.MAX_REDIN = new v4_1.NumberField('MaxRedin', DeductionTaxGroups, 'Edm.Double');
+    DeductionTaxGroups.MAX_REDIN = new core_1.NumberField('MaxRedin', DeductionTaxGroups, 'Edm.Double');
     /**
      * Static representation of the [[groupExtendedCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DeductionTaxGroups.GROUP_EXTENDED_CODE = new v4_1.StringField('GroupExtendedCode', DeductionTaxGroups, 'Edm.String');
+    DeductionTaxGroups.GROUP_EXTENDED_CODE = new core_1.StringField('GroupExtendedCode', DeductionTaxGroups, 'Edm.String');
     /**
      * Static representation of the one-to-many navigation property [[businessPartners]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DeductionTaxGroups.BUSINESS_PARTNERS = new v4_1.OneToManyLink('BusinessPartners', DeductionTaxGroups, BusinessPartners_1.BusinessPartners);
+    DeductionTaxGroups.BUSINESS_PARTNERS = new core_1.OneToManyLink('BusinessPartners', DeductionTaxGroups, BusinessPartners_1.BusinessPartners);
     /**
      * Static representation of the one-to-one navigation property [[deductionTaxSubGroup]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DeductionTaxGroups.DEDUCTION_TAX_SUB_GROUP = new v4_1.OneToOneLink('DeductionTaxSubGroup', DeductionTaxGroups, DeductionTaxSubGroups_1.DeductionTaxSubGroups);
+    DeductionTaxGroups.DEDUCTION_TAX_SUB_GROUP = new core_1.OneToOneLink('DeductionTaxSubGroup', DeductionTaxGroups, DeductionTaxSubGroups_1.DeductionTaxSubGroups);
     /**
      * All fields of the DeductionTaxGroups entity.
      */
     DeductionTaxGroups._allFields = [
         DeductionTaxGroups.GROUP_KEY,
+        DeductionTaxGroups.GROUP_CODE,
         DeductionTaxGroups.GROUP_NAME,
         DeductionTaxGroups.MAX_REDIN,
         DeductionTaxGroups.GROUP_EXTENDED_CODE,
@@ -132,7 +133,7 @@ var DeductionTaxSubGroups_1 = require("./DeductionTaxSubGroups");
     /**
      * All fields selector.
      */
-    DeductionTaxGroups.ALL_FIELDS = new v4_1.AllFields('*', DeductionTaxGroups);
+    DeductionTaxGroups.ALL_FIELDS = new core_1.AllFields('*', DeductionTaxGroups);
     /**
      * All key fields of the DeductionTaxGroups entity.
      */

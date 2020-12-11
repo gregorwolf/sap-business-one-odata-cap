@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -36,7 +36,7 @@ var ApprovalTemplateStage_1 = require("./ApprovalTemplateStage");
 var ApprovalTemplateDocument_1 = require("./ApprovalTemplateDocument");
 var ApprovalTemplateTerm_1 = require("./ApprovalTemplateTerm");
 var ApprovalTemplateQuery_1 = require("./ApprovalTemplateQuery");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "ApprovalTemplates" of service "SAPB1".
  */
@@ -46,11 +46,11 @@ var ApprovalTemplates = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `ApprovalTemplates`.
+     * Returns an entity builder to construct instances of `ApprovalTemplates`.
      * @returns A builder that constructs instances of entity type `ApprovalTemplates`.
      */
     ApprovalTemplates.builder = function () {
-        return v4_1.Entity.entityBuilder(ApprovalTemplates);
+        return core_1.EntityV4.entityBuilder(ApprovalTemplates);
     };
     /**
      * Returns a request builder to construct requests for operations on the `ApprovalTemplates` entity type.
@@ -65,7 +65,7 @@ var ApprovalTemplates = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `ApprovalTemplates`.
      */
     ApprovalTemplates.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, ApprovalTemplates);
+        return core_1.EntityV4.customFieldSelector(fieldName, ApprovalTemplates);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -79,16 +79,11 @@ var ApprovalTemplates = /** @class */ (function (_super) {
      */
     ApprovalTemplates._entityName = 'ApprovalTemplates';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ApprovalTemplates.
-     */
-    ApprovalTemplates._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    ApprovalTemplates._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    ApprovalTemplates._defaultServicePath = '/b1s/v2/';
     return ApprovalTemplates;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.ApprovalTemplates = ApprovalTemplates;
 var ApprovalRequests_1 = require("./ApprovalRequests");
 (function (ApprovalTemplates) {
@@ -96,47 +91,62 @@ var ApprovalRequests_1 = require("./ApprovalRequests");
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalTemplates.CODE = new v4_1.NumberField('Code', ApprovalTemplates, 'Edm.Int32');
+    ApprovalTemplates.CODE = new core_1.NumberField('Code', ApprovalTemplates, 'Edm.Int32');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalTemplates.NAME = new v4_1.StringField('Name', ApprovalTemplates, 'Edm.String');
+    ApprovalTemplates.NAME = new core_1.StringField('Name', ApprovalTemplates, 'Edm.String');
     /**
      * Static representation of the [[remarks]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalTemplates.REMARKS = new v4_1.StringField('Remarks', ApprovalTemplates, 'Edm.String');
+    ApprovalTemplates.REMARKS = new core_1.StringField('Remarks', ApprovalTemplates, 'Edm.String');
+    /**
+     * Static representation of the [[useTerms]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ApprovalTemplates.USE_TERMS = new core_1.EnumField('UseTerms', ApprovalTemplates);
+    /**
+     * Static representation of the [[isActive]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ApprovalTemplates.IS_ACTIVE = new core_1.EnumField('IsActive', ApprovalTemplates);
+    /**
+     * Static representation of the [[isActiveWhenUpdatingDocuments]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ApprovalTemplates.IS_ACTIVE_WHEN_UPDATING_DOCUMENTS = new core_1.EnumField('IsActiveWhenUpdatingDocuments', ApprovalTemplates);
     /**
      * Static representation of the [[approvalTemplateUsers]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalTemplates.APPROVAL_TEMPLATE_USERS = new v4_1.CollectionField('ApprovalTemplateUsers', ApprovalTemplates, new ApprovalTemplateUser_1.ApprovalTemplateUserField('', ApprovalTemplates));
+    ApprovalTemplates.APPROVAL_TEMPLATE_USERS = new core_1.CollectionField('ApprovalTemplateUsers', ApprovalTemplates, ApprovalTemplateUser_1.ApprovalTemplateUser);
     /**
      * Static representation of the [[approvalTemplateStages]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalTemplates.APPROVAL_TEMPLATE_STAGES = new v4_1.CollectionField('ApprovalTemplateStages', ApprovalTemplates, new ApprovalTemplateStage_1.ApprovalTemplateStageField('', ApprovalTemplates));
+    ApprovalTemplates.APPROVAL_TEMPLATE_STAGES = new core_1.CollectionField('ApprovalTemplateStages', ApprovalTemplates, ApprovalTemplateStage_1.ApprovalTemplateStage);
     /**
      * Static representation of the [[approvalTemplateDocuments]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalTemplates.APPROVAL_TEMPLATE_DOCUMENTS = new v4_1.CollectionField('ApprovalTemplateDocuments', ApprovalTemplates, new ApprovalTemplateDocument_1.ApprovalTemplateDocumentField('', ApprovalTemplates));
+    ApprovalTemplates.APPROVAL_TEMPLATE_DOCUMENTS = new core_1.CollectionField('ApprovalTemplateDocuments', ApprovalTemplates, ApprovalTemplateDocument_1.ApprovalTemplateDocument);
     /**
      * Static representation of the [[approvalTemplateTerms]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalTemplates.APPROVAL_TEMPLATE_TERMS = new v4_1.CollectionField('ApprovalTemplateTerms', ApprovalTemplates, new ApprovalTemplateTerm_1.ApprovalTemplateTermField('', ApprovalTemplates));
+    ApprovalTemplates.APPROVAL_TEMPLATE_TERMS = new core_1.CollectionField('ApprovalTemplateTerms', ApprovalTemplates, ApprovalTemplateTerm_1.ApprovalTemplateTerm);
     /**
      * Static representation of the [[approvalTemplateQueries]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalTemplates.APPROVAL_TEMPLATE_QUERIES = new v4_1.CollectionField('ApprovalTemplateQueries', ApprovalTemplates, new ApprovalTemplateQuery_1.ApprovalTemplateQueryField('', ApprovalTemplates));
+    ApprovalTemplates.APPROVAL_TEMPLATE_QUERIES = new core_1.CollectionField('ApprovalTemplateQueries', ApprovalTemplates, ApprovalTemplateQuery_1.ApprovalTemplateQuery);
     /**
      * Static representation of the one-to-many navigation property [[approvalRequests]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalTemplates.APPROVAL_REQUESTS = new v4_1.OneToManyLink('ApprovalRequests', ApprovalTemplates, ApprovalRequests_1.ApprovalRequests);
+    ApprovalTemplates.APPROVAL_REQUESTS = new core_1.OneToManyLink('ApprovalRequests', ApprovalTemplates, ApprovalRequests_1.ApprovalRequests);
     /**
      * All fields of the ApprovalTemplates entity.
      */
@@ -144,6 +154,9 @@ var ApprovalRequests_1 = require("./ApprovalRequests");
         ApprovalTemplates.CODE,
         ApprovalTemplates.NAME,
         ApprovalTemplates.REMARKS,
+        ApprovalTemplates.USE_TERMS,
+        ApprovalTemplates.IS_ACTIVE,
+        ApprovalTemplates.IS_ACTIVE_WHEN_UPDATING_DOCUMENTS,
         ApprovalTemplates.APPROVAL_TEMPLATE_USERS,
         ApprovalTemplates.APPROVAL_TEMPLATE_STAGES,
         ApprovalTemplates.APPROVAL_TEMPLATE_DOCUMENTS,
@@ -154,7 +167,7 @@ var ApprovalRequests_1 = require("./ApprovalRequests");
     /**
      * All fields selector.
      */
-    ApprovalTemplates.ALL_FIELDS = new v4_1.AllFields('*', ApprovalTemplates);
+    ApprovalTemplates.ALL_FIELDS = new core_1.AllFields('*', ApprovalTemplates);
     /**
      * All key fields of the ApprovalTemplates entity.
      */

@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { CommissionGroupsRequestBuilder } from './CommissionGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "CommissionGroups" of service "SAPB1".
  */
-export class CommissionGroups extends Entity implements CommissionGroupsType {
+export class CommissionGroups extends EntityV4 implements CommissionGroupsType {
   /**
    * Technical entity name for CommissionGroups.
    */
   static _entityName = 'CommissionGroups';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for CommissionGroups.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Commission Group Code.
    * @nullable
@@ -52,11 +47,11 @@ export class CommissionGroups extends Entity implements CommissionGroupsType {
   businessPartners!: BusinessPartners[];
 
   /**
-   * Returns an entity builder to construct instances `CommissionGroups`.
+   * Returns an entity builder to construct instances of `CommissionGroups`.
    * @returns A builder that constructs instances of entity type `CommissionGroups`.
    */
-  static builder(): EntityBuilderType<CommissionGroups, CommissionGroupsTypeForceMandatory> {
-    return Entity.entityBuilder(CommissionGroups);
+  static builder(): EntityBuilderType<CommissionGroups, CommissionGroupsType> {
+    return EntityV4.entityBuilder(CommissionGroups);
   }
 
   /**
@@ -72,8 +67,8 @@ export class CommissionGroups extends Entity implements CommissionGroupsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `CommissionGroups`.
    */
-  static customField(fieldName: string): CustomField<CommissionGroups> {
-    return Entity.customFieldSelector(fieldName, CommissionGroups);
+  static customField(fieldName: string): CustomFieldV4<CommissionGroups> {
+    return EntityV4.customFieldSelector(fieldName, CommissionGroups);
   }
 
   /**
@@ -90,18 +85,9 @@ import { Items, ItemsType } from './Items';
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 
 export interface CommissionGroupsType {
-  commissionGroupCode?: number;
-  commissionGroupName?: string;
-  commissionPercentage?: number;
-  salesPersons: SalesPersonsType[];
-  items: ItemsType[];
-  businessPartners: BusinessPartnersType[];
-}
-
-export interface CommissionGroupsTypeForceMandatory {
-  commissionGroupCode: number;
-  commissionGroupName: string;
-  commissionPercentage: number;
+  commissionGroupCode?: number | null;
+  commissionGroupName?: string | null;
+  commissionPercentage?: number | null;
   salesPersons: SalesPersonsType[];
   items: ItemsType[];
   businessPartners: BusinessPartnersType[];

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { Users } from './Users';
 
 /**
@@ -15,16 +15,16 @@ export class UsersRequestBuilder extends RequestBuilder<Users> {
    * @param internalKey Key property. See [[Users.internalKey]].
    * @returns A request builder for creating requests to retrieve one `Users` entity based on its keys.
    */
-  getByKey(internalKey: number): GetByKeyRequestBuilder<Users> {
-    return new GetByKeyRequestBuilder(Users, { InternalKey: internalKey });
+  getByKey(internalKey: number): GetByKeyRequestBuilderV4<Users> {
+    return new GetByKeyRequestBuilderV4(Users, { InternalKey: internalKey });
   }
 
   /**
    * Returns a request builder for querying all `Users` entities.
    * @returns A request builder for creating requests to retrieve all `Users` entities.
    */
-  getAll(): GetAllRequestBuilder<Users> {
-    return new GetAllRequestBuilder(Users);
+  getAll(): GetAllRequestBuilderV4<Users> {
+    return new GetAllRequestBuilderV4(Users);
   }
 
   /**
@@ -32,8 +32,8 @@ export class UsersRequestBuilder extends RequestBuilder<Users> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `Users`.
    */
-  create(entity: Users): CreateRequestBuilder<Users> {
-    return new CreateRequestBuilder(Users, entity);
+  create(entity: Users): CreateRequestBuilderV4<Users> {
+    return new CreateRequestBuilderV4(Users, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class UsersRequestBuilder extends RequestBuilder<Users> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `Users`.
    */
-  update(entity: Users): UpdateRequestBuilder<Users> {
-    return new UpdateRequestBuilder(Users, entity);
+  update(entity: Users): UpdateRequestBuilderV4<Users> {
+    return new UpdateRequestBuilderV4(Users, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class UsersRequestBuilder extends RequestBuilder<Users> {
    * @param internalKey Key property. See [[Users.internalKey]].
    * @returns A request builder for creating requests that delete an entity of type `Users`.
    */
-  delete(internalKey: number): DeleteRequestBuilder<Users>;
+  delete(internalKey: number): DeleteRequestBuilderV4<Users>;
   /**
    * Returns a request builder for deleting an entity of type `Users`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `Users` by taking the entity as a parameter.
    */
-  delete(entity: Users): DeleteRequestBuilder<Users>;
-  delete(internalKeyOrEntity: any): DeleteRequestBuilder<Users> {
-    return new DeleteRequestBuilder(Users, internalKeyOrEntity instanceof Users ? internalKeyOrEntity : { InternalKey: internalKeyOrEntity! });
+  delete(entity: Users): DeleteRequestBuilderV4<Users>;
+  delete(internalKeyOrEntity: any): DeleteRequestBuilderV4<Users> {
+    return new DeleteRequestBuilderV4(Users, internalKeyOrEntity instanceof Users ? internalKeyOrEntity : { InternalKey: internalKeyOrEntity! });
   }
 }

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.Teams = void 0;
  */
 var TeamsRequestBuilder_1 = require("./TeamsRequestBuilder");
 var TeamMember_1 = require("./TeamMember");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "Teams" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var Teams = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `Teams`.
+     * Returns an entity builder to construct instances of `Teams`.
      * @returns A builder that constructs instances of entity type `Teams`.
      */
     Teams.builder = function () {
-        return v4_1.Entity.entityBuilder(Teams);
+        return core_1.EntityV4.entityBuilder(Teams);
     };
     /**
      * Returns a request builder to construct requests for operations on the `Teams` entity type.
@@ -61,7 +61,7 @@ var Teams = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `Teams`.
      */
     Teams.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, Teams);
+        return core_1.EntityV4.customFieldSelector(fieldName, Teams);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,38 +75,33 @@ var Teams = /** @class */ (function (_super) {
      */
     Teams._entityName = 'Teams';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Teams.
-     */
-    Teams._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    Teams._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    Teams._defaultServicePath = '/b1s/v2/';
     return Teams;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.Teams = Teams;
 (function (Teams) {
     /**
      * Static representation of the [[teamId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Teams.TEAM_ID = new v4_1.NumberField('TeamID', Teams, 'Edm.Int32');
+    Teams.TEAM_ID = new core_1.NumberField('TeamID', Teams, 'Edm.Int32');
     /**
      * Static representation of the [[teamName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Teams.TEAM_NAME = new v4_1.StringField('TeamName', Teams, 'Edm.String');
+    Teams.TEAM_NAME = new core_1.StringField('TeamName', Teams, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Teams.DESCRIPTION = new v4_1.StringField('Description', Teams, 'Edm.String');
+    Teams.DESCRIPTION = new core_1.StringField('Description', Teams, 'Edm.String');
     /**
      * Static representation of the [[teamMembers]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Teams.TEAM_MEMBERS = new v4_1.CollectionField('TeamMembers', Teams, new TeamMember_1.TeamMemberField('', Teams));
+    Teams.TEAM_MEMBERS = new core_1.CollectionField('TeamMembers', Teams, TeamMember_1.TeamMember);
     /**
      * All fields of the Teams entity.
      */
@@ -119,7 +114,7 @@ exports.Teams = Teams;
     /**
      * All fields selector.
      */
-    Teams.ALL_FIELDS = new v4_1.AllFields('*', Teams);
+    Teams.ALL_FIELDS = new core_1.AllFields('*', Teams);
     /**
      * All key fields of the Teams entity.
      */

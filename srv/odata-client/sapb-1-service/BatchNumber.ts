@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * BatchNumber
@@ -83,7 +83,7 @@ export function createBatchNumber(json: any): BatchNumber {
  * BatchNumberField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class BatchNumberField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class BatchNumberField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BatchNumber> {
   /**
    * Representation of the [[BatchNumber.batchNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -144,23 +144,88 @@ export class BatchNumberField<EntityT extends Entity> extends ComplexTypeField<E
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   trackingNoteLine: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('TrackingNoteLine', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of BatchNumberField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, BatchNumber);
+  }
 }
 
 export namespace BatchNumber {
+  /**
+   * Metadata information on all properties of the `BatchNumber` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<BatchNumber>[] = [{
+    originalName: 'BatchNumber',
+    name: 'batchNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ManufacturerSerialNumber',
+    name: 'manufacturerSerialNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InternalSerialNumber',
+    name: 'internalSerialNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExpiryDate',
+    name: 'expiryDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ManufacturingDate',
+    name: 'manufacturingDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'AddmisionDate',
+    name: 'addmisionDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Location',
+    name: 'location',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Notes',
+    name: 'notes',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Quantity',
+    name: 'quantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BaseLineNumber',
+    name: 'baseLineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TrackingNote',
+    name: 'trackingNote',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TrackingNoteLine',
+    name: 'trackingNoteLine',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): BatchNumber {
-    return createComplexType(json, {
-      BatchNumber: (batchNumber: string) => ({ batchNumber: edmToTs(batchNumber, 'Edm.String') }),
-      ManufacturerSerialNumber: (manufacturerSerialNumber: string) => ({ manufacturerSerialNumber: edmToTs(manufacturerSerialNumber, 'Edm.String') }),
-      InternalSerialNumber: (internalSerialNumber: string) => ({ internalSerialNumber: edmToTs(internalSerialNumber, 'Edm.String') }),
-      ExpiryDate: (expiryDate: Moment) => ({ expiryDate: edmToTs(expiryDate, 'Edm.DateTimeOffset') }),
-      ManufacturingDate: (manufacturingDate: Moment) => ({ manufacturingDate: edmToTs(manufacturingDate, 'Edm.DateTimeOffset') }),
-      AddmisionDate: (addmisionDate: Moment) => ({ addmisionDate: edmToTs(addmisionDate, 'Edm.DateTimeOffset') }),
-      Location: (location: string) => ({ location: edmToTs(location, 'Edm.String') }),
-      Notes: (notes: string) => ({ notes: edmToTs(notes, 'Edm.String') }),
-      Quantity: (quantity: number) => ({ quantity: edmToTs(quantity, 'Edm.Double') }),
-      BaseLineNumber: (baseLineNumber: number) => ({ baseLineNumber: edmToTs(baseLineNumber, 'Edm.Int32') }),
-      TrackingNote: (trackingNote: number) => ({ trackingNote: edmToTs(trackingNote, 'Edm.Int32') }),
-      TrackingNoteLine: (trackingNoteLine: number) => ({ trackingNoteLine: edmToTs(trackingNoteLine, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, BatchNumber);
   }
 }

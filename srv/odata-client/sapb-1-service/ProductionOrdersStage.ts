@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ProductionOrdersStage
@@ -73,7 +73,7 @@ export function createProductionOrdersStage(json: any): ProductionOrdersStage {
  * ProductionOrdersStageField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ProductionOrdersStageField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ProductionOrdersStageField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ProductionOrdersStage> {
   /**
    * Representation of the [[ProductionOrdersStage.docEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -124,21 +124,78 @@ export class ProductionOrdersStageField<EntityT extends Entity> extends ComplexT
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   calculationProportion: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('CalculationProportion', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of ProductionOrdersStageField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ProductionOrdersStage);
+  }
 }
 
 export namespace ProductionOrdersStage {
+  /**
+   * Metadata information on all properties of the `ProductionOrdersStage` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ProductionOrdersStage>[] = [{
+    originalName: 'DocEntry',
+    name: 'docEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'StageID',
+    name: 'stageId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SequenceNumber',
+    name: 'sequenceNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'StageEntry',
+    name: 'stageEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Name',
+    name: 'name',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StartDate',
+    name: 'startDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'EndDate',
+    name: 'endDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'RequiredDays',
+    name: 'requiredDays',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WaitingDays',
+    name: 'waitingDays',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CalculationProportion',
+    name: 'calculationProportion',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ProductionOrdersStage {
-    return createComplexType(json, {
-      DocEntry: (docEntry: number) => ({ docEntry: edmToTs(docEntry, 'Edm.Int32') }),
-      StageID: (stageId: number) => ({ stageId: edmToTs(stageId, 'Edm.Int32') }),
-      SequenceNumber: (sequenceNumber: number) => ({ sequenceNumber: edmToTs(sequenceNumber, 'Edm.Int32') }),
-      StageEntry: (stageEntry: number) => ({ stageEntry: edmToTs(stageEntry, 'Edm.Int32') }),
-      Name: (name: string) => ({ name: edmToTs(name, 'Edm.String') }),
-      StartDate: (startDate: Moment) => ({ startDate: edmToTs(startDate, 'Edm.DateTimeOffset') }),
-      EndDate: (endDate: Moment) => ({ endDate: edmToTs(endDate, 'Edm.DateTimeOffset') }),
-      RequiredDays: (requiredDays: number) => ({ requiredDays: edmToTs(requiredDays, 'Edm.Double') }),
-      WaitingDays: (waitingDays: number) => ({ waitingDays: edmToTs(waitingDays, 'Edm.Double') }),
-      CalculationProportion: (calculationProportion: number) => ({ calculationProportion: edmToTs(calculationProportion, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, ProductionOrdersStage);
   }
 }

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { PurchaseRequests } from './PurchaseRequests';
 
 /**
@@ -15,16 +15,16 @@ export class PurchaseRequestsRequestBuilder extends RequestBuilder<PurchaseReque
    * @param docEntry Key property. See [[PurchaseRequests.docEntry]].
    * @returns A request builder for creating requests to retrieve one `PurchaseRequests` entity based on its keys.
    */
-  getByKey(docEntry: number): GetByKeyRequestBuilder<PurchaseRequests> {
-    return new GetByKeyRequestBuilder(PurchaseRequests, { DocEntry: docEntry });
+  getByKey(docEntry: number): GetByKeyRequestBuilderV4<PurchaseRequests> {
+    return new GetByKeyRequestBuilderV4(PurchaseRequests, { DocEntry: docEntry });
   }
 
   /**
    * Returns a request builder for querying all `PurchaseRequests` entities.
    * @returns A request builder for creating requests to retrieve all `PurchaseRequests` entities.
    */
-  getAll(): GetAllRequestBuilder<PurchaseRequests> {
-    return new GetAllRequestBuilder(PurchaseRequests);
+  getAll(): GetAllRequestBuilderV4<PurchaseRequests> {
+    return new GetAllRequestBuilderV4(PurchaseRequests);
   }
 
   /**
@@ -32,8 +32,8 @@ export class PurchaseRequestsRequestBuilder extends RequestBuilder<PurchaseReque
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `PurchaseRequests`.
    */
-  create(entity: PurchaseRequests): CreateRequestBuilder<PurchaseRequests> {
-    return new CreateRequestBuilder(PurchaseRequests, entity);
+  create(entity: PurchaseRequests): CreateRequestBuilderV4<PurchaseRequests> {
+    return new CreateRequestBuilderV4(PurchaseRequests, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class PurchaseRequestsRequestBuilder extends RequestBuilder<PurchaseReque
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `PurchaseRequests`.
    */
-  update(entity: PurchaseRequests): UpdateRequestBuilder<PurchaseRequests> {
-    return new UpdateRequestBuilder(PurchaseRequests, entity);
+  update(entity: PurchaseRequests): UpdateRequestBuilderV4<PurchaseRequests> {
+    return new UpdateRequestBuilderV4(PurchaseRequests, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class PurchaseRequestsRequestBuilder extends RequestBuilder<PurchaseReque
    * @param docEntry Key property. See [[PurchaseRequests.docEntry]].
    * @returns A request builder for creating requests that delete an entity of type `PurchaseRequests`.
    */
-  delete(docEntry: number): DeleteRequestBuilder<PurchaseRequests>;
+  delete(docEntry: number): DeleteRequestBuilderV4<PurchaseRequests>;
   /**
    * Returns a request builder for deleting an entity of type `PurchaseRequests`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `PurchaseRequests` by taking the entity as a parameter.
    */
-  delete(entity: PurchaseRequests): DeleteRequestBuilder<PurchaseRequests>;
-  delete(docEntryOrEntity: any): DeleteRequestBuilder<PurchaseRequests> {
-    return new DeleteRequestBuilder(PurchaseRequests, docEntryOrEntity instanceof PurchaseRequests ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
+  delete(entity: PurchaseRequests): DeleteRequestBuilderV4<PurchaseRequests>;
+  delete(docEntryOrEntity: any): DeleteRequestBuilderV4<PurchaseRequests> {
+    return new DeleteRequestBuilderV4(PurchaseRequests, docEntryOrEntity instanceof PurchaseRequests ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
   }
 }

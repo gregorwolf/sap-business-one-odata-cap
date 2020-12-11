@@ -4,10 +4,11 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { InventoryPostingLineUoM, InventoryPostingLineUoMField } from './InventoryPostingLineUoM';
-import { InventoryPostingSerialNumber, InventoryPostingSerialNumberField } from './InventoryPostingSerialNumber';
-import { InventoryPostingBatchNumber, InventoryPostingBatchNumberField } from './InventoryPostingBatchNumber';
-import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, Entity, FieldType, Time, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { InventoryPostingLineUoM } from './InventoryPostingLineUoM';
+import { InventoryPostingSerialNumber } from './InventoryPostingSerialNumber';
+import { InventoryPostingBatchNumber } from './InventoryPostingBatchNumber';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, Time, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * InventoryPostingLine
@@ -194,6 +195,11 @@ export interface InventoryPostingLine {
    */
   itemsPerUnit?: number;
   /**
+   * Allow Bin Negative Quantity.
+   * @nullable
+   */
+  allowBinNegativeQuantity?: BoYesNoEnum;
+  /**
    * Actual Price.
    * @nullable
    */
@@ -212,17 +218,17 @@ export interface InventoryPostingLine {
    * Inventory Posting Line Uo Ms.
    * @nullable
    */
-  inventoryPostingLineUoMs?: InventoryPostingLineUoM;
+  inventoryPostingLineUoMs?: InventoryPostingLineUoM[];
   /**
    * Inventory Posting Serial Numbers.
    * @nullable
    */
-  inventoryPostingSerialNumbers?: InventoryPostingSerialNumber;
+  inventoryPostingSerialNumbers?: InventoryPostingSerialNumber[];
   /**
    * Inventory Posting Batch Numbers.
    * @nullable
    */
-  inventoryPostingBatchNumbers?: InventoryPostingBatchNumber;
+  inventoryPostingBatchNumbers?: InventoryPostingBatchNumber[];
 }
 
 /**
@@ -236,7 +242,7 @@ export function createInventoryPostingLine(json: any): InventoryPostingLine {
  * InventoryPostingLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class InventoryPostingLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class InventoryPostingLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, InventoryPostingLine> {
   /**
    * Representation of the [[InventoryPostingLine.documentEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -418,6 +424,11 @@ export class InventoryPostingLineField<EntityT extends Entity> extends ComplexTy
    */
   itemsPerUnit: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('ItemsPerUnit', this, 'Edm.Double');
   /**
+   * Representation of the [[InventoryPostingLine.allowBinNegativeQuantity]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  allowBinNegativeQuantity: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AllowBinNegativeQuantity', this);
+  /**
    * Representation of the [[InventoryPostingLine.actualPrice]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -436,64 +447,254 @@ export class InventoryPostingLineField<EntityT extends Entity> extends ComplexTy
    * Representation of the [[InventoryPostingLine.inventoryPostingLineUoMs]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  inventoryPostingLineUoMs: InventoryPostingLineUoMField<EntityT> = new InventoryPostingLineUoMField('InventoryPostingLineUoMs', this);
+  inventoryPostingLineUoMs: CollectionField<EntityT, InventoryPostingLineUoM> = new CollectionField('InventoryPostingLineUoMs', this, InventoryPostingLineUoM);
   /**
    * Representation of the [[InventoryPostingLine.inventoryPostingSerialNumbers]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  inventoryPostingSerialNumbers: InventoryPostingSerialNumberField<EntityT> = new InventoryPostingSerialNumberField('InventoryPostingSerialNumbers', this);
+  inventoryPostingSerialNumbers: CollectionField<EntityT, InventoryPostingSerialNumber> = new CollectionField('InventoryPostingSerialNumbers', this, InventoryPostingSerialNumber);
   /**
    * Representation of the [[InventoryPostingLine.inventoryPostingBatchNumbers]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  inventoryPostingBatchNumbers: InventoryPostingBatchNumberField<EntityT> = new InventoryPostingBatchNumberField('InventoryPostingBatchNumbers', this);
+  inventoryPostingBatchNumbers: CollectionField<EntityT, InventoryPostingBatchNumber> = new CollectionField('InventoryPostingBatchNumbers', this, InventoryPostingBatchNumber);
+
+  /**
+   * Creates an instance of InventoryPostingLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, InventoryPostingLine);
+  }
 }
 
 export namespace InventoryPostingLine {
+  /**
+   * Metadata information on all properties of the `InventoryPostingLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<InventoryPostingLine>[] = [{
+    originalName: 'DocumentEntry',
+    name: 'documentEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ItemCode',
+    name: 'itemCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemDescription',
+    name: 'itemDescription',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WarehouseCode',
+    name: 'warehouseCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BinEntry',
+    name: 'binEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'InWarehouseQuantity',
+    name: 'inWarehouseQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BarCode',
+    name: 'barCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Variance',
+    name: 'variance',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'VariancePercentage',
+    name: 'variancePercentage',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CountedQuantity',
+    name: 'countedQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Price',
+    name: 'price',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Currency',
+    name: 'currency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Total',
+    name: 'total',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'VisualOrder',
+    name: 'visualOrder',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CountDate',
+    name: 'countDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'CountTime',
+    name: 'countTime',
+    type: 'Edm.TimeOfDay',
+    isCollection: false
+  }, {
+    originalName: 'BaseEntry',
+    name: 'baseEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseLine',
+    name: 'baseLine',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseType',
+    name: 'baseType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseReference',
+    name: 'baseReference',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Remarks',
+    name: 'remarks',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InventoryOffsetIncreaseAccount',
+    name: 'inventoryOffsetIncreaseAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InventoryOffsetDecreaseAccount',
+    name: 'inventoryOffsetDecreaseAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ProjectCode',
+    name: 'projectCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Manufacturer',
+    name: 'manufacturer',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SupplierCatalogNo',
+    name: 'supplierCatalogNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PreferredVendor',
+    name: 'preferredVendor',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode',
+    name: 'costingCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode2',
+    name: 'costingCode2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode3',
+    name: 'costingCode3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode4',
+    name: 'costingCode4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode5',
+    name: 'costingCode5',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UoMCode',
+    name: 'uoMCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UoMCountedQuantity',
+    name: 'uoMCountedQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ItemsPerUnit',
+    name: 'itemsPerUnit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AllowBinNegativeQuantity',
+    name: 'allowBinNegativeQuantity',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ActualPrice',
+    name: 'actualPrice',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PostedValueLC',
+    name: 'postedValueLc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PostedValueSC',
+    name: 'postedValueSc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'InventoryPostingLineUoMs',
+    name: 'inventoryPostingLineUoMs',
+    type: InventoryPostingLineUoM,
+    isCollection: true
+  }, {
+    originalName: 'InventoryPostingSerialNumbers',
+    name: 'inventoryPostingSerialNumbers',
+    type: InventoryPostingSerialNumber,
+    isCollection: true
+  }, {
+    originalName: 'InventoryPostingBatchNumbers',
+    name: 'inventoryPostingBatchNumbers',
+    type: InventoryPostingBatchNumber,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | InventoryPostingBatchNumber | InventoryPostingLineUoM | InventoryPostingSerialNumber }): InventoryPostingLine {
-    return createComplexType(json, {
-      DocumentEntry: (documentEntry: number) => ({ documentEntry: edmToTs(documentEntry, 'Edm.Int32') }),
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      ItemCode: (itemCode: string) => ({ itemCode: edmToTs(itemCode, 'Edm.String') }),
-      ItemDescription: (itemDescription: string) => ({ itemDescription: edmToTs(itemDescription, 'Edm.String') }),
-      WarehouseCode: (warehouseCode: string) => ({ warehouseCode: edmToTs(warehouseCode, 'Edm.String') }),
-      BinEntry: (binEntry: number) => ({ binEntry: edmToTs(binEntry, 'Edm.Int32') }),
-      InWarehouseQuantity: (inWarehouseQuantity: number) => ({ inWarehouseQuantity: edmToTs(inWarehouseQuantity, 'Edm.Double') }),
-      BarCode: (barCode: string) => ({ barCode: edmToTs(barCode, 'Edm.String') }),
-      Variance: (variance: number) => ({ variance: edmToTs(variance, 'Edm.Double') }),
-      VariancePercentage: (variancePercentage: number) => ({ variancePercentage: edmToTs(variancePercentage, 'Edm.Double') }),
-      CountedQuantity: (countedQuantity: number) => ({ countedQuantity: edmToTs(countedQuantity, 'Edm.Double') }),
-      Price: (price: number) => ({ price: edmToTs(price, 'Edm.Double') }),
-      Currency: (currency: string) => ({ currency: edmToTs(currency, 'Edm.String') }),
-      Total: (total: number) => ({ total: edmToTs(total, 'Edm.Double') }),
-      VisualOrder: (visualOrder: number) => ({ visualOrder: edmToTs(visualOrder, 'Edm.Int32') }),
-      CountDate: (countDate: Moment) => ({ countDate: edmToTs(countDate, 'Edm.DateTimeOffset') }),
-      CountTime: (countTime: Time) => ({ countTime: edmToTs(countTime, 'Edm.TimeOfDay') }),
-      BaseEntry: (baseEntry: number) => ({ baseEntry: edmToTs(baseEntry, 'Edm.Int32') }),
-      BaseLine: (baseLine: number) => ({ baseLine: edmToTs(baseLine, 'Edm.Int32') }),
-      BaseType: (baseType: number) => ({ baseType: edmToTs(baseType, 'Edm.Int32') }),
-      BaseReference: (baseReference: string) => ({ baseReference: edmToTs(baseReference, 'Edm.String') }),
-      Remarks: (remarks: string) => ({ remarks: edmToTs(remarks, 'Edm.String') }),
-      InventoryOffsetIncreaseAccount: (inventoryOffsetIncreaseAccount: string) => ({ inventoryOffsetIncreaseAccount: edmToTs(inventoryOffsetIncreaseAccount, 'Edm.String') }),
-      InventoryOffsetDecreaseAccount: (inventoryOffsetDecreaseAccount: string) => ({ inventoryOffsetDecreaseAccount: edmToTs(inventoryOffsetDecreaseAccount, 'Edm.String') }),
-      ProjectCode: (projectCode: string) => ({ projectCode: edmToTs(projectCode, 'Edm.String') }),
-      Manufacturer: (manufacturer: number) => ({ manufacturer: edmToTs(manufacturer, 'Edm.Int32') }),
-      SupplierCatalogNo: (supplierCatalogNo: string) => ({ supplierCatalogNo: edmToTs(supplierCatalogNo, 'Edm.String') }),
-      PreferredVendor: (preferredVendor: string) => ({ preferredVendor: edmToTs(preferredVendor, 'Edm.String') }),
-      CostingCode: (costingCode: string) => ({ costingCode: edmToTs(costingCode, 'Edm.String') }),
-      CostingCode2: (costingCode2: string) => ({ costingCode2: edmToTs(costingCode2, 'Edm.String') }),
-      CostingCode3: (costingCode3: string) => ({ costingCode3: edmToTs(costingCode3, 'Edm.String') }),
-      CostingCode4: (costingCode4: string) => ({ costingCode4: edmToTs(costingCode4, 'Edm.String') }),
-      CostingCode5: (costingCode5: string) => ({ costingCode5: edmToTs(costingCode5, 'Edm.String') }),
-      UoMCode: (uoMCode: string) => ({ uoMCode: edmToTs(uoMCode, 'Edm.String') }),
-      UoMCountedQuantity: (uoMCountedQuantity: number) => ({ uoMCountedQuantity: edmToTs(uoMCountedQuantity, 'Edm.Double') }),
-      ItemsPerUnit: (itemsPerUnit: number) => ({ itemsPerUnit: edmToTs(itemsPerUnit, 'Edm.Double') }),
-      ActualPrice: (actualPrice: number) => ({ actualPrice: edmToTs(actualPrice, 'Edm.Double') }),
-      PostedValueLC: (postedValueLc: number) => ({ postedValueLc: edmToTs(postedValueLc, 'Edm.Double') }),
-      PostedValueSC: (postedValueSc: number) => ({ postedValueSc: edmToTs(postedValueSc, 'Edm.Double') }),
-      InventoryPostingLineUoMs: (inventoryPostingLineUoMs: InventoryPostingLineUoM) => ({ inventoryPostingLineUoMs: InventoryPostingLineUoM.build(inventoryPostingLineUoMs) }),
-      InventoryPostingSerialNumbers: (inventoryPostingSerialNumbers: InventoryPostingSerialNumber) => ({ inventoryPostingSerialNumbers: InventoryPostingSerialNumber.build(inventoryPostingSerialNumbers) }),
-      InventoryPostingBatchNumbers: (inventoryPostingBatchNumbers: InventoryPostingBatchNumber) => ({ inventoryPostingBatchNumbers: InventoryPostingBatchNumber.build(inventoryPostingBatchNumbers) })
-    });
+    return deserializeComplexTypeV4(json, InventoryPostingLine);
   }
 }

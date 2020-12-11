@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.ProfitCenters = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var ProfitCentersRequestBuilder_1 = require("./ProfitCentersRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "ProfitCenters" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var ProfitCenters = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `ProfitCenters`.
+     * Returns an entity builder to construct instances of `ProfitCenters`.
      * @returns A builder that constructs instances of entity type `ProfitCenters`.
      */
     ProfitCenters.builder = function () {
-        return v4_1.Entity.entityBuilder(ProfitCenters);
+        return core_1.EntityV4.entityBuilder(ProfitCenters);
     };
     /**
      * Returns a request builder to construct requests for operations on the `ProfitCenters` entity type.
@@ -60,7 +60,7 @@ var ProfitCenters = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `ProfitCenters`.
      */
     ProfitCenters.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, ProfitCenters);
+        return core_1.EntityV4.customFieldSelector(fieldName, ProfitCenters);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var ProfitCenters = /** @class */ (function (_super) {
      */
     ProfitCenters._entityName = 'ProfitCenters';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ProfitCenters.
-     */
-    ProfitCenters._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    ProfitCenters._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    ProfitCenters._defaultServicePath = '/b1s/v2/';
     return ProfitCenters;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.ProfitCenters = ProfitCenters;
 var Dimensions_1 = require("./Dimensions");
 var CostCenterTypes_1 = require("./CostCenterTypes");
@@ -93,62 +88,67 @@ var EmployeesInfo_1 = require("./EmployeesInfo");
      * Static representation of the [[centerCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProfitCenters.CENTER_CODE = new v4_1.StringField('CenterCode', ProfitCenters, 'Edm.String');
+    ProfitCenters.CENTER_CODE = new core_1.StringField('CenterCode', ProfitCenters, 'Edm.String');
     /**
      * Static representation of the [[centerName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProfitCenters.CENTER_NAME = new v4_1.StringField('CenterName', ProfitCenters, 'Edm.String');
+    ProfitCenters.CENTER_NAME = new core_1.StringField('CenterName', ProfitCenters, 'Edm.String');
     /**
      * Static representation of the [[groupCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProfitCenters.GROUP_CODE = new v4_1.StringField('GroupCode', ProfitCenters, 'Edm.String');
+    ProfitCenters.GROUP_CODE = new core_1.StringField('GroupCode', ProfitCenters, 'Edm.String');
     /**
      * Static representation of the [[inWhichDimension]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProfitCenters.IN_WHICH_DIMENSION = new v4_1.NumberField('InWhichDimension', ProfitCenters, 'Edm.Int32');
+    ProfitCenters.IN_WHICH_DIMENSION = new core_1.NumberField('InWhichDimension', ProfitCenters, 'Edm.Int32');
     /**
      * Static representation of the [[costCenterType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProfitCenters.COST_CENTER_TYPE = new v4_1.StringField('CostCenterType', ProfitCenters, 'Edm.String');
+    ProfitCenters.COST_CENTER_TYPE = new core_1.StringField('CostCenterType', ProfitCenters, 'Edm.String');
     /**
      * Static representation of the [[effectiveFrom]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProfitCenters.EFFECTIVE_FROM = new v4_1.DateField('EffectiveFrom', ProfitCenters, 'Edm.DateTimeOffset');
+    ProfitCenters.EFFECTIVE_FROM = new core_1.DateField('EffectiveFrom', ProfitCenters, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[effectiveTo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProfitCenters.EFFECTIVE_TO = new v4_1.DateField('EffectiveTo', ProfitCenters, 'Edm.DateTimeOffset');
+    ProfitCenters.EFFECTIVE_TO = new core_1.DateField('EffectiveTo', ProfitCenters, 'Edm.DateTimeOffset');
+    /**
+     * Static representation of the [[active]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ProfitCenters.ACTIVE = new core_1.EnumField('Active', ProfitCenters);
     /**
      * Static representation of the [[centerOwner]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProfitCenters.CENTER_OWNER = new v4_1.NumberField('CenterOwner', ProfitCenters, 'Edm.Int32');
+    ProfitCenters.CENTER_OWNER = new core_1.NumberField('CenterOwner', ProfitCenters, 'Edm.Int32');
     /**
      * Static representation of the one-to-one navigation property [[dimension]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProfitCenters.DIMENSION = new v4_1.OneToOneLink('Dimension', ProfitCenters, Dimensions_1.Dimensions);
+    ProfitCenters.DIMENSION = new core_1.OneToOneLink('Dimension', ProfitCenters, Dimensions_1.Dimensions);
     /**
      * Static representation of the one-to-one navigation property [[costCenterType2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProfitCenters.COST_CENTER_TYPE_2 = new v4_1.OneToOneLink('CostCenterType2', ProfitCenters, CostCenterTypes_1.CostCenterTypes);
+    ProfitCenters.COST_CENTER_TYPE_2 = new core_1.OneToOneLink('CostCenterType2', ProfitCenters, CostCenterTypes_1.CostCenterTypes);
     /**
      * Static representation of the one-to-one navigation property [[employeeInfo]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProfitCenters.EMPLOYEE_INFO = new v4_1.OneToOneLink('EmployeeInfo', ProfitCenters, EmployeesInfo_1.EmployeesInfo);
+    ProfitCenters.EMPLOYEE_INFO = new core_1.OneToOneLink('EmployeeInfo', ProfitCenters, EmployeesInfo_1.EmployeesInfo);
     /**
      * Static representation of the one-to-many navigation property [[employeesInfo]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProfitCenters.EMPLOYEES_INFO = new v4_1.OneToManyLink('EmployeesInfo', ProfitCenters, EmployeesInfo_1.EmployeesInfo);
+    ProfitCenters.EMPLOYEES_INFO = new core_1.OneToManyLink('EmployeesInfo', ProfitCenters, EmployeesInfo_1.EmployeesInfo);
     /**
      * All fields of the ProfitCenters entity.
      */
@@ -160,6 +160,7 @@ var EmployeesInfo_1 = require("./EmployeesInfo");
         ProfitCenters.COST_CENTER_TYPE,
         ProfitCenters.EFFECTIVE_FROM,
         ProfitCenters.EFFECTIVE_TO,
+        ProfitCenters.ACTIVE,
         ProfitCenters.CENTER_OWNER,
         ProfitCenters.DIMENSION,
         ProfitCenters.COST_CENTER_TYPE_2,
@@ -169,7 +170,7 @@ var EmployeesInfo_1 = require("./EmployeesInfo");
     /**
      * All fields selector.
      */
-    ProfitCenters.ALL_FIELDS = new v4_1.AllFields('*', ProfitCenters);
+    ProfitCenters.ALL_FIELDS = new core_1.AllFields('*', ProfitCenters);
     /**
      * All key fields of the ProfitCenters entity.
      */

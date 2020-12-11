@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.WeightMeasures = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var WeightMeasuresRequestBuilder_1 = require("./WeightMeasuresRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "WeightMeasures" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var WeightMeasures = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `WeightMeasures`.
+     * Returns an entity builder to construct instances of `WeightMeasures`.
      * @returns A builder that constructs instances of entity type `WeightMeasures`.
      */
     WeightMeasures.builder = function () {
-        return v4_1.Entity.entityBuilder(WeightMeasures);
+        return core_1.EntityV4.entityBuilder(WeightMeasures);
     };
     /**
      * Returns a request builder to construct requests for operations on the `WeightMeasures` entity type.
@@ -60,7 +60,7 @@ var WeightMeasures = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `WeightMeasures`.
      */
     WeightMeasures.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, WeightMeasures);
+        return core_1.EntityV4.customFieldSelector(fieldName, WeightMeasures);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var WeightMeasures = /** @class */ (function (_super) {
      */
     WeightMeasures._entityName = 'WeightMeasures';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for WeightMeasures.
-     */
-    WeightMeasures._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    WeightMeasures._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    WeightMeasures._defaultServicePath = '/b1s/v2/';
     return WeightMeasures;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.WeightMeasures = WeightMeasures;
 var BinLocations_1 = require("./BinLocations");
 (function (WeightMeasures) {
@@ -91,27 +86,27 @@ var BinLocations_1 = require("./BinLocations");
      * Static representation of the [[unitCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WeightMeasures.UNIT_CODE = new v4_1.NumberField('UnitCode', WeightMeasures, 'Edm.Int32');
+    WeightMeasures.UNIT_CODE = new core_1.NumberField('UnitCode', WeightMeasures, 'Edm.Int32');
     /**
      * Static representation of the [[unitDisplay]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WeightMeasures.UNIT_DISPLAY = new v4_1.StringField('UnitDisplay', WeightMeasures, 'Edm.String');
+    WeightMeasures.UNIT_DISPLAY = new core_1.StringField('UnitDisplay', WeightMeasures, 'Edm.String');
     /**
      * Static representation of the [[unitName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WeightMeasures.UNIT_NAME = new v4_1.StringField('UnitName', WeightMeasures, 'Edm.String');
+    WeightMeasures.UNIT_NAME = new core_1.StringField('UnitName', WeightMeasures, 'Edm.String');
     /**
      * Static representation of the [[unitWeightinmg]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WeightMeasures.UNIT_WEIGHTINMG = new v4_1.NumberField('UnitWeightinmg', WeightMeasures, 'Edm.Double');
+    WeightMeasures.UNIT_WEIGHTINMG = new core_1.NumberField('UnitWeightinmg', WeightMeasures, 'Edm.Double');
     /**
      * Static representation of the one-to-many navigation property [[binLocations]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WeightMeasures.BIN_LOCATIONS = new v4_1.OneToManyLink('BinLocations', WeightMeasures, BinLocations_1.BinLocations);
+    WeightMeasures.BIN_LOCATIONS = new core_1.OneToManyLink('BinLocations', WeightMeasures, BinLocations_1.BinLocations);
     /**
      * All fields of the WeightMeasures entity.
      */
@@ -125,7 +120,7 @@ var BinLocations_1 = require("./BinLocations");
     /**
      * All fields selector.
      */
-    WeightMeasures.ALL_FIELDS = new v4_1.AllFields('*', WeightMeasures);
+    WeightMeasures.ALL_FIELDS = new core_1.AllFields('*', WeightMeasures);
     /**
      * All key fields of the WeightMeasures entity.
      */

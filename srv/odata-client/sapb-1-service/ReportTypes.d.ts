@@ -1,18 +1,13 @@
 import { ReportTypesRequestBuilder } from './ReportTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ReportTypes" of service "SAPB1".
  */
-export declare class ReportTypes extends Entity implements ReportTypesType {
+export declare class ReportTypes extends EntityV4 implements ReportTypesType {
     /**
      * Technical entity name for ReportTypes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ReportTypes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -48,10 +43,10 @@ export declare class ReportTypes extends Entity implements ReportTypesType {
      */
     menuId?: string;
     /**
-     * Returns an entity builder to construct instances `ReportTypes`.
+     * Returns an entity builder to construct instances of `ReportTypes`.
      * @returns A builder that constructs instances of entity type `ReportTypes`.
      */
-    static builder(): EntityBuilderType<ReportTypes, ReportTypesTypeForceMandatory>;
+    static builder(): EntityBuilderType<ReportTypes, ReportTypesType>;
     /**
      * Returns a request builder to construct requests for operations on the `ReportTypes` entity type.
      * @returns A `ReportTypes` request builder.
@@ -62,7 +57,7 @@ export declare class ReportTypes extends Entity implements ReportTypesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ReportTypes`.
      */
-    static customField(fieldName: string): CustomField<ReportTypes>;
+    static customField(fieldName: string): CustomFieldV4<ReportTypes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -72,20 +67,12 @@ export declare class ReportTypes extends Entity implements ReportTypesType {
     };
 }
 export interface ReportTypesType {
-    typeCode?: string;
-    typeName?: string;
-    defaultReportLayout?: string;
-    addonName?: string;
-    addonFormType?: string;
-    menuId?: string;
-}
-export interface ReportTypesTypeForceMandatory {
-    typeCode: string;
-    typeName: string;
-    defaultReportLayout: string;
-    addonName: string;
-    addonFormType: string;
-    menuId: string;
+    typeCode?: string | null;
+    typeName?: string | null;
+    defaultReportLayout?: string | null;
+    addonName?: string | null;
+    addonFormType?: string | null;
+    menuId?: string | null;
 }
 export declare namespace ReportTypes {
     /**

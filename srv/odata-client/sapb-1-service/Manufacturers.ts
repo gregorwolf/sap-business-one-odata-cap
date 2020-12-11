@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ManufacturersRequestBuilder } from './ManufacturersRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "Manufacturers" of service "SAPB1".
  */
-export class Manufacturers extends Entity implements ManufacturersType {
+export class Manufacturers extends EntityV4 implements ManufacturersType {
   /**
    * Technical entity name for Manufacturers.
    */
   static _entityName = 'Manufacturers';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for Manufacturers.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -39,11 +34,11 @@ export class Manufacturers extends Entity implements ManufacturersType {
   items!: Items[];
 
   /**
-   * Returns an entity builder to construct instances `Manufacturers`.
+   * Returns an entity builder to construct instances of `Manufacturers`.
    * @returns A builder that constructs instances of entity type `Manufacturers`.
    */
-  static builder(): EntityBuilderType<Manufacturers, ManufacturersTypeForceMandatory> {
-    return Entity.entityBuilder(Manufacturers);
+  static builder(): EntityBuilderType<Manufacturers, ManufacturersType> {
+    return EntityV4.entityBuilder(Manufacturers);
   }
 
   /**
@@ -59,8 +54,8 @@ export class Manufacturers extends Entity implements ManufacturersType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `Manufacturers`.
    */
-  static customField(fieldName: string): CustomField<Manufacturers> {
-    return Entity.customFieldSelector(fieldName, Manufacturers);
+  static customField(fieldName: string): CustomFieldV4<Manufacturers> {
+    return EntityV4.customFieldSelector(fieldName, Manufacturers);
   }
 
   /**
@@ -75,14 +70,8 @@ export class Manufacturers extends Entity implements ManufacturersType {
 import { Items, ItemsType } from './Items';
 
 export interface ManufacturersType {
-  code?: number;
-  manufacturerName?: string;
-  items: ItemsType[];
-}
-
-export interface ManufacturersTypeForceMandatory {
-  code: number;
-  manufacturerName: string;
+  code?: number | null;
+  manufacturerName?: string | null;
   items: ItemsType[];
 }
 

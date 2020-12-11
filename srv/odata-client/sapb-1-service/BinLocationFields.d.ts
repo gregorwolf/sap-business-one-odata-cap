@@ -1,18 +1,15 @@
 import { BinLocationFieldsRequestBuilder } from './BinLocationFieldsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BinLocationFieldTypeEnum } from './BinLocationFieldTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "BinLocationFields" of service "SAPB1".
  */
-export declare class BinLocationFields extends Entity implements BinLocationFieldsType {
+export declare class BinLocationFields extends EntityV4 implements BinLocationFieldsType {
     /**
      * Technical entity name for BinLocationFields.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BinLocationFields.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -23,6 +20,11 @@ export declare class BinLocationFields extends Entity implements BinLocationFiel
      */
     absEntry?: number;
     /**
+     * Field Type.
+     * @nullable
+     */
+    fieldType?: BinLocationFieldTypeEnum;
+    /**
      * Field Number.
      * @nullable
      */
@@ -32,6 +34,11 @@ export declare class BinLocationFields extends Entity implements BinLocationFiel
      * @nullable
      */
     name?: string;
+    /**
+     * Activated.
+     * @nullable
+     */
+    activated?: BoYesNoEnum;
     /**
      * Default Field Name.
      * @nullable
@@ -46,10 +53,10 @@ export declare class BinLocationFields extends Entity implements BinLocationFiel
      */
     warehouseSublevelCodes: WarehouseSublevelCodes[];
     /**
-     * Returns an entity builder to construct instances `BinLocationFields`.
+     * Returns an entity builder to construct instances of `BinLocationFields`.
      * @returns A builder that constructs instances of entity type `BinLocationFields`.
      */
-    static builder(): EntityBuilderType<BinLocationFields, BinLocationFieldsTypeForceMandatory>;
+    static builder(): EntityBuilderType<BinLocationFields, BinLocationFieldsType>;
     /**
      * Returns a request builder to construct requests for operations on the `BinLocationFields` entity type.
      * @returns A `BinLocationFields` request builder.
@@ -60,7 +67,7 @@ export declare class BinLocationFields extends Entity implements BinLocationFiel
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `BinLocationFields`.
      */
-    static customField(fieldName: string): CustomField<BinLocationFields>;
+    static customField(fieldName: string): CustomFieldV4<BinLocationFields>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -72,18 +79,12 @@ export declare class BinLocationFields extends Entity implements BinLocationFiel
 import { BinLocationAttributes, BinLocationAttributesType } from './BinLocationAttributes';
 import { WarehouseSublevelCodes, WarehouseSublevelCodesType } from './WarehouseSublevelCodes';
 export interface BinLocationFieldsType {
-    absEntry?: number;
-    fieldNumber?: number;
-    name?: string;
-    defaultFieldName?: string;
-    binLocationAttributes: BinLocationAttributesType[];
-    warehouseSublevelCodes: WarehouseSublevelCodesType[];
-}
-export interface BinLocationFieldsTypeForceMandatory {
-    absEntry: number;
-    fieldNumber: number;
-    name: string;
-    defaultFieldName: string;
+    absEntry?: number | null;
+    fieldType?: BinLocationFieldTypeEnum | null;
+    fieldNumber?: number | null;
+    name?: string | null;
+    activated?: BoYesNoEnum | null;
+    defaultFieldName?: string | null;
     binLocationAttributes: BinLocationAttributesType[];
     warehouseSublevelCodes: WarehouseSublevelCodesType[];
 }
@@ -94,6 +95,11 @@ export declare namespace BinLocationFields {
      */
     const ABS_ENTRY: NumberField<BinLocationFields>;
     /**
+     * Static representation of the [[fieldType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const FIELD_TYPE: EnumField<BinLocationFields>;
+    /**
      * Static representation of the [[fieldNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -103,6 +109,11 @@ export declare namespace BinLocationFields {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const NAME: StringField<BinLocationFields>;
+    /**
+     * Static representation of the [[activated]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ACTIVATED: EnumField<BinLocationFields>;
     /**
      * Static representation of the [[defaultFieldName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -121,7 +132,7 @@ export declare namespace BinLocationFields {
     /**
      * All fields of the BinLocationFields entity.
      */
-    const _allFields: Array<NumberField<BinLocationFields> | StringField<BinLocationFields> | OneToManyLink<BinLocationFields, BinLocationAttributes> | OneToManyLink<BinLocationFields, WarehouseSublevelCodes>>;
+    const _allFields: Array<NumberField<BinLocationFields> | EnumField<BinLocationFields> | StringField<BinLocationFields> | OneToManyLink<BinLocationFields, BinLocationAttributes> | OneToManyLink<BinLocationFields, WarehouseSublevelCodes>>;
     /**
      * All fields selector.
      */

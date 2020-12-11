@@ -5,25 +5,20 @@
  */
 import { LocalEraRequestBuilder } from './LocalEraRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, Field, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "LocalEra" of service "SAPB1".
  */
-export class LocalEra extends Entity implements LocalEraType {
+export class LocalEra extends EntityV4 implements LocalEraType {
   /**
    * Technical entity name for LocalEra.
    */
   static _entityName = 'LocalEra';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for LocalEra.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Era Name.
    * @nullable
@@ -41,11 +36,11 @@ export class LocalEra extends Entity implements LocalEraType {
   code?: string;
 
   /**
-   * Returns an entity builder to construct instances `LocalEra`.
+   * Returns an entity builder to construct instances of `LocalEra`.
    * @returns A builder that constructs instances of entity type `LocalEra`.
    */
-  static builder(): EntityBuilderType<LocalEra, LocalEraTypeForceMandatory> {
-    return Entity.entityBuilder(LocalEra);
+  static builder(): EntityBuilderType<LocalEra, LocalEraType> {
+    return EntityV4.entityBuilder(LocalEra);
   }
 
   /**
@@ -61,8 +56,8 @@ export class LocalEra extends Entity implements LocalEraType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `LocalEra`.
    */
-  static customField(fieldName: string): CustomField<LocalEra> {
-    return Entity.customFieldSelector(fieldName, LocalEra);
+  static customField(fieldName: string): CustomFieldV4<LocalEra> {
+    return EntityV4.customFieldSelector(fieldName, LocalEra);
   }
 
   /**
@@ -75,15 +70,9 @@ export class LocalEra extends Entity implements LocalEraType {
 }
 
 export interface LocalEraType {
-  eraName?: string;
-  startDate?: Moment;
-  code?: string;
-}
-
-export interface LocalEraTypeForceMandatory {
-  eraName: string;
-  startDate: Moment;
-  code: string;
+  eraName?: string | null;
+  startDate?: Moment | null;
+  code?: string | null;
 }
 
 export namespace LocalEra {

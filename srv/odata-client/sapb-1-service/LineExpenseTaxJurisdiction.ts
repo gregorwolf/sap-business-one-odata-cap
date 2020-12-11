@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * LineExpenseTaxJurisdiction
@@ -67,7 +67,7 @@ export function createLineExpenseTaxJurisdiction(json: any): LineExpenseTaxJuris
  * LineExpenseTaxJurisdictionField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class LineExpenseTaxJurisdictionField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class LineExpenseTaxJurisdictionField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, LineExpenseTaxJurisdiction> {
   /**
    * Representation of the [[LineExpenseTaxJurisdiction.jurisdictionCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -113,20 +113,73 @@ export class LineExpenseTaxJurisdictionField<EntityT extends Entity> extends Com
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   rowSequence: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('RowSequence', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of LineExpenseTaxJurisdictionField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, LineExpenseTaxJurisdiction);
+  }
 }
 
 export namespace LineExpenseTaxJurisdiction {
+  /**
+   * Metadata information on all properties of the `LineExpenseTaxJurisdiction` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<LineExpenseTaxJurisdiction>[] = [{
+    originalName: 'JurisdictionCode',
+    name: 'jurisdictionCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'JurisdictionType',
+    name: 'jurisdictionType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TaxAmount',
+    name: 'taxAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxAmountSC',
+    name: 'taxAmountSc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxAmountFC',
+    name: 'taxAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxRate',
+    name: 'taxRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DocEntry',
+    name: 'docEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'RowSequence',
+    name: 'rowSequence',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): LineExpenseTaxJurisdiction {
-    return createComplexType(json, {
-      JurisdictionCode: (jurisdictionCode: string) => ({ jurisdictionCode: edmToTs(jurisdictionCode, 'Edm.String') }),
-      JurisdictionType: (jurisdictionType: number) => ({ jurisdictionType: edmToTs(jurisdictionType, 'Edm.Int32') }),
-      TaxAmount: (taxAmount: number) => ({ taxAmount: edmToTs(taxAmount, 'Edm.Double') }),
-      TaxAmountSC: (taxAmountSc: number) => ({ taxAmountSc: edmToTs(taxAmountSc, 'Edm.Double') }),
-      TaxAmountFC: (taxAmountFc: number) => ({ taxAmountFc: edmToTs(taxAmountFc, 'Edm.Double') }),
-      TaxRate: (taxRate: number) => ({ taxRate: edmToTs(taxRate, 'Edm.Double') }),
-      DocEntry: (docEntry: number) => ({ docEntry: edmToTs(docEntry, 'Edm.Int32') }),
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      RowSequence: (rowSequence: number) => ({ rowSequence: edmToTs(rowSequence, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, LineExpenseTaxJurisdiction);
   }
 }

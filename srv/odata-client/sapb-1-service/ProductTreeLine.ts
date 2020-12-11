@@ -3,7 +3,9 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoIssueMethod } from './BoIssueMethod';
+import { ProductionItemType } from './ProductionItemType';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ProductTreeLine
@@ -34,6 +36,11 @@ export interface ProductTreeLine {
    * @nullable
    */
   currency?: string;
+  /**
+   * Issue Method.
+   * @nullable
+   */
+  issueMethod?: BoIssueMethod;
   /**
    * Inventory Uom.
    * @nullable
@@ -90,6 +97,11 @@ export interface ProductTreeLine {
    */
   wipAccount?: string;
   /**
+   * Item Type.
+   * @nullable
+   */
+  itemType?: ProductionItemType;
+  /**
    * Line Text.
    * @nullable
    */
@@ -127,7 +139,7 @@ export function createProductTreeLine(json: any): ProductTreeLine {
  * ProductTreeLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ProductTreeLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ProductTreeLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ProductTreeLine> {
   /**
    * Representation of the [[ProductTreeLine.itemCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -153,6 +165,11 @@ export class ProductTreeLineField<EntityT extends Entity> extends ComplexTypeFie
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   currency: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Currency', this, 'Edm.String');
+  /**
+   * Representation of the [[ProductTreeLine.issueMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  issueMethod: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IssueMethod', this);
   /**
    * Representation of the [[ProductTreeLine.inventoryUom]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -209,6 +226,11 @@ export class ProductTreeLineField<EntityT extends Entity> extends ComplexTypeFie
    */
   wipAccount: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('WipAccount', this, 'Edm.String');
   /**
+   * Representation of the [[ProductTreeLine.itemType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  itemType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ItemType', this);
+  /**
    * Representation of the [[ProductTreeLine.lineText]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -233,32 +255,143 @@ export class ProductTreeLineField<EntityT extends Entity> extends ComplexTypeFie
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   visualOrder: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('VisualOrder', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of ProductTreeLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ProductTreeLine);
+  }
 }
 
 export namespace ProductTreeLine {
+  /**
+   * Metadata information on all properties of the `ProductTreeLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ProductTreeLine>[] = [{
+    originalName: 'ItemCode',
+    name: 'itemCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Quantity',
+    name: 'quantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Warehouse',
+    name: 'warehouse',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Price',
+    name: 'price',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Currency',
+    name: 'currency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'IssueMethod',
+    name: 'issueMethod',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'InventoryUOM',
+    name: 'inventoryUom',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Comment',
+    name: 'comment',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ParentItem',
+    name: 'parentItem',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PriceList',
+    name: 'priceList',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule',
+    name: 'distributionRule',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Project',
+    name: 'project',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule2',
+    name: 'distributionRule2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule3',
+    name: 'distributionRule3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule4',
+    name: 'distributionRule4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule5',
+    name: 'distributionRule5',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WipAccount',
+    name: 'wipAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemType',
+    name: 'itemType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'LineText',
+    name: 'lineText',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalQuantity',
+    name: 'additionalQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'StageID',
+    name: 'stageId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ChildNum',
+    name: 'childNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'VisualOrder',
+    name: 'visualOrder',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ProductTreeLine {
-    return createComplexType(json, {
-      ItemCode: (itemCode: string) => ({ itemCode: edmToTs(itemCode, 'Edm.String') }),
-      Quantity: (quantity: number) => ({ quantity: edmToTs(quantity, 'Edm.Double') }),
-      Warehouse: (warehouse: string) => ({ warehouse: edmToTs(warehouse, 'Edm.String') }),
-      Price: (price: number) => ({ price: edmToTs(price, 'Edm.Double') }),
-      Currency: (currency: string) => ({ currency: edmToTs(currency, 'Edm.String') }),
-      InventoryUOM: (inventoryUom: string) => ({ inventoryUom: edmToTs(inventoryUom, 'Edm.String') }),
-      Comment: (comment: string) => ({ comment: edmToTs(comment, 'Edm.String') }),
-      ParentItem: (parentItem: string) => ({ parentItem: edmToTs(parentItem, 'Edm.String') }),
-      PriceList: (priceList: number) => ({ priceList: edmToTs(priceList, 'Edm.Int32') }),
-      DistributionRule: (distributionRule: string) => ({ distributionRule: edmToTs(distributionRule, 'Edm.String') }),
-      Project: (project: string) => ({ project: edmToTs(project, 'Edm.String') }),
-      DistributionRule2: (distributionRule2: string) => ({ distributionRule2: edmToTs(distributionRule2, 'Edm.String') }),
-      DistributionRule3: (distributionRule3: string) => ({ distributionRule3: edmToTs(distributionRule3, 'Edm.String') }),
-      DistributionRule4: (distributionRule4: string) => ({ distributionRule4: edmToTs(distributionRule4, 'Edm.String') }),
-      DistributionRule5: (distributionRule5: string) => ({ distributionRule5: edmToTs(distributionRule5, 'Edm.String') }),
-      WipAccount: (wipAccount: string) => ({ wipAccount: edmToTs(wipAccount, 'Edm.String') }),
-      LineText: (lineText: string) => ({ lineText: edmToTs(lineText, 'Edm.String') }),
-      AdditionalQuantity: (additionalQuantity: number) => ({ additionalQuantity: edmToTs(additionalQuantity, 'Edm.Double') }),
-      StageID: (stageId: number) => ({ stageId: edmToTs(stageId, 'Edm.Int32') }),
-      ChildNum: (childNum: number) => ({ childNum: edmToTs(childNum, 'Edm.Int32') }),
-      VisualOrder: (visualOrder: number) => ({ visualOrder: edmToTs(visualOrder, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, ProductTreeLine);
   }
 }

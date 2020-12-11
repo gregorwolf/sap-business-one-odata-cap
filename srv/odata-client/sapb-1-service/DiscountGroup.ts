@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { DiscountGroupBaseObjectEnum } from './DiscountGroupBaseObjectEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * DiscountGroup
@@ -24,6 +25,11 @@ export interface DiscountGroup {
    * @nullable
    */
   bpCode?: string;
+  /**
+   * Base Object Type.
+   * @nullable
+   */
+  baseObjectType?: DiscountGroupBaseObjectEnum;
 }
 
 /**
@@ -37,7 +43,7 @@ export function createDiscountGroup(json: any): DiscountGroup {
  * DiscountGroupField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class DiscountGroupField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class DiscountGroupField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, DiscountGroup> {
   /**
    * Representation of the [[DiscountGroup.objectEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -53,14 +59,53 @@ export class DiscountGroupField<EntityT extends Entity> extends ComplexTypeField
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   bpCode: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('BPCode', this, 'Edm.String');
+  /**
+   * Representation of the [[DiscountGroup.baseObjectType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  baseObjectType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BaseObjectType', this);
+
+  /**
+   * Creates an instance of DiscountGroupField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, DiscountGroup);
+  }
 }
 
 export namespace DiscountGroup {
+  /**
+   * Metadata information on all properties of the `DiscountGroup` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<DiscountGroup>[] = [{
+    originalName: 'ObjectEntry',
+    name: 'objectEntry',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DiscountPercentage',
+    name: 'discountPercentage',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BPCode',
+    name: 'bpCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BaseObjectType',
+    name: 'baseObjectType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): DiscountGroup {
-    return createComplexType(json, {
-      ObjectEntry: (objectEntry: string) => ({ objectEntry: edmToTs(objectEntry, 'Edm.String') }),
-      DiscountPercentage: (discountPercentage: number) => ({ discountPercentage: edmToTs(discountPercentage, 'Edm.Double') }),
-      BPCode: (bpCode: string) => ({ bpCode: edmToTs(bpCode, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, DiscountGroup);
   }
 }

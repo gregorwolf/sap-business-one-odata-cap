@@ -5,36 +5,54 @@
  */
 import { DeliveryNotesRequestBuilder } from './DeliveryNotesRequestBuilder';
 import { Moment } from 'moment';
-import { DocumentApprovalRequest, DocumentApprovalRequestField } from './DocumentApprovalRequest';
-import { DocumentLine, DocumentLineField } from './DocumentLine';
-import { DocumentAdditionalExpense, DocumentAdditionalExpenseField } from './DocumentAdditionalExpense';
-import { WithholdingTaxDataWtx, WithholdingTaxDataWtxField } from './WithholdingTaxDataWtx';
-import { WithholdingTaxData, WithholdingTaxDataField } from './WithholdingTaxData';
-import { DocumentPackage, DocumentPackageField } from './DocumentPackage';
-import { DocumentSpecialLine, DocumentSpecialLineField } from './DocumentSpecialLine';
-import { DocumentInstallment, DocumentInstallmentField } from './DocumentInstallment';
-import { DownPaymentToDraw, DownPaymentToDrawField } from './DownPaymentToDraw';
+import { DocumentApprovalRequest } from './DocumentApprovalRequest';
+import { DocumentLine } from './DocumentLine';
+import { DocumentAdditionalExpense } from './DocumentAdditionalExpense';
+import { WithholdingTaxDataWtx } from './WithholdingTaxDataWtx';
+import { WithholdingTaxData } from './WithholdingTaxData';
+import { DocumentPackage } from './DocumentPackage';
+import { DocumentSpecialLine } from './DocumentSpecialLine';
+import { DocumentInstallment } from './DocumentInstallment';
+import { DownPaymentToDraw } from './DownPaymentToDraw';
 import { TaxExtension, TaxExtensionField } from './TaxExtension';
 import { AddressExtension, AddressExtensionField } from './AddressExtension';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoDocumentTypes } from './BoDocumentTypes';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { PrintStatusEnum } from './PrintStatusEnum';
+import { BoDocSummaryTypes } from './BoDocSummaryTypes';
+import { BoObjectTypes } from './BoObjectTypes';
+import { BoDocWhsUpdateTypes } from './BoDocWhsUpdateTypes';
+import { BoDocumentSubType } from './BoDocumentSubType';
+import { BoStatus } from './BoStatus';
+import { DownPaymentTypeEnum } from './DownPaymentTypeEnum';
+import { BoPayTermDueTypes } from './BoPayTermDueTypes';
+import { EDocGenerationTypeEnum } from './EDocGenerationTypeEnum';
+import { EDocStatusEnum } from './EDocStatusEnum';
+import { BoSoStatus } from './BoSoStatus';
+import { ClosingOptionEnum } from './ClosingOptionEnum';
+import { DocumentAuthorizationStatusEnum } from './DocumentAuthorizationStatusEnum';
+import { CancelStatusEnum } from './CancelStatusEnum';
+import { DocumentDeliveryTypeEnum } from './DocumentDeliveryTypeEnum';
+import { ElecCommStatusEnum } from './ElecCommStatusEnum';
+import { FolioLetterEnum } from './FolioLetterEnum';
+import { BoInterimDocTypes } from './BoInterimDocTypes';
+import { PriceModeDocumentEnum } from './PriceModeDocumentEnum';
+import { GstTransactionTypeEnum } from './GstTransactionTypeEnum';
+import { CommissionTradeTypeEnum } from './CommissionTradeTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "DeliveryNotes" of service "SAPB1".
  */
-export class DeliveryNotes extends Entity implements DeliveryNotesType {
+export class DeliveryNotes extends EntityV4 implements DeliveryNotesType {
   /**
    * Technical entity name for DeliveryNotes.
    */
   static _entityName = 'DeliveryNotes';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for DeliveryNotes.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Doc Entry.
    * @nullable
@@ -45,6 +63,21 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    * @nullable
    */
   docNum?: number;
+  /**
+   * Doc Type.
+   * @nullable
+   */
+  docType?: BoDocumentTypes;
+  /**
+   * Hand Written.
+   * @nullable
+   */
+  handWritten?: BoYesNoEnum;
+  /**
+   * Printed.
+   * @nullable
+   */
+  printed?: PrintStatusEnum;
   /**
    * Doc Date.
    * @nullable
@@ -136,15 +169,30 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   transportationCode?: number;
   /**
+   * Confirmed.
+   * @nullable
+   */
+  confirmed?: BoYesNoEnum;
+  /**
    * Import File Num.
    * @nullable
    */
   importFileNum?: number;
   /**
+   * Summery Type.
+   * @nullable
+   */
+  summeryType?: BoDocSummaryTypes;
+  /**
    * Contact Person Code.
    * @nullable
    */
   contactPersonCode?: number;
+  /**
+   * Show Scn.
+   * @nullable
+   */
+  showScn?: BoYesNoEnum;
   /**
    * Series.
    * @nullable
@@ -155,6 +203,16 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    * @nullable
    */
   taxDate?: Moment;
+  /**
+   * Partial Supply.
+   * @nullable
+   */
+  partialSupply?: BoYesNoEnum;
+  /**
+   * Doc Object Code.
+   * @nullable
+   */
+  docObjectCode?: BoObjectTypes;
   /**
    * Ship To Code.
    * @nullable
@@ -216,6 +274,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   vatSumFc?: number;
   /**
+   * Net Procedure.
+   * @nullable
+   */
+  netProcedure?: BoYesNoEnum;
+  /**
    * Doc Total Fc.
    * @nullable
    */
@@ -236,6 +299,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   box1099?: string;
   /**
+   * Revision Po.
+   * @nullable
+   */
+  revisionPo?: BoYesNoEnum;
+  /**
    * Requried Date.
    * @nullable
    */
@@ -246,15 +314,40 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   cancelDate?: Moment;
   /**
+   * Block Dunning.
+   * @nullable
+   */
+  blockDunning?: BoYesNoEnum;
+  /**
+   * Submitted.
+   * @nullable
+   */
+  submitted?: BoYesNoEnum;
+  /**
    * Segment.
    * @nullable
    */
   segment?: number;
   /**
+   * Pick Status.
+   * @nullable
+   */
+  pickStatus?: BoYesNoEnum;
+  /**
+   * Pick.
+   * @nullable
+   */
+  pick?: BoYesNoEnum;
+  /**
    * Payment Method.
    * @nullable
    */
   paymentMethod?: string;
+  /**
+   * Payment Block.
+   * @nullable
+   */
+  paymentBlock?: BoYesNoEnum;
   /**
    * Payment Block Entry.
    * @nullable
@@ -265,6 +358,16 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    * @nullable
    */
   centralBankIndicator?: string;
+  /**
+   * Maximum Cash Discount.
+   * @nullable
+   */
+  maximumCashDiscount?: BoYesNoEnum;
+  /**
+   * Reserve.
+   * @nullable
+   */
+  reserve?: BoYesNoEnum;
   /**
    * Project.
    * @nullable
@@ -281,6 +384,16 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   exemptionValidityDateTo?: Moment;
   /**
+   * Ware House Update Type.
+   * @nullable
+   */
+  wareHouseUpdateType?: BoDocWhsUpdateTypes;
+  /**
+   * Rounding.
+   * @nullable
+   */
+  rounding?: BoYesNoEnum;
+  /**
    * External Corrected Doc Num.
    * @nullable
    */
@@ -296,6 +409,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   nextCorrectingDocument?: number;
   /**
+   * Deferred Tax.
+   * @nullable
+   */
+  deferredTax?: BoYesNoEnum;
+  /**
    * Tax Exemption Letter Num.
    * @nullable
    */
@@ -310,6 +428,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    * @nullable
    */
   wtAppliedFc?: number;
+  /**
+   * Bill Of Exchange Reserved.
+   * @nullable
+   */
+  billOfExchangeReserved?: BoYesNoEnum;
   /**
    * Agent Code.
    * @nullable
@@ -340,6 +463,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    * @nullable
    */
   numberOfInstallments?: number;
+  /**
+   * Apply Tax On First Installment.
+   * @nullable
+   */
+  applyTaxOnFirstInstallment?: BoYesNoEnum;
   /**
    * Wt Non Subject Amount.
    * @nullable
@@ -421,6 +549,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   folioNumber?: number;
   /**
+   * Document Sub Type.
+   * @nullable
+   */
+  documentSubType?: BoDocumentSubType;
+  /**
    * Bp Channel Code.
    * @nullable
    */
@@ -436,6 +569,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   address2?: string;
   /**
+   * Document Status.
+   * @nullable
+   */
+  documentStatus?: BoStatus;
+  /**
    * Period Indicator.
    * @nullable
    */
@@ -450,6 +588,16 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    * @nullable
    */
   manualNumber?: string;
+  /**
+   * Use Shpd Goods Act.
+   * @nullable
+   */
+  useShpdGoodsAct?: BoYesNoEnum;
+  /**
+   * Is Pay To Bank.
+   * @nullable
+   */
+  isPayToBank?: BoYesNoEnum;
   /**
    * Pay To Bank Country.
    * @nullable
@@ -480,6 +628,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    * @nullable
    */
   downPayment?: number;
+  /**
+   * Reserve Invoice.
+   * @nullable
+   */
+  reserveInvoice?: BoYesNoEnum;
   /**
    * Language Code.
    * @nullable
@@ -526,6 +679,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   sequenceModel?: string;
   /**
+   * Use Correction Vat Group.
+   * @nullable
+   */
+  useCorrectionVatGroup?: BoYesNoEnum;
+  /**
    * Total Discount.
    * @nullable
    */
@@ -540,6 +698,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    * @nullable
    */
   downPaymentPercentage?: number;
+  /**
+   * Down Payment Type.
+   * @nullable
+   */
+  downPaymentType?: DownPaymentTypeEnum;
   /**
    * Down Payment Amount Sc.
    * @nullable
@@ -586,6 +749,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   roundingDiffAmountSc?: number;
   /**
+   * Cancelled.
+   * @nullable
+   */
+  cancelled?: BoYesNoEnum;
+  /**
    * Signature Input Message.
    * @nullable
    */
@@ -610,6 +778,16 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    * @nullable
    */
   controlAccount?: string;
+  /**
+   * Insurance Operation 347.
+   * @nullable
+   */
+  insuranceOperation347?: BoYesNoEnum;
+  /**
+   * Archive Nonremovable Sales Quotation.
+   * @nullable
+   */
+  archiveNonremovableSalesQuotation?: BoYesNoEnum;
   /**
    * Gts Checker.
    * @nullable
@@ -636,6 +814,16 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   cashDiscountDateOffset?: number;
   /**
+   * Start From.
+   * @nullable
+   */
+  startFrom?: BoPayTermDueTypes;
+  /**
+   * Nts Approved.
+   * @nullable
+   */
+  ntsApproved?: BoYesNoEnum;
+  /**
    * E Tax Web Site.
    * @nullable
    */
@@ -650,6 +838,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    * @nullable
    */
   ntsApprovedNumber?: string;
+  /**
+   * E Doc Generation Type.
+   * @nullable
+   */
+  eDocGenerationType?: EDocGenerationTypeEnum;
   /**
    * E Doc Series.
    * @nullable
@@ -666,6 +859,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   eDocExportFormat?: number;
   /**
+   * E Doc Status.
+   * @nullable
+   */
+  eDocStatus?: EDocStatusEnum;
+  /**
    * E Doc Error Code.
    * @nullable
    */
@@ -676,6 +874,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   eDocErrorMessage?: string;
   /**
+   * Down Payment Status.
+   * @nullable
+   */
+  downPaymentStatus?: BoSoStatus;
+  /**
    * Group Series.
    * @nullable
    */
@@ -685,6 +888,26 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    * @nullable
    */
   groupNumber?: number;
+  /**
+   * Group Hand Written.
+   * @nullable
+   */
+  groupHandWritten?: BoYesNoEnum;
+  /**
+   * Reopen Original Document.
+   * @nullable
+   */
+  reopenOriginalDocument?: BoYesNoEnum;
+  /**
+   * Reopen Manually Closed Or Canceled Document.
+   * @nullable
+   */
+  reopenManuallyClosedOrCanceledDocument?: BoYesNoEnum;
+  /**
+   * Create Online Quotation.
+   * @nullable
+   */
+  createOnlineQuotation?: BoYesNoEnum;
   /**
    * Pos Equipment Number.
    * @nullable
@@ -701,10 +924,30 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   posCashierNumber?: number;
   /**
+   * Apply Current Vat Rates For Down Payments To Draw.
+   * @nullable
+   */
+  applyCurrentVatRatesForDownPaymentsToDraw?: BoYesNoEnum;
+  /**
+   * Closing Option.
+   * @nullable
+   */
+  closingOption?: ClosingOptionEnum;
+  /**
    * Specified Closing Date.
    * @nullable
    */
   specifiedClosingDate?: Moment;
+  /**
+   * Open For Landed Costs.
+   * @nullable
+   */
+  openForLandedCosts?: BoYesNoEnum;
+  /**
+   * Authorization Status.
+   * @nullable
+   */
+  authorizationStatus?: DocumentAuthorizationStatusEnum;
   /**
    * Total Discount Fc.
    * @nullable
@@ -715,6 +958,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    * @nullable
    */
   totalDiscountSc?: number;
+  /**
+   * Relevant To Gts.
+   * @nullable
+   */
+  relevantToGts?: BoYesNoEnum;
   /**
    * Bpl Name.
    * @nullable
@@ -751,6 +999,16 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   blanketAgreementNumber?: number;
   /**
+   * Is Alteration.
+   * @nullable
+   */
+  isAlteration?: BoYesNoEnum;
+  /**
+   * Cancel Status.
+   * @nullable
+   */
+  cancelStatus?: CancelStatusEnum;
+  /**
    * Asset Value Date.
    * @nullable
    */
@@ -781,10 +1039,20 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   requesterEmail?: string;
   /**
+   * Send Notification.
+   * @nullable
+   */
+  sendNotification?: BoYesNoEnum;
+  /**
    * Req Type.
    * @nullable
    */
   reqType?: number;
+  /**
+   * Document Delivery.
+   * @nullable
+   */
+  documentDelivery?: DocumentDeliveryTypeEnum;
   /**
    * Authorization Code.
    * @nullable
@@ -821,10 +1089,30 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   atDocumentType?: string;
   /**
+   * Elec Comm Status.
+   * @nullable
+   */
+  elecCommStatus?: ElecCommStatusEnum;
+  /**
    * Elec Comm Message.
    * @nullable
    */
   elecCommMessage?: string;
+  /**
+   * Reuse Document Num.
+   * @nullable
+   */
+  reuseDocumentNum?: BoYesNoEnum;
+  /**
+   * Reuse Nota Fiscal Num.
+   * @nullable
+   */
+  reuseNotaFiscalNum?: BoYesNoEnum;
+  /**
+   * Print Sepa Direct.
+   * @nullable
+   */
+  printSepaDirect?: BoYesNoEnum;
   /**
    * Fiscal Doc Num.
    * @nullable
@@ -846,6 +1134,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   pointOfIssueCode?: string;
   /**
+   * Letter.
+   * @nullable
+   */
+  letter?: FolioLetterEnum;
+  /**
    * Folio Number From.
    * @nullable
    */
@@ -855,6 +1148,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    * @nullable
    */
   folioNumberTo?: number;
+  /**
+   * Interim Type.
+   * @nullable
+   */
+  interimType?: BoInterimDocTypes;
   /**
    * Related Type.
    * @nullable
@@ -881,6 +1179,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   reportingSectionControlStatementVat?: string;
   /**
+   * Exclude From Tax Report Control Statement Vat.
+   * @nullable
+   */
+  excludeFromTaxReportControlStatementVat?: BoYesNoEnum;
+  /**
    * Pos Cash Register.
    * @nullable
    */
@@ -891,10 +1194,20 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    */
   updateTime?: Time;
   /**
+   * Price Mode.
+   * @nullable
+   */
+  priceMode?: PriceModeDocumentEnum;
+  /**
    * Down Payment Trasaction Id.
    * @nullable
    */
   downPaymentTrasactionId?: string;
+  /**
+   * Revision.
+   * @nullable
+   */
+  revision?: BoYesNoEnum;
   /**
    * Original Ref No.
    * @nullable
@@ -905,6 +1218,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    * @nullable
    */
   originalRefDate?: Moment;
+  /**
+   * Gst Transaction Type.
+   * @nullable
+   */
+  gstTransactionType?: GstTransactionTypeEnum;
   /**
    * Original Credit Or Debit No.
    * @nullable
@@ -940,6 +1258,21 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    * @nullable
    */
   shipFrom?: string;
+  /**
+   * Commission Trade.
+   * @nullable
+   */
+  commissionTrade?: CommissionTradeTypeEnum;
+  /**
+   * Commission Trade Return.
+   * @nullable
+   */
+  commissionTradeReturn?: BoYesNoEnum;
+  /**
+   * Use Bill To Addr To Determine Tax.
+   * @nullable
+   */
+  useBillToAddrToDetermineTax?: BoYesNoEnum;
   /**
    * Issuing Reason.
    * @nullable
@@ -1091,11 +1424,11 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
   posDailySummary!: PosDailySummary;
 
   /**
-   * Returns an entity builder to construct instances `DeliveryNotes`.
+   * Returns an entity builder to construct instances of `DeliveryNotes`.
    * @returns A builder that constructs instances of entity type `DeliveryNotes`.
    */
-  static builder(): EntityBuilderType<DeliveryNotes, DeliveryNotesTypeForceMandatory> {
-    return Entity.entityBuilder(DeliveryNotes);
+  static builder(): EntityBuilderType<DeliveryNotes, DeliveryNotesType> {
+    return EntityV4.entityBuilder(DeliveryNotes);
   }
 
   /**
@@ -1111,8 +1444,8 @@ export class DeliveryNotes extends Entity implements DeliveryNotesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `DeliveryNotes`.
    */
-  static customField(fieldName: string): CustomField<DeliveryNotes> {
-    return Entity.customFieldSelector(fieldName, DeliveryNotes);
+  static customField(fieldName: string): CustomFieldV4<DeliveryNotes> {
+    return EntityV4.customFieldSelector(fieldName, DeliveryNotes);
   }
 
   /**
@@ -1147,418 +1480,263 @@ import { Departments, DepartmentsType } from './Departments';
 import { PosDailySummary, PosDailySummaryType } from './PosDailySummary';
 
 export interface DeliveryNotesType {
-  docEntry?: number;
-  docNum?: number;
-  docDate?: Moment;
-  docDueDate?: Moment;
-  cardCode?: string;
-  cardName?: string;
-  address?: string;
-  numAtCard?: string;
-  docTotal?: number;
-  attachmentEntry?: number;
-  docCurrency?: string;
-  docRate?: number;
-  reference1?: string;
-  reference2?: string;
-  comments?: string;
-  journalMemo?: string;
-  paymentGroupCode?: number;
-  docTime?: Time;
-  salesPersonCode?: number;
-  transportationCode?: number;
-  importFileNum?: number;
-  contactPersonCode?: number;
-  series?: number;
-  taxDate?: Moment;
-  shipToCode?: string;
-  indicator?: string;
-  federalTaxId?: string;
-  discountPercent?: number;
-  paymentReference?: string;
-  creationDate?: Moment;
-  updateDate?: Moment;
-  financialPeriod?: number;
-  transNum?: number;
-  vatSum?: number;
-  vatSumSys?: number;
-  vatSumFc?: number;
-  docTotalFc?: number;
-  docTotalSys?: number;
-  form1099?: number;
-  box1099?: string;
-  requriedDate?: Moment;
-  cancelDate?: Moment;
-  segment?: number;
-  paymentMethod?: string;
-  paymentBlockEntry?: number;
-  centralBankIndicator?: string;
-  project?: string;
-  exemptionValidityDateFrom?: Moment;
-  exemptionValidityDateTo?: Moment;
-  externalCorrectedDocNum?: string;
-  internalCorrectedDocNum?: number;
-  nextCorrectingDocument?: number;
-  taxExemptionLetterNum?: string;
-  wtApplied?: number;
-  wtAppliedFc?: number;
-  agentCode?: string;
-  wtAppliedSc?: number;
-  totalEqualizationTax?: number;
-  totalEqualizationTaxFc?: number;
-  totalEqualizationTaxSc?: number;
-  numberOfInstallments?: number;
-  wtNonSubjectAmount?: number;
-  wtNonSubjectAmountSc?: number;
-  wtNonSubjectAmountFc?: number;
-  wtExemptedAmount?: number;
-  wtExemptedAmountSc?: number;
-  wtExemptedAmountFc?: number;
-  baseAmount?: number;
-  baseAmountSc?: number;
-  baseAmountFc?: number;
-  wtAmount?: number;
-  wtAmountSc?: number;
-  wtAmountFc?: number;
-  vatDate?: Moment;
-  documentsOwner?: number;
-  folioPrefixString?: string;
-  folioNumber?: number;
-  bpChannelCode?: string;
-  bpChannelContact?: number;
-  address2?: string;
-  periodIndicator?: string;
-  payToCode?: string;
-  manualNumber?: string;
-  payToBankCountry?: string;
-  payToBankCode?: string;
-  payToBankAccountNo?: string;
-  payToBankBranch?: string;
-  bplIdAssignedToInvoice?: number;
-  downPayment?: number;
-  languageCode?: number;
-  trackingNumber?: string;
-  pickRemark?: string;
-  closingDate?: Moment;
-  sequenceCode?: number;
-  sequenceSerial?: number;
-  seriesString?: string;
-  subSeriesString?: string;
-  sequenceModel?: string;
-  totalDiscount?: number;
-  downPaymentAmount?: number;
-  downPaymentPercentage?: number;
-  downPaymentAmountSc?: number;
-  downPaymentAmountFc?: number;
-  vatPercent?: number;
-  serviceGrossProfitPercent?: number;
-  openingRemarks?: string;
-  closingRemarks?: string;
-  roundingDiffAmount?: number;
-  roundingDiffAmountFc?: number;
-  roundingDiffAmountSc?: number;
-  signatureInputMessage?: string;
-  signatureDigest?: string;
-  certificationNumber?: string;
-  privateKeyVersion?: number;
-  controlAccount?: string;
-  gtsChecker?: number;
-  gtsPayee?: number;
-  extraMonth?: number;
-  extraDays?: number;
-  cashDiscountDateOffset?: number;
-  eTaxWebSite?: number;
-  eTaxNumber?: string;
-  ntsApprovedNumber?: string;
-  eDocSeries?: number;
-  eDocNum?: string;
-  eDocExportFormat?: number;
-  eDocErrorCode?: string;
-  eDocErrorMessage?: string;
-  groupSeries?: number;
-  groupNumber?: number;
-  posEquipmentNumber?: string;
-  posManufacturerSerialNumber?: string;
-  posCashierNumber?: number;
-  specifiedClosingDate?: Moment;
-  totalDiscountFc?: number;
-  totalDiscountSc?: number;
-  bplName?: string;
-  vatRegNum?: string;
-  annualInvoiceDeclarationReference?: number;
-  supplier?: string;
-  releaser?: number;
-  receiver?: number;
-  blanketAgreementNumber?: number;
-  assetValueDate?: Moment;
-  requester?: string;
-  requesterName?: string;
-  requesterBranch?: number;
-  requesterDepartment?: number;
-  requesterEmail?: string;
-  reqType?: number;
-  authorizationCode?: string;
-  startDeliveryDate?: Moment;
-  startDeliveryTime?: Time;
-  endDeliveryDate?: Moment;
-  endDeliveryTime?: Time;
-  vehiclePlate?: string;
-  atDocumentType?: string;
-  elecCommMessage?: string;
-  fiscalDocNum?: string;
-  posDailySummaryNo?: number;
-  posReceiptNo?: number;
-  pointOfIssueCode?: string;
-  folioNumberFrom?: number;
-  folioNumberTo?: number;
-  relatedType?: number;
-  relatedEntry?: number;
-  documentTaxId?: string;
-  dateOfReportingControlStatementVat?: Moment;
-  reportingSectionControlStatementVat?: string;
-  posCashRegister?: number;
-  updateTime?: Time;
-  downPaymentTrasactionId?: string;
-  originalRefNo?: string;
-  originalRefDate?: Moment;
-  originalCreditOrDebitNo?: string;
-  originalCreditOrDebitDate?: Moment;
-  eCommerceOperator?: string;
-  eCommerceGstin?: string;
-  taxInvoiceNo?: string;
-  taxInvoiceDate?: Moment;
-  shipFrom?: string;
-  issuingReason?: number;
-  documentApprovalRequests?: DocumentApprovalRequest[];
-  documentLines?: DocumentLine[];
-  documentAdditionalExpenses?: DocumentAdditionalExpense[];
-  withholdingTaxDataWtxCollection?: WithholdingTaxDataWtx[];
-  withholdingTaxDataCollection?: WithholdingTaxData[];
-  documentPackages?: DocumentPackage[];
-  documentSpecialLines?: DocumentSpecialLine[];
-  documentInstallments?: DocumentInstallment[];
-  downPaymentsToDraw?: DownPaymentToDraw[];
-  taxExtension?: TaxExtension;
-  addressExtension?: AddressExtension;
-  soiWizardId?: number;
-  businessPartner: BusinessPartnersType;
-  currency: CurrenciesType;
-  paymentTermsType: PaymentTermsTypesType;
-  salesPerson: SalesPersonsType;
-  shippingType: ShippingTypesType;
-  factoringIndicator: FactoringIndicatorsType;
-  journalEntry: JournalEntriesType;
-  forms1099: Forms1099Type;
-  wizardPaymentMethod: WizardPaymentMethodsType;
-  paymentBlock2: PaymentBlocksType;
-  project2: ProjectsType;
-  employeeInfo: EmployeesInfoType;
-  country: CountriesType;
-  businessPlace: BusinessPlacesType;
-  userLanguage: UserLanguagesType;
-  nfModel: NfModelsType;
-  chartOfAccount: ChartOfAccountsType;
-  taxWebSite: TaxWebSitesType;
-  branch: BranchesType;
-  department: DepartmentsType;
-  posDailySummary: PosDailySummaryType;
-}
-
-export interface DeliveryNotesTypeForceMandatory {
-  docEntry: number;
-  docNum: number;
-  docDate: Moment;
-  docDueDate: Moment;
-  cardCode: string;
-  cardName: string;
-  address: string;
-  numAtCard: string;
-  docTotal: number;
-  attachmentEntry: number;
-  docCurrency: string;
-  docRate: number;
-  reference1: string;
-  reference2: string;
-  comments: string;
-  journalMemo: string;
-  paymentGroupCode: number;
-  docTime: Time;
-  salesPersonCode: number;
-  transportationCode: number;
-  importFileNum: number;
-  contactPersonCode: number;
-  series: number;
-  taxDate: Moment;
-  shipToCode: string;
-  indicator: string;
-  federalTaxId: string;
-  discountPercent: number;
-  paymentReference: string;
-  creationDate: Moment;
-  updateDate: Moment;
-  financialPeriod: number;
-  transNum: number;
-  vatSum: number;
-  vatSumSys: number;
-  vatSumFc: number;
-  docTotalFc: number;
-  docTotalSys: number;
-  form1099: number;
-  box1099: string;
-  requriedDate: Moment;
-  cancelDate: Moment;
-  segment: number;
-  paymentMethod: string;
-  paymentBlockEntry: number;
-  centralBankIndicator: string;
-  project: string;
-  exemptionValidityDateFrom: Moment;
-  exemptionValidityDateTo: Moment;
-  externalCorrectedDocNum: string;
-  internalCorrectedDocNum: number;
-  nextCorrectingDocument: number;
-  taxExemptionLetterNum: string;
-  wtApplied: number;
-  wtAppliedFc: number;
-  agentCode: string;
-  wtAppliedSc: number;
-  totalEqualizationTax: number;
-  totalEqualizationTaxFc: number;
-  totalEqualizationTaxSc: number;
-  numberOfInstallments: number;
-  wtNonSubjectAmount: number;
-  wtNonSubjectAmountSc: number;
-  wtNonSubjectAmountFc: number;
-  wtExemptedAmount: number;
-  wtExemptedAmountSc: number;
-  wtExemptedAmountFc: number;
-  baseAmount: number;
-  baseAmountSc: number;
-  baseAmountFc: number;
-  wtAmount: number;
-  wtAmountSc: number;
-  wtAmountFc: number;
-  vatDate: Moment;
-  documentsOwner: number;
-  folioPrefixString: string;
-  folioNumber: number;
-  bpChannelCode: string;
-  bpChannelContact: number;
-  address2: string;
-  periodIndicator: string;
-  payToCode: string;
-  manualNumber: string;
-  payToBankCountry: string;
-  payToBankCode: string;
-  payToBankAccountNo: string;
-  payToBankBranch: string;
-  bplIdAssignedToInvoice: number;
-  downPayment: number;
-  languageCode: number;
-  trackingNumber: string;
-  pickRemark: string;
-  closingDate: Moment;
-  sequenceCode: number;
-  sequenceSerial: number;
-  seriesString: string;
-  subSeriesString: string;
-  sequenceModel: string;
-  totalDiscount: number;
-  downPaymentAmount: number;
-  downPaymentPercentage: number;
-  downPaymentAmountSc: number;
-  downPaymentAmountFc: number;
-  vatPercent: number;
-  serviceGrossProfitPercent: number;
-  openingRemarks: string;
-  closingRemarks: string;
-  roundingDiffAmount: number;
-  roundingDiffAmountFc: number;
-  roundingDiffAmountSc: number;
-  signatureInputMessage: string;
-  signatureDigest: string;
-  certificationNumber: string;
-  privateKeyVersion: number;
-  controlAccount: string;
-  gtsChecker: number;
-  gtsPayee: number;
-  extraMonth: number;
-  extraDays: number;
-  cashDiscountDateOffset: number;
-  eTaxWebSite: number;
-  eTaxNumber: string;
-  ntsApprovedNumber: string;
-  eDocSeries: number;
-  eDocNum: string;
-  eDocExportFormat: number;
-  eDocErrorCode: string;
-  eDocErrorMessage: string;
-  groupSeries: number;
-  groupNumber: number;
-  posEquipmentNumber: string;
-  posManufacturerSerialNumber: string;
-  posCashierNumber: number;
-  specifiedClosingDate: Moment;
-  totalDiscountFc: number;
-  totalDiscountSc: number;
-  bplName: string;
-  vatRegNum: string;
-  annualInvoiceDeclarationReference: number;
-  supplier: string;
-  releaser: number;
-  receiver: number;
-  blanketAgreementNumber: number;
-  assetValueDate: Moment;
-  requester: string;
-  requesterName: string;
-  requesterBranch: number;
-  requesterDepartment: number;
-  requesterEmail: string;
-  reqType: number;
-  authorizationCode: string;
-  startDeliveryDate: Moment;
-  startDeliveryTime: Time;
-  endDeliveryDate: Moment;
-  endDeliveryTime: Time;
-  vehiclePlate: string;
-  atDocumentType: string;
-  elecCommMessage: string;
-  fiscalDocNum: string;
-  posDailySummaryNo: number;
-  posReceiptNo: number;
-  pointOfIssueCode: string;
-  folioNumberFrom: number;
-  folioNumberTo: number;
-  relatedType: number;
-  relatedEntry: number;
-  documentTaxId: string;
-  dateOfReportingControlStatementVat: Moment;
-  reportingSectionControlStatementVat: string;
-  posCashRegister: number;
-  updateTime: Time;
-  downPaymentTrasactionId: string;
-  originalRefNo: string;
-  originalRefDate: Moment;
-  originalCreditOrDebitNo: string;
-  originalCreditOrDebitDate: Moment;
-  eCommerceOperator: string;
-  eCommerceGstin: string;
-  taxInvoiceNo: string;
-  taxInvoiceDate: Moment;
-  shipFrom: string;
-  issuingReason: number;
-  documentApprovalRequests: DocumentApprovalRequest[];
-  documentLines: DocumentLine[];
-  documentAdditionalExpenses: DocumentAdditionalExpense[];
-  withholdingTaxDataWtxCollection: WithholdingTaxDataWtx[];
-  withholdingTaxDataCollection: WithholdingTaxData[];
-  documentPackages: DocumentPackage[];
-  documentSpecialLines: DocumentSpecialLine[];
-  documentInstallments: DocumentInstallment[];
-  downPaymentsToDraw: DownPaymentToDraw[];
-  taxExtension: TaxExtension;
-  addressExtension: AddressExtension;
-  soiWizardId: number;
+  docEntry?: number | null;
+  docNum?: number | null;
+  docType?: BoDocumentTypes | null;
+  handWritten?: BoYesNoEnum | null;
+  printed?: PrintStatusEnum | null;
+  docDate?: Moment | null;
+  docDueDate?: Moment | null;
+  cardCode?: string | null;
+  cardName?: string | null;
+  address?: string | null;
+  numAtCard?: string | null;
+  docTotal?: number | null;
+  attachmentEntry?: number | null;
+  docCurrency?: string | null;
+  docRate?: number | null;
+  reference1?: string | null;
+  reference2?: string | null;
+  comments?: string | null;
+  journalMemo?: string | null;
+  paymentGroupCode?: number | null;
+  docTime?: Time | null;
+  salesPersonCode?: number | null;
+  transportationCode?: number | null;
+  confirmed?: BoYesNoEnum | null;
+  importFileNum?: number | null;
+  summeryType?: BoDocSummaryTypes | null;
+  contactPersonCode?: number | null;
+  showScn?: BoYesNoEnum | null;
+  series?: number | null;
+  taxDate?: Moment | null;
+  partialSupply?: BoYesNoEnum | null;
+  docObjectCode?: BoObjectTypes | null;
+  shipToCode?: string | null;
+  indicator?: string | null;
+  federalTaxId?: string | null;
+  discountPercent?: number | null;
+  paymentReference?: string | null;
+  creationDate?: Moment | null;
+  updateDate?: Moment | null;
+  financialPeriod?: number | null;
+  transNum?: number | null;
+  vatSum?: number | null;
+  vatSumSys?: number | null;
+  vatSumFc?: number | null;
+  netProcedure?: BoYesNoEnum | null;
+  docTotalFc?: number | null;
+  docTotalSys?: number | null;
+  form1099?: number | null;
+  box1099?: string | null;
+  revisionPo?: BoYesNoEnum | null;
+  requriedDate?: Moment | null;
+  cancelDate?: Moment | null;
+  blockDunning?: BoYesNoEnum | null;
+  submitted?: BoYesNoEnum | null;
+  segment?: number | null;
+  pickStatus?: BoYesNoEnum | null;
+  pick?: BoYesNoEnum | null;
+  paymentMethod?: string | null;
+  paymentBlock?: BoYesNoEnum | null;
+  paymentBlockEntry?: number | null;
+  centralBankIndicator?: string | null;
+  maximumCashDiscount?: BoYesNoEnum | null;
+  reserve?: BoYesNoEnum | null;
+  project?: string | null;
+  exemptionValidityDateFrom?: Moment | null;
+  exemptionValidityDateTo?: Moment | null;
+  wareHouseUpdateType?: BoDocWhsUpdateTypes | null;
+  rounding?: BoYesNoEnum | null;
+  externalCorrectedDocNum?: string | null;
+  internalCorrectedDocNum?: number | null;
+  nextCorrectingDocument?: number | null;
+  deferredTax?: BoYesNoEnum | null;
+  taxExemptionLetterNum?: string | null;
+  wtApplied?: number | null;
+  wtAppliedFc?: number | null;
+  billOfExchangeReserved?: BoYesNoEnum | null;
+  agentCode?: string | null;
+  wtAppliedSc?: number | null;
+  totalEqualizationTax?: number | null;
+  totalEqualizationTaxFc?: number | null;
+  totalEqualizationTaxSc?: number | null;
+  numberOfInstallments?: number | null;
+  applyTaxOnFirstInstallment?: BoYesNoEnum | null;
+  wtNonSubjectAmount?: number | null;
+  wtNonSubjectAmountSc?: number | null;
+  wtNonSubjectAmountFc?: number | null;
+  wtExemptedAmount?: number | null;
+  wtExemptedAmountSc?: number | null;
+  wtExemptedAmountFc?: number | null;
+  baseAmount?: number | null;
+  baseAmountSc?: number | null;
+  baseAmountFc?: number | null;
+  wtAmount?: number | null;
+  wtAmountSc?: number | null;
+  wtAmountFc?: number | null;
+  vatDate?: Moment | null;
+  documentsOwner?: number | null;
+  folioPrefixString?: string | null;
+  folioNumber?: number | null;
+  documentSubType?: BoDocumentSubType | null;
+  bpChannelCode?: string | null;
+  bpChannelContact?: number | null;
+  address2?: string | null;
+  documentStatus?: BoStatus | null;
+  periodIndicator?: string | null;
+  payToCode?: string | null;
+  manualNumber?: string | null;
+  useShpdGoodsAct?: BoYesNoEnum | null;
+  isPayToBank?: BoYesNoEnum | null;
+  payToBankCountry?: string | null;
+  payToBankCode?: string | null;
+  payToBankAccountNo?: string | null;
+  payToBankBranch?: string | null;
+  bplIdAssignedToInvoice?: number | null;
+  downPayment?: number | null;
+  reserveInvoice?: BoYesNoEnum | null;
+  languageCode?: number | null;
+  trackingNumber?: string | null;
+  pickRemark?: string | null;
+  closingDate?: Moment | null;
+  sequenceCode?: number | null;
+  sequenceSerial?: number | null;
+  seriesString?: string | null;
+  subSeriesString?: string | null;
+  sequenceModel?: string | null;
+  useCorrectionVatGroup?: BoYesNoEnum | null;
+  totalDiscount?: number | null;
+  downPaymentAmount?: number | null;
+  downPaymentPercentage?: number | null;
+  downPaymentType?: DownPaymentTypeEnum | null;
+  downPaymentAmountSc?: number | null;
+  downPaymentAmountFc?: number | null;
+  vatPercent?: number | null;
+  serviceGrossProfitPercent?: number | null;
+  openingRemarks?: string | null;
+  closingRemarks?: string | null;
+  roundingDiffAmount?: number | null;
+  roundingDiffAmountFc?: number | null;
+  roundingDiffAmountSc?: number | null;
+  cancelled?: BoYesNoEnum | null;
+  signatureInputMessage?: string | null;
+  signatureDigest?: string | null;
+  certificationNumber?: string | null;
+  privateKeyVersion?: number | null;
+  controlAccount?: string | null;
+  insuranceOperation347?: BoYesNoEnum | null;
+  archiveNonremovableSalesQuotation?: BoYesNoEnum | null;
+  gtsChecker?: number | null;
+  gtsPayee?: number | null;
+  extraMonth?: number | null;
+  extraDays?: number | null;
+  cashDiscountDateOffset?: number | null;
+  startFrom?: BoPayTermDueTypes | null;
+  ntsApproved?: BoYesNoEnum | null;
+  eTaxWebSite?: number | null;
+  eTaxNumber?: string | null;
+  ntsApprovedNumber?: string | null;
+  eDocGenerationType?: EDocGenerationTypeEnum | null;
+  eDocSeries?: number | null;
+  eDocNum?: string | null;
+  eDocExportFormat?: number | null;
+  eDocStatus?: EDocStatusEnum | null;
+  eDocErrorCode?: string | null;
+  eDocErrorMessage?: string | null;
+  downPaymentStatus?: BoSoStatus | null;
+  groupSeries?: number | null;
+  groupNumber?: number | null;
+  groupHandWritten?: BoYesNoEnum | null;
+  reopenOriginalDocument?: BoYesNoEnum | null;
+  reopenManuallyClosedOrCanceledDocument?: BoYesNoEnum | null;
+  createOnlineQuotation?: BoYesNoEnum | null;
+  posEquipmentNumber?: string | null;
+  posManufacturerSerialNumber?: string | null;
+  posCashierNumber?: number | null;
+  applyCurrentVatRatesForDownPaymentsToDraw?: BoYesNoEnum | null;
+  closingOption?: ClosingOptionEnum | null;
+  specifiedClosingDate?: Moment | null;
+  openForLandedCosts?: BoYesNoEnum | null;
+  authorizationStatus?: DocumentAuthorizationStatusEnum | null;
+  totalDiscountFc?: number | null;
+  totalDiscountSc?: number | null;
+  relevantToGts?: BoYesNoEnum | null;
+  bplName?: string | null;
+  vatRegNum?: string | null;
+  annualInvoiceDeclarationReference?: number | null;
+  supplier?: string | null;
+  releaser?: number | null;
+  receiver?: number | null;
+  blanketAgreementNumber?: number | null;
+  isAlteration?: BoYesNoEnum | null;
+  cancelStatus?: CancelStatusEnum | null;
+  assetValueDate?: Moment | null;
+  requester?: string | null;
+  requesterName?: string | null;
+  requesterBranch?: number | null;
+  requesterDepartment?: number | null;
+  requesterEmail?: string | null;
+  sendNotification?: BoYesNoEnum | null;
+  reqType?: number | null;
+  documentDelivery?: DocumentDeliveryTypeEnum | null;
+  authorizationCode?: string | null;
+  startDeliveryDate?: Moment | null;
+  startDeliveryTime?: Time | null;
+  endDeliveryDate?: Moment | null;
+  endDeliveryTime?: Time | null;
+  vehiclePlate?: string | null;
+  atDocumentType?: string | null;
+  elecCommStatus?: ElecCommStatusEnum | null;
+  elecCommMessage?: string | null;
+  reuseDocumentNum?: BoYesNoEnum | null;
+  reuseNotaFiscalNum?: BoYesNoEnum | null;
+  printSepaDirect?: BoYesNoEnum | null;
+  fiscalDocNum?: string | null;
+  posDailySummaryNo?: number | null;
+  posReceiptNo?: number | null;
+  pointOfIssueCode?: string | null;
+  letter?: FolioLetterEnum | null;
+  folioNumberFrom?: number | null;
+  folioNumberTo?: number | null;
+  interimType?: BoInterimDocTypes | null;
+  relatedType?: number | null;
+  relatedEntry?: number | null;
+  documentTaxId?: string | null;
+  dateOfReportingControlStatementVat?: Moment | null;
+  reportingSectionControlStatementVat?: string | null;
+  excludeFromTaxReportControlStatementVat?: BoYesNoEnum | null;
+  posCashRegister?: number | null;
+  updateTime?: Time | null;
+  priceMode?: PriceModeDocumentEnum | null;
+  downPaymentTrasactionId?: string | null;
+  revision?: BoYesNoEnum | null;
+  originalRefNo?: string | null;
+  originalRefDate?: Moment | null;
+  gstTransactionType?: GstTransactionTypeEnum | null;
+  originalCreditOrDebitNo?: string | null;
+  originalCreditOrDebitDate?: Moment | null;
+  eCommerceOperator?: string | null;
+  eCommerceGstin?: string | null;
+  taxInvoiceNo?: string | null;
+  taxInvoiceDate?: Moment | null;
+  shipFrom?: string | null;
+  commissionTrade?: CommissionTradeTypeEnum | null;
+  commissionTradeReturn?: BoYesNoEnum | null;
+  useBillToAddrToDetermineTax?: BoYesNoEnum | null;
+  issuingReason?: number | null;
+  documentApprovalRequests?: DocumentApprovalRequest[] | null;
+  documentLines?: DocumentLine[] | null;
+  documentAdditionalExpenses?: DocumentAdditionalExpense[] | null;
+  withholdingTaxDataWtxCollection?: WithholdingTaxDataWtx[] | null;
+  withholdingTaxDataCollection?: WithholdingTaxData[] | null;
+  documentPackages?: DocumentPackage[] | null;
+  documentSpecialLines?: DocumentSpecialLine[] | null;
+  documentInstallments?: DocumentInstallment[] | null;
+  downPaymentsToDraw?: DownPaymentToDraw[] | null;
+  taxExtension?: TaxExtension | null;
+  addressExtension?: AddressExtension | null;
+  soiWizardId?: number | null;
   businessPartner: BusinessPartnersType;
   currency: CurrenciesType;
   paymentTermsType: PaymentTermsTypesType;
@@ -1593,6 +1771,21 @@ export namespace DeliveryNotes {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOC_NUM: NumberField<DeliveryNotes> = new NumberField('DocNum', DeliveryNotes, 'Edm.Int32');
+  /**
+   * Static representation of the [[docType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOC_TYPE: EnumField<DeliveryNotes> = new EnumField('DocType', DeliveryNotes);
+  /**
+   * Static representation of the [[handWritten]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const HAND_WRITTEN: EnumField<DeliveryNotes> = new EnumField('HandWritten', DeliveryNotes);
+  /**
+   * Static representation of the [[printed]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRINTED: EnumField<DeliveryNotes> = new EnumField('Printed', DeliveryNotes);
   /**
    * Static representation of the [[docDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1684,15 +1877,30 @@ export namespace DeliveryNotes {
    */
   export const TRANSPORTATION_CODE: NumberField<DeliveryNotes> = new NumberField('TransportationCode', DeliveryNotes, 'Edm.Int32');
   /**
+   * Static representation of the [[confirmed]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CONFIRMED: EnumField<DeliveryNotes> = new EnumField('Confirmed', DeliveryNotes);
+  /**
    * Static representation of the [[importFileNum]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const IMPORT_FILE_NUM: NumberField<DeliveryNotes> = new NumberField('ImportFileNum', DeliveryNotes, 'Edm.Int32');
   /**
+   * Static representation of the [[summeryType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SUMMERY_TYPE: EnumField<DeliveryNotes> = new EnumField('SummeryType', DeliveryNotes);
+  /**
    * Static representation of the [[contactPersonCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CONTACT_PERSON_CODE: NumberField<DeliveryNotes> = new NumberField('ContactPersonCode', DeliveryNotes, 'Edm.Int32');
+  /**
+   * Static representation of the [[showScn]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SHOW_SCN: EnumField<DeliveryNotes> = new EnumField('ShowSCN', DeliveryNotes);
   /**
    * Static representation of the [[series]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1703,6 +1911,16 @@ export namespace DeliveryNotes {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const TAX_DATE: DateField<DeliveryNotes> = new DateField('TaxDate', DeliveryNotes, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[partialSupply]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PARTIAL_SUPPLY: EnumField<DeliveryNotes> = new EnumField('PartialSupply', DeliveryNotes);
+  /**
+   * Static representation of the [[docObjectCode]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOC_OBJECT_CODE: EnumField<DeliveryNotes> = new EnumField('DocObjectCode', DeliveryNotes);
   /**
    * Static representation of the [[shipToCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1764,6 +1982,11 @@ export namespace DeliveryNotes {
    */
   export const VAT_SUM_FC: NumberField<DeliveryNotes> = new NumberField('VatSumFc', DeliveryNotes, 'Edm.Double');
   /**
+   * Static representation of the [[netProcedure]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const NET_PROCEDURE: EnumField<DeliveryNotes> = new EnumField('NetProcedure', DeliveryNotes);
+  /**
    * Static representation of the [[docTotalFc]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1784,6 +2007,11 @@ export namespace DeliveryNotes {
    */
   export const BOX_1099: StringField<DeliveryNotes> = new StringField('Box1099', DeliveryNotes, 'Edm.String');
   /**
+   * Static representation of the [[revisionPo]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REVISION_PO: EnumField<DeliveryNotes> = new EnumField('RevisionPo', DeliveryNotes);
+  /**
    * Static representation of the [[requriedDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1794,15 +2022,40 @@ export namespace DeliveryNotes {
    */
   export const CANCEL_DATE: DateField<DeliveryNotes> = new DateField('CancelDate', DeliveryNotes, 'Edm.DateTimeOffset');
   /**
+   * Static representation of the [[blockDunning]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BLOCK_DUNNING: EnumField<DeliveryNotes> = new EnumField('BlockDunning', DeliveryNotes);
+  /**
+   * Static representation of the [[submitted]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SUBMITTED: EnumField<DeliveryNotes> = new EnumField('Submitted', DeliveryNotes);
+  /**
    * Static representation of the [[segment]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const SEGMENT: NumberField<DeliveryNotes> = new NumberField('Segment', DeliveryNotes, 'Edm.Int32');
   /**
+   * Static representation of the [[pickStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PICK_STATUS: EnumField<DeliveryNotes> = new EnumField('PickStatus', DeliveryNotes);
+  /**
+   * Static representation of the [[pick]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PICK: EnumField<DeliveryNotes> = new EnumField('Pick', DeliveryNotes);
+  /**
    * Static representation of the [[paymentMethod]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const PAYMENT_METHOD: StringField<DeliveryNotes> = new StringField('PaymentMethod', DeliveryNotes, 'Edm.String');
+  /**
+   * Static representation of the [[paymentBlock]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PAYMENT_BLOCK: EnumField<DeliveryNotes> = new EnumField('PaymentBlock', DeliveryNotes);
   /**
    * Static representation of the [[paymentBlockEntry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1813,6 +2066,16 @@ export namespace DeliveryNotes {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CENTRAL_BANK_INDICATOR: StringField<DeliveryNotes> = new StringField('CentralBankIndicator', DeliveryNotes, 'Edm.String');
+  /**
+   * Static representation of the [[maximumCashDiscount]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const MAXIMUM_CASH_DISCOUNT: EnumField<DeliveryNotes> = new EnumField('MaximumCashDiscount', DeliveryNotes);
+  /**
+   * Static representation of the [[reserve]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RESERVE: EnumField<DeliveryNotes> = new EnumField('Reserve', DeliveryNotes);
   /**
    * Static representation of the [[project]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1829,6 +2092,16 @@ export namespace DeliveryNotes {
    */
   export const EXEMPTION_VALIDITY_DATE_TO: DateField<DeliveryNotes> = new DateField('ExemptionValidityDateTo', DeliveryNotes, 'Edm.DateTimeOffset');
   /**
+   * Static representation of the [[wareHouseUpdateType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const WARE_HOUSE_UPDATE_TYPE: EnumField<DeliveryNotes> = new EnumField('WareHouseUpdateType', DeliveryNotes);
+  /**
+   * Static representation of the [[rounding]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ROUNDING: EnumField<DeliveryNotes> = new EnumField('Rounding', DeliveryNotes);
+  /**
    * Static representation of the [[externalCorrectedDocNum]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1844,6 +2117,11 @@ export namespace DeliveryNotes {
    */
   export const NEXT_CORRECTING_DOCUMENT: NumberField<DeliveryNotes> = new NumberField('NextCorrectingDocument', DeliveryNotes, 'Edm.Int32');
   /**
+   * Static representation of the [[deferredTax]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DEFERRED_TAX: EnumField<DeliveryNotes> = new EnumField('DeferredTax', DeliveryNotes);
+  /**
    * Static representation of the [[taxExemptionLetterNum]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1858,6 +2136,11 @@ export namespace DeliveryNotes {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const WT_APPLIED_FC: NumberField<DeliveryNotes> = new NumberField('WTAppliedFC', DeliveryNotes, 'Edm.Double');
+  /**
+   * Static representation of the [[billOfExchangeReserved]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BILL_OF_EXCHANGE_RESERVED: EnumField<DeliveryNotes> = new EnumField('BillOfExchangeReserved', DeliveryNotes);
   /**
    * Static representation of the [[agentCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1888,6 +2171,11 @@ export namespace DeliveryNotes {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const NUMBER_OF_INSTALLMENTS: NumberField<DeliveryNotes> = new NumberField('NumberOfInstallments', DeliveryNotes, 'Edm.Int32');
+  /**
+   * Static representation of the [[applyTaxOnFirstInstallment]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const APPLY_TAX_ON_FIRST_INSTALLMENT: EnumField<DeliveryNotes> = new EnumField('ApplyTaxOnFirstInstallment', DeliveryNotes);
   /**
    * Static representation of the [[wtNonSubjectAmount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1969,6 +2257,11 @@ export namespace DeliveryNotes {
    */
   export const FOLIO_NUMBER: NumberField<DeliveryNotes> = new NumberField('FolioNumber', DeliveryNotes, 'Edm.Int32');
   /**
+   * Static representation of the [[documentSubType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_SUB_TYPE: EnumField<DeliveryNotes> = new EnumField('DocumentSubType', DeliveryNotes);
+  /**
    * Static representation of the [[bpChannelCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1984,6 +2277,11 @@ export namespace DeliveryNotes {
    */
   export const ADDRESS_2: StringField<DeliveryNotes> = new StringField('Address2', DeliveryNotes, 'Edm.String');
   /**
+   * Static representation of the [[documentStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_STATUS: EnumField<DeliveryNotes> = new EnumField('DocumentStatus', DeliveryNotes);
+  /**
    * Static representation of the [[periodIndicator]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1998,6 +2296,16 @@ export namespace DeliveryNotes {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const MANUAL_NUMBER: StringField<DeliveryNotes> = new StringField('ManualNumber', DeliveryNotes, 'Edm.String');
+  /**
+   * Static representation of the [[useShpdGoodsAct]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const USE_SHPD_GOODS_ACT: EnumField<DeliveryNotes> = new EnumField('UseShpdGoodsAct', DeliveryNotes);
+  /**
+   * Static representation of the [[isPayToBank]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_PAY_TO_BANK: EnumField<DeliveryNotes> = new EnumField('IsPayToBank', DeliveryNotes);
   /**
    * Static representation of the [[payToBankCountry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2028,6 +2336,11 @@ export namespace DeliveryNotes {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOWN_PAYMENT: NumberField<DeliveryNotes> = new NumberField('DownPayment', DeliveryNotes, 'Edm.Double');
+  /**
+   * Static representation of the [[reserveInvoice]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RESERVE_INVOICE: EnumField<DeliveryNotes> = new EnumField('ReserveInvoice', DeliveryNotes);
   /**
    * Static representation of the [[languageCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2074,6 +2387,11 @@ export namespace DeliveryNotes {
    */
   export const SEQUENCE_MODEL: StringField<DeliveryNotes> = new StringField('SequenceModel', DeliveryNotes, 'Edm.String');
   /**
+   * Static representation of the [[useCorrectionVatGroup]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const USE_CORRECTION_VAT_GROUP: EnumField<DeliveryNotes> = new EnumField('UseCorrectionVATGroup', DeliveryNotes);
+  /**
    * Static representation of the [[totalDiscount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2088,6 +2406,11 @@ export namespace DeliveryNotes {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOWN_PAYMENT_PERCENTAGE: NumberField<DeliveryNotes> = new NumberField('DownPaymentPercentage', DeliveryNotes, 'Edm.Double');
+  /**
+   * Static representation of the [[downPaymentType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOWN_PAYMENT_TYPE: EnumField<DeliveryNotes> = new EnumField('DownPaymentType', DeliveryNotes);
   /**
    * Static representation of the [[downPaymentAmountSc]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2134,6 +2457,11 @@ export namespace DeliveryNotes {
    */
   export const ROUNDING_DIFF_AMOUNT_SC: NumberField<DeliveryNotes> = new NumberField('RoundingDiffAmountSC', DeliveryNotes, 'Edm.Double');
   /**
+   * Static representation of the [[cancelled]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CANCELLED: EnumField<DeliveryNotes> = new EnumField('Cancelled', DeliveryNotes);
+  /**
    * Static representation of the [[signatureInputMessage]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2158,6 +2486,16 @@ export namespace DeliveryNotes {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CONTROL_ACCOUNT: StringField<DeliveryNotes> = new StringField('ControlAccount', DeliveryNotes, 'Edm.String');
+  /**
+   * Static representation of the [[insuranceOperation347]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INSURANCE_OPERATION_347: EnumField<DeliveryNotes> = new EnumField('InsuranceOperation347', DeliveryNotes);
+  /**
+   * Static representation of the [[archiveNonremovableSalesQuotation]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ARCHIVE_NONREMOVABLE_SALES_QUOTATION: EnumField<DeliveryNotes> = new EnumField('ArchiveNonremovableSalesQuotation', DeliveryNotes);
   /**
    * Static representation of the [[gtsChecker]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2184,6 +2522,16 @@ export namespace DeliveryNotes {
    */
   export const CASH_DISCOUNT_DATE_OFFSET: NumberField<DeliveryNotes> = new NumberField('CashDiscountDateOffset', DeliveryNotes, 'Edm.Int32');
   /**
+   * Static representation of the [[startFrom]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const START_FROM: EnumField<DeliveryNotes> = new EnumField('StartFrom', DeliveryNotes);
+  /**
+   * Static representation of the [[ntsApproved]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const NTS_APPROVED: EnumField<DeliveryNotes> = new EnumField('NTSApproved', DeliveryNotes);
+  /**
    * Static representation of the [[eTaxWebSite]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2198,6 +2546,11 @@ export namespace DeliveryNotes {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const NTS_APPROVED_NUMBER: StringField<DeliveryNotes> = new StringField('NTSApprovedNumber', DeliveryNotes, 'Edm.String');
+  /**
+   * Static representation of the [[eDocGenerationType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const E_DOC_GENERATION_TYPE: EnumField<DeliveryNotes> = new EnumField('EDocGenerationType', DeliveryNotes);
   /**
    * Static representation of the [[eDocSeries]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2214,6 +2567,11 @@ export namespace DeliveryNotes {
    */
   export const E_DOC_EXPORT_FORMAT: NumberField<DeliveryNotes> = new NumberField('EDocExportFormat', DeliveryNotes, 'Edm.Int32');
   /**
+   * Static representation of the [[eDocStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const E_DOC_STATUS: EnumField<DeliveryNotes> = new EnumField('EDocStatus', DeliveryNotes);
+  /**
    * Static representation of the [[eDocErrorCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2224,6 +2582,11 @@ export namespace DeliveryNotes {
    */
   export const E_DOC_ERROR_MESSAGE: StringField<DeliveryNotes> = new StringField('EDocErrorMessage', DeliveryNotes, 'Edm.String');
   /**
+   * Static representation of the [[downPaymentStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOWN_PAYMENT_STATUS: EnumField<DeliveryNotes> = new EnumField('DownPaymentStatus', DeliveryNotes);
+  /**
    * Static representation of the [[groupSeries]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2233,6 +2596,26 @@ export namespace DeliveryNotes {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const GROUP_NUMBER: NumberField<DeliveryNotes> = new NumberField('GroupNumber', DeliveryNotes, 'Edm.Int32');
+  /**
+   * Static representation of the [[groupHandWritten]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const GROUP_HAND_WRITTEN: EnumField<DeliveryNotes> = new EnumField('GroupHandWritten', DeliveryNotes);
+  /**
+   * Static representation of the [[reopenOriginalDocument]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REOPEN_ORIGINAL_DOCUMENT: EnumField<DeliveryNotes> = new EnumField('ReopenOriginalDocument', DeliveryNotes);
+  /**
+   * Static representation of the [[reopenManuallyClosedOrCanceledDocument]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REOPEN_MANUALLY_CLOSED_OR_CANCELED_DOCUMENT: EnumField<DeliveryNotes> = new EnumField('ReopenManuallyClosedOrCanceledDocument', DeliveryNotes);
+  /**
+   * Static representation of the [[createOnlineQuotation]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CREATE_ONLINE_QUOTATION: EnumField<DeliveryNotes> = new EnumField('CreateOnlineQuotation', DeliveryNotes);
   /**
    * Static representation of the [[posEquipmentNumber]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2249,10 +2632,30 @@ export namespace DeliveryNotes {
    */
   export const POS_CASHIER_NUMBER: NumberField<DeliveryNotes> = new NumberField('POSCashierNumber', DeliveryNotes, 'Edm.Int32');
   /**
+   * Static representation of the [[applyCurrentVatRatesForDownPaymentsToDraw]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const APPLY_CURRENT_VAT_RATES_FOR_DOWN_PAYMENTS_TO_DRAW: EnumField<DeliveryNotes> = new EnumField('ApplyCurrentVATRatesForDownPaymentsToDraw', DeliveryNotes);
+  /**
+   * Static representation of the [[closingOption]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CLOSING_OPTION: EnumField<DeliveryNotes> = new EnumField('ClosingOption', DeliveryNotes);
+  /**
    * Static representation of the [[specifiedClosingDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const SPECIFIED_CLOSING_DATE: DateField<DeliveryNotes> = new DateField('SpecifiedClosingDate', DeliveryNotes, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[openForLandedCosts]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const OPEN_FOR_LANDED_COSTS: EnumField<DeliveryNotes> = new EnumField('OpenForLandedCosts', DeliveryNotes);
+  /**
+   * Static representation of the [[authorizationStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const AUTHORIZATION_STATUS: EnumField<DeliveryNotes> = new EnumField('AuthorizationStatus', DeliveryNotes);
   /**
    * Static representation of the [[totalDiscountFc]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2263,6 +2666,11 @@ export namespace DeliveryNotes {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const TOTAL_DISCOUNT_SC: NumberField<DeliveryNotes> = new NumberField('TotalDiscountSC', DeliveryNotes, 'Edm.Double');
+  /**
+   * Static representation of the [[relevantToGts]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RELEVANT_TO_GTS: EnumField<DeliveryNotes> = new EnumField('RelevantToGTS', DeliveryNotes);
   /**
    * Static representation of the [[bplName]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2299,6 +2707,16 @@ export namespace DeliveryNotes {
    */
   export const BLANKET_AGREEMENT_NUMBER: NumberField<DeliveryNotes> = new NumberField('BlanketAgreementNumber', DeliveryNotes, 'Edm.Int32');
   /**
+   * Static representation of the [[isAlteration]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_ALTERATION: EnumField<DeliveryNotes> = new EnumField('IsAlteration', DeliveryNotes);
+  /**
+   * Static representation of the [[cancelStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CANCEL_STATUS: EnumField<DeliveryNotes> = new EnumField('CancelStatus', DeliveryNotes);
+  /**
    * Static representation of the [[assetValueDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2329,10 +2747,20 @@ export namespace DeliveryNotes {
    */
   export const REQUESTER_EMAIL: StringField<DeliveryNotes> = new StringField('RequesterEmail', DeliveryNotes, 'Edm.String');
   /**
+   * Static representation of the [[sendNotification]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SEND_NOTIFICATION: EnumField<DeliveryNotes> = new EnumField('SendNotification', DeliveryNotes);
+  /**
    * Static representation of the [[reqType]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const REQ_TYPE: NumberField<DeliveryNotes> = new NumberField('ReqType', DeliveryNotes, 'Edm.Int32');
+  /**
+   * Static representation of the [[documentDelivery]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_DELIVERY: EnumField<DeliveryNotes> = new EnumField('DocumentDelivery', DeliveryNotes);
   /**
    * Static representation of the [[authorizationCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2369,10 +2797,30 @@ export namespace DeliveryNotes {
    */
   export const AT_DOCUMENT_TYPE: StringField<DeliveryNotes> = new StringField('ATDocumentType', DeliveryNotes, 'Edm.String');
   /**
+   * Static representation of the [[elecCommStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ELEC_COMM_STATUS: EnumField<DeliveryNotes> = new EnumField('ElecCommStatus', DeliveryNotes);
+  /**
    * Static representation of the [[elecCommMessage]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const ELEC_COMM_MESSAGE: StringField<DeliveryNotes> = new StringField('ElecCommMessage', DeliveryNotes, 'Edm.String');
+  /**
+   * Static representation of the [[reuseDocumentNum]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REUSE_DOCUMENT_NUM: EnumField<DeliveryNotes> = new EnumField('ReuseDocumentNum', DeliveryNotes);
+  /**
+   * Static representation of the [[reuseNotaFiscalNum]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REUSE_NOTA_FISCAL_NUM: EnumField<DeliveryNotes> = new EnumField('ReuseNotaFiscalNum', DeliveryNotes);
+  /**
+   * Static representation of the [[printSepaDirect]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRINT_SEPA_DIRECT: EnumField<DeliveryNotes> = new EnumField('PrintSEPADirect', DeliveryNotes);
   /**
    * Static representation of the [[fiscalDocNum]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2394,6 +2842,11 @@ export namespace DeliveryNotes {
    */
   export const POINT_OF_ISSUE_CODE: StringField<DeliveryNotes> = new StringField('PointOfIssueCode', DeliveryNotes, 'Edm.String');
   /**
+   * Static representation of the [[letter]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LETTER: EnumField<DeliveryNotes> = new EnumField('Letter', DeliveryNotes);
+  /**
    * Static representation of the [[folioNumberFrom]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2403,6 +2856,11 @@ export namespace DeliveryNotes {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const FOLIO_NUMBER_TO: NumberField<DeliveryNotes> = new NumberField('FolioNumberTo', DeliveryNotes, 'Edm.Int32');
+  /**
+   * Static representation of the [[interimType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INTERIM_TYPE: EnumField<DeliveryNotes> = new EnumField('InterimType', DeliveryNotes);
   /**
    * Static representation of the [[relatedType]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2429,6 +2887,11 @@ export namespace DeliveryNotes {
    */
   export const REPORTING_SECTION_CONTROL_STATEMENT_VAT: StringField<DeliveryNotes> = new StringField('ReportingSectionControlStatementVAT', DeliveryNotes, 'Edm.String');
   /**
+   * Static representation of the [[excludeFromTaxReportControlStatementVat]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const EXCLUDE_FROM_TAX_REPORT_CONTROL_STATEMENT_VAT: EnumField<DeliveryNotes> = new EnumField('ExcludeFromTaxReportControlStatementVAT', DeliveryNotes);
+  /**
    * Static representation of the [[posCashRegister]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2439,10 +2902,20 @@ export namespace DeliveryNotes {
    */
   export const UPDATE_TIME: TimeField<DeliveryNotes> = new TimeField('UpdateTime', DeliveryNotes, 'Edm.TimeOfDay');
   /**
+   * Static representation of the [[priceMode]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRICE_MODE: EnumField<DeliveryNotes> = new EnumField('PriceMode', DeliveryNotes);
+  /**
    * Static representation of the [[downPaymentTrasactionId]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOWN_PAYMENT_TRASACTION_ID: StringField<DeliveryNotes> = new StringField('DownPaymentTrasactionID', DeliveryNotes, 'Edm.String');
+  /**
+   * Static representation of the [[revision]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REVISION: EnumField<DeliveryNotes> = new EnumField('Revision', DeliveryNotes);
   /**
    * Static representation of the [[originalRefNo]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2453,6 +2926,11 @@ export namespace DeliveryNotes {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const ORIGINAL_REF_DATE: DateField<DeliveryNotes> = new DateField('OriginalRefDate', DeliveryNotes, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[gstTransactionType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const GST_TRANSACTION_TYPE: EnumField<DeliveryNotes> = new EnumField('GSTTransactionType', DeliveryNotes);
   /**
    * Static representation of the [[originalCreditOrDebitNo]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2489,6 +2967,21 @@ export namespace DeliveryNotes {
    */
   export const SHIP_FROM: StringField<DeliveryNotes> = new StringField('ShipFrom', DeliveryNotes, 'Edm.String');
   /**
+   * Static representation of the [[commissionTrade]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const COMMISSION_TRADE: EnumField<DeliveryNotes> = new EnumField('CommissionTrade', DeliveryNotes);
+  /**
+   * Static representation of the [[commissionTradeReturn]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const COMMISSION_TRADE_RETURN: EnumField<DeliveryNotes> = new EnumField('CommissionTradeReturn', DeliveryNotes);
+  /**
+   * Static representation of the [[useBillToAddrToDetermineTax]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const USE_BILL_TO_ADDR_TO_DETERMINE_TAX: EnumField<DeliveryNotes> = new EnumField('UseBillToAddrToDetermineTax', DeliveryNotes);
+  /**
    * Static representation of the [[issuingReason]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2497,47 +2990,47 @@ export namespace DeliveryNotes {
    * Static representation of the [[documentApprovalRequests]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_APPROVAL_REQUESTS: CollectionField<DeliveryNotes> = new CollectionField('Document_ApprovalRequests', DeliveryNotes, new DocumentApprovalRequestField('', DeliveryNotes));
+  export const DOCUMENT_APPROVAL_REQUESTS: CollectionField<DeliveryNotes, DocumentApprovalRequest> = new CollectionField('Document_ApprovalRequests', DeliveryNotes, DocumentApprovalRequest);
   /**
    * Static representation of the [[documentLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_LINES: CollectionField<DeliveryNotes> = new CollectionField('DocumentLines', DeliveryNotes, new DocumentLineField('', DeliveryNotes));
+  export const DOCUMENT_LINES: CollectionField<DeliveryNotes, DocumentLine> = new CollectionField('DocumentLines', DeliveryNotes, DocumentLine);
   /**
    * Static representation of the [[documentAdditionalExpenses]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_ADDITIONAL_EXPENSES: CollectionField<DeliveryNotes> = new CollectionField('DocumentAdditionalExpenses', DeliveryNotes, new DocumentAdditionalExpenseField('', DeliveryNotes));
+  export const DOCUMENT_ADDITIONAL_EXPENSES: CollectionField<DeliveryNotes, DocumentAdditionalExpense> = new CollectionField('DocumentAdditionalExpenses', DeliveryNotes, DocumentAdditionalExpense);
   /**
    * Static representation of the [[withholdingTaxDataWtxCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const WITHHOLDING_TAX_DATA_WTX_COLLECTION: CollectionField<DeliveryNotes> = new CollectionField('WithholdingTaxDataWTXCollection', DeliveryNotes, new WithholdingTaxDataWtxField('', DeliveryNotes));
+  export const WITHHOLDING_TAX_DATA_WTX_COLLECTION: CollectionField<DeliveryNotes, WithholdingTaxDataWtx> = new CollectionField('WithholdingTaxDataWTXCollection', DeliveryNotes, WithholdingTaxDataWtx);
   /**
    * Static representation of the [[withholdingTaxDataCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const WITHHOLDING_TAX_DATA_COLLECTION: CollectionField<DeliveryNotes> = new CollectionField('WithholdingTaxDataCollection', DeliveryNotes, new WithholdingTaxDataField('', DeliveryNotes));
+  export const WITHHOLDING_TAX_DATA_COLLECTION: CollectionField<DeliveryNotes, WithholdingTaxData> = new CollectionField('WithholdingTaxDataCollection', DeliveryNotes, WithholdingTaxData);
   /**
    * Static representation of the [[documentPackages]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_PACKAGES: CollectionField<DeliveryNotes> = new CollectionField('DocumentPackages', DeliveryNotes, new DocumentPackageField('', DeliveryNotes));
+  export const DOCUMENT_PACKAGES: CollectionField<DeliveryNotes, DocumentPackage> = new CollectionField('DocumentPackages', DeliveryNotes, DocumentPackage);
   /**
    * Static representation of the [[documentSpecialLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_SPECIAL_LINES: CollectionField<DeliveryNotes> = new CollectionField('DocumentSpecialLines', DeliveryNotes, new DocumentSpecialLineField('', DeliveryNotes));
+  export const DOCUMENT_SPECIAL_LINES: CollectionField<DeliveryNotes, DocumentSpecialLine> = new CollectionField('DocumentSpecialLines', DeliveryNotes, DocumentSpecialLine);
   /**
    * Static representation of the [[documentInstallments]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_INSTALLMENTS: CollectionField<DeliveryNotes> = new CollectionField('DocumentInstallments', DeliveryNotes, new DocumentInstallmentField('', DeliveryNotes));
+  export const DOCUMENT_INSTALLMENTS: CollectionField<DeliveryNotes, DocumentInstallment> = new CollectionField('DocumentInstallments', DeliveryNotes, DocumentInstallment);
   /**
    * Static representation of the [[downPaymentsToDraw]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOWN_PAYMENTS_TO_DRAW: CollectionField<DeliveryNotes> = new CollectionField('DownPaymentsToDraw', DeliveryNotes, new DownPaymentToDrawField('', DeliveryNotes));
+  export const DOWN_PAYMENTS_TO_DRAW: CollectionField<DeliveryNotes, DownPaymentToDraw> = new CollectionField('DownPaymentsToDraw', DeliveryNotes, DownPaymentToDraw);
   /**
    * Static representation of the [[taxExtension]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2661,9 +3154,12 @@ export namespace DeliveryNotes {
   /**
    * All fields of the DeliveryNotes entity.
    */
-  export const _allFields: Array<NumberField<DeliveryNotes> | DateField<DeliveryNotes> | StringField<DeliveryNotes> | TimeField<DeliveryNotes> | CollectionField<DeliveryNotes> | TaxExtensionField<DeliveryNotes> | AddressExtensionField<DeliveryNotes> | OneToOneLink<DeliveryNotes, BusinessPartners> | OneToOneLink<DeliveryNotes, Currencies> | OneToOneLink<DeliveryNotes, PaymentTermsTypes> | OneToOneLink<DeliveryNotes, SalesPersons> | OneToOneLink<DeliveryNotes, ShippingTypes> | OneToOneLink<DeliveryNotes, FactoringIndicators> | OneToOneLink<DeliveryNotes, JournalEntries> | OneToOneLink<DeliveryNotes, Forms1099> | OneToOneLink<DeliveryNotes, WizardPaymentMethods> | OneToOneLink<DeliveryNotes, PaymentBlocks> | OneToOneLink<DeliveryNotes, Projects> | OneToOneLink<DeliveryNotes, EmployeesInfo> | OneToOneLink<DeliveryNotes, Countries> | OneToOneLink<DeliveryNotes, BusinessPlaces> | OneToOneLink<DeliveryNotes, UserLanguages> | OneToOneLink<DeliveryNotes, NfModels> | OneToOneLink<DeliveryNotes, ChartOfAccounts> | OneToOneLink<DeliveryNotes, TaxWebSites> | OneToOneLink<DeliveryNotes, Branches> | OneToOneLink<DeliveryNotes, Departments> | OneToOneLink<DeliveryNotes, PosDailySummary>> = [
+  export const _allFields: Array<NumberField<DeliveryNotes> | EnumField<DeliveryNotes> | DateField<DeliveryNotes> | StringField<DeliveryNotes> | TimeField<DeliveryNotes> | CollectionField<DeliveryNotes, DocumentApprovalRequest> | CollectionField<DeliveryNotes, DocumentLine> | CollectionField<DeliveryNotes, DocumentAdditionalExpense> | CollectionField<DeliveryNotes, WithholdingTaxDataWtx> | CollectionField<DeliveryNotes, WithholdingTaxData> | CollectionField<DeliveryNotes, DocumentPackage> | CollectionField<DeliveryNotes, DocumentSpecialLine> | CollectionField<DeliveryNotes, DocumentInstallment> | CollectionField<DeliveryNotes, DownPaymentToDraw> | TaxExtensionField<DeliveryNotes> | AddressExtensionField<DeliveryNotes> | OneToOneLink<DeliveryNotes, BusinessPartners> | OneToOneLink<DeliveryNotes, Currencies> | OneToOneLink<DeliveryNotes, PaymentTermsTypes> | OneToOneLink<DeliveryNotes, SalesPersons> | OneToOneLink<DeliveryNotes, ShippingTypes> | OneToOneLink<DeliveryNotes, FactoringIndicators> | OneToOneLink<DeliveryNotes, JournalEntries> | OneToOneLink<DeliveryNotes, Forms1099> | OneToOneLink<DeliveryNotes, WizardPaymentMethods> | OneToOneLink<DeliveryNotes, PaymentBlocks> | OneToOneLink<DeliveryNotes, Projects> | OneToOneLink<DeliveryNotes, EmployeesInfo> | OneToOneLink<DeliveryNotes, Countries> | OneToOneLink<DeliveryNotes, BusinessPlaces> | OneToOneLink<DeliveryNotes, UserLanguages> | OneToOneLink<DeliveryNotes, NfModels> | OneToOneLink<DeliveryNotes, ChartOfAccounts> | OneToOneLink<DeliveryNotes, TaxWebSites> | OneToOneLink<DeliveryNotes, Branches> | OneToOneLink<DeliveryNotes, Departments> | OneToOneLink<DeliveryNotes, PosDailySummary>> = [
     DeliveryNotes.DOC_ENTRY,
     DeliveryNotes.DOC_NUM,
+    DeliveryNotes.DOC_TYPE,
+    DeliveryNotes.HAND_WRITTEN,
+    DeliveryNotes.PRINTED,
     DeliveryNotes.DOC_DATE,
     DeliveryNotes.DOC_DUE_DATE,
     DeliveryNotes.CARD_CODE,
@@ -2682,10 +3178,15 @@ export namespace DeliveryNotes {
     DeliveryNotes.DOC_TIME,
     DeliveryNotes.SALES_PERSON_CODE,
     DeliveryNotes.TRANSPORTATION_CODE,
+    DeliveryNotes.CONFIRMED,
     DeliveryNotes.IMPORT_FILE_NUM,
+    DeliveryNotes.SUMMERY_TYPE,
     DeliveryNotes.CONTACT_PERSON_CODE,
+    DeliveryNotes.SHOW_SCN,
     DeliveryNotes.SERIES,
     DeliveryNotes.TAX_DATE,
+    DeliveryNotes.PARTIAL_SUPPLY,
+    DeliveryNotes.DOC_OBJECT_CODE,
     DeliveryNotes.SHIP_TO_CODE,
     DeliveryNotes.INDICATOR,
     DeliveryNotes.FEDERAL_TAX_ID,
@@ -2698,31 +3199,45 @@ export namespace DeliveryNotes {
     DeliveryNotes.VAT_SUM,
     DeliveryNotes.VAT_SUM_SYS,
     DeliveryNotes.VAT_SUM_FC,
+    DeliveryNotes.NET_PROCEDURE,
     DeliveryNotes.DOC_TOTAL_FC,
     DeliveryNotes.DOC_TOTAL_SYS,
     DeliveryNotes.FORM_1099,
     DeliveryNotes.BOX_1099,
+    DeliveryNotes.REVISION_PO,
     DeliveryNotes.REQURIED_DATE,
     DeliveryNotes.CANCEL_DATE,
+    DeliveryNotes.BLOCK_DUNNING,
+    DeliveryNotes.SUBMITTED,
     DeliveryNotes.SEGMENT,
+    DeliveryNotes.PICK_STATUS,
+    DeliveryNotes.PICK,
     DeliveryNotes.PAYMENT_METHOD,
+    DeliveryNotes.PAYMENT_BLOCK,
     DeliveryNotes.PAYMENT_BLOCK_ENTRY,
     DeliveryNotes.CENTRAL_BANK_INDICATOR,
+    DeliveryNotes.MAXIMUM_CASH_DISCOUNT,
+    DeliveryNotes.RESERVE,
     DeliveryNotes.PROJECT,
     DeliveryNotes.EXEMPTION_VALIDITY_DATE_FROM,
     DeliveryNotes.EXEMPTION_VALIDITY_DATE_TO,
+    DeliveryNotes.WARE_HOUSE_UPDATE_TYPE,
+    DeliveryNotes.ROUNDING,
     DeliveryNotes.EXTERNAL_CORRECTED_DOC_NUM,
     DeliveryNotes.INTERNAL_CORRECTED_DOC_NUM,
     DeliveryNotes.NEXT_CORRECTING_DOCUMENT,
+    DeliveryNotes.DEFERRED_TAX,
     DeliveryNotes.TAX_EXEMPTION_LETTER_NUM,
     DeliveryNotes.WT_APPLIED,
     DeliveryNotes.WT_APPLIED_FC,
+    DeliveryNotes.BILL_OF_EXCHANGE_RESERVED,
     DeliveryNotes.AGENT_CODE,
     DeliveryNotes.WT_APPLIED_SC,
     DeliveryNotes.TOTAL_EQUALIZATION_TAX,
     DeliveryNotes.TOTAL_EQUALIZATION_TAX_FC,
     DeliveryNotes.TOTAL_EQUALIZATION_TAX_SC,
     DeliveryNotes.NUMBER_OF_INSTALLMENTS,
+    DeliveryNotes.APPLY_TAX_ON_FIRST_INSTALLMENT,
     DeliveryNotes.WT_NON_SUBJECT_AMOUNT,
     DeliveryNotes.WT_NON_SUBJECT_AMOUNT_SC,
     DeliveryNotes.WT_NON_SUBJECT_AMOUNT_FC,
@@ -2739,18 +3254,23 @@ export namespace DeliveryNotes {
     DeliveryNotes.DOCUMENTS_OWNER,
     DeliveryNotes.FOLIO_PREFIX_STRING,
     DeliveryNotes.FOLIO_NUMBER,
+    DeliveryNotes.DOCUMENT_SUB_TYPE,
     DeliveryNotes.BP_CHANNEL_CODE,
     DeliveryNotes.BP_CHANNEL_CONTACT,
     DeliveryNotes.ADDRESS_2,
+    DeliveryNotes.DOCUMENT_STATUS,
     DeliveryNotes.PERIOD_INDICATOR,
     DeliveryNotes.PAY_TO_CODE,
     DeliveryNotes.MANUAL_NUMBER,
+    DeliveryNotes.USE_SHPD_GOODS_ACT,
+    DeliveryNotes.IS_PAY_TO_BANK,
     DeliveryNotes.PAY_TO_BANK_COUNTRY,
     DeliveryNotes.PAY_TO_BANK_CODE,
     DeliveryNotes.PAY_TO_BANK_ACCOUNT_NO,
     DeliveryNotes.PAY_TO_BANK_BRANCH,
     DeliveryNotes.BPL_ID_ASSIGNED_TO_INVOICE,
     DeliveryNotes.DOWN_PAYMENT,
+    DeliveryNotes.RESERVE_INVOICE,
     DeliveryNotes.LANGUAGE_CODE,
     DeliveryNotes.TRACKING_NUMBER,
     DeliveryNotes.PICK_REMARK,
@@ -2760,9 +3280,11 @@ export namespace DeliveryNotes {
     DeliveryNotes.SERIES_STRING,
     DeliveryNotes.SUB_SERIES_STRING,
     DeliveryNotes.SEQUENCE_MODEL,
+    DeliveryNotes.USE_CORRECTION_VAT_GROUP,
     DeliveryNotes.TOTAL_DISCOUNT,
     DeliveryNotes.DOWN_PAYMENT_AMOUNT,
     DeliveryNotes.DOWN_PAYMENT_PERCENTAGE,
+    DeliveryNotes.DOWN_PAYMENT_TYPE,
     DeliveryNotes.DOWN_PAYMENT_AMOUNT_SC,
     DeliveryNotes.DOWN_PAYMENT_AMOUNT_FC,
     DeliveryNotes.VAT_PERCENT,
@@ -2772,32 +3294,49 @@ export namespace DeliveryNotes {
     DeliveryNotes.ROUNDING_DIFF_AMOUNT,
     DeliveryNotes.ROUNDING_DIFF_AMOUNT_FC,
     DeliveryNotes.ROUNDING_DIFF_AMOUNT_SC,
+    DeliveryNotes.CANCELLED,
     DeliveryNotes.SIGNATURE_INPUT_MESSAGE,
     DeliveryNotes.SIGNATURE_DIGEST,
     DeliveryNotes.CERTIFICATION_NUMBER,
     DeliveryNotes.PRIVATE_KEY_VERSION,
     DeliveryNotes.CONTROL_ACCOUNT,
+    DeliveryNotes.INSURANCE_OPERATION_347,
+    DeliveryNotes.ARCHIVE_NONREMOVABLE_SALES_QUOTATION,
     DeliveryNotes.GTS_CHECKER,
     DeliveryNotes.GTS_PAYEE,
     DeliveryNotes.EXTRA_MONTH,
     DeliveryNotes.EXTRA_DAYS,
     DeliveryNotes.CASH_DISCOUNT_DATE_OFFSET,
+    DeliveryNotes.START_FROM,
+    DeliveryNotes.NTS_APPROVED,
     DeliveryNotes.E_TAX_WEB_SITE,
     DeliveryNotes.E_TAX_NUMBER,
     DeliveryNotes.NTS_APPROVED_NUMBER,
+    DeliveryNotes.E_DOC_GENERATION_TYPE,
     DeliveryNotes.E_DOC_SERIES,
     DeliveryNotes.E_DOC_NUM,
     DeliveryNotes.E_DOC_EXPORT_FORMAT,
+    DeliveryNotes.E_DOC_STATUS,
     DeliveryNotes.E_DOC_ERROR_CODE,
     DeliveryNotes.E_DOC_ERROR_MESSAGE,
+    DeliveryNotes.DOWN_PAYMENT_STATUS,
     DeliveryNotes.GROUP_SERIES,
     DeliveryNotes.GROUP_NUMBER,
+    DeliveryNotes.GROUP_HAND_WRITTEN,
+    DeliveryNotes.REOPEN_ORIGINAL_DOCUMENT,
+    DeliveryNotes.REOPEN_MANUALLY_CLOSED_OR_CANCELED_DOCUMENT,
+    DeliveryNotes.CREATE_ONLINE_QUOTATION,
     DeliveryNotes.POS_EQUIPMENT_NUMBER,
     DeliveryNotes.POS_MANUFACTURER_SERIAL_NUMBER,
     DeliveryNotes.POS_CASHIER_NUMBER,
+    DeliveryNotes.APPLY_CURRENT_VAT_RATES_FOR_DOWN_PAYMENTS_TO_DRAW,
+    DeliveryNotes.CLOSING_OPTION,
     DeliveryNotes.SPECIFIED_CLOSING_DATE,
+    DeliveryNotes.OPEN_FOR_LANDED_COSTS,
+    DeliveryNotes.AUTHORIZATION_STATUS,
     DeliveryNotes.TOTAL_DISCOUNT_FC,
     DeliveryNotes.TOTAL_DISCOUNT_SC,
+    DeliveryNotes.RELEVANT_TO_GTS,
     DeliveryNotes.BPL_NAME,
     DeliveryNotes.VAT_REG_NUM,
     DeliveryNotes.ANNUAL_INVOICE_DECLARATION_REFERENCE,
@@ -2805,13 +3344,17 @@ export namespace DeliveryNotes {
     DeliveryNotes.RELEASER,
     DeliveryNotes.RECEIVER,
     DeliveryNotes.BLANKET_AGREEMENT_NUMBER,
+    DeliveryNotes.IS_ALTERATION,
+    DeliveryNotes.CANCEL_STATUS,
     DeliveryNotes.ASSET_VALUE_DATE,
     DeliveryNotes.REQUESTER,
     DeliveryNotes.REQUESTER_NAME,
     DeliveryNotes.REQUESTER_BRANCH,
     DeliveryNotes.REQUESTER_DEPARTMENT,
     DeliveryNotes.REQUESTER_EMAIL,
+    DeliveryNotes.SEND_NOTIFICATION,
     DeliveryNotes.REQ_TYPE,
+    DeliveryNotes.DOCUMENT_DELIVERY,
     DeliveryNotes.AUTHORIZATION_CODE,
     DeliveryNotes.START_DELIVERY_DATE,
     DeliveryNotes.START_DELIVERY_TIME,
@@ -2819,23 +3362,33 @@ export namespace DeliveryNotes {
     DeliveryNotes.END_DELIVERY_TIME,
     DeliveryNotes.VEHICLE_PLATE,
     DeliveryNotes.AT_DOCUMENT_TYPE,
+    DeliveryNotes.ELEC_COMM_STATUS,
     DeliveryNotes.ELEC_COMM_MESSAGE,
+    DeliveryNotes.REUSE_DOCUMENT_NUM,
+    DeliveryNotes.REUSE_NOTA_FISCAL_NUM,
+    DeliveryNotes.PRINT_SEPA_DIRECT,
     DeliveryNotes.FISCAL_DOC_NUM,
     DeliveryNotes.POS_DAILY_SUMMARY_NO,
     DeliveryNotes.POS_RECEIPT_NO,
     DeliveryNotes.POINT_OF_ISSUE_CODE,
+    DeliveryNotes.LETTER,
     DeliveryNotes.FOLIO_NUMBER_FROM,
     DeliveryNotes.FOLIO_NUMBER_TO,
+    DeliveryNotes.INTERIM_TYPE,
     DeliveryNotes.RELATED_TYPE,
     DeliveryNotes.RELATED_ENTRY,
     DeliveryNotes.DOCUMENT_TAX_ID,
     DeliveryNotes.DATE_OF_REPORTING_CONTROL_STATEMENT_VAT,
     DeliveryNotes.REPORTING_SECTION_CONTROL_STATEMENT_VAT,
+    DeliveryNotes.EXCLUDE_FROM_TAX_REPORT_CONTROL_STATEMENT_VAT,
     DeliveryNotes.POS_CASH_REGISTER,
     DeliveryNotes.UPDATE_TIME,
+    DeliveryNotes.PRICE_MODE,
     DeliveryNotes.DOWN_PAYMENT_TRASACTION_ID,
+    DeliveryNotes.REVISION,
     DeliveryNotes.ORIGINAL_REF_NO,
     DeliveryNotes.ORIGINAL_REF_DATE,
+    DeliveryNotes.GST_TRANSACTION_TYPE,
     DeliveryNotes.ORIGINAL_CREDIT_OR_DEBIT_NO,
     DeliveryNotes.ORIGINAL_CREDIT_OR_DEBIT_DATE,
     DeliveryNotes.E_COMMERCE_OPERATOR,
@@ -2843,6 +3396,9 @@ export namespace DeliveryNotes {
     DeliveryNotes.TAX_INVOICE_NO,
     DeliveryNotes.TAX_INVOICE_DATE,
     DeliveryNotes.SHIP_FROM,
+    DeliveryNotes.COMMISSION_TRADE,
+    DeliveryNotes.COMMISSION_TRADE_RETURN,
+    DeliveryNotes.USE_BILL_TO_ADDR_TO_DETERMINE_TAX,
     DeliveryNotes.ISSUING_REASON,
     DeliveryNotes.DOCUMENT_APPROVAL_REQUESTS,
     DeliveryNotes.DOCUMENT_LINES,

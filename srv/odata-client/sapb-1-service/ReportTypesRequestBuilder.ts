@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { ReportTypes } from './ReportTypes';
 
 /**
@@ -15,16 +15,16 @@ export class ReportTypesRequestBuilder extends RequestBuilder<ReportTypes> {
    * @param typeCode Key property. See [[ReportTypes.typeCode]].
    * @returns A request builder for creating requests to retrieve one `ReportTypes` entity based on its keys.
    */
-  getByKey(typeCode: string): GetByKeyRequestBuilder<ReportTypes> {
-    return new GetByKeyRequestBuilder(ReportTypes, { TypeCode: typeCode });
+  getByKey(typeCode: string): GetByKeyRequestBuilderV4<ReportTypes> {
+    return new GetByKeyRequestBuilderV4(ReportTypes, { TypeCode: typeCode });
   }
 
   /**
    * Returns a request builder for querying all `ReportTypes` entities.
    * @returns A request builder for creating requests to retrieve all `ReportTypes` entities.
    */
-  getAll(): GetAllRequestBuilder<ReportTypes> {
-    return new GetAllRequestBuilder(ReportTypes);
+  getAll(): GetAllRequestBuilderV4<ReportTypes> {
+    return new GetAllRequestBuilderV4(ReportTypes);
   }
 
   /**
@@ -32,8 +32,8 @@ export class ReportTypesRequestBuilder extends RequestBuilder<ReportTypes> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `ReportTypes`.
    */
-  create(entity: ReportTypes): CreateRequestBuilder<ReportTypes> {
-    return new CreateRequestBuilder(ReportTypes, entity);
+  create(entity: ReportTypes): CreateRequestBuilderV4<ReportTypes> {
+    return new CreateRequestBuilderV4(ReportTypes, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class ReportTypesRequestBuilder extends RequestBuilder<ReportTypes> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `ReportTypes`.
    */
-  update(entity: ReportTypes): UpdateRequestBuilder<ReportTypes> {
-    return new UpdateRequestBuilder(ReportTypes, entity);
+  update(entity: ReportTypes): UpdateRequestBuilderV4<ReportTypes> {
+    return new UpdateRequestBuilderV4(ReportTypes, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class ReportTypesRequestBuilder extends RequestBuilder<ReportTypes> {
    * @param typeCode Key property. See [[ReportTypes.typeCode]].
    * @returns A request builder for creating requests that delete an entity of type `ReportTypes`.
    */
-  delete(typeCode: string): DeleteRequestBuilder<ReportTypes>;
+  delete(typeCode: string): DeleteRequestBuilderV4<ReportTypes>;
   /**
    * Returns a request builder for deleting an entity of type `ReportTypes`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `ReportTypes` by taking the entity as a parameter.
    */
-  delete(entity: ReportTypes): DeleteRequestBuilder<ReportTypes>;
-  delete(typeCodeOrEntity: any): DeleteRequestBuilder<ReportTypes> {
-    return new DeleteRequestBuilder(ReportTypes, typeCodeOrEntity instanceof ReportTypes ? typeCodeOrEntity : { TypeCode: typeCodeOrEntity! });
+  delete(entity: ReportTypes): DeleteRequestBuilderV4<ReportTypes>;
+  delete(typeCodeOrEntity: any): DeleteRequestBuilderV4<ReportTypes> {
+    return new DeleteRequestBuilderV4(ReportTypes, typeCodeOrEntity instanceof ReportTypes ? typeCodeOrEntity : { TypeCode: typeCodeOrEntity! });
   }
 }

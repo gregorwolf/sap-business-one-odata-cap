@@ -1,20 +1,19 @@
 import { WizardPaymentMethodsRequestBuilder } from './WizardPaymentMethodsRequestBuilder';
 import { Moment } from 'moment';
 import { CurrencyRestriction } from './CurrencyRestriction';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoPaymentTypeEnum } from './BoPaymentTypeEnum';
+import { BoPaymentMeansEnum } from './BoPaymentMeansEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoDueDateEnum } from './BoDueDateEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "WizardPaymentMethods" of service "SAPB1".
  */
-export declare class WizardPaymentMethods extends Entity implements WizardPaymentMethodsType {
+export declare class WizardPaymentMethods extends EntityV4 implements WizardPaymentMethodsType {
     /**
      * Technical entity name for WizardPaymentMethods.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for WizardPaymentMethods.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -29,6 +28,51 @@ export declare class WizardPaymentMethods extends Entity implements WizardPaymen
      * @nullable
      */
     description?: string;
+    /**
+     * Type.
+     * @nullable
+     */
+    type?: BoPaymentTypeEnum;
+    /**
+     * Payment Means.
+     * @nullable
+     */
+    paymentMeans?: BoPaymentMeansEnum;
+    /**
+     * Check Address.
+     * @nullable
+     */
+    checkAddress?: BoYesNoEnum;
+    /**
+     * Check Bank Details.
+     * @nullable
+     */
+    checkBankDetails?: BoYesNoEnum;
+    /**
+     * Collection Authorization Check.
+     * @nullable
+     */
+    collectionAuthorizationCheck?: BoYesNoEnum;
+    /**
+     * Block Foreign Payment.
+     * @nullable
+     */
+    blockForeignPayment?: BoYesNoEnum;
+    /**
+     * Block Foreign Bank.
+     * @nullable
+     */
+    blockForeignBank?: BoYesNoEnum;
+    /**
+     * Currency Restriction.
+     * @nullable
+     */
+    currencyRestriction?: BoYesNoEnum;
+    /**
+     * Post Office Bank.
+     * @nullable
+     */
+    postOfficeBank?: BoYesNoEnum;
     /**
      * Minimum Amount.
      * @nullable
@@ -90,15 +134,55 @@ export declare class WizardPaymentMethods extends Entity implements WizardPaymen
      */
     format?: string;
     /**
+     * Agent Collection.
+     * @nullable
+     */
+    agentCollection?: BoYesNoEnum;
+    /**
+     * Sendfor Acceptance.
+     * @nullable
+     */
+    sendforAcceptance?: BoYesNoEnum;
+    /**
+     * Group By Date.
+     * @nullable
+     */
+    groupByDate?: BoYesNoEnum;
+    /**
      * Deposit Norm.
      * @nullable
      */
     depositNorm?: string;
     /**
+     * Debit Memo.
+     * @nullable
+     */
+    debitMemo?: BoYesNoEnum;
+    /**
+     * Group By Payment Reference.
+     * @nullable
+     */
+    groupByPaymentReference?: BoYesNoEnum;
+    /**
+     * Group Invoicesby Pay.
+     * @nullable
+     */
+    groupInvoicesbyPay?: BoYesNoEnum;
+    /**
+     * Due Date Selection.
+     * @nullable
+     */
+    dueDateSelection?: BoDueDateEnum;
+    /**
      * Payment Terms Code.
      * @nullable
      */
     paymentTermsCode?: number;
+    /**
+     * Postto Gl Interim Account.
+     * @nullable
+     */
+    posttoGlInterimAccount?: BoYesNoEnum;
     /**
      * Bank Account Key.
      * @nullable
@@ -144,6 +228,21 @@ export declare class WizardPaymentMethods extends Entity implements WizardPaymen
      * @nullable
      */
     barcodeDll?: string;
+    /**
+     * Active.
+     * @nullable
+     */
+    active?: BoYesNoEnum;
+    /**
+     * Group Invoices By Pay To Bank.
+     * @nullable
+     */
+    groupInvoicesByPayToBank?: BoYesNoEnum;
+    /**
+     * Group Invoices By Currency.
+     * @nullable
+     */
+    groupInvoicesByCurrency?: BoYesNoEnum;
     /**
      * Bank Charge Rate.
      * @nullable
@@ -304,10 +403,10 @@ export declare class WizardPaymentMethods extends Entity implements WizardPaymen
      */
     goodsReturnRequest: GoodsReturnRequest[];
     /**
-     * Returns an entity builder to construct instances `WizardPaymentMethods`.
+     * Returns an entity builder to construct instances of `WizardPaymentMethods`.
      * @returns A builder that constructs instances of entity type `WizardPaymentMethods`.
      */
-    static builder(): EntityBuilderType<WizardPaymentMethods, WizardPaymentMethodsTypeForceMandatory>;
+    static builder(): EntityBuilderType<WizardPaymentMethods, WizardPaymentMethodsType>;
     /**
      * Returns a request builder to construct requests for operations on the `WizardPaymentMethods` entity type.
      * @returns A `WizardPaymentMethods` request builder.
@@ -318,7 +417,7 @@ export declare class WizardPaymentMethods extends Entity implements WizardPaymen
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `WizardPaymentMethods`.
      */
-    static customField(fieldName: string): CustomField<WizardPaymentMethods>;
+    static customField(fieldName: string): CustomFieldV4<WizardPaymentMethods>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -359,103 +458,58 @@ import { PurchaseDownPayments, PurchaseDownPaymentsType } from './PurchaseDownPa
 import { PurchaseOrders, PurchaseOrdersType } from './PurchaseOrders';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 export interface WizardPaymentMethodsType {
-    paymentMethodCode?: string;
-    description?: string;
-    minimumAmount?: number;
-    maximumAmount?: number;
-    defaultBank?: string;
-    userSignature?: number;
-    creationDate?: Moment;
-    bankCountry?: string;
-    defaultAccount?: string;
-    glAccount?: string;
-    branch?: string;
-    keyCode?: string;
-    transactionType?: string;
-    format?: string;
-    depositNorm?: string;
-    paymentTermsCode?: number;
-    bankAccountKey?: number;
-    docType?: string;
-    accepted?: string;
-    portfolioId?: string;
-    curCode?: string;
-    instruction1?: string;
-    instruction2?: string;
-    paymentPlace?: string;
-    barcodeDll?: string;
-    bankChargeRate?: number;
-    reportCode?: string;
-    cancelInstruction?: string;
-    occurenceCode?: string;
-    movementCode?: string;
-    directDebit?: string;
-    currencyRestrictions?: CurrencyRestriction[];
-    inventoryGenEntries: InventoryGenEntriesType[];
-    purchaseQuotations: PurchaseQuotationsType[];
-    deliveryNotes: DeliveryNotesType[];
-    businessPartners: BusinessPartnersType[];
-    quotations: QuotationsType[];
-    inventoryGenExits: InventoryGenExitsType[];
-    purchaseRequests: PurchaseRequestsType[];
-    returnRequest: ReturnRequestType[];
-    blanketAgreements: BlanketAgreementsType[];
-    purchaseReturns: PurchaseReturnsType[];
-    invoices: InvoicesType[];
-    creditNotes: CreditNotesType[];
-    orders: OrdersType[];
-    downPayments: DownPaymentsType[];
-    drafts: DraftsType[];
-    user: UsersType;
-    country: CountriesType;
-    chartOfAccount: ChartOfAccountsType;
-    paymentTermsType: PaymentTermsTypesType;
-    houseBankAccount: HouseBankAccountsType;
-    returns: ReturnsType[];
-    correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-    correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-    correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-    purchaseInvoices: PurchaseInvoicesType[];
-    purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-    correctionInvoice: CorrectionInvoiceType[];
-    purchaseCreditNotes: PurchaseCreditNotesType[];
-    purchaseDownPayments: PurchaseDownPaymentsType[];
-    purchaseOrders: PurchaseOrdersType[];
-    goodsReturnRequest: GoodsReturnRequestType[];
-}
-export interface WizardPaymentMethodsTypeForceMandatory {
-    paymentMethodCode: string;
-    description: string;
-    minimumAmount: number;
-    maximumAmount: number;
-    defaultBank: string;
-    userSignature: number;
-    creationDate: Moment;
-    bankCountry: string;
-    defaultAccount: string;
-    glAccount: string;
-    branch: string;
-    keyCode: string;
-    transactionType: string;
-    format: string;
-    depositNorm: string;
-    paymentTermsCode: number;
-    bankAccountKey: number;
-    docType: string;
-    accepted: string;
-    portfolioId: string;
-    curCode: string;
-    instruction1: string;
-    instruction2: string;
-    paymentPlace: string;
-    barcodeDll: string;
-    bankChargeRate: number;
-    reportCode: string;
-    cancelInstruction: string;
-    occurenceCode: string;
-    movementCode: string;
-    directDebit: string;
-    currencyRestrictions: CurrencyRestriction[];
+    paymentMethodCode?: string | null;
+    description?: string | null;
+    type?: BoPaymentTypeEnum | null;
+    paymentMeans?: BoPaymentMeansEnum | null;
+    checkAddress?: BoYesNoEnum | null;
+    checkBankDetails?: BoYesNoEnum | null;
+    collectionAuthorizationCheck?: BoYesNoEnum | null;
+    blockForeignPayment?: BoYesNoEnum | null;
+    blockForeignBank?: BoYesNoEnum | null;
+    currencyRestriction?: BoYesNoEnum | null;
+    postOfficeBank?: BoYesNoEnum | null;
+    minimumAmount?: number | null;
+    maximumAmount?: number | null;
+    defaultBank?: string | null;
+    userSignature?: number | null;
+    creationDate?: Moment | null;
+    bankCountry?: string | null;
+    defaultAccount?: string | null;
+    glAccount?: string | null;
+    branch?: string | null;
+    keyCode?: string | null;
+    transactionType?: string | null;
+    format?: string | null;
+    agentCollection?: BoYesNoEnum | null;
+    sendforAcceptance?: BoYesNoEnum | null;
+    groupByDate?: BoYesNoEnum | null;
+    depositNorm?: string | null;
+    debitMemo?: BoYesNoEnum | null;
+    groupByPaymentReference?: BoYesNoEnum | null;
+    groupInvoicesbyPay?: BoYesNoEnum | null;
+    dueDateSelection?: BoDueDateEnum | null;
+    paymentTermsCode?: number | null;
+    posttoGlInterimAccount?: BoYesNoEnum | null;
+    bankAccountKey?: number | null;
+    docType?: string | null;
+    accepted?: string | null;
+    portfolioId?: string | null;
+    curCode?: string | null;
+    instruction1?: string | null;
+    instruction2?: string | null;
+    paymentPlace?: string | null;
+    barcodeDll?: string | null;
+    active?: BoYesNoEnum | null;
+    groupInvoicesByPayToBank?: BoYesNoEnum | null;
+    groupInvoicesByCurrency?: BoYesNoEnum | null;
+    bankChargeRate?: number | null;
+    reportCode?: string | null;
+    cancelInstruction?: string | null;
+    occurenceCode?: string | null;
+    movementCode?: string | null;
+    directDebit?: string | null;
+    currencyRestrictions?: CurrencyRestriction[] | null;
     inventoryGenEntries: InventoryGenEntriesType[];
     purchaseQuotations: PurchaseQuotationsType[];
     deliveryNotes: DeliveryNotesType[];
@@ -499,6 +553,51 @@ export declare namespace WizardPaymentMethods {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DESCRIPTION: StringField<WizardPaymentMethods>;
+    /**
+     * Static representation of the [[type]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TYPE: EnumField<WizardPaymentMethods>;
+    /**
+     * Static representation of the [[paymentMeans]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PAYMENT_MEANS: EnumField<WizardPaymentMethods>;
+    /**
+     * Static representation of the [[checkAddress]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CHECK_ADDRESS: EnumField<WizardPaymentMethods>;
+    /**
+     * Static representation of the [[checkBankDetails]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CHECK_BANK_DETAILS: EnumField<WizardPaymentMethods>;
+    /**
+     * Static representation of the [[collectionAuthorizationCheck]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COLLECTION_AUTHORIZATION_CHECK: EnumField<WizardPaymentMethods>;
+    /**
+     * Static representation of the [[blockForeignPayment]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BLOCK_FOREIGN_PAYMENT: EnumField<WizardPaymentMethods>;
+    /**
+     * Static representation of the [[blockForeignBank]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BLOCK_FOREIGN_BANK: EnumField<WizardPaymentMethods>;
+    /**
+     * Static representation of the [[currencyRestriction]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CURRENCY_RESTRICTION: EnumField<WizardPaymentMethods>;
+    /**
+     * Static representation of the [[postOfficeBank]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const POST_OFFICE_BANK: EnumField<WizardPaymentMethods>;
     /**
      * Static representation of the [[minimumAmount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -560,15 +659,55 @@ export declare namespace WizardPaymentMethods {
      */
     const FORMAT: StringField<WizardPaymentMethods>;
     /**
+     * Static representation of the [[agentCollection]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const AGENT_COLLECTION: EnumField<WizardPaymentMethods>;
+    /**
+     * Static representation of the [[sendforAcceptance]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SENDFOR_ACCEPTANCE: EnumField<WizardPaymentMethods>;
+    /**
+     * Static representation of the [[groupByDate]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const GROUP_BY_DATE: EnumField<WizardPaymentMethods>;
+    /**
      * Static representation of the [[depositNorm]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DEPOSIT_NORM: StringField<WizardPaymentMethods>;
     /**
+     * Static representation of the [[debitMemo]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DEBIT_MEMO: EnumField<WizardPaymentMethods>;
+    /**
+     * Static representation of the [[groupByPaymentReference]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const GROUP_BY_PAYMENT_REFERENCE: EnumField<WizardPaymentMethods>;
+    /**
+     * Static representation of the [[groupInvoicesbyPay]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const GROUP_INVOICESBY_PAY: EnumField<WizardPaymentMethods>;
+    /**
+     * Static representation of the [[dueDateSelection]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DUE_DATE_SELECTION: EnumField<WizardPaymentMethods>;
+    /**
      * Static representation of the [[paymentTermsCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const PAYMENT_TERMS_CODE: NumberField<WizardPaymentMethods>;
+    /**
+     * Static representation of the [[posttoGlInterimAccount]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const POSTTO_GL_INTERIM_ACCOUNT: EnumField<WizardPaymentMethods>;
     /**
      * Static representation of the [[bankAccountKey]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -615,6 +754,21 @@ export declare namespace WizardPaymentMethods {
      */
     const BARCODE_DLL: StringField<WizardPaymentMethods>;
     /**
+     * Static representation of the [[active]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ACTIVE: EnumField<WizardPaymentMethods>;
+    /**
+     * Static representation of the [[groupInvoicesByPayToBank]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const GROUP_INVOICES_BY_PAY_TO_BANK: EnumField<WizardPaymentMethods>;
+    /**
+     * Static representation of the [[groupInvoicesByCurrency]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const GROUP_INVOICES_BY_CURRENCY: EnumField<WizardPaymentMethods>;
+    /**
      * Static representation of the [[bankChargeRate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -648,7 +802,7 @@ export declare namespace WizardPaymentMethods {
      * Static representation of the [[currencyRestrictions]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const CURRENCY_RESTRICTIONS: CollectionField<WizardPaymentMethods>;
+    const CURRENCY_RESTRICTIONS: CollectionField<WizardPaymentMethods, CurrencyRestriction>;
     /**
      * Static representation of the one-to-many navigation property [[inventoryGenEntries]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -807,7 +961,7 @@ export declare namespace WizardPaymentMethods {
     /**
      * All fields of the WizardPaymentMethods entity.
      */
-    const _allFields: Array<StringField<WizardPaymentMethods> | NumberField<WizardPaymentMethods> | DateField<WizardPaymentMethods> | CollectionField<WizardPaymentMethods> | OneToManyLink<WizardPaymentMethods, InventoryGenEntries> | OneToManyLink<WizardPaymentMethods, PurchaseQuotations> | OneToManyLink<WizardPaymentMethods, DeliveryNotes> | OneToManyLink<WizardPaymentMethods, BusinessPartners> | OneToManyLink<WizardPaymentMethods, Quotations> | OneToManyLink<WizardPaymentMethods, InventoryGenExits> | OneToManyLink<WizardPaymentMethods, PurchaseRequests> | OneToManyLink<WizardPaymentMethods, ReturnRequest> | OneToManyLink<WizardPaymentMethods, BlanketAgreements> | OneToManyLink<WizardPaymentMethods, PurchaseReturns> | OneToManyLink<WizardPaymentMethods, Invoices> | OneToManyLink<WizardPaymentMethods, CreditNotes> | OneToManyLink<WizardPaymentMethods, Orders> | OneToManyLink<WizardPaymentMethods, DownPayments> | OneToManyLink<WizardPaymentMethods, Drafts> | OneToOneLink<WizardPaymentMethods, Users> | OneToOneLink<WizardPaymentMethods, Countries> | OneToOneLink<WizardPaymentMethods, ChartOfAccounts> | OneToOneLink<WizardPaymentMethods, PaymentTermsTypes> | OneToOneLink<WizardPaymentMethods, HouseBankAccounts> | OneToManyLink<WizardPaymentMethods, Returns> | OneToManyLink<WizardPaymentMethods, CorrectionInvoiceReversal> | OneToManyLink<WizardPaymentMethods, CorrectionPurchaseInvoice> | OneToManyLink<WizardPaymentMethods, CorrectionPurchaseInvoiceReversal> | OneToManyLink<WizardPaymentMethods, PurchaseInvoices> | OneToManyLink<WizardPaymentMethods, PurchaseDeliveryNotes> | OneToManyLink<WizardPaymentMethods, CorrectionInvoice> | OneToManyLink<WizardPaymentMethods, PurchaseCreditNotes> | OneToManyLink<WizardPaymentMethods, PurchaseDownPayments> | OneToManyLink<WizardPaymentMethods, PurchaseOrders> | OneToManyLink<WizardPaymentMethods, GoodsReturnRequest>>;
+    const _allFields: Array<StringField<WizardPaymentMethods> | EnumField<WizardPaymentMethods> | NumberField<WizardPaymentMethods> | DateField<WizardPaymentMethods> | CollectionField<WizardPaymentMethods, CurrencyRestriction> | OneToManyLink<WizardPaymentMethods, InventoryGenEntries> | OneToManyLink<WizardPaymentMethods, PurchaseQuotations> | OneToManyLink<WizardPaymentMethods, DeliveryNotes> | OneToManyLink<WizardPaymentMethods, BusinessPartners> | OneToManyLink<WizardPaymentMethods, Quotations> | OneToManyLink<WizardPaymentMethods, InventoryGenExits> | OneToManyLink<WizardPaymentMethods, PurchaseRequests> | OneToManyLink<WizardPaymentMethods, ReturnRequest> | OneToManyLink<WizardPaymentMethods, BlanketAgreements> | OneToManyLink<WizardPaymentMethods, PurchaseReturns> | OneToManyLink<WizardPaymentMethods, Invoices> | OneToManyLink<WizardPaymentMethods, CreditNotes> | OneToManyLink<WizardPaymentMethods, Orders> | OneToManyLink<WizardPaymentMethods, DownPayments> | OneToManyLink<WizardPaymentMethods, Drafts> | OneToOneLink<WizardPaymentMethods, Users> | OneToOneLink<WizardPaymentMethods, Countries> | OneToOneLink<WizardPaymentMethods, ChartOfAccounts> | OneToOneLink<WizardPaymentMethods, PaymentTermsTypes> | OneToOneLink<WizardPaymentMethods, HouseBankAccounts> | OneToManyLink<WizardPaymentMethods, Returns> | OneToManyLink<WizardPaymentMethods, CorrectionInvoiceReversal> | OneToManyLink<WizardPaymentMethods, CorrectionPurchaseInvoice> | OneToManyLink<WizardPaymentMethods, CorrectionPurchaseInvoiceReversal> | OneToManyLink<WizardPaymentMethods, PurchaseInvoices> | OneToManyLink<WizardPaymentMethods, PurchaseDeliveryNotes> | OneToManyLink<WizardPaymentMethods, CorrectionInvoice> | OneToManyLink<WizardPaymentMethods, PurchaseCreditNotes> | OneToManyLink<WizardPaymentMethods, PurchaseDownPayments> | OneToManyLink<WizardPaymentMethods, PurchaseOrders> | OneToManyLink<WizardPaymentMethods, GoodsReturnRequest>>;
     /**
      * All fields selector.
      */

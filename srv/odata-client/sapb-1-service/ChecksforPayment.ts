@@ -5,26 +5,23 @@
  */
 import { ChecksforPaymentRequestBuilder } from './ChecksforPaymentRequestBuilder';
 import { Moment } from 'moment';
-import { ChecksforPaymentLine, ChecksforPaymentLineField } from './ChecksforPaymentLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { ChecksforPaymentLine } from './ChecksforPaymentLine';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoCpCardAcct } from './BoCpCardAcct';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ChecksforPayment" of service "SAPB1".
  */
-export class ChecksforPayment extends Entity implements ChecksforPaymentType {
+export class ChecksforPayment extends EntityV4 implements ChecksforPaymentType {
   /**
    * Technical entity name for ChecksforPayment.
    */
   static _entityName = 'ChecksforPayment';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ChecksforPayment.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Check Key.
    * @nullable
@@ -86,6 +83,11 @@ export class ChecksforPayment extends Entity implements ChecksforPaymentType {
    */
   checkAmount?: number;
   /**
+   * Transferable.
+   * @nullable
+   */
+  transferable?: BoYesNoEnum;
+  /**
    * Vendor Code.
    * @nullable
    */
@@ -95,6 +97,21 @@ export class ChecksforPayment extends Entity implements ChecksforPaymentType {
    * @nullable
    */
   checkCurrency?: string;
+  /**
+   * Canceled.
+   * @nullable
+   */
+  canceled?: BoYesNoEnum;
+  /**
+   * Card Or Account.
+   * @nullable
+   */
+  cardOrAccount?: BoCpCardAcct;
+  /**
+   * Printed.
+   * @nullable
+   */
+  printed?: BoYesNoEnum;
   /**
    * Vendor Name.
    * @nullable
@@ -120,6 +137,11 @@ export class ChecksforPayment extends Entity implements ChecksforPaymentType {
    * @nullable
    */
   address?: string;
+  /**
+   * Create Journal Entry.
+   * @nullable
+   */
+  createJournalEntry?: BoYesNoEnum;
   /**
    * Update Date.
    * @nullable
@@ -166,6 +188,11 @@ export class ChecksforPayment extends Entity implements ChecksforPaymentType {
    */
   addressName?: string;
   /**
+   * Manual Check.
+   * @nullable
+   */
+  manualCheck?: BoYesNoEnum;
+  /**
    * Checksfor Payment Lines.
    * @nullable
    */
@@ -180,11 +207,11 @@ export class ChecksforPayment extends Entity implements ChecksforPaymentType {
   country!: Countries;
 
   /**
-   * Returns an entity builder to construct instances `ChecksforPayment`.
+   * Returns an entity builder to construct instances of `ChecksforPayment`.
    * @returns A builder that constructs instances of entity type `ChecksforPayment`.
    */
-  static builder(): EntityBuilderType<ChecksforPayment, ChecksforPaymentTypeForceMandatory> {
-    return Entity.entityBuilder(ChecksforPayment);
+  static builder(): EntityBuilderType<ChecksforPayment, ChecksforPaymentType> {
+    return EntityV4.entityBuilder(ChecksforPayment);
   }
 
   /**
@@ -200,8 +227,8 @@ export class ChecksforPayment extends Entity implements ChecksforPaymentType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ChecksforPayment`.
    */
-  static customField(fieldName: string): CustomField<ChecksforPayment> {
-    return Entity.customFieldSelector(fieldName, ChecksforPayment);
+  static customField(fieldName: string): CustomFieldV4<ChecksforPayment> {
+    return EntityV4.customFieldSelector(fieldName, ChecksforPayment);
   }
 
   /**
@@ -217,69 +244,41 @@ import { JournalEntries, JournalEntriesType } from './JournalEntries';
 import { Countries, CountriesType } from './Countries';
 
 export interface ChecksforPaymentType {
-  checkKey?: number;
-  checkNumber?: number;
-  bankCode?: string;
-  branch?: string;
-  bankName?: string;
-  checkDate?: Moment;
-  accountNumber?: string;
-  details?: string;
-  journalEntryReference?: string;
-  paymentDate?: Moment;
-  paymentNo?: number;
-  checkAmount?: number;
-  vendorCode?: string;
-  checkCurrency?: string;
-  vendorName?: string;
-  signature?: string;
-  customerAccountCode?: string;
-  transactionNumber?: number;
-  address?: string;
-  updateDate?: Moment;
-  creationDate?: Moment;
-  taxTotal?: number;
-  taxDate?: Moment;
-  deductionRefundAmount?: number;
-  printedBy?: number;
-  countryCode?: string;
-  totalinWords?: string;
-  addressName?: string;
-  checksforPaymentLines?: ChecksforPaymentLine[];
-  journalEntry: JournalEntriesType;
-  country: CountriesType;
-}
-
-export interface ChecksforPaymentTypeForceMandatory {
-  checkKey: number;
-  checkNumber: number;
-  bankCode: string;
-  branch: string;
-  bankName: string;
-  checkDate: Moment;
-  accountNumber: string;
-  details: string;
-  journalEntryReference: string;
-  paymentDate: Moment;
-  paymentNo: number;
-  checkAmount: number;
-  vendorCode: string;
-  checkCurrency: string;
-  vendorName: string;
-  signature: string;
-  customerAccountCode: string;
-  transactionNumber: number;
-  address: string;
-  updateDate: Moment;
-  creationDate: Moment;
-  taxTotal: number;
-  taxDate: Moment;
-  deductionRefundAmount: number;
-  printedBy: number;
-  countryCode: string;
-  totalinWords: string;
-  addressName: string;
-  checksforPaymentLines: ChecksforPaymentLine[];
+  checkKey?: number | null;
+  checkNumber?: number | null;
+  bankCode?: string | null;
+  branch?: string | null;
+  bankName?: string | null;
+  checkDate?: Moment | null;
+  accountNumber?: string | null;
+  details?: string | null;
+  journalEntryReference?: string | null;
+  paymentDate?: Moment | null;
+  paymentNo?: number | null;
+  checkAmount?: number | null;
+  transferable?: BoYesNoEnum | null;
+  vendorCode?: string | null;
+  checkCurrency?: string | null;
+  canceled?: BoYesNoEnum | null;
+  cardOrAccount?: BoCpCardAcct | null;
+  printed?: BoYesNoEnum | null;
+  vendorName?: string | null;
+  signature?: string | null;
+  customerAccountCode?: string | null;
+  transactionNumber?: number | null;
+  address?: string | null;
+  createJournalEntry?: BoYesNoEnum | null;
+  updateDate?: Moment | null;
+  creationDate?: Moment | null;
+  taxTotal?: number | null;
+  taxDate?: Moment | null;
+  deductionRefundAmount?: number | null;
+  printedBy?: number | null;
+  countryCode?: string | null;
+  totalinWords?: string | null;
+  addressName?: string | null;
+  manualCheck?: BoYesNoEnum | null;
+  checksforPaymentLines?: ChecksforPaymentLine[] | null;
   journalEntry: JournalEntriesType;
   country: CountriesType;
 }
@@ -346,6 +345,11 @@ export namespace ChecksforPayment {
    */
   export const CHECK_AMOUNT: NumberField<ChecksforPayment> = new NumberField('CheckAmount', ChecksforPayment, 'Edm.Double');
   /**
+   * Static representation of the [[transferable]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TRANSFERABLE: EnumField<ChecksforPayment> = new EnumField('Transferable', ChecksforPayment);
+  /**
    * Static representation of the [[vendorCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -355,6 +359,21 @@ export namespace ChecksforPayment {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CHECK_CURRENCY: StringField<ChecksforPayment> = new StringField('CheckCurrency', ChecksforPayment, 'Edm.String');
+  /**
+   * Static representation of the [[canceled]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CANCELED: EnumField<ChecksforPayment> = new EnumField('Canceled', ChecksforPayment);
+  /**
+   * Static representation of the [[cardOrAccount]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CARD_OR_ACCOUNT: EnumField<ChecksforPayment> = new EnumField('CardOrAccount', ChecksforPayment);
+  /**
+   * Static representation of the [[printed]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRINTED: EnumField<ChecksforPayment> = new EnumField('Printed', ChecksforPayment);
   /**
    * Static representation of the [[vendorName]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -380,6 +399,11 @@ export namespace ChecksforPayment {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const ADDRESS: StringField<ChecksforPayment> = new StringField('Address', ChecksforPayment, 'Edm.String');
+  /**
+   * Static representation of the [[createJournalEntry]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CREATE_JOURNAL_ENTRY: EnumField<ChecksforPayment> = new EnumField('CreateJournalEntry', ChecksforPayment);
   /**
    * Static representation of the [[updateDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -426,10 +450,15 @@ export namespace ChecksforPayment {
    */
   export const ADDRESS_NAME: StringField<ChecksforPayment> = new StringField('AddressName', ChecksforPayment, 'Edm.String');
   /**
+   * Static representation of the [[manualCheck]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const MANUAL_CHECK: EnumField<ChecksforPayment> = new EnumField('ManualCheck', ChecksforPayment);
+  /**
    * Static representation of the [[checksforPaymentLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const CHECKSFOR_PAYMENT_LINES: CollectionField<ChecksforPayment> = new CollectionField('ChecksforPaymentLines', ChecksforPayment, new ChecksforPaymentLineField('', ChecksforPayment));
+  export const CHECKSFOR_PAYMENT_LINES: CollectionField<ChecksforPayment, ChecksforPaymentLine> = new CollectionField('ChecksforPaymentLines', ChecksforPayment, ChecksforPaymentLine);
   /**
    * Static representation of the one-to-one navigation property [[journalEntry]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -443,7 +472,7 @@ export namespace ChecksforPayment {
   /**
    * All fields of the ChecksforPayment entity.
    */
-  export const _allFields: Array<NumberField<ChecksforPayment> | StringField<ChecksforPayment> | DateField<ChecksforPayment> | CollectionField<ChecksforPayment> | OneToOneLink<ChecksforPayment, JournalEntries> | OneToOneLink<ChecksforPayment, Countries>> = [
+  export const _allFields: Array<NumberField<ChecksforPayment> | StringField<ChecksforPayment> | DateField<ChecksforPayment> | EnumField<ChecksforPayment> | CollectionField<ChecksforPayment, ChecksforPaymentLine> | OneToOneLink<ChecksforPayment, JournalEntries> | OneToOneLink<ChecksforPayment, Countries>> = [
     ChecksforPayment.CHECK_KEY,
     ChecksforPayment.CHECK_NUMBER,
     ChecksforPayment.BANK_CODE,
@@ -456,13 +485,18 @@ export namespace ChecksforPayment {
     ChecksforPayment.PAYMENT_DATE,
     ChecksforPayment.PAYMENT_NO,
     ChecksforPayment.CHECK_AMOUNT,
+    ChecksforPayment.TRANSFERABLE,
     ChecksforPayment.VENDOR_CODE,
     ChecksforPayment.CHECK_CURRENCY,
+    ChecksforPayment.CANCELED,
+    ChecksforPayment.CARD_OR_ACCOUNT,
+    ChecksforPayment.PRINTED,
     ChecksforPayment.VENDOR_NAME,
     ChecksforPayment.SIGNATURE,
     ChecksforPayment.CUSTOMER_ACCOUNT_CODE,
     ChecksforPayment.TRANSACTION_NUMBER,
     ChecksforPayment.ADDRESS,
+    ChecksforPayment.CREATE_JOURNAL_ENTRY,
     ChecksforPayment.UPDATE_DATE,
     ChecksforPayment.CREATION_DATE,
     ChecksforPayment.TAX_TOTAL,
@@ -472,6 +506,7 @@ export namespace ChecksforPayment {
     ChecksforPayment.COUNTRY_CODE,
     ChecksforPayment.TOTALIN_WORDS,
     ChecksforPayment.ADDRESS_NAME,
+    ChecksforPayment.MANUAL_CHECK,
     ChecksforPayment.CHECKSFOR_PAYMENT_LINES,
     ChecksforPayment.JOURNAL_ENTRY,
     ChecksforPayment.COUNTRY

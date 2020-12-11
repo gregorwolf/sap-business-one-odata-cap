@@ -4,8 +4,8 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { BlanketAgreementsDetailsLine, BlanketAgreementsDetailsLineField } from './BlanketAgreementsDetailsLine';
-import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BlanketAgreementsDetailsLine } from './BlanketAgreementsDetailsLine';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * BlanketAgreementsItemsLine
@@ -175,7 +175,7 @@ export interface BlanketAgreementsItemsLine {
    * Blanket Agreements Details Lines.
    * @nullable
    */
-  blanketAgreementsDetailsLines?: BlanketAgreementsDetailsLine;
+  blanketAgreementsDetailsLines?: BlanketAgreementsDetailsLine[];
 }
 
 /**
@@ -189,7 +189,7 @@ export function createBlanketAgreementsItemsLine(json: any): BlanketAgreementsIt
  * BlanketAgreementsItemsLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class BlanketAgreementsItemsLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class BlanketAgreementsItemsLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BlanketAgreementsItemsLine> {
   /**
    * Representation of the [[BlanketAgreementsItemsLine.agreementNo]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -354,45 +354,194 @@ export class BlanketAgreementsItemsLineField<EntityT extends Entity> extends Com
    * Representation of the [[BlanketAgreementsItemsLine.blanketAgreementsDetailsLines]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  blanketAgreementsDetailsLines: BlanketAgreementsDetailsLineField<EntityT> = new BlanketAgreementsDetailsLineField('BlanketAgreements_DetailsLines', this);
+  blanketAgreementsDetailsLines: CollectionField<EntityT, BlanketAgreementsDetailsLine> = new CollectionField('BlanketAgreements_DetailsLines', this, BlanketAgreementsDetailsLine);
+
+  /**
+   * Creates an instance of BlanketAgreementsItemsLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, BlanketAgreementsItemsLine);
+  }
 }
 
 export namespace BlanketAgreementsItemsLine {
+  /**
+   * Metadata information on all properties of the `BlanketAgreementsItemsLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<BlanketAgreementsItemsLine>[] = [{
+    originalName: 'AgreementNo',
+    name: 'agreementNo',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AgreementRowNumber',
+    name: 'agreementRowNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ItemNo',
+    name: 'itemNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemDescription',
+    name: 'itemDescription',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemGroup',
+    name: 'itemGroup',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PlannedQuantity',
+    name: 'plannedQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'UnitPrice',
+    name: 'unitPrice',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PriceCurrency',
+    name: 'priceCurrency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CumulativeQuantity',
+    name: 'cumulativeQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CumulativeAmountLC',
+    name: 'cumulativeAmountLc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CumulativeAmountFC',
+    name: 'cumulativeAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FreeText',
+    name: 'freeText',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InventoryUoM',
+    name: 'inventoryUoM',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PortionOfReturns',
+    name: 'portionOfReturns',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'EndOfWarranty',
+    name: 'endOfWarranty',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'PlannedAmountLC',
+    name: 'plannedAmountLc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PlannedAmountFC',
+    name: 'plannedAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'LineDiscount',
+    name: 'lineDiscount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'UoMEntry',
+    name: 'uoMEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'UoMCode',
+    name: 'uoMCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UnitsOfMeasurement',
+    name: 'unitsOfMeasurement',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'UndeliveredCumulativeQuantity',
+    name: 'undeliveredCumulativeQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'UndeliveredCumulativeAmountLC',
+    name: 'undeliveredCumulativeAmountLc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'UndeliveredCumulativeAmountFC',
+    name: 'undeliveredCumulativeAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ShippingType',
+    name: 'shippingType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Project',
+    name: 'project',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxCode',
+    name: 'taxCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TAXRate',
+    name: 'taxRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PlannedVATAmountLC',
+    name: 'plannedVatAmountLc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PlannedVATAmountFC',
+    name: 'plannedVatAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CumulativeVATAmountLC',
+    name: 'cumulativeVatAmountLc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CumulativeVATAmountFC',
+    name: 'cumulativeVatAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BlanketAgreements_DetailsLines',
+    name: 'blanketAgreementsDetailsLines',
+    type: BlanketAgreementsDetailsLine,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | BlanketAgreementsDetailsLine }): BlanketAgreementsItemsLine {
-    return createComplexType(json, {
-      AgreementNo: (agreementNo: number) => ({ agreementNo: edmToTs(agreementNo, 'Edm.Int32') }),
-      AgreementRowNumber: (agreementRowNumber: number) => ({ agreementRowNumber: edmToTs(agreementRowNumber, 'Edm.Int32') }),
-      ItemNo: (itemNo: string) => ({ itemNo: edmToTs(itemNo, 'Edm.String') }),
-      ItemDescription: (itemDescription: string) => ({ itemDescription: edmToTs(itemDescription, 'Edm.String') }),
-      ItemGroup: (itemGroup: number) => ({ itemGroup: edmToTs(itemGroup, 'Edm.Int32') }),
-      PlannedQuantity: (plannedQuantity: number) => ({ plannedQuantity: edmToTs(plannedQuantity, 'Edm.Double') }),
-      UnitPrice: (unitPrice: number) => ({ unitPrice: edmToTs(unitPrice, 'Edm.Double') }),
-      PriceCurrency: (priceCurrency: string) => ({ priceCurrency: edmToTs(priceCurrency, 'Edm.String') }),
-      CumulativeQuantity: (cumulativeQuantity: number) => ({ cumulativeQuantity: edmToTs(cumulativeQuantity, 'Edm.Double') }),
-      CumulativeAmountLC: (cumulativeAmountLc: number) => ({ cumulativeAmountLc: edmToTs(cumulativeAmountLc, 'Edm.Double') }),
-      CumulativeAmountFC: (cumulativeAmountFc: number) => ({ cumulativeAmountFc: edmToTs(cumulativeAmountFc, 'Edm.Double') }),
-      FreeText: (freeText: string) => ({ freeText: edmToTs(freeText, 'Edm.String') }),
-      InventoryUoM: (inventoryUoM: string) => ({ inventoryUoM: edmToTs(inventoryUoM, 'Edm.String') }),
-      PortionOfReturns: (portionOfReturns: number) => ({ portionOfReturns: edmToTs(portionOfReturns, 'Edm.Double') }),
-      EndOfWarranty: (endOfWarranty: Moment) => ({ endOfWarranty: edmToTs(endOfWarranty, 'Edm.DateTimeOffset') }),
-      PlannedAmountLC: (plannedAmountLc: number) => ({ plannedAmountLc: edmToTs(plannedAmountLc, 'Edm.Double') }),
-      PlannedAmountFC: (plannedAmountFc: number) => ({ plannedAmountFc: edmToTs(plannedAmountFc, 'Edm.Double') }),
-      LineDiscount: (lineDiscount: number) => ({ lineDiscount: edmToTs(lineDiscount, 'Edm.Double') }),
-      UoMEntry: (uoMEntry: number) => ({ uoMEntry: edmToTs(uoMEntry, 'Edm.Int32') }),
-      UoMCode: (uoMCode: string) => ({ uoMCode: edmToTs(uoMCode, 'Edm.String') }),
-      UnitsOfMeasurement: (unitsOfMeasurement: number) => ({ unitsOfMeasurement: edmToTs(unitsOfMeasurement, 'Edm.Double') }),
-      UndeliveredCumulativeQuantity: (undeliveredCumulativeQuantity: number) => ({ undeliveredCumulativeQuantity: edmToTs(undeliveredCumulativeQuantity, 'Edm.Double') }),
-      UndeliveredCumulativeAmountLC: (undeliveredCumulativeAmountLc: number) => ({ undeliveredCumulativeAmountLc: edmToTs(undeliveredCumulativeAmountLc, 'Edm.Double') }),
-      UndeliveredCumulativeAmountFC: (undeliveredCumulativeAmountFc: number) => ({ undeliveredCumulativeAmountFc: edmToTs(undeliveredCumulativeAmountFc, 'Edm.Double') }),
-      ShippingType: (shippingType: number) => ({ shippingType: edmToTs(shippingType, 'Edm.Int32') }),
-      Project: (project: string) => ({ project: edmToTs(project, 'Edm.String') }),
-      TaxCode: (taxCode: string) => ({ taxCode: edmToTs(taxCode, 'Edm.String') }),
-      TAXRate: (taxRate: number) => ({ taxRate: edmToTs(taxRate, 'Edm.Double') }),
-      PlannedVATAmountLC: (plannedVatAmountLc: number) => ({ plannedVatAmountLc: edmToTs(plannedVatAmountLc, 'Edm.Double') }),
-      PlannedVATAmountFC: (plannedVatAmountFc: number) => ({ plannedVatAmountFc: edmToTs(plannedVatAmountFc, 'Edm.Double') }),
-      CumulativeVATAmountLC: (cumulativeVatAmountLc: number) => ({ cumulativeVatAmountLc: edmToTs(cumulativeVatAmountLc, 'Edm.Double') }),
-      CumulativeVATAmountFC: (cumulativeVatAmountFc: number) => ({ cumulativeVatAmountFc: edmToTs(cumulativeVatAmountFc, 'Edm.Double') }),
-      BlanketAgreements_DetailsLines: (blanketAgreementsDetailsLines: BlanketAgreementsDetailsLine) => ({ blanketAgreementsDetailsLines: BlanketAgreementsDetailsLine.build(blanketAgreementsDetailsLines) })
-    });
+    return deserializeComplexTypeV4(json, BlanketAgreementsItemsLine);
   }
 }

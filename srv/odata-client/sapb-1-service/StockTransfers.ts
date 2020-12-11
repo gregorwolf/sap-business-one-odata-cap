@@ -5,28 +5,28 @@
  */
 import { StockTransfersRequestBuilder } from './StockTransfersRequestBuilder';
 import { Moment } from 'moment';
-import { StockTransferApprovalRequest, StockTransferApprovalRequestField } from './StockTransferApprovalRequest';
-import { StockTransferLine, StockTransferLineField } from './StockTransferLine';
+import { StockTransferApprovalRequest } from './StockTransferApprovalRequest';
+import { StockTransferLine } from './StockTransferLine';
 import { StockTransferTaxExtension, StockTransferTaxExtensionField } from './StockTransferTaxExtension';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { StockTransferAuthorizationStatusEnum } from './StockTransferAuthorizationStatusEnum';
+import { ElecCommStatusEnum } from './ElecCommStatusEnum';
+import { FolioLetterEnum } from './FolioLetterEnum';
+import { BoStatus } from './BoStatus';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "StockTransfers" of service "SAPB1".
  */
-export class StockTransfers extends Entity implements StockTransfersType {
+export class StockTransfers extends EntityV4 implements StockTransfersType {
   /**
    * Technical entity name for StockTransfers.
    */
   static _entityName = 'StockTransfers';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for StockTransfers.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Doc Entry.
    * @nullable
@@ -37,6 +37,11 @@ export class StockTransfers extends Entity implements StockTransfersType {
    * @nullable
    */
   series?: number;
+  /**
+   * Printed.
+   * @nullable
+   */
+  printed?: BoYesNoEnum;
   /**
    * Doc Date.
    * @nullable
@@ -153,6 +158,11 @@ export class StockTransfers extends Entity implements StockTransfersType {
    */
   docObjectCode?: string;
   /**
+   * Authorization Status.
+   * @nullable
+   */
+  authorizationStatus?: StockTransferAuthorizationStatusEnum;
+  /**
    * Bplid.
    * @nullable
    */
@@ -208,6 +218,11 @@ export class StockTransfers extends Entity implements StockTransfersType {
    */
   eDocExportFormat?: number;
   /**
+   * Elec Comm Status.
+   * @nullable
+   */
+  elecCommStatus?: ElecCommStatusEnum;
+  /**
    * Elec Comm Message.
    * @nullable
    */
@@ -217,6 +232,11 @@ export class StockTransfers extends Entity implements StockTransfersType {
    * @nullable
    */
   pointOfIssueCode?: string;
+  /**
+   * Letter.
+   * @nullable
+   */
+  letter?: FolioLetterEnum;
   /**
    * Folio Number From.
    * @nullable
@@ -232,6 +252,11 @@ export class StockTransfers extends Entity implements StockTransfersType {
    * @nullable
    */
   attachmentEntry?: number;
+  /**
+   * Document Status.
+   * @nullable
+   */
+  documentStatus?: BoStatus;
   /**
    * Ship To Code.
    * @nullable
@@ -278,11 +303,11 @@ export class StockTransfers extends Entity implements StockTransfersType {
   businessPlace!: BusinessPlaces;
 
   /**
-   * Returns an entity builder to construct instances `StockTransfers`.
+   * Returns an entity builder to construct instances of `StockTransfers`.
    * @returns A builder that constructs instances of entity type `StockTransfers`.
    */
-  static builder(): EntityBuilderType<StockTransfers, StockTransfersTypeForceMandatory> {
-    return Entity.entityBuilder(StockTransfers);
+  static builder(): EntityBuilderType<StockTransfers, StockTransfersType> {
+    return EntityV4.entityBuilder(StockTransfers);
   }
 
   /**
@@ -298,8 +323,8 @@ export class StockTransfers extends Entity implements StockTransfersType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `StockTransfers`.
    */
-  static customField(fieldName: string): CustomField<StockTransfers> {
-    return Entity.customFieldSelector(fieldName, StockTransfers);
+  static customField(fieldName: string): CustomFieldV4<StockTransfers> {
+    return EntityV4.customFieldSelector(fieldName, StockTransfers);
   }
 
   /**
@@ -319,105 +344,56 @@ import { JournalEntries, JournalEntriesType } from './JournalEntries';
 import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 
 export interface StockTransfersType {
-  docEntry?: number;
-  series?: number;
-  docDate?: Moment;
-  dueDate?: Moment;
-  cardCode?: string;
-  cardName?: string;
-  address?: string;
-  reference1?: string;
-  reference2?: string;
-  comments?: string;
-  journalMemo?: string;
-  priceList?: number;
-  salesPersonCode?: number;
-  fromWarehouse?: string;
-  toWarehouse?: string;
-  creationDate?: Moment;
-  updateDate?: Moment;
-  financialPeriod?: number;
-  transNum?: number;
-  docNum?: number;
-  taxDate?: Moment;
-  contactPerson?: number;
-  folioPrefixString?: string;
-  folioNumber?: number;
-  docObjectCode?: string;
-  bplid?: number;
-  bplName?: string;
-  vatRegNum?: string;
-  authorizationCode?: string;
-  startDeliveryDate?: Moment;
-  startDeliveryTime?: Time;
-  endDeliveryDate?: Moment;
-  endDeliveryTime?: Time;
-  vehiclePlate?: string;
-  atDocumentType?: string;
-  eDocExportFormat?: number;
-  elecCommMessage?: string;
-  pointOfIssueCode?: string;
-  folioNumberFrom?: number;
-  folioNumberTo?: number;
-  attachmentEntry?: number;
-  shipToCode?: string;
-  stockTransferApprovalRequests?: StockTransferApprovalRequest[];
-  stockTransferLines?: StockTransferLine[];
-  stockTransferTaxExtension?: StockTransferTaxExtension;
-  businessPartner: BusinessPartnersType;
-  priceList2: PriceListsType;
-  salesPerson: SalesPersonsType;
-  warehouse: WarehousesType;
-  journalEntry: JournalEntriesType;
-  businessPlace: BusinessPlacesType;
-}
-
-export interface StockTransfersTypeForceMandatory {
-  docEntry: number;
-  series: number;
-  docDate: Moment;
-  dueDate: Moment;
-  cardCode: string;
-  cardName: string;
-  address: string;
-  reference1: string;
-  reference2: string;
-  comments: string;
-  journalMemo: string;
-  priceList: number;
-  salesPersonCode: number;
-  fromWarehouse: string;
-  toWarehouse: string;
-  creationDate: Moment;
-  updateDate: Moment;
-  financialPeriod: number;
-  transNum: number;
-  docNum: number;
-  taxDate: Moment;
-  contactPerson: number;
-  folioPrefixString: string;
-  folioNumber: number;
-  docObjectCode: string;
-  bplid: number;
-  bplName: string;
-  vatRegNum: string;
-  authorizationCode: string;
-  startDeliveryDate: Moment;
-  startDeliveryTime: Time;
-  endDeliveryDate: Moment;
-  endDeliveryTime: Time;
-  vehiclePlate: string;
-  atDocumentType: string;
-  eDocExportFormat: number;
-  elecCommMessage: string;
-  pointOfIssueCode: string;
-  folioNumberFrom: number;
-  folioNumberTo: number;
-  attachmentEntry: number;
-  shipToCode: string;
-  stockTransferApprovalRequests: StockTransferApprovalRequest[];
-  stockTransferLines: StockTransferLine[];
-  stockTransferTaxExtension: StockTransferTaxExtension;
+  docEntry?: number | null;
+  series?: number | null;
+  printed?: BoYesNoEnum | null;
+  docDate?: Moment | null;
+  dueDate?: Moment | null;
+  cardCode?: string | null;
+  cardName?: string | null;
+  address?: string | null;
+  reference1?: string | null;
+  reference2?: string | null;
+  comments?: string | null;
+  journalMemo?: string | null;
+  priceList?: number | null;
+  salesPersonCode?: number | null;
+  fromWarehouse?: string | null;
+  toWarehouse?: string | null;
+  creationDate?: Moment | null;
+  updateDate?: Moment | null;
+  financialPeriod?: number | null;
+  transNum?: number | null;
+  docNum?: number | null;
+  taxDate?: Moment | null;
+  contactPerson?: number | null;
+  folioPrefixString?: string | null;
+  folioNumber?: number | null;
+  docObjectCode?: string | null;
+  authorizationStatus?: StockTransferAuthorizationStatusEnum | null;
+  bplid?: number | null;
+  bplName?: string | null;
+  vatRegNum?: string | null;
+  authorizationCode?: string | null;
+  startDeliveryDate?: Moment | null;
+  startDeliveryTime?: Time | null;
+  endDeliveryDate?: Moment | null;
+  endDeliveryTime?: Time | null;
+  vehiclePlate?: string | null;
+  atDocumentType?: string | null;
+  eDocExportFormat?: number | null;
+  elecCommStatus?: ElecCommStatusEnum | null;
+  elecCommMessage?: string | null;
+  pointOfIssueCode?: string | null;
+  letter?: FolioLetterEnum | null;
+  folioNumberFrom?: number | null;
+  folioNumberTo?: number | null;
+  attachmentEntry?: number | null;
+  documentStatus?: BoStatus | null;
+  shipToCode?: string | null;
+  stockTransferApprovalRequests?: StockTransferApprovalRequest[] | null;
+  stockTransferLines?: StockTransferLine[] | null;
+  stockTransferTaxExtension?: StockTransferTaxExtension | null;
   businessPartner: BusinessPartnersType;
   priceList2: PriceListsType;
   salesPerson: SalesPersonsType;
@@ -437,6 +413,11 @@ export namespace StockTransfers {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const SERIES: NumberField<StockTransfers> = new NumberField('Series', StockTransfers, 'Edm.Int32');
+  /**
+   * Static representation of the [[printed]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRINTED: EnumField<StockTransfers> = new EnumField('Printed', StockTransfers);
   /**
    * Static representation of the [[docDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -553,6 +534,11 @@ export namespace StockTransfers {
    */
   export const DOC_OBJECT_CODE: StringField<StockTransfers> = new StringField('DocObjectCode', StockTransfers, 'Edm.String');
   /**
+   * Static representation of the [[authorizationStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const AUTHORIZATION_STATUS: EnumField<StockTransfers> = new EnumField('AuthorizationStatus', StockTransfers);
+  /**
    * Static representation of the [[bplid]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -608,6 +594,11 @@ export namespace StockTransfers {
    */
   export const E_DOC_EXPORT_FORMAT: NumberField<StockTransfers> = new NumberField('EDocExportFormat', StockTransfers, 'Edm.Int32');
   /**
+   * Static representation of the [[elecCommStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ELEC_COMM_STATUS: EnumField<StockTransfers> = new EnumField('ElecCommStatus', StockTransfers);
+  /**
    * Static representation of the [[elecCommMessage]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -617,6 +608,11 @@ export namespace StockTransfers {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const POINT_OF_ISSUE_CODE: StringField<StockTransfers> = new StringField('PointOfIssueCode', StockTransfers, 'Edm.String');
+  /**
+   * Static representation of the [[letter]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LETTER: EnumField<StockTransfers> = new EnumField('Letter', StockTransfers);
   /**
    * Static representation of the [[folioNumberFrom]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -633,6 +629,11 @@ export namespace StockTransfers {
    */
   export const ATTACHMENT_ENTRY: NumberField<StockTransfers> = new NumberField('AttachmentEntry', StockTransfers, 'Edm.Int32');
   /**
+   * Static representation of the [[documentStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_STATUS: EnumField<StockTransfers> = new EnumField('DocumentStatus', StockTransfers);
+  /**
    * Static representation of the [[shipToCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -641,12 +642,12 @@ export namespace StockTransfers {
    * Static representation of the [[stockTransferApprovalRequests]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const STOCK_TRANSFER_APPROVAL_REQUESTS: CollectionField<StockTransfers> = new CollectionField('StockTransfer_ApprovalRequests', StockTransfers, new StockTransferApprovalRequestField('', StockTransfers));
+  export const STOCK_TRANSFER_APPROVAL_REQUESTS: CollectionField<StockTransfers, StockTransferApprovalRequest> = new CollectionField('StockTransfer_ApprovalRequests', StockTransfers, StockTransferApprovalRequest);
   /**
    * Static representation of the [[stockTransferLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const STOCK_TRANSFER_LINES: CollectionField<StockTransfers> = new CollectionField('StockTransferLines', StockTransfers, new StockTransferLineField('', StockTransfers));
+  export const STOCK_TRANSFER_LINES: CollectionField<StockTransfers, StockTransferLine> = new CollectionField('StockTransferLines', StockTransfers, StockTransferLine);
   /**
    * Static representation of the [[stockTransferTaxExtension]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -685,9 +686,10 @@ export namespace StockTransfers {
   /**
    * All fields of the StockTransfers entity.
    */
-  export const _allFields: Array<NumberField<StockTransfers> | DateField<StockTransfers> | StringField<StockTransfers> | TimeField<StockTransfers> | CollectionField<StockTransfers> | StockTransferTaxExtensionField<StockTransfers> | OneToOneLink<StockTransfers, BusinessPartners> | OneToOneLink<StockTransfers, PriceLists> | OneToOneLink<StockTransfers, SalesPersons> | OneToOneLink<StockTransfers, Warehouses> | OneToOneLink<StockTransfers, JournalEntries> | OneToOneLink<StockTransfers, BusinessPlaces>> = [
+  export const _allFields: Array<NumberField<StockTransfers> | EnumField<StockTransfers> | DateField<StockTransfers> | StringField<StockTransfers> | TimeField<StockTransfers> | CollectionField<StockTransfers, StockTransferApprovalRequest> | CollectionField<StockTransfers, StockTransferLine> | StockTransferTaxExtensionField<StockTransfers> | OneToOneLink<StockTransfers, BusinessPartners> | OneToOneLink<StockTransfers, PriceLists> | OneToOneLink<StockTransfers, SalesPersons> | OneToOneLink<StockTransfers, Warehouses> | OneToOneLink<StockTransfers, JournalEntries> | OneToOneLink<StockTransfers, BusinessPlaces>> = [
     StockTransfers.DOC_ENTRY,
     StockTransfers.SERIES,
+    StockTransfers.PRINTED,
     StockTransfers.DOC_DATE,
     StockTransfers.DUE_DATE,
     StockTransfers.CARD_CODE,
@@ -711,6 +713,7 @@ export namespace StockTransfers {
     StockTransfers.FOLIO_PREFIX_STRING,
     StockTransfers.FOLIO_NUMBER,
     StockTransfers.DOC_OBJECT_CODE,
+    StockTransfers.AUTHORIZATION_STATUS,
     StockTransfers.BPLID,
     StockTransfers.BPL_NAME,
     StockTransfers.VAT_REG_NUM,
@@ -722,11 +725,14 @@ export namespace StockTransfers {
     StockTransfers.VEHICLE_PLATE,
     StockTransfers.AT_DOCUMENT_TYPE,
     StockTransfers.E_DOC_EXPORT_FORMAT,
+    StockTransfers.ELEC_COMM_STATUS,
     StockTransfers.ELEC_COMM_MESSAGE,
     StockTransfers.POINT_OF_ISSUE_CODE,
+    StockTransfers.LETTER,
     StockTransfers.FOLIO_NUMBER_FROM,
     StockTransfers.FOLIO_NUMBER_TO,
     StockTransfers.ATTACHMENT_ENTRY,
+    StockTransfers.DOCUMENT_STATUS,
     StockTransfers.SHIP_TO_CODE,
     StockTransfers.STOCK_TRANSFER_APPROVAL_REQUESTS,
     StockTransfers.STOCK_TRANSFER_LINES,

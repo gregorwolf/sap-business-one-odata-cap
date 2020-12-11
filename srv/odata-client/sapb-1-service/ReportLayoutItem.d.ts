@@ -1,4 +1,13 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoReportLayoutItemTypeEnum } from './BoReportLayoutItemTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoHorizontalAlignmentEnum } from './BoHorizontalAlignmentEnum';
+import { BoLineBreakEnum } from './BoLineBreakEnum';
+import { BoPictureSizeEnum } from './BoPictureSizeEnum';
+import { BoDataSourceEnum } from './BoDataSourceEnum';
+import { BoVerticalAlignmentEnum } from './BoVerticalAlignmentEnum';
+import { BoSortTypeEnum } from './BoSortTypeEnum';
+import { BoBarCodeStandardEnum } from './BoBarCodeStandardEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * ReportLayoutItem
  */
@@ -13,6 +22,21 @@ export interface ReportLayoutItem {
      * @nullable
      */
     parentType?: number;
+    /**
+     * Type.
+     * @nullable
+     */
+    type?: BoReportLayoutItemTypeEnum;
+    /**
+     * Visible.
+     * @nullable
+     */
+    visible?: BoYesNoEnum;
+    /**
+     * Suppress Zeros.
+     * @nullable
+     */
+    suppressZeros?: BoYesNoEnum;
     /**
      * Left.
      * @nullable
@@ -159,6 +183,26 @@ export interface ReportLayoutItem {
      */
     textStyle?: number;
     /**
+     * Horizontal Alignment.
+     * @nullable
+     */
+    horizontalAlignment?: BoHorizontalAlignmentEnum;
+    /**
+     * Line Break.
+     * @nullable
+     */
+    lineBreak?: BoLineBreakEnum;
+    /**
+     * Picture Size.
+     * @nullable
+     */
+    pictureSize?: BoPictureSizeEnum;
+    /**
+     * Data Source.
+     * @nullable
+     */
+    dataSource?: BoDataSourceEnum;
+    /**
      * String.
      * @nullable
      */
@@ -179,6 +223,11 @@ export interface ReportLayoutItem {
      */
     fieldName?: string;
     /**
+     * Display Description.
+     * @nullable
+     */
+    displayDescription?: BoYesNoEnum;
+    /**
      * Editable.
      * @nullable
      */
@@ -189,15 +238,65 @@ export interface ReportLayoutItem {
      */
     itemNumber?: number;
     /**
+     * Vertical Alignment.
+     * @nullable
+     */
+    verticalAlignment?: BoVerticalAlignmentEnum;
+    /**
      * Sort Level.
      * @nullable
      */
     sortLevel?: number;
     /**
+     * Reverse Sort.
+     * @nullable
+     */
+    reverseSort?: BoYesNoEnum;
+    /**
+     * Sort Type.
+     * @nullable
+     */
+    sortType?: BoSortTypeEnum;
+    /**
+     * Unique.
+     * @nullable
+     */
+    unique?: BoYesNoEnum;
+    /**
+     * Set As Group.
+     * @nullable
+     */
+    setAsGroup?: BoYesNoEnum;
+    /**
+     * New Page.
+     * @nullable
+     */
+    newPage?: BoYesNoEnum;
+    /**
+     * Print As Bar Code.
+     * @nullable
+     */
+    printAsBarCode?: BoYesNoEnum;
+    /**
      * Link To Field.
      * @nullable
      */
     linkToField?: string;
+    /**
+     * Bar Code Standard.
+     * @nullable
+     */
+    barCodeStandard?: BoBarCodeStandardEnum;
+    /**
+     * Display Total As A Word.
+     * @nullable
+     */
+    displayTotalAsAWord?: BoYesNoEnum;
+    /**
+     * Block Font Change.
+     * @nullable
+     */
+    blockFontChange?: BoYesNoEnum;
     /**
      * Parent Index.
      * @nullable
@@ -229,6 +328,16 @@ export interface ReportLayoutItem {
      */
     nextSegmentItemNumber?: string;
     /**
+     * Height Adjustments.
+     * @nullable
+     */
+    heightAdjustments?: BoYesNoEnum;
+    /**
+     * Duplicate Repetitive Area.
+     * @nullable
+     */
+    duplicateRepetitiveArea?: BoYesNoEnum;
+    /**
      * Number Of Lines In Repetitive Area.
      * @nullable
      */
@@ -238,6 +347,16 @@ export interface ReportLayoutItem {
      * @nullable
      */
     distanceToRepetitiveDuplicate?: number;
+    /**
+     * Hide Repetitive Area If Empty.
+     * @nullable
+     */
+    hideRepetitiveAreaIfEmpty?: BoYesNoEnum;
+    /**
+     * Display Repetitive Area Footer On All Pages.
+     * @nullable
+     */
+    displayRepetitiveAreaFooterOnAllPages?: BoYesNoEnum;
 }
 /**
  * @deprecated Since v1.6.0. Use [[ReportLayoutItem.build]] instead.
@@ -247,7 +366,7 @@ export declare function createReportLayoutItem(json: any): ReportLayoutItem;
  * ReportLayoutItemField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class ReportLayoutItemField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class ReportLayoutItemField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ReportLayoutItem> {
     /**
      * Representation of the [[ReportLayoutItem.fieldIdentifier]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -258,6 +377,21 @@ export declare class ReportLayoutItemField<EntityT extends Entity> extends Compl
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     parentType: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[ReportLayoutItem.type]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    type: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ReportLayoutItem.visible]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    visible: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ReportLayoutItem.suppressZeros]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    suppressZeros: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[ReportLayoutItem.left]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -404,6 +538,26 @@ export declare class ReportLayoutItemField<EntityT extends Entity> extends Compl
      */
     textStyle: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[ReportLayoutItem.horizontalAlignment]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    horizontalAlignment: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ReportLayoutItem.lineBreak]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    lineBreak: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ReportLayoutItem.pictureSize]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    pictureSize: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ReportLayoutItem.dataSource]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    dataSource: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ReportLayoutItem.string]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -424,6 +578,11 @@ export declare class ReportLayoutItemField<EntityT extends Entity> extends Compl
      */
     fieldName: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[ReportLayoutItem.displayDescription]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    displayDescription: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ReportLayoutItem.editable]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -434,15 +593,65 @@ export declare class ReportLayoutItemField<EntityT extends Entity> extends Compl
      */
     itemNumber: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[ReportLayoutItem.verticalAlignment]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    verticalAlignment: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ReportLayoutItem.sortLevel]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     sortLevel: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[ReportLayoutItem.reverseSort]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    reverseSort: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ReportLayoutItem.sortType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    sortType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ReportLayoutItem.unique]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    unique: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ReportLayoutItem.setAsGroup]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    setAsGroup: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ReportLayoutItem.newPage]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    newPage: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ReportLayoutItem.printAsBarCode]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    printAsBarCode: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ReportLayoutItem.linkToField]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     linkToField: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[ReportLayoutItem.barCodeStandard]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    barCodeStandard: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ReportLayoutItem.displayTotalAsAWord]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    displayTotalAsAWord: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ReportLayoutItem.blockFontChange]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    blockFontChange: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[ReportLayoutItem.parentIndex]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -474,6 +683,16 @@ export declare class ReportLayoutItemField<EntityT extends Entity> extends Compl
      */
     nextSegmentItemNumber: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[ReportLayoutItem.heightAdjustments]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    heightAdjustments: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ReportLayoutItem.duplicateRepetitiveArea]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    duplicateRepetitiveArea: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ReportLayoutItem.numberOfLinesInRepetitiveArea]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -483,8 +702,32 @@ export declare class ReportLayoutItemField<EntityT extends Entity> extends Compl
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     distanceToRepetitiveDuplicate: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[ReportLayoutItem.hideRepetitiveAreaIfEmpty]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    hideRepetitiveAreaIfEmpty: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ReportLayoutItem.displayRepetitiveAreaFooterOnAllPages]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    displayRepetitiveAreaFooterOnAllPages: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Creates an instance of ReportLayoutItemField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace ReportLayoutItem {
+    /**
+     * Metadata information on all properties of the `ReportLayoutItem` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<ReportLayoutItem>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): ReportLayoutItem;

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.RetornoCodes = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var RetornoCodesRequestBuilder_1 = require("./RetornoCodesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "RetornoCodes" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var RetornoCodes = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `RetornoCodes`.
+     * Returns an entity builder to construct instances of `RetornoCodes`.
      * @returns A builder that constructs instances of entity type `RetornoCodes`.
      */
     RetornoCodes.builder = function () {
-        return v4_1.Entity.entityBuilder(RetornoCodes);
+        return core_1.EntityV4.entityBuilder(RetornoCodes);
     };
     /**
      * Returns a request builder to construct requests for operations on the `RetornoCodes` entity type.
@@ -60,7 +60,7 @@ var RetornoCodes = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `RetornoCodes`.
      */
     RetornoCodes.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, RetornoCodes);
+        return core_1.EntityV4.customFieldSelector(fieldName, RetornoCodes);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,53 +74,53 @@ var RetornoCodes = /** @class */ (function (_super) {
      */
     RetornoCodes._entityName = 'RetornoCodes';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for RetornoCodes.
-     */
-    RetornoCodes._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    RetornoCodes._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    RetornoCodes._defaultServicePath = '/b1s/v2/';
     return RetornoCodes;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.RetornoCodes = RetornoCodes;
 (function (RetornoCodes) {
     /**
      * Static representation of the [[absEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    RetornoCodes.ABS_ENTRY = new v4_1.NumberField('AbsEntry', RetornoCodes, 'Edm.Int32');
+    RetornoCodes.ABS_ENTRY = new core_1.NumberField('AbsEntry', RetornoCodes, 'Edm.Int32');
     /**
      * Static representation of the [[occurenceCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    RetornoCodes.OCCURENCE_CODE = new v4_1.NumberField('OccurenceCode', RetornoCodes, 'Edm.Int32');
+    RetornoCodes.OCCURENCE_CODE = new core_1.NumberField('OccurenceCode', RetornoCodes, 'Edm.Int32');
     /**
      * Static representation of the [[movementCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    RetornoCodes.MOVEMENT_CODE = new v4_1.NumberField('MovementCode', RetornoCodes, 'Edm.Int32');
+    RetornoCodes.MOVEMENT_CODE = new core_1.NumberField('MovementCode', RetornoCodes, 'Edm.Int32');
+    /**
+     * Static representation of the [[boeStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    RetornoCodes.BOE_STATUS = new core_1.EnumField('BoeStatus', RetornoCodes);
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    RetornoCodes.DESCRIPTION = new v4_1.StringField('Description', RetornoCodes, 'Edm.String');
+    RetornoCodes.DESCRIPTION = new core_1.StringField('Description', RetornoCodes, 'Edm.String');
     /**
      * Static representation of the [[color]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    RetornoCodes.COLOR = new v4_1.NumberField('Color', RetornoCodes, 'Edm.Int32');
+    RetornoCodes.COLOR = new core_1.NumberField('Color', RetornoCodes, 'Edm.Int32');
     /**
      * Static representation of the [[fileFormat]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    RetornoCodes.FILE_FORMAT = new v4_1.StringField('FileFormat', RetornoCodes, 'Edm.String');
+    RetornoCodes.FILE_FORMAT = new core_1.StringField('FileFormat', RetornoCodes, 'Edm.String');
     /**
      * Static representation of the [[bankCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    RetornoCodes.BANK_CODE = new v4_1.StringField('BankCode', RetornoCodes, 'Edm.String');
+    RetornoCodes.BANK_CODE = new core_1.StringField('BankCode', RetornoCodes, 'Edm.String');
     /**
      * All fields of the RetornoCodes entity.
      */
@@ -128,6 +128,7 @@ exports.RetornoCodes = RetornoCodes;
         RetornoCodes.ABS_ENTRY,
         RetornoCodes.OCCURENCE_CODE,
         RetornoCodes.MOVEMENT_CODE,
+        RetornoCodes.BOE_STATUS,
         RetornoCodes.DESCRIPTION,
         RetornoCodes.COLOR,
         RetornoCodes.FILE_FORMAT,
@@ -136,7 +137,7 @@ exports.RetornoCodes = RetornoCodes;
     /**
      * All fields selector.
      */
-    RetornoCodes.ALL_FIELDS = new v4_1.AllFields('*', RetornoCodes);
+    RetornoCodes.ALL_FIELDS = new core_1.AllFields('*', RetornoCodes);
     /**
      * All key fields of the RetornoCodes entity.
      */

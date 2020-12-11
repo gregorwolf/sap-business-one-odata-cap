@@ -5,25 +5,21 @@
  */
 import { ProfitCentersRequestBuilder } from './ProfitCentersRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ProfitCenters" of service "SAPB1".
  */
-export class ProfitCenters extends Entity implements ProfitCentersType {
+export class ProfitCenters extends EntityV4 implements ProfitCentersType {
   /**
    * Technical entity name for ProfitCenters.
    */
   static _entityName = 'ProfitCenters';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ProfitCenters.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Center Code.
    * @nullable
@@ -60,6 +56,11 @@ export class ProfitCenters extends Entity implements ProfitCentersType {
    */
   effectiveTo?: Moment;
   /**
+   * Active.
+   * @nullable
+   */
+  active?: BoYesNoEnum;
+  /**
    * Center Owner.
    * @nullable
    */
@@ -82,11 +83,11 @@ export class ProfitCenters extends Entity implements ProfitCentersType {
   employeesInfo!: EmployeesInfo[];
 
   /**
-   * Returns an entity builder to construct instances `ProfitCenters`.
+   * Returns an entity builder to construct instances of `ProfitCenters`.
    * @returns A builder that constructs instances of entity type `ProfitCenters`.
    */
-  static builder(): EntityBuilderType<ProfitCenters, ProfitCentersTypeForceMandatory> {
-    return Entity.entityBuilder(ProfitCenters);
+  static builder(): EntityBuilderType<ProfitCenters, ProfitCentersType> {
+    return EntityV4.entityBuilder(ProfitCenters);
   }
 
   /**
@@ -102,8 +103,8 @@ export class ProfitCenters extends Entity implements ProfitCentersType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ProfitCenters`.
    */
-  static customField(fieldName: string): CustomField<ProfitCenters> {
-    return Entity.customFieldSelector(fieldName, ProfitCenters);
+  static customField(fieldName: string): CustomFieldV4<ProfitCenters> {
+    return EntityV4.customFieldSelector(fieldName, ProfitCenters);
   }
 
   /**
@@ -120,29 +121,15 @@ import { CostCenterTypes, CostCenterTypesType } from './CostCenterTypes';
 import { EmployeesInfo, EmployeesInfoType } from './EmployeesInfo';
 
 export interface ProfitCentersType {
-  centerCode?: string;
-  centerName?: string;
-  groupCode?: string;
-  inWhichDimension?: number;
-  costCenterType?: string;
-  effectiveFrom?: Moment;
-  effectiveTo?: Moment;
-  centerOwner?: number;
-  dimension: DimensionsType;
-  costCenterType2: CostCenterTypesType;
-  employeeInfo: EmployeesInfoType;
-  employeesInfo: EmployeesInfoType[];
-}
-
-export interface ProfitCentersTypeForceMandatory {
-  centerCode: string;
-  centerName: string;
-  groupCode: string;
-  inWhichDimension: number;
-  costCenterType: string;
-  effectiveFrom: Moment;
-  effectiveTo: Moment;
-  centerOwner: number;
+  centerCode?: string | null;
+  centerName?: string | null;
+  groupCode?: string | null;
+  inWhichDimension?: number | null;
+  costCenterType?: string | null;
+  effectiveFrom?: Moment | null;
+  effectiveTo?: Moment | null;
+  active?: BoYesNoEnum | null;
+  centerOwner?: number | null;
   dimension: DimensionsType;
   costCenterType2: CostCenterTypesType;
   employeeInfo: EmployeesInfoType;
@@ -186,6 +173,11 @@ export namespace ProfitCenters {
    */
   export const EFFECTIVE_TO: DateField<ProfitCenters> = new DateField('EffectiveTo', ProfitCenters, 'Edm.DateTimeOffset');
   /**
+   * Static representation of the [[active]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ACTIVE: EnumField<ProfitCenters> = new EnumField('Active', ProfitCenters);
+  /**
    * Static representation of the [[centerOwner]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -213,7 +205,7 @@ export namespace ProfitCenters {
   /**
    * All fields of the ProfitCenters entity.
    */
-  export const _allFields: Array<StringField<ProfitCenters> | NumberField<ProfitCenters> | DateField<ProfitCenters> | OneToOneLink<ProfitCenters, Dimensions> | OneToOneLink<ProfitCenters, CostCenterTypes> | OneToOneLink<ProfitCenters, EmployeesInfo> | OneToManyLink<ProfitCenters, EmployeesInfo>> = [
+  export const _allFields: Array<StringField<ProfitCenters> | NumberField<ProfitCenters> | DateField<ProfitCenters> | EnumField<ProfitCenters> | OneToOneLink<ProfitCenters, Dimensions> | OneToOneLink<ProfitCenters, CostCenterTypes> | OneToOneLink<ProfitCenters, EmployeesInfo> | OneToManyLink<ProfitCenters, EmployeesInfo>> = [
     ProfitCenters.CENTER_CODE,
     ProfitCenters.CENTER_NAME,
     ProfitCenters.GROUP_CODE,
@@ -221,6 +213,7 @@ export namespace ProfitCenters {
     ProfitCenters.COST_CENTER_TYPE,
     ProfitCenters.EFFECTIVE_FROM,
     ProfitCenters.EFFECTIVE_TO,
+    ProfitCenters.ACTIVE,
     ProfitCenters.CENTER_OWNER,
     ProfitCenters.DIMENSION,
     ProfitCenters.COST_CENTER_TYPE_2,

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * PaymentsApprovalRequest
@@ -32,7 +32,7 @@ export function createPaymentsApprovalRequest(json: any): PaymentsApprovalReques
  * PaymentsApprovalRequestField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class PaymentsApprovalRequestField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class PaymentsApprovalRequestField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PaymentsApprovalRequest> {
   /**
    * Representation of the [[PaymentsApprovalRequest.approvalTemplatesId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -43,13 +43,38 @@ export class PaymentsApprovalRequestField<EntityT extends Entity> extends Comple
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   remarks: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Remarks', this, 'Edm.String');
+
+  /**
+   * Creates an instance of PaymentsApprovalRequestField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, PaymentsApprovalRequest);
+  }
 }
 
 export namespace PaymentsApprovalRequest {
+  /**
+   * Metadata information on all properties of the `PaymentsApprovalRequest` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<PaymentsApprovalRequest>[] = [{
+    originalName: 'ApprovalTemplatesID',
+    name: 'approvalTemplatesId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Remarks',
+    name: 'remarks',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): PaymentsApprovalRequest {
-    return createComplexType(json, {
-      ApprovalTemplatesID: (approvalTemplatesId: number) => ({ approvalTemplatesId: edmToTs(approvalTemplatesId, 'Edm.Int32') }),
-      Remarks: (remarks: string) => ({ remarks: edmToTs(remarks, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, PaymentsApprovalRequest);
   }
 }

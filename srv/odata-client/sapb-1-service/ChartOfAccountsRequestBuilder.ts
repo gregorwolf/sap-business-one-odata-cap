@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { ChartOfAccounts } from './ChartOfAccounts';
 
 /**
@@ -15,16 +15,16 @@ export class ChartOfAccountsRequestBuilder extends RequestBuilder<ChartOfAccount
    * @param code Key property. See [[ChartOfAccounts.code]].
    * @returns A request builder for creating requests to retrieve one `ChartOfAccounts` entity based on its keys.
    */
-  getByKey(code: string): GetByKeyRequestBuilder<ChartOfAccounts> {
-    return new GetByKeyRequestBuilder(ChartOfAccounts, { Code: code });
+  getByKey(code: string): GetByKeyRequestBuilderV4<ChartOfAccounts> {
+    return new GetByKeyRequestBuilderV4(ChartOfAccounts, { Code: code });
   }
 
   /**
    * Returns a request builder for querying all `ChartOfAccounts` entities.
    * @returns A request builder for creating requests to retrieve all `ChartOfAccounts` entities.
    */
-  getAll(): GetAllRequestBuilder<ChartOfAccounts> {
-    return new GetAllRequestBuilder(ChartOfAccounts);
+  getAll(): GetAllRequestBuilderV4<ChartOfAccounts> {
+    return new GetAllRequestBuilderV4(ChartOfAccounts);
   }
 
   /**
@@ -32,8 +32,8 @@ export class ChartOfAccountsRequestBuilder extends RequestBuilder<ChartOfAccount
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `ChartOfAccounts`.
    */
-  create(entity: ChartOfAccounts): CreateRequestBuilder<ChartOfAccounts> {
-    return new CreateRequestBuilder(ChartOfAccounts, entity);
+  create(entity: ChartOfAccounts): CreateRequestBuilderV4<ChartOfAccounts> {
+    return new CreateRequestBuilderV4(ChartOfAccounts, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class ChartOfAccountsRequestBuilder extends RequestBuilder<ChartOfAccount
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `ChartOfAccounts`.
    */
-  update(entity: ChartOfAccounts): UpdateRequestBuilder<ChartOfAccounts> {
-    return new UpdateRequestBuilder(ChartOfAccounts, entity);
+  update(entity: ChartOfAccounts): UpdateRequestBuilderV4<ChartOfAccounts> {
+    return new UpdateRequestBuilderV4(ChartOfAccounts, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class ChartOfAccountsRequestBuilder extends RequestBuilder<ChartOfAccount
    * @param code Key property. See [[ChartOfAccounts.code]].
    * @returns A request builder for creating requests that delete an entity of type `ChartOfAccounts`.
    */
-  delete(code: string): DeleteRequestBuilder<ChartOfAccounts>;
+  delete(code: string): DeleteRequestBuilderV4<ChartOfAccounts>;
   /**
    * Returns a request builder for deleting an entity of type `ChartOfAccounts`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `ChartOfAccounts` by taking the entity as a parameter.
    */
-  delete(entity: ChartOfAccounts): DeleteRequestBuilder<ChartOfAccounts>;
-  delete(codeOrEntity: any): DeleteRequestBuilder<ChartOfAccounts> {
-    return new DeleteRequestBuilder(ChartOfAccounts, codeOrEntity instanceof ChartOfAccounts ? codeOrEntity : { Code: codeOrEntity! });
+  delete(entity: ChartOfAccounts): DeleteRequestBuilderV4<ChartOfAccounts>;
+  delete(codeOrEntity: any): DeleteRequestBuilderV4<ChartOfAccounts> {
+    return new DeleteRequestBuilderV4(ChartOfAccounts, codeOrEntity instanceof ChartOfAccounts ? codeOrEntity : { Code: codeOrEntity! });
   }
 }

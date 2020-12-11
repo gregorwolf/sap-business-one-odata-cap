@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.ServiceCallOrigins = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var ServiceCallOriginsRequestBuilder_1 = require("./ServiceCallOriginsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "ServiceCallOrigins" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var ServiceCallOrigins = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `ServiceCallOrigins`.
+     * Returns an entity builder to construct instances of `ServiceCallOrigins`.
      * @returns A builder that constructs instances of entity type `ServiceCallOrigins`.
      */
     ServiceCallOrigins.builder = function () {
-        return v4_1.Entity.entityBuilder(ServiceCallOrigins);
+        return core_1.EntityV4.entityBuilder(ServiceCallOrigins);
     };
     /**
      * Returns a request builder to construct requests for operations on the `ServiceCallOrigins` entity type.
@@ -60,7 +60,7 @@ var ServiceCallOrigins = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `ServiceCallOrigins`.
      */
     ServiceCallOrigins.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, ServiceCallOrigins);
+        return core_1.EntityV4.customFieldSelector(fieldName, ServiceCallOrigins);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var ServiceCallOrigins = /** @class */ (function (_super) {
      */
     ServiceCallOrigins._entityName = 'ServiceCallOrigins';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ServiceCallOrigins.
-     */
-    ServiceCallOrigins._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    ServiceCallOrigins._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    ServiceCallOrigins._defaultServicePath = '/b1s/v2/';
     return ServiceCallOrigins;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.ServiceCallOrigins = ServiceCallOrigins;
 var ServiceCalls_1 = require("./ServiceCalls");
 (function (ServiceCallOrigins) {
@@ -91,22 +86,22 @@ var ServiceCalls_1 = require("./ServiceCalls");
      * Static representation of the [[originId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCallOrigins.ORIGIN_ID = new v4_1.NumberField('OriginID', ServiceCallOrigins, 'Edm.Int32');
+    ServiceCallOrigins.ORIGIN_ID = new core_1.NumberField('OriginID', ServiceCallOrigins, 'Edm.Int32');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCallOrigins.NAME = new v4_1.StringField('Name', ServiceCallOrigins, 'Edm.String');
+    ServiceCallOrigins.NAME = new core_1.StringField('Name', ServiceCallOrigins, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCallOrigins.DESCRIPTION = new v4_1.StringField('Description', ServiceCallOrigins, 'Edm.String');
+    ServiceCallOrigins.DESCRIPTION = new core_1.StringField('Description', ServiceCallOrigins, 'Edm.String');
     /**
      * Static representation of the one-to-many navigation property [[serviceCalls]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCallOrigins.SERVICE_CALLS = new v4_1.OneToManyLink('ServiceCalls', ServiceCallOrigins, ServiceCalls_1.ServiceCalls);
+    ServiceCallOrigins.SERVICE_CALLS = new core_1.OneToManyLink('ServiceCalls', ServiceCallOrigins, ServiceCalls_1.ServiceCalls);
     /**
      * All fields of the ServiceCallOrigins entity.
      */
@@ -119,7 +114,7 @@ var ServiceCalls_1 = require("./ServiceCalls");
     /**
      * All fields selector.
      */
-    ServiceCallOrigins.ALL_FIELDS = new v4_1.AllFields('*', ServiceCallOrigins);
+    ServiceCallOrigins.ALL_FIELDS = new core_1.AllFields('*', ServiceCallOrigins);
     /**
      * All key fields of the ServiceCallOrigins entity.
      */

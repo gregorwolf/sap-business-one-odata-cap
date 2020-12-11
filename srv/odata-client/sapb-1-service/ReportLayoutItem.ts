@@ -3,7 +3,16 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoReportLayoutItemTypeEnum } from './BoReportLayoutItemTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoHorizontalAlignmentEnum } from './BoHorizontalAlignmentEnum';
+import { BoLineBreakEnum } from './BoLineBreakEnum';
+import { BoPictureSizeEnum } from './BoPictureSizeEnum';
+import { BoDataSourceEnum } from './BoDataSourceEnum';
+import { BoVerticalAlignmentEnum } from './BoVerticalAlignmentEnum';
+import { BoSortTypeEnum } from './BoSortTypeEnum';
+import { BoBarCodeStandardEnum } from './BoBarCodeStandardEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ReportLayoutItem
@@ -19,6 +28,21 @@ export interface ReportLayoutItem {
    * @nullable
    */
   parentType?: number;
+  /**
+   * Type.
+   * @nullable
+   */
+  type?: BoReportLayoutItemTypeEnum;
+  /**
+   * Visible.
+   * @nullable
+   */
+  visible?: BoYesNoEnum;
+  /**
+   * Suppress Zeros.
+   * @nullable
+   */
+  suppressZeros?: BoYesNoEnum;
   /**
    * Left.
    * @nullable
@@ -165,6 +189,26 @@ export interface ReportLayoutItem {
    */
   textStyle?: number;
   /**
+   * Horizontal Alignment.
+   * @nullable
+   */
+  horizontalAlignment?: BoHorizontalAlignmentEnum;
+  /**
+   * Line Break.
+   * @nullable
+   */
+  lineBreak?: BoLineBreakEnum;
+  /**
+   * Picture Size.
+   * @nullable
+   */
+  pictureSize?: BoPictureSizeEnum;
+  /**
+   * Data Source.
+   * @nullable
+   */
+  dataSource?: BoDataSourceEnum;
+  /**
    * String.
    * @nullable
    */
@@ -185,6 +229,11 @@ export interface ReportLayoutItem {
    */
   fieldName?: string;
   /**
+   * Display Description.
+   * @nullable
+   */
+  displayDescription?: BoYesNoEnum;
+  /**
    * Editable.
    * @nullable
    */
@@ -195,15 +244,65 @@ export interface ReportLayoutItem {
    */
   itemNumber?: number;
   /**
+   * Vertical Alignment.
+   * @nullable
+   */
+  verticalAlignment?: BoVerticalAlignmentEnum;
+  /**
    * Sort Level.
    * @nullable
    */
   sortLevel?: number;
   /**
+   * Reverse Sort.
+   * @nullable
+   */
+  reverseSort?: BoYesNoEnum;
+  /**
+   * Sort Type.
+   * @nullable
+   */
+  sortType?: BoSortTypeEnum;
+  /**
+   * Unique.
+   * @nullable
+   */
+  unique?: BoYesNoEnum;
+  /**
+   * Set As Group.
+   * @nullable
+   */
+  setAsGroup?: BoYesNoEnum;
+  /**
+   * New Page.
+   * @nullable
+   */
+  newPage?: BoYesNoEnum;
+  /**
+   * Print As Bar Code.
+   * @nullable
+   */
+  printAsBarCode?: BoYesNoEnum;
+  /**
    * Link To Field.
    * @nullable
    */
   linkToField?: string;
+  /**
+   * Bar Code Standard.
+   * @nullable
+   */
+  barCodeStandard?: BoBarCodeStandardEnum;
+  /**
+   * Display Total As A Word.
+   * @nullable
+   */
+  displayTotalAsAWord?: BoYesNoEnum;
+  /**
+   * Block Font Change.
+   * @nullable
+   */
+  blockFontChange?: BoYesNoEnum;
   /**
    * Parent Index.
    * @nullable
@@ -235,6 +334,16 @@ export interface ReportLayoutItem {
    */
   nextSegmentItemNumber?: string;
   /**
+   * Height Adjustments.
+   * @nullable
+   */
+  heightAdjustments?: BoYesNoEnum;
+  /**
+   * Duplicate Repetitive Area.
+   * @nullable
+   */
+  duplicateRepetitiveArea?: BoYesNoEnum;
+  /**
    * Number Of Lines In Repetitive Area.
    * @nullable
    */
@@ -244,6 +353,16 @@ export interface ReportLayoutItem {
    * @nullable
    */
   distanceToRepetitiveDuplicate?: number;
+  /**
+   * Hide Repetitive Area If Empty.
+   * @nullable
+   */
+  hideRepetitiveAreaIfEmpty?: BoYesNoEnum;
+  /**
+   * Display Repetitive Area Footer On All Pages.
+   * @nullable
+   */
+  displayRepetitiveAreaFooterOnAllPages?: BoYesNoEnum;
 }
 
 /**
@@ -257,7 +376,7 @@ export function createReportLayoutItem(json: any): ReportLayoutItem {
  * ReportLayoutItemField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ReportLayoutItemField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ReportLayoutItemField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ReportLayoutItem> {
   /**
    * Representation of the [[ReportLayoutItem.fieldIdentifier]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -268,6 +387,21 @@ export class ReportLayoutItemField<EntityT extends Entity> extends ComplexTypeFi
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   parentType: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('ParentType', this, 'Edm.Int32');
+  /**
+   * Representation of the [[ReportLayoutItem.type]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  type: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Type', this);
+  /**
+   * Representation of the [[ReportLayoutItem.visible]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  visible: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Visible', this);
+  /**
+   * Representation of the [[ReportLayoutItem.suppressZeros]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  suppressZeros: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SuppressZeros', this);
   /**
    * Representation of the [[ReportLayoutItem.left]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -414,6 +548,26 @@ export class ReportLayoutItemField<EntityT extends Entity> extends ComplexTypeFi
    */
   textStyle: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('TextStyle', this, 'Edm.Int32');
   /**
+   * Representation of the [[ReportLayoutItem.horizontalAlignment]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  horizontalAlignment: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('HorizontalAlignment', this);
+  /**
+   * Representation of the [[ReportLayoutItem.lineBreak]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  lineBreak: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('LineBreak', this);
+  /**
+   * Representation of the [[ReportLayoutItem.pictureSize]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  pictureSize: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('PictureSize', this);
+  /**
+   * Representation of the [[ReportLayoutItem.dataSource]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  dataSource: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DataSource', this);
+  /**
    * Representation of the [[ReportLayoutItem.string]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -434,6 +588,11 @@ export class ReportLayoutItemField<EntityT extends Entity> extends ComplexTypeFi
    */
   fieldName: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('FieldName', this, 'Edm.String');
   /**
+   * Representation of the [[ReportLayoutItem.displayDescription]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  displayDescription: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DisplayDescription', this);
+  /**
    * Representation of the [[ReportLayoutItem.editable]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -444,15 +603,65 @@ export class ReportLayoutItemField<EntityT extends Entity> extends ComplexTypeFi
    */
   itemNumber: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('ItemNumber', this, 'Edm.Int32');
   /**
+   * Representation of the [[ReportLayoutItem.verticalAlignment]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  verticalAlignment: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('VerticalAlignment', this);
+  /**
    * Representation of the [[ReportLayoutItem.sortLevel]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   sortLevel: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('SortLevel', this, 'Edm.Int32');
   /**
+   * Representation of the [[ReportLayoutItem.reverseSort]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  reverseSort: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ReverseSort', this);
+  /**
+   * Representation of the [[ReportLayoutItem.sortType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  sortType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SortType', this);
+  /**
+   * Representation of the [[ReportLayoutItem.unique]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  unique: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Unique', this);
+  /**
+   * Representation of the [[ReportLayoutItem.setAsGroup]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  setAsGroup: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SetAsGroup', this);
+  /**
+   * Representation of the [[ReportLayoutItem.newPage]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  newPage: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('NewPage', this);
+  /**
+   * Representation of the [[ReportLayoutItem.printAsBarCode]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  printAsBarCode: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('PrintAsBarCode', this);
+  /**
    * Representation of the [[ReportLayoutItem.linkToField]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   linkToField: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('LinkToField', this, 'Edm.String');
+  /**
+   * Representation of the [[ReportLayoutItem.barCodeStandard]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  barCodeStandard: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BarCodeStandard', this);
+  /**
+   * Representation of the [[ReportLayoutItem.displayTotalAsAWord]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  displayTotalAsAWord: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DisplayTotalAsAWord', this);
+  /**
+   * Representation of the [[ReportLayoutItem.blockFontChange]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  blockFontChange: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BlockFontChange', this);
   /**
    * Representation of the [[ReportLayoutItem.parentIndex]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -484,6 +693,16 @@ export class ReportLayoutItemField<EntityT extends Entity> extends ComplexTypeFi
    */
   nextSegmentItemNumber: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('NextSegmentItemNumber', this, 'Edm.String');
   /**
+   * Representation of the [[ReportLayoutItem.heightAdjustments]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  heightAdjustments: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('HeightAdjustments', this);
+  /**
+   * Representation of the [[ReportLayoutItem.duplicateRepetitiveArea]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  duplicateRepetitiveArea: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DuplicateRepetitiveArea', this);
+  /**
    * Representation of the [[ReportLayoutItem.numberOfLinesInRepetitiveArea]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -493,58 +712,383 @@ export class ReportLayoutItemField<EntityT extends Entity> extends ComplexTypeFi
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   distanceToRepetitiveDuplicate: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DistanceToRepetitiveDuplicate', this, 'Edm.Int32');
+  /**
+   * Representation of the [[ReportLayoutItem.hideRepetitiveAreaIfEmpty]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  hideRepetitiveAreaIfEmpty: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('HideRepetitiveAreaIfEmpty', this);
+  /**
+   * Representation of the [[ReportLayoutItem.displayRepetitiveAreaFooterOnAllPages]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  displayRepetitiveAreaFooterOnAllPages: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DisplayRepetitiveAreaFooterOnAllPages', this);
+
+  /**
+   * Creates an instance of ReportLayoutItemField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ReportLayoutItem);
+  }
 }
 
 export namespace ReportLayoutItem {
+  /**
+   * Metadata information on all properties of the `ReportLayoutItem` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ReportLayoutItem>[] = [{
+    originalName: 'FieldIdentifier',
+    name: 'fieldIdentifier',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ParentType',
+    name: 'parentType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Type',
+    name: 'type',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Visible',
+    name: 'visible',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SuppressZeros',
+    name: 'suppressZeros',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Left',
+    name: 'left',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Top',
+    name: 'top',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Width',
+    name: 'width',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Height',
+    name: 'height',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LeftMargin',
+    name: 'leftMargin',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'RightMargin',
+    name: 'rightMargin',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TopMargin',
+    name: 'topMargin',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BottomMargin',
+    name: 'bottomMargin',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LeftBorderLineThickness',
+    name: 'leftBorderLineThickness',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'RightBorderLineThickness',
+    name: 'rightBorderLineThickness',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TopBorderLineThickness',
+    name: 'topBorderLineThickness',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BottomBorderLineThickness',
+    name: 'bottomBorderLineThickness',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ShadowThickness',
+    name: 'shadowThickness',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BackgroundRed',
+    name: 'backgroundRed',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BackgroundGreen',
+    name: 'backgroundGreen',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BackgroundBlue',
+    name: 'backgroundBlue',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TextRed',
+    name: 'textRed',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TextGreen',
+    name: 'textGreen',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TextBlue',
+    name: 'textBlue',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'HighlightRed',
+    name: 'highlightRed',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'HighlightGreen',
+    name: 'highlightGreen',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'HighlightBlue',
+    name: 'highlightBlue',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BorderRed',
+    name: 'borderRed',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BorderGreen',
+    name: 'borderGreen',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BorderBlue',
+    name: 'borderBlue',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'GroupNumber',
+    name: 'groupNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'FontName',
+    name: 'fontName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FontSize',
+    name: 'fontSize',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TextStyle',
+    name: 'textStyle',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'HorizontalAlignment',
+    name: 'horizontalAlignment',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'LineBreak',
+    name: 'lineBreak',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'PictureSize',
+    name: 'pictureSize',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DataSource',
+    name: 'dataSource',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'String',
+    name: 'string',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'VariableNumber',
+    name: 'variableNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TableName',
+    name: 'tableName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FieldName',
+    name: 'fieldName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DisplayDescription',
+    name: 'displayDescription',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Editable',
+    name: 'editable',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ItemNumber',
+    name: 'itemNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'VerticalAlignment',
+    name: 'verticalAlignment',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SortLevel',
+    name: 'sortLevel',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ReverseSort',
+    name: 'reverseSort',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SortType',
+    name: 'sortType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Unique',
+    name: 'unique',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SetAsGroup',
+    name: 'setAsGroup',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'NewPage',
+    name: 'newPage',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'PrintAsBarCode',
+    name: 'printAsBarCode',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'LinkToField',
+    name: 'linkToField',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BarCodeStandard',
+    name: 'barCodeStandard',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DisplayTotalAsAWord',
+    name: 'displayTotalAsAWord',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BlockFontChange',
+    name: 'blockFontChange',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ParentIndex',
+    name: 'parentIndex',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ItemIndex',
+    name: 'itemIndex',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'StringLength',
+    name: 'stringLength',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'StringFiller',
+    name: 'stringFiller',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RelateToField',
+    name: 'relateToField',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'NextSegmentItemNumber',
+    name: 'nextSegmentItemNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'HeightAdjustments',
+    name: 'heightAdjustments',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DuplicateRepetitiveArea',
+    name: 'duplicateRepetitiveArea',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'NumberOfLinesInRepetitiveArea',
+    name: 'numberOfLinesInRepetitiveArea',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DistanceToRepetitiveDuplicate',
+    name: 'distanceToRepetitiveDuplicate',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'HideRepetitiveAreaIfEmpty',
+    name: 'hideRepetitiveAreaIfEmpty',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DisplayRepetitiveAreaFooterOnAllPages',
+    name: 'displayRepetitiveAreaFooterOnAllPages',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ReportLayoutItem {
-    return createComplexType(json, {
-      FieldIdentifier: (fieldIdentifier: string) => ({ fieldIdentifier: edmToTs(fieldIdentifier, 'Edm.String') }),
-      ParentType: (parentType: number) => ({ parentType: edmToTs(parentType, 'Edm.Int32') }),
-      Left: (left: number) => ({ left: edmToTs(left, 'Edm.Int32') }),
-      Top: (top: number) => ({ top: edmToTs(top, 'Edm.Int32') }),
-      Width: (width: number) => ({ width: edmToTs(width, 'Edm.Int32') }),
-      Height: (height: number) => ({ height: edmToTs(height, 'Edm.Int32') }),
-      LeftMargin: (leftMargin: number) => ({ leftMargin: edmToTs(leftMargin, 'Edm.Int32') }),
-      RightMargin: (rightMargin: number) => ({ rightMargin: edmToTs(rightMargin, 'Edm.Int32') }),
-      TopMargin: (topMargin: number) => ({ topMargin: edmToTs(topMargin, 'Edm.Int32') }),
-      BottomMargin: (bottomMargin: number) => ({ bottomMargin: edmToTs(bottomMargin, 'Edm.Int32') }),
-      LeftBorderLineThickness: (leftBorderLineThickness: number) => ({ leftBorderLineThickness: edmToTs(leftBorderLineThickness, 'Edm.Int32') }),
-      RightBorderLineThickness: (rightBorderLineThickness: number) => ({ rightBorderLineThickness: edmToTs(rightBorderLineThickness, 'Edm.Int32') }),
-      TopBorderLineThickness: (topBorderLineThickness: number) => ({ topBorderLineThickness: edmToTs(topBorderLineThickness, 'Edm.Int32') }),
-      BottomBorderLineThickness: (bottomBorderLineThickness: number) => ({ bottomBorderLineThickness: edmToTs(bottomBorderLineThickness, 'Edm.Int32') }),
-      ShadowThickness: (shadowThickness: number) => ({ shadowThickness: edmToTs(shadowThickness, 'Edm.Int32') }),
-      BackgroundRed: (backgroundRed: number) => ({ backgroundRed: edmToTs(backgroundRed, 'Edm.Int32') }),
-      BackgroundGreen: (backgroundGreen: number) => ({ backgroundGreen: edmToTs(backgroundGreen, 'Edm.Int32') }),
-      BackgroundBlue: (backgroundBlue: number) => ({ backgroundBlue: edmToTs(backgroundBlue, 'Edm.Int32') }),
-      TextRed: (textRed: number) => ({ textRed: edmToTs(textRed, 'Edm.Int32') }),
-      TextGreen: (textGreen: number) => ({ textGreen: edmToTs(textGreen, 'Edm.Int32') }),
-      TextBlue: (textBlue: number) => ({ textBlue: edmToTs(textBlue, 'Edm.Int32') }),
-      HighlightRed: (highlightRed: number) => ({ highlightRed: edmToTs(highlightRed, 'Edm.Int32') }),
-      HighlightGreen: (highlightGreen: number) => ({ highlightGreen: edmToTs(highlightGreen, 'Edm.Int32') }),
-      HighlightBlue: (highlightBlue: number) => ({ highlightBlue: edmToTs(highlightBlue, 'Edm.Int32') }),
-      BorderRed: (borderRed: number) => ({ borderRed: edmToTs(borderRed, 'Edm.Int32') }),
-      BorderGreen: (borderGreen: number) => ({ borderGreen: edmToTs(borderGreen, 'Edm.Int32') }),
-      BorderBlue: (borderBlue: number) => ({ borderBlue: edmToTs(borderBlue, 'Edm.Int32') }),
-      GroupNumber: (groupNumber: number) => ({ groupNumber: edmToTs(groupNumber, 'Edm.Int32') }),
-      FontName: (fontName: string) => ({ fontName: edmToTs(fontName, 'Edm.String') }),
-      FontSize: (fontSize: number) => ({ fontSize: edmToTs(fontSize, 'Edm.Int32') }),
-      TextStyle: (textStyle: number) => ({ textStyle: edmToTs(textStyle, 'Edm.Int32') }),
-      String: (string: string) => ({ string: edmToTs(string, 'Edm.String') }),
-      VariableNumber: (variableNumber: number) => ({ variableNumber: edmToTs(variableNumber, 'Edm.Int32') }),
-      TableName: (tableName: string) => ({ tableName: edmToTs(tableName, 'Edm.String') }),
-      FieldName: (fieldName: string) => ({ fieldName: edmToTs(fieldName, 'Edm.String') }),
-      Editable: (editable: number) => ({ editable: edmToTs(editable, 'Edm.Int32') }),
-      ItemNumber: (itemNumber: number) => ({ itemNumber: edmToTs(itemNumber, 'Edm.Int32') }),
-      SortLevel: (sortLevel: number) => ({ sortLevel: edmToTs(sortLevel, 'Edm.Int32') }),
-      LinkToField: (linkToField: string) => ({ linkToField: edmToTs(linkToField, 'Edm.String') }),
-      ParentIndex: (parentIndex: number) => ({ parentIndex: edmToTs(parentIndex, 'Edm.Int32') }),
-      ItemIndex: (itemIndex: number) => ({ itemIndex: edmToTs(itemIndex, 'Edm.Int32') }),
-      StringLength: (stringLength: number) => ({ stringLength: edmToTs(stringLength, 'Edm.Int32') }),
-      StringFiller: (stringFiller: string) => ({ stringFiller: edmToTs(stringFiller, 'Edm.String') }),
-      RelateToField: (relateToField: string) => ({ relateToField: edmToTs(relateToField, 'Edm.String') }),
-      NextSegmentItemNumber: (nextSegmentItemNumber: string) => ({ nextSegmentItemNumber: edmToTs(nextSegmentItemNumber, 'Edm.String') }),
-      NumberOfLinesInRepetitiveArea: (numberOfLinesInRepetitiveArea: number) => ({ numberOfLinesInRepetitiveArea: edmToTs(numberOfLinesInRepetitiveArea, 'Edm.Int32') }),
-      DistanceToRepetitiveDuplicate: (distanceToRepetitiveDuplicate: number) => ({ distanceToRepetitiveDuplicate: edmToTs(distanceToRepetitiveDuplicate, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, ReportLayoutItem);
   }
 }

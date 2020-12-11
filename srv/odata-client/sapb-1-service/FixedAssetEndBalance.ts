@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * FixedAssetEndBalance
@@ -72,7 +72,7 @@ export function createFixedAssetEndBalance(json: any): FixedAssetEndBalance {
  * FixedAssetEndBalanceField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class FixedAssetEndBalanceField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class FixedAssetEndBalanceField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, FixedAssetEndBalance> {
   /**
    * Representation of the [[FixedAssetEndBalance.historicalApc]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -123,21 +123,78 @@ export class FixedAssetEndBalanceField<EntityT extends Entity> extends ComplexTy
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   quantity: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('Quantity', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of FixedAssetEndBalanceField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, FixedAssetEndBalance);
+  }
 }
 
 export namespace FixedAssetEndBalance {
+  /**
+   * Metadata information on all properties of the `FixedAssetEndBalance` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<FixedAssetEndBalance>[] = [{
+    originalName: 'HistoricalAPC',
+    name: 'historicalApc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AcquisitionCost',
+    name: 'acquisitionCost',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'NetBookValue',
+    name: 'netBookValue',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'HistoricalNBV',
+    name: 'historicalNbv',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'OrdinaryDepreciationValue',
+    name: 'ordinaryDepreciationValue',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'UnplanedDepreciationValue',
+    name: 'unplanedDepreciationValue',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SpecialDepreciationValue',
+    name: 'specialDepreciationValue',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WriteUp',
+    name: 'writeUp',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SalvageValue',
+    name: 'salvageValue',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Quantity',
+    name: 'quantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): FixedAssetEndBalance {
-    return createComplexType(json, {
-      HistoricalAPC: (historicalApc: number) => ({ historicalApc: edmToTs(historicalApc, 'Edm.Double') }),
-      AcquisitionCost: (acquisitionCost: number) => ({ acquisitionCost: edmToTs(acquisitionCost, 'Edm.Double') }),
-      NetBookValue: (netBookValue: number) => ({ netBookValue: edmToTs(netBookValue, 'Edm.Double') }),
-      HistoricalNBV: (historicalNbv: number) => ({ historicalNbv: edmToTs(historicalNbv, 'Edm.Double') }),
-      OrdinaryDepreciationValue: (ordinaryDepreciationValue: number) => ({ ordinaryDepreciationValue: edmToTs(ordinaryDepreciationValue, 'Edm.Double') }),
-      UnplanedDepreciationValue: (unplanedDepreciationValue: number) => ({ unplanedDepreciationValue: edmToTs(unplanedDepreciationValue, 'Edm.Double') }),
-      SpecialDepreciationValue: (specialDepreciationValue: number) => ({ specialDepreciationValue: edmToTs(specialDepreciationValue, 'Edm.Double') }),
-      WriteUp: (writeUp: number) => ({ writeUp: edmToTs(writeUp, 'Edm.Double') }),
-      SalvageValue: (salvageValue: number) => ({ salvageValue: edmToTs(salvageValue, 'Edm.Double') }),
-      Quantity: (quantity: number) => ({ quantity: edmToTs(quantity, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, FixedAssetEndBalance);
   }
 }

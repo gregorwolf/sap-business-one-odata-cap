@@ -4,7 +4,10 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoSoStatus } from './BoSoStatus';
+import { BoAparDocumentTypes } from './BoAparDocumentTypes';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * SalesOpportunitiesLine
@@ -56,6 +59,16 @@ export interface SalesOpportunitiesLine {
    */
   remarks?: string;
   /**
+   * Contact.
+   * @nullable
+   */
+  contact?: BoYesNoEnum;
+  /**
+   * Status.
+   * @nullable
+   */
+  status?: BoSoStatus;
+  /**
    * Weighted Amount Local.
    * @nullable
    */
@@ -70,6 +83,16 @@ export interface SalesOpportunitiesLine {
    * @nullable
    */
   documentNumber?: number;
+  /**
+   * Document Type.
+   * @nullable
+   */
+  documentType?: BoAparDocumentTypes;
+  /**
+   * Document Checkbox.
+   * @nullable
+   */
+  documentCheckbox?: BoYesNoEnum;
   /**
    * Contact Person.
    * @nullable
@@ -113,7 +136,7 @@ export function createSalesOpportunitiesLine(json: any): SalesOpportunitiesLine 
  * SalesOpportunitiesLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class SalesOpportunitiesLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class SalesOpportunitiesLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, SalesOpportunitiesLine> {
   /**
    * Representation of the [[SalesOpportunitiesLine.lineNum]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -160,6 +183,16 @@ export class SalesOpportunitiesLineField<EntityT extends Entity> extends Complex
    */
   remarks: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Remarks', this, 'Edm.String');
   /**
+   * Representation of the [[SalesOpportunitiesLine.contact]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  contact: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Contact', this);
+  /**
+   * Representation of the [[SalesOpportunitiesLine.status]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  status: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Status', this);
+  /**
    * Representation of the [[SalesOpportunitiesLine.weightedAmountLocal]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -174,6 +207,16 @@ export class SalesOpportunitiesLineField<EntityT extends Entity> extends Complex
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   documentNumber: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DocumentNumber', this, 'Edm.Int32');
+  /**
+   * Representation of the [[SalesOpportunitiesLine.documentType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  documentType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DocumentType', this);
+  /**
+   * Representation of the [[SalesOpportunitiesLine.documentCheckbox]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  documentCheckbox: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DocumentCheckbox', this);
   /**
    * Representation of the [[SalesOpportunitiesLine.contactPerson]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -204,29 +247,138 @@ export class SalesOpportunitiesLineField<EntityT extends Entity> extends Complex
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   bpChannelContact: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('BPChannelContact', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of SalesOpportunitiesLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, SalesOpportunitiesLine);
+  }
 }
 
 export namespace SalesOpportunitiesLine {
+  /**
+   * Metadata information on all properties of the `SalesOpportunitiesLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<SalesOpportunitiesLine>[] = [{
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SalesPerson',
+    name: 'salesPerson',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'StartDate',
+    name: 'startDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ClosingDate',
+    name: 'closingDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'StageKey',
+    name: 'stageKey',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PercentageRate',
+    name: 'percentageRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'MaxLocalTotal',
+    name: 'maxLocalTotal',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'MaxSystemTotal',
+    name: 'maxSystemTotal',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Remarks',
+    name: 'remarks',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Contact',
+    name: 'contact',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Status',
+    name: 'status',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'WeightedAmountLocal',
+    name: 'weightedAmountLocal',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WeightedAmountSystem',
+    name: 'weightedAmountSystem',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DocumentNumber',
+    name: 'documentNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DocumentType',
+    name: 'documentType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DocumentCheckbox',
+    name: 'documentCheckbox',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ContactPerson',
+    name: 'contactPerson',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BPChanelName',
+    name: 'bpChanelName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPChanelCode',
+    name: 'bpChanelCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SequenceNo',
+    name: 'sequenceNo',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DataOwnershipfield',
+    name: 'dataOwnershipfield',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BPChannelContact',
+    name: 'bpChannelContact',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): SalesOpportunitiesLine {
-    return createComplexType(json, {
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      SalesPerson: (salesPerson: number) => ({ salesPerson: edmToTs(salesPerson, 'Edm.Int32') }),
-      StartDate: (startDate: Moment) => ({ startDate: edmToTs(startDate, 'Edm.DateTimeOffset') }),
-      ClosingDate: (closingDate: Moment) => ({ closingDate: edmToTs(closingDate, 'Edm.DateTimeOffset') }),
-      StageKey: (stageKey: number) => ({ stageKey: edmToTs(stageKey, 'Edm.Int32') }),
-      PercentageRate: (percentageRate: number) => ({ percentageRate: edmToTs(percentageRate, 'Edm.Double') }),
-      MaxLocalTotal: (maxLocalTotal: number) => ({ maxLocalTotal: edmToTs(maxLocalTotal, 'Edm.Double') }),
-      MaxSystemTotal: (maxSystemTotal: number) => ({ maxSystemTotal: edmToTs(maxSystemTotal, 'Edm.Double') }),
-      Remarks: (remarks: string) => ({ remarks: edmToTs(remarks, 'Edm.String') }),
-      WeightedAmountLocal: (weightedAmountLocal: number) => ({ weightedAmountLocal: edmToTs(weightedAmountLocal, 'Edm.Double') }),
-      WeightedAmountSystem: (weightedAmountSystem: number) => ({ weightedAmountSystem: edmToTs(weightedAmountSystem, 'Edm.Double') }),
-      DocumentNumber: (documentNumber: number) => ({ documentNumber: edmToTs(documentNumber, 'Edm.Int32') }),
-      ContactPerson: (contactPerson: number) => ({ contactPerson: edmToTs(contactPerson, 'Edm.Int32') }),
-      BPChanelName: (bpChanelName: string) => ({ bpChanelName: edmToTs(bpChanelName, 'Edm.String') }),
-      BPChanelCode: (bpChanelCode: string) => ({ bpChanelCode: edmToTs(bpChanelCode, 'Edm.String') }),
-      SequenceNo: (sequenceNo: number) => ({ sequenceNo: edmToTs(sequenceNo, 'Edm.Int32') }),
-      DataOwnershipfield: (dataOwnershipfield: number) => ({ dataOwnershipfield: edmToTs(dataOwnershipfield, 'Edm.Int32') }),
-      BPChannelContact: (bpChannelContact: number) => ({ bpChannelContact: edmToTs(bpChannelContact, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, SalesOpportunitiesLine);
   }
 }

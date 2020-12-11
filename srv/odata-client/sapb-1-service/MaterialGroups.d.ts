@@ -1,18 +1,13 @@
 import { MaterialGroupsRequestBuilder } from './MaterialGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "MaterialGroups" of service "SAPB1".
  */
-export declare class MaterialGroups extends Entity implements MaterialGroupsType {
+export declare class MaterialGroups extends EntityV4 implements MaterialGroupsType {
     /**
      * Technical entity name for MaterialGroups.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for MaterialGroups.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -37,10 +32,10 @@ export declare class MaterialGroups extends Entity implements MaterialGroupsType
      */
     items: Items[];
     /**
-     * Returns an entity builder to construct instances `MaterialGroups`.
+     * Returns an entity builder to construct instances of `MaterialGroups`.
      * @returns A builder that constructs instances of entity type `MaterialGroups`.
      */
-    static builder(): EntityBuilderType<MaterialGroups, MaterialGroupsTypeForceMandatory>;
+    static builder(): EntityBuilderType<MaterialGroups, MaterialGroupsType>;
     /**
      * Returns a request builder to construct requests for operations on the `MaterialGroups` entity type.
      * @returns A `MaterialGroups` request builder.
@@ -51,7 +46,7 @@ export declare class MaterialGroups extends Entity implements MaterialGroupsType
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `MaterialGroups`.
      */
-    static customField(fieldName: string): CustomField<MaterialGroups>;
+    static customField(fieldName: string): CustomFieldV4<MaterialGroups>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -62,15 +57,9 @@ export declare class MaterialGroups extends Entity implements MaterialGroupsType
 }
 import { Items, ItemsType } from './Items';
 export interface MaterialGroupsType {
-    absEntry?: number;
-    materialGroupCode?: string;
-    description?: string;
-    items: ItemsType[];
-}
-export interface MaterialGroupsTypeForceMandatory {
-    absEntry: number;
-    materialGroupCode: string;
-    description: string;
+    absEntry?: number | null;
+    materialGroupCode?: string | null;
+    description?: string | null;
     items: ItemsType[];
 }
 export declare namespace MaterialGroups {

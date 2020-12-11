@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.ReportTypeParams = exports.ReportTypeParamsField = exports.createReportT
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[ReportTypeParams.build]] instead.
  */
@@ -33,48 +33,80 @@ exports.createReportTypeParams = createReportTypeParams;
  */
 var ReportTypeParamsField = /** @class */ (function (_super) {
     __extends(ReportTypeParamsField, _super);
-    function ReportTypeParamsField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of ReportTypeParamsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function ReportTypeParamsField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, ReportTypeParams) || this;
         /**
          * Representation of the [[ReportTypeParams.typeCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.typeCode = new v4_1.ComplexTypeStringPropertyField('TypeCode', _this, 'Edm.String');
+        _this.typeCode = new core_1.ComplexTypeStringPropertyField('TypeCode', _this, 'Edm.String');
         /**
          * Representation of the [[ReportTypeParams.typeName]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.typeName = new v4_1.ComplexTypeStringPropertyField('TypeName', _this, 'Edm.String');
+        _this.typeName = new core_1.ComplexTypeStringPropertyField('TypeName', _this, 'Edm.String');
         /**
          * Representation of the [[ReportTypeParams.addonName]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.addonName = new v4_1.ComplexTypeStringPropertyField('AddonName', _this, 'Edm.String');
+        _this.addonName = new core_1.ComplexTypeStringPropertyField('AddonName', _this, 'Edm.String');
         /**
          * Representation of the [[ReportTypeParams.addonFormType]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.addonFormType = new v4_1.ComplexTypeStringPropertyField('AddonFormType', _this, 'Edm.String');
+        _this.addonFormType = new core_1.ComplexTypeStringPropertyField('AddonFormType', _this, 'Edm.String');
         /**
          * Representation of the [[ReportTypeParams.menuId]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.menuId = new v4_1.ComplexTypeStringPropertyField('MenuID', _this, 'Edm.String');
+        _this.menuId = new core_1.ComplexTypeStringPropertyField('MenuID', _this, 'Edm.String');
         return _this;
     }
     return ReportTypeParamsField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.ReportTypeParamsField = ReportTypeParamsField;
 var ReportTypeParams;
 (function (ReportTypeParams) {
+    /**
+     * Metadata information on all properties of the `ReportTypeParams` complex type.
+     */
+    ReportTypeParams._propertyMetadata = [{
+            originalName: 'TypeCode',
+            name: 'typeCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'TypeName',
+            name: 'typeName',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'AddonName',
+            name: 'addonName',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'AddonFormType',
+            name: 'addonFormType',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'MenuID',
+            name: 'menuId',
+            type: 'Edm.String',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            TypeCode: function (typeCode) { return ({ typeCode: v4_1.edmToTs(typeCode, 'Edm.String') }); },
-            TypeName: function (typeName) { return ({ typeName: v4_1.edmToTs(typeName, 'Edm.String') }); },
-            AddonName: function (addonName) { return ({ addonName: v4_1.edmToTs(addonName, 'Edm.String') }); },
-            AddonFormType: function (addonFormType) { return ({ addonFormType: v4_1.edmToTs(addonFormType, 'Edm.String') }); },
-            MenuID: function (menuId) { return ({ menuId: v4_1.edmToTs(menuId, 'Edm.String') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, ReportTypeParams);
     }
     ReportTypeParams.build = build;
 })(ReportTypeParams = exports.ReportTypeParams || (exports.ReportTypeParams = {}));

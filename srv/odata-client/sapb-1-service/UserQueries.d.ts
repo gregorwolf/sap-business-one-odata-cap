@@ -1,18 +1,14 @@
 import { UserQueriesRequestBuilder } from './UserQueriesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { UserQueryTypeEnum } from './UserQueryTypeEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "UserQueries" of service "SAPB1".
  */
-export declare class UserQueries extends Entity implements UserQueriesType {
+export declare class UserQueries extends EntityV4 implements UserQueriesType {
     /**
      * Technical entity name for UserQueries.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for UserQueries.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -48,14 +44,19 @@ export declare class UserQueries extends Entity implements UserQueriesType {
      */
     procedureName?: string;
     /**
+     * Query Type.
+     * @nullable
+     */
+    queryType?: UserQueryTypeEnum;
+    /**
      * One-to-one navigation property to the [[QueryCategories]] entity.
      */
     queryCategory2: QueryCategories;
     /**
-     * Returns an entity builder to construct instances `UserQueries`.
+     * Returns an entity builder to construct instances of `UserQueries`.
      * @returns A builder that constructs instances of entity type `UserQueries`.
      */
-    static builder(): EntityBuilderType<UserQueries, UserQueriesTypeForceMandatory>;
+    static builder(): EntityBuilderType<UserQueries, UserQueriesType>;
     /**
      * Returns a request builder to construct requests for operations on the `UserQueries` entity type.
      * @returns A `UserQueries` request builder.
@@ -66,7 +67,7 @@ export declare class UserQueries extends Entity implements UserQueriesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `UserQueries`.
      */
-    static customField(fieldName: string): CustomField<UserQueries>;
+    static customField(fieldName: string): CustomFieldV4<UserQueries>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -77,21 +78,13 @@ export declare class UserQueries extends Entity implements UserQueriesType {
 }
 import { QueryCategories, QueryCategoriesType } from './QueryCategories';
 export interface UserQueriesType {
-    internalKey?: number;
-    queryCategory?: number;
-    queryDescription?: string;
-    query?: string;
-    procedureAlias?: string;
-    procedureName?: string;
-    queryCategory2: QueryCategoriesType;
-}
-export interface UserQueriesTypeForceMandatory {
-    internalKey: number;
-    queryCategory: number;
-    queryDescription: string;
-    query: string;
-    procedureAlias: string;
-    procedureName: string;
+    internalKey?: number | null;
+    queryCategory?: number | null;
+    queryDescription?: string | null;
+    query?: string | null;
+    procedureAlias?: string | null;
+    procedureName?: string | null;
+    queryType?: UserQueryTypeEnum | null;
     queryCategory2: QueryCategoriesType;
 }
 export declare namespace UserQueries {
@@ -126,6 +119,11 @@ export declare namespace UserQueries {
      */
     const PROCEDURE_NAME: StringField<UserQueries>;
     /**
+     * Static representation of the [[queryType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const QUERY_TYPE: EnumField<UserQueries>;
+    /**
      * Static representation of the one-to-one navigation property [[queryCategory2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -133,7 +131,7 @@ export declare namespace UserQueries {
     /**
      * All fields of the UserQueries entity.
      */
-    const _allFields: Array<NumberField<UserQueries> | StringField<UserQueries> | OneToOneLink<UserQueries, QueryCategories>>;
+    const _allFields: Array<NumberField<UserQueries> | StringField<UserQueries> | EnumField<UserQueries> | OneToOneLink<UserQueries, QueryCategories>>;
     /**
      * All fields selector.
      */

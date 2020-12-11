@@ -1,18 +1,13 @@
 import { StockTakingsRequestBuilder } from './StockTakingsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "StockTakings" of service "SAPB1".
  */
-export declare class StockTakings extends Entity implements StockTakingsType {
+export declare class StockTakings extends EntityV4 implements StockTakingsType {
     /**
      * Technical entity name for StockTakings.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for StockTakings.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -41,10 +36,10 @@ export declare class StockTakings extends Entity implements StockTakingsType {
      */
     warehouse: Warehouses;
     /**
-     * Returns an entity builder to construct instances `StockTakings`.
+     * Returns an entity builder to construct instances of `StockTakings`.
      * @returns A builder that constructs instances of entity type `StockTakings`.
      */
-    static builder(): EntityBuilderType<StockTakings, StockTakingsTypeForceMandatory>;
+    static builder(): EntityBuilderType<StockTakings, StockTakingsType>;
     /**
      * Returns a request builder to construct requests for operations on the `StockTakings` entity type.
      * @returns A `StockTakings` request builder.
@@ -55,7 +50,7 @@ export declare class StockTakings extends Entity implements StockTakingsType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `StockTakings`.
      */
-    static customField(fieldName: string): CustomField<StockTakings>;
+    static customField(fieldName: string): CustomFieldV4<StockTakings>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -67,16 +62,9 @@ export declare class StockTakings extends Entity implements StockTakingsType {
 import { Items, ItemsType } from './Items';
 import { Warehouses, WarehousesType } from './Warehouses';
 export interface StockTakingsType {
-    itemCode?: string;
-    warehouseCode?: string;
-    counted?: number;
-    item: ItemsType;
-    warehouse: WarehousesType;
-}
-export interface StockTakingsTypeForceMandatory {
-    itemCode: string;
-    warehouseCode: string;
-    counted: number;
+    itemCode?: string | null;
+    warehouseCode?: string | null;
+    counted?: number | null;
     item: ItemsType;
     warehouse: WarehousesType;
 }

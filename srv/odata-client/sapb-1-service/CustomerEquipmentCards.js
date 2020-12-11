@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.CustomerEquipmentCards = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var CustomerEquipmentCardsRequestBuilder_1 = require("./CustomerEquipmentCardsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "CustomerEquipmentCards" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var CustomerEquipmentCards = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `CustomerEquipmentCards`.
+     * Returns an entity builder to construct instances of `CustomerEquipmentCards`.
      * @returns A builder that constructs instances of entity type `CustomerEquipmentCards`.
      */
     CustomerEquipmentCards.builder = function () {
-        return v4_1.Entity.entityBuilder(CustomerEquipmentCards);
+        return core_1.EntityV4.entityBuilder(CustomerEquipmentCards);
     };
     /**
      * Returns a request builder to construct requests for operations on the `CustomerEquipmentCards` entity type.
@@ -60,7 +60,7 @@ var CustomerEquipmentCards = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `CustomerEquipmentCards`.
      */
     CustomerEquipmentCards.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, CustomerEquipmentCards);
+        return core_1.EntityV4.customFieldSelector(fieldName, CustomerEquipmentCards);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var CustomerEquipmentCards = /** @class */ (function (_super) {
      */
     CustomerEquipmentCards._entityName = 'CustomerEquipmentCards';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for CustomerEquipmentCards.
-     */
-    CustomerEquipmentCards._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    CustomerEquipmentCards._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    CustomerEquipmentCards._defaultServicePath = '/b1s/v2/';
     return CustomerEquipmentCards;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.CustomerEquipmentCards = CustomerEquipmentCards;
 var BusinessPartners_1 = require("./BusinessPartners");
 var Items_1 = require("./Items");
@@ -96,172 +91,187 @@ var Attachments2_1 = require("./Attachments2");
      * Static representation of the [[equipmentCardNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.EQUIPMENT_CARD_NUM = new v4_1.NumberField('EquipmentCardNum', CustomerEquipmentCards, 'Edm.Int32');
+    CustomerEquipmentCards.EQUIPMENT_CARD_NUM = new core_1.NumberField('EquipmentCardNum', CustomerEquipmentCards, 'Edm.Int32');
     /**
      * Static representation of the [[customerCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.CUSTOMER_CODE = new v4_1.StringField('CustomerCode', CustomerEquipmentCards, 'Edm.String');
+    CustomerEquipmentCards.CUSTOMER_CODE = new core_1.StringField('CustomerCode', CustomerEquipmentCards, 'Edm.String');
     /**
      * Static representation of the [[customerName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.CUSTOMER_NAME = new v4_1.StringField('CustomerName', CustomerEquipmentCards, 'Edm.String');
+    CustomerEquipmentCards.CUSTOMER_NAME = new core_1.StringField('CustomerName', CustomerEquipmentCards, 'Edm.String');
+    /**
+     * Static representation of the [[contactEmployeeCode]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    CustomerEquipmentCards.CONTACT_EMPLOYEE_CODE = new core_1.EnumField('ContactEmployeeCode', CustomerEquipmentCards);
+    /**
+     * Static representation of the [[directCustomerCode]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    CustomerEquipmentCards.DIRECT_CUSTOMER_CODE = new core_1.EnumField('DirectCustomerCode', CustomerEquipmentCards);
     /**
      * Static representation of the [[directCustomerName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.DIRECT_CUSTOMER_NAME = new v4_1.StringField('DirectCustomerName', CustomerEquipmentCards, 'Edm.String');
+    CustomerEquipmentCards.DIRECT_CUSTOMER_NAME = new core_1.StringField('DirectCustomerName', CustomerEquipmentCards, 'Edm.String');
     /**
      * Static representation of the [[manufacturerSerialNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.MANUFACTURER_SERIAL_NUM = new v4_1.StringField('ManufacturerSerialNum', CustomerEquipmentCards, 'Edm.String');
+    CustomerEquipmentCards.MANUFACTURER_SERIAL_NUM = new core_1.StringField('ManufacturerSerialNum', CustomerEquipmentCards, 'Edm.String');
     /**
      * Static representation of the [[internalSerialNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.INTERNAL_SERIAL_NUM = new v4_1.StringField('InternalSerialNum', CustomerEquipmentCards, 'Edm.String');
+    CustomerEquipmentCards.INTERNAL_SERIAL_NUM = new core_1.StringField('InternalSerialNum', CustomerEquipmentCards, 'Edm.String');
     /**
      * Static representation of the [[itemCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.ITEM_CODE = new v4_1.StringField('ItemCode', CustomerEquipmentCards, 'Edm.String');
+    CustomerEquipmentCards.ITEM_CODE = new core_1.StringField('ItemCode', CustomerEquipmentCards, 'Edm.String');
     /**
      * Static representation of the [[itemDescription]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.ITEM_DESCRIPTION = new v4_1.StringField('ItemDescription', CustomerEquipmentCards, 'Edm.String');
+    CustomerEquipmentCards.ITEM_DESCRIPTION = new core_1.StringField('ItemDescription', CustomerEquipmentCards, 'Edm.String');
     /**
      * Static representation of the [[invoiceCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.INVOICE_CODE = new v4_1.NumberField('InvoiceCode', CustomerEquipmentCards, 'Edm.Int32');
+    CustomerEquipmentCards.INVOICE_CODE = new core_1.NumberField('InvoiceCode', CustomerEquipmentCards, 'Edm.Int32');
     /**
      * Static representation of the [[invoiceNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.INVOICE_NUMBER = new v4_1.NumberField('InvoiceNumber', CustomerEquipmentCards, 'Edm.Int32');
+    CustomerEquipmentCards.INVOICE_NUMBER = new core_1.NumberField('InvoiceNumber', CustomerEquipmentCards, 'Edm.Int32');
     /**
      * Static representation of the [[deliveryDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.DELIVERY_DATE = new v4_1.DateField('DeliveryDate', CustomerEquipmentCards, 'Edm.DateTimeOffset');
+    CustomerEquipmentCards.DELIVERY_DATE = new core_1.DateField('DeliveryDate', CustomerEquipmentCards, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[contactPhone]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.CONTACT_PHONE = new v4_1.StringField('ContactPhone', CustomerEquipmentCards, 'Edm.String');
+    CustomerEquipmentCards.CONTACT_PHONE = new core_1.StringField('ContactPhone', CustomerEquipmentCards, 'Edm.String');
     /**
      * Static representation of the [[street]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.STREET = new v4_1.StringField('Street', CustomerEquipmentCards, 'Edm.String');
+    CustomerEquipmentCards.STREET = new core_1.StringField('Street', CustomerEquipmentCards, 'Edm.String');
     /**
      * Static representation of the [[block]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.BLOCK = new v4_1.StringField('Block', CustomerEquipmentCards, 'Edm.String');
+    CustomerEquipmentCards.BLOCK = new core_1.StringField('Block', CustomerEquipmentCards, 'Edm.String');
     /**
      * Static representation of the [[zipCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.ZIP_CODE = new v4_1.StringField('ZipCode', CustomerEquipmentCards, 'Edm.String');
+    CustomerEquipmentCards.ZIP_CODE = new core_1.StringField('ZipCode', CustomerEquipmentCards, 'Edm.String');
     /**
      * Static representation of the [[city]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.CITY = new v4_1.StringField('City', CustomerEquipmentCards, 'Edm.String');
+    CustomerEquipmentCards.CITY = new core_1.StringField('City', CustomerEquipmentCards, 'Edm.String');
     /**
      * Static representation of the [[county]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.COUNTY = new v4_1.StringField('County', CustomerEquipmentCards, 'Edm.String');
+    CustomerEquipmentCards.COUNTY = new core_1.StringField('County', CustomerEquipmentCards, 'Edm.String');
     /**
      * Static representation of the [[countryCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.COUNTRY_CODE = new v4_1.StringField('CountryCode', CustomerEquipmentCards, 'Edm.String');
+    CustomerEquipmentCards.COUNTRY_CODE = new core_1.StringField('CountryCode', CustomerEquipmentCards, 'Edm.String');
     /**
      * Static representation of the [[stateCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.STATE_CODE = new v4_1.StringField('StateCode', CustomerEquipmentCards, 'Edm.String');
+    CustomerEquipmentCards.STATE_CODE = new core_1.StringField('StateCode', CustomerEquipmentCards, 'Edm.String');
     /**
      * Static representation of the [[installLocation]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.INSTALL_LOCATION = new v4_1.StringField('InstallLocation', CustomerEquipmentCards, 'Edm.String');
+    CustomerEquipmentCards.INSTALL_LOCATION = new core_1.StringField('InstallLocation', CustomerEquipmentCards, 'Edm.String');
     /**
      * Static representation of the [[deliveryCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.DELIVERY_CODE = new v4_1.NumberField('DeliveryCode', CustomerEquipmentCards, 'Edm.Int32');
+    CustomerEquipmentCards.DELIVERY_CODE = new core_1.NumberField('DeliveryCode', CustomerEquipmentCards, 'Edm.Int32');
     /**
      * Static representation of the [[deliveryNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.DELIVERY_NUMBER = new v4_1.NumberField('DeliveryNumber', CustomerEquipmentCards, 'Edm.Int32');
+    CustomerEquipmentCards.DELIVERY_NUMBER = new core_1.NumberField('DeliveryNumber', CustomerEquipmentCards, 'Edm.Int32');
+    /**
+     * Static representation of the [[statusOfSerialNumber]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    CustomerEquipmentCards.STATUS_OF_SERIAL_NUMBER = new core_1.EnumField('StatusOfSerialNumber', CustomerEquipmentCards);
     /**
      * Static representation of the [[replaceSn]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.REPLACE_SN = new v4_1.NumberField('ReplaceSN', CustomerEquipmentCards, 'Edm.Int32');
+    CustomerEquipmentCards.REPLACE_SN = new core_1.NumberField('ReplaceSN', CustomerEquipmentCards, 'Edm.Int32');
     /**
      * Static representation of the [[defaultTechnician]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.DEFAULT_TECHNICIAN = new v4_1.NumberField('DefaultTechnician', CustomerEquipmentCards, 'Edm.Int32');
+    CustomerEquipmentCards.DEFAULT_TECHNICIAN = new core_1.NumberField('DefaultTechnician', CustomerEquipmentCards, 'Edm.Int32');
     /**
      * Static representation of the [[replacedBySn]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.REPLACED_BY_SN = new v4_1.NumberField('ReplacedBySN', CustomerEquipmentCards, 'Edm.Int32');
+    CustomerEquipmentCards.REPLACED_BY_SN = new core_1.NumberField('ReplacedBySN', CustomerEquipmentCards, 'Edm.Int32');
     /**
      * Static representation of the [[defaultterritory]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.DEFAULTTERRITORY = new v4_1.NumberField('Defaultterritory', CustomerEquipmentCards, 'Edm.Int32');
+    CustomerEquipmentCards.DEFAULTTERRITORY = new core_1.NumberField('Defaultterritory', CustomerEquipmentCards, 'Edm.Int32');
     /**
      * Static representation of the [[buildingFloorRoom]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.BUILDING_FLOOR_ROOM = new v4_1.StringField('BuildingFloorRoom', CustomerEquipmentCards, 'Edm.String');
+    CustomerEquipmentCards.BUILDING_FLOOR_ROOM = new core_1.StringField('BuildingFloorRoom', CustomerEquipmentCards, 'Edm.String');
     /**
      * Static representation of the [[attachmentEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.ATTACHMENT_ENTRY = new v4_1.NumberField('AttachmentEntry', CustomerEquipmentCards, 'Edm.Int32');
+    CustomerEquipmentCards.ATTACHMENT_ENTRY = new core_1.NumberField('AttachmentEntry', CustomerEquipmentCards, 'Edm.Int32');
     /**
      * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.BUSINESS_PARTNER = new v4_1.OneToOneLink('BusinessPartner', CustomerEquipmentCards, BusinessPartners_1.BusinessPartners);
+    CustomerEquipmentCards.BUSINESS_PARTNER = new core_1.OneToOneLink('BusinessPartner', CustomerEquipmentCards, BusinessPartners_1.BusinessPartners);
     /**
      * Static representation of the one-to-one navigation property [[item]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.ITEM = new v4_1.OneToOneLink('Item', CustomerEquipmentCards, Items_1.Items);
+    CustomerEquipmentCards.ITEM = new core_1.OneToOneLink('Item', CustomerEquipmentCards, Items_1.Items);
     /**
      * Static representation of the one-to-one navigation property [[country]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.COUNTRY = new v4_1.OneToOneLink('Country', CustomerEquipmentCards, Countries_1.Countries);
+    CustomerEquipmentCards.COUNTRY = new core_1.OneToOneLink('Country', CustomerEquipmentCards, Countries_1.Countries);
     /**
      * Static representation of the one-to-one navigation property [[employeeInfo]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.EMPLOYEE_INFO = new v4_1.OneToOneLink('EmployeeInfo', CustomerEquipmentCards, EmployeesInfo_1.EmployeesInfo);
+    CustomerEquipmentCards.EMPLOYEE_INFO = new core_1.OneToOneLink('EmployeeInfo', CustomerEquipmentCards, EmployeesInfo_1.EmployeesInfo);
     /**
      * Static representation of the one-to-one navigation property [[territory]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.TERRITORY = new v4_1.OneToOneLink('Territory', CustomerEquipmentCards, Territories_1.Territories);
+    CustomerEquipmentCards.TERRITORY = new core_1.OneToOneLink('Territory', CustomerEquipmentCards, Territories_1.Territories);
     /**
      * Static representation of the one-to-one navigation property [[attachments2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomerEquipmentCards.ATTACHMENTS_2 = new v4_1.OneToOneLink('Attachments2', CustomerEquipmentCards, Attachments2_1.Attachments2);
+    CustomerEquipmentCards.ATTACHMENTS_2 = new core_1.OneToOneLink('Attachments2', CustomerEquipmentCards, Attachments2_1.Attachments2);
     /**
      * All fields of the CustomerEquipmentCards entity.
      */
@@ -269,6 +279,8 @@ var Attachments2_1 = require("./Attachments2");
         CustomerEquipmentCards.EQUIPMENT_CARD_NUM,
         CustomerEquipmentCards.CUSTOMER_CODE,
         CustomerEquipmentCards.CUSTOMER_NAME,
+        CustomerEquipmentCards.CONTACT_EMPLOYEE_CODE,
+        CustomerEquipmentCards.DIRECT_CUSTOMER_CODE,
         CustomerEquipmentCards.DIRECT_CUSTOMER_NAME,
         CustomerEquipmentCards.MANUFACTURER_SERIAL_NUM,
         CustomerEquipmentCards.INTERNAL_SERIAL_NUM,
@@ -288,6 +300,7 @@ var Attachments2_1 = require("./Attachments2");
         CustomerEquipmentCards.INSTALL_LOCATION,
         CustomerEquipmentCards.DELIVERY_CODE,
         CustomerEquipmentCards.DELIVERY_NUMBER,
+        CustomerEquipmentCards.STATUS_OF_SERIAL_NUMBER,
         CustomerEquipmentCards.REPLACE_SN,
         CustomerEquipmentCards.DEFAULT_TECHNICIAN,
         CustomerEquipmentCards.REPLACED_BY_SN,
@@ -304,7 +317,7 @@ var Attachments2_1 = require("./Attachments2");
     /**
      * All fields selector.
      */
-    CustomerEquipmentCards.ALL_FIELDS = new v4_1.AllFields('*', CustomerEquipmentCards);
+    CustomerEquipmentCards.ALL_FIELDS = new core_1.AllFields('*', CustomerEquipmentCards);
     /**
      * All key fields of the CustomerEquipmentCards entity.
      */

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SalesOpportunitiesLine = exports.SalesOpportunitiesLineField = exports.createSalesOpportunitiesLine = void 0;
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[SalesOpportunitiesLine.build]] instead.
  */
@@ -28,126 +28,250 @@ exports.createSalesOpportunitiesLine = createSalesOpportunitiesLine;
  */
 var SalesOpportunitiesLineField = /** @class */ (function (_super) {
     __extends(SalesOpportunitiesLineField, _super);
-    function SalesOpportunitiesLineField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of SalesOpportunitiesLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function SalesOpportunitiesLineField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, SalesOpportunitiesLine) || this;
         /**
          * Representation of the [[SalesOpportunitiesLine.lineNum]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.lineNum = new v4_1.ComplexTypeNumberPropertyField('LineNum', _this, 'Edm.Int32');
+        _this.lineNum = new core_1.ComplexTypeNumberPropertyField('LineNum', _this, 'Edm.Int32');
         /**
          * Representation of the [[SalesOpportunitiesLine.salesPerson]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.salesPerson = new v4_1.ComplexTypeNumberPropertyField('SalesPerson', _this, 'Edm.Int32');
+        _this.salesPerson = new core_1.ComplexTypeNumberPropertyField('SalesPerson', _this, 'Edm.Int32');
         /**
          * Representation of the [[SalesOpportunitiesLine.startDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.startDate = new v4_1.ComplexTypeDatePropertyField('StartDate', _this, 'Edm.DateTimeOffset');
+        _this.startDate = new core_1.ComplexTypeDatePropertyField('StartDate', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[SalesOpportunitiesLine.closingDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.closingDate = new v4_1.ComplexTypeDatePropertyField('ClosingDate', _this, 'Edm.DateTimeOffset');
+        _this.closingDate = new core_1.ComplexTypeDatePropertyField('ClosingDate', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[SalesOpportunitiesLine.stageKey]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.stageKey = new v4_1.ComplexTypeNumberPropertyField('StageKey', _this, 'Edm.Int32');
+        _this.stageKey = new core_1.ComplexTypeNumberPropertyField('StageKey', _this, 'Edm.Int32');
         /**
          * Representation of the [[SalesOpportunitiesLine.percentageRate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.percentageRate = new v4_1.ComplexTypeNumberPropertyField('PercentageRate', _this, 'Edm.Double');
+        _this.percentageRate = new core_1.ComplexTypeNumberPropertyField('PercentageRate', _this, 'Edm.Double');
         /**
          * Representation of the [[SalesOpportunitiesLine.maxLocalTotal]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.maxLocalTotal = new v4_1.ComplexTypeNumberPropertyField('MaxLocalTotal', _this, 'Edm.Double');
+        _this.maxLocalTotal = new core_1.ComplexTypeNumberPropertyField('MaxLocalTotal', _this, 'Edm.Double');
         /**
          * Representation of the [[SalesOpportunitiesLine.maxSystemTotal]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.maxSystemTotal = new v4_1.ComplexTypeNumberPropertyField('MaxSystemTotal', _this, 'Edm.Double');
+        _this.maxSystemTotal = new core_1.ComplexTypeNumberPropertyField('MaxSystemTotal', _this, 'Edm.Double');
         /**
          * Representation of the [[SalesOpportunitiesLine.remarks]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.remarks = new v4_1.ComplexTypeStringPropertyField('Remarks', _this, 'Edm.String');
+        _this.remarks = new core_1.ComplexTypeStringPropertyField('Remarks', _this, 'Edm.String');
+        /**
+         * Representation of the [[SalesOpportunitiesLine.contact]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.contact = new core_1.ComplexTypeEnumPropertyField('Contact', _this);
+        /**
+         * Representation of the [[SalesOpportunitiesLine.status]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.status = new core_1.ComplexTypeEnumPropertyField('Status', _this);
         /**
          * Representation of the [[SalesOpportunitiesLine.weightedAmountLocal]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.weightedAmountLocal = new v4_1.ComplexTypeNumberPropertyField('WeightedAmountLocal', _this, 'Edm.Double');
+        _this.weightedAmountLocal = new core_1.ComplexTypeNumberPropertyField('WeightedAmountLocal', _this, 'Edm.Double');
         /**
          * Representation of the [[SalesOpportunitiesLine.weightedAmountSystem]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.weightedAmountSystem = new v4_1.ComplexTypeNumberPropertyField('WeightedAmountSystem', _this, 'Edm.Double');
+        _this.weightedAmountSystem = new core_1.ComplexTypeNumberPropertyField('WeightedAmountSystem', _this, 'Edm.Double');
         /**
          * Representation of the [[SalesOpportunitiesLine.documentNumber]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.documentNumber = new v4_1.ComplexTypeNumberPropertyField('DocumentNumber', _this, 'Edm.Int32');
+        _this.documentNumber = new core_1.ComplexTypeNumberPropertyField('DocumentNumber', _this, 'Edm.Int32');
+        /**
+         * Representation of the [[SalesOpportunitiesLine.documentType]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.documentType = new core_1.ComplexTypeEnumPropertyField('DocumentType', _this);
+        /**
+         * Representation of the [[SalesOpportunitiesLine.documentCheckbox]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.documentCheckbox = new core_1.ComplexTypeEnumPropertyField('DocumentCheckbox', _this);
         /**
          * Representation of the [[SalesOpportunitiesLine.contactPerson]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.contactPerson = new v4_1.ComplexTypeNumberPropertyField('ContactPerson', _this, 'Edm.Int32');
+        _this.contactPerson = new core_1.ComplexTypeNumberPropertyField('ContactPerson', _this, 'Edm.Int32');
         /**
          * Representation of the [[SalesOpportunitiesLine.bpChanelName]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.bpChanelName = new v4_1.ComplexTypeStringPropertyField('BPChanelName', _this, 'Edm.String');
+        _this.bpChanelName = new core_1.ComplexTypeStringPropertyField('BPChanelName', _this, 'Edm.String');
         /**
          * Representation of the [[SalesOpportunitiesLine.bpChanelCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.bpChanelCode = new v4_1.ComplexTypeStringPropertyField('BPChanelCode', _this, 'Edm.String');
+        _this.bpChanelCode = new core_1.ComplexTypeStringPropertyField('BPChanelCode', _this, 'Edm.String');
         /**
          * Representation of the [[SalesOpportunitiesLine.sequenceNo]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.sequenceNo = new v4_1.ComplexTypeNumberPropertyField('SequenceNo', _this, 'Edm.Int32');
+        _this.sequenceNo = new core_1.ComplexTypeNumberPropertyField('SequenceNo', _this, 'Edm.Int32');
         /**
          * Representation of the [[SalesOpportunitiesLine.dataOwnershipfield]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.dataOwnershipfield = new v4_1.ComplexTypeNumberPropertyField('DataOwnershipfield', _this, 'Edm.Int32');
+        _this.dataOwnershipfield = new core_1.ComplexTypeNumberPropertyField('DataOwnershipfield', _this, 'Edm.Int32');
         /**
          * Representation of the [[SalesOpportunitiesLine.bpChannelContact]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.bpChannelContact = new v4_1.ComplexTypeNumberPropertyField('BPChannelContact', _this, 'Edm.Int32');
+        _this.bpChannelContact = new core_1.ComplexTypeNumberPropertyField('BPChannelContact', _this, 'Edm.Int32');
         return _this;
     }
     return SalesOpportunitiesLineField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.SalesOpportunitiesLineField = SalesOpportunitiesLineField;
 var SalesOpportunitiesLine;
 (function (SalesOpportunitiesLine) {
+    /**
+     * Metadata information on all properties of the `SalesOpportunitiesLine` complex type.
+     */
+    SalesOpportunitiesLine._propertyMetadata = [{
+            originalName: 'LineNum',
+            name: 'lineNum',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'SalesPerson',
+            name: 'salesPerson',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'StartDate',
+            name: 'startDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'ClosingDate',
+            name: 'closingDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'StageKey',
+            name: 'stageKey',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'PercentageRate',
+            name: 'percentageRate',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'MaxLocalTotal',
+            name: 'maxLocalTotal',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'MaxSystemTotal',
+            name: 'maxSystemTotal',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Remarks',
+            name: 'remarks',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Contact',
+            name: 'contact',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'Status',
+            name: 'status',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'WeightedAmountLocal',
+            name: 'weightedAmountLocal',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'WeightedAmountSystem',
+            name: 'weightedAmountSystem',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'DocumentNumber',
+            name: 'documentNumber',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'DocumentType',
+            name: 'documentType',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'DocumentCheckbox',
+            name: 'documentCheckbox',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'ContactPerson',
+            name: 'contactPerson',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'BPChanelName',
+            name: 'bpChanelName',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'BPChanelCode',
+            name: 'bpChanelCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'SequenceNo',
+            name: 'sequenceNo',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'DataOwnershipfield',
+            name: 'dataOwnershipfield',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'BPChannelContact',
+            name: 'bpChannelContact',
+            type: 'Edm.Int32',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            LineNum: function (lineNum) { return ({ lineNum: v4_1.edmToTs(lineNum, 'Edm.Int32') }); },
-            SalesPerson: function (salesPerson) { return ({ salesPerson: v4_1.edmToTs(salesPerson, 'Edm.Int32') }); },
-            StartDate: function (startDate) { return ({ startDate: v4_1.edmToTs(startDate, 'Edm.DateTimeOffset') }); },
-            ClosingDate: function (closingDate) { return ({ closingDate: v4_1.edmToTs(closingDate, 'Edm.DateTimeOffset') }); },
-            StageKey: function (stageKey) { return ({ stageKey: v4_1.edmToTs(stageKey, 'Edm.Int32') }); },
-            PercentageRate: function (percentageRate) { return ({ percentageRate: v4_1.edmToTs(percentageRate, 'Edm.Double') }); },
-            MaxLocalTotal: function (maxLocalTotal) { return ({ maxLocalTotal: v4_1.edmToTs(maxLocalTotal, 'Edm.Double') }); },
-            MaxSystemTotal: function (maxSystemTotal) { return ({ maxSystemTotal: v4_1.edmToTs(maxSystemTotal, 'Edm.Double') }); },
-            Remarks: function (remarks) { return ({ remarks: v4_1.edmToTs(remarks, 'Edm.String') }); },
-            WeightedAmountLocal: function (weightedAmountLocal) { return ({ weightedAmountLocal: v4_1.edmToTs(weightedAmountLocal, 'Edm.Double') }); },
-            WeightedAmountSystem: function (weightedAmountSystem) { return ({ weightedAmountSystem: v4_1.edmToTs(weightedAmountSystem, 'Edm.Double') }); },
-            DocumentNumber: function (documentNumber) { return ({ documentNumber: v4_1.edmToTs(documentNumber, 'Edm.Int32') }); },
-            ContactPerson: function (contactPerson) { return ({ contactPerson: v4_1.edmToTs(contactPerson, 'Edm.Int32') }); },
-            BPChanelName: function (bpChanelName) { return ({ bpChanelName: v4_1.edmToTs(bpChanelName, 'Edm.String') }); },
-            BPChanelCode: function (bpChanelCode) { return ({ bpChanelCode: v4_1.edmToTs(bpChanelCode, 'Edm.String') }); },
-            SequenceNo: function (sequenceNo) { return ({ sequenceNo: v4_1.edmToTs(sequenceNo, 'Edm.Int32') }); },
-            DataOwnershipfield: function (dataOwnershipfield) { return ({ dataOwnershipfield: v4_1.edmToTs(dataOwnershipfield, 'Edm.Int32') }); },
-            BPChannelContact: function (bpChannelContact) { return ({ bpChannelContact: v4_1.edmToTs(bpChannelContact, 'Edm.Int32') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, SalesOpportunitiesLine);
     }
     SalesOpportunitiesLine.build = build;
 })(SalesOpportunitiesLine = exports.SalesOpportunitiesLine || (exports.SalesOpportunitiesLine = {}));

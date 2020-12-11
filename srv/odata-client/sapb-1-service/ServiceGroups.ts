@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ServiceGroupsRequestBuilder } from './ServiceGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ServiceGroups" of service "SAPB1".
  */
-export class ServiceGroups extends Entity implements ServiceGroupsType {
+export class ServiceGroups extends EntityV4 implements ServiceGroupsType {
   /**
    * Technical entity name for ServiceGroups.
    */
   static _entityName = 'ServiceGroups';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ServiceGroups.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Abs Entry.
    * @nullable
@@ -44,11 +39,11 @@ export class ServiceGroups extends Entity implements ServiceGroupsType {
   items!: Items[];
 
   /**
-   * Returns an entity builder to construct instances `ServiceGroups`.
+   * Returns an entity builder to construct instances of `ServiceGroups`.
    * @returns A builder that constructs instances of entity type `ServiceGroups`.
    */
-  static builder(): EntityBuilderType<ServiceGroups, ServiceGroupsTypeForceMandatory> {
-    return Entity.entityBuilder(ServiceGroups);
+  static builder(): EntityBuilderType<ServiceGroups, ServiceGroupsType> {
+    return EntityV4.entityBuilder(ServiceGroups);
   }
 
   /**
@@ -64,8 +59,8 @@ export class ServiceGroups extends Entity implements ServiceGroupsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ServiceGroups`.
    */
-  static customField(fieldName: string): CustomField<ServiceGroups> {
-    return Entity.customFieldSelector(fieldName, ServiceGroups);
+  static customField(fieldName: string): CustomFieldV4<ServiceGroups> {
+    return EntityV4.customFieldSelector(fieldName, ServiceGroups);
   }
 
   /**
@@ -80,16 +75,9 @@ export class ServiceGroups extends Entity implements ServiceGroupsType {
 import { Items, ItemsType } from './Items';
 
 export interface ServiceGroupsType {
-  absEntry?: number;
-  serviceGroupCode?: string;
-  description?: string;
-  items: ItemsType[];
-}
-
-export interface ServiceGroupsTypeForceMandatory {
-  absEntry: number;
-  serviceGroupCode: string;
-  description: string;
+  absEntry?: number | null;
+  serviceGroupCode?: string | null;
+  description?: string | null;
   items: ItemsType[];
 }
 

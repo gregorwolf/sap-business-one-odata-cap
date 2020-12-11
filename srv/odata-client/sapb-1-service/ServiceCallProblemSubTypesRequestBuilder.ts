@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { ServiceCallProblemSubTypes } from './ServiceCallProblemSubTypes';
 
 /**
@@ -15,16 +15,16 @@ export class ServiceCallProblemSubTypesRequestBuilder extends RequestBuilder<Ser
    * @param problemSubTypeId Key property. See [[ServiceCallProblemSubTypes.problemSubTypeId]].
    * @returns A request builder for creating requests to retrieve one `ServiceCallProblemSubTypes` entity based on its keys.
    */
-  getByKey(problemSubTypeId: number): GetByKeyRequestBuilder<ServiceCallProblemSubTypes> {
-    return new GetByKeyRequestBuilder(ServiceCallProblemSubTypes, { ProblemSubTypeID: problemSubTypeId });
+  getByKey(problemSubTypeId: number): GetByKeyRequestBuilderV4<ServiceCallProblemSubTypes> {
+    return new GetByKeyRequestBuilderV4(ServiceCallProblemSubTypes, { ProblemSubTypeID: problemSubTypeId });
   }
 
   /**
    * Returns a request builder for querying all `ServiceCallProblemSubTypes` entities.
    * @returns A request builder for creating requests to retrieve all `ServiceCallProblemSubTypes` entities.
    */
-  getAll(): GetAllRequestBuilder<ServiceCallProblemSubTypes> {
-    return new GetAllRequestBuilder(ServiceCallProblemSubTypes);
+  getAll(): GetAllRequestBuilderV4<ServiceCallProblemSubTypes> {
+    return new GetAllRequestBuilderV4(ServiceCallProblemSubTypes);
   }
 
   /**
@@ -32,8 +32,8 @@ export class ServiceCallProblemSubTypesRequestBuilder extends RequestBuilder<Ser
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `ServiceCallProblemSubTypes`.
    */
-  create(entity: ServiceCallProblemSubTypes): CreateRequestBuilder<ServiceCallProblemSubTypes> {
-    return new CreateRequestBuilder(ServiceCallProblemSubTypes, entity);
+  create(entity: ServiceCallProblemSubTypes): CreateRequestBuilderV4<ServiceCallProblemSubTypes> {
+    return new CreateRequestBuilderV4(ServiceCallProblemSubTypes, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class ServiceCallProblemSubTypesRequestBuilder extends RequestBuilder<Ser
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `ServiceCallProblemSubTypes`.
    */
-  update(entity: ServiceCallProblemSubTypes): UpdateRequestBuilder<ServiceCallProblemSubTypes> {
-    return new UpdateRequestBuilder(ServiceCallProblemSubTypes, entity);
+  update(entity: ServiceCallProblemSubTypes): UpdateRequestBuilderV4<ServiceCallProblemSubTypes> {
+    return new UpdateRequestBuilderV4(ServiceCallProblemSubTypes, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class ServiceCallProblemSubTypesRequestBuilder extends RequestBuilder<Ser
    * @param problemSubTypeId Key property. See [[ServiceCallProblemSubTypes.problemSubTypeId]].
    * @returns A request builder for creating requests that delete an entity of type `ServiceCallProblemSubTypes`.
    */
-  delete(problemSubTypeId: number): DeleteRequestBuilder<ServiceCallProblemSubTypes>;
+  delete(problemSubTypeId: number): DeleteRequestBuilderV4<ServiceCallProblemSubTypes>;
   /**
    * Returns a request builder for deleting an entity of type `ServiceCallProblemSubTypes`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `ServiceCallProblemSubTypes` by taking the entity as a parameter.
    */
-  delete(entity: ServiceCallProblemSubTypes): DeleteRequestBuilder<ServiceCallProblemSubTypes>;
-  delete(problemSubTypeIdOrEntity: any): DeleteRequestBuilder<ServiceCallProblemSubTypes> {
-    return new DeleteRequestBuilder(ServiceCallProblemSubTypes, problemSubTypeIdOrEntity instanceof ServiceCallProblemSubTypes ? problemSubTypeIdOrEntity : { ProblemSubTypeID: problemSubTypeIdOrEntity! });
+  delete(entity: ServiceCallProblemSubTypes): DeleteRequestBuilderV4<ServiceCallProblemSubTypes>;
+  delete(problemSubTypeIdOrEntity: any): DeleteRequestBuilderV4<ServiceCallProblemSubTypes> {
+    return new DeleteRequestBuilderV4(ServiceCallProblemSubTypes, problemSubTypeIdOrEntity instanceof ServiceCallProblemSubTypes ? problemSubTypeIdOrEntity : { ProblemSubTypeID: problemSubTypeIdOrEntity! });
   }
 }

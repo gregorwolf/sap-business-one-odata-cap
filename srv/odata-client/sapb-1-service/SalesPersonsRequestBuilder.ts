@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { SalesPersons } from './SalesPersons';
 
 /**
@@ -15,16 +15,16 @@ export class SalesPersonsRequestBuilder extends RequestBuilder<SalesPersons> {
    * @param salesEmployeeCode Key property. See [[SalesPersons.salesEmployeeCode]].
    * @returns A request builder for creating requests to retrieve one `SalesPersons` entity based on its keys.
    */
-  getByKey(salesEmployeeCode: number): GetByKeyRequestBuilder<SalesPersons> {
-    return new GetByKeyRequestBuilder(SalesPersons, { SalesEmployeeCode: salesEmployeeCode });
+  getByKey(salesEmployeeCode: number): GetByKeyRequestBuilderV4<SalesPersons> {
+    return new GetByKeyRequestBuilderV4(SalesPersons, { SalesEmployeeCode: salesEmployeeCode });
   }
 
   /**
    * Returns a request builder for querying all `SalesPersons` entities.
    * @returns A request builder for creating requests to retrieve all `SalesPersons` entities.
    */
-  getAll(): GetAllRequestBuilder<SalesPersons> {
-    return new GetAllRequestBuilder(SalesPersons);
+  getAll(): GetAllRequestBuilderV4<SalesPersons> {
+    return new GetAllRequestBuilderV4(SalesPersons);
   }
 
   /**
@@ -32,8 +32,8 @@ export class SalesPersonsRequestBuilder extends RequestBuilder<SalesPersons> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `SalesPersons`.
    */
-  create(entity: SalesPersons): CreateRequestBuilder<SalesPersons> {
-    return new CreateRequestBuilder(SalesPersons, entity);
+  create(entity: SalesPersons): CreateRequestBuilderV4<SalesPersons> {
+    return new CreateRequestBuilderV4(SalesPersons, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class SalesPersonsRequestBuilder extends RequestBuilder<SalesPersons> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `SalesPersons`.
    */
-  update(entity: SalesPersons): UpdateRequestBuilder<SalesPersons> {
-    return new UpdateRequestBuilder(SalesPersons, entity);
+  update(entity: SalesPersons): UpdateRequestBuilderV4<SalesPersons> {
+    return new UpdateRequestBuilderV4(SalesPersons, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class SalesPersonsRequestBuilder extends RequestBuilder<SalesPersons> {
    * @param salesEmployeeCode Key property. See [[SalesPersons.salesEmployeeCode]].
    * @returns A request builder for creating requests that delete an entity of type `SalesPersons`.
    */
-  delete(salesEmployeeCode: number): DeleteRequestBuilder<SalesPersons>;
+  delete(salesEmployeeCode: number): DeleteRequestBuilderV4<SalesPersons>;
   /**
    * Returns a request builder for deleting an entity of type `SalesPersons`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `SalesPersons` by taking the entity as a parameter.
    */
-  delete(entity: SalesPersons): DeleteRequestBuilder<SalesPersons>;
-  delete(salesEmployeeCodeOrEntity: any): DeleteRequestBuilder<SalesPersons> {
-    return new DeleteRequestBuilder(SalesPersons, salesEmployeeCodeOrEntity instanceof SalesPersons ? salesEmployeeCodeOrEntity : { SalesEmployeeCode: salesEmployeeCodeOrEntity! });
+  delete(entity: SalesPersons): DeleteRequestBuilderV4<SalesPersons>;
+  delete(salesEmployeeCodeOrEntity: any): DeleteRequestBuilderV4<SalesPersons> {
+    return new DeleteRequestBuilderV4(SalesPersons, salesEmployeeCodeOrEntity instanceof SalesPersons ? salesEmployeeCodeOrEntity : { SalesEmployeeCode: salesEmployeeCodeOrEntity! });
   }
 }

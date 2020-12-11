@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { DownPayments } from './DownPayments';
 
 /**
@@ -15,16 +15,16 @@ export class DownPaymentsRequestBuilder extends RequestBuilder<DownPayments> {
    * @param docEntry Key property. See [[DownPayments.docEntry]].
    * @returns A request builder for creating requests to retrieve one `DownPayments` entity based on its keys.
    */
-  getByKey(docEntry: number): GetByKeyRequestBuilder<DownPayments> {
-    return new GetByKeyRequestBuilder(DownPayments, { DocEntry: docEntry });
+  getByKey(docEntry: number): GetByKeyRequestBuilderV4<DownPayments> {
+    return new GetByKeyRequestBuilderV4(DownPayments, { DocEntry: docEntry });
   }
 
   /**
    * Returns a request builder for querying all `DownPayments` entities.
    * @returns A request builder for creating requests to retrieve all `DownPayments` entities.
    */
-  getAll(): GetAllRequestBuilder<DownPayments> {
-    return new GetAllRequestBuilder(DownPayments);
+  getAll(): GetAllRequestBuilderV4<DownPayments> {
+    return new GetAllRequestBuilderV4(DownPayments);
   }
 
   /**
@@ -32,8 +32,8 @@ export class DownPaymentsRequestBuilder extends RequestBuilder<DownPayments> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `DownPayments`.
    */
-  create(entity: DownPayments): CreateRequestBuilder<DownPayments> {
-    return new CreateRequestBuilder(DownPayments, entity);
+  create(entity: DownPayments): CreateRequestBuilderV4<DownPayments> {
+    return new CreateRequestBuilderV4(DownPayments, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class DownPaymentsRequestBuilder extends RequestBuilder<DownPayments> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `DownPayments`.
    */
-  update(entity: DownPayments): UpdateRequestBuilder<DownPayments> {
-    return new UpdateRequestBuilder(DownPayments, entity);
+  update(entity: DownPayments): UpdateRequestBuilderV4<DownPayments> {
+    return new UpdateRequestBuilderV4(DownPayments, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class DownPaymentsRequestBuilder extends RequestBuilder<DownPayments> {
    * @param docEntry Key property. See [[DownPayments.docEntry]].
    * @returns A request builder for creating requests that delete an entity of type `DownPayments`.
    */
-  delete(docEntry: number): DeleteRequestBuilder<DownPayments>;
+  delete(docEntry: number): DeleteRequestBuilderV4<DownPayments>;
   /**
    * Returns a request builder for deleting an entity of type `DownPayments`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `DownPayments` by taking the entity as a parameter.
    */
-  delete(entity: DownPayments): DeleteRequestBuilder<DownPayments>;
-  delete(docEntryOrEntity: any): DeleteRequestBuilder<DownPayments> {
-    return new DeleteRequestBuilder(DownPayments, docEntryOrEntity instanceof DownPayments ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
+  delete(entity: DownPayments): DeleteRequestBuilderV4<DownPayments>;
+  delete(docEntryOrEntity: any): DeleteRequestBuilderV4<DownPayments> {
+    return new DeleteRequestBuilderV4(DownPayments, docEntryOrEntity instanceof DownPayments ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
   }
 }

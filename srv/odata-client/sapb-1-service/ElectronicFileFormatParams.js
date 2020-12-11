@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.ElectronicFileFormatParams = exports.ElectronicFileFormatParamsField = e
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[ElectronicFileFormatParams.build]] instead.
  */
@@ -33,30 +33,50 @@ exports.createElectronicFileFormatParams = createElectronicFileFormatParams;
  */
 var ElectronicFileFormatParamsField = /** @class */ (function (_super) {
     __extends(ElectronicFileFormatParamsField, _super);
-    function ElectronicFileFormatParamsField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of ElectronicFileFormatParamsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function ElectronicFileFormatParamsField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, ElectronicFileFormatParams) || this;
         /**
          * Representation of the [[ElectronicFileFormatParams.formatId]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.formatId = new v4_1.ComplexTypeNumberPropertyField('FormatID', _this, 'Edm.Int32');
+        _this.formatId = new core_1.ComplexTypeNumberPropertyField('FormatID', _this, 'Edm.Int32');
         /**
          * Representation of the [[ElectronicFileFormatParams.name]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.name = new v4_1.ComplexTypeStringPropertyField('Name', _this, 'Edm.String');
+        _this.name = new core_1.ComplexTypeStringPropertyField('Name', _this, 'Edm.String');
         return _this;
     }
     return ElectronicFileFormatParamsField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.ElectronicFileFormatParamsField = ElectronicFileFormatParamsField;
 var ElectronicFileFormatParams;
 (function (ElectronicFileFormatParams) {
+    /**
+     * Metadata information on all properties of the `ElectronicFileFormatParams` complex type.
+     */
+    ElectronicFileFormatParams._propertyMetadata = [{
+            originalName: 'FormatID',
+            name: 'formatId',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Name',
+            name: 'name',
+            type: 'Edm.String',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            FormatID: function (formatId) { return ({ formatId: v4_1.edmToTs(formatId, 'Edm.Int32') }); },
-            Name: function (name) { return ({ name: v4_1.edmToTs(name, 'Edm.String') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, ElectronicFileFormatParams);
     }
     ElectronicFileFormatParams.build = build;
 })(ElectronicFileFormatParams = exports.ElectronicFileFormatParams || (exports.ElectronicFileFormatParams = {}));

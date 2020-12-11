@@ -1,19 +1,15 @@
 import { AttributeGroupsRequestBuilder } from './AttributeGroupsRequestBuilder';
 import { AttributeGroupLine } from './AttributeGroupLine';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "AttributeGroups" of service "SAPB1".
  */
-export declare class AttributeGroups extends Entity implements AttributeGroupsType {
+export declare class AttributeGroups extends EntityV4 implements AttributeGroupsType {
     /**
      * Technical entity name for AttributeGroups.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for AttributeGroups.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -29,6 +25,11 @@ export declare class AttributeGroups extends Entity implements AttributeGroupsTy
      */
     name?: string;
     /**
+     * Locked.
+     * @nullable
+     */
+    locked?: BoYesNoEnum;
+    /**
      * Attribute Group Collection.
      * @nullable
      */
@@ -38,10 +39,10 @@ export declare class AttributeGroups extends Entity implements AttributeGroupsTy
      */
     assetClasses: AssetClasses[];
     /**
-     * Returns an entity builder to construct instances `AttributeGroups`.
+     * Returns an entity builder to construct instances of `AttributeGroups`.
      * @returns A builder that constructs instances of entity type `AttributeGroups`.
      */
-    static builder(): EntityBuilderType<AttributeGroups, AttributeGroupsTypeForceMandatory>;
+    static builder(): EntityBuilderType<AttributeGroups, AttributeGroupsType>;
     /**
      * Returns a request builder to construct requests for operations on the `AttributeGroups` entity type.
      * @returns A `AttributeGroups` request builder.
@@ -52,7 +53,7 @@ export declare class AttributeGroups extends Entity implements AttributeGroupsTy
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `AttributeGroups`.
      */
-    static customField(fieldName: string): CustomField<AttributeGroups>;
+    static customField(fieldName: string): CustomFieldV4<AttributeGroups>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -63,15 +64,10 @@ export declare class AttributeGroups extends Entity implements AttributeGroupsTy
 }
 import { AssetClasses, AssetClassesType } from './AssetClasses';
 export interface AttributeGroupsType {
-    code?: number;
-    name?: string;
-    attributeGroupCollection?: AttributeGroupLine[];
-    assetClasses: AssetClassesType[];
-}
-export interface AttributeGroupsTypeForceMandatory {
-    code: number;
-    name: string;
-    attributeGroupCollection: AttributeGroupLine[];
+    code?: number | null;
+    name?: string | null;
+    locked?: BoYesNoEnum | null;
+    attributeGroupCollection?: AttributeGroupLine[] | null;
     assetClasses: AssetClassesType[];
 }
 export declare namespace AttributeGroups {
@@ -86,10 +82,15 @@ export declare namespace AttributeGroups {
      */
     const NAME: StringField<AttributeGroups>;
     /**
+     * Static representation of the [[locked]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const LOCKED: EnumField<AttributeGroups>;
+    /**
      * Static representation of the [[attributeGroupCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const ATTRIBUTE_GROUP_COLLECTION: CollectionField<AttributeGroups>;
+    const ATTRIBUTE_GROUP_COLLECTION: CollectionField<AttributeGroups, AttributeGroupLine>;
     /**
      * Static representation of the one-to-many navigation property [[assetClasses]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -98,7 +99,7 @@ export declare namespace AttributeGroups {
     /**
      * All fields of the AttributeGroups entity.
      */
-    const _allFields: Array<NumberField<AttributeGroups> | StringField<AttributeGroups> | CollectionField<AttributeGroups> | OneToManyLink<AttributeGroups, AssetClasses>>;
+    const _allFields: Array<NumberField<AttributeGroups> | StringField<AttributeGroups> | EnumField<AttributeGroups> | CollectionField<AttributeGroups, AttributeGroupLine> | OneToManyLink<AttributeGroups, AssetClasses>>;
     /**
      * All fields selector.
      */

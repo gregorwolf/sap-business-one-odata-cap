@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.PickLists = void 0;
  */
 var PickListsRequestBuilder_1 = require("./PickListsRequestBuilder");
 var PickListsLine_1 = require("./PickListsLine");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "PickLists" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var PickLists = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `PickLists`.
+     * Returns an entity builder to construct instances of `PickLists`.
      * @returns A builder that constructs instances of entity type `PickLists`.
      */
     PickLists.builder = function () {
-        return v4_1.Entity.entityBuilder(PickLists);
+        return core_1.EntityV4.entityBuilder(PickLists);
     };
     /**
      * Returns a request builder to construct requests for operations on the `PickLists` entity type.
@@ -61,7 +61,7 @@ var PickLists = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `PickLists`.
      */
     PickLists.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, PickLists);
+        return core_1.EntityV4.customFieldSelector(fieldName, PickLists);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,16 +75,11 @@ var PickLists = /** @class */ (function (_super) {
      */
     PickLists._entityName = 'PickLists';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for PickLists.
-     */
-    PickLists._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    PickLists._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    PickLists._defaultServicePath = '/b1s/v2/';
     return PickLists;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.PickLists = PickLists;
 var Users_1 = require("./Users");
 (function (PickLists) {
@@ -92,47 +87,57 @@ var Users_1 = require("./Users");
      * Static representation of the [[absoluteentry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PickLists.ABSOLUTEENTRY = new v4_1.NumberField('Absoluteentry', PickLists, 'Edm.Int32');
+    PickLists.ABSOLUTEENTRY = new core_1.NumberField('Absoluteentry', PickLists, 'Edm.Int32');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PickLists.NAME = new v4_1.StringField('Name', PickLists, 'Edm.String');
+    PickLists.NAME = new core_1.StringField('Name', PickLists, 'Edm.String');
     /**
      * Static representation of the [[ownerCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PickLists.OWNER_CODE = new v4_1.NumberField('OwnerCode', PickLists, 'Edm.Int32');
+    PickLists.OWNER_CODE = new core_1.NumberField('OwnerCode', PickLists, 'Edm.Int32');
     /**
      * Static representation of the [[ownerName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PickLists.OWNER_NAME = new v4_1.StringField('OwnerName', PickLists, 'Edm.String');
+    PickLists.OWNER_NAME = new core_1.StringField('OwnerName', PickLists, 'Edm.String');
     /**
      * Static representation of the [[pickDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PickLists.PICK_DATE = new v4_1.DateField('PickDate', PickLists, 'Edm.DateTimeOffset');
+    PickLists.PICK_DATE = new core_1.DateField('PickDate', PickLists, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[remarks]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PickLists.REMARKS = new v4_1.StringField('Remarks', PickLists, 'Edm.String');
+    PickLists.REMARKS = new core_1.StringField('Remarks', PickLists, 'Edm.String');
+    /**
+     * Static representation of the [[status]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    PickLists.STATUS = new core_1.EnumField('Status', PickLists);
     /**
      * Static representation of the [[objectType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PickLists.OBJECT_TYPE = new v4_1.StringField('ObjectType', PickLists, 'Edm.String');
+    PickLists.OBJECT_TYPE = new core_1.StringField('ObjectType', PickLists, 'Edm.String');
+    /**
+     * Static representation of the [[useBaseUnits]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    PickLists.USE_BASE_UNITS = new core_1.EnumField('UseBaseUnits', PickLists);
     /**
      * Static representation of the [[pickListsLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PickLists.PICK_LISTS_LINES = new v4_1.CollectionField('PickListsLines', PickLists, new PickListsLine_1.PickListsLineField('', PickLists));
+    PickLists.PICK_LISTS_LINES = new core_1.CollectionField('PickListsLines', PickLists, PickListsLine_1.PickListsLine);
     /**
      * Static representation of the one-to-one navigation property [[user]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PickLists.USER = new v4_1.OneToOneLink('User', PickLists, Users_1.Users);
+    PickLists.USER = new core_1.OneToOneLink('User', PickLists, Users_1.Users);
     /**
      * All fields of the PickLists entity.
      */
@@ -143,14 +148,16 @@ var Users_1 = require("./Users");
         PickLists.OWNER_NAME,
         PickLists.PICK_DATE,
         PickLists.REMARKS,
+        PickLists.STATUS,
         PickLists.OBJECT_TYPE,
+        PickLists.USE_BASE_UNITS,
         PickLists.PICK_LISTS_LINES,
         PickLists.USER
     ];
     /**
      * All fields selector.
      */
-    PickLists.ALL_FIELDS = new v4_1.AllFields('*', PickLists);
+    PickLists.ALL_FIELDS = new core_1.AllFields('*', PickLists);
     /**
      * All key fields of the PickLists entity.
      */

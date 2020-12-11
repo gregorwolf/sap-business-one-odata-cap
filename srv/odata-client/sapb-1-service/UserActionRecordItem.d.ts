@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, Entity, FieldType, Time } from '@sap-cloud-sdk/core/v4';
+import { UserActionTypeEnum } from './UserActionTypeEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, Time } from '@sap-cloud-sdk/core';
 /**
  * UserActionRecordItem
  */
@@ -9,6 +10,11 @@ export interface UserActionRecordItem {
      * @nullable
      */
     userCode?: string;
+    /**
+     * Action.
+     * @nullable
+     */
+    action?: UserActionTypeEnum;
     /**
      * Action By.
      * @nullable
@@ -68,12 +74,17 @@ export declare function createUserActionRecordItem(json: any): UserActionRecordI
  * UserActionRecordItemField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class UserActionRecordItemField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class UserActionRecordItemField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, UserActionRecordItem> {
     /**
      * Representation of the [[UserActionRecordItem.userCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     userCode: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[UserActionRecordItem.action]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    action: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[UserActionRecordItem.actionBy]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -124,8 +135,22 @@ export declare class UserActionRecordItemField<EntityT extends Entity> extends C
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     aliveDuration: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of UserActionRecordItemField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace UserActionRecordItem {
+    /**
+     * Metadata information on all properties of the `UserActionRecordItem` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<UserActionRecordItem>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): UserActionRecordItem;

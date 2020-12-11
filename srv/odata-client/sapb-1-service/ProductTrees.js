@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -33,7 +33,7 @@ exports.ProductTrees = void 0;
 var ProductTreesRequestBuilder_1 = require("./ProductTreesRequestBuilder");
 var ProductTreeLine_1 = require("./ProductTreeLine");
 var ProductTreeStage_1 = require("./ProductTreeStage");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "ProductTrees" of service "SAPB1".
  */
@@ -43,11 +43,11 @@ var ProductTrees = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `ProductTrees`.
+     * Returns an entity builder to construct instances of `ProductTrees`.
      * @returns A builder that constructs instances of entity type `ProductTrees`.
      */
     ProductTrees.builder = function () {
-        return v4_1.Entity.entityBuilder(ProductTrees);
+        return core_1.EntityV4.entityBuilder(ProductTrees);
     };
     /**
      * Returns a request builder to construct requests for operations on the `ProductTrees` entity type.
@@ -62,7 +62,7 @@ var ProductTrees = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `ProductTrees`.
      */
     ProductTrees.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, ProductTrees);
+        return core_1.EntityV4.customFieldSelector(fieldName, ProductTrees);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -76,16 +76,11 @@ var ProductTrees = /** @class */ (function (_super) {
      */
     ProductTrees._entityName = 'ProductTrees';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ProductTrees.
-     */
-    ProductTrees._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    ProductTrees._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    ProductTrees._defaultServicePath = '/b1s/v2/';
     return ProductTrees;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.ProductTrees = ProductTrees;
 var ProductionOrders_1 = require("./ProductionOrders");
 var Items_1 = require("./Items");
@@ -97,102 +92,113 @@ var PriceLists_1 = require("./PriceLists");
      * Static representation of the [[treeCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.TREE_CODE = new v4_1.StringField('TreeCode', ProductTrees, 'Edm.String');
+    ProductTrees.TREE_CODE = new core_1.StringField('TreeCode', ProductTrees, 'Edm.String');
+    /**
+     * Static representation of the [[treeType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ProductTrees.TREE_TYPE = new core_1.EnumField('TreeType', ProductTrees);
     /**
      * Static representation of the [[quantity]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.QUANTITY = new v4_1.NumberField('Quantity', ProductTrees, 'Edm.Double');
+    ProductTrees.QUANTITY = new core_1.NumberField('Quantity', ProductTrees, 'Edm.Double');
     /**
      * Static representation of the [[distributionRule]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.DISTRIBUTION_RULE = new v4_1.StringField('DistributionRule', ProductTrees, 'Edm.String');
+    ProductTrees.DISTRIBUTION_RULE = new core_1.StringField('DistributionRule', ProductTrees, 'Edm.String');
     /**
      * Static representation of the [[project]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.PROJECT = new v4_1.StringField('Project', ProductTrees, 'Edm.String');
+    ProductTrees.PROJECT = new core_1.StringField('Project', ProductTrees, 'Edm.String');
     /**
      * Static representation of the [[distributionRule2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.DISTRIBUTION_RULE_2 = new v4_1.StringField('DistributionRule2', ProductTrees, 'Edm.String');
+    ProductTrees.DISTRIBUTION_RULE_2 = new core_1.StringField('DistributionRule2', ProductTrees, 'Edm.String');
     /**
      * Static representation of the [[distributionRule3]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.DISTRIBUTION_RULE_3 = new v4_1.StringField('DistributionRule3', ProductTrees, 'Edm.String');
+    ProductTrees.DISTRIBUTION_RULE_3 = new core_1.StringField('DistributionRule3', ProductTrees, 'Edm.String');
     /**
      * Static representation of the [[distributionRule4]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.DISTRIBUTION_RULE_4 = new v4_1.StringField('DistributionRule4', ProductTrees, 'Edm.String');
+    ProductTrees.DISTRIBUTION_RULE_4 = new core_1.StringField('DistributionRule4', ProductTrees, 'Edm.String');
     /**
      * Static representation of the [[distributionRule5]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.DISTRIBUTION_RULE_5 = new v4_1.StringField('DistributionRule5', ProductTrees, 'Edm.String');
+    ProductTrees.DISTRIBUTION_RULE_5 = new core_1.StringField('DistributionRule5', ProductTrees, 'Edm.String');
     /**
      * Static representation of the [[priceList]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.PRICE_LIST = new v4_1.NumberField('PriceList', ProductTrees, 'Edm.Int32');
+    ProductTrees.PRICE_LIST = new core_1.NumberField('PriceList', ProductTrees, 'Edm.Int32');
     /**
      * Static representation of the [[warehouse]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.WAREHOUSE = new v4_1.StringField('Warehouse', ProductTrees, 'Edm.String');
+    ProductTrees.WAREHOUSE = new core_1.StringField('Warehouse', ProductTrees, 'Edm.String');
     /**
      * Static representation of the [[planAvgProdSize]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.PLAN_AVG_PROD_SIZE = new v4_1.NumberField('PlanAvgProdSize', ProductTrees, 'Edm.Double');
+    ProductTrees.PLAN_AVG_PROD_SIZE = new core_1.NumberField('PlanAvgProdSize', ProductTrees, 'Edm.Double');
+    /**
+     * Static representation of the [[hideBomComponentsInPrintout]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ProductTrees.HIDE_BOM_COMPONENTS_IN_PRINTOUT = new core_1.EnumField('HideBOMComponentsInPrintout', ProductTrees);
     /**
      * Static representation of the [[productDescription]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.PRODUCT_DESCRIPTION = new v4_1.StringField('ProductDescription', ProductTrees, 'Edm.String');
+    ProductTrees.PRODUCT_DESCRIPTION = new core_1.StringField('ProductDescription', ProductTrees, 'Edm.String');
     /**
      * Static representation of the [[productTreeLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.PRODUCT_TREE_LINES = new v4_1.CollectionField('ProductTreeLines', ProductTrees, new ProductTreeLine_1.ProductTreeLineField('', ProductTrees));
+    ProductTrees.PRODUCT_TREE_LINES = new core_1.CollectionField('ProductTreeLines', ProductTrees, ProductTreeLine_1.ProductTreeLine);
     /**
      * Static representation of the [[productTreeStages]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.PRODUCT_TREE_STAGES = new v4_1.CollectionField('ProductTreeStages', ProductTrees, new ProductTreeStage_1.ProductTreeStageField('', ProductTrees));
+    ProductTrees.PRODUCT_TREE_STAGES = new core_1.CollectionField('ProductTreeStages', ProductTrees, ProductTreeStage_1.ProductTreeStage);
     /**
      * Static representation of the one-to-many navigation property [[productionOrders]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.PRODUCTION_ORDERS = new v4_1.OneToManyLink('ProductionOrders', ProductTrees, ProductionOrders_1.ProductionOrders);
+    ProductTrees.PRODUCTION_ORDERS = new core_1.OneToManyLink('ProductionOrders', ProductTrees, ProductionOrders_1.ProductionOrders);
     /**
      * Static representation of the one-to-one navigation property [[item]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.ITEM = new v4_1.OneToOneLink('Item', ProductTrees, Items_1.Items);
+    ProductTrees.ITEM = new core_1.OneToOneLink('Item', ProductTrees, Items_1.Items);
     /**
      * Static representation of the one-to-one navigation property [[distributionRule6]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.DISTRIBUTION_RULE_6 = new v4_1.OneToOneLink('DistributionRule6', ProductTrees, DistributionRules_1.DistributionRules);
+    ProductTrees.DISTRIBUTION_RULE_6 = new core_1.OneToOneLink('DistributionRule6', ProductTrees, DistributionRules_1.DistributionRules);
     /**
      * Static representation of the one-to-one navigation property [[project2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.PROJECT_2 = new v4_1.OneToOneLink('Project2', ProductTrees, Projects_1.Projects);
+    ProductTrees.PROJECT_2 = new core_1.OneToOneLink('Project2', ProductTrees, Projects_1.Projects);
     /**
      * Static representation of the one-to-one navigation property [[priceList2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ProductTrees.PRICE_LIST_2 = new v4_1.OneToOneLink('PriceList2', ProductTrees, PriceLists_1.PriceLists);
+    ProductTrees.PRICE_LIST_2 = new core_1.OneToOneLink('PriceList2', ProductTrees, PriceLists_1.PriceLists);
     /**
      * All fields of the ProductTrees entity.
      */
     ProductTrees._allFields = [
         ProductTrees.TREE_CODE,
+        ProductTrees.TREE_TYPE,
         ProductTrees.QUANTITY,
         ProductTrees.DISTRIBUTION_RULE,
         ProductTrees.PROJECT,
@@ -203,6 +209,7 @@ var PriceLists_1 = require("./PriceLists");
         ProductTrees.PRICE_LIST,
         ProductTrees.WAREHOUSE,
         ProductTrees.PLAN_AVG_PROD_SIZE,
+        ProductTrees.HIDE_BOM_COMPONENTS_IN_PRINTOUT,
         ProductTrees.PRODUCT_DESCRIPTION,
         ProductTrees.PRODUCT_TREE_LINES,
         ProductTrees.PRODUCT_TREE_STAGES,
@@ -215,7 +222,7 @@ var PriceLists_1 = require("./PriceLists");
     /**
      * All fields selector.
      */
-    ProductTrees.ALL_FIELDS = new v4_1.AllFields('*', ProductTrees);
+    ProductTrees.ALL_FIELDS = new core_1.AllFields('*', ProductTrees);
     /**
      * All key fields of the ProductTrees entity.
      */

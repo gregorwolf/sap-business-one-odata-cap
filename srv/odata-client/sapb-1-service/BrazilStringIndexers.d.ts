@@ -1,22 +1,23 @@
 import { BrazilStringIndexersRequestBuilder } from './BrazilStringIndexersRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BrazilStringIndexerTypes } from './BrazilStringIndexerTypes';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "BrazilStringIndexers" of service "SAPB1".
  */
-export declare class BrazilStringIndexers extends Entity implements BrazilStringIndexersType {
+export declare class BrazilStringIndexers extends EntityV4 implements BrazilStringIndexersType {
     /**
      * Technical entity name for BrazilStringIndexers.
      */
     static _entityName: string;
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BrazilStringIndexers.
-     */
-    static _serviceName: string;
-    /**
      * Default url path for the according service.
      */
     static _defaultServicePath: string;
+    /**
+     * Indexer Type.
+     * @nullable
+     */
+    indexerType?: BrazilStringIndexerTypes;
     /**
      * Code.
      * @nullable
@@ -49,10 +50,10 @@ export declare class BrazilStringIndexers extends Entity implements BrazilString
      */
     withholdingTaxCodes: WithholdingTaxCodes[];
     /**
-     * Returns an entity builder to construct instances `BrazilStringIndexers`.
+     * Returns an entity builder to construct instances of `BrazilStringIndexers`.
      * @returns A builder that constructs instances of entity type `BrazilStringIndexers`.
      */
-    static builder(): EntityBuilderType<BrazilStringIndexers, BrazilStringIndexersTypeForceMandatory>;
+    static builder(): EntityBuilderType<BrazilStringIndexers, BrazilStringIndexersType>;
     /**
      * Returns a request builder to construct requests for operations on the `BrazilStringIndexers` entity type.
      * @returns A `BrazilStringIndexers` request builder.
@@ -63,7 +64,7 @@ export declare class BrazilStringIndexers extends Entity implements BrazilString
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `BrazilStringIndexers`.
      */
-    static customField(fieldName: string): CustomField<BrazilStringIndexers>;
+    static customField(fieldName: string): CustomFieldV4<BrazilStringIndexers>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -77,24 +78,21 @@ import { Items, ItemsType } from './Items';
 import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 import { WithholdingTaxCodes, WithholdingTaxCodesType } from './WithholdingTaxCodes';
 export interface BrazilStringIndexersType {
-    code?: string;
-    description?: string;
-    id?: number;
-    brazilBeverageIndexers: BrazilBeverageIndexersType[];
-    items: ItemsType[];
-    businessPlaces: BusinessPlacesType[];
-    withholdingTaxCodes: WithholdingTaxCodesType[];
-}
-export interface BrazilStringIndexersTypeForceMandatory {
-    code: string;
-    description: string;
-    id: number;
+    indexerType?: BrazilStringIndexerTypes | null;
+    code?: string | null;
+    description?: string | null;
+    id?: number | null;
     brazilBeverageIndexers: BrazilBeverageIndexersType[];
     items: ItemsType[];
     businessPlaces: BusinessPlacesType[];
     withholdingTaxCodes: WithholdingTaxCodesType[];
 }
 export declare namespace BrazilStringIndexers {
+    /**
+     * Static representation of the [[indexerType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const INDEXER_TYPE: EnumField<BrazilStringIndexers>;
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -133,7 +131,7 @@ export declare namespace BrazilStringIndexers {
     /**
      * All fields of the BrazilStringIndexers entity.
      */
-    const _allFields: Array<StringField<BrazilStringIndexers> | NumberField<BrazilStringIndexers> | OneToManyLink<BrazilStringIndexers, BrazilBeverageIndexers> | OneToManyLink<BrazilStringIndexers, Items> | OneToManyLink<BrazilStringIndexers, BusinessPlaces> | OneToManyLink<BrazilStringIndexers, WithholdingTaxCodes>>;
+    const _allFields: Array<EnumField<BrazilStringIndexers> | StringField<BrazilStringIndexers> | NumberField<BrazilStringIndexers> | OneToManyLink<BrazilStringIndexers, BrazilBeverageIndexers> | OneToManyLink<BrazilStringIndexers, Items> | OneToManyLink<BrazilStringIndexers, BusinessPlaces> | OneToManyLink<BrazilStringIndexers, WithholdingTaxCodes>>;
     /**
      * All fields selector.
      */

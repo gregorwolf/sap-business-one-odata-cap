@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * BoePortfolioParams
@@ -37,7 +37,7 @@ export function createBoePortfolioParams(json: any): BoePortfolioParams {
  * BoePortfolioParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class BoePortfolioParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class BoePortfolioParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BoePortfolioParams> {
   /**
    * Representation of the [[BoePortfolioParams.portfolioEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -53,14 +53,43 @@ export class BoePortfolioParamsField<EntityT extends Entity> extends ComplexType
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   portfolioCode: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('PortfolioCode', this, 'Edm.String');
+
+  /**
+   * Creates an instance of BoePortfolioParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, BoePortfolioParams);
+  }
 }
 
 export namespace BoePortfolioParams {
+  /**
+   * Metadata information on all properties of the `BoePortfolioParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<BoePortfolioParams>[] = [{
+    originalName: 'PortfolioEntry',
+    name: 'portfolioEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PortfolioID',
+    name: 'portfolioId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PortfolioCode',
+    name: 'portfolioCode',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): BoePortfolioParams {
-    return createComplexType(json, {
-      PortfolioEntry: (portfolioEntry: number) => ({ portfolioEntry: edmToTs(portfolioEntry, 'Edm.Int32') }),
-      PortfolioID: (portfolioId: string) => ({ portfolioId: edmToTs(portfolioId, 'Edm.String') }),
-      PortfolioCode: (portfolioCode: string) => ({ portfolioCode: edmToTs(portfolioCode, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, BoePortfolioParams);
   }
 }

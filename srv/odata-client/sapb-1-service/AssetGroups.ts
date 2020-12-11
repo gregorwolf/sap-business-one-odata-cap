@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { AssetGroupsRequestBuilder } from './AssetGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "AssetGroups" of service "SAPB1".
  */
-export class AssetGroups extends Entity implements AssetGroupsType {
+export class AssetGroups extends EntityV4 implements AssetGroupsType {
   /**
    * Technical entity name for AssetGroups.
    */
   static _entityName = 'AssetGroups';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for AssetGroups.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -39,11 +34,11 @@ export class AssetGroups extends Entity implements AssetGroupsType {
   items!: Items[];
 
   /**
-   * Returns an entity builder to construct instances `AssetGroups`.
+   * Returns an entity builder to construct instances of `AssetGroups`.
    * @returns A builder that constructs instances of entity type `AssetGroups`.
    */
-  static builder(): EntityBuilderType<AssetGroups, AssetGroupsTypeForceMandatory> {
-    return Entity.entityBuilder(AssetGroups);
+  static builder(): EntityBuilderType<AssetGroups, AssetGroupsType> {
+    return EntityV4.entityBuilder(AssetGroups);
   }
 
   /**
@@ -59,8 +54,8 @@ export class AssetGroups extends Entity implements AssetGroupsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `AssetGroups`.
    */
-  static customField(fieldName: string): CustomField<AssetGroups> {
-    return Entity.customFieldSelector(fieldName, AssetGroups);
+  static customField(fieldName: string): CustomFieldV4<AssetGroups> {
+    return EntityV4.customFieldSelector(fieldName, AssetGroups);
   }
 
   /**
@@ -75,14 +70,8 @@ export class AssetGroups extends Entity implements AssetGroupsType {
 import { Items, ItemsType } from './Items';
 
 export interface AssetGroupsType {
-  code?: string;
-  description?: string;
-  items: ItemsType[];
-}
-
-export interface AssetGroupsTypeForceMandatory {
-  code: string;
-  description: string;
+  code?: string | null;
+  description?: string | null;
   items: ItemsType[];
 }
 

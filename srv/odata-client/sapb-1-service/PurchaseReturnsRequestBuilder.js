@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.PurchaseReturnsRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var PurchaseReturns_1 = require("./PurchaseReturns");
 /**
  * Request builder class for operations supported on the [[PurchaseReturns]] entity.
@@ -35,14 +35,14 @@ var PurchaseReturnsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `PurchaseReturns` entity based on its keys.
      */
     PurchaseReturnsRequestBuilder.prototype.getByKey = function (docEntry) {
-        return new v4_1.GetByKeyRequestBuilder(PurchaseReturns_1.PurchaseReturns, { DocEntry: docEntry });
+        return new core_1.GetByKeyRequestBuilderV4(PurchaseReturns_1.PurchaseReturns, { DocEntry: docEntry });
     };
     /**
      * Returns a request builder for querying all `PurchaseReturns` entities.
      * @returns A request builder for creating requests to retrieve all `PurchaseReturns` entities.
      */
     PurchaseReturnsRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(PurchaseReturns_1.PurchaseReturns);
+        return new core_1.GetAllRequestBuilderV4(PurchaseReturns_1.PurchaseReturns);
     };
     /**
      * Returns a request builder for creating a `PurchaseReturns` entity.
@@ -50,7 +50,7 @@ var PurchaseReturnsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `PurchaseReturns`.
      */
     PurchaseReturnsRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(PurchaseReturns_1.PurchaseReturns, entity);
+        return new core_1.CreateRequestBuilderV4(PurchaseReturns_1.PurchaseReturns, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `PurchaseReturns`.
@@ -58,12 +58,12 @@ var PurchaseReturnsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `PurchaseReturns`.
      */
     PurchaseReturnsRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(PurchaseReturns_1.PurchaseReturns, entity);
+        return new core_1.UpdateRequestBuilderV4(PurchaseReturns_1.PurchaseReturns, entity);
     };
     PurchaseReturnsRequestBuilder.prototype.delete = function (docEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(PurchaseReturns_1.PurchaseReturns, docEntryOrEntity instanceof PurchaseReturns_1.PurchaseReturns ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(PurchaseReturns_1.PurchaseReturns, docEntryOrEntity instanceof PurchaseReturns_1.PurchaseReturns ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
     };
     return PurchaseReturnsRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.PurchaseReturnsRequestBuilder = PurchaseReturnsRequestBuilder;
 //# sourceMappingURL=PurchaseReturnsRequestBuilder.js.map

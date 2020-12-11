@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { ApprovalTemplates } from './ApprovalTemplates';
 
 /**
@@ -15,16 +15,16 @@ export class ApprovalTemplatesRequestBuilder extends RequestBuilder<ApprovalTemp
    * @param code Key property. See [[ApprovalTemplates.code]].
    * @returns A request builder for creating requests to retrieve one `ApprovalTemplates` entity based on its keys.
    */
-  getByKey(code: number): GetByKeyRequestBuilder<ApprovalTemplates> {
-    return new GetByKeyRequestBuilder(ApprovalTemplates, { Code: code });
+  getByKey(code: number): GetByKeyRequestBuilderV4<ApprovalTemplates> {
+    return new GetByKeyRequestBuilderV4(ApprovalTemplates, { Code: code });
   }
 
   /**
    * Returns a request builder for querying all `ApprovalTemplates` entities.
    * @returns A request builder for creating requests to retrieve all `ApprovalTemplates` entities.
    */
-  getAll(): GetAllRequestBuilder<ApprovalTemplates> {
-    return new GetAllRequestBuilder(ApprovalTemplates);
+  getAll(): GetAllRequestBuilderV4<ApprovalTemplates> {
+    return new GetAllRequestBuilderV4(ApprovalTemplates);
   }
 
   /**
@@ -32,8 +32,8 @@ export class ApprovalTemplatesRequestBuilder extends RequestBuilder<ApprovalTemp
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `ApprovalTemplates`.
    */
-  create(entity: ApprovalTemplates): CreateRequestBuilder<ApprovalTemplates> {
-    return new CreateRequestBuilder(ApprovalTemplates, entity);
+  create(entity: ApprovalTemplates): CreateRequestBuilderV4<ApprovalTemplates> {
+    return new CreateRequestBuilderV4(ApprovalTemplates, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class ApprovalTemplatesRequestBuilder extends RequestBuilder<ApprovalTemp
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `ApprovalTemplates`.
    */
-  update(entity: ApprovalTemplates): UpdateRequestBuilder<ApprovalTemplates> {
-    return new UpdateRequestBuilder(ApprovalTemplates, entity);
+  update(entity: ApprovalTemplates): UpdateRequestBuilderV4<ApprovalTemplates> {
+    return new UpdateRequestBuilderV4(ApprovalTemplates, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class ApprovalTemplatesRequestBuilder extends RequestBuilder<ApprovalTemp
    * @param code Key property. See [[ApprovalTemplates.code]].
    * @returns A request builder for creating requests that delete an entity of type `ApprovalTemplates`.
    */
-  delete(code: number): DeleteRequestBuilder<ApprovalTemplates>;
+  delete(code: number): DeleteRequestBuilderV4<ApprovalTemplates>;
   /**
    * Returns a request builder for deleting an entity of type `ApprovalTemplates`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `ApprovalTemplates` by taking the entity as a parameter.
    */
-  delete(entity: ApprovalTemplates): DeleteRequestBuilder<ApprovalTemplates>;
-  delete(codeOrEntity: any): DeleteRequestBuilder<ApprovalTemplates> {
-    return new DeleteRequestBuilder(ApprovalTemplates, codeOrEntity instanceof ApprovalTemplates ? codeOrEntity : { Code: codeOrEntity! });
+  delete(entity: ApprovalTemplates): DeleteRequestBuilderV4<ApprovalTemplates>;
+  delete(codeOrEntity: any): DeleteRequestBuilderV4<ApprovalTemplates> {
+    return new DeleteRequestBuilderV4(ApprovalTemplates, codeOrEntity instanceof ApprovalTemplates ? codeOrEntity : { Code: codeOrEntity! });
   }
 }

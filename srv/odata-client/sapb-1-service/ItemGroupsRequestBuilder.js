@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.ItemGroupsRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var ItemGroups_1 = require("./ItemGroups");
 /**
  * Request builder class for operations supported on the [[ItemGroups]] entity.
@@ -35,14 +35,14 @@ var ItemGroupsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `ItemGroups` entity based on its keys.
      */
     ItemGroupsRequestBuilder.prototype.getByKey = function (number) {
-        return new v4_1.GetByKeyRequestBuilder(ItemGroups_1.ItemGroups, { Number: number });
+        return new core_1.GetByKeyRequestBuilderV4(ItemGroups_1.ItemGroups, { Number: number });
     };
     /**
      * Returns a request builder for querying all `ItemGroups` entities.
      * @returns A request builder for creating requests to retrieve all `ItemGroups` entities.
      */
     ItemGroupsRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(ItemGroups_1.ItemGroups);
+        return new core_1.GetAllRequestBuilderV4(ItemGroups_1.ItemGroups);
     };
     /**
      * Returns a request builder for creating a `ItemGroups` entity.
@@ -50,7 +50,7 @@ var ItemGroupsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `ItemGroups`.
      */
     ItemGroupsRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(ItemGroups_1.ItemGroups, entity);
+        return new core_1.CreateRequestBuilderV4(ItemGroups_1.ItemGroups, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `ItemGroups`.
@@ -58,12 +58,12 @@ var ItemGroupsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `ItemGroups`.
      */
     ItemGroupsRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(ItemGroups_1.ItemGroups, entity);
+        return new core_1.UpdateRequestBuilderV4(ItemGroups_1.ItemGroups, entity);
     };
     ItemGroupsRequestBuilder.prototype.delete = function (numberOrEntity) {
-        return new v4_1.DeleteRequestBuilder(ItemGroups_1.ItemGroups, numberOrEntity instanceof ItemGroups_1.ItemGroups ? numberOrEntity : { Number: numberOrEntity });
+        return new core_1.DeleteRequestBuilderV4(ItemGroups_1.ItemGroups, numberOrEntity instanceof ItemGroups_1.ItemGroups ? numberOrEntity : { Number: numberOrEntity });
     };
     return ItemGroupsRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.ItemGroupsRequestBuilder = ItemGroupsRequestBuilder;
 //# sourceMappingURL=ItemGroupsRequestBuilder.js.map

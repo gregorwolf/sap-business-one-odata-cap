@@ -1,4 +1,5 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * BpIntrastatExtension
  */
@@ -43,6 +44,11 @@ export interface BpIntrastatExtension {
      * @nullable
      */
     domesticOrForeignId?: string;
+    /**
+     * Intrastat Relevant.
+     * @nullable
+     */
+    intrastatRelevant?: BoYesNoEnum;
 }
 /**
  * @deprecated Since v1.6.0. Use [[BpIntrastatExtension.build]] instead.
@@ -52,7 +58,7 @@ export declare function createBpIntrastatExtension(json: any): BpIntrastatExtens
  * BpIntrastatExtensionField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class BpIntrastatExtensionField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class BpIntrastatExtensionField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BpIntrastatExtension> {
     /**
      * Representation of the [[BpIntrastatExtension.cardCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -93,8 +99,27 @@ export declare class BpIntrastatExtensionField<EntityT extends Entity> extends C
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     domesticOrForeignId: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[BpIntrastatExtension.intrastatRelevant]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    intrastatRelevant: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Creates an instance of BpIntrastatExtensionField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace BpIntrastatExtension {
+    /**
+     * Metadata information on all properties of the `BpIntrastatExtension` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<BpIntrastatExtension>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): BpIntrastatExtension;

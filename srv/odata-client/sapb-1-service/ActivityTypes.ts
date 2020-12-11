@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ActivityTypesRequestBuilder } from './ActivityTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ActivityTypes" of service "SAPB1".
  */
-export class ActivityTypes extends Entity implements ActivityTypesType {
+export class ActivityTypes extends EntityV4 implements ActivityTypesType {
   /**
    * Technical entity name for ActivityTypes.
    */
   static _entityName = 'ActivityTypes';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ActivityTypes.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -43,11 +38,11 @@ export class ActivityTypes extends Entity implements ActivityTypesType {
   activities!: Activities[];
 
   /**
-   * Returns an entity builder to construct instances `ActivityTypes`.
+   * Returns an entity builder to construct instances of `ActivityTypes`.
    * @returns A builder that constructs instances of entity type `ActivityTypes`.
    */
-  static builder(): EntityBuilderType<ActivityTypes, ActivityTypesTypeForceMandatory> {
-    return Entity.entityBuilder(ActivityTypes);
+  static builder(): EntityBuilderType<ActivityTypes, ActivityTypesType> {
+    return EntityV4.entityBuilder(ActivityTypes);
   }
 
   /**
@@ -63,8 +58,8 @@ export class ActivityTypes extends Entity implements ActivityTypesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ActivityTypes`.
    */
-  static customField(fieldName: string): CustomField<ActivityTypes> {
-    return Entity.customFieldSelector(fieldName, ActivityTypes);
+  static customField(fieldName: string): CustomFieldV4<ActivityTypes> {
+    return EntityV4.customFieldSelector(fieldName, ActivityTypes);
   }
 
   /**
@@ -80,15 +75,8 @@ import { Contacts, ContactsType } from './Contacts';
 import { Activities, ActivitiesType } from './Activities';
 
 export interface ActivityTypesType {
-  code?: number;
-  name?: string;
-  contacts: ContactsType[];
-  activities: ActivitiesType[];
-}
-
-export interface ActivityTypesTypeForceMandatory {
-  code: number;
-  name: string;
+  code?: number | null;
+  name?: string | null;
   contacts: ContactsType[];
   activities: ActivitiesType[];
 }

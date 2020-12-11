@@ -1,4 +1,5 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * AssetDocumentLine
  */
@@ -59,6 +60,11 @@ export interface AssetDocumentLine {
      */
     newAssetNumber?: string;
     /**
+     * Partial.
+     * @nullable
+     */
+    partial?: BoYesNoEnum;
+    /**
      * Apc.
      * @nullable
      */
@@ -107,7 +113,7 @@ export declare function createAssetDocumentLine(json: any): AssetDocumentLine;
  * AssetDocumentLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class AssetDocumentLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class AssetDocumentLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, AssetDocumentLine> {
     /**
      * Representation of the [[AssetDocumentLine.docEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -164,6 +170,11 @@ export declare class AssetDocumentLineField<EntityT extends Entity> extends Comp
      */
     newAssetNumber: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AssetDocumentLine.partial]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    partial: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AssetDocumentLine.apc]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -203,8 +214,22 @@ export declare class AssetDocumentLineField<EntityT extends Entity> extends Comp
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     project: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Creates an instance of AssetDocumentLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace AssetDocumentLine {
+    /**
+     * Metadata information on all properties of the `AssetDocumentLine` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<AssetDocumentLine>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): AssetDocumentLine;

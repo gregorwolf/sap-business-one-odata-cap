@@ -3,7 +3,9 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoAddressType } from './BoAddressType';
+import { BoGstRegnTypeEnum } from './BoGstRegnTypeEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * BpAddress
@@ -65,6 +67,11 @@ export interface BpAddress {
    */
   buildingFloorRoom?: string;
   /**
+   * Address Type.
+   * @nullable
+   */
+  addressType?: BoAddressType;
+  /**
    * Address Name 2.
    * @nullable
    */
@@ -114,6 +121,11 @@ export interface BpAddress {
    * @nullable
    */
   gstin?: string;
+  /**
+   * Gst Type.
+   * @nullable
+   */
+  gstType?: BoGstRegnTypeEnum;
 }
 
 /**
@@ -127,7 +139,7 @@ export function createBpAddress(json: any): BpAddress {
  * BpAddressField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class BpAddressField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class BpAddressField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BpAddress> {
   /**
    * Representation of the [[BpAddress.addressName]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -184,6 +196,11 @@ export class BpAddressField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   buildingFloorRoom: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('BuildingFloorRoom', this, 'Edm.String');
   /**
+   * Representation of the [[BpAddress.addressType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  addressType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AddressType', this);
+  /**
    * Representation of the [[BpAddress.addressName2]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -233,32 +250,148 @@ export class BpAddressField<EntityT extends Entity> extends ComplexTypeField<Ent
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   gstin: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('GSTIN', this, 'Edm.String');
+  /**
+   * Representation of the [[BpAddress.gstType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  gstType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('GstType', this);
+
+  /**
+   * Creates an instance of BpAddressField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, BpAddress);
+  }
 }
 
 export namespace BpAddress {
+  /**
+   * Metadata information on all properties of the `BpAddress` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<BpAddress>[] = [{
+    originalName: 'AddressName',
+    name: 'addressName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Street',
+    name: 'street',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Block',
+    name: 'block',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ZipCode',
+    name: 'zipCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'City',
+    name: 'city',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'County',
+    name: 'county',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Country',
+    name: 'country',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'State',
+    name: 'state',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FederalTaxID',
+    name: 'federalTaxId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxCode',
+    name: 'taxCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BuildingFloorRoom',
+    name: 'buildingFloorRoom',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AddressType',
+    name: 'addressType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AddressName2',
+    name: 'addressName2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AddressName3',
+    name: 'addressName3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TypeOfAddress',
+    name: 'typeOfAddress',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StreetNo',
+    name: 'streetNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPCode',
+    name: 'bpCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RowNum',
+    name: 'rowNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'GlobalLocationNumber',
+    name: 'globalLocationNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Nationality',
+    name: 'nationality',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxOffice',
+    name: 'taxOffice',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GSTIN',
+    name: 'gstin',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GstType',
+    name: 'gstType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): BpAddress {
-    return createComplexType(json, {
-      AddressName: (addressName: string) => ({ addressName: edmToTs(addressName, 'Edm.String') }),
-      Street: (street: string) => ({ street: edmToTs(street, 'Edm.String') }),
-      Block: (block: string) => ({ block: edmToTs(block, 'Edm.String') }),
-      ZipCode: (zipCode: string) => ({ zipCode: edmToTs(zipCode, 'Edm.String') }),
-      City: (city: string) => ({ city: edmToTs(city, 'Edm.String') }),
-      County: (county: string) => ({ county: edmToTs(county, 'Edm.String') }),
-      Country: (country: string) => ({ country: edmToTs(country, 'Edm.String') }),
-      State: (state: string) => ({ state: edmToTs(state, 'Edm.String') }),
-      FederalTaxID: (federalTaxId: string) => ({ federalTaxId: edmToTs(federalTaxId, 'Edm.String') }),
-      TaxCode: (taxCode: string) => ({ taxCode: edmToTs(taxCode, 'Edm.String') }),
-      BuildingFloorRoom: (buildingFloorRoom: string) => ({ buildingFloorRoom: edmToTs(buildingFloorRoom, 'Edm.String') }),
-      AddressName2: (addressName2: string) => ({ addressName2: edmToTs(addressName2, 'Edm.String') }),
-      AddressName3: (addressName3: string) => ({ addressName3: edmToTs(addressName3, 'Edm.String') }),
-      TypeOfAddress: (typeOfAddress: string) => ({ typeOfAddress: edmToTs(typeOfAddress, 'Edm.String') }),
-      StreetNo: (streetNo: string) => ({ streetNo: edmToTs(streetNo, 'Edm.String') }),
-      BPCode: (bpCode: string) => ({ bpCode: edmToTs(bpCode, 'Edm.String') }),
-      RowNum: (rowNum: number) => ({ rowNum: edmToTs(rowNum, 'Edm.Int32') }),
-      GlobalLocationNumber: (globalLocationNumber: string) => ({ globalLocationNumber: edmToTs(globalLocationNumber, 'Edm.String') }),
-      Nationality: (nationality: string) => ({ nationality: edmToTs(nationality, 'Edm.String') }),
-      TaxOffice: (taxOffice: string) => ({ taxOffice: edmToTs(taxOffice, 'Edm.String') }),
-      GSTIN: (gstin: string) => ({ gstin: edmToTs(gstin, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, BpAddress);
   }
 }

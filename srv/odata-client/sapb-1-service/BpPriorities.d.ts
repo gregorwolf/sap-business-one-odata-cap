@@ -1,18 +1,13 @@
 import { BpPrioritiesRequestBuilder } from './BpPrioritiesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "BPPriorities" of service "SAPB1".
  */
-export declare class BpPriorities extends Entity implements BpPrioritiesType {
+export declare class BpPriorities extends EntityV4 implements BpPrioritiesType {
     /**
      * Technical entity name for BpPriorities.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BpPriorities.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -32,10 +27,10 @@ export declare class BpPriorities extends Entity implements BpPrioritiesType {
      */
     businessPartners: BusinessPartners[];
     /**
-     * Returns an entity builder to construct instances `BpPriorities`.
+     * Returns an entity builder to construct instances of `BpPriorities`.
      * @returns A builder that constructs instances of entity type `BpPriorities`.
      */
-    static builder(): EntityBuilderType<BpPriorities, BpPrioritiesTypeForceMandatory>;
+    static builder(): EntityBuilderType<BpPriorities, BpPrioritiesType>;
     /**
      * Returns a request builder to construct requests for operations on the `BpPriorities` entity type.
      * @returns A `BpPriorities` request builder.
@@ -46,7 +41,7 @@ export declare class BpPriorities extends Entity implements BpPrioritiesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `BpPriorities`.
      */
-    static customField(fieldName: string): CustomField<BpPriorities>;
+    static customField(fieldName: string): CustomFieldV4<BpPriorities>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -57,13 +52,8 @@ export declare class BpPriorities extends Entity implements BpPrioritiesType {
 }
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 export interface BpPrioritiesType {
-    priority?: number;
-    priorityDescription?: string;
-    businessPartners: BusinessPartnersType[];
-}
-export interface BpPrioritiesTypeForceMandatory {
-    priority: number;
-    priorityDescription: string;
+    priority?: number | null;
+    priorityDescription?: string | null;
     businessPartners: BusinessPartnersType[];
 }
 export declare namespace BpPriorities {

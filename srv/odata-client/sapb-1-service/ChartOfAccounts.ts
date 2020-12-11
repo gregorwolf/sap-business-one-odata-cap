@@ -5,25 +5,23 @@
  */
 import { ChartOfAccountsRequestBuilder } from './ChartOfAccountsRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoAccountTypes } from './BoAccountTypes';
+import { SpedContabilAccountPurposeCode } from './SpedContabilAccountPurposeCode';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ChartOfAccounts" of service "SAPB1".
  */
-export class ChartOfAccounts extends Entity implements ChartOfAccountsType {
+export class ChartOfAccounts extends EntityV4 implements ChartOfAccountsType {
   /**
    * Technical entity name for ChartOfAccounts.
    */
   static _entityName = 'ChartOfAccounts';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ChartOfAccounts.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -39,6 +37,26 @@ export class ChartOfAccounts extends Entity implements ChartOfAccountsType {
    * @nullable
    */
   balance?: number;
+  /**
+   * Cash Account.
+   * @nullable
+   */
+  cashAccount?: BoYesNoEnum;
+  /**
+   * Budget Account.
+   * @nullable
+   */
+  budgetAccount?: BoYesNoEnum;
+  /**
+   * Active Account.
+   * @nullable
+   */
+  activeAccount?: BoYesNoEnum;
+  /**
+   * Primary Account.
+   * @nullable
+   */
+  primaryAccount?: BoYesNoEnum;
   /**
    * Account Level.
    * @nullable
@@ -60,6 +78,21 @@ export class ChartOfAccounts extends Entity implements ChartOfAccountsType {
    */
   externalCode?: string;
   /**
+   * Rate Conversion.
+   * @nullable
+   */
+  rateConversion?: BoYesNoEnum;
+  /**
+   * Tax Liable Account.
+   * @nullable
+   */
+  taxLiableAccount?: BoYesNoEnum;
+  /**
+   * Tax Exempt Account.
+   * @nullable
+   */
+  taxExemptAccount?: BoYesNoEnum;
+  /**
    * External Recon No.
    * @nullable
    */
@@ -69,6 +102,11 @@ export class ChartOfAccounts extends Entity implements ChartOfAccountsType {
    * @nullable
    */
   internalReconNo?: number;
+  /**
+   * Account Type.
+   * @nullable
+   */
+  accountType?: BoAccountTypes;
   /**
    * Acct Currency.
    * @nullable
@@ -85,6 +123,21 @@ export class ChartOfAccounts extends Entity implements ChartOfAccountsType {
    */
   balanceFrgnCurr?: number;
   /**
+   * Protected.
+   * @nullable
+   */
+  protected?: BoYesNoEnum;
+  /**
+   * Reconciled Account.
+   * @nullable
+   */
+  reconciledAccount?: BoYesNoEnum;
+  /**
+   * Liable For Advances.
+   * @nullable
+   */
+  liableForAdvances?: BoYesNoEnum;
+  /**
    * Foreign Name.
    * @nullable
    */
@@ -100,10 +153,25 @@ export class ChartOfAccounts extends Entity implements ChartOfAccountsType {
    */
   projectCode?: string;
   /**
+   * Revaluation Coordinated.
+   * @nullable
+   */
+  revaluationCoordinated?: BoYesNoEnum;
+  /**
+   * Lock Manual Transaction.
+   * @nullable
+   */
+  lockManualTransaction?: BoYesNoEnum;
+  /**
    * Format Code.
    * @nullable
    */
   formatCode?: string;
+  /**
+   * Allow Change Vat Group.
+   * @nullable
+   */
+  allowChangeVatGroup?: BoYesNoEnum;
   /**
    * Default Vat Group.
    * @nullable
@@ -119,6 +187,11 @@ export class ChartOfAccounts extends Entity implements ChartOfAccountsType {
    * @nullable
    */
   transactionCode?: string;
+  /**
+   * Loading Type.
+   * @nullable
+   */
+  loadingType?: BoYesNoEnum;
   /**
    * Loading Factor Code.
    * @nullable
@@ -155,6 +228,51 @@ export class ChartOfAccounts extends Entity implements ChartOfAccountsType {
    */
   datevAccount?: string;
   /**
+   * Datev Auto Account.
+   * @nullable
+   */
+  datevAutoAccount?: BoYesNoEnum;
+  /**
+   * Datev First Data Entry.
+   * @nullable
+   */
+  datevFirstDataEntry?: BoYesNoEnum;
+  /**
+   * Allow Multiple Linking.
+   * @nullable
+   */
+  allowMultipleLinking?: BoYesNoEnum;
+  /**
+   * Project Relevant.
+   * @nullable
+   */
+  projectRelevant?: BoYesNoEnum;
+  /**
+   * Distribution Rule Relevant.
+   * @nullable
+   */
+  distributionRuleRelevant?: BoYesNoEnum;
+  /**
+   * Distribution Rule 2 Relevant.
+   * @nullable
+   */
+  distributionRule2Relevant?: BoYesNoEnum;
+  /**
+   * Distribution Rule 3 Relevant.
+   * @nullable
+   */
+  distributionRule3Relevant?: BoYesNoEnum;
+  /**
+   * Distribution Rule 4 Relevant.
+   * @nullable
+   */
+  distributionRule4Relevant?: BoYesNoEnum;
+  /**
+   * Distribution Rule 5 Relevant.
+   * @nullable
+   */
+  distributionRule5Relevant?: BoYesNoEnum;
+  /**
    * Bplid.
    * @nullable
    */
@@ -170,10 +288,20 @@ export class ChartOfAccounts extends Entity implements ChartOfAccountsType {
    */
   vatRegNum?: string;
   /**
+   * Account Purpose Code.
+   * @nullable
+   */
+  accountPurposeCode?: SpedContabilAccountPurposeCode;
+  /**
    * Referential Account Code.
    * @nullable
    */
   referentialAccountCode?: string;
+  /**
+   * Valid For.
+   * @nullable
+   */
+  validFor?: BoYesNoEnum;
   /**
    * Valid From.
    * @nullable
@@ -190,6 +318,11 @@ export class ChartOfAccounts extends Entity implements ChartOfAccountsType {
    */
   validRemarks?: string;
   /**
+   * Frozen For.
+   * @nullable
+   */
+  frozenFor?: BoYesNoEnum;
+  /**
    * Frozen From.
    * @nullable
    */
@@ -205,10 +338,35 @@ export class ChartOfAccounts extends Entity implements ChartOfAccountsType {
    */
   frozenRemarks?: string;
   /**
+   * Block Manual Posting.
+   * @nullable
+   */
+  blockManualPosting?: BoYesNoEnum;
+  /**
+   * Cash Flow Relevant.
+   * @nullable
+   */
+  cashFlowRelevant?: BoYesNoEnum;
+  /**
+   * Pcn 874 Report Relevant.
+   * @nullable
+   */
+  pcn874ReportRelevant?: BoYesNoEnum;
+  /**
    * Primary Closing Account.
    * @nullable
    */
   primaryClosingAccount?: string;
+  /**
+   * Cost Accounting Only.
+   * @nullable
+   */
+  costAccountingOnly?: BoYesNoEnum;
+  /**
+   * Cost Element Relevant.
+   * @nullable
+   */
+  costElementRelevant?: BoYesNoEnum;
   /**
    * Cost Element Code.
    * @nullable
@@ -428,11 +586,11 @@ export class ChartOfAccounts extends Entity implements ChartOfAccountsType {
   incomingPayments!: IncomingPayments[];
 
   /**
-   * Returns an entity builder to construct instances `ChartOfAccounts`.
+   * Returns an entity builder to construct instances of `ChartOfAccounts`.
    * @returns A builder that constructs instances of entity type `ChartOfAccounts`.
    */
-  static builder(): EntityBuilderType<ChartOfAccounts, ChartOfAccountsTypeForceMandatory> {
-    return Entity.entityBuilder(ChartOfAccounts);
+  static builder(): EntityBuilderType<ChartOfAccounts, ChartOfAccountsType> {
+    return EntityV4.entityBuilder(ChartOfAccounts);
   }
 
   /**
@@ -448,8 +606,8 @@ export class ChartOfAccounts extends Entity implements ChartOfAccountsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ChartOfAccounts`.
    */
-  static customField(fieldName: string): CustomField<ChartOfAccounts> {
-    return Entity.customFieldSelector(fieldName, ChartOfAccounts);
+  static customField(fieldName: string): CustomFieldV4<ChartOfAccounts> {
+    return EntityV4.customFieldSelector(fieldName, ChartOfAccounts);
   }
 
   /**
@@ -516,138 +674,76 @@ import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest
 import { IncomingPayments, IncomingPaymentsType } from './IncomingPayments';
 
 export interface ChartOfAccountsType {
-  code?: string;
-  name?: string;
-  balance?: number;
-  accountLevel?: number;
-  dataExportCode?: string;
-  fatherAccountKey?: string;
-  externalCode?: string;
-  externalReconNo?: number;
-  internalReconNo?: number;
-  acctCurrency?: string;
-  balanceSyscurr?: number;
-  balanceFrgnCurr?: number;
-  foreignName?: string;
-  details?: string;
-  projectCode?: string;
-  formatCode?: string;
-  defaultVatGroup?: string;
-  category?: number;
-  transactionCode?: string;
-  loadingFactorCode?: string;
-  loadingFactorCode2?: string;
-  loadingFactorCode3?: string;
-  loadingFactorCode4?: string;
-  loadingFactorCode5?: string;
-  planningLevel?: string;
-  datevAccount?: string;
-  bplid?: number;
-  bplName?: string;
-  vatRegNum?: string;
-  referentialAccountCode?: string;
-  validFrom?: Moment;
-  validTo?: Moment;
-  validRemarks?: string;
-  frozenFrom?: Moment;
-  frozenTo?: Moment;
-  frozenRemarks?: string;
-  primaryClosingAccount?: string;
-  costElementCode?: string;
-  workOrders: WorkOrdersType[];
-  warehouses: WarehousesType[];
-  inventoryGenEntries: InventoryGenEntriesType[];
-  customsGroups: CustomsGroupsType[];
-  accrualTypes: AccrualTypesType[];
-  purchaseQuotations: PurchaseQuotationsType[];
-  itemGroups: ItemGroupsType[];
-  vatGroups: VatGroupsType[];
-  vendorPayments: VendorPaymentsType[];
-  bankPages: BankPagesType[];
-  items: ItemsType[];
-  creditCards: CreditCardsType[];
-  faAccountDeterminations: FaAccountDeterminationsType[];
-  deliveryNotes: DeliveryNotesType[];
-  businessPartners: BusinessPartnersType[];
-  quotations: QuotationsType[];
-  currency: CurrenciesType;
-  project: ProjectsType;
-  accountCategory: AccountCategoryType;
-  transactionCode2: TransactionCodesType;
-  distributionRule: DistributionRulesType;
-  costElement: CostElementsType;
-  inventoryGenExits: InventoryGenExitsType[];
-  purchaseRequests: PurchaseRequestsType[];
-  returnRequest: ReturnRequestType[];
-  glAccountAdvancedRules: GlAccountAdvancedRulesType[];
-  purchaseReturns: PurchaseReturnsType[];
-  invoices: InvoicesType[];
-  creditNotes: CreditNotesType[];
-  businessPlaces: BusinessPlacesType[];
-  orders: OrdersType[];
-  additionalExpenses: AdditionalExpensesType[];
-  downPayments: DownPaymentsType[];
-  drafts: DraftsType[];
-  salesTaxAuthorities: SalesTaxAuthoritiesType[];
-  wizardPaymentMethods: WizardPaymentMethodsType[];
-  paymentDrafts: PaymentDraftsType[];
-  returns: ReturnsType[];
-  correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-  correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-  correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-  purchaseInvoices: PurchaseInvoicesType[];
-  purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-  correctionInvoice: CorrectionInvoiceType[];
-  purchaseCreditNotes: PurchaseCreditNotesType[];
-  dunningTerms: DunningTermsType[];
-  purchaseDownPayments: PurchaseDownPaymentsType[];
-  expenseTypes: ExpenseTypesType[];
-  purchaseOrders: PurchaseOrdersType[];
-  houseBankAccounts: HouseBankAccountsType[];
-  withholdingTaxCodes: WithholdingTaxCodesType[];
-  goodsReturnRequest: GoodsReturnRequestType[];
-  incomingPayments: IncomingPaymentsType[];
-}
-
-export interface ChartOfAccountsTypeForceMandatory {
-  code: string;
-  name: string;
-  balance: number;
-  accountLevel: number;
-  dataExportCode: string;
-  fatherAccountKey: string;
-  externalCode: string;
-  externalReconNo: number;
-  internalReconNo: number;
-  acctCurrency: string;
-  balanceSyscurr: number;
-  balanceFrgnCurr: number;
-  foreignName: string;
-  details: string;
-  projectCode: string;
-  formatCode: string;
-  defaultVatGroup: string;
-  category: number;
-  transactionCode: string;
-  loadingFactorCode: string;
-  loadingFactorCode2: string;
-  loadingFactorCode3: string;
-  loadingFactorCode4: string;
-  loadingFactorCode5: string;
-  planningLevel: string;
-  datevAccount: string;
-  bplid: number;
-  bplName: string;
-  vatRegNum: string;
-  referentialAccountCode: string;
-  validFrom: Moment;
-  validTo: Moment;
-  validRemarks: string;
-  frozenFrom: Moment;
-  frozenTo: Moment;
-  frozenRemarks: string;
-  primaryClosingAccount: string;
-  costElementCode: string;
+  code?: string | null;
+  name?: string | null;
+  balance?: number | null;
+  cashAccount?: BoYesNoEnum | null;
+  budgetAccount?: BoYesNoEnum | null;
+  activeAccount?: BoYesNoEnum | null;
+  primaryAccount?: BoYesNoEnum | null;
+  accountLevel?: number | null;
+  dataExportCode?: string | null;
+  fatherAccountKey?: string | null;
+  externalCode?: string | null;
+  rateConversion?: BoYesNoEnum | null;
+  taxLiableAccount?: BoYesNoEnum | null;
+  taxExemptAccount?: BoYesNoEnum | null;
+  externalReconNo?: number | null;
+  internalReconNo?: number | null;
+  accountType?: BoAccountTypes | null;
+  acctCurrency?: string | null;
+  balanceSyscurr?: number | null;
+  balanceFrgnCurr?: number | null;
+  protected?: BoYesNoEnum | null;
+  reconciledAccount?: BoYesNoEnum | null;
+  liableForAdvances?: BoYesNoEnum | null;
+  foreignName?: string | null;
+  details?: string | null;
+  projectCode?: string | null;
+  revaluationCoordinated?: BoYesNoEnum | null;
+  lockManualTransaction?: BoYesNoEnum | null;
+  formatCode?: string | null;
+  allowChangeVatGroup?: BoYesNoEnum | null;
+  defaultVatGroup?: string | null;
+  category?: number | null;
+  transactionCode?: string | null;
+  loadingType?: BoYesNoEnum | null;
+  loadingFactorCode?: string | null;
+  loadingFactorCode2?: string | null;
+  loadingFactorCode3?: string | null;
+  loadingFactorCode4?: string | null;
+  loadingFactorCode5?: string | null;
+  planningLevel?: string | null;
+  datevAccount?: string | null;
+  datevAutoAccount?: BoYesNoEnum | null;
+  datevFirstDataEntry?: BoYesNoEnum | null;
+  allowMultipleLinking?: BoYesNoEnum | null;
+  projectRelevant?: BoYesNoEnum | null;
+  distributionRuleRelevant?: BoYesNoEnum | null;
+  distributionRule2Relevant?: BoYesNoEnum | null;
+  distributionRule3Relevant?: BoYesNoEnum | null;
+  distributionRule4Relevant?: BoYesNoEnum | null;
+  distributionRule5Relevant?: BoYesNoEnum | null;
+  bplid?: number | null;
+  bplName?: string | null;
+  vatRegNum?: string | null;
+  accountPurposeCode?: SpedContabilAccountPurposeCode | null;
+  referentialAccountCode?: string | null;
+  validFor?: BoYesNoEnum | null;
+  validFrom?: Moment | null;
+  validTo?: Moment | null;
+  validRemarks?: string | null;
+  frozenFor?: BoYesNoEnum | null;
+  frozenFrom?: Moment | null;
+  frozenTo?: Moment | null;
+  frozenRemarks?: string | null;
+  blockManualPosting?: BoYesNoEnum | null;
+  cashFlowRelevant?: BoYesNoEnum | null;
+  pcn874ReportRelevant?: BoYesNoEnum | null;
+  primaryClosingAccount?: string | null;
+  costAccountingOnly?: BoYesNoEnum | null;
+  costElementRelevant?: BoYesNoEnum | null;
+  costElementCode?: string | null;
   workOrders: WorkOrdersType[];
   warehouses: WarehousesType[];
   inventoryGenEntries: InventoryGenEntriesType[];
@@ -720,6 +816,26 @@ export namespace ChartOfAccounts {
    */
   export const BALANCE: NumberField<ChartOfAccounts> = new NumberField('Balance', ChartOfAccounts, 'Edm.Double');
   /**
+   * Static representation of the [[cashAccount]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CASH_ACCOUNT: EnumField<ChartOfAccounts> = new EnumField('CashAccount', ChartOfAccounts);
+  /**
+   * Static representation of the [[budgetAccount]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BUDGET_ACCOUNT: EnumField<ChartOfAccounts> = new EnumField('BudgetAccount', ChartOfAccounts);
+  /**
+   * Static representation of the [[activeAccount]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ACTIVE_ACCOUNT: EnumField<ChartOfAccounts> = new EnumField('ActiveAccount', ChartOfAccounts);
+  /**
+   * Static representation of the [[primaryAccount]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRIMARY_ACCOUNT: EnumField<ChartOfAccounts> = new EnumField('PrimaryAccount', ChartOfAccounts);
+  /**
    * Static representation of the [[accountLevel]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -740,6 +856,21 @@ export namespace ChartOfAccounts {
    */
   export const EXTERNAL_CODE: StringField<ChartOfAccounts> = new StringField('ExternalCode', ChartOfAccounts, 'Edm.String');
   /**
+   * Static representation of the [[rateConversion]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RATE_CONVERSION: EnumField<ChartOfAccounts> = new EnumField('RateConversion', ChartOfAccounts);
+  /**
+   * Static representation of the [[taxLiableAccount]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TAX_LIABLE_ACCOUNT: EnumField<ChartOfAccounts> = new EnumField('TaxLiableAccount', ChartOfAccounts);
+  /**
+   * Static representation of the [[taxExemptAccount]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TAX_EXEMPT_ACCOUNT: EnumField<ChartOfAccounts> = new EnumField('TaxExemptAccount', ChartOfAccounts);
+  /**
    * Static representation of the [[externalReconNo]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -749,6 +880,11 @@ export namespace ChartOfAccounts {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const INTERNAL_RECON_NO: NumberField<ChartOfAccounts> = new NumberField('InternalReconNo', ChartOfAccounts, 'Edm.Int32');
+  /**
+   * Static representation of the [[accountType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ACCOUNT_TYPE: EnumField<ChartOfAccounts> = new EnumField('AccountType', ChartOfAccounts);
   /**
    * Static representation of the [[acctCurrency]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -765,6 +901,21 @@ export namespace ChartOfAccounts {
    */
   export const BALANCE_FRGN_CURR: NumberField<ChartOfAccounts> = new NumberField('Balance_FrgnCurr', ChartOfAccounts, 'Edm.Double');
   /**
+   * Static representation of the [[protected]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROTECTED: EnumField<ChartOfAccounts> = new EnumField('Protected', ChartOfAccounts);
+  /**
+   * Static representation of the [[reconciledAccount]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RECONCILED_ACCOUNT: EnumField<ChartOfAccounts> = new EnumField('ReconciledAccount', ChartOfAccounts);
+  /**
+   * Static representation of the [[liableForAdvances]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LIABLE_FOR_ADVANCES: EnumField<ChartOfAccounts> = new EnumField('LiableForAdvances', ChartOfAccounts);
+  /**
    * Static representation of the [[foreignName]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -780,10 +931,25 @@ export namespace ChartOfAccounts {
    */
   export const PROJECT_CODE: StringField<ChartOfAccounts> = new StringField('ProjectCode', ChartOfAccounts, 'Edm.String');
   /**
+   * Static representation of the [[revaluationCoordinated]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REVALUATION_COORDINATED: EnumField<ChartOfAccounts> = new EnumField('RevaluationCoordinated', ChartOfAccounts);
+  /**
+   * Static representation of the [[lockManualTransaction]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LOCK_MANUAL_TRANSACTION: EnumField<ChartOfAccounts> = new EnumField('LockManualTransaction', ChartOfAccounts);
+  /**
    * Static representation of the [[formatCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const FORMAT_CODE: StringField<ChartOfAccounts> = new StringField('FormatCode', ChartOfAccounts, 'Edm.String');
+  /**
+   * Static representation of the [[allowChangeVatGroup]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ALLOW_CHANGE_VAT_GROUP: EnumField<ChartOfAccounts> = new EnumField('AllowChangeVatGroup', ChartOfAccounts);
   /**
    * Static representation of the [[defaultVatGroup]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -799,6 +965,11 @@ export namespace ChartOfAccounts {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const TRANSACTION_CODE: StringField<ChartOfAccounts> = new StringField('TransactionCode', ChartOfAccounts, 'Edm.String');
+  /**
+   * Static representation of the [[loadingType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LOADING_TYPE: EnumField<ChartOfAccounts> = new EnumField('LoadingType', ChartOfAccounts);
   /**
    * Static representation of the [[loadingFactorCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -835,6 +1006,51 @@ export namespace ChartOfAccounts {
    */
   export const DATEV_ACCOUNT: StringField<ChartOfAccounts> = new StringField('DatevAccount', ChartOfAccounts, 'Edm.String');
   /**
+   * Static representation of the [[datevAutoAccount]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DATEV_AUTO_ACCOUNT: EnumField<ChartOfAccounts> = new EnumField('DatevAutoAccount', ChartOfAccounts);
+  /**
+   * Static representation of the [[datevFirstDataEntry]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DATEV_FIRST_DATA_ENTRY: EnumField<ChartOfAccounts> = new EnumField('DatevFirstDataEntry', ChartOfAccounts);
+  /**
+   * Static representation of the [[allowMultipleLinking]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ALLOW_MULTIPLE_LINKING: EnumField<ChartOfAccounts> = new EnumField('AllowMultipleLinking', ChartOfAccounts);
+  /**
+   * Static representation of the [[projectRelevant]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROJECT_RELEVANT: EnumField<ChartOfAccounts> = new EnumField('ProjectRelevant', ChartOfAccounts);
+  /**
+   * Static representation of the [[distributionRuleRelevant]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DISTRIBUTION_RULE_RELEVANT: EnumField<ChartOfAccounts> = new EnumField('DistributionRuleRelevant', ChartOfAccounts);
+  /**
+   * Static representation of the [[distributionRule2Relevant]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DISTRIBUTION_RULE_2_RELEVANT: EnumField<ChartOfAccounts> = new EnumField('DistributionRule2Relevant', ChartOfAccounts);
+  /**
+   * Static representation of the [[distributionRule3Relevant]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DISTRIBUTION_RULE_3_RELEVANT: EnumField<ChartOfAccounts> = new EnumField('DistributionRule3Relevant', ChartOfAccounts);
+  /**
+   * Static representation of the [[distributionRule4Relevant]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DISTRIBUTION_RULE_4_RELEVANT: EnumField<ChartOfAccounts> = new EnumField('DistributionRule4Relevant', ChartOfAccounts);
+  /**
+   * Static representation of the [[distributionRule5Relevant]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DISTRIBUTION_RULE_5_RELEVANT: EnumField<ChartOfAccounts> = new EnumField('DistributionRule5Relevant', ChartOfAccounts);
+  /**
    * Static representation of the [[bplid]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -850,10 +1066,20 @@ export namespace ChartOfAccounts {
    */
   export const VAT_REG_NUM: StringField<ChartOfAccounts> = new StringField('VATRegNum', ChartOfAccounts, 'Edm.String');
   /**
+   * Static representation of the [[accountPurposeCode]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ACCOUNT_PURPOSE_CODE: EnumField<ChartOfAccounts> = new EnumField('AccountPurposeCode', ChartOfAccounts);
+  /**
    * Static representation of the [[referentialAccountCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const REFERENTIAL_ACCOUNT_CODE: StringField<ChartOfAccounts> = new StringField('ReferentialAccountCode', ChartOfAccounts, 'Edm.String');
+  /**
+   * Static representation of the [[validFor]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const VALID_FOR: EnumField<ChartOfAccounts> = new EnumField('ValidFor', ChartOfAccounts);
   /**
    * Static representation of the [[validFrom]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -870,6 +1096,11 @@ export namespace ChartOfAccounts {
    */
   export const VALID_REMARKS: StringField<ChartOfAccounts> = new StringField('ValidRemarks', ChartOfAccounts, 'Edm.String');
   /**
+   * Static representation of the [[frozenFor]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const FROZEN_FOR: EnumField<ChartOfAccounts> = new EnumField('FrozenFor', ChartOfAccounts);
+  /**
    * Static representation of the [[frozenFrom]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -885,10 +1116,35 @@ export namespace ChartOfAccounts {
    */
   export const FROZEN_REMARKS: StringField<ChartOfAccounts> = new StringField('FrozenRemarks', ChartOfAccounts, 'Edm.String');
   /**
+   * Static representation of the [[blockManualPosting]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BLOCK_MANUAL_POSTING: EnumField<ChartOfAccounts> = new EnumField('BlockManualPosting', ChartOfAccounts);
+  /**
+   * Static representation of the [[cashFlowRelevant]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CASH_FLOW_RELEVANT: EnumField<ChartOfAccounts> = new EnumField('CashFlowRelevant', ChartOfAccounts);
+  /**
+   * Static representation of the [[pcn874ReportRelevant]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PCN_874_REPORT_RELEVANT: EnumField<ChartOfAccounts> = new EnumField('PCN874ReportRelevant', ChartOfAccounts);
+  /**
    * Static representation of the [[primaryClosingAccount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const PRIMARY_CLOSING_ACCOUNT: StringField<ChartOfAccounts> = new StringField('PrimaryClosingAccount', ChartOfAccounts, 'Edm.String');
+  /**
+   * Static representation of the [[costAccountingOnly]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const COST_ACCOUNTING_ONLY: EnumField<ChartOfAccounts> = new EnumField('CostAccountingOnly', ChartOfAccounts);
+  /**
+   * Static representation of the [[costElementRelevant]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const COST_ELEMENT_RELEVANT: EnumField<ChartOfAccounts> = new EnumField('CostElementRelevant', ChartOfAccounts);
   /**
    * Static representation of the [[costElementCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1162,26 +1418,41 @@ export namespace ChartOfAccounts {
   /**
    * All fields of the ChartOfAccounts entity.
    */
-  export const _allFields: Array<StringField<ChartOfAccounts> | NumberField<ChartOfAccounts> | DateField<ChartOfAccounts> | OneToManyLink<ChartOfAccounts, WorkOrders> | OneToManyLink<ChartOfAccounts, Warehouses> | OneToManyLink<ChartOfAccounts, InventoryGenEntries> | OneToManyLink<ChartOfAccounts, CustomsGroups> | OneToManyLink<ChartOfAccounts, AccrualTypes> | OneToManyLink<ChartOfAccounts, PurchaseQuotations> | OneToManyLink<ChartOfAccounts, ItemGroups> | OneToManyLink<ChartOfAccounts, VatGroups> | OneToManyLink<ChartOfAccounts, VendorPayments> | OneToManyLink<ChartOfAccounts, BankPages> | OneToManyLink<ChartOfAccounts, Items> | OneToManyLink<ChartOfAccounts, CreditCards> | OneToManyLink<ChartOfAccounts, FaAccountDeterminations> | OneToManyLink<ChartOfAccounts, DeliveryNotes> | OneToManyLink<ChartOfAccounts, BusinessPartners> | OneToManyLink<ChartOfAccounts, Quotations> | OneToOneLink<ChartOfAccounts, Currencies> | OneToOneLink<ChartOfAccounts, Projects> | OneToOneLink<ChartOfAccounts, AccountCategory> | OneToOneLink<ChartOfAccounts, TransactionCodes> | OneToOneLink<ChartOfAccounts, DistributionRules> | OneToOneLink<ChartOfAccounts, CostElements> | OneToManyLink<ChartOfAccounts, InventoryGenExits> | OneToManyLink<ChartOfAccounts, PurchaseRequests> | OneToManyLink<ChartOfAccounts, ReturnRequest> | OneToManyLink<ChartOfAccounts, GlAccountAdvancedRules> | OneToManyLink<ChartOfAccounts, PurchaseReturns> | OneToManyLink<ChartOfAccounts, Invoices> | OneToManyLink<ChartOfAccounts, CreditNotes> | OneToManyLink<ChartOfAccounts, BusinessPlaces> | OneToManyLink<ChartOfAccounts, Orders> | OneToManyLink<ChartOfAccounts, AdditionalExpenses> | OneToManyLink<ChartOfAccounts, DownPayments> | OneToManyLink<ChartOfAccounts, Drafts> | OneToManyLink<ChartOfAccounts, SalesTaxAuthorities> | OneToManyLink<ChartOfAccounts, WizardPaymentMethods> | OneToManyLink<ChartOfAccounts, PaymentDrafts> | OneToManyLink<ChartOfAccounts, Returns> | OneToManyLink<ChartOfAccounts, CorrectionInvoiceReversal> | OneToManyLink<ChartOfAccounts, CorrectionPurchaseInvoice> | OneToManyLink<ChartOfAccounts, CorrectionPurchaseInvoiceReversal> | OneToManyLink<ChartOfAccounts, PurchaseInvoices> | OneToManyLink<ChartOfAccounts, PurchaseDeliveryNotes> | OneToManyLink<ChartOfAccounts, CorrectionInvoice> | OneToManyLink<ChartOfAccounts, PurchaseCreditNotes> | OneToManyLink<ChartOfAccounts, DunningTerms> | OneToManyLink<ChartOfAccounts, PurchaseDownPayments> | OneToManyLink<ChartOfAccounts, ExpenseTypes> | OneToManyLink<ChartOfAccounts, PurchaseOrders> | OneToManyLink<ChartOfAccounts, HouseBankAccounts> | OneToManyLink<ChartOfAccounts, WithholdingTaxCodes> | OneToManyLink<ChartOfAccounts, GoodsReturnRequest> | OneToManyLink<ChartOfAccounts, IncomingPayments>> = [
+  export const _allFields: Array<StringField<ChartOfAccounts> | NumberField<ChartOfAccounts> | EnumField<ChartOfAccounts> | DateField<ChartOfAccounts> | OneToManyLink<ChartOfAccounts, WorkOrders> | OneToManyLink<ChartOfAccounts, Warehouses> | OneToManyLink<ChartOfAccounts, InventoryGenEntries> | OneToManyLink<ChartOfAccounts, CustomsGroups> | OneToManyLink<ChartOfAccounts, AccrualTypes> | OneToManyLink<ChartOfAccounts, PurchaseQuotations> | OneToManyLink<ChartOfAccounts, ItemGroups> | OneToManyLink<ChartOfAccounts, VatGroups> | OneToManyLink<ChartOfAccounts, VendorPayments> | OneToManyLink<ChartOfAccounts, BankPages> | OneToManyLink<ChartOfAccounts, Items> | OneToManyLink<ChartOfAccounts, CreditCards> | OneToManyLink<ChartOfAccounts, FaAccountDeterminations> | OneToManyLink<ChartOfAccounts, DeliveryNotes> | OneToManyLink<ChartOfAccounts, BusinessPartners> | OneToManyLink<ChartOfAccounts, Quotations> | OneToOneLink<ChartOfAccounts, Currencies> | OneToOneLink<ChartOfAccounts, Projects> | OneToOneLink<ChartOfAccounts, AccountCategory> | OneToOneLink<ChartOfAccounts, TransactionCodes> | OneToOneLink<ChartOfAccounts, DistributionRules> | OneToOneLink<ChartOfAccounts, CostElements> | OneToManyLink<ChartOfAccounts, InventoryGenExits> | OneToManyLink<ChartOfAccounts, PurchaseRequests> | OneToManyLink<ChartOfAccounts, ReturnRequest> | OneToManyLink<ChartOfAccounts, GlAccountAdvancedRules> | OneToManyLink<ChartOfAccounts, PurchaseReturns> | OneToManyLink<ChartOfAccounts, Invoices> | OneToManyLink<ChartOfAccounts, CreditNotes> | OneToManyLink<ChartOfAccounts, BusinessPlaces> | OneToManyLink<ChartOfAccounts, Orders> | OneToManyLink<ChartOfAccounts, AdditionalExpenses> | OneToManyLink<ChartOfAccounts, DownPayments> | OneToManyLink<ChartOfAccounts, Drafts> | OneToManyLink<ChartOfAccounts, SalesTaxAuthorities> | OneToManyLink<ChartOfAccounts, WizardPaymentMethods> | OneToManyLink<ChartOfAccounts, PaymentDrafts> | OneToManyLink<ChartOfAccounts, Returns> | OneToManyLink<ChartOfAccounts, CorrectionInvoiceReversal> | OneToManyLink<ChartOfAccounts, CorrectionPurchaseInvoice> | OneToManyLink<ChartOfAccounts, CorrectionPurchaseInvoiceReversal> | OneToManyLink<ChartOfAccounts, PurchaseInvoices> | OneToManyLink<ChartOfAccounts, PurchaseDeliveryNotes> | OneToManyLink<ChartOfAccounts, CorrectionInvoice> | OneToManyLink<ChartOfAccounts, PurchaseCreditNotes> | OneToManyLink<ChartOfAccounts, DunningTerms> | OneToManyLink<ChartOfAccounts, PurchaseDownPayments> | OneToManyLink<ChartOfAccounts, ExpenseTypes> | OneToManyLink<ChartOfAccounts, PurchaseOrders> | OneToManyLink<ChartOfAccounts, HouseBankAccounts> | OneToManyLink<ChartOfAccounts, WithholdingTaxCodes> | OneToManyLink<ChartOfAccounts, GoodsReturnRequest> | OneToManyLink<ChartOfAccounts, IncomingPayments>> = [
     ChartOfAccounts.CODE,
     ChartOfAccounts.NAME,
     ChartOfAccounts.BALANCE,
+    ChartOfAccounts.CASH_ACCOUNT,
+    ChartOfAccounts.BUDGET_ACCOUNT,
+    ChartOfAccounts.ACTIVE_ACCOUNT,
+    ChartOfAccounts.PRIMARY_ACCOUNT,
     ChartOfAccounts.ACCOUNT_LEVEL,
     ChartOfAccounts.DATA_EXPORT_CODE,
     ChartOfAccounts.FATHER_ACCOUNT_KEY,
     ChartOfAccounts.EXTERNAL_CODE,
+    ChartOfAccounts.RATE_CONVERSION,
+    ChartOfAccounts.TAX_LIABLE_ACCOUNT,
+    ChartOfAccounts.TAX_EXEMPT_ACCOUNT,
     ChartOfAccounts.EXTERNAL_RECON_NO,
     ChartOfAccounts.INTERNAL_RECON_NO,
+    ChartOfAccounts.ACCOUNT_TYPE,
     ChartOfAccounts.ACCT_CURRENCY,
     ChartOfAccounts.BALANCE_SYSCURR,
     ChartOfAccounts.BALANCE_FRGN_CURR,
+    ChartOfAccounts.PROTECTED,
+    ChartOfAccounts.RECONCILED_ACCOUNT,
+    ChartOfAccounts.LIABLE_FOR_ADVANCES,
     ChartOfAccounts.FOREIGN_NAME,
     ChartOfAccounts.DETAILS,
     ChartOfAccounts.PROJECT_CODE,
+    ChartOfAccounts.REVALUATION_COORDINATED,
+    ChartOfAccounts.LOCK_MANUAL_TRANSACTION,
     ChartOfAccounts.FORMAT_CODE,
+    ChartOfAccounts.ALLOW_CHANGE_VAT_GROUP,
     ChartOfAccounts.DEFAULT_VAT_GROUP,
     ChartOfAccounts.CATEGORY,
     ChartOfAccounts.TRANSACTION_CODE,
+    ChartOfAccounts.LOADING_TYPE,
     ChartOfAccounts.LOADING_FACTOR_CODE,
     ChartOfAccounts.LOADING_FACTOR_CODE_2,
     ChartOfAccounts.LOADING_FACTOR_CODE_3,
@@ -1189,17 +1460,34 @@ export namespace ChartOfAccounts {
     ChartOfAccounts.LOADING_FACTOR_CODE_5,
     ChartOfAccounts.PLANNING_LEVEL,
     ChartOfAccounts.DATEV_ACCOUNT,
+    ChartOfAccounts.DATEV_AUTO_ACCOUNT,
+    ChartOfAccounts.DATEV_FIRST_DATA_ENTRY,
+    ChartOfAccounts.ALLOW_MULTIPLE_LINKING,
+    ChartOfAccounts.PROJECT_RELEVANT,
+    ChartOfAccounts.DISTRIBUTION_RULE_RELEVANT,
+    ChartOfAccounts.DISTRIBUTION_RULE_2_RELEVANT,
+    ChartOfAccounts.DISTRIBUTION_RULE_3_RELEVANT,
+    ChartOfAccounts.DISTRIBUTION_RULE_4_RELEVANT,
+    ChartOfAccounts.DISTRIBUTION_RULE_5_RELEVANT,
     ChartOfAccounts.BPLID,
     ChartOfAccounts.BPL_NAME,
     ChartOfAccounts.VAT_REG_NUM,
+    ChartOfAccounts.ACCOUNT_PURPOSE_CODE,
     ChartOfAccounts.REFERENTIAL_ACCOUNT_CODE,
+    ChartOfAccounts.VALID_FOR,
     ChartOfAccounts.VALID_FROM,
     ChartOfAccounts.VALID_TO,
     ChartOfAccounts.VALID_REMARKS,
+    ChartOfAccounts.FROZEN_FOR,
     ChartOfAccounts.FROZEN_FROM,
     ChartOfAccounts.FROZEN_TO,
     ChartOfAccounts.FROZEN_REMARKS,
+    ChartOfAccounts.BLOCK_MANUAL_POSTING,
+    ChartOfAccounts.CASH_FLOW_RELEVANT,
+    ChartOfAccounts.PCN_874_REPORT_RELEVANT,
     ChartOfAccounts.PRIMARY_CLOSING_ACCOUNT,
+    ChartOfAccounts.COST_ACCOUNTING_ONLY,
+    ChartOfAccounts.COST_ELEMENT_RELEVANT,
     ChartOfAccounts.COST_ELEMENT_CODE,
     ChartOfAccounts.WORK_ORDERS,
     ChartOfAccounts.WAREHOUSES,

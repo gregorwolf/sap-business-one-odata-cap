@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.SalesOpportunitySourcesSetup = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var SalesOpportunitySourcesSetupRequestBuilder_1 = require("./SalesOpportunitySourcesSetupRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "SalesOpportunitySourcesSetup" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var SalesOpportunitySourcesSetup = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `SalesOpportunitySourcesSetup`.
+     * Returns an entity builder to construct instances of `SalesOpportunitySourcesSetup`.
      * @returns A builder that constructs instances of entity type `SalesOpportunitySourcesSetup`.
      */
     SalesOpportunitySourcesSetup.builder = function () {
-        return v4_1.Entity.entityBuilder(SalesOpportunitySourcesSetup);
+        return core_1.EntityV4.entityBuilder(SalesOpportunitySourcesSetup);
     };
     /**
      * Returns a request builder to construct requests for operations on the `SalesOpportunitySourcesSetup` entity type.
@@ -60,7 +60,7 @@ var SalesOpportunitySourcesSetup = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `SalesOpportunitySourcesSetup`.
      */
     SalesOpportunitySourcesSetup.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, SalesOpportunitySourcesSetup);
+        return core_1.EntityV4.customFieldSelector(fieldName, SalesOpportunitySourcesSetup);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var SalesOpportunitySourcesSetup = /** @class */ (function (_super) {
      */
     SalesOpportunitySourcesSetup._entityName = 'SalesOpportunitySourcesSetup';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for SalesOpportunitySourcesSetup.
-     */
-    SalesOpportunitySourcesSetup._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    SalesOpportunitySourcesSetup._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    SalesOpportunitySourcesSetup._defaultServicePath = '/b1s/v2/';
     return SalesOpportunitySourcesSetup;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.SalesOpportunitySourcesSetup = SalesOpportunitySourcesSetup;
 var SalesOpportunities_1 = require("./SalesOpportunities");
 (function (SalesOpportunitySourcesSetup) {
@@ -91,22 +86,22 @@ var SalesOpportunities_1 = require("./SalesOpportunities");
      * Static representation of the [[sequenceNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunitySourcesSetup.SEQUENCE_NO = new v4_1.NumberField('SequenceNo', SalesOpportunitySourcesSetup, 'Edm.Int32');
+    SalesOpportunitySourcesSetup.SEQUENCE_NO = new core_1.NumberField('SequenceNo', SalesOpportunitySourcesSetup, 'Edm.Int32');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunitySourcesSetup.DESCRIPTION = new v4_1.StringField('Description', SalesOpportunitySourcesSetup, 'Edm.String');
+    SalesOpportunitySourcesSetup.DESCRIPTION = new core_1.StringField('Description', SalesOpportunitySourcesSetup, 'Edm.String');
     /**
      * Static representation of the [[sort]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunitySourcesSetup.SORT = new v4_1.NumberField('Sort', SalesOpportunitySourcesSetup, 'Edm.Int32');
+    SalesOpportunitySourcesSetup.SORT = new core_1.NumberField('Sort', SalesOpportunitySourcesSetup, 'Edm.Int32');
     /**
      * Static representation of the one-to-many navigation property [[salesOpportunities]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunitySourcesSetup.SALES_OPPORTUNITIES = new v4_1.OneToManyLink('SalesOpportunities', SalesOpportunitySourcesSetup, SalesOpportunities_1.SalesOpportunities);
+    SalesOpportunitySourcesSetup.SALES_OPPORTUNITIES = new core_1.OneToManyLink('SalesOpportunities', SalesOpportunitySourcesSetup, SalesOpportunities_1.SalesOpportunities);
     /**
      * All fields of the SalesOpportunitySourcesSetup entity.
      */
@@ -119,7 +114,7 @@ var SalesOpportunities_1 = require("./SalesOpportunities");
     /**
      * All fields selector.
      */
-    SalesOpportunitySourcesSetup.ALL_FIELDS = new v4_1.AllFields('*', SalesOpportunitySourcesSetup);
+    SalesOpportunitySourcesSetup.ALL_FIELDS = new core_1.AllFields('*', SalesOpportunitySourcesSetup);
     /**
      * All key fields of the SalesOpportunitySourcesSetup entity.
      */

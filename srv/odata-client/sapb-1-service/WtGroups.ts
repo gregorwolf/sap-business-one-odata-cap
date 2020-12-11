@@ -3,8 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { DocsInWtGroups, DocsInWtGroupsField } from './DocsInWtGroups';
-import { CollectionField, ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { DocsInWtGroups } from './DocsInWtGroups';
+import { CollectionField, ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * WtGroups
@@ -49,7 +49,7 @@ export interface WtGroups {
    * Docs In Wt Groups Collection.
    * @nullable
    */
-  docsInWtGroupsCollection?: DocsInWtGroups;
+  docsInWtGroupsCollection?: DocsInWtGroups[];
 }
 
 /**
@@ -63,7 +63,7 @@ export function createWtGroups(json: any): WtGroups {
  * WtGroupsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class WtGroupsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class WtGroupsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, WtGroups> {
   /**
    * Representation of the [[WtGroups.wtAbsEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -103,20 +103,69 @@ export class WtGroupsField<EntityT extends Entity> extends ComplexTypeField<Enti
    * Representation of the [[WtGroups.docsInWtGroupsCollection]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  docsInWtGroupsCollection: DocsInWtGroupsField<EntityT> = new DocsInWtGroupsField('DocsInWTGroupsCollection', this);
+  docsInWtGroupsCollection: CollectionField<EntityT, DocsInWtGroups> = new CollectionField('DocsInWTGroupsCollection', this, DocsInWtGroups);
+
+  /**
+   * Creates an instance of WtGroupsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, WtGroups);
+  }
 }
 
 export namespace WtGroups {
+  /**
+   * Metadata information on all properties of the `WtGroups` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<WtGroups>[] = [{
+    originalName: 'WTAbsEntry',
+    name: 'wtAbsEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Percent',
+    name: 'percent',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SumVATAmount',
+    name: 'sumVatAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SumDocTotal',
+    name: 'sumDocTotal',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SumBaseAmount',
+    name: 'sumBaseAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SumAccumAmount',
+    name: 'sumAccumAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SumPerceptAmount',
+    name: 'sumPerceptAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DocsInWTGroupsCollection',
+    name: 'docsInWtGroupsCollection',
+    type: DocsInWtGroups,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | DocsInWtGroups }): WtGroups {
-    return createComplexType(json, {
-      WTAbsEntry: (wtAbsEntry: number) => ({ wtAbsEntry: edmToTs(wtAbsEntry, 'Edm.Int32') }),
-      Percent: (percent: number) => ({ percent: edmToTs(percent, 'Edm.Double') }),
-      SumVATAmount: (sumVatAmount: number) => ({ sumVatAmount: edmToTs(sumVatAmount, 'Edm.Double') }),
-      SumDocTotal: (sumDocTotal: number) => ({ sumDocTotal: edmToTs(sumDocTotal, 'Edm.Double') }),
-      SumBaseAmount: (sumBaseAmount: number) => ({ sumBaseAmount: edmToTs(sumBaseAmount, 'Edm.Double') }),
-      SumAccumAmount: (sumAccumAmount: number) => ({ sumAccumAmount: edmToTs(sumAccumAmount, 'Edm.Double') }),
-      SumPerceptAmount: (sumPerceptAmount: number) => ({ sumPerceptAmount: edmToTs(sumPerceptAmount, 'Edm.Double') }),
-      DocsInWTGroupsCollection: (docsInWtGroupsCollection: DocsInWtGroups) => ({ docsInWtGroupsCollection: DocsInWtGroups.build(docsInWtGroupsCollection) })
-    });
+    return deserializeComplexTypeV4(json, WtGroups);
   }
 }

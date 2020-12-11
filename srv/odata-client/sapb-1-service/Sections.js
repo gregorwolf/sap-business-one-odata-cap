@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.Sections = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var SectionsRequestBuilder_1 = require("./SectionsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "Sections" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var Sections = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `Sections`.
+     * Returns an entity builder to construct instances of `Sections`.
      * @returns A builder that constructs instances of entity type `Sections`.
      */
     Sections.builder = function () {
-        return v4_1.Entity.entityBuilder(Sections);
+        return core_1.EntityV4.entityBuilder(Sections);
     };
     /**
      * Returns a request builder to construct requests for operations on the `Sections` entity type.
@@ -60,7 +60,7 @@ var Sections = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `Sections`.
      */
     Sections.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, Sections);
+        return core_1.EntityV4.customFieldSelector(fieldName, Sections);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var Sections = /** @class */ (function (_super) {
      */
     Sections._entityName = 'Sections';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Sections.
-     */
-    Sections._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    Sections._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    Sections._defaultServicePath = '/b1s/v2/';
     return Sections;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.Sections = Sections;
 var CertificateSeries_1 = require("./CertificateSeries");
 var WithholdingTaxCodes_1 = require("./WithholdingTaxCodes");
@@ -92,32 +87,32 @@ var WithholdingTaxCodes_1 = require("./WithholdingTaxCodes");
      * Static representation of the [[absEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Sections.ABS_ENTRY = new v4_1.NumberField('AbsEntry', Sections, 'Edm.Int32');
+    Sections.ABS_ENTRY = new core_1.NumberField('AbsEntry', Sections, 'Edm.Int32');
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Sections.CODE = new v4_1.StringField('Code', Sections, 'Edm.String');
+    Sections.CODE = new core_1.StringField('Code', Sections, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Sections.DESCRIPTION = new v4_1.StringField('Description', Sections, 'Edm.String');
+    Sections.DESCRIPTION = new core_1.StringField('Description', Sections, 'Edm.String');
     /**
      * Static representation of the [[eCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Sections.E_CODE = new v4_1.StringField('ECode', Sections, 'Edm.String');
+    Sections.E_CODE = new core_1.StringField('ECode', Sections, 'Edm.String');
     /**
      * Static representation of the one-to-many navigation property [[certificateSeries]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Sections.CERTIFICATE_SERIES = new v4_1.OneToManyLink('CertificateSeries', Sections, CertificateSeries_1.CertificateSeries);
+    Sections.CERTIFICATE_SERIES = new core_1.OneToManyLink('CertificateSeries', Sections, CertificateSeries_1.CertificateSeries);
     /**
      * Static representation of the one-to-many navigation property [[withholdingTaxCodes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Sections.WITHHOLDING_TAX_CODES = new v4_1.OneToManyLink('WithholdingTaxCodes', Sections, WithholdingTaxCodes_1.WithholdingTaxCodes);
+    Sections.WITHHOLDING_TAX_CODES = new core_1.OneToManyLink('WithholdingTaxCodes', Sections, WithholdingTaxCodes_1.WithholdingTaxCodes);
     /**
      * All fields of the Sections entity.
      */
@@ -132,7 +127,7 @@ var WithholdingTaxCodes_1 = require("./WithholdingTaxCodes");
     /**
      * All fields selector.
      */
-    Sections.ALL_FIELDS = new v4_1.AllFields('*', Sections);
+    Sections.ALL_FIELDS = new core_1.AllFields('*', Sections);
     /**
      * All key fields of the Sections entity.
      */

@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, Entity, FieldType, Time, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, Time, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * RouteStageParams
@@ -53,7 +53,7 @@ export function createRouteStageParams(json: any): RouteStageParams {
  * RouteStageParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class RouteStageParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class RouteStageParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, RouteStageParams> {
   /**
    * Representation of the [[RouteStageParams.internalNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -84,17 +84,58 @@ export class RouteStageParamsField<EntityT extends Entity> extends ComplexTypeFi
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   dateOfUpdate: ComplexTypeDatePropertyField<EntityT> = new ComplexTypeDatePropertyField('DateOfUpdate', this, 'Edm.DateTimeOffset');
+
+  /**
+   * Creates an instance of RouteStageParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, RouteStageParams);
+  }
 }
 
 export namespace RouteStageParams {
+  /**
+   * Metadata information on all properties of the `RouteStageParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<RouteStageParams>[] = [{
+    originalName: 'InternalNumber',
+    name: 'internalNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Code',
+    name: 'code',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Description',
+    name: 'description',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CreationDate',
+    name: 'creationDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'GenerationTime',
+    name: 'generationTime',
+    type: 'Edm.TimeOfDay',
+    isCollection: false
+  }, {
+    originalName: 'DateOfUpdate',
+    name: 'dateOfUpdate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): RouteStageParams {
-    return createComplexType(json, {
-      InternalNumber: (internalNumber: number) => ({ internalNumber: edmToTs(internalNumber, 'Edm.Int32') }),
-      Code: (code: string) => ({ code: edmToTs(code, 'Edm.String') }),
-      Description: (description: string) => ({ description: edmToTs(description, 'Edm.String') }),
-      CreationDate: (creationDate: Moment) => ({ creationDate: edmToTs(creationDate, 'Edm.DateTimeOffset') }),
-      GenerationTime: (generationTime: Time) => ({ generationTime: edmToTs(generationTime, 'Edm.TimeOfDay') }),
-      DateOfUpdate: (dateOfUpdate: Moment) => ({ dateOfUpdate: edmToTs(dateOfUpdate, 'Edm.DateTimeOffset') })
-    });
+    return deserializeComplexTypeV4(json, RouteStageParams);
   }
 }

@@ -2,20 +2,20 @@ import { AssetRetirementRequestBuilder } from './AssetRetirementRequestBuilder';
 import { Moment } from 'moment';
 import { AssetDocumentLine } from './AssetDocumentLine';
 import { AssetDocumentAreaJournal } from './AssetDocumentAreaJournal';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AssetDocumentStatusEnum } from './AssetDocumentStatusEnum';
+import { AssetDocumentTypeEnum } from './AssetDocumentTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ClosingOptionEnum } from './ClosingOptionEnum';
+import { AssetOriginalTypeEnum } from './AssetOriginalTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "AssetRetirement" of service "SAPB1".
  */
-export declare class AssetRetirement extends Entity implements AssetRetirementType {
+export declare class AssetRetirement extends EntityV4 implements AssetRetirementType {
     /**
      * Technical entity name for AssetRetirement.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for AssetRetirement.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -45,6 +45,11 @@ export declare class AssetRetirement extends Entity implements AssetRetirementTy
      * @nullable
      */
     documentDate?: Moment;
+    /**
+     * Status.
+     * @nullable
+     */
+    status?: AssetDocumentStatusEnum;
     /**
      * Remarks.
      * @nullable
@@ -86,10 +91,30 @@ export declare class AssetRetirement extends Entity implements AssetRetirementTy
      */
     assetValueDate?: Moment;
     /**
+     * Document Type.
+     * @nullable
+     */
+    documentType?: AssetDocumentTypeEnum;
+    /**
+     * Summerize By Projects.
+     * @nullable
+     */
+    summerizeByProjects?: BoYesNoEnum;
+    /**
+     * Summerize By Distribution Rules.
+     * @nullable
+     */
+    summerizeByDistributionRules?: BoYesNoEnum;
+    /**
      * Manual Depreciation Type.
      * @nullable
      */
     manualDepreciationType?: string;
+    /**
+     * Hand Written.
+     * @nullable
+     */
+    handWritten?: BoYesNoEnum;
     /**
      * Cancellation Date.
      * @nullable
@@ -110,6 +135,21 @@ export declare class AssetRetirement extends Entity implements AssetRetirementTy
      * @nullable
      */
     origin?: number;
+    /**
+     * Low Value Asset Retirement.
+     * @nullable
+     */
+    lowValueAssetRetirement?: BoYesNoEnum;
+    /**
+     * Cancellation Option.
+     * @nullable
+     */
+    cancellationOption?: ClosingOptionEnum;
+    /**
+     * Original Type.
+     * @nullable
+     */
+    originalType?: AssetOriginalTypeEnum;
     /**
      * Base Reference.
      * @nullable
@@ -152,10 +192,10 @@ export declare class AssetRetirement extends Entity implements AssetRetirementTy
      */
     businessPlace: BusinessPlaces;
     /**
-     * Returns an entity builder to construct instances `AssetRetirement`.
+     * Returns an entity builder to construct instances of `AssetRetirement`.
      * @returns A builder that constructs instances of entity type `AssetRetirement`.
      */
-    static builder(): EntityBuilderType<AssetRetirement, AssetRetirementTypeForceMandatory>;
+    static builder(): EntityBuilderType<AssetRetirement, AssetRetirementType>;
     /**
      * Returns a request builder to construct requests for operations on the `AssetRetirement` entity type.
      * @returns A `AssetRetirement` request builder.
@@ -166,7 +206,7 @@ export declare class AssetRetirement extends Entity implements AssetRetirementTy
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `AssetRetirement`.
      */
-    static customField(fieldName: string): CustomField<AssetRetirement>;
+    static customField(fieldName: string): CustomFieldV4<AssetRetirement>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -180,58 +220,37 @@ import { DepreciationTypes, DepreciationTypesType } from './DepreciationTypes';
 import { DepreciationAreas, DepreciationAreasType } from './DepreciationAreas';
 import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 export interface AssetRetirementType {
-    docEntry?: number;
-    docNum?: number;
-    series?: number;
-    postingDate?: Moment;
-    documentDate?: Moment;
-    remarks?: string;
-    reference?: string;
-    currency?: string;
-    documentRate?: number;
-    documentTotal?: number;
-    documentTotalFc?: number;
-    documentTotalSc?: number;
-    assetValueDate?: Moment;
-    manualDepreciationType?: string;
-    cancellationDate?: Moment;
-    depreciationArea?: string;
-    bplId?: number;
-    origin?: number;
-    baseReference?: string;
-    bplName?: string;
-    vatRegNum?: string;
-    assetDocumentLineCollection?: AssetDocumentLine[];
-    assetDocumentAreaJournalCollection?: AssetDocumentAreaJournal[];
-    currency2: CurrenciesType;
-    depreciationType: DepreciationTypesType;
-    depreciationArea2: DepreciationAreasType;
-    businessPlace: BusinessPlacesType;
-}
-export interface AssetRetirementTypeForceMandatory {
-    docEntry: number;
-    docNum: number;
-    series: number;
-    postingDate: Moment;
-    documentDate: Moment;
-    remarks: string;
-    reference: string;
-    currency: string;
-    documentRate: number;
-    documentTotal: number;
-    documentTotalFc: number;
-    documentTotalSc: number;
-    assetValueDate: Moment;
-    manualDepreciationType: string;
-    cancellationDate: Moment;
-    depreciationArea: string;
-    bplId: number;
-    origin: number;
-    baseReference: string;
-    bplName: string;
-    vatRegNum: string;
-    assetDocumentLineCollection: AssetDocumentLine[];
-    assetDocumentAreaJournalCollection: AssetDocumentAreaJournal[];
+    docEntry?: number | null;
+    docNum?: number | null;
+    series?: number | null;
+    postingDate?: Moment | null;
+    documentDate?: Moment | null;
+    status?: AssetDocumentStatusEnum | null;
+    remarks?: string | null;
+    reference?: string | null;
+    currency?: string | null;
+    documentRate?: number | null;
+    documentTotal?: number | null;
+    documentTotalFc?: number | null;
+    documentTotalSc?: number | null;
+    assetValueDate?: Moment | null;
+    documentType?: AssetDocumentTypeEnum | null;
+    summerizeByProjects?: BoYesNoEnum | null;
+    summerizeByDistributionRules?: BoYesNoEnum | null;
+    manualDepreciationType?: string | null;
+    handWritten?: BoYesNoEnum | null;
+    cancellationDate?: Moment | null;
+    depreciationArea?: string | null;
+    bplId?: number | null;
+    origin?: number | null;
+    lowValueAssetRetirement?: BoYesNoEnum | null;
+    cancellationOption?: ClosingOptionEnum | null;
+    originalType?: AssetOriginalTypeEnum | null;
+    baseReference?: string | null;
+    bplName?: string | null;
+    vatRegNum?: string | null;
+    assetDocumentLineCollection?: AssetDocumentLine[] | null;
+    assetDocumentAreaJournalCollection?: AssetDocumentAreaJournal[] | null;
     currency2: CurrenciesType;
     depreciationType: DepreciationTypesType;
     depreciationArea2: DepreciationAreasType;
@@ -263,6 +282,11 @@ export declare namespace AssetRetirement {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DOCUMENT_DATE: DateField<AssetRetirement>;
+    /**
+     * Static representation of the [[status]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const STATUS: EnumField<AssetRetirement>;
     /**
      * Static representation of the [[remarks]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -304,10 +328,30 @@ export declare namespace AssetRetirement {
      */
     const ASSET_VALUE_DATE: DateField<AssetRetirement>;
     /**
+     * Static representation of the [[documentType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DOCUMENT_TYPE: EnumField<AssetRetirement>;
+    /**
+     * Static representation of the [[summerizeByProjects]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SUMMERIZE_BY_PROJECTS: EnumField<AssetRetirement>;
+    /**
+     * Static representation of the [[summerizeByDistributionRules]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SUMMERIZE_BY_DISTRIBUTION_RULES: EnumField<AssetRetirement>;
+    /**
      * Static representation of the [[manualDepreciationType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const MANUAL_DEPRECIATION_TYPE: StringField<AssetRetirement>;
+    /**
+     * Static representation of the [[handWritten]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const HAND_WRITTEN: EnumField<AssetRetirement>;
     /**
      * Static representation of the [[cancellationDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -329,6 +373,21 @@ export declare namespace AssetRetirement {
      */
     const ORIGIN: NumberField<AssetRetirement>;
     /**
+     * Static representation of the [[lowValueAssetRetirement]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const LOW_VALUE_ASSET_RETIREMENT: EnumField<AssetRetirement>;
+    /**
+     * Static representation of the [[cancellationOption]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CANCELLATION_OPTION: EnumField<AssetRetirement>;
+    /**
+     * Static representation of the [[originalType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ORIGINAL_TYPE: EnumField<AssetRetirement>;
+    /**
      * Static representation of the [[baseReference]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -347,12 +406,12 @@ export declare namespace AssetRetirement {
      * Static representation of the [[assetDocumentLineCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const ASSET_DOCUMENT_LINE_COLLECTION: CollectionField<AssetRetirement>;
+    const ASSET_DOCUMENT_LINE_COLLECTION: CollectionField<AssetRetirement, AssetDocumentLine>;
     /**
      * Static representation of the [[assetDocumentAreaJournalCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const ASSET_DOCUMENT_AREA_JOURNAL_COLLECTION: CollectionField<AssetRetirement>;
+    const ASSET_DOCUMENT_AREA_JOURNAL_COLLECTION: CollectionField<AssetRetirement, AssetDocumentAreaJournal>;
     /**
      * Static representation of the one-to-one navigation property [[currency2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -376,7 +435,7 @@ export declare namespace AssetRetirement {
     /**
      * All fields of the AssetRetirement entity.
      */
-    const _allFields: Array<NumberField<AssetRetirement> | DateField<AssetRetirement> | StringField<AssetRetirement> | CollectionField<AssetRetirement> | OneToOneLink<AssetRetirement, Currencies> | OneToOneLink<AssetRetirement, DepreciationTypes> | OneToOneLink<AssetRetirement, DepreciationAreas> | OneToOneLink<AssetRetirement, BusinessPlaces>>;
+    const _allFields: Array<NumberField<AssetRetirement> | DateField<AssetRetirement> | EnumField<AssetRetirement> | StringField<AssetRetirement> | CollectionField<AssetRetirement, AssetDocumentLine> | CollectionField<AssetRetirement, AssetDocumentAreaJournal> | OneToOneLink<AssetRetirement, Currencies> | OneToOneLink<AssetRetirement, DepreciationTypes> | OneToOneLink<AssetRetirement, DepreciationAreas> | OneToOneLink<AssetRetirement, BusinessPlaces>>;
     /**
      * All fields selector.
      */

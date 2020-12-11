@@ -4,9 +4,9 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ProgressiveTaxLine, ProgressiveTaxLineField } from './ProgressiveTaxLine';
-import { WithholdingTaxCodesValueRange_Line, WithholdingTaxCodesValueRange_LineField } from './WithholdingTaxCodesValueRange_Line';
-import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ProgressiveTaxLine } from './ProgressiveTaxLine';
+import { WithholdingTaxCodesValueRange_Line } from './WithholdingTaxCodesValueRange_Line';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * WithholdingTaxCodesLine
@@ -76,12 +76,12 @@ export interface WithholdingTaxCodesLine {
    * Progressive Tax Lines.
    * @nullable
    */
-  progressiveTaxLines?: ProgressiveTaxLine;
+  progressiveTaxLines?: ProgressiveTaxLine[];
   /**
    * Withholding Tax Codes Value Range Lines.
    * @nullable
    */
-  withholdingTaxCodesValueRangeLines?: WithholdingTaxCodesValueRange_Line;
+  withholdingTaxCodesValueRangeLines?: WithholdingTaxCodesValueRange_Line[];
 }
 
 /**
@@ -95,7 +95,7 @@ export function createWithholdingTaxCodesLine(json: any): WithholdingTaxCodesLin
  * WithholdingTaxCodesLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class WithholdingTaxCodesLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class WithholdingTaxCodesLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, WithholdingTaxCodesLine> {
   /**
    * Representation of the [[WithholdingTaxCodesLine.effectivefrom]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -160,31 +160,104 @@ export class WithholdingTaxCodesLineField<EntityT extends Entity> extends Comple
    * Representation of the [[WithholdingTaxCodesLine.progressiveTaxLines]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  progressiveTaxLines: ProgressiveTaxLineField<EntityT> = new ProgressiveTaxLineField('ProgressiveTax_Lines', this);
+  progressiveTaxLines: CollectionField<EntityT, ProgressiveTaxLine> = new CollectionField('ProgressiveTax_Lines', this, ProgressiveTaxLine);
   /**
    * Representation of the [[WithholdingTaxCodesLine.withholdingTaxCodesValueRangeLines]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  withholdingTaxCodesValueRangeLines: WithholdingTaxCodesValueRange_LineField<EntityT> = new WithholdingTaxCodesValueRange_LineField('WithholdingTaxCodes_ValueRange_Lines', this);
+  withholdingTaxCodesValueRangeLines: CollectionField<EntityT, WithholdingTaxCodesValueRange_Line> = new CollectionField('WithholdingTaxCodes_ValueRange_Lines', this, WithholdingTaxCodesValueRange_Line);
+
+  /**
+   * Creates an instance of WithholdingTaxCodesLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, WithholdingTaxCodesLine);
+  }
 }
 
 export namespace WithholdingTaxCodesLine {
+  /**
+   * Metadata information on all properties of the `WithholdingTaxCodesLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<WithholdingTaxCodesLine>[] = [{
+    originalName: 'Effectivefrom',
+    name: 'effectivefrom',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Rate',
+    name: 'rate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TDSRate',
+    name: 'tdsRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SurchargeRate',
+    name: 'surchargeRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CessRate',
+    name: 'cessRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'HSCRate',
+    name: 'hscRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'IGSTRate',
+    name: 'igstRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CGSTRate',
+    name: 'cgstRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SGSTRate',
+    name: 'sgstRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'UTGSTRate',
+    name: 'utgstRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CessGSTRate',
+    name: 'cessGstRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ProgressiveTax_Lines',
+    name: 'progressiveTaxLines',
+    type: ProgressiveTaxLine,
+    isCollection: true
+  }, {
+    originalName: 'WithholdingTaxCodes_ValueRange_Lines',
+    name: 'withholdingTaxCodesValueRangeLines',
+    type: WithholdingTaxCodesValueRange_Line,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | ProgressiveTaxLine | WithholdingTaxCodesValueRange_Line }): WithholdingTaxCodesLine {
-    return createComplexType(json, {
-      Effectivefrom: (effectivefrom: Moment) => ({ effectivefrom: edmToTs(effectivefrom, 'Edm.DateTimeOffset') }),
-      Rate: (rate: number) => ({ rate: edmToTs(rate, 'Edm.Double') }),
-      TDSRate: (tdsRate: number) => ({ tdsRate: edmToTs(tdsRate, 'Edm.Double') }),
-      SurchargeRate: (surchargeRate: number) => ({ surchargeRate: edmToTs(surchargeRate, 'Edm.Double') }),
-      CessRate: (cessRate: number) => ({ cessRate: edmToTs(cessRate, 'Edm.Double') }),
-      HSCRate: (hscRate: number) => ({ hscRate: edmToTs(hscRate, 'Edm.Double') }),
-      IGSTRate: (igstRate: number) => ({ igstRate: edmToTs(igstRate, 'Edm.Double') }),
-      CGSTRate: (cgstRate: number) => ({ cgstRate: edmToTs(cgstRate, 'Edm.Double') }),
-      SGSTRate: (sgstRate: number) => ({ sgstRate: edmToTs(sgstRate, 'Edm.Double') }),
-      UTGSTRate: (utgstRate: number) => ({ utgstRate: edmToTs(utgstRate, 'Edm.Double') }),
-      CessGSTRate: (cessGstRate: number) => ({ cessGstRate: edmToTs(cessGstRate, 'Edm.Double') }),
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      ProgressiveTax_Lines: (progressiveTaxLines: ProgressiveTaxLine) => ({ progressiveTaxLines: ProgressiveTaxLine.build(progressiveTaxLines) }),
-      WithholdingTaxCodes_ValueRange_Lines: (withholdingTaxCodesValueRangeLines: WithholdingTaxCodesValueRange_Line) => ({ withholdingTaxCodesValueRangeLines: WithholdingTaxCodesValueRange_Line.build(withholdingTaxCodesValueRangeLines) })
-    });
+    return deserializeComplexTypeV4(json, WithholdingTaxCodesLine);
   }
 }

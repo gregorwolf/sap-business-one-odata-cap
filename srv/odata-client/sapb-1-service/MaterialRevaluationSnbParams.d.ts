@@ -1,5 +1,5 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * MaterialRevaluationSnbParams
  */
@@ -53,7 +53,7 @@ export declare function createMaterialRevaluationSnbParams(json: any): MaterialR
  * MaterialRevaluationSnbParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class MaterialRevaluationSnbParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class MaterialRevaluationSnbParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, MaterialRevaluationSnbParams> {
     /**
      * Representation of the [[MaterialRevaluationSnbParams.snbAbsEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -94,8 +94,22 @@ export declare class MaterialRevaluationSnbParamsField<EntityT extends Entity> e
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     expirationDate: ComplexTypeDatePropertyField<EntityT>;
+    /**
+     * Creates an instance of MaterialRevaluationSnbParamsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace MaterialRevaluationSnbParams {
+    /**
+     * Metadata information on all properties of the `MaterialRevaluationSnbParams` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<MaterialRevaluationSnbParams>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): MaterialRevaluationSnbParams;

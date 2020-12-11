@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.ServiceCallProblemTypesRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var ServiceCallProblemTypes_1 = require("./ServiceCallProblemTypes");
 /**
  * Request builder class for operations supported on the [[ServiceCallProblemTypes]] entity.
@@ -35,14 +35,14 @@ var ServiceCallProblemTypesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `ServiceCallProblemTypes` entity based on its keys.
      */
     ServiceCallProblemTypesRequestBuilder.prototype.getByKey = function (problemTypeId) {
-        return new v4_1.GetByKeyRequestBuilder(ServiceCallProblemTypes_1.ServiceCallProblemTypes, { ProblemTypeID: problemTypeId });
+        return new core_1.GetByKeyRequestBuilderV4(ServiceCallProblemTypes_1.ServiceCallProblemTypes, { ProblemTypeID: problemTypeId });
     };
     /**
      * Returns a request builder for querying all `ServiceCallProblemTypes` entities.
      * @returns A request builder for creating requests to retrieve all `ServiceCallProblemTypes` entities.
      */
     ServiceCallProblemTypesRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(ServiceCallProblemTypes_1.ServiceCallProblemTypes);
+        return new core_1.GetAllRequestBuilderV4(ServiceCallProblemTypes_1.ServiceCallProblemTypes);
     };
     /**
      * Returns a request builder for creating a `ServiceCallProblemTypes` entity.
@@ -50,7 +50,7 @@ var ServiceCallProblemTypesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `ServiceCallProblemTypes`.
      */
     ServiceCallProblemTypesRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(ServiceCallProblemTypes_1.ServiceCallProblemTypes, entity);
+        return new core_1.CreateRequestBuilderV4(ServiceCallProblemTypes_1.ServiceCallProblemTypes, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `ServiceCallProblemTypes`.
@@ -58,12 +58,12 @@ var ServiceCallProblemTypesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `ServiceCallProblemTypes`.
      */
     ServiceCallProblemTypesRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(ServiceCallProblemTypes_1.ServiceCallProblemTypes, entity);
+        return new core_1.UpdateRequestBuilderV4(ServiceCallProblemTypes_1.ServiceCallProblemTypes, entity);
     };
     ServiceCallProblemTypesRequestBuilder.prototype.delete = function (problemTypeIdOrEntity) {
-        return new v4_1.DeleteRequestBuilder(ServiceCallProblemTypes_1.ServiceCallProblemTypes, problemTypeIdOrEntity instanceof ServiceCallProblemTypes_1.ServiceCallProblemTypes ? problemTypeIdOrEntity : { ProblemTypeID: problemTypeIdOrEntity });
+        return new core_1.DeleteRequestBuilderV4(ServiceCallProblemTypes_1.ServiceCallProblemTypes, problemTypeIdOrEntity instanceof ServiceCallProblemTypes_1.ServiceCallProblemTypes ? problemTypeIdOrEntity : { ProblemTypeID: problemTypeIdOrEntity });
     };
     return ServiceCallProblemTypesRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.ServiceCallProblemTypesRequestBuilder = ServiceCallProblemTypesRequestBuilder;
 //# sourceMappingURL=ServiceCallProblemTypesRequestBuilder.js.map

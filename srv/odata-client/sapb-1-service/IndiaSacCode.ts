@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { IndiaSacCodeRequestBuilder } from './IndiaSacCodeRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "IndiaSacCode" of service "SAPB1".
  */
-export class IndiaSacCode extends Entity implements IndiaSacCodeType {
+export class IndiaSacCode extends EntityV4 implements IndiaSacCodeType {
   /**
    * Technical entity name for IndiaSacCode.
    */
   static _entityName = 'IndiaSacCode';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for IndiaSacCode.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Abs Entry.
    * @nullable
@@ -44,11 +39,11 @@ export class IndiaSacCode extends Entity implements IndiaSacCodeType {
   items!: Items[];
 
   /**
-   * Returns an entity builder to construct instances `IndiaSacCode`.
+   * Returns an entity builder to construct instances of `IndiaSacCode`.
    * @returns A builder that constructs instances of entity type `IndiaSacCode`.
    */
-  static builder(): EntityBuilderType<IndiaSacCode, IndiaSacCodeTypeForceMandatory> {
-    return Entity.entityBuilder(IndiaSacCode);
+  static builder(): EntityBuilderType<IndiaSacCode, IndiaSacCodeType> {
+    return EntityV4.entityBuilder(IndiaSacCode);
   }
 
   /**
@@ -64,8 +59,8 @@ export class IndiaSacCode extends Entity implements IndiaSacCodeType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `IndiaSacCode`.
    */
-  static customField(fieldName: string): CustomField<IndiaSacCode> {
-    return Entity.customFieldSelector(fieldName, IndiaSacCode);
+  static customField(fieldName: string): CustomFieldV4<IndiaSacCode> {
+    return EntityV4.customFieldSelector(fieldName, IndiaSacCode);
   }
 
   /**
@@ -80,16 +75,9 @@ export class IndiaSacCode extends Entity implements IndiaSacCodeType {
 import { Items, ItemsType } from './Items';
 
 export interface IndiaSacCodeType {
-  absEntry?: number;
-  serviceCode?: string;
-  serviceName?: string;
-  items: ItemsType[];
-}
-
-export interface IndiaSacCodeTypeForceMandatory {
-  absEntry: number;
-  serviceCode: string;
-  serviceName: string;
+  absEntry?: number | null;
+  serviceCode?: string | null;
+  serviceName?: string | null;
   items: ItemsType[];
 }
 

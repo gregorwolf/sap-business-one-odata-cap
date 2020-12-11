@@ -3,10 +3,14 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { InventoryCountingLineUoM, InventoryCountingLineUoMField } from './InventoryCountingLineUoM';
-import { InventoryCountingSerialNumber, InventoryCountingSerialNumberField } from './InventoryCountingSerialNumber';
-import { InventoryCountingBatchNumber, InventoryCountingBatchNumberField } from './InventoryCountingBatchNumber';
-import { CollectionField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { InventoryCountingLineUoM } from './InventoryCountingLineUoM';
+import { InventoryCountingSerialNumber } from './InventoryCountingSerialNumber';
+import { InventoryCountingBatchNumber } from './InventoryCountingBatchNumber';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { CountingLineStatusEnum } from './CountingLineStatusEnum';
+import { CounterTypeEnum } from './CounterTypeEnum';
+import { MultipleCounterRoleEnum } from './MultipleCounterRoleEnum';
+import { CollectionField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * InventoryCountingLine
@@ -33,6 +37,11 @@ export interface InventoryCountingLine {
    */
   itemDescription?: string;
   /**
+   * Freeze.
+   * @nullable
+   */
+  freeze?: BoYesNoEnum;
+  /**
    * Warehouse Code.
    * @nullable
    */
@@ -47,6 +56,11 @@ export interface InventoryCountingLine {
    * @nullable
    */
   inWarehouseQuantity?: number;
+  /**
+   * Counted.
+   * @nullable
+   */
+  counted?: BoYesNoEnum;
   /**
    * Uo M Code.
    * @nullable
@@ -158,25 +172,40 @@ export interface InventoryCountingLine {
    */
   remarks?: string;
   /**
+   * Line Status.
+   * @nullable
+   */
+  lineStatus?: CountingLineStatusEnum;
+  /**
+   * Counter Type.
+   * @nullable
+   */
+  counterType?: CounterTypeEnum;
+  /**
    * Counter Id.
    * @nullable
    */
   counterId?: number;
   /**
+   * Multiple Counter Role.
+   * @nullable
+   */
+  multipleCounterRole?: MultipleCounterRoleEnum;
+  /**
    * Inventory Counting Line Uo Ms.
    * @nullable
    */
-  inventoryCountingLineUoMs?: InventoryCountingLineUoM;
+  inventoryCountingLineUoMs?: InventoryCountingLineUoM[];
   /**
    * Inventory Counting Serial Numbers.
    * @nullable
    */
-  inventoryCountingSerialNumbers?: InventoryCountingSerialNumber;
+  inventoryCountingSerialNumbers?: InventoryCountingSerialNumber[];
   /**
    * Inventory Counting Batch Numbers.
    * @nullable
    */
-  inventoryCountingBatchNumbers?: InventoryCountingBatchNumber;
+  inventoryCountingBatchNumbers?: InventoryCountingBatchNumber[];
 }
 
 /**
@@ -190,7 +219,7 @@ export function createInventoryCountingLine(json: any): InventoryCountingLine {
  * InventoryCountingLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class InventoryCountingLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class InventoryCountingLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, InventoryCountingLine> {
   /**
    * Representation of the [[InventoryCountingLine.documentEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -212,6 +241,11 @@ export class InventoryCountingLineField<EntityT extends Entity> extends ComplexT
    */
   itemDescription: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('ItemDescription', this, 'Edm.String');
   /**
+   * Representation of the [[InventoryCountingLine.freeze]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  freeze: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Freeze', this);
+  /**
    * Representation of the [[InventoryCountingLine.warehouseCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -226,6 +260,11 @@ export class InventoryCountingLineField<EntityT extends Entity> extends ComplexT
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   inWarehouseQuantity: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('InWarehouseQuantity', this, 'Edm.Double');
+  /**
+   * Representation of the [[InventoryCountingLine.counted]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  counted: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Counted', this);
   /**
    * Representation of the [[InventoryCountingLine.uoMCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -337,63 +376,252 @@ export class InventoryCountingLineField<EntityT extends Entity> extends ComplexT
    */
   remarks: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Remarks', this, 'Edm.String');
   /**
+   * Representation of the [[InventoryCountingLine.lineStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  lineStatus: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('LineStatus', this);
+  /**
+   * Representation of the [[InventoryCountingLine.counterType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  counterType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CounterType', this);
+  /**
    * Representation of the [[InventoryCountingLine.counterId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   counterId: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('CounterID', this, 'Edm.Int32');
   /**
+   * Representation of the [[InventoryCountingLine.multipleCounterRole]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  multipleCounterRole: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('MultipleCounterRole', this);
+  /**
    * Representation of the [[InventoryCountingLine.inventoryCountingLineUoMs]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  inventoryCountingLineUoMs: InventoryCountingLineUoMField<EntityT> = new InventoryCountingLineUoMField('InventoryCountingLineUoMs', this);
+  inventoryCountingLineUoMs: CollectionField<EntityT, InventoryCountingLineUoM> = new CollectionField('InventoryCountingLineUoMs', this, InventoryCountingLineUoM);
   /**
    * Representation of the [[InventoryCountingLine.inventoryCountingSerialNumbers]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  inventoryCountingSerialNumbers: InventoryCountingSerialNumberField<EntityT> = new InventoryCountingSerialNumberField('InventoryCountingSerialNumbers', this);
+  inventoryCountingSerialNumbers: CollectionField<EntityT, InventoryCountingSerialNumber> = new CollectionField('InventoryCountingSerialNumbers', this, InventoryCountingSerialNumber);
   /**
    * Representation of the [[InventoryCountingLine.inventoryCountingBatchNumbers]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  inventoryCountingBatchNumbers: InventoryCountingBatchNumberField<EntityT> = new InventoryCountingBatchNumberField('InventoryCountingBatchNumbers', this);
+  inventoryCountingBatchNumbers: CollectionField<EntityT, InventoryCountingBatchNumber> = new CollectionField('InventoryCountingBatchNumbers', this, InventoryCountingBatchNumber);
+
+  /**
+   * Creates an instance of InventoryCountingLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, InventoryCountingLine);
+  }
 }
 
 export namespace InventoryCountingLine {
+  /**
+   * Metadata information on all properties of the `InventoryCountingLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<InventoryCountingLine>[] = [{
+    originalName: 'DocumentEntry',
+    name: 'documentEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ItemCode',
+    name: 'itemCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemDescription',
+    name: 'itemDescription',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Freeze',
+    name: 'freeze',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'WarehouseCode',
+    name: 'warehouseCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BinEntry',
+    name: 'binEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'InWarehouseQuantity',
+    name: 'inWarehouseQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Counted',
+    name: 'counted',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'UoMCode',
+    name: 'uoMCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BarCode',
+    name: 'barCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UoMCountedQuantity',
+    name: 'uoMCountedQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ItemsPerUnit',
+    name: 'itemsPerUnit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CountedQuantity',
+    name: 'countedQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Variance',
+    name: 'variance',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'VariancePercentage',
+    name: 'variancePercentage',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'VisualOrder',
+    name: 'visualOrder',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TargetEntry',
+    name: 'targetEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TargetLine',
+    name: 'targetLine',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TargetType',
+    name: 'targetType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TargetReference',
+    name: 'targetReference',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ProjectCode',
+    name: 'projectCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Manufacturer',
+    name: 'manufacturer',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SupplierCatalogNo',
+    name: 'supplierCatalogNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PreferredVendor',
+    name: 'preferredVendor',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode',
+    name: 'costingCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode2',
+    name: 'costingCode2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode3',
+    name: 'costingCode3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode4',
+    name: 'costingCode4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode5',
+    name: 'costingCode5',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Remarks',
+    name: 'remarks',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LineStatus',
+    name: 'lineStatus',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CounterType',
+    name: 'counterType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CounterID',
+    name: 'counterId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'MultipleCounterRole',
+    name: 'multipleCounterRole',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'InventoryCountingLineUoMs',
+    name: 'inventoryCountingLineUoMs',
+    type: InventoryCountingLineUoM,
+    isCollection: true
+  }, {
+    originalName: 'InventoryCountingSerialNumbers',
+    name: 'inventoryCountingSerialNumbers',
+    type: InventoryCountingSerialNumber,
+    isCollection: true
+  }, {
+    originalName: 'InventoryCountingBatchNumbers',
+    name: 'inventoryCountingBatchNumbers',
+    type: InventoryCountingBatchNumber,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | InventoryCountingBatchNumber | InventoryCountingLineUoM | InventoryCountingSerialNumber }): InventoryCountingLine {
-    return createComplexType(json, {
-      DocumentEntry: (documentEntry: number) => ({ documentEntry: edmToTs(documentEntry, 'Edm.Int32') }),
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      ItemCode: (itemCode: string) => ({ itemCode: edmToTs(itemCode, 'Edm.String') }),
-      ItemDescription: (itemDescription: string) => ({ itemDescription: edmToTs(itemDescription, 'Edm.String') }),
-      WarehouseCode: (warehouseCode: string) => ({ warehouseCode: edmToTs(warehouseCode, 'Edm.String') }),
-      BinEntry: (binEntry: number) => ({ binEntry: edmToTs(binEntry, 'Edm.Int32') }),
-      InWarehouseQuantity: (inWarehouseQuantity: number) => ({ inWarehouseQuantity: edmToTs(inWarehouseQuantity, 'Edm.Double') }),
-      UoMCode: (uoMCode: string) => ({ uoMCode: edmToTs(uoMCode, 'Edm.String') }),
-      BarCode: (barCode: string) => ({ barCode: edmToTs(barCode, 'Edm.String') }),
-      UoMCountedQuantity: (uoMCountedQuantity: number) => ({ uoMCountedQuantity: edmToTs(uoMCountedQuantity, 'Edm.Double') }),
-      ItemsPerUnit: (itemsPerUnit: number) => ({ itemsPerUnit: edmToTs(itemsPerUnit, 'Edm.Double') }),
-      CountedQuantity: (countedQuantity: number) => ({ countedQuantity: edmToTs(countedQuantity, 'Edm.Double') }),
-      Variance: (variance: number) => ({ variance: edmToTs(variance, 'Edm.Double') }),
-      VariancePercentage: (variancePercentage: number) => ({ variancePercentage: edmToTs(variancePercentage, 'Edm.Double') }),
-      VisualOrder: (visualOrder: number) => ({ visualOrder: edmToTs(visualOrder, 'Edm.Int32') }),
-      TargetEntry: (targetEntry: number) => ({ targetEntry: edmToTs(targetEntry, 'Edm.Int32') }),
-      TargetLine: (targetLine: number) => ({ targetLine: edmToTs(targetLine, 'Edm.Int32') }),
-      TargetType: (targetType: number) => ({ targetType: edmToTs(targetType, 'Edm.Int32') }),
-      TargetReference: (targetReference: string) => ({ targetReference: edmToTs(targetReference, 'Edm.String') }),
-      ProjectCode: (projectCode: string) => ({ projectCode: edmToTs(projectCode, 'Edm.String') }),
-      Manufacturer: (manufacturer: number) => ({ manufacturer: edmToTs(manufacturer, 'Edm.Int32') }),
-      SupplierCatalogNo: (supplierCatalogNo: string) => ({ supplierCatalogNo: edmToTs(supplierCatalogNo, 'Edm.String') }),
-      PreferredVendor: (preferredVendor: string) => ({ preferredVendor: edmToTs(preferredVendor, 'Edm.String') }),
-      CostingCode: (costingCode: string) => ({ costingCode: edmToTs(costingCode, 'Edm.String') }),
-      CostingCode2: (costingCode2: string) => ({ costingCode2: edmToTs(costingCode2, 'Edm.String') }),
-      CostingCode3: (costingCode3: string) => ({ costingCode3: edmToTs(costingCode3, 'Edm.String') }),
-      CostingCode4: (costingCode4: string) => ({ costingCode4: edmToTs(costingCode4, 'Edm.String') }),
-      CostingCode5: (costingCode5: string) => ({ costingCode5: edmToTs(costingCode5, 'Edm.String') }),
-      Remarks: (remarks: string) => ({ remarks: edmToTs(remarks, 'Edm.String') }),
-      CounterID: (counterId: number) => ({ counterId: edmToTs(counterId, 'Edm.Int32') }),
-      InventoryCountingLineUoMs: (inventoryCountingLineUoMs: InventoryCountingLineUoM) => ({ inventoryCountingLineUoMs: InventoryCountingLineUoM.build(inventoryCountingLineUoMs) }),
-      InventoryCountingSerialNumbers: (inventoryCountingSerialNumbers: InventoryCountingSerialNumber) => ({ inventoryCountingSerialNumbers: InventoryCountingSerialNumber.build(inventoryCountingSerialNumbers) }),
-      InventoryCountingBatchNumbers: (inventoryCountingBatchNumbers: InventoryCountingBatchNumber) => ({ inventoryCountingBatchNumbers: InventoryCountingBatchNumber.build(inventoryCountingBatchNumbers) })
-    });
+    return deserializeComplexTypeV4(json, InventoryCountingLine);
   }
 }

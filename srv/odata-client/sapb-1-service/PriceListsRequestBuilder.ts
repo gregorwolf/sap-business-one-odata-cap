@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { PriceLists } from './PriceLists';
 
 /**
@@ -15,16 +15,16 @@ export class PriceListsRequestBuilder extends RequestBuilder<PriceLists> {
    * @param priceListNo Key property. See [[PriceLists.priceListNo]].
    * @returns A request builder for creating requests to retrieve one `PriceLists` entity based on its keys.
    */
-  getByKey(priceListNo: number): GetByKeyRequestBuilder<PriceLists> {
-    return new GetByKeyRequestBuilder(PriceLists, { PriceListNo: priceListNo });
+  getByKey(priceListNo: number): GetByKeyRequestBuilderV4<PriceLists> {
+    return new GetByKeyRequestBuilderV4(PriceLists, { PriceListNo: priceListNo });
   }
 
   /**
    * Returns a request builder for querying all `PriceLists` entities.
    * @returns A request builder for creating requests to retrieve all `PriceLists` entities.
    */
-  getAll(): GetAllRequestBuilder<PriceLists> {
-    return new GetAllRequestBuilder(PriceLists);
+  getAll(): GetAllRequestBuilderV4<PriceLists> {
+    return new GetAllRequestBuilderV4(PriceLists);
   }
 
   /**
@@ -32,8 +32,8 @@ export class PriceListsRequestBuilder extends RequestBuilder<PriceLists> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `PriceLists`.
    */
-  create(entity: PriceLists): CreateRequestBuilder<PriceLists> {
-    return new CreateRequestBuilder(PriceLists, entity);
+  create(entity: PriceLists): CreateRequestBuilderV4<PriceLists> {
+    return new CreateRequestBuilderV4(PriceLists, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class PriceListsRequestBuilder extends RequestBuilder<PriceLists> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `PriceLists`.
    */
-  update(entity: PriceLists): UpdateRequestBuilder<PriceLists> {
-    return new UpdateRequestBuilder(PriceLists, entity);
+  update(entity: PriceLists): UpdateRequestBuilderV4<PriceLists> {
+    return new UpdateRequestBuilderV4(PriceLists, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class PriceListsRequestBuilder extends RequestBuilder<PriceLists> {
    * @param priceListNo Key property. See [[PriceLists.priceListNo]].
    * @returns A request builder for creating requests that delete an entity of type `PriceLists`.
    */
-  delete(priceListNo: number): DeleteRequestBuilder<PriceLists>;
+  delete(priceListNo: number): DeleteRequestBuilderV4<PriceLists>;
   /**
    * Returns a request builder for deleting an entity of type `PriceLists`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `PriceLists` by taking the entity as a parameter.
    */
-  delete(entity: PriceLists): DeleteRequestBuilder<PriceLists>;
-  delete(priceListNoOrEntity: any): DeleteRequestBuilder<PriceLists> {
-    return new DeleteRequestBuilder(PriceLists, priceListNoOrEntity instanceof PriceLists ? priceListNoOrEntity : { PriceListNo: priceListNoOrEntity! });
+  delete(entity: PriceLists): DeleteRequestBuilderV4<PriceLists>;
+  delete(priceListNoOrEntity: any): DeleteRequestBuilderV4<PriceLists> {
+    return new DeleteRequestBuilderV4(PriceLists, priceListNoOrEntity instanceof PriceLists ? priceListNoOrEntity : { PriceListNo: priceListNoOrEntity! });
   }
 }

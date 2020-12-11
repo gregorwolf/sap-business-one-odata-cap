@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * SalesTaxCodesLine
@@ -57,7 +57,7 @@ export function createSalesTaxCodesLine(json: any): SalesTaxCodesLine {
  * SalesTaxCodesLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class SalesTaxCodesLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class SalesTaxCodesLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, SalesTaxCodesLine> {
   /**
    * Representation of the [[SalesTaxCodesLine.staTaxOnTaxType]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -93,18 +93,63 @@ export class SalesTaxCodesLineField<EntityT extends Entity> extends ComplexTypeF
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   effectiveRate: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('EffectiveRate', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of SalesTaxCodesLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, SalesTaxCodesLine);
+  }
 }
 
 export namespace SalesTaxCodesLine {
+  /**
+   * Metadata information on all properties of the `SalesTaxCodesLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<SalesTaxCodesLine>[] = [{
+    originalName: 'STATaxOnTaxType',
+    name: 'staTaxOnTaxType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'STATaxonTaxCode',
+    name: 'staTaxonTaxCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'STCCode',
+    name: 'stcCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'STAType',
+    name: 'staType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'STACode',
+    name: 'staCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RowNumber',
+    name: 'rowNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'EffectiveRate',
+    name: 'effectiveRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): SalesTaxCodesLine {
-    return createComplexType(json, {
-      STATaxOnTaxType: (staTaxOnTaxType: number) => ({ staTaxOnTaxType: edmToTs(staTaxOnTaxType, 'Edm.Int32') }),
-      STATaxonTaxCode: (staTaxonTaxCode: string) => ({ staTaxonTaxCode: edmToTs(staTaxonTaxCode, 'Edm.String') }),
-      STCCode: (stcCode: string) => ({ stcCode: edmToTs(stcCode, 'Edm.String') }),
-      STAType: (staType: number) => ({ staType: edmToTs(staType, 'Edm.Int32') }),
-      STACode: (staCode: string) => ({ staCode: edmToTs(staCode, 'Edm.String') }),
-      RowNumber: (rowNumber: number) => ({ rowNumber: edmToTs(rowNumber, 'Edm.Int32') }),
-      EffectiveRate: (effectiveRate: number) => ({ effectiveRate: edmToTs(effectiveRate, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, SalesTaxCodesLine);
   }
 }

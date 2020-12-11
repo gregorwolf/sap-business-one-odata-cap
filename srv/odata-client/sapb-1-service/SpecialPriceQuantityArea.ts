@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * SpecialPriceQuantityArea
@@ -67,7 +67,7 @@ export function createSpecialPriceQuantityArea(json: any): SpecialPriceQuantityA
  * SpecialPriceQuantityAreaField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class SpecialPriceQuantityAreaField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class SpecialPriceQuantityAreaField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, SpecialPriceQuantityArea> {
   /**
    * Representation of the [[SpecialPriceQuantityArea.quantity]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -113,20 +113,73 @@ export class SpecialPriceQuantityAreaField<EntityT extends Entity> extends Compl
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   uoMEntry: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('UoMEntry', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of SpecialPriceQuantityAreaField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, SpecialPriceQuantityArea);
+  }
 }
 
 export namespace SpecialPriceQuantityArea {
+  /**
+   * Metadata information on all properties of the `SpecialPriceQuantityArea` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<SpecialPriceQuantityArea>[] = [{
+    originalName: 'Quantity',
+    name: 'quantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SPDARowNumber',
+    name: 'spdaRowNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SpecialPrice',
+    name: 'specialPrice',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ItemNo',
+    name: 'itemNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPCode',
+    name: 'bpCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RowNumber',
+    name: 'rowNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PriceCurrency',
+    name: 'priceCurrency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Discountin',
+    name: 'discountin',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'UoMEntry',
+    name: 'uoMEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): SpecialPriceQuantityArea {
-    return createComplexType(json, {
-      Quantity: (quantity: number) => ({ quantity: edmToTs(quantity, 'Edm.Double') }),
-      SPDARowNumber: (spdaRowNumber: number) => ({ spdaRowNumber: edmToTs(spdaRowNumber, 'Edm.Int32') }),
-      SpecialPrice: (specialPrice: number) => ({ specialPrice: edmToTs(specialPrice, 'Edm.Double') }),
-      ItemNo: (itemNo: string) => ({ itemNo: edmToTs(itemNo, 'Edm.String') }),
-      BPCode: (bpCode: string) => ({ bpCode: edmToTs(bpCode, 'Edm.String') }),
-      RowNumber: (rowNumber: number) => ({ rowNumber: edmToTs(rowNumber, 'Edm.Int32') }),
-      PriceCurrency: (priceCurrency: string) => ({ priceCurrency: edmToTs(priceCurrency, 'Edm.String') }),
-      Discountin: (discountin: number) => ({ discountin: edmToTs(discountin, 'Edm.Double') }),
-      UoMEntry: (uoMEntry: number) => ({ uoMEntry: edmToTs(uoMEntry, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, SpecialPriceQuantityArea);
   }
 }

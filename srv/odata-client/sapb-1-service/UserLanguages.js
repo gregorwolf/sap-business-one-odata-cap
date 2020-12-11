@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.UserLanguages = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var UserLanguagesRequestBuilder_1 = require("./UserLanguagesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "UserLanguages" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var UserLanguages = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `UserLanguages`.
+     * Returns an entity builder to construct instances of `UserLanguages`.
      * @returns A builder that constructs instances of entity type `UserLanguages`.
      */
     UserLanguages.builder = function () {
-        return v4_1.Entity.entityBuilder(UserLanguages);
+        return core_1.EntityV4.entityBuilder(UserLanguages);
     };
     /**
      * Returns a request builder to construct requests for operations on the `UserLanguages` entity type.
@@ -60,7 +60,7 @@ var UserLanguages = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `UserLanguages`.
      */
     UserLanguages.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, UserLanguages);
+        return core_1.EntityV4.customFieldSelector(fieldName, UserLanguages);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var UserLanguages = /** @class */ (function (_super) {
      */
     UserLanguages._entityName = 'UserLanguages';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for UserLanguages.
-     */
-    UserLanguages._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    UserLanguages._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    UserLanguages._defaultServicePath = '/b1s/v2/';
     return UserLanguages;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.UserLanguages = UserLanguages;
 var InventoryGenEntries_1 = require("./InventoryGenEntries");
 var PurchaseQuotations_1 = require("./PurchaseQuotations");
@@ -115,147 +110,147 @@ var GoodsReturnRequest_1 = require("./GoodsReturnRequest");
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.CODE = new v4_1.NumberField('Code', UserLanguages, 'Edm.Int32');
+    UserLanguages.CODE = new core_1.NumberField('Code', UserLanguages, 'Edm.Int32');
     /**
      * Static representation of the [[languageShortName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.LANGUAGE_SHORT_NAME = new v4_1.StringField('LanguageShortName', UserLanguages, 'Edm.String');
+    UserLanguages.LANGUAGE_SHORT_NAME = new core_1.StringField('LanguageShortName', UserLanguages, 'Edm.String');
     /**
      * Static representation of the [[languageFullName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.LANGUAGE_FULL_NAME = new v4_1.StringField('LanguageFullName', UserLanguages, 'Edm.String');
+    UserLanguages.LANGUAGE_FULL_NAME = new core_1.StringField('LanguageFullName', UserLanguages, 'Edm.String');
     /**
      * Static representation of the [[relatedSystemLanguage]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.RELATED_SYSTEM_LANGUAGE = new v4_1.NumberField('RelatedSystemLanguage', UserLanguages, 'Edm.Int32');
+    UserLanguages.RELATED_SYSTEM_LANGUAGE = new core_1.NumberField('RelatedSystemLanguage', UserLanguages, 'Edm.Int32');
     /**
      * Static representation of the one-to-many navigation property [[inventoryGenEntries]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.INVENTORY_GEN_ENTRIES = new v4_1.OneToManyLink('InventoryGenEntries', UserLanguages, InventoryGenEntries_1.InventoryGenEntries);
+    UserLanguages.INVENTORY_GEN_ENTRIES = new core_1.OneToManyLink('InventoryGenEntries', UserLanguages, InventoryGenEntries_1.InventoryGenEntries);
     /**
      * Static representation of the one-to-many navigation property [[purchaseQuotations]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.PURCHASE_QUOTATIONS = new v4_1.OneToManyLink('PurchaseQuotations', UserLanguages, PurchaseQuotations_1.PurchaseQuotations);
+    UserLanguages.PURCHASE_QUOTATIONS = new core_1.OneToManyLink('PurchaseQuotations', UserLanguages, PurchaseQuotations_1.PurchaseQuotations);
     /**
      * Static representation of the one-to-many navigation property [[deliveryNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.DELIVERY_NOTES = new v4_1.OneToManyLink('DeliveryNotes', UserLanguages, DeliveryNotes_1.DeliveryNotes);
+    UserLanguages.DELIVERY_NOTES = new core_1.OneToManyLink('DeliveryNotes', UserLanguages, DeliveryNotes_1.DeliveryNotes);
     /**
      * Static representation of the one-to-many navigation property [[businessPartners]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.BUSINESS_PARTNERS = new v4_1.OneToManyLink('BusinessPartners', UserLanguages, BusinessPartners_1.BusinessPartners);
+    UserLanguages.BUSINESS_PARTNERS = new core_1.OneToManyLink('BusinessPartners', UserLanguages, BusinessPartners_1.BusinessPartners);
     /**
      * Static representation of the one-to-many navigation property [[quotations]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.QUOTATIONS = new v4_1.OneToManyLink('Quotations', UserLanguages, Quotations_1.Quotations);
+    UserLanguages.QUOTATIONS = new core_1.OneToManyLink('Quotations', UserLanguages, Quotations_1.Quotations);
     /**
      * Static representation of the one-to-many navigation property [[inventoryGenExits]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.INVENTORY_GEN_EXITS = new v4_1.OneToManyLink('InventoryGenExits', UserLanguages, InventoryGenExits_1.InventoryGenExits);
+    UserLanguages.INVENTORY_GEN_EXITS = new core_1.OneToManyLink('InventoryGenExits', UserLanguages, InventoryGenExits_1.InventoryGenExits);
     /**
      * Static representation of the one-to-many navigation property [[purchaseRequests]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.PURCHASE_REQUESTS = new v4_1.OneToManyLink('PurchaseRequests', UserLanguages, PurchaseRequests_1.PurchaseRequests);
+    UserLanguages.PURCHASE_REQUESTS = new core_1.OneToManyLink('PurchaseRequests', UserLanguages, PurchaseRequests_1.PurchaseRequests);
     /**
      * Static representation of the one-to-many navigation property [[returnRequest]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.RETURN_REQUEST = new v4_1.OneToManyLink('ReturnRequest', UserLanguages, ReturnRequest_1.ReturnRequest);
+    UserLanguages.RETURN_REQUEST = new core_1.OneToManyLink('ReturnRequest', UserLanguages, ReturnRequest_1.ReturnRequest);
     /**
      * Static representation of the one-to-many navigation property [[purchaseReturns]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.PURCHASE_RETURNS = new v4_1.OneToManyLink('PurchaseReturns', UserLanguages, PurchaseReturns_1.PurchaseReturns);
+    UserLanguages.PURCHASE_RETURNS = new core_1.OneToManyLink('PurchaseReturns', UserLanguages, PurchaseReturns_1.PurchaseReturns);
     /**
      * Static representation of the one-to-many navigation property [[invoices]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.INVOICES = new v4_1.OneToManyLink('Invoices', UserLanguages, Invoices_1.Invoices);
+    UserLanguages.INVOICES = new core_1.OneToManyLink('Invoices', UserLanguages, Invoices_1.Invoices);
     /**
      * Static representation of the one-to-many navigation property [[creditNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.CREDIT_NOTES = new v4_1.OneToManyLink('CreditNotes', UserLanguages, CreditNotes_1.CreditNotes);
+    UserLanguages.CREDIT_NOTES = new core_1.OneToManyLink('CreditNotes', UserLanguages, CreditNotes_1.CreditNotes);
     /**
      * Static representation of the one-to-many navigation property [[orders]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.ORDERS = new v4_1.OneToManyLink('Orders', UserLanguages, Orders_1.Orders);
+    UserLanguages.ORDERS = new core_1.OneToManyLink('Orders', UserLanguages, Orders_1.Orders);
     /**
      * Static representation of the one-to-many navigation property [[downPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.DOWN_PAYMENTS = new v4_1.OneToManyLink('DownPayments', UserLanguages, DownPayments_1.DownPayments);
+    UserLanguages.DOWN_PAYMENTS = new core_1.OneToManyLink('DownPayments', UserLanguages, DownPayments_1.DownPayments);
     /**
      * Static representation of the one-to-many navigation property [[drafts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.DRAFTS = new v4_1.OneToManyLink('Drafts', UserLanguages, Drafts_1.Drafts);
+    UserLanguages.DRAFTS = new core_1.OneToManyLink('Drafts', UserLanguages, Drafts_1.Drafts);
     /**
      * Static representation of the one-to-many navigation property [[returns]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.RETURNS = new v4_1.OneToManyLink('Returns', UserLanguages, Returns_1.Returns);
+    UserLanguages.RETURNS = new core_1.OneToManyLink('Returns', UserLanguages, Returns_1.Returns);
     /**
      * Static representation of the one-to-many navigation property [[correctionInvoiceReversal]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.CORRECTION_INVOICE_REVERSAL = new v4_1.OneToManyLink('CorrectionInvoiceReversal', UserLanguages, CorrectionInvoiceReversal_1.CorrectionInvoiceReversal);
+    UserLanguages.CORRECTION_INVOICE_REVERSAL = new core_1.OneToManyLink('CorrectionInvoiceReversal', UserLanguages, CorrectionInvoiceReversal_1.CorrectionInvoiceReversal);
     /**
      * Static representation of the one-to-many navigation property [[correctionPurchaseInvoice]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.CORRECTION_PURCHASE_INVOICE = new v4_1.OneToManyLink('CorrectionPurchaseInvoice', UserLanguages, CorrectionPurchaseInvoice_1.CorrectionPurchaseInvoice);
+    UserLanguages.CORRECTION_PURCHASE_INVOICE = new core_1.OneToManyLink('CorrectionPurchaseInvoice', UserLanguages, CorrectionPurchaseInvoice_1.CorrectionPurchaseInvoice);
     /**
      * Static representation of the one-to-many navigation property [[correctionPurchaseInvoiceReversal]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.CORRECTION_PURCHASE_INVOICE_REVERSAL = new v4_1.OneToManyLink('CorrectionPurchaseInvoiceReversal', UserLanguages, CorrectionPurchaseInvoiceReversal_1.CorrectionPurchaseInvoiceReversal);
+    UserLanguages.CORRECTION_PURCHASE_INVOICE_REVERSAL = new core_1.OneToManyLink('CorrectionPurchaseInvoiceReversal', UserLanguages, CorrectionPurchaseInvoiceReversal_1.CorrectionPurchaseInvoiceReversal);
     /**
      * Static representation of the one-to-many navigation property [[purchaseInvoices]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.PURCHASE_INVOICES = new v4_1.OneToManyLink('PurchaseInvoices', UserLanguages, PurchaseInvoices_1.PurchaseInvoices);
+    UserLanguages.PURCHASE_INVOICES = new core_1.OneToManyLink('PurchaseInvoices', UserLanguages, PurchaseInvoices_1.PurchaseInvoices);
     /**
      * Static representation of the one-to-many navigation property [[purchaseDeliveryNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.PURCHASE_DELIVERY_NOTES = new v4_1.OneToManyLink('PurchaseDeliveryNotes', UserLanguages, PurchaseDeliveryNotes_1.PurchaseDeliveryNotes);
+    UserLanguages.PURCHASE_DELIVERY_NOTES = new core_1.OneToManyLink('PurchaseDeliveryNotes', UserLanguages, PurchaseDeliveryNotes_1.PurchaseDeliveryNotes);
     /**
      * Static representation of the one-to-many navigation property [[correctionInvoice]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.CORRECTION_INVOICE = new v4_1.OneToManyLink('CorrectionInvoice', UserLanguages, CorrectionInvoice_1.CorrectionInvoice);
+    UserLanguages.CORRECTION_INVOICE = new core_1.OneToManyLink('CorrectionInvoice', UserLanguages, CorrectionInvoice_1.CorrectionInvoice);
     /**
      * Static representation of the one-to-many navigation property [[purchaseCreditNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.PURCHASE_CREDIT_NOTES = new v4_1.OneToManyLink('PurchaseCreditNotes', UserLanguages, PurchaseCreditNotes_1.PurchaseCreditNotes);
+    UserLanguages.PURCHASE_CREDIT_NOTES = new core_1.OneToManyLink('PurchaseCreditNotes', UserLanguages, PurchaseCreditNotes_1.PurchaseCreditNotes);
     /**
      * Static representation of the one-to-many navigation property [[purchaseDownPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.PURCHASE_DOWN_PAYMENTS = new v4_1.OneToManyLink('PurchaseDownPayments', UserLanguages, PurchaseDownPayments_1.PurchaseDownPayments);
+    UserLanguages.PURCHASE_DOWN_PAYMENTS = new core_1.OneToManyLink('PurchaseDownPayments', UserLanguages, PurchaseDownPayments_1.PurchaseDownPayments);
     /**
      * Static representation of the one-to-many navigation property [[purchaseOrders]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.PURCHASE_ORDERS = new v4_1.OneToManyLink('PurchaseOrders', UserLanguages, PurchaseOrders_1.PurchaseOrders);
+    UserLanguages.PURCHASE_ORDERS = new core_1.OneToManyLink('PurchaseOrders', UserLanguages, PurchaseOrders_1.PurchaseOrders);
     /**
      * Static representation of the one-to-many navigation property [[goodsReturnRequest]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserLanguages.GOODS_RETURN_REQUEST = new v4_1.OneToManyLink('GoodsReturnRequest', UserLanguages, GoodsReturnRequest_1.GoodsReturnRequest);
+    UserLanguages.GOODS_RETURN_REQUEST = new core_1.OneToManyLink('GoodsReturnRequest', UserLanguages, GoodsReturnRequest_1.GoodsReturnRequest);
     /**
      * All fields of the UserLanguages entity.
      */
@@ -293,7 +288,7 @@ var GoodsReturnRequest_1 = require("./GoodsReturnRequest");
     /**
      * All fields selector.
      */
-    UserLanguages.ALL_FIELDS = new v4_1.AllFields('*', UserLanguages);
+    UserLanguages.ALL_FIELDS = new core_1.AllFields('*', UserLanguages);
     /**
      * All key fields of the UserLanguages entity.
      */

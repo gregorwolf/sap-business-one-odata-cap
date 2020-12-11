@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.Dimensions = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var DimensionsRequestBuilder_1 = require("./DimensionsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "Dimensions" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var Dimensions = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `Dimensions`.
+     * Returns an entity builder to construct instances of `Dimensions`.
      * @returns A builder that constructs instances of entity type `Dimensions`.
      */
     Dimensions.builder = function () {
-        return v4_1.Entity.entityBuilder(Dimensions);
+        return core_1.EntityV4.entityBuilder(Dimensions);
     };
     /**
      * Returns a request builder to construct requests for operations on the `Dimensions` entity type.
@@ -60,7 +60,7 @@ var Dimensions = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `Dimensions`.
      */
     Dimensions.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, Dimensions);
+        return core_1.EntityV4.customFieldSelector(fieldName, Dimensions);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var Dimensions = /** @class */ (function (_super) {
      */
     Dimensions._entityName = 'Dimensions';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Dimensions.
-     */
-    Dimensions._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    Dimensions._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    Dimensions._defaultServicePath = '/b1s/v2/';
     return Dimensions;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.Dimensions = Dimensions;
 var ProfitCenters_1 = require("./ProfitCenters");
 var DistributionRules_1 = require("./DistributionRules");
@@ -92,33 +87,39 @@ var DistributionRules_1 = require("./DistributionRules");
      * Static representation of the [[dimensionCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Dimensions.DIMENSION_CODE = new v4_1.NumberField('DimensionCode', Dimensions, 'Edm.Int32');
+    Dimensions.DIMENSION_CODE = new core_1.NumberField('DimensionCode', Dimensions, 'Edm.Int32');
     /**
      * Static representation of the [[dimensionName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Dimensions.DIMENSION_NAME = new v4_1.StringField('DimensionName', Dimensions, 'Edm.String');
+    Dimensions.DIMENSION_NAME = new core_1.StringField('DimensionName', Dimensions, 'Edm.String');
+    /**
+     * Static representation of the [[isActive]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Dimensions.IS_ACTIVE = new core_1.EnumField('IsActive', Dimensions);
     /**
      * Static representation of the [[dimensionDescription]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Dimensions.DIMENSION_DESCRIPTION = new v4_1.StringField('DimensionDescription', Dimensions, 'Edm.String');
+    Dimensions.DIMENSION_DESCRIPTION = new core_1.StringField('DimensionDescription', Dimensions, 'Edm.String');
     /**
      * Static representation of the one-to-many navigation property [[profitCenters]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Dimensions.PROFIT_CENTERS = new v4_1.OneToManyLink('ProfitCenters', Dimensions, ProfitCenters_1.ProfitCenters);
+    Dimensions.PROFIT_CENTERS = new core_1.OneToManyLink('ProfitCenters', Dimensions, ProfitCenters_1.ProfitCenters);
     /**
      * Static representation of the one-to-many navigation property [[distributionRules]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Dimensions.DISTRIBUTION_RULES = new v4_1.OneToManyLink('DistributionRules', Dimensions, DistributionRules_1.DistributionRules);
+    Dimensions.DISTRIBUTION_RULES = new core_1.OneToManyLink('DistributionRules', Dimensions, DistributionRules_1.DistributionRules);
     /**
      * All fields of the Dimensions entity.
      */
     Dimensions._allFields = [
         Dimensions.DIMENSION_CODE,
         Dimensions.DIMENSION_NAME,
+        Dimensions.IS_ACTIVE,
         Dimensions.DIMENSION_DESCRIPTION,
         Dimensions.PROFIT_CENTERS,
         Dimensions.DISTRIBUTION_RULES
@@ -126,7 +127,7 @@ var DistributionRules_1 = require("./DistributionRules");
     /**
      * All fields selector.
      */
-    Dimensions.ALL_FIELDS = new v4_1.AllFields('*', Dimensions);
+    Dimensions.ALL_FIELDS = new core_1.AllFields('*', Dimensions);
     /**
      * All key fields of the Dimensions entity.
      */

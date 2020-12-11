@@ -1,4 +1,7 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { LinkedDocTypeEnum } from './LinkedDocTypeEnum';
+import { CampaignAssignToEnum } from './CampaignAssignToEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * CampaignBusinessPartner
  */
@@ -79,6 +82,11 @@ export interface CampaignBusinessPartner {
      */
     contactAddress?: string;
     /**
+     * Response.
+     * @nullable
+     */
+    response?: BoYesNoEnum;
+    /**
      * Related Sales Opportunity.
      * @nullable
      */
@@ -123,6 +131,16 @@ export interface CampaignBusinessPartner {
      * @nullable
      */
     building?: string;
+    /**
+     * Doc Type.
+     * @nullable
+     */
+    docType?: LinkedDocTypeEnum;
+    /**
+     * Is Show Linked Doc.
+     * @nullable
+     */
+    isShowLinkedDoc?: BoYesNoEnum;
     /**
      * Doc Number.
      * @nullable
@@ -179,6 +197,16 @@ export interface CampaignBusinessPartner {
      */
     streetNo?: string;
     /**
+     * Create Activity.
+     * @nullable
+     */
+    createActivity?: BoYesNoEnum;
+    /**
+     * Assign To.
+     * @nullable
+     */
+    assignTo?: CampaignAssignToEnum;
+    /**
      * Assign Name.
      * @nullable
      */
@@ -197,7 +225,7 @@ export declare function createCampaignBusinessPartner(json: any): CampaignBusine
  * CampaignBusinessPartnerField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class CampaignBusinessPartnerField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class CampaignBusinessPartnerField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, CampaignBusinessPartner> {
     /**
      * Representation of the [[CampaignBusinessPartner.campaignNumber]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -274,6 +302,11 @@ export declare class CampaignBusinessPartnerField<EntityT extends Entity> extend
      */
     contactAddress: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[CampaignBusinessPartner.response]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    response: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[CampaignBusinessPartner.relatedSalesOpportunity]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -318,6 +351,16 @@ export declare class CampaignBusinessPartnerField<EntityT extends Entity> extend
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     building: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[CampaignBusinessPartner.docType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    docType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[CampaignBusinessPartner.isShowLinkedDoc]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    isShowLinkedDoc: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[CampaignBusinessPartner.docNumber]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -374,6 +417,16 @@ export declare class CampaignBusinessPartnerField<EntityT extends Entity> extend
      */
     streetNo: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[CampaignBusinessPartner.createActivity]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    createActivity: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[CampaignBusinessPartner.assignTo]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    assignTo: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[CampaignBusinessPartner.assignName]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -383,8 +436,22 @@ export declare class CampaignBusinessPartnerField<EntityT extends Entity> extend
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     responseType: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Creates an instance of CampaignBusinessPartnerField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace CampaignBusinessPartner {
+    /**
+     * Metadata information on all properties of the `CampaignBusinessPartner` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<CampaignBusinessPartner>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): CampaignBusinessPartner;

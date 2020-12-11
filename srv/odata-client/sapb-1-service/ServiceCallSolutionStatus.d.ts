@@ -1,18 +1,13 @@
 import { ServiceCallSolutionStatusRequestBuilder } from './ServiceCallSolutionStatusRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ServiceCallSolutionStatus" of service "SAPB1".
  */
-export declare class ServiceCallSolutionStatus extends Entity implements ServiceCallSolutionStatusType {
+export declare class ServiceCallSolutionStatus extends EntityV4 implements ServiceCallSolutionStatusType {
     /**
      * Technical entity name for ServiceCallSolutionStatus.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ServiceCallSolutionStatus.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -37,10 +32,10 @@ export declare class ServiceCallSolutionStatus extends Entity implements Service
      */
     knowledgeBaseSolutions: KnowledgeBaseSolutions[];
     /**
-     * Returns an entity builder to construct instances `ServiceCallSolutionStatus`.
+     * Returns an entity builder to construct instances of `ServiceCallSolutionStatus`.
      * @returns A builder that constructs instances of entity type `ServiceCallSolutionStatus`.
      */
-    static builder(): EntityBuilderType<ServiceCallSolutionStatus, ServiceCallSolutionStatusTypeForceMandatory>;
+    static builder(): EntityBuilderType<ServiceCallSolutionStatus, ServiceCallSolutionStatusType>;
     /**
      * Returns a request builder to construct requests for operations on the `ServiceCallSolutionStatus` entity type.
      * @returns A `ServiceCallSolutionStatus` request builder.
@@ -51,7 +46,7 @@ export declare class ServiceCallSolutionStatus extends Entity implements Service
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ServiceCallSolutionStatus`.
      */
-    static customField(fieldName: string): CustomField<ServiceCallSolutionStatus>;
+    static customField(fieldName: string): CustomFieldV4<ServiceCallSolutionStatus>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -62,15 +57,9 @@ export declare class ServiceCallSolutionStatus extends Entity implements Service
 }
 import { KnowledgeBaseSolutions, KnowledgeBaseSolutionsType } from './KnowledgeBaseSolutions';
 export interface ServiceCallSolutionStatusType {
-    statusId?: number;
-    name?: string;
-    description?: string;
-    knowledgeBaseSolutions: KnowledgeBaseSolutionsType[];
-}
-export interface ServiceCallSolutionStatusTypeForceMandatory {
-    statusId: number;
-    name: string;
-    description: string;
+    statusId?: number | null;
+    name?: string | null;
+    description?: string | null;
     knowledgeBaseSolutions: KnowledgeBaseSolutionsType[];
 }
 export declare namespace ServiceCallSolutionStatus {

@@ -5,26 +5,22 @@
  */
 import { EmployeeTransfersRequestBuilder } from './EmployeeTransfersRequestBuilder';
 import { Moment } from 'moment';
-import { EmployeeTransferDetail, EmployeeTransferDetailField } from './EmployeeTransferDetail';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { EmployeeTransferDetail } from './EmployeeTransferDetail';
+import { EmployeeTransferStatusEnum } from './EmployeeTransferStatusEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "EmployeeTransfers" of service "SAPB1".
  */
-export class EmployeeTransfers extends Entity implements EmployeeTransfersType {
+export class EmployeeTransfers extends EntityV4 implements EmployeeTransfersType {
   /**
    * Technical entity name for EmployeeTransfers.
    */
   static _entityName = 'EmployeeTransfers';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for EmployeeTransfers.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Transfer Id.
    * @nullable
@@ -51,6 +47,11 @@ export class EmployeeTransfers extends Entity implements EmployeeTransfersType {
    */
   transEndTime?: Time;
   /**
+   * Status.
+   * @nullable
+   */
+  status?: EmployeeTransferStatusEnum;
+  /**
    * Comment.
    * @nullable
    */
@@ -62,11 +63,11 @@ export class EmployeeTransfers extends Entity implements EmployeeTransfersType {
   employeeTransferDetails?: EmployeeTransferDetail[];
 
   /**
-   * Returns an entity builder to construct instances `EmployeeTransfers`.
+   * Returns an entity builder to construct instances of `EmployeeTransfers`.
    * @returns A builder that constructs instances of entity type `EmployeeTransfers`.
    */
-  static builder(): EntityBuilderType<EmployeeTransfers, EmployeeTransfersTypeForceMandatory> {
-    return Entity.entityBuilder(EmployeeTransfers);
+  static builder(): EntityBuilderType<EmployeeTransfers, EmployeeTransfersType> {
+    return EntityV4.entityBuilder(EmployeeTransfers);
   }
 
   /**
@@ -82,8 +83,8 @@ export class EmployeeTransfers extends Entity implements EmployeeTransfersType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `EmployeeTransfers`.
    */
-  static customField(fieldName: string): CustomField<EmployeeTransfers> {
-    return Entity.customFieldSelector(fieldName, EmployeeTransfers);
+  static customField(fieldName: string): CustomFieldV4<EmployeeTransfers> {
+    return EntityV4.customFieldSelector(fieldName, EmployeeTransfers);
   }
 
   /**
@@ -96,23 +97,14 @@ export class EmployeeTransfers extends Entity implements EmployeeTransfersType {
 }
 
 export interface EmployeeTransfersType {
-  transferId?: number;
-  transStartDate?: Moment;
-  transStartTime?: Time;
-  transEndDate?: Moment;
-  transEndTime?: Time;
-  comment?: string;
-  employeeTransferDetails?: EmployeeTransferDetail[];
-}
-
-export interface EmployeeTransfersTypeForceMandatory {
-  transferId: number;
-  transStartDate: Moment;
-  transStartTime: Time;
-  transEndDate: Moment;
-  transEndTime: Time;
-  comment: string;
-  employeeTransferDetails: EmployeeTransferDetail[];
+  transferId?: number | null;
+  transStartDate?: Moment | null;
+  transStartTime?: Time | null;
+  transEndDate?: Moment | null;
+  transEndTime?: Time | null;
+  status?: EmployeeTransferStatusEnum | null;
+  comment?: string | null;
+  employeeTransferDetails?: EmployeeTransferDetail[] | null;
 }
 
 export namespace EmployeeTransfers {
@@ -142,6 +134,11 @@ export namespace EmployeeTransfers {
    */
   export const TRANS_END_TIME: TimeField<EmployeeTransfers> = new TimeField('TransEndTime', EmployeeTransfers, 'Edm.TimeOfDay');
   /**
+   * Static representation of the [[status]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const STATUS: EnumField<EmployeeTransfers> = new EnumField('Status', EmployeeTransfers);
+  /**
    * Static representation of the [[comment]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -150,16 +147,17 @@ export namespace EmployeeTransfers {
    * Static representation of the [[employeeTransferDetails]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const EMPLOYEE_TRANSFER_DETAILS: CollectionField<EmployeeTransfers> = new CollectionField('EmployeeTransferDetails', EmployeeTransfers, new EmployeeTransferDetailField('', EmployeeTransfers));
+  export const EMPLOYEE_TRANSFER_DETAILS: CollectionField<EmployeeTransfers, EmployeeTransferDetail> = new CollectionField('EmployeeTransferDetails', EmployeeTransfers, EmployeeTransferDetail);
   /**
    * All fields of the EmployeeTransfers entity.
    */
-  export const _allFields: Array<NumberField<EmployeeTransfers> | DateField<EmployeeTransfers> | TimeField<EmployeeTransfers> | StringField<EmployeeTransfers> | CollectionField<EmployeeTransfers>> = [
+  export const _allFields: Array<NumberField<EmployeeTransfers> | DateField<EmployeeTransfers> | TimeField<EmployeeTransfers> | EnumField<EmployeeTransfers> | StringField<EmployeeTransfers> | CollectionField<EmployeeTransfers, EmployeeTransferDetail>> = [
     EmployeeTransfers.TRANSFER_ID,
     EmployeeTransfers.TRANS_START_DATE,
     EmployeeTransfers.TRANS_START_TIME,
     EmployeeTransfers.TRANS_END_DATE,
     EmployeeTransfers.TRANS_END_TIME,
+    EmployeeTransfers.STATUS,
     EmployeeTransfers.COMMENT,
     EmployeeTransfers.EMPLOYEE_TRANSFER_DETAILS
   ];

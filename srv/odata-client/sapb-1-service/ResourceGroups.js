@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.ResourceGroups = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var ResourceGroupsRequestBuilder_1 = require("./ResourceGroupsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "ResourceGroups" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var ResourceGroups = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `ResourceGroups`.
+     * Returns an entity builder to construct instances of `ResourceGroups`.
      * @returns A builder that constructs instances of entity type `ResourceGroups`.
      */
     ResourceGroups.builder = function () {
-        return v4_1.Entity.entityBuilder(ResourceGroups);
+        return core_1.EntityV4.entityBuilder(ResourceGroups);
     };
     /**
      * Returns a request builder to construct requests for operations on the `ResourceGroups` entity type.
@@ -60,7 +60,7 @@ var ResourceGroups = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `ResourceGroups`.
      */
     ResourceGroups.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, ResourceGroups);
+        return core_1.EntityV4.customFieldSelector(fieldName, ResourceGroups);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var ResourceGroups = /** @class */ (function (_super) {
      */
     ResourceGroups._entityName = 'ResourceGroups';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ResourceGroups.
-     */
-    ResourceGroups._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    ResourceGroups._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    ResourceGroups._defaultServicePath = '/b1s/v2/';
     return ResourceGroups;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.ResourceGroups = ResourceGroups;
 var Resources_1 = require("./Resources");
 (function (ResourceGroups) {
@@ -91,128 +86,134 @@ var Resources_1 = require("./Resources");
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.CODE = new v4_1.NumberField('Code', ResourceGroups, 'Edm.Int32');
+    ResourceGroups.CODE = new core_1.NumberField('Code', ResourceGroups, 'Edm.Int32');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.NAME = new v4_1.StringField('Name', ResourceGroups, 'Edm.String');
+    ResourceGroups.NAME = new core_1.StringField('Name', ResourceGroups, 'Edm.String');
+    /**
+     * Static representation of the [[type]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ResourceGroups.TYPE = new core_1.EnumField('Type', ResourceGroups);
     /**
      * Static representation of the [[costName1]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_NAME_1 = new v4_1.StringField('CostName1', ResourceGroups, 'Edm.String');
+    ResourceGroups.COST_NAME_1 = new core_1.StringField('CostName1', ResourceGroups, 'Edm.String');
     /**
      * Static representation of the [[cost1]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_1 = new v4_1.NumberField('Cost1', ResourceGroups, 'Edm.Double');
+    ResourceGroups.COST_1 = new core_1.NumberField('Cost1', ResourceGroups, 'Edm.Double');
     /**
      * Static representation of the [[costName2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_NAME_2 = new v4_1.StringField('CostName2', ResourceGroups, 'Edm.String');
+    ResourceGroups.COST_NAME_2 = new core_1.StringField('CostName2', ResourceGroups, 'Edm.String');
     /**
      * Static representation of the [[cost2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_2 = new v4_1.NumberField('Cost2', ResourceGroups, 'Edm.Double');
+    ResourceGroups.COST_2 = new core_1.NumberField('Cost2', ResourceGroups, 'Edm.Double');
     /**
      * Static representation of the [[costName3]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_NAME_3 = new v4_1.StringField('CostName3', ResourceGroups, 'Edm.String');
+    ResourceGroups.COST_NAME_3 = new core_1.StringField('CostName3', ResourceGroups, 'Edm.String');
     /**
      * Static representation of the [[cost3]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_3 = new v4_1.NumberField('Cost3', ResourceGroups, 'Edm.Double');
+    ResourceGroups.COST_3 = new core_1.NumberField('Cost3', ResourceGroups, 'Edm.Double');
     /**
      * Static representation of the [[costName4]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_NAME_4 = new v4_1.StringField('CostName4', ResourceGroups, 'Edm.String');
+    ResourceGroups.COST_NAME_4 = new core_1.StringField('CostName4', ResourceGroups, 'Edm.String');
     /**
      * Static representation of the [[cost4]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_4 = new v4_1.NumberField('Cost4', ResourceGroups, 'Edm.Double');
+    ResourceGroups.COST_4 = new core_1.NumberField('Cost4', ResourceGroups, 'Edm.Double');
     /**
      * Static representation of the [[costName5]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_NAME_5 = new v4_1.StringField('CostName5', ResourceGroups, 'Edm.String');
+    ResourceGroups.COST_NAME_5 = new core_1.StringField('CostName5', ResourceGroups, 'Edm.String');
     /**
      * Static representation of the [[cost5]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_5 = new v4_1.NumberField('Cost5', ResourceGroups, 'Edm.Double');
+    ResourceGroups.COST_5 = new core_1.NumberField('Cost5', ResourceGroups, 'Edm.Double');
     /**
      * Static representation of the [[costName6]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_NAME_6 = new v4_1.StringField('CostName6', ResourceGroups, 'Edm.String');
+    ResourceGroups.COST_NAME_6 = new core_1.StringField('CostName6', ResourceGroups, 'Edm.String');
     /**
      * Static representation of the [[cost6]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_6 = new v4_1.NumberField('Cost6', ResourceGroups, 'Edm.Double');
+    ResourceGroups.COST_6 = new core_1.NumberField('Cost6', ResourceGroups, 'Edm.Double');
     /**
      * Static representation of the [[costName7]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_NAME_7 = new v4_1.StringField('CostName7', ResourceGroups, 'Edm.String');
+    ResourceGroups.COST_NAME_7 = new core_1.StringField('CostName7', ResourceGroups, 'Edm.String');
     /**
      * Static representation of the [[cost7]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_7 = new v4_1.NumberField('Cost7', ResourceGroups, 'Edm.Double');
+    ResourceGroups.COST_7 = new core_1.NumberField('Cost7', ResourceGroups, 'Edm.Double');
     /**
      * Static representation of the [[costName8]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_NAME_8 = new v4_1.StringField('CostName8', ResourceGroups, 'Edm.String');
+    ResourceGroups.COST_NAME_8 = new core_1.StringField('CostName8', ResourceGroups, 'Edm.String');
     /**
      * Static representation of the [[cost8]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_8 = new v4_1.NumberField('Cost8', ResourceGroups, 'Edm.Double');
+    ResourceGroups.COST_8 = new core_1.NumberField('Cost8', ResourceGroups, 'Edm.Double');
     /**
      * Static representation of the [[costName9]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_NAME_9 = new v4_1.StringField('CostName9', ResourceGroups, 'Edm.String');
+    ResourceGroups.COST_NAME_9 = new core_1.StringField('CostName9', ResourceGroups, 'Edm.String');
     /**
      * Static representation of the [[cost9]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_9 = new v4_1.NumberField('Cost9', ResourceGroups, 'Edm.Double');
+    ResourceGroups.COST_9 = new core_1.NumberField('Cost9', ResourceGroups, 'Edm.Double');
     /**
      * Static representation of the [[costName10]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_NAME_10 = new v4_1.StringField('CostName10', ResourceGroups, 'Edm.String');
+    ResourceGroups.COST_NAME_10 = new core_1.StringField('CostName10', ResourceGroups, 'Edm.String');
     /**
      * Static representation of the [[cost10]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.COST_10 = new v4_1.NumberField('Cost10', ResourceGroups, 'Edm.Double');
+    ResourceGroups.COST_10 = new core_1.NumberField('Cost10', ResourceGroups, 'Edm.Double');
     /**
      * Static representation of the [[numOfUnitsText]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.NUM_OF_UNITS_TEXT = new v4_1.StringField('NumOfUnitsText', ResourceGroups, 'Edm.String');
+    ResourceGroups.NUM_OF_UNITS_TEXT = new core_1.StringField('NumOfUnitsText', ResourceGroups, 'Edm.String');
     /**
      * Static representation of the one-to-many navigation property [[resources]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceGroups.RESOURCES = new v4_1.OneToManyLink('Resources', ResourceGroups, Resources_1.Resources);
+    ResourceGroups.RESOURCES = new core_1.OneToManyLink('Resources', ResourceGroups, Resources_1.Resources);
     /**
      * All fields of the ResourceGroups entity.
      */
     ResourceGroups._allFields = [
         ResourceGroups.CODE,
         ResourceGroups.NAME,
+        ResourceGroups.TYPE,
         ResourceGroups.COST_NAME_1,
         ResourceGroups.COST_1,
         ResourceGroups.COST_NAME_2,
@@ -239,7 +240,7 @@ var Resources_1 = require("./Resources");
     /**
      * All fields selector.
      */
-    ResourceGroups.ALL_FIELDS = new v4_1.AllFields('*', ResourceGroups);
+    ResourceGroups.ALL_FIELDS = new core_1.AllFields('*', ResourceGroups);
     /**
      * All key fields of the ResourceGroups entity.
      */

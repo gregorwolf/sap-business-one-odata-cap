@@ -4,7 +4,12 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { EcmActionTypeEnum } from './EcmActionTypeEnum';
+import { EcmActionStatusEnum } from './EcmActionStatusEnum';
+import { EcmActionPeriodTypeEnum } from './EcmActionPeriodTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { EcmActionGenerationTypeEnum } from './EcmActionGenerationTypeEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * EcmAction
@@ -21,10 +26,20 @@ export interface EcmAction {
    */
   protocol?: string;
   /**
+   * Type.
+   * @nullable
+   */
+  type?: EcmActionTypeEnum;
+  /**
    * Description.
    * @nullable
    */
   description?: string;
+  /**
+   * Status.
+   * @nullable
+   */
+  status?: EcmActionStatusEnum;
   /**
    * Message.
    * @nullable
@@ -81,6 +96,11 @@ export interface EcmAction {
    */
   documentBatchLine?: number;
   /**
+   * Period Type.
+   * @nullable
+   */
+  periodType?: EcmActionPeriodTypeEnum;
+  /**
    * Period Number.
    * @nullable
    */
@@ -100,6 +120,21 @@ export interface EcmAction {
    * @nullable
    */
   periodDateTo?: Moment;
+  /**
+   * Is Removed.
+   * @nullable
+   */
+  isRemoved?: BoYesNoEnum;
+  /**
+   * Is Canceled.
+   * @nullable
+   */
+  isCanceled?: BoYesNoEnum;
+  /**
+   * Generation Type.
+   * @nullable
+   */
+  generationType?: EcmActionGenerationTypeEnum;
 }
 
 /**
@@ -113,7 +148,7 @@ export function createEcmAction(json: any): EcmAction {
  * EcmActionField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class EcmActionField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class EcmActionField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, EcmAction> {
   /**
    * Representation of the [[EcmAction.actionId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -125,10 +160,20 @@ export class EcmActionField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   protocol: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Protocol', this, 'Edm.String');
   /**
+   * Representation of the [[EcmAction.type]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  type: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Type', this);
+  /**
    * Representation of the [[EcmAction.description]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   description: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Description', this, 'Edm.String');
+  /**
+   * Representation of the [[EcmAction.status]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  status: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Status', this);
   /**
    * Representation of the [[EcmAction.message]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -185,6 +230,11 @@ export class EcmActionField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   documentBatchLine: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DocumentBatchLine', this, 'Edm.Int32');
   /**
+   * Representation of the [[EcmAction.periodType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  periodType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('PeriodType', this);
+  /**
    * Representation of the [[EcmAction.periodNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -204,29 +254,163 @@ export class EcmActionField<EntityT extends Entity> extends ComplexTypeField<Ent
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   periodDateTo: ComplexTypeDatePropertyField<EntityT> = new ComplexTypeDatePropertyField('PeriodDateTo', this, 'Edm.DateTimeOffset');
+  /**
+   * Representation of the [[EcmAction.isRemoved]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  isRemoved: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IsRemoved', this);
+  /**
+   * Representation of the [[EcmAction.isCanceled]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  isCanceled: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IsCanceled', this);
+  /**
+   * Representation of the [[EcmAction.generationType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  generationType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('GenerationType', this);
+
+  /**
+   * Creates an instance of EcmActionField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, EcmAction);
+  }
 }
 
 export namespace EcmAction {
+  /**
+   * Metadata information on all properties of the `EcmAction` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<EcmAction>[] = [{
+    originalName: 'ActionID',
+    name: 'actionId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Protocol',
+    name: 'protocol',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Type',
+    name: 'type',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Description',
+    name: 'description',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Status',
+    name: 'status',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Message',
+    name: 'message',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Environment',
+    name: 'environment',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BusinessPlace',
+    name: 'businessPlace',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Submits',
+    name: 'submits',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ObjectID',
+    name: 'objectId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ReportID',
+    name: 'reportId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SourceType',
+    name: 'sourceType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SourceObject',
+    name: 'sourceObject',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AssignedID',
+    name: 'assignedId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DocumentBatch',
+    name: 'documentBatch',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DocumentBatchLine',
+    name: 'documentBatchLine',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PeriodType',
+    name: 'periodType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'PeriodNumber',
+    name: 'periodNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PeriodYear',
+    name: 'periodYear',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PeriodDateFrom',
+    name: 'periodDateFrom',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'PeriodDateTo',
+    name: 'periodDateTo',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'IsRemoved',
+    name: 'isRemoved',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'IsCanceled',
+    name: 'isCanceled',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'GenerationType',
+    name: 'generationType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): EcmAction {
-    return createComplexType(json, {
-      ActionID: (actionId: number) => ({ actionId: edmToTs(actionId, 'Edm.Int32') }),
-      Protocol: (protocol: string) => ({ protocol: edmToTs(protocol, 'Edm.String') }),
-      Description: (description: string) => ({ description: edmToTs(description, 'Edm.String') }),
-      Message: (message: string) => ({ message: edmToTs(message, 'Edm.String') }),
-      Environment: (environment: number) => ({ environment: edmToTs(environment, 'Edm.Int32') }),
-      BusinessPlace: (businessPlace: number) => ({ businessPlace: edmToTs(businessPlace, 'Edm.Int32') }),
-      Submits: (submits: number) => ({ submits: edmToTs(submits, 'Edm.Int32') }),
-      ObjectID: (objectId: string) => ({ objectId: edmToTs(objectId, 'Edm.String') }),
-      ReportID: (reportId: string) => ({ reportId: edmToTs(reportId, 'Edm.String') }),
-      SourceType: (sourceType: string) => ({ sourceType: edmToTs(sourceType, 'Edm.String') }),
-      SourceObject: (sourceObject: number) => ({ sourceObject: edmToTs(sourceObject, 'Edm.Int32') }),
-      AssignedID: (assignedId: string) => ({ assignedId: edmToTs(assignedId, 'Edm.String') }),
-      DocumentBatch: (documentBatch: string) => ({ documentBatch: edmToTs(documentBatch, 'Edm.String') }),
-      DocumentBatchLine: (documentBatchLine: number) => ({ documentBatchLine: edmToTs(documentBatchLine, 'Edm.Int32') }),
-      PeriodNumber: (periodNumber: number) => ({ periodNumber: edmToTs(periodNumber, 'Edm.Int32') }),
-      PeriodYear: (periodYear: number) => ({ periodYear: edmToTs(periodYear, 'Edm.Int32') }),
-      PeriodDateFrom: (periodDateFrom: Moment) => ({ periodDateFrom: edmToTs(periodDateFrom, 'Edm.DateTimeOffset') }),
-      PeriodDateTo: (periodDateTo: Moment) => ({ periodDateTo: edmToTs(periodDateTo, 'Edm.DateTimeOffset') })
-    });
+    return deserializeComplexTypeV4(json, EcmAction);
   }
 }

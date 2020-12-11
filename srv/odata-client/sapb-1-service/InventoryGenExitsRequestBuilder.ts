@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { InventoryGenExits } from './InventoryGenExits';
 
 /**
@@ -15,16 +15,16 @@ export class InventoryGenExitsRequestBuilder extends RequestBuilder<InventoryGen
    * @param docEntry Key property. See [[InventoryGenExits.docEntry]].
    * @returns A request builder for creating requests to retrieve one `InventoryGenExits` entity based on its keys.
    */
-  getByKey(docEntry: number): GetByKeyRequestBuilder<InventoryGenExits> {
-    return new GetByKeyRequestBuilder(InventoryGenExits, { DocEntry: docEntry });
+  getByKey(docEntry: number): GetByKeyRequestBuilderV4<InventoryGenExits> {
+    return new GetByKeyRequestBuilderV4(InventoryGenExits, { DocEntry: docEntry });
   }
 
   /**
    * Returns a request builder for querying all `InventoryGenExits` entities.
    * @returns A request builder for creating requests to retrieve all `InventoryGenExits` entities.
    */
-  getAll(): GetAllRequestBuilder<InventoryGenExits> {
-    return new GetAllRequestBuilder(InventoryGenExits);
+  getAll(): GetAllRequestBuilderV4<InventoryGenExits> {
+    return new GetAllRequestBuilderV4(InventoryGenExits);
   }
 
   /**
@@ -32,8 +32,8 @@ export class InventoryGenExitsRequestBuilder extends RequestBuilder<InventoryGen
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `InventoryGenExits`.
    */
-  create(entity: InventoryGenExits): CreateRequestBuilder<InventoryGenExits> {
-    return new CreateRequestBuilder(InventoryGenExits, entity);
+  create(entity: InventoryGenExits): CreateRequestBuilderV4<InventoryGenExits> {
+    return new CreateRequestBuilderV4(InventoryGenExits, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class InventoryGenExitsRequestBuilder extends RequestBuilder<InventoryGen
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `InventoryGenExits`.
    */
-  update(entity: InventoryGenExits): UpdateRequestBuilder<InventoryGenExits> {
-    return new UpdateRequestBuilder(InventoryGenExits, entity);
+  update(entity: InventoryGenExits): UpdateRequestBuilderV4<InventoryGenExits> {
+    return new UpdateRequestBuilderV4(InventoryGenExits, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class InventoryGenExitsRequestBuilder extends RequestBuilder<InventoryGen
    * @param docEntry Key property. See [[InventoryGenExits.docEntry]].
    * @returns A request builder for creating requests that delete an entity of type `InventoryGenExits`.
    */
-  delete(docEntry: number): DeleteRequestBuilder<InventoryGenExits>;
+  delete(docEntry: number): DeleteRequestBuilderV4<InventoryGenExits>;
   /**
    * Returns a request builder for deleting an entity of type `InventoryGenExits`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `InventoryGenExits` by taking the entity as a parameter.
    */
-  delete(entity: InventoryGenExits): DeleteRequestBuilder<InventoryGenExits>;
-  delete(docEntryOrEntity: any): DeleteRequestBuilder<InventoryGenExits> {
-    return new DeleteRequestBuilder(InventoryGenExits, docEntryOrEntity instanceof InventoryGenExits ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
+  delete(entity: InventoryGenExits): DeleteRequestBuilderV4<InventoryGenExits>;
+  delete(docEntryOrEntity: any): DeleteRequestBuilderV4<InventoryGenExits> {
+    return new DeleteRequestBuilderV4(InventoryGenExits, docEntryOrEntity instanceof InventoryGenExits ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
   }
 }

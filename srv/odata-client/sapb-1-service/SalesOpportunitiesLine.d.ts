@@ -1,5 +1,8 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoSoStatus } from './BoSoStatus';
+import { BoAparDocumentTypes } from './BoAparDocumentTypes';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * SalesOpportunitiesLine
  */
@@ -50,6 +53,16 @@ export interface SalesOpportunitiesLine {
      */
     remarks?: string;
     /**
+     * Contact.
+     * @nullable
+     */
+    contact?: BoYesNoEnum;
+    /**
+     * Status.
+     * @nullable
+     */
+    status?: BoSoStatus;
+    /**
      * Weighted Amount Local.
      * @nullable
      */
@@ -64,6 +77,16 @@ export interface SalesOpportunitiesLine {
      * @nullable
      */
     documentNumber?: number;
+    /**
+     * Document Type.
+     * @nullable
+     */
+    documentType?: BoAparDocumentTypes;
+    /**
+     * Document Checkbox.
+     * @nullable
+     */
+    documentCheckbox?: BoYesNoEnum;
     /**
      * Contact Person.
      * @nullable
@@ -103,7 +126,7 @@ export declare function createSalesOpportunitiesLine(json: any): SalesOpportunit
  * SalesOpportunitiesLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class SalesOpportunitiesLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class SalesOpportunitiesLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, SalesOpportunitiesLine> {
     /**
      * Representation of the [[SalesOpportunitiesLine.lineNum]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -150,6 +173,16 @@ export declare class SalesOpportunitiesLineField<EntityT extends Entity> extends
      */
     remarks: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[SalesOpportunitiesLine.contact]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    contact: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[SalesOpportunitiesLine.status]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    status: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[SalesOpportunitiesLine.weightedAmountLocal]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -164,6 +197,16 @@ export declare class SalesOpportunitiesLineField<EntityT extends Entity> extends
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     documentNumber: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[SalesOpportunitiesLine.documentType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    documentType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[SalesOpportunitiesLine.documentCheckbox]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    documentCheckbox: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[SalesOpportunitiesLine.contactPerson]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -194,8 +237,22 @@ export declare class SalesOpportunitiesLineField<EntityT extends Entity> extends
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     bpChannelContact: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of SalesOpportunitiesLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace SalesOpportunitiesLine {
+    /**
+     * Metadata information on all properties of the `SalesOpportunitiesLine` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<SalesOpportunitiesLine>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): SalesOpportunitiesLine;

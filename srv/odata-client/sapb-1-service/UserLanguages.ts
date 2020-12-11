@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { UserLanguagesRequestBuilder } from './UserLanguagesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "UserLanguages" of service "SAPB1".
  */
-export class UserLanguages extends Entity implements UserLanguagesType {
+export class UserLanguages extends EntityV4 implements UserLanguagesType {
   /**
    * Technical entity name for UserLanguages.
    */
   static _entityName = 'UserLanguages';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for UserLanguages.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -145,11 +140,11 @@ export class UserLanguages extends Entity implements UserLanguagesType {
   goodsReturnRequest!: GoodsReturnRequest[];
 
   /**
-   * Returns an entity builder to construct instances `UserLanguages`.
+   * Returns an entity builder to construct instances of `UserLanguages`.
    * @returns A builder that constructs instances of entity type `UserLanguages`.
    */
-  static builder(): EntityBuilderType<UserLanguages, UserLanguagesTypeForceMandatory> {
-    return Entity.entityBuilder(UserLanguages);
+  static builder(): EntityBuilderType<UserLanguages, UserLanguagesType> {
+    return EntityV4.entityBuilder(UserLanguages);
   }
 
   /**
@@ -165,8 +160,8 @@ export class UserLanguages extends Entity implements UserLanguagesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `UserLanguages`.
    */
-  static customField(fieldName: string): CustomField<UserLanguages> {
-    return Entity.customFieldSelector(fieldName, UserLanguages);
+  static customField(fieldName: string): CustomFieldV4<UserLanguages> {
+    return EntityV4.customFieldSelector(fieldName, UserLanguages);
   }
 
   /**
@@ -205,42 +200,10 @@ import { PurchaseOrders, PurchaseOrdersType } from './PurchaseOrders';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 
 export interface UserLanguagesType {
-  code?: number;
-  languageShortName?: string;
-  languageFullName?: string;
-  relatedSystemLanguage?: number;
-  inventoryGenEntries: InventoryGenEntriesType[];
-  purchaseQuotations: PurchaseQuotationsType[];
-  deliveryNotes: DeliveryNotesType[];
-  businessPartners: BusinessPartnersType[];
-  quotations: QuotationsType[];
-  inventoryGenExits: InventoryGenExitsType[];
-  purchaseRequests: PurchaseRequestsType[];
-  returnRequest: ReturnRequestType[];
-  purchaseReturns: PurchaseReturnsType[];
-  invoices: InvoicesType[];
-  creditNotes: CreditNotesType[];
-  orders: OrdersType[];
-  downPayments: DownPaymentsType[];
-  drafts: DraftsType[];
-  returns: ReturnsType[];
-  correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-  correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-  correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-  purchaseInvoices: PurchaseInvoicesType[];
-  purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-  correctionInvoice: CorrectionInvoiceType[];
-  purchaseCreditNotes: PurchaseCreditNotesType[];
-  purchaseDownPayments: PurchaseDownPaymentsType[];
-  purchaseOrders: PurchaseOrdersType[];
-  goodsReturnRequest: GoodsReturnRequestType[];
-}
-
-export interface UserLanguagesTypeForceMandatory {
-  code: number;
-  languageShortName: string;
-  languageFullName: string;
-  relatedSystemLanguage: number;
+  code?: number | null;
+  languageShortName?: string | null;
+  languageFullName?: string | null;
+  relatedSystemLanguage?: number | null;
   inventoryGenEntries: InventoryGenEntriesType[];
   purchaseQuotations: PurchaseQuotationsType[];
   deliveryNotes: DeliveryNotesType[];

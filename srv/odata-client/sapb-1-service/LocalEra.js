@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.LocalEra = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var LocalEraRequestBuilder_1 = require("./LocalEraRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "LocalEra" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var LocalEra = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `LocalEra`.
+     * Returns an entity builder to construct instances of `LocalEra`.
      * @returns A builder that constructs instances of entity type `LocalEra`.
      */
     LocalEra.builder = function () {
-        return v4_1.Entity.entityBuilder(LocalEra);
+        return core_1.EntityV4.entityBuilder(LocalEra);
     };
     /**
      * Returns a request builder to construct requests for operations on the `LocalEra` entity type.
@@ -60,7 +60,7 @@ var LocalEra = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `LocalEra`.
      */
     LocalEra.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, LocalEra);
+        return core_1.EntityV4.customFieldSelector(fieldName, LocalEra);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,33 +74,28 @@ var LocalEra = /** @class */ (function (_super) {
      */
     LocalEra._entityName = 'LocalEra';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for LocalEra.
-     */
-    LocalEra._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    LocalEra._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    LocalEra._defaultServicePath = '/b1s/v2/';
     return LocalEra;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.LocalEra = LocalEra;
 (function (LocalEra) {
     /**
      * Static representation of the [[eraName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LocalEra.ERA_NAME = new v4_1.StringField('EraName', LocalEra, 'Edm.String');
+    LocalEra.ERA_NAME = new core_1.StringField('EraName', LocalEra, 'Edm.String');
     /**
      * Static representation of the [[startDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LocalEra.START_DATE = new v4_1.DateField('StartDate', LocalEra, 'Edm.DateTimeOffset');
+    LocalEra.START_DATE = new core_1.DateField('StartDate', LocalEra, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LocalEra.CODE = new v4_1.StringField('Code', LocalEra, 'Edm.String');
+    LocalEra.CODE = new core_1.StringField('Code', LocalEra, 'Edm.String');
     /**
      * All fields of the LocalEra entity.
      */
@@ -112,7 +107,7 @@ exports.LocalEra = LocalEra;
     /**
      * All fields selector.
      */
-    LocalEra.ALL_FIELDS = new v4_1.AllFields('*', LocalEra);
+    LocalEra.ALL_FIELDS = new core_1.AllFields('*', LocalEra);
     /**
      * All key fields of the LocalEra entity.
      */

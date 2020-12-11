@@ -4,7 +4,9 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ImportOrExportTypeEnum } from './ImportOrExportTypeEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * TaxExtension
@@ -206,6 +208,11 @@ export interface TaxExtension {
    */
   countryB?: string;
   /**
+   * Import Or Export.
+   * @nullable
+   */
+  importOrExport?: BoYesNoEnum;
+  /**
    * Main Usage.
    * @nullable
    */
@@ -251,6 +258,11 @@ export interface TaxExtension {
    */
   originalBillOfEntryDate?: Moment;
   /**
+   * Import Or Export Type.
+   * @nullable
+   */
+  importOrExportType?: ImportOrExportTypeEnum;
+  /**
    * Port Code.
    * @nullable
    */
@@ -268,7 +280,7 @@ export function createTaxExtension(json: any): TaxExtension {
  * TaxExtensionField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class TaxExtensionField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class TaxExtensionField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, TaxExtension> {
   /**
    * Representation of the [[TaxExtension.taxId0]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -465,6 +477,11 @@ export class TaxExtensionField<EntityT extends Entity> extends ComplexTypeField<
    */
   countryB: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('CountryB', this, 'Edm.String');
   /**
+   * Representation of the [[TaxExtension.importOrExport]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  importOrExport: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ImportOrExport', this);
+  /**
    * Representation of the [[TaxExtension.mainUsage]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -510,64 +527,292 @@ export class TaxExtensionField<EntityT extends Entity> extends ComplexTypeField<
    */
   originalBillOfEntryDate: ComplexTypeDatePropertyField<EntityT> = new ComplexTypeDatePropertyField('OriginalBillOfEntryDate', this, 'Edm.DateTimeOffset');
   /**
+   * Representation of the [[TaxExtension.importOrExportType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  importOrExportType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ImportOrExportType', this);
+  /**
    * Representation of the [[TaxExtension.portCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   portCode: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('PortCode', this, 'Edm.String');
+
+  /**
+   * Creates an instance of TaxExtensionField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, TaxExtension);
+  }
 }
 
 export namespace TaxExtension {
+  /**
+   * Metadata information on all properties of the `TaxExtension` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<TaxExtension>[] = [{
+    originalName: 'TaxId0',
+    name: 'taxId0',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId1',
+    name: 'taxId1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId2',
+    name: 'taxId2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId3',
+    name: 'taxId3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId4',
+    name: 'taxId4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId5',
+    name: 'taxId5',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId6',
+    name: 'taxId6',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId7',
+    name: 'taxId7',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId8',
+    name: 'taxId8',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId9',
+    name: 'taxId9',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'State',
+    name: 'state',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'County',
+    name: 'county',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Incoterms',
+    name: 'incoterms',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Vehicle',
+    name: 'vehicle',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'VehicleState',
+    name: 'vehicleState',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'NFRef',
+    name: 'nfRef',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Carrier',
+    name: 'carrier',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PackQuantity',
+    name: 'packQuantity',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PackDescription',
+    name: 'packDescription',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Brand',
+    name: 'brand',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShipUnitNo',
+    name: 'shipUnitNo',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'NetWeight',
+    name: 'netWeight',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'GrossWeight',
+    name: 'grossWeight',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'StreetS',
+    name: 'streetS',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BlockS',
+    name: 'blockS',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BuildingS',
+    name: 'buildingS',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CityS',
+    name: 'cityS',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ZipCodeS',
+    name: 'zipCodeS',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CountyS',
+    name: 'countyS',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StateS',
+    name: 'stateS',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CountryS',
+    name: 'countryS',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StreetB',
+    name: 'streetB',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BlockB',
+    name: 'blockB',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BuildingB',
+    name: 'buildingB',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CityB',
+    name: 'cityB',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ZipCodeB',
+    name: 'zipCodeB',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CountyB',
+    name: 'countyB',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StateB',
+    name: 'stateB',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CountryB',
+    name: 'countryB',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ImportOrExport',
+    name: 'importOrExport',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'MainUsage',
+    name: 'mainUsage',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'GlobalLocationNumberS',
+    name: 'globalLocationNumberS',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GlobalLocationNumberB',
+    name: 'globalLocationNumberB',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId12',
+    name: 'taxId12',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId13',
+    name: 'taxId13',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BillOfEntryNo',
+    name: 'billOfEntryNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BillOfEntryDate',
+    name: 'billOfEntryDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'OriginalBillOfEntryNo',
+    name: 'originalBillOfEntryNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'OriginalBillOfEntryDate',
+    name: 'originalBillOfEntryDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ImportOrExportType',
+    name: 'importOrExportType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'PortCode',
+    name: 'portCode',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): TaxExtension {
-    return createComplexType(json, {
-      TaxId0: (taxId0: string) => ({ taxId0: edmToTs(taxId0, 'Edm.String') }),
-      TaxId1: (taxId1: string) => ({ taxId1: edmToTs(taxId1, 'Edm.String') }),
-      TaxId2: (taxId2: string) => ({ taxId2: edmToTs(taxId2, 'Edm.String') }),
-      TaxId3: (taxId3: string) => ({ taxId3: edmToTs(taxId3, 'Edm.String') }),
-      TaxId4: (taxId4: string) => ({ taxId4: edmToTs(taxId4, 'Edm.String') }),
-      TaxId5: (taxId5: string) => ({ taxId5: edmToTs(taxId5, 'Edm.String') }),
-      TaxId6: (taxId6: string) => ({ taxId6: edmToTs(taxId6, 'Edm.String') }),
-      TaxId7: (taxId7: string) => ({ taxId7: edmToTs(taxId7, 'Edm.String') }),
-      TaxId8: (taxId8: string) => ({ taxId8: edmToTs(taxId8, 'Edm.String') }),
-      TaxId9: (taxId9: string) => ({ taxId9: edmToTs(taxId9, 'Edm.String') }),
-      State: (state: string) => ({ state: edmToTs(state, 'Edm.String') }),
-      County: (county: string) => ({ county: edmToTs(county, 'Edm.String') }),
-      Incoterms: (incoterms: string) => ({ incoterms: edmToTs(incoterms, 'Edm.String') }),
-      Vehicle: (vehicle: string) => ({ vehicle: edmToTs(vehicle, 'Edm.String') }),
-      VehicleState: (vehicleState: string) => ({ vehicleState: edmToTs(vehicleState, 'Edm.String') }),
-      NFRef: (nfRef: string) => ({ nfRef: edmToTs(nfRef, 'Edm.String') }),
-      Carrier: (carrier: string) => ({ carrier: edmToTs(carrier, 'Edm.String') }),
-      PackQuantity: (packQuantity: number) => ({ packQuantity: edmToTs(packQuantity, 'Edm.Int32') }),
-      PackDescription: (packDescription: string) => ({ packDescription: edmToTs(packDescription, 'Edm.String') }),
-      Brand: (brand: string) => ({ brand: edmToTs(brand, 'Edm.String') }),
-      ShipUnitNo: (shipUnitNo: number) => ({ shipUnitNo: edmToTs(shipUnitNo, 'Edm.Int32') }),
-      NetWeight: (netWeight: number) => ({ netWeight: edmToTs(netWeight, 'Edm.Double') }),
-      GrossWeight: (grossWeight: number) => ({ grossWeight: edmToTs(grossWeight, 'Edm.Double') }),
-      StreetS: (streetS: string) => ({ streetS: edmToTs(streetS, 'Edm.String') }),
-      BlockS: (blockS: string) => ({ blockS: edmToTs(blockS, 'Edm.String') }),
-      BuildingS: (buildingS: string) => ({ buildingS: edmToTs(buildingS, 'Edm.String') }),
-      CityS: (cityS: string) => ({ cityS: edmToTs(cityS, 'Edm.String') }),
-      ZipCodeS: (zipCodeS: string) => ({ zipCodeS: edmToTs(zipCodeS, 'Edm.String') }),
-      CountyS: (countyS: string) => ({ countyS: edmToTs(countyS, 'Edm.String') }),
-      StateS: (stateS: string) => ({ stateS: edmToTs(stateS, 'Edm.String') }),
-      CountryS: (countryS: string) => ({ countryS: edmToTs(countryS, 'Edm.String') }),
-      StreetB: (streetB: string) => ({ streetB: edmToTs(streetB, 'Edm.String') }),
-      BlockB: (blockB: string) => ({ blockB: edmToTs(blockB, 'Edm.String') }),
-      BuildingB: (buildingB: string) => ({ buildingB: edmToTs(buildingB, 'Edm.String') }),
-      CityB: (cityB: string) => ({ cityB: edmToTs(cityB, 'Edm.String') }),
-      ZipCodeB: (zipCodeB: string) => ({ zipCodeB: edmToTs(zipCodeB, 'Edm.String') }),
-      CountyB: (countyB: string) => ({ countyB: edmToTs(countyB, 'Edm.String') }),
-      StateB: (stateB: string) => ({ stateB: edmToTs(stateB, 'Edm.String') }),
-      CountryB: (countryB: string) => ({ countryB: edmToTs(countryB, 'Edm.String') }),
-      MainUsage: (mainUsage: number) => ({ mainUsage: edmToTs(mainUsage, 'Edm.Int32') }),
-      GlobalLocationNumberS: (globalLocationNumberS: string) => ({ globalLocationNumberS: edmToTs(globalLocationNumberS, 'Edm.String') }),
-      GlobalLocationNumberB: (globalLocationNumberB: string) => ({ globalLocationNumberB: edmToTs(globalLocationNumberB, 'Edm.String') }),
-      TaxId12: (taxId12: string) => ({ taxId12: edmToTs(taxId12, 'Edm.String') }),
-      TaxId13: (taxId13: string) => ({ taxId13: edmToTs(taxId13, 'Edm.String') }),
-      BillOfEntryNo: (billOfEntryNo: string) => ({ billOfEntryNo: edmToTs(billOfEntryNo, 'Edm.String') }),
-      BillOfEntryDate: (billOfEntryDate: Moment) => ({ billOfEntryDate: edmToTs(billOfEntryDate, 'Edm.DateTimeOffset') }),
-      OriginalBillOfEntryNo: (originalBillOfEntryNo: string) => ({ originalBillOfEntryNo: edmToTs(originalBillOfEntryNo, 'Edm.String') }),
-      OriginalBillOfEntryDate: (originalBillOfEntryDate: Moment) => ({ originalBillOfEntryDate: edmToTs(originalBillOfEntryDate, 'Edm.DateTimeOffset') }),
-      PortCode: (portCode: string) => ({ portCode: edmToTs(portCode, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, TaxExtension);
   }
 }

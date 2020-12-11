@@ -5,25 +5,27 @@
  */
 import { ResourceCapacitiesRequestBuilder } from './ResourceCapacitiesRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { ResourceCapacityTypeEnum } from './ResourceCapacityTypeEnum';
+import { ResourceCapacitySourceTypeEnum } from './ResourceCapacitySourceTypeEnum';
+import { ResourceCapacityBaseTypeEnum } from './ResourceCapacityBaseTypeEnum';
+import { ResourceCapacityActionEnum } from './ResourceCapacityActionEnum';
+import { ResourceCapacityOwningTypeEnum } from './ResourceCapacityOwningTypeEnum';
+import { ResourceCapacityRevertedTypeEnum } from './ResourceCapacityRevertedTypeEnum';
+import { ResourceCapacityMemoSourceEnum } from './ResourceCapacityMemoSourceEnum';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ResourceCapacities" of service "SAPB1".
  */
-export class ResourceCapacities extends Entity implements ResourceCapacitiesType {
+export class ResourceCapacities extends EntityV4 implements ResourceCapacitiesType {
   /**
    * Technical entity name for ResourceCapacities.
    */
   static _entityName = 'ResourceCapacities';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ResourceCapacities.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Id.
    * @nullable
@@ -45,10 +47,20 @@ export class ResourceCapacities extends Entity implements ResourceCapacitiesType
    */
   date?: Moment;
   /**
+   * Type.
+   * @nullable
+   */
+  type?: ResourceCapacityTypeEnum;
+  /**
    * Capacity.
    * @nullable
    */
   capacity?: number;
+  /**
+   * Source Type.
+   * @nullable
+   */
+  sourceType?: ResourceCapacitySourceTypeEnum;
   /**
    * Source Entry.
    * @nullable
@@ -60,6 +72,11 @@ export class ResourceCapacities extends Entity implements ResourceCapacitiesType
    */
   sourceLineNum?: number;
   /**
+   * Base Type.
+   * @nullable
+   */
+  baseType?: ResourceCapacityBaseTypeEnum;
+  /**
    * Base Entry.
    * @nullable
    */
@@ -69,6 +86,16 @@ export class ResourceCapacities extends Entity implements ResourceCapacitiesType
    * @nullable
    */
   baseLineNum?: number;
+  /**
+   * Action.
+   * @nullable
+   */
+  action?: ResourceCapacityActionEnum;
+  /**
+   * Owning Type.
+   * @nullable
+   */
+  owningType?: ResourceCapacityOwningTypeEnum;
   /**
    * Owning Entry.
    * @nullable
@@ -80,6 +107,11 @@ export class ResourceCapacities extends Entity implements ResourceCapacitiesType
    */
   owningLineNum?: number;
   /**
+   * Reverted Type.
+   * @nullable
+   */
+  revertedType?: ResourceCapacityRevertedTypeEnum;
+  /**
    * Reverted Entry.
    * @nullable
    */
@@ -90,6 +122,11 @@ export class ResourceCapacities extends Entity implements ResourceCapacitiesType
    */
   revertedLineNum?: number;
   /**
+   * Memo Source.
+   * @nullable
+   */
+  memoSource?: ResourceCapacityMemoSourceEnum;
+  /**
    * Memo.
    * @nullable
    */
@@ -99,6 +136,11 @@ export class ResourceCapacities extends Entity implements ResourceCapacitiesType
    * @nullable
    */
   singleRunCapacity?: number;
+  /**
+   * Single Run Memo Source.
+   * @nullable
+   */
+  singleRunMemoSource?: ResourceCapacityMemoSourceEnum;
   /**
    * Single Run Memo.
    * @nullable
@@ -114,11 +156,11 @@ export class ResourceCapacities extends Entity implements ResourceCapacitiesType
   warehouse2!: Warehouses;
 
   /**
-   * Returns an entity builder to construct instances `ResourceCapacities`.
+   * Returns an entity builder to construct instances of `ResourceCapacities`.
    * @returns A builder that constructs instances of entity type `ResourceCapacities`.
    */
-  static builder(): EntityBuilderType<ResourceCapacities, ResourceCapacitiesTypeForceMandatory> {
-    return Entity.entityBuilder(ResourceCapacities);
+  static builder(): EntityBuilderType<ResourceCapacities, ResourceCapacitiesType> {
+    return EntityV4.entityBuilder(ResourceCapacities);
   }
 
   /**
@@ -134,8 +176,8 @@ export class ResourceCapacities extends Entity implements ResourceCapacitiesType
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ResourceCapacities`.
    */
-  static customField(fieldName: string): CustomField<ResourceCapacities> {
-    return Entity.customFieldSelector(fieldName, ResourceCapacities);
+  static customField(fieldName: string): CustomFieldV4<ResourceCapacities> {
+    return EntityV4.customFieldSelector(fieldName, ResourceCapacities);
   }
 
   /**
@@ -151,43 +193,30 @@ import { Resources, ResourcesType } from './Resources';
 import { Warehouses, WarehousesType } from './Warehouses';
 
 export interface ResourceCapacitiesType {
-  id?: number;
-  code?: string;
-  warehouse?: string;
-  date?: Moment;
-  capacity?: number;
-  sourceEntry?: number;
-  sourceLineNum?: number;
-  baseEntry?: number;
-  baseLineNum?: number;
-  owningEntry?: number;
-  owningLineNum?: number;
-  revertedEntry?: number;
-  revertedLineNum?: number;
-  memo?: string;
-  singleRunCapacity?: number;
-  singleRunMemo?: string;
-  resource: ResourcesType;
-  warehouse2: WarehousesType;
-}
-
-export interface ResourceCapacitiesTypeForceMandatory {
-  id: number;
-  code: string;
-  warehouse: string;
-  date: Moment;
-  capacity: number;
-  sourceEntry: number;
-  sourceLineNum: number;
-  baseEntry: number;
-  baseLineNum: number;
-  owningEntry: number;
-  owningLineNum: number;
-  revertedEntry: number;
-  revertedLineNum: number;
-  memo: string;
-  singleRunCapacity: number;
-  singleRunMemo: string;
+  id?: number | null;
+  code?: string | null;
+  warehouse?: string | null;
+  date?: Moment | null;
+  type?: ResourceCapacityTypeEnum | null;
+  capacity?: number | null;
+  sourceType?: ResourceCapacitySourceTypeEnum | null;
+  sourceEntry?: number | null;
+  sourceLineNum?: number | null;
+  baseType?: ResourceCapacityBaseTypeEnum | null;
+  baseEntry?: number | null;
+  baseLineNum?: number | null;
+  action?: ResourceCapacityActionEnum | null;
+  owningType?: ResourceCapacityOwningTypeEnum | null;
+  owningEntry?: number | null;
+  owningLineNum?: number | null;
+  revertedType?: ResourceCapacityRevertedTypeEnum | null;
+  revertedEntry?: number | null;
+  revertedLineNum?: number | null;
+  memoSource?: ResourceCapacityMemoSourceEnum | null;
+  memo?: string | null;
+  singleRunCapacity?: number | null;
+  singleRunMemoSource?: ResourceCapacityMemoSourceEnum | null;
+  singleRunMemo?: string | null;
   resource: ResourcesType;
   warehouse2: WarehousesType;
 }
@@ -214,10 +243,20 @@ export namespace ResourceCapacities {
    */
   export const DATE: DateField<ResourceCapacities> = new DateField('Date', ResourceCapacities, 'Edm.DateTimeOffset');
   /**
+   * Static representation of the [[type]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TYPE: EnumField<ResourceCapacities> = new EnumField('Type', ResourceCapacities);
+  /**
    * Static representation of the [[capacity]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CAPACITY: NumberField<ResourceCapacities> = new NumberField('Capacity', ResourceCapacities, 'Edm.Double');
+  /**
+   * Static representation of the [[sourceType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SOURCE_TYPE: EnumField<ResourceCapacities> = new EnumField('SourceType', ResourceCapacities);
   /**
    * Static representation of the [[sourceEntry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -229,6 +268,11 @@ export namespace ResourceCapacities {
    */
   export const SOURCE_LINE_NUM: NumberField<ResourceCapacities> = new NumberField('SourceLineNum', ResourceCapacities, 'Edm.Int32');
   /**
+   * Static representation of the [[baseType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BASE_TYPE: EnumField<ResourceCapacities> = new EnumField('BaseType', ResourceCapacities);
+  /**
    * Static representation of the [[baseEntry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -238,6 +282,16 @@ export namespace ResourceCapacities {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const BASE_LINE_NUM: NumberField<ResourceCapacities> = new NumberField('BaseLineNum', ResourceCapacities, 'Edm.Int32');
+  /**
+   * Static representation of the [[action]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ACTION: EnumField<ResourceCapacities> = new EnumField('Action', ResourceCapacities);
+  /**
+   * Static representation of the [[owningType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const OWNING_TYPE: EnumField<ResourceCapacities> = new EnumField('OwningType', ResourceCapacities);
   /**
    * Static representation of the [[owningEntry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -249,6 +303,11 @@ export namespace ResourceCapacities {
    */
   export const OWNING_LINE_NUM: NumberField<ResourceCapacities> = new NumberField('OwningLineNum', ResourceCapacities, 'Edm.Int32');
   /**
+   * Static representation of the [[revertedType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REVERTED_TYPE: EnumField<ResourceCapacities> = new EnumField('RevertedType', ResourceCapacities);
+  /**
    * Static representation of the [[revertedEntry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -259,6 +318,11 @@ export namespace ResourceCapacities {
    */
   export const REVERTED_LINE_NUM: NumberField<ResourceCapacities> = new NumberField('RevertedLineNum', ResourceCapacities, 'Edm.Int32');
   /**
+   * Static representation of the [[memoSource]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const MEMO_SOURCE: EnumField<ResourceCapacities> = new EnumField('MemoSource', ResourceCapacities);
+  /**
    * Static representation of the [[memo]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -268,6 +332,11 @@ export namespace ResourceCapacities {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const SINGLE_RUN_CAPACITY: NumberField<ResourceCapacities> = new NumberField('SingleRunCapacity', ResourceCapacities, 'Edm.Double');
+  /**
+   * Static representation of the [[singleRunMemoSource]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SINGLE_RUN_MEMO_SOURCE: EnumField<ResourceCapacities> = new EnumField('SingleRunMemoSource', ResourceCapacities);
   /**
    * Static representation of the [[singleRunMemo]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -286,22 +355,30 @@ export namespace ResourceCapacities {
   /**
    * All fields of the ResourceCapacities entity.
    */
-  export const _allFields: Array<NumberField<ResourceCapacities> | StringField<ResourceCapacities> | DateField<ResourceCapacities> | OneToOneLink<ResourceCapacities, Resources> | OneToOneLink<ResourceCapacities, Warehouses>> = [
+  export const _allFields: Array<NumberField<ResourceCapacities> | StringField<ResourceCapacities> | DateField<ResourceCapacities> | EnumField<ResourceCapacities> | OneToOneLink<ResourceCapacities, Resources> | OneToOneLink<ResourceCapacities, Warehouses>> = [
     ResourceCapacities.ID,
     ResourceCapacities.CODE,
     ResourceCapacities.WAREHOUSE,
     ResourceCapacities.DATE,
+    ResourceCapacities.TYPE,
     ResourceCapacities.CAPACITY,
+    ResourceCapacities.SOURCE_TYPE,
     ResourceCapacities.SOURCE_ENTRY,
     ResourceCapacities.SOURCE_LINE_NUM,
+    ResourceCapacities.BASE_TYPE,
     ResourceCapacities.BASE_ENTRY,
     ResourceCapacities.BASE_LINE_NUM,
+    ResourceCapacities.ACTION,
+    ResourceCapacities.OWNING_TYPE,
     ResourceCapacities.OWNING_ENTRY,
     ResourceCapacities.OWNING_LINE_NUM,
+    ResourceCapacities.REVERTED_TYPE,
     ResourceCapacities.REVERTED_ENTRY,
     ResourceCapacities.REVERTED_LINE_NUM,
+    ResourceCapacities.MEMO_SOURCE,
     ResourceCapacities.MEMO,
     ResourceCapacities.SINGLE_RUN_CAPACITY,
+    ResourceCapacities.SINGLE_RUN_MEMO_SOURCE,
     ResourceCapacities.SINGLE_RUN_MEMO,
     ResourceCapacities.RESOURCE,
     ResourceCapacities.WAREHOUSE_2

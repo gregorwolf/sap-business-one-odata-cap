@@ -4,25 +4,23 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { CurrenciesRequestBuilder } from './CurrenciesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { CurrenciesDecimalsEnum } from './CurrenciesDecimalsEnum';
+import { RoundingSysEnum } from './RoundingSysEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "Currencies" of service "SAPB1".
  */
-export class Currencies extends Entity implements CurrenciesType {
+export class Currencies extends EntityV4 implements CurrenciesType {
   /**
    * Technical entity name for Currencies.
    */
   static _entityName = 'Currencies';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for Currencies.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -78,6 +76,21 @@ export class Currencies extends Entity implements CurrenciesType {
    * @nullable
    */
   pluralEnglishHundredthName?: string;
+  /**
+   * Decimals.
+   * @nullable
+   */
+  decimals?: CurrenciesDecimalsEnum;
+  /**
+   * Rounding.
+   * @nullable
+   */
+  rounding?: RoundingSysEnum;
+  /**
+   * Rounding In Payment.
+   * @nullable
+   */
+  roundingInPayment?: BoYesNoEnum;
   /**
    * Max Incoming Amt Diff.
    * @nullable
@@ -248,11 +261,11 @@ export class Currencies extends Entity implements CurrenciesType {
   bankStatements!: BankStatements[];
 
   /**
-   * Returns an entity builder to construct instances `Currencies`.
+   * Returns an entity builder to construct instances of `Currencies`.
    * @returns A builder that constructs instances of entity type `Currencies`.
    */
-  static builder(): EntityBuilderType<Currencies, CurrenciesTypeForceMandatory> {
-    return Entity.entityBuilder(Currencies);
+  static builder(): EntityBuilderType<Currencies, CurrenciesType> {
+    return EntityV4.entityBuilder(Currencies);
   }
 
   /**
@@ -268,8 +281,8 @@ export class Currencies extends Entity implements CurrenciesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `Currencies`.
    */
-  static customField(fieldName: string): CustomField<Currencies> {
-    return Entity.customFieldSelector(fieldName, Currencies);
+  static customField(fieldName: string): CustomFieldV4<Currencies> {
+    return EntityV4.customFieldSelector(fieldName, Currencies);
   }
 
   /**
@@ -320,76 +333,24 @@ import { IncomingPayments, IncomingPaymentsType } from './IncomingPayments';
 import { BankStatements, BankStatementsType } from './BankStatements';
 
 export interface CurrenciesType {
-  code?: string;
-  name?: string;
-  documentsCode?: string;
-  internationalDescription?: string;
-  hundredthName?: string;
-  englishName?: string;
-  englishHundredthName?: string;
-  pluralInternationalDescription?: string;
-  pluralHundredthName?: string;
-  pluralEnglishName?: string;
-  pluralEnglishHundredthName?: string;
-  maxIncomingAmtDiff?: number;
-  maxOutgoingAmtDiff?: number;
-  maxIncomingAmtDiffPercent?: number;
-  maxOutgoingAmtDiffPercent?: number;
-  inventoryGenEntries: InventoryGenEntriesType[];
-  purchaseQuotations: PurchaseQuotationsType[];
-  vendorPayments: VendorPaymentsType[];
-  assetTransfer: AssetTransferType[];
-  assetRetirement: AssetRetirementType[];
-  assetCapitalizationCreditMemo: AssetCapitalizationCreditMemoType[];
-  deliveryNotes: DeliveryNotesType[];
-  businessPartners: BusinessPartnersType[];
-  quotations: QuotationsType[];
-  chartOfAccounts: ChartOfAccountsType[];
-  inventoryGenExits: InventoryGenExitsType[];
-  purchaseRequests: PurchaseRequestsType[];
-  returnRequest: ReturnRequestType[];
-  blanketAgreements: BlanketAgreementsType[];
-  purchaseReturns: PurchaseReturnsType[];
-  invoices: InvoicesType[];
-  assetCapitalization: AssetCapitalizationType[];
-  creditNotes: CreditNotesType[];
-  orders: OrdersType[];
-  assetManualDepreciation: AssetManualDepreciationType[];
-  downPayments: DownPaymentsType[];
-  drafts: DraftsType[];
-  paymentDrafts: PaymentDraftsType[];
-  returns: ReturnsType[];
-  correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-  correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-  correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-  purchaseInvoices: PurchaseInvoicesType[];
-  purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-  correctionInvoice: CorrectionInvoiceType[];
-  purchaseCreditNotes: PurchaseCreditNotesType[];
-  purchaseDownPayments: PurchaseDownPaymentsType[];
-  purchaseOrders: PurchaseOrdersType[];
-  withholdingTaxCodes: WithholdingTaxCodesType[];
-  goodsReturnRequest: GoodsReturnRequestType[];
-  incomingPayments: IncomingPaymentsType[];
-  bankStatements: BankStatementsType[];
-}
-
-export interface CurrenciesTypeForceMandatory {
-  code: string;
-  name: string;
-  documentsCode: string;
-  internationalDescription: string;
-  hundredthName: string;
-  englishName: string;
-  englishHundredthName: string;
-  pluralInternationalDescription: string;
-  pluralHundredthName: string;
-  pluralEnglishName: string;
-  pluralEnglishHundredthName: string;
-  maxIncomingAmtDiff: number;
-  maxOutgoingAmtDiff: number;
-  maxIncomingAmtDiffPercent: number;
-  maxOutgoingAmtDiffPercent: number;
+  code?: string | null;
+  name?: string | null;
+  documentsCode?: string | null;
+  internationalDescription?: string | null;
+  hundredthName?: string | null;
+  englishName?: string | null;
+  englishHundredthName?: string | null;
+  pluralInternationalDescription?: string | null;
+  pluralHundredthName?: string | null;
+  pluralEnglishName?: string | null;
+  pluralEnglishHundredthName?: string | null;
+  decimals?: CurrenciesDecimalsEnum | null;
+  rounding?: RoundingSysEnum | null;
+  roundingInPayment?: BoYesNoEnum | null;
+  maxIncomingAmtDiff?: number | null;
+  maxOutgoingAmtDiff?: number | null;
+  maxIncomingAmtDiffPercent?: number | null;
+  maxOutgoingAmtDiffPercent?: number | null;
   inventoryGenEntries: InventoryGenEntriesType[];
   purchaseQuotations: PurchaseQuotationsType[];
   vendorPayments: VendorPaymentsType[];
@@ -485,6 +446,21 @@ export namespace Currencies {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const PLURAL_ENGLISH_HUNDREDTH_NAME: StringField<Currencies> = new StringField('PluralEnglishHundredthName', Currencies, 'Edm.String');
+  /**
+   * Static representation of the [[decimals]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DECIMALS: EnumField<Currencies> = new EnumField('Decimals', Currencies);
+  /**
+   * Static representation of the [[rounding]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ROUNDING: EnumField<Currencies> = new EnumField('Rounding', Currencies);
+  /**
+   * Static representation of the [[roundingInPayment]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ROUNDING_IN_PAYMENT: EnumField<Currencies> = new EnumField('RoundingInPayment', Currencies);
   /**
    * Static representation of the [[maxIncomingAmtDiff]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -693,7 +669,7 @@ export namespace Currencies {
   /**
    * All fields of the Currencies entity.
    */
-  export const _allFields: Array<StringField<Currencies> | NumberField<Currencies> | OneToManyLink<Currencies, InventoryGenEntries> | OneToManyLink<Currencies, PurchaseQuotations> | OneToManyLink<Currencies, VendorPayments> | OneToManyLink<Currencies, AssetTransfer> | OneToManyLink<Currencies, AssetRetirement> | OneToManyLink<Currencies, AssetCapitalizationCreditMemo> | OneToManyLink<Currencies, DeliveryNotes> | OneToManyLink<Currencies, BusinessPartners> | OneToManyLink<Currencies, Quotations> | OneToManyLink<Currencies, ChartOfAccounts> | OneToManyLink<Currencies, InventoryGenExits> | OneToManyLink<Currencies, PurchaseRequests> | OneToManyLink<Currencies, ReturnRequest> | OneToManyLink<Currencies, BlanketAgreements> | OneToManyLink<Currencies, PurchaseReturns> | OneToManyLink<Currencies, Invoices> | OneToManyLink<Currencies, AssetCapitalization> | OneToManyLink<Currencies, CreditNotes> | OneToManyLink<Currencies, Orders> | OneToManyLink<Currencies, AssetManualDepreciation> | OneToManyLink<Currencies, DownPayments> | OneToManyLink<Currencies, Drafts> | OneToManyLink<Currencies, PaymentDrafts> | OneToManyLink<Currencies, Returns> | OneToManyLink<Currencies, CorrectionInvoiceReversal> | OneToManyLink<Currencies, CorrectionPurchaseInvoice> | OneToManyLink<Currencies, CorrectionPurchaseInvoiceReversal> | OneToManyLink<Currencies, PurchaseInvoices> | OneToManyLink<Currencies, PurchaseDeliveryNotes> | OneToManyLink<Currencies, CorrectionInvoice> | OneToManyLink<Currencies, PurchaseCreditNotes> | OneToManyLink<Currencies, PurchaseDownPayments> | OneToManyLink<Currencies, PurchaseOrders> | OneToManyLink<Currencies, WithholdingTaxCodes> | OneToManyLink<Currencies, GoodsReturnRequest> | OneToManyLink<Currencies, IncomingPayments> | OneToManyLink<Currencies, BankStatements>> = [
+  export const _allFields: Array<StringField<Currencies> | EnumField<Currencies> | NumberField<Currencies> | OneToManyLink<Currencies, InventoryGenEntries> | OneToManyLink<Currencies, PurchaseQuotations> | OneToManyLink<Currencies, VendorPayments> | OneToManyLink<Currencies, AssetTransfer> | OneToManyLink<Currencies, AssetRetirement> | OneToManyLink<Currencies, AssetCapitalizationCreditMemo> | OneToManyLink<Currencies, DeliveryNotes> | OneToManyLink<Currencies, BusinessPartners> | OneToManyLink<Currencies, Quotations> | OneToManyLink<Currencies, ChartOfAccounts> | OneToManyLink<Currencies, InventoryGenExits> | OneToManyLink<Currencies, PurchaseRequests> | OneToManyLink<Currencies, ReturnRequest> | OneToManyLink<Currencies, BlanketAgreements> | OneToManyLink<Currencies, PurchaseReturns> | OneToManyLink<Currencies, Invoices> | OneToManyLink<Currencies, AssetCapitalization> | OneToManyLink<Currencies, CreditNotes> | OneToManyLink<Currencies, Orders> | OneToManyLink<Currencies, AssetManualDepreciation> | OneToManyLink<Currencies, DownPayments> | OneToManyLink<Currencies, Drafts> | OneToManyLink<Currencies, PaymentDrafts> | OneToManyLink<Currencies, Returns> | OneToManyLink<Currencies, CorrectionInvoiceReversal> | OneToManyLink<Currencies, CorrectionPurchaseInvoice> | OneToManyLink<Currencies, CorrectionPurchaseInvoiceReversal> | OneToManyLink<Currencies, PurchaseInvoices> | OneToManyLink<Currencies, PurchaseDeliveryNotes> | OneToManyLink<Currencies, CorrectionInvoice> | OneToManyLink<Currencies, PurchaseCreditNotes> | OneToManyLink<Currencies, PurchaseDownPayments> | OneToManyLink<Currencies, PurchaseOrders> | OneToManyLink<Currencies, WithholdingTaxCodes> | OneToManyLink<Currencies, GoodsReturnRequest> | OneToManyLink<Currencies, IncomingPayments> | OneToManyLink<Currencies, BankStatements>> = [
     Currencies.CODE,
     Currencies.NAME,
     Currencies.DOCUMENTS_CODE,
@@ -705,6 +681,9 @@ export namespace Currencies {
     Currencies.PLURAL_HUNDREDTH_NAME,
     Currencies.PLURAL_ENGLISH_NAME,
     Currencies.PLURAL_ENGLISH_HUNDREDTH_NAME,
+    Currencies.DECIMALS,
+    Currencies.ROUNDING,
+    Currencies.ROUNDING_IN_PAYMENT,
     Currencies.MAX_INCOMING_AMT_DIFF,
     Currencies.MAX_OUTGOING_AMT_DIFF,
     Currencies.MAX_INCOMING_AMT_DIFF_PERCENT,

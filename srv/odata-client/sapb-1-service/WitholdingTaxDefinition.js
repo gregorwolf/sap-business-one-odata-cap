@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -35,7 +35,7 @@ var WtdEffectiveDate_1 = require("./WtdEffectiveDate");
 var Wtdbp_1 = require("./Wtdbp");
 var WtdItem_1 = require("./WtdItem");
 var WtdFreight_1 = require("./WtdFreight");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "WitholdingTaxDefinition" of service "SAPB1".
  */
@@ -45,11 +45,11 @@ var WitholdingTaxDefinition = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `WitholdingTaxDefinition`.
+     * Returns an entity builder to construct instances of `WitholdingTaxDefinition`.
      * @returns A builder that constructs instances of entity type `WitholdingTaxDefinition`.
      */
     WitholdingTaxDefinition.builder = function () {
-        return v4_1.Entity.entityBuilder(WitholdingTaxDefinition);
+        return core_1.EntityV4.entityBuilder(WitholdingTaxDefinition);
     };
     /**
      * Returns a request builder to construct requests for operations on the `WitholdingTaxDefinition` entity type.
@@ -64,7 +64,7 @@ var WitholdingTaxDefinition = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `WitholdingTaxDefinition`.
      */
     WitholdingTaxDefinition.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, WitholdingTaxDefinition);
+        return core_1.EntityV4.customFieldSelector(fieldName, WitholdingTaxDefinition);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -78,78 +78,93 @@ var WitholdingTaxDefinition = /** @class */ (function (_super) {
      */
     WitholdingTaxDefinition._entityName = 'WitholdingTaxDefinition';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for WitholdingTaxDefinition.
-     */
-    WitholdingTaxDefinition._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    WitholdingTaxDefinition._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    WitholdingTaxDefinition._defaultServicePath = '/b1s/v2/';
     return WitholdingTaxDefinition;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.WitholdingTaxDefinition = WitholdingTaxDefinition;
 (function (WitholdingTaxDefinition) {
     /**
      * Static representation of the [[absEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WitholdingTaxDefinition.ABS_ENTRY = new v4_1.NumberField('AbsEntry', WitholdingTaxDefinition, 'Edm.Int32');
+    WitholdingTaxDefinition.ABS_ENTRY = new core_1.NumberField('AbsEntry', WitholdingTaxDefinition, 'Edm.Int32');
     /**
      * Static representation of the [[wTaxCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WitholdingTaxDefinition.W_TAX_CODE = new v4_1.StringField('WTaxCode', WitholdingTaxDefinition, 'Edm.String');
+    WitholdingTaxDefinition.W_TAX_CODE = new core_1.StringField('WTaxCode', WitholdingTaxDefinition, 'Edm.String');
     /**
      * Static representation of the [[wTaxName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WitholdingTaxDefinition.W_TAX_NAME = new v4_1.StringField('WTaxName', WitholdingTaxDefinition, 'Edm.String');
+    WitholdingTaxDefinition.W_TAX_NAME = new core_1.StringField('WTaxName', WitholdingTaxDefinition, 'Edm.String');
     /**
      * Static representation of the [[formulaId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WitholdingTaxDefinition.FORMULA_ID = new v4_1.NumberField('FormulaID', WitholdingTaxDefinition, 'Edm.Int32');
+    WitholdingTaxDefinition.FORMULA_ID = new core_1.NumberField('FormulaID', WitholdingTaxDefinition, 'Edm.Int32');
+    /**
+     * Static representation of the [[inactive]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    WitholdingTaxDefinition.INACTIVE = new core_1.EnumField('Inactive', WitholdingTaxDefinition);
     /**
      * Static representation of the [[officialCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WitholdingTaxDefinition.OFFICIAL_CODE = new v4_1.StringField('OfficialCode', WitholdingTaxDefinition, 'Edm.String');
+    WitholdingTaxDefinition.OFFICIAL_CODE = new core_1.StringField('OfficialCode', WitholdingTaxDefinition, 'Edm.String');
+    /**
+     * Static representation of the [[category]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    WitholdingTaxDefinition.CATEGORY = new core_1.EnumField('Category', WitholdingTaxDefinition);
+    /**
+     * Static representation of the [[baseType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    WitholdingTaxDefinition.BASE_TYPE = new core_1.EnumField('BaseType', WitholdingTaxDefinition);
     /**
      * Static representation of the [[type]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WitholdingTaxDefinition.TYPE = new v4_1.NumberField('Type', WitholdingTaxDefinition, 'Edm.Int32');
+    WitholdingTaxDefinition.TYPE = new core_1.NumberField('Type', WitholdingTaxDefinition, 'Edm.Int32');
     /**
      * Static representation of the [[minAmount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WitholdingTaxDefinition.MIN_AMOUNT = new v4_1.NumberField('MinAmount', WitholdingTaxDefinition, 'Edm.Double');
+    WitholdingTaxDefinition.MIN_AMOUNT = new core_1.NumberField('MinAmount', WitholdingTaxDefinition, 'Edm.Double');
     /**
      * Static representation of the [[baseAmountPrct]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WitholdingTaxDefinition.BASE_AMOUNT_PRCT = new v4_1.NumberField('BaseAmountPrct', WitholdingTaxDefinition, 'Edm.Double');
+    WitholdingTaxDefinition.BASE_AMOUNT_PRCT = new core_1.NumberField('BaseAmountPrct', WitholdingTaxDefinition, 'Edm.Double');
+    /**
+     * Static representation of the [[slidingScaleProgressiveTax]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    WitholdingTaxDefinition.SLIDING_SCALE_PROGRESSIVE_TAX = new core_1.EnumField('SlidingScaleProgressiveTax', WitholdingTaxDefinition);
     /**
      * Static representation of the [[wtdEffectiveDateCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WitholdingTaxDefinition.WTD_EFFECTIVE_DATE_COLLECTION = new v4_1.CollectionField('WTDEffectiveDateCollection', WitholdingTaxDefinition, new WtdEffectiveDate_1.WtdEffectiveDateField('', WitholdingTaxDefinition));
+    WitholdingTaxDefinition.WTD_EFFECTIVE_DATE_COLLECTION = new core_1.CollectionField('WTDEffectiveDateCollection', WitholdingTaxDefinition, WtdEffectiveDate_1.WtdEffectiveDate);
     /**
      * Static representation of the [[wtdbpCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WitholdingTaxDefinition.WTDBP_COLLECTION = new v4_1.CollectionField('WTDBPCollection', WitholdingTaxDefinition, new Wtdbp_1.WtdbpField('', WitholdingTaxDefinition));
+    WitholdingTaxDefinition.WTDBP_COLLECTION = new core_1.CollectionField('WTDBPCollection', WitholdingTaxDefinition, Wtdbp_1.Wtdbp);
     /**
      * Static representation of the [[wtdItemCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WitholdingTaxDefinition.WTD_ITEM_COLLECTION = new v4_1.CollectionField('WTDItemCollection', WitholdingTaxDefinition, new WtdItem_1.WtdItemField('', WitholdingTaxDefinition));
+    WitholdingTaxDefinition.WTD_ITEM_COLLECTION = new core_1.CollectionField('WTDItemCollection', WitholdingTaxDefinition, WtdItem_1.WtdItem);
     /**
      * Static representation of the [[wtdFreightCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WitholdingTaxDefinition.WTD_FREIGHT_COLLECTION = new v4_1.CollectionField('WTDFreightCollection', WitholdingTaxDefinition, new WtdFreight_1.WtdFreightField('', WitholdingTaxDefinition));
+    WitholdingTaxDefinition.WTD_FREIGHT_COLLECTION = new core_1.CollectionField('WTDFreightCollection', WitholdingTaxDefinition, WtdFreight_1.WtdFreight);
     /**
      * All fields of the WitholdingTaxDefinition entity.
      */
@@ -158,10 +173,14 @@ exports.WitholdingTaxDefinition = WitholdingTaxDefinition;
         WitholdingTaxDefinition.W_TAX_CODE,
         WitholdingTaxDefinition.W_TAX_NAME,
         WitholdingTaxDefinition.FORMULA_ID,
+        WitholdingTaxDefinition.INACTIVE,
         WitholdingTaxDefinition.OFFICIAL_CODE,
+        WitholdingTaxDefinition.CATEGORY,
+        WitholdingTaxDefinition.BASE_TYPE,
         WitholdingTaxDefinition.TYPE,
         WitholdingTaxDefinition.MIN_AMOUNT,
         WitholdingTaxDefinition.BASE_AMOUNT_PRCT,
+        WitholdingTaxDefinition.SLIDING_SCALE_PROGRESSIVE_TAX,
         WitholdingTaxDefinition.WTD_EFFECTIVE_DATE_COLLECTION,
         WitholdingTaxDefinition.WTDBP_COLLECTION,
         WitholdingTaxDefinition.WTD_ITEM_COLLECTION,
@@ -170,7 +189,7 @@ exports.WitholdingTaxDefinition = WitholdingTaxDefinition;
     /**
      * All fields selector.
      */
-    WitholdingTaxDefinition.ALL_FIELDS = new v4_1.AllFields('*', WitholdingTaxDefinition);
+    WitholdingTaxDefinition.ALL_FIELDS = new core_1.AllFields('*', WitholdingTaxDefinition);
     /**
      * All key fields of the WitholdingTaxDefinition entity.
      */

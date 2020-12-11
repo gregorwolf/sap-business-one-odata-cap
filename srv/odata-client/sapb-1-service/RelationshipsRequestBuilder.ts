@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { Relationships } from './Relationships';
 
 /**
@@ -15,16 +15,16 @@ export class RelationshipsRequestBuilder extends RequestBuilder<Relationships> {
    * @param relationshipCode Key property. See [[Relationships.relationshipCode]].
    * @returns A request builder for creating requests to retrieve one `Relationships` entity based on its keys.
    */
-  getByKey(relationshipCode: number): GetByKeyRequestBuilder<Relationships> {
-    return new GetByKeyRequestBuilder(Relationships, { RelationshipCode: relationshipCode });
+  getByKey(relationshipCode: number): GetByKeyRequestBuilderV4<Relationships> {
+    return new GetByKeyRequestBuilderV4(Relationships, { RelationshipCode: relationshipCode });
   }
 
   /**
    * Returns a request builder for querying all `Relationships` entities.
    * @returns A request builder for creating requests to retrieve all `Relationships` entities.
    */
-  getAll(): GetAllRequestBuilder<Relationships> {
-    return new GetAllRequestBuilder(Relationships);
+  getAll(): GetAllRequestBuilderV4<Relationships> {
+    return new GetAllRequestBuilderV4(Relationships);
   }
 
   /**
@@ -32,8 +32,8 @@ export class RelationshipsRequestBuilder extends RequestBuilder<Relationships> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `Relationships`.
    */
-  create(entity: Relationships): CreateRequestBuilder<Relationships> {
-    return new CreateRequestBuilder(Relationships, entity);
+  create(entity: Relationships): CreateRequestBuilderV4<Relationships> {
+    return new CreateRequestBuilderV4(Relationships, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class RelationshipsRequestBuilder extends RequestBuilder<Relationships> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `Relationships`.
    */
-  update(entity: Relationships): UpdateRequestBuilder<Relationships> {
-    return new UpdateRequestBuilder(Relationships, entity);
+  update(entity: Relationships): UpdateRequestBuilderV4<Relationships> {
+    return new UpdateRequestBuilderV4(Relationships, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class RelationshipsRequestBuilder extends RequestBuilder<Relationships> {
    * @param relationshipCode Key property. See [[Relationships.relationshipCode]].
    * @returns A request builder for creating requests that delete an entity of type `Relationships`.
    */
-  delete(relationshipCode: number): DeleteRequestBuilder<Relationships>;
+  delete(relationshipCode: number): DeleteRequestBuilderV4<Relationships>;
   /**
    * Returns a request builder for deleting an entity of type `Relationships`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `Relationships` by taking the entity as a parameter.
    */
-  delete(entity: Relationships): DeleteRequestBuilder<Relationships>;
-  delete(relationshipCodeOrEntity: any): DeleteRequestBuilder<Relationships> {
-    return new DeleteRequestBuilder(Relationships, relationshipCodeOrEntity instanceof Relationships ? relationshipCodeOrEntity : { RelationshipCode: relationshipCodeOrEntity! });
+  delete(entity: Relationships): DeleteRequestBuilderV4<Relationships>;
+  delete(relationshipCodeOrEntity: any): DeleteRequestBuilderV4<Relationships> {
+    return new DeleteRequestBuilderV4(Relationships, relationshipCodeOrEntity instanceof Relationships ? relationshipCodeOrEntity : { RelationshipCode: relationshipCodeOrEntity! });
   }
 }

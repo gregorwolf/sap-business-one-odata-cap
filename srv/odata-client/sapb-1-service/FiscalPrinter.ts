@@ -4,26 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { FiscalPrinterRequestBuilder } from './FiscalPrinterRequestBuilder';
-import { FiscalPrinterParams, FiscalPrinterParamsField } from './FiscalPrinterParams';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { FiscalPrinterParams } from './FiscalPrinterParams';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "FiscalPrinter" of service "SAPB1".
  */
-export class FiscalPrinter extends Entity implements FiscalPrinterType {
+export class FiscalPrinter extends EntityV4 implements FiscalPrinterType {
   /**
    * Technical entity name for FiscalPrinter.
    */
   static _entityName = 'FiscalPrinter';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for FiscalPrinter.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Equipment No.
    * @nullable
@@ -64,11 +59,11 @@ export class FiscalPrinter extends Entity implements FiscalPrinterType {
   posDailySummary!: PosDailySummary[];
 
   /**
-   * Returns an entity builder to construct instances `FiscalPrinter`.
+   * Returns an entity builder to construct instances of `FiscalPrinter`.
    * @returns A builder that constructs instances of entity type `FiscalPrinter`.
    */
-  static builder(): EntityBuilderType<FiscalPrinter, FiscalPrinterTypeForceMandatory> {
-    return Entity.entityBuilder(FiscalPrinter);
+  static builder(): EntityBuilderType<FiscalPrinter, FiscalPrinterType> {
+    return EntityV4.entityBuilder(FiscalPrinter);
   }
 
   /**
@@ -84,8 +79,8 @@ export class FiscalPrinter extends Entity implements FiscalPrinterType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `FiscalPrinter`.
    */
-  static customField(fieldName: string): CustomField<FiscalPrinter> {
-    return Entity.customFieldSelector(fieldName, FiscalPrinter);
+  static customField(fieldName: string): CustomFieldV4<FiscalPrinter> {
+    return EntityV4.customFieldSelector(fieldName, FiscalPrinter);
   }
 
   /**
@@ -101,23 +96,12 @@ import { NfModels, NfModelsType } from './NfModels';
 import { PosDailySummary, PosDailySummaryType } from './PosDailySummary';
 
 export interface FiscalPrinterType {
-  equipmentNo?: string;
-  model?: string;
-  manufacturerSerialN?: string;
-  registerNo?: number;
-  fiscalDocumentModel?: string;
-  fiscalPrintersParams?: FiscalPrinterParams[];
-  nfModel: NfModelsType;
-  posDailySummary: PosDailySummaryType[];
-}
-
-export interface FiscalPrinterTypeForceMandatory {
-  equipmentNo: string;
-  model: string;
-  manufacturerSerialN: string;
-  registerNo: number;
-  fiscalDocumentModel: string;
-  fiscalPrintersParams: FiscalPrinterParams[];
+  equipmentNo?: string | null;
+  model?: string | null;
+  manufacturerSerialN?: string | null;
+  registerNo?: number | null;
+  fiscalDocumentModel?: string | null;
+  fiscalPrintersParams?: FiscalPrinterParams[] | null;
   nfModel: NfModelsType;
   posDailySummary: PosDailySummaryType[];
 }
@@ -152,7 +136,7 @@ export namespace FiscalPrinter {
    * Static representation of the [[fiscalPrintersParams]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const FISCAL_PRINTERS_PARAMS: CollectionField<FiscalPrinter> = new CollectionField('FiscalPrintersParams', FiscalPrinter, new FiscalPrinterParamsField('', FiscalPrinter));
+  export const FISCAL_PRINTERS_PARAMS: CollectionField<FiscalPrinter, FiscalPrinterParams> = new CollectionField('FiscalPrintersParams', FiscalPrinter, FiscalPrinterParams);
   /**
    * Static representation of the one-to-one navigation property [[nfModel]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -166,7 +150,7 @@ export namespace FiscalPrinter {
   /**
    * All fields of the FiscalPrinter entity.
    */
-  export const _allFields: Array<StringField<FiscalPrinter> | NumberField<FiscalPrinter> | CollectionField<FiscalPrinter> | OneToOneLink<FiscalPrinter, NfModels> | OneToManyLink<FiscalPrinter, PosDailySummary>> = [
+  export const _allFields: Array<StringField<FiscalPrinter> | NumberField<FiscalPrinter> | CollectionField<FiscalPrinter, FiscalPrinterParams> | OneToOneLink<FiscalPrinter, NfModels> | OneToManyLink<FiscalPrinter, PosDailySummary>> = [
     FiscalPrinter.EQUIPMENT_NO,
     FiscalPrinter.MODEL,
     FiscalPrinter.MANUFACTURER_SERIAL_N,

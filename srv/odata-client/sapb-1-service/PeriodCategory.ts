@@ -4,8 +4,9 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { WipMapping, WipMappingField } from './WipMapping';
-import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { WipMapping } from './WipMapping';
+import { BoSubPeriodTypeEnum } from './BoSubPeriodTypeEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * PeriodCategory
@@ -26,6 +27,11 @@ export interface PeriodCategory {
    * @nullable
    */
   periodCategory?: string;
+  /**
+   * Sub Period Type.
+   * @nullable
+   */
+  subPeriodType?: BoSubPeriodTypeEnum;
   /**
    * Number Of Periods.
    * @nullable
@@ -630,7 +636,7 @@ export interface PeriodCategory {
    * Wip Mapping Collection.
    * @nullable
    */
-  wipMappingCollection?: WipMapping;
+  wipMappingCollection?: WipMapping[];
 }
 
 /**
@@ -644,7 +650,7 @@ export function createPeriodCategory(json: any): PeriodCategory {
  * PeriodCategoryField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class PeriodCategoryField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class PeriodCategoryField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PeriodCategory> {
   /**
    * Representation of the [[PeriodCategory.absoluteEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -660,6 +666,11 @@ export class PeriodCategoryField<EntityT extends Entity> extends ComplexTypeFiel
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   periodCategory: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('PeriodCategory', this, 'Edm.String');
+  /**
+   * Representation of the [[PeriodCategory.subPeriodType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  subPeriodType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SubPeriodType', this);
   /**
    * Representation of the [[PeriodCategory.numberOfPeriods]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1264,136 +1275,654 @@ export class PeriodCategoryField<EntityT extends Entity> extends ComplexTypeFiel
    * Representation of the [[PeriodCategory.wipMappingCollection]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  wipMappingCollection: WipMappingField<EntityT> = new WipMappingField('WIPMappingCollection', this);
+  wipMappingCollection: CollectionField<EntityT, WipMapping> = new CollectionField('WIPMappingCollection', this, WipMapping);
+
+  /**
+   * Creates an instance of PeriodCategoryField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, PeriodCategory);
+  }
 }
 
 export namespace PeriodCategory {
+  /**
+   * Metadata information on all properties of the `PeriodCategory` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<PeriodCategory>[] = [{
+    originalName: 'AbsoluteEntry',
+    name: 'absoluteEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BeginningofFinancialYear',
+    name: 'beginningofFinancialYear',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'PeriodCategory',
+    name: 'periodCategory',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SubPeriodType',
+    name: 'subPeriodType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'NumberOfPeriods',
+    name: 'numberOfPeriods',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PeriodName',
+    name: 'periodName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DebitorsFollowUpAccount',
+    name: 'debitorsFollowUpAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AccountforOutgoingChecks',
+    name: 'accountforOutgoingChecks',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AccountforCashReceipt',
+    name: 'accountforCashReceipt',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CustomersDeductionatSource',
+    name: 'customersDeductionatSource',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CommissionAccountDefault',
+    name: 'commissionAccountDefault',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PurchaseTax',
+    name: 'purchaseTax',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ForeignAccountsReceivables',
+    name: 'foreignAccountsReceivables',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CreditorsFollowUpAccount',
+    name: 'creditorsFollowUpAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'OutgoingChecksAccount',
+    name: 'outgoingChecksAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'OutgoingCashAccount',
+    name: 'outgoingCashAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AccountforCreditMemoPayme',
+    name: 'accountforCreditMemoPayme',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InputTaxAccount',
+    name: 'inputTaxAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxDefinition',
+    name: 'taxDefinition',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WithholodingTax',
+    name: 'withholodingTax',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'OpeningBalancesAccount',
+    name: 'openingBalancesAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DefaultSaleAccount',
+    name: 'defaultSaleAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxExemptRevenuesDefault',
+    name: 'taxExemptRevenuesDefault',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExpenseAccountDefault',
+    name: 'expenseAccountDefault',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RevenuesAccountForeign',
+    name: 'revenuesAccountForeign',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SalesRevenueEU',
+    name: 'salesRevenueEu',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExpensesAccountForeign',
+    name: 'expensesAccountForeign',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RateDifferencesDefaultAcc',
+    name: 'rateDifferencesDefaultAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DecreaseGLAcc',
+    name: 'decreaseGlAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ReconciliationDifference',
+    name: 'reconciliationDifference',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AcountforOpeningWHBalance',
+    name: 'acountforOpeningWhBalance',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'APCashDiscountAccount',
+    name: 'apCashDiscountAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'APLossCashDiscountAccount',
+    name: 'apLossCashDiscountAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'APLossRealizedExchangeDif',
+    name: 'apLossRealizedExchangeDif',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ARCashDiscountAccount',
+    name: 'arCashDiscountAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ARLossRealizedExchangeDi',
+    name: 'arLossRealizedExchangeDi',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RoundingAccount',
+    name: 'roundingAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'APGainRealizedExchngeDif',
+    name: 'apGainRealizedExchngeDif',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ARGainRealizedExchngeDif',
+    name: 'arGainRealizedExchngeDif',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'IncreaseGLAccount',
+    name: 'increaseGlAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SalesReturns',
+    name: 'salesReturns',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostOfGoodsSold',
+    name: 'costOfGoodsSold',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AllocationAcc',
+    name: 'allocationAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'VarianceAcc',
+    name: 'varianceAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PriceDifferenceAccount',
+    name: 'priceDifferenceAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CustomerDownPaymentsAccount',
+    name: 'customerDownPaymentsAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'VendorDownPaymentsAccount',
+    name: 'vendorDownPaymentsAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BillofExchangeAccountsRece',
+    name: 'billofExchangeAccountsRece',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CustBillofExchangeonC',
+    name: 'custBillofExchangeonC',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CustomerBillofExchangePres',
+    name: 'customerBillofExchangePres',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CustomerBillofExchngeDisc',
+    name: 'customerBillofExchngeDisc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CustomerUnpaidBoE',
+    name: 'customerUnpaidBoE',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BoEAccountsPayable',
+    name: 'boEAccountsPayable',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BoEAccountsPayable2',
+    name: 'boEAccountsPayable2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CustomerDoubtfulDebtsAcct',
+    name: 'customerDoubtfulDebtsAcct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'VendorDoubtfulDebtsAcct',
+    name: 'vendorDoubtfulDebtsAcct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PurchaseAccount',
+    name: 'purchaseAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PurchaseReturnAccount',
+    name: 'purchaseReturnAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PurchaseOffsetAccount',
+    name: 'purchaseOffsetAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'EOYControlAccount',
+    name: 'eoyControlAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExchangeRateDifferencesAcct',
+    name: 'exchangeRateDifferencesAcct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GoodsClearingAcc',
+    name: 'goodsClearingAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExpenseClearingAccount',
+    name: 'expenseClearingAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExpenseOffsetAccount',
+    name: 'expenseOffsetAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostofSaleRevaluationAcct',
+    name: 'costofSaleRevaluationAcct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RepomoAccount',
+    name: 'repomoAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WIPMaterialVarianceAccount',
+    name: 'wipMaterialVarianceAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DownPaymentVATAcctSale',
+    name: 'downPaymentVatAcctSale',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DownPaymentVATAcctPurch',
+    name: 'downPaymentVatAcctPurch',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DownPaymentSClearingAcct',
+    name: 'downPaymentSClearingAcct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DownPaymentPClearingAcct',
+    name: 'downPaymentPClearingAcct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExpenseVarianceAccount',
+    name: 'expenseVarianceAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostofSaleRevOffsetAcct',
+    name: 'costofSaleRevOffsetAcct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'EUExpenseAccount',
+    name: 'euExpenseAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StockAccount',
+    name: 'stockAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InventoryOffsetIncrease',
+    name: 'inventoryOffsetIncrease',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InventoryOffsetDecrease',
+    name: 'inventoryOffsetDecrease',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'VendorAssetsAccount',
+    name: 'vendorAssetsAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StockRevaluationAccount',
+    name: 'stockRevaluationAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StockRevaluationOffsetAcct',
+    name: 'stockRevaluationOffsetAcct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WIPMaterialAccount',
+    name: 'wipMaterialAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InvoicePaymentBP',
+    name: 'invoicePaymentBp',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GLRevaluationOffsetAccount',
+    name: 'glRevaluationOffsetAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'OverpaymentsAPAccount',
+    name: 'overpaymentsApAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UnderpaymentsAPAccount',
+    name: 'underpaymentsApAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'OverpaymentsARAccount',
+    name: 'overpaymentsArAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UnderpaymentsARAccount',
+    name: 'underpaymentsArAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PurchaseCreditAcc',
+    name: 'purchaseCreditAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'EUPurchaseCreditAcc',
+    name: 'euPurchaseCreditAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ForeignPurchaseCreditAcc',
+    name: 'foreignPurchaseCreditAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SalesCreditAcc',
+    name: 'salesCreditAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SalesCreditEUAcc',
+    name: 'salesCreditEuAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExemptedCredits',
+    name: 'exemptedCredits',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SalesCreditForeignAcc',
+    name: 'salesCreditForeignAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FromPostingDate',
+    name: 'fromPostingDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ToPostingDate',
+    name: 'toPostingDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'FromDueDate',
+    name: 'fromDueDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ToDueDate',
+    name: 'toDueDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'FromDocumentDate',
+    name: 'fromDocumentDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ToDocumentDate',
+    name: 'toDocumentDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'OutgoingTaxAccount',
+    name: 'outgoingTaxAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'NegativeInventoryAdjustmentAccount',
+    name: 'negativeInventoryAdjustmentAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FinancialYear',
+    name: 'financialYear',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SelfInvoiceRevenueAccount',
+    name: 'selfInvoiceRevenueAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SelfInvoiceExpenseAccount',
+    name: 'selfInvoiceExpenseAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StockInTransitAccount',
+    name: 'stockInTransitAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SalesDownPaymentInterimAccount',
+    name: 'salesDownPaymentInterimAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PurchaseDownPaymentInterimAccount',
+    name: 'purchaseDownPaymentInterimAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'EUAccountsReceivable',
+    name: 'euAccountsReceivable',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'EUAccountsPayable',
+    name: 'euAccountsPayable',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WipOffsetProfitAndLossAccount',
+    name: 'wipOffsetProfitAndLossAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InventoryOffsetProfitAndLossAccount',
+    name: 'inventoryOffsetProfitAndLossAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DunningInterestAccount',
+    name: 'dunningInterestAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DunningFeeAccount',
+    name: 'dunningFeeAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ARGainRealizedConversionDiff',
+    name: 'arGainRealizedConversionDiff',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ARLossRealizedConversionDiff',
+    name: 'arLossRealizedConversionDiff',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'APGainRealizedConversionDiff',
+    name: 'apGainRealizedConversionDiff',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'APLossRealizedConversionDiff',
+    name: 'apLossRealizedConversionDiff',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GLGainRealizedConversionDiff',
+    name: 'glGainRealizedConversionDiff',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GLLossRealizedConversionDiff',
+    name: 'glLossRealizedConversionDiff',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ARExRateInterim',
+    name: 'arExRateInterim',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'APExRateInterim',
+    name: 'apExRateInterim',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ARCashDiscountInterim',
+    name: 'arCashDiscountInterim',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'APCashDiscountInterim',
+    name: 'apCashDiscountInterim',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WIPMappingCollection',
+    name: 'wipMappingCollection',
+    type: WipMapping,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | WipMapping }): PeriodCategory {
-    return createComplexType(json, {
-      AbsoluteEntry: (absoluteEntry: number) => ({ absoluteEntry: edmToTs(absoluteEntry, 'Edm.Int32') }),
-      BeginningofFinancialYear: (beginningofFinancialYear: Moment) => ({ beginningofFinancialYear: edmToTs(beginningofFinancialYear, 'Edm.DateTimeOffset') }),
-      PeriodCategory: (periodCategory: string) => ({ periodCategory: edmToTs(periodCategory, 'Edm.String') }),
-      NumberOfPeriods: (numberOfPeriods: number) => ({ numberOfPeriods: edmToTs(numberOfPeriods, 'Edm.Int32') }),
-      PeriodName: (periodName: string) => ({ periodName: edmToTs(periodName, 'Edm.String') }),
-      DebitorsFollowUpAccount: (debitorsFollowUpAccount: string) => ({ debitorsFollowUpAccount: edmToTs(debitorsFollowUpAccount, 'Edm.String') }),
-      AccountforOutgoingChecks: (accountforOutgoingChecks: string) => ({ accountforOutgoingChecks: edmToTs(accountforOutgoingChecks, 'Edm.String') }),
-      AccountforCashReceipt: (accountforCashReceipt: string) => ({ accountforCashReceipt: edmToTs(accountforCashReceipt, 'Edm.String') }),
-      CustomersDeductionatSource: (customersDeductionatSource: string) => ({ customersDeductionatSource: edmToTs(customersDeductionatSource, 'Edm.String') }),
-      CommissionAccountDefault: (commissionAccountDefault: string) => ({ commissionAccountDefault: edmToTs(commissionAccountDefault, 'Edm.String') }),
-      PurchaseTax: (purchaseTax: string) => ({ purchaseTax: edmToTs(purchaseTax, 'Edm.String') }),
-      ForeignAccountsReceivables: (foreignAccountsReceivables: string) => ({ foreignAccountsReceivables: edmToTs(foreignAccountsReceivables, 'Edm.String') }),
-      CreditorsFollowUpAccount: (creditorsFollowUpAccount: string) => ({ creditorsFollowUpAccount: edmToTs(creditorsFollowUpAccount, 'Edm.String') }),
-      OutgoingChecksAccount: (outgoingChecksAccount: string) => ({ outgoingChecksAccount: edmToTs(outgoingChecksAccount, 'Edm.String') }),
-      OutgoingCashAccount: (outgoingCashAccount: string) => ({ outgoingCashAccount: edmToTs(outgoingCashAccount, 'Edm.String') }),
-      AccountforCreditMemoPayme: (accountforCreditMemoPayme: string) => ({ accountforCreditMemoPayme: edmToTs(accountforCreditMemoPayme, 'Edm.String') }),
-      InputTaxAccount: (inputTaxAccount: string) => ({ inputTaxAccount: edmToTs(inputTaxAccount, 'Edm.String') }),
-      TaxDefinition: (taxDefinition: string) => ({ taxDefinition: edmToTs(taxDefinition, 'Edm.String') }),
-      WithholodingTax: (withholodingTax: string) => ({ withholodingTax: edmToTs(withholodingTax, 'Edm.String') }),
-      OpeningBalancesAccount: (openingBalancesAccount: string) => ({ openingBalancesAccount: edmToTs(openingBalancesAccount, 'Edm.String') }),
-      DefaultSaleAccount: (defaultSaleAccount: string) => ({ defaultSaleAccount: edmToTs(defaultSaleAccount, 'Edm.String') }),
-      TaxExemptRevenuesDefault: (taxExemptRevenuesDefault: string) => ({ taxExemptRevenuesDefault: edmToTs(taxExemptRevenuesDefault, 'Edm.String') }),
-      ExpenseAccountDefault: (expenseAccountDefault: string) => ({ expenseAccountDefault: edmToTs(expenseAccountDefault, 'Edm.String') }),
-      RevenuesAccountForeign: (revenuesAccountForeign: string) => ({ revenuesAccountForeign: edmToTs(revenuesAccountForeign, 'Edm.String') }),
-      SalesRevenueEU: (salesRevenueEu: string) => ({ salesRevenueEu: edmToTs(salesRevenueEu, 'Edm.String') }),
-      ExpensesAccountForeign: (expensesAccountForeign: string) => ({ expensesAccountForeign: edmToTs(expensesAccountForeign, 'Edm.String') }),
-      RateDifferencesDefaultAcc: (rateDifferencesDefaultAcc: string) => ({ rateDifferencesDefaultAcc: edmToTs(rateDifferencesDefaultAcc, 'Edm.String') }),
-      DecreaseGLAcc: (decreaseGlAcc: string) => ({ decreaseGlAcc: edmToTs(decreaseGlAcc, 'Edm.String') }),
-      ReconciliationDifference: (reconciliationDifference: string) => ({ reconciliationDifference: edmToTs(reconciliationDifference, 'Edm.String') }),
-      AcountforOpeningWHBalance: (acountforOpeningWhBalance: string) => ({ acountforOpeningWhBalance: edmToTs(acountforOpeningWhBalance, 'Edm.String') }),
-      APCashDiscountAccount: (apCashDiscountAccount: string) => ({ apCashDiscountAccount: edmToTs(apCashDiscountAccount, 'Edm.String') }),
-      APLossCashDiscountAccount: (apLossCashDiscountAccount: string) => ({ apLossCashDiscountAccount: edmToTs(apLossCashDiscountAccount, 'Edm.String') }),
-      APLossRealizedExchangeDif: (apLossRealizedExchangeDif: string) => ({ apLossRealizedExchangeDif: edmToTs(apLossRealizedExchangeDif, 'Edm.String') }),
-      ARCashDiscountAccount: (arCashDiscountAccount: string) => ({ arCashDiscountAccount: edmToTs(arCashDiscountAccount, 'Edm.String') }),
-      ARLossRealizedExchangeDi: (arLossRealizedExchangeDi: string) => ({ arLossRealizedExchangeDi: edmToTs(arLossRealizedExchangeDi, 'Edm.String') }),
-      RoundingAccount: (roundingAccount: string) => ({ roundingAccount: edmToTs(roundingAccount, 'Edm.String') }),
-      APGainRealizedExchngeDif: (apGainRealizedExchngeDif: string) => ({ apGainRealizedExchngeDif: edmToTs(apGainRealizedExchngeDif, 'Edm.String') }),
-      ARGainRealizedExchngeDif: (arGainRealizedExchngeDif: string) => ({ arGainRealizedExchngeDif: edmToTs(arGainRealizedExchngeDif, 'Edm.String') }),
-      IncreaseGLAccount: (increaseGlAccount: string) => ({ increaseGlAccount: edmToTs(increaseGlAccount, 'Edm.String') }),
-      SalesReturns: (salesReturns: string) => ({ salesReturns: edmToTs(salesReturns, 'Edm.String') }),
-      CostOfGoodsSold: (costOfGoodsSold: string) => ({ costOfGoodsSold: edmToTs(costOfGoodsSold, 'Edm.String') }),
-      AllocationAcc: (allocationAcc: string) => ({ allocationAcc: edmToTs(allocationAcc, 'Edm.String') }),
-      VarianceAcc: (varianceAcc: string) => ({ varianceAcc: edmToTs(varianceAcc, 'Edm.String') }),
-      PriceDifferenceAccount: (priceDifferenceAccount: string) => ({ priceDifferenceAccount: edmToTs(priceDifferenceAccount, 'Edm.String') }),
-      CustomerDownPaymentsAccount: (customerDownPaymentsAccount: string) => ({ customerDownPaymentsAccount: edmToTs(customerDownPaymentsAccount, 'Edm.String') }),
-      VendorDownPaymentsAccount: (vendorDownPaymentsAccount: string) => ({ vendorDownPaymentsAccount: edmToTs(vendorDownPaymentsAccount, 'Edm.String') }),
-      BillofExchangeAccountsRece: (billofExchangeAccountsRece: string) => ({ billofExchangeAccountsRece: edmToTs(billofExchangeAccountsRece, 'Edm.String') }),
-      CustBillofExchangeonC: (custBillofExchangeonC: string) => ({ custBillofExchangeonC: edmToTs(custBillofExchangeonC, 'Edm.String') }),
-      CustomerBillofExchangePres: (customerBillofExchangePres: string) => ({ customerBillofExchangePres: edmToTs(customerBillofExchangePres, 'Edm.String') }),
-      CustomerBillofExchngeDisc: (customerBillofExchngeDisc: string) => ({ customerBillofExchngeDisc: edmToTs(customerBillofExchngeDisc, 'Edm.String') }),
-      CustomerUnpaidBoE: (customerUnpaidBoE: string) => ({ customerUnpaidBoE: edmToTs(customerUnpaidBoE, 'Edm.String') }),
-      BoEAccountsPayable: (boEAccountsPayable: string) => ({ boEAccountsPayable: edmToTs(boEAccountsPayable, 'Edm.String') }),
-      BoEAccountsPayable2: (boEAccountsPayable2: string) => ({ boEAccountsPayable2: edmToTs(boEAccountsPayable2, 'Edm.String') }),
-      CustomerDoubtfulDebtsAcct: (customerDoubtfulDebtsAcct: string) => ({ customerDoubtfulDebtsAcct: edmToTs(customerDoubtfulDebtsAcct, 'Edm.String') }),
-      VendorDoubtfulDebtsAcct: (vendorDoubtfulDebtsAcct: string) => ({ vendorDoubtfulDebtsAcct: edmToTs(vendorDoubtfulDebtsAcct, 'Edm.String') }),
-      PurchaseAccount: (purchaseAccount: string) => ({ purchaseAccount: edmToTs(purchaseAccount, 'Edm.String') }),
-      PurchaseReturnAccount: (purchaseReturnAccount: string) => ({ purchaseReturnAccount: edmToTs(purchaseReturnAccount, 'Edm.String') }),
-      PurchaseOffsetAccount: (purchaseOffsetAccount: string) => ({ purchaseOffsetAccount: edmToTs(purchaseOffsetAccount, 'Edm.String') }),
-      EOYControlAccount: (eoyControlAccount: string) => ({ eoyControlAccount: edmToTs(eoyControlAccount, 'Edm.String') }),
-      ExchangeRateDifferencesAcct: (exchangeRateDifferencesAcct: string) => ({ exchangeRateDifferencesAcct: edmToTs(exchangeRateDifferencesAcct, 'Edm.String') }),
-      GoodsClearingAcc: (goodsClearingAcc: string) => ({ goodsClearingAcc: edmToTs(goodsClearingAcc, 'Edm.String') }),
-      ExpenseClearingAccount: (expenseClearingAccount: string) => ({ expenseClearingAccount: edmToTs(expenseClearingAccount, 'Edm.String') }),
-      ExpenseOffsetAccount: (expenseOffsetAccount: string) => ({ expenseOffsetAccount: edmToTs(expenseOffsetAccount, 'Edm.String') }),
-      CostofSaleRevaluationAcct: (costofSaleRevaluationAcct: string) => ({ costofSaleRevaluationAcct: edmToTs(costofSaleRevaluationAcct, 'Edm.String') }),
-      RepomoAccount: (repomoAccount: string) => ({ repomoAccount: edmToTs(repomoAccount, 'Edm.String') }),
-      WIPMaterialVarianceAccount: (wipMaterialVarianceAccount: string) => ({ wipMaterialVarianceAccount: edmToTs(wipMaterialVarianceAccount, 'Edm.String') }),
-      DownPaymentVATAcctSale: (downPaymentVatAcctSale: string) => ({ downPaymentVatAcctSale: edmToTs(downPaymentVatAcctSale, 'Edm.String') }),
-      DownPaymentVATAcctPurch: (downPaymentVatAcctPurch: string) => ({ downPaymentVatAcctPurch: edmToTs(downPaymentVatAcctPurch, 'Edm.String') }),
-      DownPaymentSClearingAcct: (downPaymentSClearingAcct: string) => ({ downPaymentSClearingAcct: edmToTs(downPaymentSClearingAcct, 'Edm.String') }),
-      DownPaymentPClearingAcct: (downPaymentPClearingAcct: string) => ({ downPaymentPClearingAcct: edmToTs(downPaymentPClearingAcct, 'Edm.String') }),
-      ExpenseVarianceAccount: (expenseVarianceAccount: string) => ({ expenseVarianceAccount: edmToTs(expenseVarianceAccount, 'Edm.String') }),
-      CostofSaleRevOffsetAcct: (costofSaleRevOffsetAcct: string) => ({ costofSaleRevOffsetAcct: edmToTs(costofSaleRevOffsetAcct, 'Edm.String') }),
-      EUExpenseAccount: (euExpenseAccount: string) => ({ euExpenseAccount: edmToTs(euExpenseAccount, 'Edm.String') }),
-      StockAccount: (stockAccount: string) => ({ stockAccount: edmToTs(stockAccount, 'Edm.String') }),
-      InventoryOffsetIncrease: (inventoryOffsetIncrease: string) => ({ inventoryOffsetIncrease: edmToTs(inventoryOffsetIncrease, 'Edm.String') }),
-      InventoryOffsetDecrease: (inventoryOffsetDecrease: string) => ({ inventoryOffsetDecrease: edmToTs(inventoryOffsetDecrease, 'Edm.String') }),
-      VendorAssetsAccount: (vendorAssetsAccount: string) => ({ vendorAssetsAccount: edmToTs(vendorAssetsAccount, 'Edm.String') }),
-      StockRevaluationAccount: (stockRevaluationAccount: string) => ({ stockRevaluationAccount: edmToTs(stockRevaluationAccount, 'Edm.String') }),
-      StockRevaluationOffsetAcct: (stockRevaluationOffsetAcct: string) => ({ stockRevaluationOffsetAcct: edmToTs(stockRevaluationOffsetAcct, 'Edm.String') }),
-      WIPMaterialAccount: (wipMaterialAccount: string) => ({ wipMaterialAccount: edmToTs(wipMaterialAccount, 'Edm.String') }),
-      InvoicePaymentBP: (invoicePaymentBp: string) => ({ invoicePaymentBp: edmToTs(invoicePaymentBp, 'Edm.String') }),
-      GLRevaluationOffsetAccount: (glRevaluationOffsetAccount: string) => ({ glRevaluationOffsetAccount: edmToTs(glRevaluationOffsetAccount, 'Edm.String') }),
-      OverpaymentsAPAccount: (overpaymentsApAccount: string) => ({ overpaymentsApAccount: edmToTs(overpaymentsApAccount, 'Edm.String') }),
-      UnderpaymentsAPAccount: (underpaymentsApAccount: string) => ({ underpaymentsApAccount: edmToTs(underpaymentsApAccount, 'Edm.String') }),
-      OverpaymentsARAccount: (overpaymentsArAccount: string) => ({ overpaymentsArAccount: edmToTs(overpaymentsArAccount, 'Edm.String') }),
-      UnderpaymentsARAccount: (underpaymentsArAccount: string) => ({ underpaymentsArAccount: edmToTs(underpaymentsArAccount, 'Edm.String') }),
-      PurchaseCreditAcc: (purchaseCreditAcc: string) => ({ purchaseCreditAcc: edmToTs(purchaseCreditAcc, 'Edm.String') }),
-      EUPurchaseCreditAcc: (euPurchaseCreditAcc: string) => ({ euPurchaseCreditAcc: edmToTs(euPurchaseCreditAcc, 'Edm.String') }),
-      ForeignPurchaseCreditAcc: (foreignPurchaseCreditAcc: string) => ({ foreignPurchaseCreditAcc: edmToTs(foreignPurchaseCreditAcc, 'Edm.String') }),
-      SalesCreditAcc: (salesCreditAcc: string) => ({ salesCreditAcc: edmToTs(salesCreditAcc, 'Edm.String') }),
-      SalesCreditEUAcc: (salesCreditEuAcc: string) => ({ salesCreditEuAcc: edmToTs(salesCreditEuAcc, 'Edm.String') }),
-      ExemptedCredits: (exemptedCredits: string) => ({ exemptedCredits: edmToTs(exemptedCredits, 'Edm.String') }),
-      SalesCreditForeignAcc: (salesCreditForeignAcc: string) => ({ salesCreditForeignAcc: edmToTs(salesCreditForeignAcc, 'Edm.String') }),
-      FromPostingDate: (fromPostingDate: Moment) => ({ fromPostingDate: edmToTs(fromPostingDate, 'Edm.DateTimeOffset') }),
-      ToPostingDate: (toPostingDate: Moment) => ({ toPostingDate: edmToTs(toPostingDate, 'Edm.DateTimeOffset') }),
-      FromDueDate: (fromDueDate: Moment) => ({ fromDueDate: edmToTs(fromDueDate, 'Edm.DateTimeOffset') }),
-      ToDueDate: (toDueDate: Moment) => ({ toDueDate: edmToTs(toDueDate, 'Edm.DateTimeOffset') }),
-      FromDocumentDate: (fromDocumentDate: Moment) => ({ fromDocumentDate: edmToTs(fromDocumentDate, 'Edm.DateTimeOffset') }),
-      ToDocumentDate: (toDocumentDate: Moment) => ({ toDocumentDate: edmToTs(toDocumentDate, 'Edm.DateTimeOffset') }),
-      OutgoingTaxAccount: (outgoingTaxAccount: string) => ({ outgoingTaxAccount: edmToTs(outgoingTaxAccount, 'Edm.String') }),
-      NegativeInventoryAdjustmentAccount: (negativeInventoryAdjustmentAccount: string) => ({ negativeInventoryAdjustmentAccount: edmToTs(negativeInventoryAdjustmentAccount, 'Edm.String') }),
-      FinancialYear: (financialYear: number) => ({ financialYear: edmToTs(financialYear, 'Edm.Int32') }),
-      SelfInvoiceRevenueAccount: (selfInvoiceRevenueAccount: string) => ({ selfInvoiceRevenueAccount: edmToTs(selfInvoiceRevenueAccount, 'Edm.String') }),
-      SelfInvoiceExpenseAccount: (selfInvoiceExpenseAccount: string) => ({ selfInvoiceExpenseAccount: edmToTs(selfInvoiceExpenseAccount, 'Edm.String') }),
-      StockInTransitAccount: (stockInTransitAccount: string) => ({ stockInTransitAccount: edmToTs(stockInTransitAccount, 'Edm.String') }),
-      SalesDownPaymentInterimAccount: (salesDownPaymentInterimAccount: string) => ({ salesDownPaymentInterimAccount: edmToTs(salesDownPaymentInterimAccount, 'Edm.String') }),
-      PurchaseDownPaymentInterimAccount: (purchaseDownPaymentInterimAccount: string) => ({ purchaseDownPaymentInterimAccount: edmToTs(purchaseDownPaymentInterimAccount, 'Edm.String') }),
-      EUAccountsReceivable: (euAccountsReceivable: string) => ({ euAccountsReceivable: edmToTs(euAccountsReceivable, 'Edm.String') }),
-      EUAccountsPayable: (euAccountsPayable: string) => ({ euAccountsPayable: edmToTs(euAccountsPayable, 'Edm.String') }),
-      WipOffsetProfitAndLossAccount: (wipOffsetProfitAndLossAccount: string) => ({ wipOffsetProfitAndLossAccount: edmToTs(wipOffsetProfitAndLossAccount, 'Edm.String') }),
-      InventoryOffsetProfitAndLossAccount: (inventoryOffsetProfitAndLossAccount: string) => ({ inventoryOffsetProfitAndLossAccount: edmToTs(inventoryOffsetProfitAndLossAccount, 'Edm.String') }),
-      DunningInterestAccount: (dunningInterestAccount: string) => ({ dunningInterestAccount: edmToTs(dunningInterestAccount, 'Edm.String') }),
-      DunningFeeAccount: (dunningFeeAccount: string) => ({ dunningFeeAccount: edmToTs(dunningFeeAccount, 'Edm.String') }),
-      ARGainRealizedConversionDiff: (arGainRealizedConversionDiff: string) => ({ arGainRealizedConversionDiff: edmToTs(arGainRealizedConversionDiff, 'Edm.String') }),
-      ARLossRealizedConversionDiff: (arLossRealizedConversionDiff: string) => ({ arLossRealizedConversionDiff: edmToTs(arLossRealizedConversionDiff, 'Edm.String') }),
-      APGainRealizedConversionDiff: (apGainRealizedConversionDiff: string) => ({ apGainRealizedConversionDiff: edmToTs(apGainRealizedConversionDiff, 'Edm.String') }),
-      APLossRealizedConversionDiff: (apLossRealizedConversionDiff: string) => ({ apLossRealizedConversionDiff: edmToTs(apLossRealizedConversionDiff, 'Edm.String') }),
-      GLGainRealizedConversionDiff: (glGainRealizedConversionDiff: string) => ({ glGainRealizedConversionDiff: edmToTs(glGainRealizedConversionDiff, 'Edm.String') }),
-      GLLossRealizedConversionDiff: (glLossRealizedConversionDiff: string) => ({ glLossRealizedConversionDiff: edmToTs(glLossRealizedConversionDiff, 'Edm.String') }),
-      ARExRateInterim: (arExRateInterim: string) => ({ arExRateInterim: edmToTs(arExRateInterim, 'Edm.String') }),
-      APExRateInterim: (apExRateInterim: string) => ({ apExRateInterim: edmToTs(apExRateInterim, 'Edm.String') }),
-      ARCashDiscountInterim: (arCashDiscountInterim: string) => ({ arCashDiscountInterim: edmToTs(arCashDiscountInterim, 'Edm.String') }),
-      APCashDiscountInterim: (apCashDiscountInterim: string) => ({ apCashDiscountInterim: edmToTs(apCashDiscountInterim, 'Edm.String') }),
-      WIPMappingCollection: (wipMappingCollection: WipMapping) => ({ wipMappingCollection: WipMapping.build(wipMappingCollection) })
-    });
+    return deserializeComplexTypeV4(json, PeriodCategory);
   }
 }

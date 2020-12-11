@@ -5,25 +5,21 @@
  */
 import { BudgetScenariosRequestBuilder } from './BudgetScenariosRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoRoundingMethod } from './BoRoundingMethod';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "BudgetScenarios" of service "SAPB1".
  */
-export class BudgetScenarios extends Entity implements BudgetScenariosType {
+export class BudgetScenarios extends EntityV4 implements BudgetScenariosType {
   /**
    * Technical entity name for BudgetScenarios.
    */
   static _entityName = 'BudgetScenarios';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for BudgetScenarios.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Name.
    * @nullable
@@ -49,6 +45,11 @@ export class BudgetScenarios extends Entity implements BudgetScenariosType {
    * @nullable
    */
   numerator?: number;
+  /**
+   * Rounding Method.
+   * @nullable
+   */
+  roundingMethod?: BoRoundingMethod;
   /**
    * Project.
    * @nullable
@@ -93,11 +94,11 @@ export class BudgetScenarios extends Entity implements BudgetScenariosType {
   budgets!: Budgets[];
 
   /**
-   * Returns an entity builder to construct instances `BudgetScenarios`.
+   * Returns an entity builder to construct instances of `BudgetScenarios`.
    * @returns A builder that constructs instances of entity type `BudgetScenarios`.
    */
-  static builder(): EntityBuilderType<BudgetScenarios, BudgetScenariosTypeForceMandatory> {
-    return Entity.entityBuilder(BudgetScenarios);
+  static builder(): EntityBuilderType<BudgetScenarios, BudgetScenariosType> {
+    return EntityV4.entityBuilder(BudgetScenarios);
   }
 
   /**
@@ -113,8 +114,8 @@ export class BudgetScenarios extends Entity implements BudgetScenariosType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `BudgetScenarios`.
    */
-  static customField(fieldName: string): CustomField<BudgetScenarios> {
-    return Entity.customFieldSelector(fieldName, BudgetScenarios);
+  static customField(fieldName: string): CustomFieldV4<BudgetScenarios> {
+    return EntityV4.customFieldSelector(fieldName, BudgetScenarios);
   }
 
   /**
@@ -131,34 +132,18 @@ import { DistributionRules, DistributionRulesType } from './DistributionRules';
 import { Budgets, BudgetsType } from './Budgets';
 
 export interface BudgetScenariosType {
-  name?: string;
-  initialRatioPercentage?: number;
-  startofFiscalYear?: Moment;
-  basicBudget?: number;
-  numerator?: number;
-  project?: string;
-  distributionRule?: string;
-  distributionRule2?: string;
-  distributionRule3?: string;
-  distributionRule4?: string;
-  distributionRule5?: string;
-  project2: ProjectsType;
-  distributionRule6: DistributionRulesType;
-  budgets: BudgetsType[];
-}
-
-export interface BudgetScenariosTypeForceMandatory {
-  name: string;
-  initialRatioPercentage: number;
-  startofFiscalYear: Moment;
-  basicBudget: number;
-  numerator: number;
-  project: string;
-  distributionRule: string;
-  distributionRule2: string;
-  distributionRule3: string;
-  distributionRule4: string;
-  distributionRule5: string;
+  name?: string | null;
+  initialRatioPercentage?: number | null;
+  startofFiscalYear?: Moment | null;
+  basicBudget?: number | null;
+  numerator?: number | null;
+  roundingMethod?: BoRoundingMethod | null;
+  project?: string | null;
+  distributionRule?: string | null;
+  distributionRule2?: string | null;
+  distributionRule3?: string | null;
+  distributionRule4?: string | null;
+  distributionRule5?: string | null;
   project2: ProjectsType;
   distributionRule6: DistributionRulesType;
   budgets: BudgetsType[];
@@ -190,6 +175,11 @@ export namespace BudgetScenarios {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const NUMERATOR: NumberField<BudgetScenarios> = new NumberField('Numerator', BudgetScenarios, 'Edm.Int32');
+  /**
+   * Static representation of the [[roundingMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ROUNDING_METHOD: EnumField<BudgetScenarios> = new EnumField('RoundingMethod', BudgetScenarios);
   /**
    * Static representation of the [[project]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -238,12 +228,13 @@ export namespace BudgetScenarios {
   /**
    * All fields of the BudgetScenarios entity.
    */
-  export const _allFields: Array<StringField<BudgetScenarios> | NumberField<BudgetScenarios> | DateField<BudgetScenarios> | OneToOneLink<BudgetScenarios, Projects> | OneToOneLink<BudgetScenarios, DistributionRules> | OneToManyLink<BudgetScenarios, Budgets>> = [
+  export const _allFields: Array<StringField<BudgetScenarios> | NumberField<BudgetScenarios> | DateField<BudgetScenarios> | EnumField<BudgetScenarios> | OneToOneLink<BudgetScenarios, Projects> | OneToOneLink<BudgetScenarios, DistributionRules> | OneToManyLink<BudgetScenarios, Budgets>> = [
     BudgetScenarios.NAME,
     BudgetScenarios.INITIAL_RATIO_PERCENTAGE,
     BudgetScenarios.STARTOF_FISCAL_YEAR,
     BudgetScenarios.BASIC_BUDGET,
     BudgetScenarios.NUMERATOR,
+    BudgetScenarios.ROUNDING_METHOD,
     BudgetScenarios.PROJECT,
     BudgetScenarios.DISTRIBUTION_RULE,
     BudgetScenarios.DISTRIBUTION_RULE_2,

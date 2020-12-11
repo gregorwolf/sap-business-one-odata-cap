@@ -1,18 +1,13 @@
 import { EmployeePositionRequestBuilder } from './EmployeePositionRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "EmployeePosition" of service "SAPB1".
  */
-export declare class EmployeePosition extends Entity implements EmployeePositionType {
+export declare class EmployeePosition extends EntityV4 implements EmployeePositionType {
     /**
      * Technical entity name for EmployeePosition.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for EmployeePosition.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -37,10 +32,10 @@ export declare class EmployeePosition extends Entity implements EmployeePosition
      */
     employeesInfo: EmployeesInfo[];
     /**
-     * Returns an entity builder to construct instances `EmployeePosition`.
+     * Returns an entity builder to construct instances of `EmployeePosition`.
      * @returns A builder that constructs instances of entity type `EmployeePosition`.
      */
-    static builder(): EntityBuilderType<EmployeePosition, EmployeePositionTypeForceMandatory>;
+    static builder(): EntityBuilderType<EmployeePosition, EmployeePositionType>;
     /**
      * Returns a request builder to construct requests for operations on the `EmployeePosition` entity type.
      * @returns A `EmployeePosition` request builder.
@@ -51,7 +46,7 @@ export declare class EmployeePosition extends Entity implements EmployeePosition
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `EmployeePosition`.
      */
-    static customField(fieldName: string): CustomField<EmployeePosition>;
+    static customField(fieldName: string): CustomFieldV4<EmployeePosition>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -62,15 +57,9 @@ export declare class EmployeePosition extends Entity implements EmployeePosition
 }
 import { EmployeesInfo, EmployeesInfoType } from './EmployeesInfo';
 export interface EmployeePositionType {
-    positionId?: number;
-    name?: string;
-    description?: string;
-    employeesInfo: EmployeesInfoType[];
-}
-export interface EmployeePositionTypeForceMandatory {
-    positionId: number;
-    name: string;
-    description: string;
+    positionId?: number | null;
+    name?: string | null;
+    description?: string | null;
     employeesInfo: EmployeesInfoType[];
 }
 export declare namespace EmployeePosition {

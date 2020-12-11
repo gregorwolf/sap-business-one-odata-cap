@@ -5,25 +5,20 @@
  */
 import { SerialNumberDetailsRequestBuilder } from './SerialNumberDetailsRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "SerialNumberDetails" of service "SAPB1".
  */
-export class SerialNumberDetails extends Entity implements SerialNumberDetailsType {
+export class SerialNumberDetails extends EntityV4 implements SerialNumberDetailsType {
   /**
    * Technical entity name for SerialNumberDetails.
    */
   static _entityName = 'SerialNumberDetails';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for SerialNumberDetails.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Doc Entry.
    * @nullable
@@ -100,11 +95,11 @@ export class SerialNumberDetails extends Entity implements SerialNumberDetailsTy
   item!: Items;
 
   /**
-   * Returns an entity builder to construct instances `SerialNumberDetails`.
+   * Returns an entity builder to construct instances of `SerialNumberDetails`.
    * @returns A builder that constructs instances of entity type `SerialNumberDetails`.
    */
-  static builder(): EntityBuilderType<SerialNumberDetails, SerialNumberDetailsTypeForceMandatory> {
-    return Entity.entityBuilder(SerialNumberDetails);
+  static builder(): EntityBuilderType<SerialNumberDetails, SerialNumberDetailsType> {
+    return EntityV4.entityBuilder(SerialNumberDetails);
   }
 
   /**
@@ -120,8 +115,8 @@ export class SerialNumberDetails extends Entity implements SerialNumberDetailsTy
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `SerialNumberDetails`.
    */
-  static customField(fieldName: string): CustomField<SerialNumberDetails> {
-    return Entity.customFieldSelector(fieldName, SerialNumberDetails);
+  static customField(fieldName: string): CustomFieldV4<SerialNumberDetails> {
+    return EntityV4.customFieldSelector(fieldName, SerialNumberDetails);
   }
 
   /**
@@ -136,38 +131,20 @@ export class SerialNumberDetails extends Entity implements SerialNumberDetailsTy
 import { Items, ItemsType } from './Items';
 
 export interface SerialNumberDetailsType {
-  docEntry?: number;
-  itemCode?: string;
-  itemDescription?: string;
-  mfrSerialNo?: string;
-  serialNumber?: string;
-  lotNumber?: string;
-  systemNumber?: number;
-  admissionDate?: Moment;
-  manufacturingDate?: Moment;
-  expirationDate?: Moment;
-  mfrWarrantyStart?: Moment;
-  mFrWarrantyEnd?: Moment;
-  location?: string;
-  details?: string;
-  item: ItemsType;
-}
-
-export interface SerialNumberDetailsTypeForceMandatory {
-  docEntry: number;
-  itemCode: string;
-  itemDescription: string;
-  mfrSerialNo: string;
-  serialNumber: string;
-  lotNumber: string;
-  systemNumber: number;
-  admissionDate: Moment;
-  manufacturingDate: Moment;
-  expirationDate: Moment;
-  mfrWarrantyStart: Moment;
-  mFrWarrantyEnd: Moment;
-  location: string;
-  details: string;
+  docEntry?: number | null;
+  itemCode?: string | null;
+  itemDescription?: string | null;
+  mfrSerialNo?: string | null;
+  serialNumber?: string | null;
+  lotNumber?: string | null;
+  systemNumber?: number | null;
+  admissionDate?: Moment | null;
+  manufacturingDate?: Moment | null;
+  expirationDate?: Moment | null;
+  mfrWarrantyStart?: Moment | null;
+  mFrWarrantyEnd?: Moment | null;
+  location?: string | null;
+  details?: string | null;
   item: ItemsType;
 }
 

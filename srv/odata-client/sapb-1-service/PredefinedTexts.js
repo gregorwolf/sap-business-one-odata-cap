@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.PredefinedTexts = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var PredefinedTextsRequestBuilder_1 = require("./PredefinedTextsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "PredefinedTexts" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var PredefinedTexts = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `PredefinedTexts`.
+     * Returns an entity builder to construct instances of `PredefinedTexts`.
      * @returns A builder that constructs instances of entity type `PredefinedTexts`.
      */
     PredefinedTexts.builder = function () {
-        return v4_1.Entity.entityBuilder(PredefinedTexts);
+        return core_1.EntityV4.entityBuilder(PredefinedTexts);
     };
     /**
      * Returns a request builder to construct requests for operations on the `PredefinedTexts` entity type.
@@ -60,7 +60,7 @@ var PredefinedTexts = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `PredefinedTexts`.
      */
     PredefinedTexts.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, PredefinedTexts);
+        return core_1.EntityV4.customFieldSelector(fieldName, PredefinedTexts);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,33 +74,28 @@ var PredefinedTexts = /** @class */ (function (_super) {
      */
     PredefinedTexts._entityName = 'PredefinedTexts';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for PredefinedTexts.
-     */
-    PredefinedTexts._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    PredefinedTexts._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    PredefinedTexts._defaultServicePath = '/b1s/v2/';
     return PredefinedTexts;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.PredefinedTexts = PredefinedTexts;
 (function (PredefinedTexts) {
     /**
      * Static representation of the [[numerator]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PredefinedTexts.NUMERATOR = new v4_1.NumberField('Numerator', PredefinedTexts, 'Edm.Int32');
+    PredefinedTexts.NUMERATOR = new core_1.NumberField('Numerator', PredefinedTexts, 'Edm.Int32');
     /**
      * Static representation of the [[textCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PredefinedTexts.TEXT_CODE = new v4_1.StringField('TextCode', PredefinedTexts, 'Edm.String');
+    PredefinedTexts.TEXT_CODE = new core_1.StringField('TextCode', PredefinedTexts, 'Edm.String');
     /**
      * Static representation of the [[text]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PredefinedTexts.TEXT = new v4_1.StringField('Text', PredefinedTexts, 'Edm.String');
+    PredefinedTexts.TEXT = new core_1.StringField('Text', PredefinedTexts, 'Edm.String');
     /**
      * All fields of the PredefinedTexts entity.
      */
@@ -112,7 +107,7 @@ exports.PredefinedTexts = PredefinedTexts;
     /**
      * All fields selector.
      */
-    PredefinedTexts.ALL_FIELDS = new v4_1.AllFields('*', PredefinedTexts);
+    PredefinedTexts.ALL_FIELDS = new core_1.AllFields('*', PredefinedTexts);
     /**
      * All key fields of the PredefinedTexts entity.
      */

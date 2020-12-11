@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { ChooseFromList } from './ChooseFromList';
 
 /**
@@ -15,16 +15,16 @@ export class ChooseFromListRequestBuilder extends RequestBuilder<ChooseFromList>
    * @param objectName Key property. See [[ChooseFromList.objectName]].
    * @returns A request builder for creating requests to retrieve one `ChooseFromList` entity based on its keys.
    */
-  getByKey(objectName: string): GetByKeyRequestBuilder<ChooseFromList> {
-    return new GetByKeyRequestBuilder(ChooseFromList, { ObjectName: objectName });
+  getByKey(objectName: string): GetByKeyRequestBuilderV4<ChooseFromList> {
+    return new GetByKeyRequestBuilderV4(ChooseFromList, { ObjectName: objectName });
   }
 
   /**
    * Returns a request builder for querying all `ChooseFromList` entities.
    * @returns A request builder for creating requests to retrieve all `ChooseFromList` entities.
    */
-  getAll(): GetAllRequestBuilder<ChooseFromList> {
-    return new GetAllRequestBuilder(ChooseFromList);
+  getAll(): GetAllRequestBuilderV4<ChooseFromList> {
+    return new GetAllRequestBuilderV4(ChooseFromList);
   }
 
   /**
@@ -32,8 +32,8 @@ export class ChooseFromListRequestBuilder extends RequestBuilder<ChooseFromList>
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `ChooseFromList`.
    */
-  create(entity: ChooseFromList): CreateRequestBuilder<ChooseFromList> {
-    return new CreateRequestBuilder(ChooseFromList, entity);
+  create(entity: ChooseFromList): CreateRequestBuilderV4<ChooseFromList> {
+    return new CreateRequestBuilderV4(ChooseFromList, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class ChooseFromListRequestBuilder extends RequestBuilder<ChooseFromList>
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `ChooseFromList`.
    */
-  update(entity: ChooseFromList): UpdateRequestBuilder<ChooseFromList> {
-    return new UpdateRequestBuilder(ChooseFromList, entity);
+  update(entity: ChooseFromList): UpdateRequestBuilderV4<ChooseFromList> {
+    return new UpdateRequestBuilderV4(ChooseFromList, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class ChooseFromListRequestBuilder extends RequestBuilder<ChooseFromList>
    * @param objectName Key property. See [[ChooseFromList.objectName]].
    * @returns A request builder for creating requests that delete an entity of type `ChooseFromList`.
    */
-  delete(objectName: string): DeleteRequestBuilder<ChooseFromList>;
+  delete(objectName: string): DeleteRequestBuilderV4<ChooseFromList>;
   /**
    * Returns a request builder for deleting an entity of type `ChooseFromList`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `ChooseFromList` by taking the entity as a parameter.
    */
-  delete(entity: ChooseFromList): DeleteRequestBuilder<ChooseFromList>;
-  delete(objectNameOrEntity: any): DeleteRequestBuilder<ChooseFromList> {
-    return new DeleteRequestBuilder(ChooseFromList, objectNameOrEntity instanceof ChooseFromList ? objectNameOrEntity : { ObjectName: objectNameOrEntity! });
+  delete(entity: ChooseFromList): DeleteRequestBuilderV4<ChooseFromList>;
+  delete(objectNameOrEntity: any): DeleteRequestBuilderV4<ChooseFromList> {
+    return new DeleteRequestBuilderV4(ChooseFromList, objectNameOrEntity instanceof ChooseFromList ? objectNameOrEntity : { ObjectName: objectNameOrEntity! });
   }
 }

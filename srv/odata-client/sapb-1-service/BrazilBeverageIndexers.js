@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.BrazilBeverageIndexers = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var BrazilBeverageIndexersRequestBuilder_1 = require("./BrazilBeverageIndexersRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "BrazilBeverageIndexers" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var BrazilBeverageIndexers = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `BrazilBeverageIndexers`.
+     * Returns an entity builder to construct instances of `BrazilBeverageIndexers`.
      * @returns A builder that constructs instances of entity type `BrazilBeverageIndexers`.
      */
     BrazilBeverageIndexers.builder = function () {
-        return v4_1.Entity.entityBuilder(BrazilBeverageIndexers);
+        return core_1.EntityV4.entityBuilder(BrazilBeverageIndexers);
     };
     /**
      * Returns a request builder to construct requests for operations on the `BrazilBeverageIndexers` entity type.
@@ -60,7 +60,7 @@ var BrazilBeverageIndexers = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `BrazilBeverageIndexers`.
      */
     BrazilBeverageIndexers.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, BrazilBeverageIndexers);
+        return core_1.EntityV4.customFieldSelector(fieldName, BrazilBeverageIndexers);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var BrazilBeverageIndexers = /** @class */ (function (_super) {
      */
     BrazilBeverageIndexers._entityName = 'BrazilBeverageIndexers';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BrazilBeverageIndexers.
-     */
-    BrazilBeverageIndexers._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    BrazilBeverageIndexers._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    BrazilBeverageIndexers._defaultServicePath = '/b1s/v2/';
     return BrazilBeverageIndexers;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.BrazilBeverageIndexers = BrazilBeverageIndexers;
 var BrazilStringIndexers_1 = require("./BrazilStringIndexers");
 var BrazilNumericIndexers_1 = require("./BrazilNumericIndexers");
@@ -92,32 +87,32 @@ var BrazilNumericIndexers_1 = require("./BrazilNumericIndexers");
      * Static representation of the [[beverageGroupCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BrazilBeverageIndexers.BEVERAGE_GROUP_CODE = new v4_1.StringField('BeverageGroupCode', BrazilBeverageIndexers, 'Edm.String');
+    BrazilBeverageIndexers.BEVERAGE_GROUP_CODE = new core_1.StringField('BeverageGroupCode', BrazilBeverageIndexers, 'Edm.String');
     /**
      * Static representation of the [[beverageTableCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BrazilBeverageIndexers.BEVERAGE_TABLE_CODE = new v4_1.StringField('BeverageTableCode', BrazilBeverageIndexers, 'Edm.String');
+    BrazilBeverageIndexers.BEVERAGE_TABLE_CODE = new core_1.StringField('BeverageTableCode', BrazilBeverageIndexers, 'Edm.String');
     /**
      * Static representation of the [[beverageCommercialBrandCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BrazilBeverageIndexers.BEVERAGE_COMMERCIAL_BRAND_CODE = new v4_1.NumberField('BeverageCommercialBrandCode', BrazilBeverageIndexers, 'Edm.Int32');
+    BrazilBeverageIndexers.BEVERAGE_COMMERCIAL_BRAND_CODE = new core_1.NumberField('BeverageCommercialBrandCode', BrazilBeverageIndexers, 'Edm.Int32');
     /**
      * Static representation of the [[beverageId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BrazilBeverageIndexers.BEVERAGE_ID = new v4_1.NumberField('BeverageID', BrazilBeverageIndexers, 'Edm.Int32');
+    BrazilBeverageIndexers.BEVERAGE_ID = new core_1.NumberField('BeverageID', BrazilBeverageIndexers, 'Edm.Int32');
     /**
      * Static representation of the one-to-one navigation property [[brazilStringIndexer]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BrazilBeverageIndexers.BRAZIL_STRING_INDEXER = new v4_1.OneToOneLink('BrazilStringIndexer', BrazilBeverageIndexers, BrazilStringIndexers_1.BrazilStringIndexers);
+    BrazilBeverageIndexers.BRAZIL_STRING_INDEXER = new core_1.OneToOneLink('BrazilStringIndexer', BrazilBeverageIndexers, BrazilStringIndexers_1.BrazilStringIndexers);
     /**
      * Static representation of the one-to-one navigation property [[brazilNumericIndexer]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BrazilBeverageIndexers.BRAZIL_NUMERIC_INDEXER = new v4_1.OneToOneLink('BrazilNumericIndexer', BrazilBeverageIndexers, BrazilNumericIndexers_1.BrazilNumericIndexers);
+    BrazilBeverageIndexers.BRAZIL_NUMERIC_INDEXER = new core_1.OneToOneLink('BrazilNumericIndexer', BrazilBeverageIndexers, BrazilNumericIndexers_1.BrazilNumericIndexers);
     /**
      * All fields of the BrazilBeverageIndexers entity.
      */
@@ -132,7 +127,7 @@ var BrazilNumericIndexers_1 = require("./BrazilNumericIndexers");
     /**
      * All fields selector.
      */
-    BrazilBeverageIndexers.ALL_FIELDS = new v4_1.AllFields('*', BrazilBeverageIndexers);
+    BrazilBeverageIndexers.ALL_FIELDS = new core_1.AllFields('*', BrazilBeverageIndexers);
     /**
      * All key fields of the BrazilBeverageIndexers entity.
      */

@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { BoePortfoliosRequestBuilder } from './BoePortfoliosRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "BOEPortfolios" of service "SAPB1".
  */
-export class BoePortfolios extends Entity implements BoePortfoliosType {
+export class BoePortfolios extends EntityV4 implements BoePortfoliosType {
   /**
    * Technical entity name for BoePortfolios.
    */
   static _entityName = 'BOEPortfolios';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for BoePortfolios.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Portfolio Entry.
    * @nullable
@@ -50,11 +45,11 @@ export class BoePortfolios extends Entity implements BoePortfoliosType {
   portfolioDescription?: string;
 
   /**
-   * Returns an entity builder to construct instances `BoePortfolios`.
+   * Returns an entity builder to construct instances of `BoePortfolios`.
    * @returns A builder that constructs instances of entity type `BoePortfolios`.
    */
-  static builder(): EntityBuilderType<BoePortfolios, BoePortfoliosTypeForceMandatory> {
-    return Entity.entityBuilder(BoePortfolios);
+  static builder(): EntityBuilderType<BoePortfolios, BoePortfoliosType> {
+    return EntityV4.entityBuilder(BoePortfolios);
   }
 
   /**
@@ -70,8 +65,8 @@ export class BoePortfolios extends Entity implements BoePortfoliosType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `BoePortfolios`.
    */
-  static customField(fieldName: string): CustomField<BoePortfolios> {
-    return Entity.customFieldSelector(fieldName, BoePortfolios);
+  static customField(fieldName: string): CustomFieldV4<BoePortfolios> {
+    return EntityV4.customFieldSelector(fieldName, BoePortfolios);
   }
 
   /**
@@ -84,19 +79,11 @@ export class BoePortfolios extends Entity implements BoePortfoliosType {
 }
 
 export interface BoePortfoliosType {
-  portfolioEntry?: number;
-  portfolioId?: string;
-  portfolioCode?: string;
-  portfolioNum?: string;
-  portfolioDescription?: string;
-}
-
-export interface BoePortfoliosTypeForceMandatory {
-  portfolioEntry: number;
-  portfolioId: string;
-  portfolioCode: string;
-  portfolioNum: string;
-  portfolioDescription: string;
+  portfolioEntry?: number | null;
+  portfolioId?: string | null;
+  portfolioCode?: string | null;
+  portfolioNum?: string | null;
+  portfolioDescription?: string | null;
 }
 
 export namespace BoePortfolios {

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { SalesTaxInvoices } from './SalesTaxInvoices';
 
 /**
@@ -15,16 +15,16 @@ export class SalesTaxInvoicesRequestBuilder extends RequestBuilder<SalesTaxInvoi
    * @param docEntry Key property. See [[SalesTaxInvoices.docEntry]].
    * @returns A request builder for creating requests to retrieve one `SalesTaxInvoices` entity based on its keys.
    */
-  getByKey(docEntry: number): GetByKeyRequestBuilder<SalesTaxInvoices> {
-    return new GetByKeyRequestBuilder(SalesTaxInvoices, { DocEntry: docEntry });
+  getByKey(docEntry: number): GetByKeyRequestBuilderV4<SalesTaxInvoices> {
+    return new GetByKeyRequestBuilderV4(SalesTaxInvoices, { DocEntry: docEntry });
   }
 
   /**
    * Returns a request builder for querying all `SalesTaxInvoices` entities.
    * @returns A request builder for creating requests to retrieve all `SalesTaxInvoices` entities.
    */
-  getAll(): GetAllRequestBuilder<SalesTaxInvoices> {
-    return new GetAllRequestBuilder(SalesTaxInvoices);
+  getAll(): GetAllRequestBuilderV4<SalesTaxInvoices> {
+    return new GetAllRequestBuilderV4(SalesTaxInvoices);
   }
 
   /**
@@ -32,8 +32,8 @@ export class SalesTaxInvoicesRequestBuilder extends RequestBuilder<SalesTaxInvoi
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `SalesTaxInvoices`.
    */
-  create(entity: SalesTaxInvoices): CreateRequestBuilder<SalesTaxInvoices> {
-    return new CreateRequestBuilder(SalesTaxInvoices, entity);
+  create(entity: SalesTaxInvoices): CreateRequestBuilderV4<SalesTaxInvoices> {
+    return new CreateRequestBuilderV4(SalesTaxInvoices, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class SalesTaxInvoicesRequestBuilder extends RequestBuilder<SalesTaxInvoi
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `SalesTaxInvoices`.
    */
-  update(entity: SalesTaxInvoices): UpdateRequestBuilder<SalesTaxInvoices> {
-    return new UpdateRequestBuilder(SalesTaxInvoices, entity);
+  update(entity: SalesTaxInvoices): UpdateRequestBuilderV4<SalesTaxInvoices> {
+    return new UpdateRequestBuilderV4(SalesTaxInvoices, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class SalesTaxInvoicesRequestBuilder extends RequestBuilder<SalesTaxInvoi
    * @param docEntry Key property. See [[SalesTaxInvoices.docEntry]].
    * @returns A request builder for creating requests that delete an entity of type `SalesTaxInvoices`.
    */
-  delete(docEntry: number): DeleteRequestBuilder<SalesTaxInvoices>;
+  delete(docEntry: number): DeleteRequestBuilderV4<SalesTaxInvoices>;
   /**
    * Returns a request builder for deleting an entity of type `SalesTaxInvoices`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `SalesTaxInvoices` by taking the entity as a parameter.
    */
-  delete(entity: SalesTaxInvoices): DeleteRequestBuilder<SalesTaxInvoices>;
-  delete(docEntryOrEntity: any): DeleteRequestBuilder<SalesTaxInvoices> {
-    return new DeleteRequestBuilder(SalesTaxInvoices, docEntryOrEntity instanceof SalesTaxInvoices ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
+  delete(entity: SalesTaxInvoices): DeleteRequestBuilderV4<SalesTaxInvoices>;
+  delete(docEntryOrEntity: any): DeleteRequestBuilderV4<SalesTaxInvoices> {
+    return new DeleteRequestBuilderV4(SalesTaxInvoices, docEntryOrEntity instanceof SalesTaxInvoices ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
   }
 }

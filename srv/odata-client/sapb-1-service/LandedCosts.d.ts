@@ -2,20 +2,17 @@ import { LandedCostsRequestBuilder } from './LandedCostsRequestBuilder';
 import { Moment } from 'moment';
 import { LandedCostItemLine } from './LandedCostItemLine';
 import { LandedCostCostLine } from './LandedCostCostLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { LandedCostDocStatusEnum } from './LandedCostDocStatusEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "LandedCosts" of service "SAPB1".
  */
-export declare class LandedCosts extends Entity implements LandedCostsType {
+export declare class LandedCosts extends EntityV4 implements LandedCostsType {
     /**
      * Technical entity name for LandedCosts.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for LandedCosts.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -60,6 +57,11 @@ export declare class LandedCosts extends Entity implements LandedCostsType {
      * @nullable
      */
     brokerName?: string;
+    /**
+     * Closed Document.
+     * @nullable
+     */
+    closedDocument?: LandedCostDocStatusEnum;
     /**
      * File Number.
      * @nullable
@@ -161,6 +163,11 @@ export declare class LandedCosts extends Entity implements LandedCostsType {
      */
     series?: number;
     /**
+     * Customs Affects Inventory.
+     * @nullable
+     */
+    customsAffectsInventory?: BoYesNoEnum;
+    /**
      * Amount To Balance.
      * @nullable
      */
@@ -222,10 +229,10 @@ export declare class LandedCosts extends Entity implements LandedCostsType {
      */
     purchaseDeliveryNotes: PurchaseDeliveryNotes[];
     /**
-     * Returns an entity builder to construct instances `LandedCosts`.
+     * Returns an entity builder to construct instances of `LandedCosts`.
      * @returns A builder that constructs instances of entity type `LandedCosts`.
      */
-    static builder(): EntityBuilderType<LandedCosts, LandedCostsTypeForceMandatory>;
+    static builder(): EntityBuilderType<LandedCosts, LandedCostsType>;
     /**
      * Returns a request builder to construct requests for operations on the `LandedCosts` entity type.
      * @returns A `LandedCosts` request builder.
@@ -236,7 +243,7 @@ export declare class LandedCosts extends Entity implements LandedCostsType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `LandedCosts`.
      */
-    static customField(fieldName: string): CustomField<LandedCosts>;
+    static customField(fieldName: string): CustomFieldV4<LandedCosts>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -250,86 +257,45 @@ import { ShippingTypes, ShippingTypesType } from './ShippingTypes';
 import { JournalEntries, JournalEntriesType } from './JournalEntries';
 import { PurchaseDeliveryNotes, PurchaseDeliveryNotesType } from './PurchaseDeliveryNotes';
 export interface LandedCostsType {
-    docEntry?: number;
-    landedCostNumber?: number;
-    postingDate?: Moment;
-    dueDate?: Moment;
-    vendorCode?: string;
-    vendorName?: string;
-    broker?: string;
-    brokerName?: string;
-    fileNumber?: string;
-    remarks?: string;
-    reference?: string;
-    documentCurrency?: string;
-    documentRate?: number;
-    projectedCustoms?: number;
-    actualCustoms?: number;
-    actualCustomsFc?: number;
-    tax1?: number;
-    tax2?: number;
-    beforeTax?: number;
-    total?: number;
-    totalFreightCharges?: number;
-    projectedCustomsFc?: number;
-    tax1Fc?: number;
-    tax2Fc?: number;
-    beforeTaxFc?: number;
-    totalFc?: number;
-    totalFreightChargesFc?: number;
-    series?: number;
-    amountToBalance?: number;
-    amountToBalanceFc?: number;
-    billofLadingNumber?: string;
-    transportType?: number;
-    transactionNumber?: number;
-    journalRemarks?: string;
-    attachmentEntry?: number;
-    landedCostItemLines?: LandedCostItemLine[];
-    landedCostCostLines?: LandedCostCostLine[];
-    businessPartner: BusinessPartnersType;
-    shippingType: ShippingTypesType;
-    journalEntry: JournalEntriesType;
-    purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-}
-export interface LandedCostsTypeForceMandatory {
-    docEntry: number;
-    landedCostNumber: number;
-    postingDate: Moment;
-    dueDate: Moment;
-    vendorCode: string;
-    vendorName: string;
-    broker: string;
-    brokerName: string;
-    fileNumber: string;
-    remarks: string;
-    reference: string;
-    documentCurrency: string;
-    documentRate: number;
-    projectedCustoms: number;
-    actualCustoms: number;
-    actualCustomsFc: number;
-    tax1: number;
-    tax2: number;
-    beforeTax: number;
-    total: number;
-    totalFreightCharges: number;
-    projectedCustomsFc: number;
-    tax1Fc: number;
-    tax2Fc: number;
-    beforeTaxFc: number;
-    totalFc: number;
-    totalFreightChargesFc: number;
-    series: number;
-    amountToBalance: number;
-    amountToBalanceFc: number;
-    billofLadingNumber: string;
-    transportType: number;
-    transactionNumber: number;
-    journalRemarks: string;
-    attachmentEntry: number;
-    landedCostItemLines: LandedCostItemLine[];
-    landedCostCostLines: LandedCostCostLine[];
+    docEntry?: number | null;
+    landedCostNumber?: number | null;
+    postingDate?: Moment | null;
+    dueDate?: Moment | null;
+    vendorCode?: string | null;
+    vendorName?: string | null;
+    broker?: string | null;
+    brokerName?: string | null;
+    closedDocument?: LandedCostDocStatusEnum | null;
+    fileNumber?: string | null;
+    remarks?: string | null;
+    reference?: string | null;
+    documentCurrency?: string | null;
+    documentRate?: number | null;
+    projectedCustoms?: number | null;
+    actualCustoms?: number | null;
+    actualCustomsFc?: number | null;
+    tax1?: number | null;
+    tax2?: number | null;
+    beforeTax?: number | null;
+    total?: number | null;
+    totalFreightCharges?: number | null;
+    projectedCustomsFc?: number | null;
+    tax1Fc?: number | null;
+    tax2Fc?: number | null;
+    beforeTaxFc?: number | null;
+    totalFc?: number | null;
+    totalFreightChargesFc?: number | null;
+    series?: number | null;
+    customsAffectsInventory?: BoYesNoEnum | null;
+    amountToBalance?: number | null;
+    amountToBalanceFc?: number | null;
+    billofLadingNumber?: string | null;
+    transportType?: number | null;
+    transactionNumber?: number | null;
+    journalRemarks?: string | null;
+    attachmentEntry?: number | null;
+    landedCostItemLines?: LandedCostItemLine[] | null;
+    landedCostCostLines?: LandedCostCostLine[] | null;
     businessPartner: BusinessPartnersType;
     shippingType: ShippingTypesType;
     journalEntry: JournalEntriesType;
@@ -376,6 +342,11 @@ export declare namespace LandedCosts {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const BROKER_NAME: StringField<LandedCosts>;
+    /**
+     * Static representation of the [[closedDocument]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CLOSED_DOCUMENT: EnumField<LandedCosts>;
     /**
      * Static representation of the [[fileNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -477,6 +448,11 @@ export declare namespace LandedCosts {
      */
     const SERIES: NumberField<LandedCosts>;
     /**
+     * Static representation of the [[customsAffectsInventory]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CUSTOMS_AFFECTS_INVENTORY: EnumField<LandedCosts>;
+    /**
      * Static representation of the [[amountToBalance]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -515,12 +491,12 @@ export declare namespace LandedCosts {
      * Static representation of the [[landedCostItemLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const LANDED_COST_ITEM_LINES: CollectionField<LandedCosts>;
+    const LANDED_COST_ITEM_LINES: CollectionField<LandedCosts, LandedCostItemLine>;
     /**
      * Static representation of the [[landedCostCostLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const LANDED_COST_COST_LINES: CollectionField<LandedCosts>;
+    const LANDED_COST_COST_LINES: CollectionField<LandedCosts, LandedCostCostLine>;
     /**
      * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -544,7 +520,7 @@ export declare namespace LandedCosts {
     /**
      * All fields of the LandedCosts entity.
      */
-    const _allFields: Array<NumberField<LandedCosts> | DateField<LandedCosts> | StringField<LandedCosts> | CollectionField<LandedCosts> | OneToOneLink<LandedCosts, BusinessPartners> | OneToOneLink<LandedCosts, ShippingTypes> | OneToOneLink<LandedCosts, JournalEntries> | OneToManyLink<LandedCosts, PurchaseDeliveryNotes>>;
+    const _allFields: Array<NumberField<LandedCosts> | DateField<LandedCosts> | StringField<LandedCosts> | EnumField<LandedCosts> | CollectionField<LandedCosts, LandedCostItemLine> | CollectionField<LandedCosts, LandedCostCostLine> | OneToOneLink<LandedCosts, BusinessPartners> | OneToOneLink<LandedCosts, ShippingTypes> | OneToOneLink<LandedCosts, JournalEntries> | OneToManyLink<LandedCosts, PurchaseDeliveryNotes>>;
     /**
      * All fields selector.
      */

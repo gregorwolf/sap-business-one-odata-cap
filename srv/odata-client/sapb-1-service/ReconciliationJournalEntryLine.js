@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReconciliationJournalEntryLine = exports.ReconciliationJournalEntryLineField = exports.createReconciliationJournalEntryLine = void 0;
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[ReconciliationJournalEntryLine.build]] instead.
  */
@@ -28,78 +28,130 @@ exports.createReconciliationJournalEntryLine = createReconciliationJournalEntryL
  */
 var ReconciliationJournalEntryLineField = /** @class */ (function (_super) {
     __extends(ReconciliationJournalEntryLineField, _super);
-    function ReconciliationJournalEntryLineField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of ReconciliationJournalEntryLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function ReconciliationJournalEntryLineField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, ReconciliationJournalEntryLine) || this;
         /**
          * Representation of the [[ReconciliationJournalEntryLine.transactionNumber]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.transactionNumber = new v4_1.ComplexTypeNumberPropertyField('TransactionNumber', _this, 'Edm.Int32');
+        _this.transactionNumber = new core_1.ComplexTypeNumberPropertyField('TransactionNumber', _this, 'Edm.Int32');
         /**
          * Representation of the [[ReconciliationJournalEntryLine.lineNumber]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.lineNumber = new v4_1.ComplexTypeNumberPropertyField('LineNumber', _this, 'Edm.Int32');
+        _this.lineNumber = new core_1.ComplexTypeNumberPropertyField('LineNumber', _this, 'Edm.Int32');
         /**
          * Representation of the [[ReconciliationJournalEntryLine.postingDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.postingDate = new v4_1.ComplexTypeDatePropertyField('PostingDate', _this, 'Edm.DateTimeOffset');
+        _this.postingDate = new core_1.ComplexTypeDatePropertyField('PostingDate', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[ReconciliationJournalEntryLine.dueDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.dueDate = new v4_1.ComplexTypeDatePropertyField('DueDate', _this, 'Edm.DateTimeOffset');
+        _this.dueDate = new core_1.ComplexTypeDatePropertyField('DueDate', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[ReconciliationJournalEntryLine.ref1]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.ref1 = new v4_1.ComplexTypeStringPropertyField('Ref1', _this, 'Edm.String');
+        _this.ref1 = new core_1.ComplexTypeStringPropertyField('Ref1', _this, 'Edm.String');
         /**
          * Representation of the [[ReconciliationJournalEntryLine.ref2]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.ref2 = new v4_1.ComplexTypeStringPropertyField('Ref2', _this, 'Edm.String');
+        _this.ref2 = new core_1.ComplexTypeStringPropertyField('Ref2', _this, 'Edm.String');
         /**
          * Representation of the [[ReconciliationJournalEntryLine.ref3]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.ref3 = new v4_1.ComplexTypeStringPropertyField('Ref3', _this, 'Edm.String');
+        _this.ref3 = new core_1.ComplexTypeStringPropertyField('Ref3', _this, 'Edm.String');
         /**
          * Representation of the [[ReconciliationJournalEntryLine.debitAmount]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.debitAmount = new v4_1.ComplexTypeNumberPropertyField('DebitAmount', _this, 'Edm.Double');
+        _this.debitAmount = new core_1.ComplexTypeNumberPropertyField('DebitAmount', _this, 'Edm.Double');
         /**
          * Representation of the [[ReconciliationJournalEntryLine.creditAmount]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.creditAmount = new v4_1.ComplexTypeNumberPropertyField('CreditAmount', _this, 'Edm.Double');
+        _this.creditAmount = new core_1.ComplexTypeNumberPropertyField('CreditAmount', _this, 'Edm.Double');
         /**
          * Representation of the [[ReconciliationJournalEntryLine.details]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.details = new v4_1.ComplexTypeStringPropertyField('Details', _this, 'Edm.String');
+        _this.details = new core_1.ComplexTypeStringPropertyField('Details', _this, 'Edm.String');
         return _this;
     }
     return ReconciliationJournalEntryLineField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.ReconciliationJournalEntryLineField = ReconciliationJournalEntryLineField;
 var ReconciliationJournalEntryLine;
 (function (ReconciliationJournalEntryLine) {
+    /**
+     * Metadata information on all properties of the `ReconciliationJournalEntryLine` complex type.
+     */
+    ReconciliationJournalEntryLine._propertyMetadata = [{
+            originalName: 'TransactionNumber',
+            name: 'transactionNumber',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'LineNumber',
+            name: 'lineNumber',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'PostingDate',
+            name: 'postingDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'DueDate',
+            name: 'dueDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'Ref1',
+            name: 'ref1',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Ref2',
+            name: 'ref2',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Ref3',
+            name: 'ref3',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'DebitAmount',
+            name: 'debitAmount',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'CreditAmount',
+            name: 'creditAmount',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Details',
+            name: 'details',
+            type: 'Edm.String',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            TransactionNumber: function (transactionNumber) { return ({ transactionNumber: v4_1.edmToTs(transactionNumber, 'Edm.Int32') }); },
-            LineNumber: function (lineNumber) { return ({ lineNumber: v4_1.edmToTs(lineNumber, 'Edm.Int32') }); },
-            PostingDate: function (postingDate) { return ({ postingDate: v4_1.edmToTs(postingDate, 'Edm.DateTimeOffset') }); },
-            DueDate: function (dueDate) { return ({ dueDate: v4_1.edmToTs(dueDate, 'Edm.DateTimeOffset') }); },
-            Ref1: function (ref1) { return ({ ref1: v4_1.edmToTs(ref1, 'Edm.String') }); },
-            Ref2: function (ref2) { return ({ ref2: v4_1.edmToTs(ref2, 'Edm.String') }); },
-            Ref3: function (ref3) { return ({ ref3: v4_1.edmToTs(ref3, 'Edm.String') }); },
-            DebitAmount: function (debitAmount) { return ({ debitAmount: v4_1.edmToTs(debitAmount, 'Edm.Double') }); },
-            CreditAmount: function (creditAmount) { return ({ creditAmount: v4_1.edmToTs(creditAmount, 'Edm.Double') }); },
-            Details: function (details) { return ({ details: v4_1.edmToTs(details, 'Edm.String') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, ReconciliationJournalEntryLine);
     }
     ReconciliationJournalEntryLine.build = build;
 })(ReconciliationJournalEntryLine = exports.ReconciliationJournalEntryLine || (exports.ReconciliationJournalEntryLine = {}));

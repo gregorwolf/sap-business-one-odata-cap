@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { ProfitCenters } from './ProfitCenters';
 
 /**
@@ -15,16 +15,16 @@ export class ProfitCentersRequestBuilder extends RequestBuilder<ProfitCenters> {
    * @param centerCode Key property. See [[ProfitCenters.centerCode]].
    * @returns A request builder for creating requests to retrieve one `ProfitCenters` entity based on its keys.
    */
-  getByKey(centerCode: string): GetByKeyRequestBuilder<ProfitCenters> {
-    return new GetByKeyRequestBuilder(ProfitCenters, { CenterCode: centerCode });
+  getByKey(centerCode: string): GetByKeyRequestBuilderV4<ProfitCenters> {
+    return new GetByKeyRequestBuilderV4(ProfitCenters, { CenterCode: centerCode });
   }
 
   /**
    * Returns a request builder for querying all `ProfitCenters` entities.
    * @returns A request builder for creating requests to retrieve all `ProfitCenters` entities.
    */
-  getAll(): GetAllRequestBuilder<ProfitCenters> {
-    return new GetAllRequestBuilder(ProfitCenters);
+  getAll(): GetAllRequestBuilderV4<ProfitCenters> {
+    return new GetAllRequestBuilderV4(ProfitCenters);
   }
 
   /**
@@ -32,8 +32,8 @@ export class ProfitCentersRequestBuilder extends RequestBuilder<ProfitCenters> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `ProfitCenters`.
    */
-  create(entity: ProfitCenters): CreateRequestBuilder<ProfitCenters> {
-    return new CreateRequestBuilder(ProfitCenters, entity);
+  create(entity: ProfitCenters): CreateRequestBuilderV4<ProfitCenters> {
+    return new CreateRequestBuilderV4(ProfitCenters, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class ProfitCentersRequestBuilder extends RequestBuilder<ProfitCenters> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `ProfitCenters`.
    */
-  update(entity: ProfitCenters): UpdateRequestBuilder<ProfitCenters> {
-    return new UpdateRequestBuilder(ProfitCenters, entity);
+  update(entity: ProfitCenters): UpdateRequestBuilderV4<ProfitCenters> {
+    return new UpdateRequestBuilderV4(ProfitCenters, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class ProfitCentersRequestBuilder extends RequestBuilder<ProfitCenters> {
    * @param centerCode Key property. See [[ProfitCenters.centerCode]].
    * @returns A request builder for creating requests that delete an entity of type `ProfitCenters`.
    */
-  delete(centerCode: string): DeleteRequestBuilder<ProfitCenters>;
+  delete(centerCode: string): DeleteRequestBuilderV4<ProfitCenters>;
   /**
    * Returns a request builder for deleting an entity of type `ProfitCenters`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `ProfitCenters` by taking the entity as a parameter.
    */
-  delete(entity: ProfitCenters): DeleteRequestBuilder<ProfitCenters>;
-  delete(centerCodeOrEntity: any): DeleteRequestBuilder<ProfitCenters> {
-    return new DeleteRequestBuilder(ProfitCenters, centerCodeOrEntity instanceof ProfitCenters ? centerCodeOrEntity : { CenterCode: centerCodeOrEntity! });
+  delete(entity: ProfitCenters): DeleteRequestBuilderV4<ProfitCenters>;
+  delete(centerCodeOrEntity: any): DeleteRequestBuilderV4<ProfitCenters> {
+    return new DeleteRequestBuilderV4(ProfitCenters, centerCodeOrEntity instanceof ProfitCenters ? centerCodeOrEntity : { CenterCode: centerCodeOrEntity! });
   }
 }

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.AccountSegmentationCategories = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var AccountSegmentationCategoriesRequestBuilder_1 = require("./AccountSegmentationCategoriesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "AccountSegmentationCategories" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var AccountSegmentationCategories = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `AccountSegmentationCategories`.
+     * Returns an entity builder to construct instances of `AccountSegmentationCategories`.
      * @returns A builder that constructs instances of entity type `AccountSegmentationCategories`.
      */
     AccountSegmentationCategories.builder = function () {
-        return v4_1.Entity.entityBuilder(AccountSegmentationCategories);
+        return core_1.EntityV4.entityBuilder(AccountSegmentationCategories);
     };
     /**
      * Returns a request builder to construct requests for operations on the `AccountSegmentationCategories` entity type.
@@ -60,7 +60,7 @@ var AccountSegmentationCategories = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `AccountSegmentationCategories`.
      */
     AccountSegmentationCategories.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, AccountSegmentationCategories);
+        return core_1.EntityV4.customFieldSelector(fieldName, AccountSegmentationCategories);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var AccountSegmentationCategories = /** @class */ (function (_super) {
      */
     AccountSegmentationCategories._entityName = 'AccountSegmentationCategories';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for AccountSegmentationCategories.
-     */
-    AccountSegmentationCategories._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    AccountSegmentationCategories._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    AccountSegmentationCategories._defaultServicePath = '/b1s/v2/';
     return AccountSegmentationCategories;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.AccountSegmentationCategories = AccountSegmentationCategories;
 var AccountSegmentations_1 = require("./AccountSegmentations");
 (function (AccountSegmentationCategories) {
@@ -91,27 +86,27 @@ var AccountSegmentations_1 = require("./AccountSegmentations");
      * Static representation of the [[segmentId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    AccountSegmentationCategories.SEGMENT_ID = new v4_1.NumberField('SegmentID', AccountSegmentationCategories, 'Edm.Int32');
+    AccountSegmentationCategories.SEGMENT_ID = new core_1.NumberField('SegmentID', AccountSegmentationCategories, 'Edm.Int32');
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    AccountSegmentationCategories.CODE = new v4_1.StringField('Code', AccountSegmentationCategories, 'Edm.String');
+    AccountSegmentationCategories.CODE = new core_1.StringField('Code', AccountSegmentationCategories, 'Edm.String');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    AccountSegmentationCategories.NAME = new v4_1.StringField('Name', AccountSegmentationCategories, 'Edm.String');
+    AccountSegmentationCategories.NAME = new core_1.StringField('Name', AccountSegmentationCategories, 'Edm.String');
     /**
      * Static representation of the [[shortName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    AccountSegmentationCategories.SHORT_NAME = new v4_1.StringField('ShortName', AccountSegmentationCategories, 'Edm.String');
+    AccountSegmentationCategories.SHORT_NAME = new core_1.StringField('ShortName', AccountSegmentationCategories, 'Edm.String');
     /**
      * Static representation of the one-to-one navigation property [[accountSegmentation]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    AccountSegmentationCategories.ACCOUNT_SEGMENTATION = new v4_1.OneToOneLink('AccountSegmentation', AccountSegmentationCategories, AccountSegmentations_1.AccountSegmentations);
+    AccountSegmentationCategories.ACCOUNT_SEGMENTATION = new core_1.OneToOneLink('AccountSegmentation', AccountSegmentationCategories, AccountSegmentations_1.AccountSegmentations);
     /**
      * All fields of the AccountSegmentationCategories entity.
      */
@@ -125,7 +120,7 @@ var AccountSegmentations_1 = require("./AccountSegmentations");
     /**
      * All fields selector.
      */
-    AccountSegmentationCategories.ALL_FIELDS = new v4_1.AllFields('*', AccountSegmentationCategories);
+    AccountSegmentationCategories.ALL_FIELDS = new core_1.AllFields('*', AccountSegmentationCategories);
     /**
      * All key fields of the AccountSegmentationCategories entity.
      */

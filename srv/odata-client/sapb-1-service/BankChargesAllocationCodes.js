@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.BankChargesAllocationCodes = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var BankChargesAllocationCodesRequestBuilder_1 = require("./BankChargesAllocationCodesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "BankChargesAllocationCodes" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var BankChargesAllocationCodes = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `BankChargesAllocationCodes`.
+     * Returns an entity builder to construct instances of `BankChargesAllocationCodes`.
      * @returns A builder that constructs instances of entity type `BankChargesAllocationCodes`.
      */
     BankChargesAllocationCodes.builder = function () {
-        return v4_1.Entity.entityBuilder(BankChargesAllocationCodes);
+        return core_1.EntityV4.entityBuilder(BankChargesAllocationCodes);
     };
     /**
      * Returns a request builder to construct requests for operations on the `BankChargesAllocationCodes` entity type.
@@ -60,7 +60,7 @@ var BankChargesAllocationCodes = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `BankChargesAllocationCodes`.
      */
     BankChargesAllocationCodes.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, BankChargesAllocationCodes);
+        return core_1.EntityV4.customFieldSelector(fieldName, BankChargesAllocationCodes);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var BankChargesAllocationCodes = /** @class */ (function (_super) {
      */
     BankChargesAllocationCodes._entityName = 'BankChargesAllocationCodes';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BankChargesAllocationCodes.
-     */
-    BankChargesAllocationCodes._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    BankChargesAllocationCodes._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    BankChargesAllocationCodes._defaultServicePath = '/b1s/v2/';
     return BankChargesAllocationCodes;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.BankChargesAllocationCodes = BankChargesAllocationCodes;
 var BusinessPartners_1 = require("./BusinessPartners");
 var PaymentRunExport_1 = require("./PaymentRunExport");
@@ -92,22 +87,22 @@ var PaymentRunExport_1 = require("./PaymentRunExport");
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankChargesAllocationCodes.CODE = new v4_1.StringField('Code', BankChargesAllocationCodes, 'Edm.String');
+    BankChargesAllocationCodes.CODE = new core_1.StringField('Code', BankChargesAllocationCodes, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankChargesAllocationCodes.DESCRIPTION = new v4_1.StringField('Description', BankChargesAllocationCodes, 'Edm.String');
+    BankChargesAllocationCodes.DESCRIPTION = new core_1.StringField('Description', BankChargesAllocationCodes, 'Edm.String');
     /**
      * Static representation of the one-to-many navigation property [[businessPartners]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankChargesAllocationCodes.BUSINESS_PARTNERS = new v4_1.OneToManyLink('BusinessPartners', BankChargesAllocationCodes, BusinessPartners_1.BusinessPartners);
+    BankChargesAllocationCodes.BUSINESS_PARTNERS = new core_1.OneToManyLink('BusinessPartners', BankChargesAllocationCodes, BusinessPartners_1.BusinessPartners);
     /**
      * Static representation of the one-to-many navigation property [[paymentRunExport]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankChargesAllocationCodes.PAYMENT_RUN_EXPORT = new v4_1.OneToManyLink('PaymentRunExport', BankChargesAllocationCodes, PaymentRunExport_1.PaymentRunExport);
+    BankChargesAllocationCodes.PAYMENT_RUN_EXPORT = new core_1.OneToManyLink('PaymentRunExport', BankChargesAllocationCodes, PaymentRunExport_1.PaymentRunExport);
     /**
      * All fields of the BankChargesAllocationCodes entity.
      */
@@ -120,7 +115,7 @@ var PaymentRunExport_1 = require("./PaymentRunExport");
     /**
      * All fields selector.
      */
-    BankChargesAllocationCodes.ALL_FIELDS = new v4_1.AllFields('*', BankChargesAllocationCodes);
+    BankChargesAllocationCodes.ALL_FIELDS = new core_1.AllFields('*', BankChargesAllocationCodes);
     /**
      * All key fields of the BankChargesAllocationCodes entity.
      */

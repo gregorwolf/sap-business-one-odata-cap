@@ -1,4 +1,6 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { LineTypeEnum } from './LineTypeEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * DownPaymentToDrawDetails
  */
@@ -64,6 +66,11 @@ export interface DownPaymentToDrawDetails {
      */
     taxSc?: number;
     /**
+     * Is Gross Line.
+     * @nullable
+     */
+    isGrossLine?: BoYesNoEnum;
+    /**
      * Gross Amount To Draw.
      * @nullable
      */
@@ -78,6 +85,16 @@ export interface DownPaymentToDrawDetails {
      * @nullable
      */
     grossAmountToDrawSc?: number;
+    /**
+     * Line Type.
+     * @nullable
+     */
+    lineType?: LineTypeEnum;
+    /**
+     * Tax Adjust.
+     * @nullable
+     */
+    taxAdjust?: BoYesNoEnum;
 }
 /**
  * @deprecated Since v1.6.0. Use [[DownPaymentToDrawDetails.build]] instead.
@@ -87,7 +104,7 @@ export declare function createDownPaymentToDrawDetails(json: any): DownPaymentTo
  * DownPaymentToDrawDetailsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class DownPaymentToDrawDetailsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class DownPaymentToDrawDetailsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, DownPaymentToDrawDetails> {
     /**
      * Representation of the [[DownPaymentToDrawDetails.docInternalId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -149,6 +166,11 @@ export declare class DownPaymentToDrawDetailsField<EntityT extends Entity> exten
      */
     taxSc: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[DownPaymentToDrawDetails.isGrossLine]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    isGrossLine: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[DownPaymentToDrawDetails.grossAmountToDraw]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -163,8 +185,32 @@ export declare class DownPaymentToDrawDetailsField<EntityT extends Entity> exten
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     grossAmountToDrawSc: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[DownPaymentToDrawDetails.lineType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    lineType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[DownPaymentToDrawDetails.taxAdjust]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    taxAdjust: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Creates an instance of DownPaymentToDrawDetailsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace DownPaymentToDrawDetails {
+    /**
+     * Metadata information on all properties of the `DownPaymentToDrawDetails` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<DownPaymentToDrawDetails>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): DownPaymentToDrawDetails;

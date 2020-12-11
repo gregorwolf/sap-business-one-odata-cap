@@ -1,4 +1,5 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ResourceDailyCapacityWeekdayEnum } from './ResourceDailyCapacityWeekdayEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * ResourceDailyCapacity
  */
@@ -8,6 +9,11 @@ export interface ResourceDailyCapacity {
      * @nullable
      */
     code?: string;
+    /**
+     * Weekday.
+     * @nullable
+     */
+    weekday?: ResourceDailyCapacityWeekdayEnum;
     /**
      * Factor 1.
      * @nullable
@@ -52,12 +58,17 @@ export declare function createResourceDailyCapacity(json: any): ResourceDailyCap
  * ResourceDailyCapacityField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class ResourceDailyCapacityField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class ResourceDailyCapacityField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ResourceDailyCapacity> {
     /**
      * Representation of the [[ResourceDailyCapacity.code]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     code: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[ResourceDailyCapacity.weekday]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    weekday: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[ResourceDailyCapacity.factor1]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -93,8 +104,22 @@ export declare class ResourceDailyCapacityField<EntityT extends Entity> extends 
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     singleRun: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of ResourceDailyCapacityField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace ResourceDailyCapacity {
+    /**
+     * Metadata information on all properties of the `ResourceDailyCapacity` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<ResourceDailyCapacity>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): ResourceDailyCapacity;

@@ -1,20 +1,16 @@
 import { InventoryOpeningBalancesRequestBuilder } from './InventoryOpeningBalancesRequestBuilder';
 import { Moment } from 'moment';
 import { InventoryOpeningBalanceLine } from './InventoryOpeningBalanceLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { InventoryOpeningBalancePriceSourceEnum } from './InventoryOpeningBalancePriceSourceEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "InventoryOpeningBalances" of service "SAPB1".
  */
-export declare class InventoryOpeningBalances extends Entity implements InventoryOpeningBalancesType {
+export declare class InventoryOpeningBalances extends EntityV4 implements InventoryOpeningBalancesType {
     /**
      * Technical entity name for InventoryOpeningBalances.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for InventoryOpeningBalances.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -60,6 +56,11 @@ export declare class InventoryOpeningBalances extends Entity implements Inventor
      */
     branchId?: number;
     /**
+     * Price Source.
+     * @nullable
+     */
+    priceSource?: InventoryOpeningBalancePriceSourceEnum;
+    /**
      * Price List.
      * @nullable
      */
@@ -94,10 +95,10 @@ export declare class InventoryOpeningBalances extends Entity implements Inventor
      */
     businessPlace: BusinessPlaces;
     /**
-     * Returns an entity builder to construct instances `InventoryOpeningBalances`.
+     * Returns an entity builder to construct instances of `InventoryOpeningBalances`.
      * @returns A builder that constructs instances of entity type `InventoryOpeningBalances`.
      */
-    static builder(): EntityBuilderType<InventoryOpeningBalances, InventoryOpeningBalancesTypeForceMandatory>;
+    static builder(): EntityBuilderType<InventoryOpeningBalances, InventoryOpeningBalancesType>;
     /**
      * Returns a request builder to construct requests for operations on the `InventoryOpeningBalances` entity type.
      * @returns A `InventoryOpeningBalances` request builder.
@@ -108,7 +109,7 @@ export declare class InventoryOpeningBalances extends Entity implements Inventor
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `InventoryOpeningBalances`.
      */
-    static customField(fieldName: string): CustomField<InventoryOpeningBalances>;
+    static customField(fieldName: string): CustomFieldV4<InventoryOpeningBalances>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -119,37 +120,21 @@ export declare class InventoryOpeningBalances extends Entity implements Inventor
 }
 import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 export interface InventoryOpeningBalancesType {
-    documentEntry?: number;
-    postingDate?: Moment;
-    documentDate?: Moment;
-    documentNumber?: number;
-    series?: number;
-    reference2?: string;
-    remarks?: string;
-    branchId?: number;
-    priceList?: number;
-    journalRemark?: string;
-    docObjectCodeEx?: string;
-    periodIndicator?: string;
-    financialPeriod?: number;
-    inventoryOpeningBalanceLines?: InventoryOpeningBalanceLine[];
-    businessPlace: BusinessPlacesType;
-}
-export interface InventoryOpeningBalancesTypeForceMandatory {
-    documentEntry: number;
-    postingDate: Moment;
-    documentDate: Moment;
-    documentNumber: number;
-    series: number;
-    reference2: string;
-    remarks: string;
-    branchId: number;
-    priceList: number;
-    journalRemark: string;
-    docObjectCodeEx: string;
-    periodIndicator: string;
-    financialPeriod: number;
-    inventoryOpeningBalanceLines: InventoryOpeningBalanceLine[];
+    documentEntry?: number | null;
+    postingDate?: Moment | null;
+    documentDate?: Moment | null;
+    documentNumber?: number | null;
+    series?: number | null;
+    reference2?: string | null;
+    remarks?: string | null;
+    branchId?: number | null;
+    priceSource?: InventoryOpeningBalancePriceSourceEnum | null;
+    priceList?: number | null;
+    journalRemark?: string | null;
+    docObjectCodeEx?: string | null;
+    periodIndicator?: string | null;
+    financialPeriod?: number | null;
+    inventoryOpeningBalanceLines?: InventoryOpeningBalanceLine[] | null;
     businessPlace: BusinessPlacesType;
 }
 export declare namespace InventoryOpeningBalances {
@@ -194,6 +179,11 @@ export declare namespace InventoryOpeningBalances {
      */
     const BRANCH_ID: NumberField<InventoryOpeningBalances>;
     /**
+     * Static representation of the [[priceSource]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PRICE_SOURCE: EnumField<InventoryOpeningBalances>;
+    /**
      * Static representation of the [[priceList]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -222,7 +212,7 @@ export declare namespace InventoryOpeningBalances {
      * Static representation of the [[inventoryOpeningBalanceLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const INVENTORY_OPENING_BALANCE_LINES: CollectionField<InventoryOpeningBalances>;
+    const INVENTORY_OPENING_BALANCE_LINES: CollectionField<InventoryOpeningBalances, InventoryOpeningBalanceLine>;
     /**
      * Static representation of the one-to-one navigation property [[businessPlace]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -231,7 +221,7 @@ export declare namespace InventoryOpeningBalances {
     /**
      * All fields of the InventoryOpeningBalances entity.
      */
-    const _allFields: Array<NumberField<InventoryOpeningBalances> | DateField<InventoryOpeningBalances> | StringField<InventoryOpeningBalances> | CollectionField<InventoryOpeningBalances> | OneToOneLink<InventoryOpeningBalances, BusinessPlaces>>;
+    const _allFields: Array<NumberField<InventoryOpeningBalances> | DateField<InventoryOpeningBalances> | StringField<InventoryOpeningBalances> | EnumField<InventoryOpeningBalances> | CollectionField<InventoryOpeningBalances, InventoryOpeningBalanceLine> | OneToOneLink<InventoryOpeningBalances, BusinessPlaces>>;
     /**
      * All fields selector.
      */

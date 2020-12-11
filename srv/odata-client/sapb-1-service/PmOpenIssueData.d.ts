@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * PmOpenIssueData
  */
@@ -29,6 +30,11 @@ export interface PmOpenIssueData {
      * @nullable
      */
     remarks?: string;
+    /**
+     * Closed.
+     * @nullable
+     */
+    closed?: BoYesNoEnum;
     /**
      * Solution Id.
      * @nullable
@@ -63,7 +69,7 @@ export declare function createPmOpenIssueData(json: any): PmOpenIssueData;
  * PmOpenIssueDataField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class PmOpenIssueDataField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class PmOpenIssueDataField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PmOpenIssueData> {
     /**
      * Representation of the [[PmOpenIssueData.lineId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -90,6 +96,11 @@ export declare class PmOpenIssueDataField<EntityT extends Entity> extends Comple
      */
     remarks: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[PmOpenIssueData.closed]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    closed: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[PmOpenIssueData.solutionId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -114,8 +125,22 @@ export declare class PmOpenIssueDataField<EntityT extends Entity> extends Comple
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     effort: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of PmOpenIssueDataField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace PmOpenIssueData {
+    /**
+     * Metadata information on all properties of the `PmOpenIssueData` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<PmOpenIssueData>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): PmOpenIssueData;

@@ -1,18 +1,13 @@
 import { PaymentBlocksRequestBuilder } from './PaymentBlocksRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "PaymentBlocks" of service "SAPB1".
  */
-export declare class PaymentBlocks extends Entity implements PaymentBlocksType {
+export declare class PaymentBlocks extends EntityV4 implements PaymentBlocksType {
     /**
      * Technical entity name for PaymentBlocks.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for PaymentBlocks.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -128,10 +123,10 @@ export declare class PaymentBlocks extends Entity implements PaymentBlocksType {
      */
     goodsReturnRequest: GoodsReturnRequest[];
     /**
-     * Returns an entity builder to construct instances `PaymentBlocks`.
+     * Returns an entity builder to construct instances of `PaymentBlocks`.
      * @returns A builder that constructs instances of entity type `PaymentBlocks`.
      */
-    static builder(): EntityBuilderType<PaymentBlocks, PaymentBlocksTypeForceMandatory>;
+    static builder(): EntityBuilderType<PaymentBlocks, PaymentBlocksType>;
     /**
      * Returns a request builder to construct requests for operations on the `PaymentBlocks` entity type.
      * @returns A `PaymentBlocks` request builder.
@@ -142,7 +137,7 @@ export declare class PaymentBlocks extends Entity implements PaymentBlocksType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `PaymentBlocks`.
      */
-    static customField(fieldName: string): CustomField<PaymentBlocks>;
+    static customField(fieldName: string): CustomFieldV4<PaymentBlocks>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -177,37 +172,8 @@ import { PurchaseDownPayments, PurchaseDownPaymentsType } from './PurchaseDownPa
 import { PurchaseOrders, PurchaseOrdersType } from './PurchaseOrders';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 export interface PaymentBlocksType {
-    absEntry?: number;
-    paymentBlockCode?: string;
-    inventoryGenEntries: InventoryGenEntriesType[];
-    purchaseQuotations: PurchaseQuotationsType[];
-    deliveryNotes: DeliveryNotesType[];
-    businessPartners: BusinessPartnersType[];
-    quotations: QuotationsType[];
-    inventoryGenExits: InventoryGenExitsType[];
-    purchaseRequests: PurchaseRequestsType[];
-    returnRequest: ReturnRequestType[];
-    purchaseReturns: PurchaseReturnsType[];
-    invoices: InvoicesType[];
-    creditNotes: CreditNotesType[];
-    orders: OrdersType[];
-    downPayments: DownPaymentsType[];
-    drafts: DraftsType[];
-    returns: ReturnsType[];
-    correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-    correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-    correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-    purchaseInvoices: PurchaseInvoicesType[];
-    purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-    correctionInvoice: CorrectionInvoiceType[];
-    purchaseCreditNotes: PurchaseCreditNotesType[];
-    purchaseDownPayments: PurchaseDownPaymentsType[];
-    purchaseOrders: PurchaseOrdersType[];
-    goodsReturnRequest: GoodsReturnRequestType[];
-}
-export interface PaymentBlocksTypeForceMandatory {
-    absEntry: number;
-    paymentBlockCode: string;
+    absEntry?: number | null;
+    paymentBlockCode?: string | null;
     inventoryGenEntries: InventoryGenEntriesType[];
     purchaseQuotations: PurchaseQuotationsType[];
     deliveryNotes: DeliveryNotesType[];

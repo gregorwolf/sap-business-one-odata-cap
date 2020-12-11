@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { ServiceGroups } from './ServiceGroups';
 
 /**
@@ -15,16 +15,16 @@ export class ServiceGroupsRequestBuilder extends RequestBuilder<ServiceGroups> {
    * @param absEntry Key property. See [[ServiceGroups.absEntry]].
    * @returns A request builder for creating requests to retrieve one `ServiceGroups` entity based on its keys.
    */
-  getByKey(absEntry: number): GetByKeyRequestBuilder<ServiceGroups> {
-    return new GetByKeyRequestBuilder(ServiceGroups, { AbsEntry: absEntry });
+  getByKey(absEntry: number): GetByKeyRequestBuilderV4<ServiceGroups> {
+    return new GetByKeyRequestBuilderV4(ServiceGroups, { AbsEntry: absEntry });
   }
 
   /**
    * Returns a request builder for querying all `ServiceGroups` entities.
    * @returns A request builder for creating requests to retrieve all `ServiceGroups` entities.
    */
-  getAll(): GetAllRequestBuilder<ServiceGroups> {
-    return new GetAllRequestBuilder(ServiceGroups);
+  getAll(): GetAllRequestBuilderV4<ServiceGroups> {
+    return new GetAllRequestBuilderV4(ServiceGroups);
   }
 
   /**
@@ -32,8 +32,8 @@ export class ServiceGroupsRequestBuilder extends RequestBuilder<ServiceGroups> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `ServiceGroups`.
    */
-  create(entity: ServiceGroups): CreateRequestBuilder<ServiceGroups> {
-    return new CreateRequestBuilder(ServiceGroups, entity);
+  create(entity: ServiceGroups): CreateRequestBuilderV4<ServiceGroups> {
+    return new CreateRequestBuilderV4(ServiceGroups, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class ServiceGroupsRequestBuilder extends RequestBuilder<ServiceGroups> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `ServiceGroups`.
    */
-  update(entity: ServiceGroups): UpdateRequestBuilder<ServiceGroups> {
-    return new UpdateRequestBuilder(ServiceGroups, entity);
+  update(entity: ServiceGroups): UpdateRequestBuilderV4<ServiceGroups> {
+    return new UpdateRequestBuilderV4(ServiceGroups, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class ServiceGroupsRequestBuilder extends RequestBuilder<ServiceGroups> {
    * @param absEntry Key property. See [[ServiceGroups.absEntry]].
    * @returns A request builder for creating requests that delete an entity of type `ServiceGroups`.
    */
-  delete(absEntry: number): DeleteRequestBuilder<ServiceGroups>;
+  delete(absEntry: number): DeleteRequestBuilderV4<ServiceGroups>;
   /**
    * Returns a request builder for deleting an entity of type `ServiceGroups`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `ServiceGroups` by taking the entity as a parameter.
    */
-  delete(entity: ServiceGroups): DeleteRequestBuilder<ServiceGroups>;
-  delete(absEntryOrEntity: any): DeleteRequestBuilder<ServiceGroups> {
-    return new DeleteRequestBuilder(ServiceGroups, absEntryOrEntity instanceof ServiceGroups ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
+  delete(entity: ServiceGroups): DeleteRequestBuilderV4<ServiceGroups>;
+  delete(absEntryOrEntity: any): DeleteRequestBuilderV4<ServiceGroups> {
+    return new DeleteRequestBuilderV4(ServiceGroups, absEntryOrEntity instanceof ServiceGroups ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
   }
 }

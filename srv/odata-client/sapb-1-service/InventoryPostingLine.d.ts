@@ -1,8 +1,9 @@
 import { Moment } from 'moment';
-import { InventoryPostingLineUoM, InventoryPostingLineUoMField } from './InventoryPostingLineUoM';
-import { InventoryPostingSerialNumber, InventoryPostingSerialNumberField } from './InventoryPostingSerialNumber';
-import { InventoryPostingBatchNumber, InventoryPostingBatchNumberField } from './InventoryPostingBatchNumber';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, Entity, FieldType, Time } from '@sap-cloud-sdk/core/v4';
+import { InventoryPostingLineUoM } from './InventoryPostingLineUoM';
+import { InventoryPostingSerialNumber } from './InventoryPostingSerialNumber';
+import { InventoryPostingBatchNumber } from './InventoryPostingBatchNumber';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, Time } from '@sap-cloud-sdk/core';
 /**
  * InventoryPostingLine
  */
@@ -188,6 +189,11 @@ export interface InventoryPostingLine {
      */
     itemsPerUnit?: number;
     /**
+     * Allow Bin Negative Quantity.
+     * @nullable
+     */
+    allowBinNegativeQuantity?: BoYesNoEnum;
+    /**
      * Actual Price.
      * @nullable
      */
@@ -206,17 +212,17 @@ export interface InventoryPostingLine {
      * Inventory Posting Line Uo Ms.
      * @nullable
      */
-    inventoryPostingLineUoMs?: InventoryPostingLineUoM;
+    inventoryPostingLineUoMs?: InventoryPostingLineUoM[];
     /**
      * Inventory Posting Serial Numbers.
      * @nullable
      */
-    inventoryPostingSerialNumbers?: InventoryPostingSerialNumber;
+    inventoryPostingSerialNumbers?: InventoryPostingSerialNumber[];
     /**
      * Inventory Posting Batch Numbers.
      * @nullable
      */
-    inventoryPostingBatchNumbers?: InventoryPostingBatchNumber;
+    inventoryPostingBatchNumbers?: InventoryPostingBatchNumber[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[InventoryPostingLine.build]] instead.
@@ -226,7 +232,7 @@ export declare function createInventoryPostingLine(json: any): InventoryPostingL
  * InventoryPostingLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class InventoryPostingLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class InventoryPostingLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, InventoryPostingLine> {
     /**
      * Representation of the [[InventoryPostingLine.documentEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -408,6 +414,11 @@ export declare class InventoryPostingLineField<EntityT extends Entity> extends C
      */
     itemsPerUnit: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[InventoryPostingLine.allowBinNegativeQuantity]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    allowBinNegativeQuantity: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[InventoryPostingLine.actualPrice]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -426,19 +437,33 @@ export declare class InventoryPostingLineField<EntityT extends Entity> extends C
      * Representation of the [[InventoryPostingLine.inventoryPostingLineUoMs]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    inventoryPostingLineUoMs: InventoryPostingLineUoMField<EntityT>;
+    inventoryPostingLineUoMs: CollectionField<EntityT, InventoryPostingLineUoM>;
     /**
      * Representation of the [[InventoryPostingLine.inventoryPostingSerialNumbers]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    inventoryPostingSerialNumbers: InventoryPostingSerialNumberField<EntityT>;
+    inventoryPostingSerialNumbers: CollectionField<EntityT, InventoryPostingSerialNumber>;
     /**
      * Representation of the [[InventoryPostingLine.inventoryPostingBatchNumbers]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    inventoryPostingBatchNumbers: InventoryPostingBatchNumberField<EntityT>;
+    inventoryPostingBatchNumbers: CollectionField<EntityT, InventoryPostingBatchNumber>;
+    /**
+     * Creates an instance of InventoryPostingLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace InventoryPostingLine {
+    /**
+     * Metadata information on all properties of the `InventoryPostingLine` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<InventoryPostingLine>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | InventoryPostingBatchNumber | InventoryPostingLineUoM | InventoryPostingSerialNumber;
     }): InventoryPostingLine;

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.WtdCodeParams = exports.WtdCodeParamsField = exports.createWtdCodeParams
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[WtdCodeParams.build]] instead.
  */
@@ -33,36 +33,60 @@ exports.createWtdCodeParams = createWtdCodeParams;
  */
 var WtdCodeParamsField = /** @class */ (function (_super) {
     __extends(WtdCodeParamsField, _super);
-    function WtdCodeParamsField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of WtdCodeParamsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function WtdCodeParamsField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, WtdCodeParams) || this;
         /**
          * Representation of the [[WtdCodeParams.absEntry]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.absEntry = new v4_1.ComplexTypeNumberPropertyField('AbsEntry', _this, 'Edm.Int32');
+        _this.absEntry = new core_1.ComplexTypeNumberPropertyField('AbsEntry', _this, 'Edm.Int32');
         /**
          * Representation of the [[WtdCodeParams.wTaxCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.wTaxCode = new v4_1.ComplexTypeStringPropertyField('WTaxCode', _this, 'Edm.String');
+        _this.wTaxCode = new core_1.ComplexTypeStringPropertyField('WTaxCode', _this, 'Edm.String');
         /**
          * Representation of the [[WtdCodeParams.wTaxName]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.wTaxName = new v4_1.ComplexTypeStringPropertyField('WTaxName', _this, 'Edm.String');
+        _this.wTaxName = new core_1.ComplexTypeStringPropertyField('WTaxName', _this, 'Edm.String');
         return _this;
     }
     return WtdCodeParamsField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.WtdCodeParamsField = WtdCodeParamsField;
 var WtdCodeParams;
 (function (WtdCodeParams) {
+    /**
+     * Metadata information on all properties of the `WtdCodeParams` complex type.
+     */
+    WtdCodeParams._propertyMetadata = [{
+            originalName: 'AbsEntry',
+            name: 'absEntry',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'WTaxCode',
+            name: 'wTaxCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'WTaxName',
+            name: 'wTaxName',
+            type: 'Edm.String',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            AbsEntry: function (absEntry) { return ({ absEntry: v4_1.edmToTs(absEntry, 'Edm.Int32') }); },
-            WTaxCode: function (wTaxCode) { return ({ wTaxCode: v4_1.edmToTs(wTaxCode, 'Edm.String') }); },
-            WTaxName: function (wTaxName) { return ({ wTaxName: v4_1.edmToTs(wTaxName, 'Edm.String') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, WtdCodeParams);
     }
     WtdCodeParams.build = build;
 })(WtdCodeParams = exports.WtdCodeParams || (exports.WtdCodeParams = {}));

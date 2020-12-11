@@ -4,26 +4,26 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { VatGroupsRequestBuilder } from './VatGroupsRequestBuilder';
-import { VatGroupsLine, VatGroupsLineField } from './VatGroupsLine';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { VatGroupsLine } from './VatGroupsLine';
+import { BoVatCategoryEnum } from './BoVatCategoryEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { TaxTypeBlackListEnum } from './TaxTypeBlackListEnum';
+import { Report349CodeListEnum } from './Report349CodeListEnum';
+import { VatGroupsTaxRegionEnum } from './VatGroupsTaxRegionEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "VatGroups" of service "SAPB1".
  */
-export class VatGroups extends Entity implements VatGroupsType {
+export class VatGroups extends EntityV4 implements VatGroupsType {
   /**
    * Technical entity name for VatGroups.
    */
   static _entityName = 'VatGroups';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for VatGroups.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -35,15 +35,30 @@ export class VatGroups extends Entity implements VatGroupsType {
    */
   name?: string;
   /**
+   * Category.
+   * @nullable
+   */
+  category?: BoVatCategoryEnum;
+  /**
    * Tax Account.
    * @nullable
    */
   taxAccount?: string;
   /**
+   * Eu.
+   * @nullable
+   */
+  eu?: BoYesNoEnum;
+  /**
    * Triangular Deal.
    * @nullable
    */
   triangularDeal?: string;
+  /**
+   * Acquisition Reverse.
+   * @nullable
+   */
+  acquisitionReverse?: BoYesNoEnum;
   /**
    * Non Deduct.
    * @nullable
@@ -70,6 +85,11 @@ export class VatGroups extends Entity implements VatGroupsType {
    */
   deferredTaxAcc?: string;
   /**
+   * Correction.
+   * @nullable
+   */
+  correction?: BoYesNoEnum;
+  /**
    * Vat Correction.
    * @nullable
    */
@@ -84,6 +104,21 @@ export class VatGroups extends Entity implements VatGroupsType {
    * @nullable
    */
   serviceSupply?: string;
+  /**
+   * Inactive.
+   * @nullable
+   */
+  inactive?: BoYesNoEnum;
+  /**
+   * Tax Type Black List.
+   * @nullable
+   */
+  taxTypeBlackList?: TaxTypeBlackListEnum;
+  /**
+   * Report 349 Code.
+   * @nullable
+   */
+  report349Code?: Report349CodeListEnum;
   /**
    * Vat In Revenue Account.
    * @nullable
@@ -104,6 +139,11 @@ export class VatGroups extends Entity implements VatGroupsType {
    * @nullable
    */
   vatDeductibleAccount?: string;
+  /**
+   * Tax Region.
+   * @nullable
+   */
+  taxRegion?: VatGroupsTaxRegionEnum;
   /**
    * Vat Groups Lines.
    * @nullable
@@ -147,11 +187,11 @@ export class VatGroups extends Entity implements VatGroupsType {
   incomingPayments!: IncomingPayments[];
 
   /**
-   * Returns an entity builder to construct instances `VatGroups`.
+   * Returns an entity builder to construct instances of `VatGroups`.
    * @returns A builder that constructs instances of entity type `VatGroups`.
    */
-  static builder(): EntityBuilderType<VatGroups, VatGroupsTypeForceMandatory> {
-    return Entity.entityBuilder(VatGroups);
+  static builder(): EntityBuilderType<VatGroups, VatGroupsType> {
+    return EntityV4.entityBuilder(VatGroups);
   }
 
   /**
@@ -167,8 +207,8 @@ export class VatGroups extends Entity implements VatGroupsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `VatGroups`.
    */
-  static customField(fieldName: string): CustomField<VatGroups> {
-    return Entity.customFieldSelector(fieldName, VatGroups);
+  static customField(fieldName: string): CustomFieldV4<VatGroups> {
+    return EntityV4.customFieldSelector(fieldName, VatGroups);
   }
 
   /**
@@ -191,52 +231,31 @@ import { Deposits, DepositsType } from './Deposits';
 import { IncomingPayments, IncomingPaymentsType } from './IncomingPayments';
 
 export interface VatGroupsType {
-  code?: string;
-  name?: string;
-  taxAccount?: string;
-  triangularDeal?: string;
-  nonDeduct?: number;
-  acquisitionTax?: string;
-  goodsShipment?: string;
-  nonDeductAcc?: string;
-  deferredTaxAcc?: string;
-  vatCorrection?: string;
-  equalizationTaxAccount?: string;
-  serviceSupply?: string;
-  vatInRevenueAccount?: string;
-  downPaymentTaxOffsetAccount?: string;
-  cashDiscountAccount?: string;
-  vatDeductibleAccount?: string;
-  vatGroupsLines?: VatGroupsLine[];
-  chartOfAccount: ChartOfAccountsType;
-  vendorPayments: VendorPaymentsType[];
-  items: ItemsType[];
-  businessPartners: BusinessPartnersType[];
-  glAccountAdvancedRules: GlAccountAdvancedRulesType[];
-  additionalExpenses: AdditionalExpensesType[];
-  paymentDrafts: PaymentDraftsType[];
-  deposits: DepositsType[];
-  incomingPayments: IncomingPaymentsType[];
-}
-
-export interface VatGroupsTypeForceMandatory {
-  code: string;
-  name: string;
-  taxAccount: string;
-  triangularDeal: string;
-  nonDeduct: number;
-  acquisitionTax: string;
-  goodsShipment: string;
-  nonDeductAcc: string;
-  deferredTaxAcc: string;
-  vatCorrection: string;
-  equalizationTaxAccount: string;
-  serviceSupply: string;
-  vatInRevenueAccount: string;
-  downPaymentTaxOffsetAccount: string;
-  cashDiscountAccount: string;
-  vatDeductibleAccount: string;
-  vatGroupsLines: VatGroupsLine[];
+  code?: string | null;
+  name?: string | null;
+  category?: BoVatCategoryEnum | null;
+  taxAccount?: string | null;
+  eu?: BoYesNoEnum | null;
+  triangularDeal?: string | null;
+  acquisitionReverse?: BoYesNoEnum | null;
+  nonDeduct?: number | null;
+  acquisitionTax?: string | null;
+  goodsShipment?: string | null;
+  nonDeductAcc?: string | null;
+  deferredTaxAcc?: string | null;
+  correction?: BoYesNoEnum | null;
+  vatCorrection?: string | null;
+  equalizationTaxAccount?: string | null;
+  serviceSupply?: string | null;
+  inactive?: BoYesNoEnum | null;
+  taxTypeBlackList?: TaxTypeBlackListEnum | null;
+  report349Code?: Report349CodeListEnum | null;
+  vatInRevenueAccount?: string | null;
+  downPaymentTaxOffsetAccount?: string | null;
+  cashDiscountAccount?: string | null;
+  vatDeductibleAccount?: string | null;
+  taxRegion?: VatGroupsTaxRegionEnum | null;
+  vatGroupsLines?: VatGroupsLine[] | null;
   chartOfAccount: ChartOfAccountsType;
   vendorPayments: VendorPaymentsType[];
   items: ItemsType[];
@@ -260,15 +279,30 @@ export namespace VatGroups {
    */
   export const NAME: StringField<VatGroups> = new StringField('Name', VatGroups, 'Edm.String');
   /**
+   * Static representation of the [[category]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CATEGORY: EnumField<VatGroups> = new EnumField('Category', VatGroups);
+  /**
    * Static representation of the [[taxAccount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const TAX_ACCOUNT: StringField<VatGroups> = new StringField('TaxAccount', VatGroups, 'Edm.String');
   /**
+   * Static representation of the [[eu]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const EU: EnumField<VatGroups> = new EnumField('EU', VatGroups);
+  /**
    * Static representation of the [[triangularDeal]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const TRIANGULAR_DEAL: StringField<VatGroups> = new StringField('TriangularDeal', VatGroups, 'Edm.String');
+  /**
+   * Static representation of the [[acquisitionReverse]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ACQUISITION_REVERSE: EnumField<VatGroups> = new EnumField('AcquisitionReverse', VatGroups);
   /**
    * Static representation of the [[nonDeduct]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -295,6 +329,11 @@ export namespace VatGroups {
    */
   export const DEFERRED_TAX_ACC: StringField<VatGroups> = new StringField('DeferredTaxAcc', VatGroups, 'Edm.String');
   /**
+   * Static representation of the [[correction]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CORRECTION: EnumField<VatGroups> = new EnumField('Correction', VatGroups);
+  /**
    * Static representation of the [[vatCorrection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -309,6 +348,21 @@ export namespace VatGroups {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const SERVICE_SUPPLY: StringField<VatGroups> = new StringField('ServiceSupply', VatGroups, 'Edm.String');
+  /**
+   * Static representation of the [[inactive]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INACTIVE: EnumField<VatGroups> = new EnumField('Inactive', VatGroups);
+  /**
+   * Static representation of the [[taxTypeBlackList]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TAX_TYPE_BLACK_LIST: EnumField<VatGroups> = new EnumField('TaxTypeBlackList', VatGroups);
+  /**
+   * Static representation of the [[report349Code]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REPORT_349_CODE: EnumField<VatGroups> = new EnumField('Report349Code', VatGroups);
   /**
    * Static representation of the [[vatInRevenueAccount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -330,10 +384,15 @@ export namespace VatGroups {
    */
   export const VAT_DEDUCTIBLE_ACCOUNT: StringField<VatGroups> = new StringField('VATDeductibleAccount', VatGroups, 'Edm.String');
   /**
+   * Static representation of the [[taxRegion]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TAX_REGION: EnumField<VatGroups> = new EnumField('TaxRegion', VatGroups);
+  /**
    * Static representation of the [[vatGroupsLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const VAT_GROUPS_LINES: CollectionField<VatGroups> = new CollectionField('VatGroups_Lines', VatGroups, new VatGroupsLineField('', VatGroups));
+  export const VAT_GROUPS_LINES: CollectionField<VatGroups, VatGroupsLine> = new CollectionField('VatGroups_Lines', VatGroups, VatGroupsLine);
   /**
    * Static representation of the one-to-one navigation property [[chartOfAccount]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -382,23 +441,31 @@ export namespace VatGroups {
   /**
    * All fields of the VatGroups entity.
    */
-  export const _allFields: Array<StringField<VatGroups> | NumberField<VatGroups> | CollectionField<VatGroups> | OneToOneLink<VatGroups, ChartOfAccounts> | OneToManyLink<VatGroups, VendorPayments> | OneToManyLink<VatGroups, Items> | OneToManyLink<VatGroups, BusinessPartners> | OneToManyLink<VatGroups, GlAccountAdvancedRules> | OneToManyLink<VatGroups, AdditionalExpenses> | OneToManyLink<VatGroups, PaymentDrafts> | OneToManyLink<VatGroups, Deposits> | OneToManyLink<VatGroups, IncomingPayments>> = [
+  export const _allFields: Array<StringField<VatGroups> | EnumField<VatGroups> | NumberField<VatGroups> | CollectionField<VatGroups, VatGroupsLine> | OneToOneLink<VatGroups, ChartOfAccounts> | OneToManyLink<VatGroups, VendorPayments> | OneToManyLink<VatGroups, Items> | OneToManyLink<VatGroups, BusinessPartners> | OneToManyLink<VatGroups, GlAccountAdvancedRules> | OneToManyLink<VatGroups, AdditionalExpenses> | OneToManyLink<VatGroups, PaymentDrafts> | OneToManyLink<VatGroups, Deposits> | OneToManyLink<VatGroups, IncomingPayments>> = [
     VatGroups.CODE,
     VatGroups.NAME,
+    VatGroups.CATEGORY,
     VatGroups.TAX_ACCOUNT,
+    VatGroups.EU,
     VatGroups.TRIANGULAR_DEAL,
+    VatGroups.ACQUISITION_REVERSE,
     VatGroups.NON_DEDUCT,
     VatGroups.ACQUISITION_TAX,
     VatGroups.GOODS_SHIPMENT,
     VatGroups.NON_DEDUCT_ACC,
     VatGroups.DEFERRED_TAX_ACC,
+    VatGroups.CORRECTION,
     VatGroups.VAT_CORRECTION,
     VatGroups.EQUALIZATION_TAX_ACCOUNT,
     VatGroups.SERVICE_SUPPLY,
+    VatGroups.INACTIVE,
+    VatGroups.TAX_TYPE_BLACK_LIST,
+    VatGroups.REPORT_349_CODE,
     VatGroups.VAT_IN_REVENUE_ACCOUNT,
     VatGroups.DOWN_PAYMENT_TAX_OFFSET_ACCOUNT,
     VatGroups.CASH_DISCOUNT_ACCOUNT,
     VatGroups.VAT_DEDUCTIBLE_ACCOUNT,
+    VatGroups.TAX_REGION,
     VatGroups.VAT_GROUPS_LINES,
     VatGroups.CHART_OF_ACCOUNT,
     VatGroups.VENDOR_PAYMENTS,

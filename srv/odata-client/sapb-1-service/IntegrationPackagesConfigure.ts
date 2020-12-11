@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { IntegrationPackagesConfigureRequestBuilder } from './IntegrationPackagesConfigureRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "IntegrationPackagesConfigure" of service "SAPB1".
  */
-export class IntegrationPackagesConfigure extends Entity implements IntegrationPackagesConfigureType {
+export class IntegrationPackagesConfigure extends EntityV4 implements IntegrationPackagesConfigureType {
   /**
    * Technical entity name for IntegrationPackagesConfigure.
    */
   static _entityName = 'IntegrationPackagesConfigure';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for IntegrationPackagesConfigure.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Abs Entry.
    * @nullable
@@ -38,13 +34,18 @@ export class IntegrationPackagesConfigure extends Entity implements IntegrationP
    * @nullable
    */
   name?: string;
+  /**
+   * Is Enable.
+   * @nullable
+   */
+  isEnable?: BoYesNoEnum;
 
   /**
-   * Returns an entity builder to construct instances `IntegrationPackagesConfigure`.
+   * Returns an entity builder to construct instances of `IntegrationPackagesConfigure`.
    * @returns A builder that constructs instances of entity type `IntegrationPackagesConfigure`.
    */
-  static builder(): EntityBuilderType<IntegrationPackagesConfigure, IntegrationPackagesConfigureTypeForceMandatory> {
-    return Entity.entityBuilder(IntegrationPackagesConfigure);
+  static builder(): EntityBuilderType<IntegrationPackagesConfigure, IntegrationPackagesConfigureType> {
+    return EntityV4.entityBuilder(IntegrationPackagesConfigure);
   }
 
   /**
@@ -60,8 +61,8 @@ export class IntegrationPackagesConfigure extends Entity implements IntegrationP
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `IntegrationPackagesConfigure`.
    */
-  static customField(fieldName: string): CustomField<IntegrationPackagesConfigure> {
-    return Entity.customFieldSelector(fieldName, IntegrationPackagesConfigure);
+  static customField(fieldName: string): CustomFieldV4<IntegrationPackagesConfigure> {
+    return EntityV4.customFieldSelector(fieldName, IntegrationPackagesConfigure);
   }
 
   /**
@@ -74,15 +75,10 @@ export class IntegrationPackagesConfigure extends Entity implements IntegrationP
 }
 
 export interface IntegrationPackagesConfigureType {
-  absEntry?: number;
-  code?: string;
-  name?: string;
-}
-
-export interface IntegrationPackagesConfigureTypeForceMandatory {
-  absEntry: number;
-  code: string;
-  name: string;
+  absEntry?: number | null;
+  code?: string | null;
+  name?: string | null;
+  isEnable?: BoYesNoEnum | null;
 }
 
 export namespace IntegrationPackagesConfigure {
@@ -102,12 +98,18 @@ export namespace IntegrationPackagesConfigure {
    */
   export const NAME: StringField<IntegrationPackagesConfigure> = new StringField('Name', IntegrationPackagesConfigure, 'Edm.String');
   /**
+   * Static representation of the [[isEnable]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_ENABLE: EnumField<IntegrationPackagesConfigure> = new EnumField('IsEnable', IntegrationPackagesConfigure);
+  /**
    * All fields of the IntegrationPackagesConfigure entity.
    */
-  export const _allFields: Array<NumberField<IntegrationPackagesConfigure> | StringField<IntegrationPackagesConfigure>> = [
+  export const _allFields: Array<NumberField<IntegrationPackagesConfigure> | StringField<IntegrationPackagesConfigure> | EnumField<IntegrationPackagesConfigure>> = [
     IntegrationPackagesConfigure.ABS_ENTRY,
     IntegrationPackagesConfigure.CODE,
-    IntegrationPackagesConfigure.NAME
+    IntegrationPackagesConfigure.NAME,
+    IntegrationPackagesConfigure.IS_ENABLE
   ];
   /**
    * All fields selector.

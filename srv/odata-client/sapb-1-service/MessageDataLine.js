@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.MessageDataLine = exports.MessageDataLineField = exports.createMessageDa
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[MessageDataLine.build]] instead.
  */
@@ -33,36 +33,60 @@ exports.createMessageDataLine = createMessageDataLine;
  */
 var MessageDataLineField = /** @class */ (function (_super) {
     __extends(MessageDataLineField, _super);
-    function MessageDataLineField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of MessageDataLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function MessageDataLineField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, MessageDataLine) || this;
         /**
          * Representation of the [[MessageDataLine.value]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.value = new v4_1.ComplexTypeStringPropertyField('Value', _this, 'Edm.String');
+        _this.value = new core_1.ComplexTypeStringPropertyField('Value', _this, 'Edm.String');
         /**
          * Representation of the [[MessageDataLine.object]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.object = new v4_1.ComplexTypeStringPropertyField('Object', _this, 'Edm.String');
+        _this.object = new core_1.ComplexTypeStringPropertyField('Object', _this, 'Edm.String');
         /**
          * Representation of the [[MessageDataLine.objectKey]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.objectKey = new v4_1.ComplexTypeStringPropertyField('ObjectKey', _this, 'Edm.String');
+        _this.objectKey = new core_1.ComplexTypeStringPropertyField('ObjectKey', _this, 'Edm.String');
         return _this;
     }
     return MessageDataLineField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.MessageDataLineField = MessageDataLineField;
 var MessageDataLine;
 (function (MessageDataLine) {
+    /**
+     * Metadata information on all properties of the `MessageDataLine` complex type.
+     */
+    MessageDataLine._propertyMetadata = [{
+            originalName: 'Value',
+            name: 'value',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Object',
+            name: 'object',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'ObjectKey',
+            name: 'objectKey',
+            type: 'Edm.String',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            Value: function (value) { return ({ value: v4_1.edmToTs(value, 'Edm.String') }); },
-            Object: function (object) { return ({ object: v4_1.edmToTs(object, 'Edm.String') }); },
-            ObjectKey: function (objectKey) { return ({ objectKey: v4_1.edmToTs(objectKey, 'Edm.String') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, MessageDataLine);
     }
     MessageDataLine.build = build;
 })(MessageDataLine = exports.MessageDataLine || (exports.MessageDataLine = {}));

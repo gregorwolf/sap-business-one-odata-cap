@@ -1,19 +1,15 @@
 import { ProjectsRequestBuilder } from './ProjectsRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "Projects" of service "SAPB1".
  */
-export declare class Projects extends Entity implements ProjectsType {
+export declare class Projects extends EntityV4 implements ProjectsType {
     /**
      * Technical entity name for Projects.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Projects.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -38,6 +34,11 @@ export declare class Projects extends Entity implements ProjectsType {
      * @nullable
      */
     validTo?: Moment;
+    /**
+     * Active.
+     * @nullable
+     */
+    active?: BoYesNoEnum;
     /**
      * One-to-many navigation property to the [[SalesOpportunities]] entity.
      */
@@ -191,10 +192,10 @@ export declare class Projects extends Entity implements ProjectsType {
      */
     incomingPayments: IncomingPayments[];
     /**
-     * Returns an entity builder to construct instances `Projects`.
+     * Returns an entity builder to construct instances of `Projects`.
      * @returns A builder that constructs instances of entity type `Projects`.
      */
-    static builder(): EntityBuilderType<Projects, ProjectsTypeForceMandatory>;
+    static builder(): EntityBuilderType<Projects, ProjectsType>;
     /**
      * Returns a request builder to construct requests for operations on the `Projects` entity type.
      * @returns A `Projects` request builder.
@@ -205,7 +206,7 @@ export declare class Projects extends Entity implements ProjectsType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `Projects`.
      */
-    static customField(fieldName: string): CustomField<Projects>;
+    static customField(fieldName: string): CustomFieldV4<Projects>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -253,54 +254,11 @@ import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest
 import { Deposits, DepositsType } from './Deposits';
 import { IncomingPayments, IncomingPaymentsType } from './IncomingPayments';
 export interface ProjectsType {
-    code?: string;
-    name?: string;
-    validFrom?: Moment;
-    validTo?: Moment;
-    salesOpportunities: SalesOpportunitiesType[];
-    inventoryGenEntries: InventoryGenEntriesType[];
-    purchaseQuotations: PurchaseQuotationsType[];
-    vendorPayments: VendorPaymentsType[];
-    journalEntries: JournalEntriesType[];
-    productionOrders: ProductionOrdersType[];
-    deliveryNotes: DeliveryNotesType[];
-    businessPartners: BusinessPartnersType[];
-    quotations: QuotationsType[];
-    productTrees: ProductTreesType[];
-    chartOfAccounts: ChartOfAccountsType[];
-    inventoryGenExits: InventoryGenExitsType[];
-    purchaseRequests: PurchaseRequestsType[];
-    returnRequest: ReturnRequestType[];
-    blanketAgreements: BlanketAgreementsType[];
-    purchaseReturns: PurchaseReturnsType[];
-    invoices: InvoicesType[];
-    creditNotes: CreditNotesType[];
-    budgetScenarios: BudgetScenariosType[];
-    orders: OrdersType[];
-    additionalExpenses: AdditionalExpensesType[];
-    downPayments: DownPaymentsType[];
-    drafts: DraftsType[];
-    paymentDrafts: PaymentDraftsType[];
-    returns: ReturnsType[];
-    correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-    correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-    correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-    purchaseInvoices: PurchaseInvoicesType[];
-    purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-    correctionInvoice: CorrectionInvoiceType[];
-    purchaseCreditNotes: PurchaseCreditNotesType[];
-    purchaseDownPayments: PurchaseDownPaymentsType[];
-    purchaseOrders: PurchaseOrdersType[];
-    projectManagements: ProjectManagementsType[];
-    goodsReturnRequest: GoodsReturnRequestType[];
-    deposits: DepositsType[];
-    incomingPayments: IncomingPaymentsType[];
-}
-export interface ProjectsTypeForceMandatory {
-    code: string;
-    name: string;
-    validFrom: Moment;
-    validTo: Moment;
+    code?: string | null;
+    name?: string | null;
+    validFrom?: Moment | null;
+    validTo?: Moment | null;
+    active?: BoYesNoEnum | null;
     salesOpportunities: SalesOpportunitiesType[];
     inventoryGenEntries: InventoryGenEntriesType[];
     purchaseQuotations: PurchaseQuotationsType[];
@@ -361,6 +319,11 @@ export declare namespace Projects {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const VALID_TO: DateField<Projects>;
+    /**
+     * Static representation of the [[active]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ACTIVE: EnumField<Projects>;
     /**
      * Static representation of the one-to-many navigation property [[salesOpportunities]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -554,7 +517,7 @@ export declare namespace Projects {
     /**
      * All fields of the Projects entity.
      */
-    const _allFields: Array<StringField<Projects> | DateField<Projects> | OneToManyLink<Projects, SalesOpportunities> | OneToManyLink<Projects, InventoryGenEntries> | OneToManyLink<Projects, PurchaseQuotations> | OneToManyLink<Projects, VendorPayments> | OneToManyLink<Projects, JournalEntries> | OneToManyLink<Projects, ProductionOrders> | OneToManyLink<Projects, DeliveryNotes> | OneToManyLink<Projects, BusinessPartners> | OneToManyLink<Projects, Quotations> | OneToManyLink<Projects, ProductTrees> | OneToManyLink<Projects, ChartOfAccounts> | OneToManyLink<Projects, InventoryGenExits> | OneToManyLink<Projects, PurchaseRequests> | OneToManyLink<Projects, ReturnRequest> | OneToManyLink<Projects, BlanketAgreements> | OneToManyLink<Projects, PurchaseReturns> | OneToManyLink<Projects, Invoices> | OneToManyLink<Projects, CreditNotes> | OneToManyLink<Projects, BudgetScenarios> | OneToManyLink<Projects, Orders> | OneToManyLink<Projects, AdditionalExpenses> | OneToManyLink<Projects, DownPayments> | OneToManyLink<Projects, Drafts> | OneToManyLink<Projects, PaymentDrafts> | OneToManyLink<Projects, Returns> | OneToManyLink<Projects, CorrectionInvoiceReversal> | OneToManyLink<Projects, CorrectionPurchaseInvoice> | OneToManyLink<Projects, CorrectionPurchaseInvoiceReversal> | OneToManyLink<Projects, PurchaseInvoices> | OneToManyLink<Projects, PurchaseDeliveryNotes> | OneToManyLink<Projects, CorrectionInvoice> | OneToManyLink<Projects, PurchaseCreditNotes> | OneToManyLink<Projects, PurchaseDownPayments> | OneToManyLink<Projects, PurchaseOrders> | OneToManyLink<Projects, ProjectManagements> | OneToManyLink<Projects, GoodsReturnRequest> | OneToManyLink<Projects, Deposits> | OneToManyLink<Projects, IncomingPayments>>;
+    const _allFields: Array<StringField<Projects> | DateField<Projects> | EnumField<Projects> | OneToManyLink<Projects, SalesOpportunities> | OneToManyLink<Projects, InventoryGenEntries> | OneToManyLink<Projects, PurchaseQuotations> | OneToManyLink<Projects, VendorPayments> | OneToManyLink<Projects, JournalEntries> | OneToManyLink<Projects, ProductionOrders> | OneToManyLink<Projects, DeliveryNotes> | OneToManyLink<Projects, BusinessPartners> | OneToManyLink<Projects, Quotations> | OneToManyLink<Projects, ProductTrees> | OneToManyLink<Projects, ChartOfAccounts> | OneToManyLink<Projects, InventoryGenExits> | OneToManyLink<Projects, PurchaseRequests> | OneToManyLink<Projects, ReturnRequest> | OneToManyLink<Projects, BlanketAgreements> | OneToManyLink<Projects, PurchaseReturns> | OneToManyLink<Projects, Invoices> | OneToManyLink<Projects, CreditNotes> | OneToManyLink<Projects, BudgetScenarios> | OneToManyLink<Projects, Orders> | OneToManyLink<Projects, AdditionalExpenses> | OneToManyLink<Projects, DownPayments> | OneToManyLink<Projects, Drafts> | OneToManyLink<Projects, PaymentDrafts> | OneToManyLink<Projects, Returns> | OneToManyLink<Projects, CorrectionInvoiceReversal> | OneToManyLink<Projects, CorrectionPurchaseInvoice> | OneToManyLink<Projects, CorrectionPurchaseInvoiceReversal> | OneToManyLink<Projects, PurchaseInvoices> | OneToManyLink<Projects, PurchaseDeliveryNotes> | OneToManyLink<Projects, CorrectionInvoice> | OneToManyLink<Projects, PurchaseCreditNotes> | OneToManyLink<Projects, PurchaseDownPayments> | OneToManyLink<Projects, PurchaseOrders> | OneToManyLink<Projects, ProjectManagements> | OneToManyLink<Projects, GoodsReturnRequest> | OneToManyLink<Projects, Deposits> | OneToManyLink<Projects, IncomingPayments>>;
     /**
      * All fields selector.
      */

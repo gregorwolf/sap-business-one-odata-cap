@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ActivityRecipientListParams
@@ -19,6 +20,16 @@ export interface ActivityRecipientListParams {
    * @nullable
    */
   name?: string;
+  /**
+   * Active.
+   * @nullable
+   */
+  active?: BoYesNoEnum;
+  /**
+   * Is Multiple.
+   * @nullable
+   */
+  isMultiple?: BoYesNoEnum;
 }
 
 /**
@@ -32,7 +43,7 @@ export function createActivityRecipientListParams(json: any): ActivityRecipientL
  * ActivityRecipientListParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ActivityRecipientListParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ActivityRecipientListParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ActivityRecipientListParams> {
   /**
    * Representation of the [[ActivityRecipientListParams.code]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -43,13 +54,58 @@ export class ActivityRecipientListParamsField<EntityT extends Entity> extends Co
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   name: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Name', this, 'Edm.String');
+  /**
+   * Representation of the [[ActivityRecipientListParams.active]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  active: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Active', this);
+  /**
+   * Representation of the [[ActivityRecipientListParams.isMultiple]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  isMultiple: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IsMultiple', this);
+
+  /**
+   * Creates an instance of ActivityRecipientListParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ActivityRecipientListParams);
+  }
 }
 
 export namespace ActivityRecipientListParams {
+  /**
+   * Metadata information on all properties of the `ActivityRecipientListParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ActivityRecipientListParams>[] = [{
+    originalName: 'Code',
+    name: 'code',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Name',
+    name: 'name',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Active',
+    name: 'active',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'IsMultiple',
+    name: 'isMultiple',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ActivityRecipientListParams {
-    return createComplexType(json, {
-      Code: (code: number) => ({ code: edmToTs(code, 'Edm.Int32') }),
-      Name: (name: string) => ({ name: edmToTs(name, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, ActivityRecipientListParams);
   }
 }

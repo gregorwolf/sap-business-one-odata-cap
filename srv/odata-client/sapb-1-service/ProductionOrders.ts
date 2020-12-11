@@ -5,28 +5,29 @@
  */
 import { ProductionOrdersRequestBuilder } from './ProductionOrdersRequestBuilder';
 import { Moment } from 'moment';
-import { ProductionOrderLine, ProductionOrderLineField } from './ProductionOrderLine';
-import { ProductionOrdersSalesOrderLine, ProductionOrdersSalesOrderLineField } from './ProductionOrdersSalesOrderLine';
-import { ProductionOrdersStage, ProductionOrdersStageField } from './ProductionOrdersStage';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { ProductionOrderLine } from './ProductionOrderLine';
+import { ProductionOrdersSalesOrderLine } from './ProductionOrdersSalesOrderLine';
+import { ProductionOrdersStage } from './ProductionOrdersStage';
+import { BoProductionOrderStatusEnum } from './BoProductionOrderStatusEnum';
+import { BoProductionOrderTypeEnum } from './BoProductionOrderTypeEnum';
+import { BoProductionOrderOriginEnum } from './BoProductionOrderOriginEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ResourceAllocationEnum } from './ResourceAllocationEnum';
+import { BoUpdateAllocationEnum } from './BoUpdateAllocationEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ProductionOrders" of service "SAPB1".
  */
-export class ProductionOrders extends Entity implements ProductionOrdersType {
+export class ProductionOrders extends EntityV4 implements ProductionOrdersType {
   /**
    * Technical entity name for ProductionOrders.
    */
   static _entityName = 'ProductionOrders';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ProductionOrders.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Absolute Entry.
    * @nullable
@@ -47,6 +48,16 @@ export class ProductionOrders extends Entity implements ProductionOrdersType {
    * @nullable
    */
   itemNo?: string;
+  /**
+   * Production Order Status.
+   * @nullable
+   */
+  productionOrderStatus?: BoProductionOrderStatusEnum;
+  /**
+   * Production Order Type.
+   * @nullable
+   */
+  productionOrderType?: BoProductionOrderTypeEnum;
   /**
    * Planned Quantity.
    * @nullable
@@ -82,6 +93,11 @@ export class ProductionOrders extends Entity implements ProductionOrdersType {
    * @nullable
    */
   productionOrderOriginNumber?: number;
+  /**
+   * Production Order Origin.
+   * @nullable
+   */
+  productionOrderOrigin?: BoProductionOrderOriginEnum;
   /**
    * User Signature.
    * @nullable
@@ -133,6 +149,11 @@ export class ProductionOrders extends Entity implements ProductionOrdersType {
    */
   creationDate?: Moment;
   /**
+   * Printed.
+   * @nullable
+   */
+  printed?: BoYesNoEnum;
+  /**
    * Distribution Rule.
    * @nullable
    */
@@ -183,6 +204,16 @@ export class ProductionOrders extends Entity implements ProductionOrdersType {
    */
   priority?: number;
   /**
+   * Routing Date Calculation.
+   * @nullable
+   */
+  routingDateCalculation?: ResourceAllocationEnum;
+  /**
+   * Update Allocation.
+   * @nullable
+   */
+  updateAllocation?: BoUpdateAllocationEnum;
+  /**
    * Production Order Lines.
    * @nullable
    */
@@ -231,11 +262,11 @@ export class ProductionOrders extends Entity implements ProductionOrdersType {
   unitOfMeasurement!: UnitOfMeasurements;
 
   /**
-   * Returns an entity builder to construct instances `ProductionOrders`.
+   * Returns an entity builder to construct instances of `ProductionOrders`.
    * @returns A builder that constructs instances of entity type `ProductionOrders`.
    */
-  static builder(): EntityBuilderType<ProductionOrders, ProductionOrdersTypeForceMandatory> {
-    return Entity.entityBuilder(ProductionOrders);
+  static builder(): EntityBuilderType<ProductionOrders, ProductionOrdersType> {
+    return EntityV4.entityBuilder(ProductionOrders);
   }
 
   /**
@@ -251,8 +282,8 @@ export class ProductionOrders extends Entity implements ProductionOrdersType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ProductionOrders`.
    */
-  static customField(fieldName: string): CustomField<ProductionOrders> {
-    return Entity.customFieldSelector(fieldName, ProductionOrders);
+  static customField(fieldName: string): CustomFieldV4<ProductionOrders> {
+    return EntityV4.customFieldSelector(fieldName, ProductionOrders);
   }
 
   /**
@@ -274,85 +305,46 @@ import { Projects, ProjectsType } from './Projects';
 import { UnitOfMeasurements, UnitOfMeasurementsType } from './UnitOfMeasurements';
 
 export interface ProductionOrdersType {
-  absoluteEntry?: number;
-  documentNumber?: number;
-  series?: number;
-  itemNo?: string;
-  plannedQuantity?: number;
-  completedQuantity?: number;
-  rejectedQuantity?: number;
-  postingDate?: Moment;
-  dueDate?: Moment;
-  productionOrderOriginEntry?: number;
-  productionOrderOriginNumber?: number;
-  userSignature?: number;
-  remarks?: string;
-  closingDate?: Moment;
-  releaseDate?: Moment;
-  customerCode?: string;
-  warehouse?: string;
-  inventoryUom?: string;
-  journalRemarks?: string;
-  transactionNumber?: number;
-  creationDate?: Moment;
-  distributionRule?: string;
-  project?: string;
-  distributionRule2?: string;
-  distributionRule3?: string;
-  distributionRule4?: string;
-  distributionRule5?: string;
-  uoMEntry?: number;
-  startDate?: Moment;
-  productDescription?: string;
-  priority?: number;
-  productionOrderLines?: ProductionOrderLine[];
-  productionOrdersSalesOrderLines?: ProductionOrdersSalesOrderLine[];
-  productionOrdersStages?: ProductionOrdersStage[];
-  productTree: ProductTreesType;
-  user: UsersType;
-  businessPartner: BusinessPartnersType;
-  warehouse2: WarehousesType;
-  journalEntry: JournalEntriesType;
-  distributionRule6: DistributionRulesType;
-  project2: ProjectsType;
-  unitOfMeasurement: UnitOfMeasurementsType;
-}
-
-export interface ProductionOrdersTypeForceMandatory {
-  absoluteEntry: number;
-  documentNumber: number;
-  series: number;
-  itemNo: string;
-  plannedQuantity: number;
-  completedQuantity: number;
-  rejectedQuantity: number;
-  postingDate: Moment;
-  dueDate: Moment;
-  productionOrderOriginEntry: number;
-  productionOrderOriginNumber: number;
-  userSignature: number;
-  remarks: string;
-  closingDate: Moment;
-  releaseDate: Moment;
-  customerCode: string;
-  warehouse: string;
-  inventoryUom: string;
-  journalRemarks: string;
-  transactionNumber: number;
-  creationDate: Moment;
-  distributionRule: string;
-  project: string;
-  distributionRule2: string;
-  distributionRule3: string;
-  distributionRule4: string;
-  distributionRule5: string;
-  uoMEntry: number;
-  startDate: Moment;
-  productDescription: string;
-  priority: number;
-  productionOrderLines: ProductionOrderLine[];
-  productionOrdersSalesOrderLines: ProductionOrdersSalesOrderLine[];
-  productionOrdersStages: ProductionOrdersStage[];
+  absoluteEntry?: number | null;
+  documentNumber?: number | null;
+  series?: number | null;
+  itemNo?: string | null;
+  productionOrderStatus?: BoProductionOrderStatusEnum | null;
+  productionOrderType?: BoProductionOrderTypeEnum | null;
+  plannedQuantity?: number | null;
+  completedQuantity?: number | null;
+  rejectedQuantity?: number | null;
+  postingDate?: Moment | null;
+  dueDate?: Moment | null;
+  productionOrderOriginEntry?: number | null;
+  productionOrderOriginNumber?: number | null;
+  productionOrderOrigin?: BoProductionOrderOriginEnum | null;
+  userSignature?: number | null;
+  remarks?: string | null;
+  closingDate?: Moment | null;
+  releaseDate?: Moment | null;
+  customerCode?: string | null;
+  warehouse?: string | null;
+  inventoryUom?: string | null;
+  journalRemarks?: string | null;
+  transactionNumber?: number | null;
+  creationDate?: Moment | null;
+  printed?: BoYesNoEnum | null;
+  distributionRule?: string | null;
+  project?: string | null;
+  distributionRule2?: string | null;
+  distributionRule3?: string | null;
+  distributionRule4?: string | null;
+  distributionRule5?: string | null;
+  uoMEntry?: number | null;
+  startDate?: Moment | null;
+  productDescription?: string | null;
+  priority?: number | null;
+  routingDateCalculation?: ResourceAllocationEnum | null;
+  updateAllocation?: BoUpdateAllocationEnum | null;
+  productionOrderLines?: ProductionOrderLine[] | null;
+  productionOrdersSalesOrderLines?: ProductionOrdersSalesOrderLine[] | null;
+  productionOrdersStages?: ProductionOrdersStage[] | null;
   productTree: ProductTreesType;
   user: UsersType;
   businessPartner: BusinessPartnersType;
@@ -384,6 +376,16 @@ export namespace ProductionOrders {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const ITEM_NO: StringField<ProductionOrders> = new StringField('ItemNo', ProductionOrders, 'Edm.String');
+  /**
+   * Static representation of the [[productionOrderStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRODUCTION_ORDER_STATUS: EnumField<ProductionOrders> = new EnumField('ProductionOrderStatus', ProductionOrders);
+  /**
+   * Static representation of the [[productionOrderType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRODUCTION_ORDER_TYPE: EnumField<ProductionOrders> = new EnumField('ProductionOrderType', ProductionOrders);
   /**
    * Static representation of the [[plannedQuantity]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -419,6 +421,11 @@ export namespace ProductionOrders {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const PRODUCTION_ORDER_ORIGIN_NUMBER: NumberField<ProductionOrders> = new NumberField('ProductionOrderOriginNumber', ProductionOrders, 'Edm.Int32');
+  /**
+   * Static representation of the [[productionOrderOrigin]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRODUCTION_ORDER_ORIGIN: EnumField<ProductionOrders> = new EnumField('ProductionOrderOrigin', ProductionOrders);
   /**
    * Static representation of the [[userSignature]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -470,6 +477,11 @@ export namespace ProductionOrders {
    */
   export const CREATION_DATE: DateField<ProductionOrders> = new DateField('CreationDate', ProductionOrders, 'Edm.DateTimeOffset');
   /**
+   * Static representation of the [[printed]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRINTED: EnumField<ProductionOrders> = new EnumField('Printed', ProductionOrders);
+  /**
    * Static representation of the [[distributionRule]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -520,20 +532,30 @@ export namespace ProductionOrders {
    */
   export const PRIORITY: NumberField<ProductionOrders> = new NumberField('Priority', ProductionOrders, 'Edm.Int32');
   /**
+   * Static representation of the [[routingDateCalculation]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ROUTING_DATE_CALCULATION: EnumField<ProductionOrders> = new EnumField('RoutingDateCalculation', ProductionOrders);
+  /**
+   * Static representation of the [[updateAllocation]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const UPDATE_ALLOCATION: EnumField<ProductionOrders> = new EnumField('UpdateAllocation', ProductionOrders);
+  /**
    * Static representation of the [[productionOrderLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const PRODUCTION_ORDER_LINES: CollectionField<ProductionOrders> = new CollectionField('ProductionOrderLines', ProductionOrders, new ProductionOrderLineField('', ProductionOrders));
+  export const PRODUCTION_ORDER_LINES: CollectionField<ProductionOrders, ProductionOrderLine> = new CollectionField('ProductionOrderLines', ProductionOrders, ProductionOrderLine);
   /**
    * Static representation of the [[productionOrdersSalesOrderLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const PRODUCTION_ORDERS_SALES_ORDER_LINES: CollectionField<ProductionOrders> = new CollectionField('ProductionOrdersSalesOrderLines', ProductionOrders, new ProductionOrdersSalesOrderLineField('', ProductionOrders));
+  export const PRODUCTION_ORDERS_SALES_ORDER_LINES: CollectionField<ProductionOrders, ProductionOrdersSalesOrderLine> = new CollectionField('ProductionOrdersSalesOrderLines', ProductionOrders, ProductionOrdersSalesOrderLine);
   /**
    * Static representation of the [[productionOrdersStages]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const PRODUCTION_ORDERS_STAGES: CollectionField<ProductionOrders> = new CollectionField('ProductionOrdersStages', ProductionOrders, new ProductionOrdersStageField('', ProductionOrders));
+  export const PRODUCTION_ORDERS_STAGES: CollectionField<ProductionOrders, ProductionOrdersStage> = new CollectionField('ProductionOrdersStages', ProductionOrders, ProductionOrdersStage);
   /**
    * Static representation of the one-to-one navigation property [[productTree]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -577,11 +599,13 @@ export namespace ProductionOrders {
   /**
    * All fields of the ProductionOrders entity.
    */
-  export const _allFields: Array<NumberField<ProductionOrders> | StringField<ProductionOrders> | DateField<ProductionOrders> | CollectionField<ProductionOrders> | OneToOneLink<ProductionOrders, ProductTrees> | OneToOneLink<ProductionOrders, Users> | OneToOneLink<ProductionOrders, BusinessPartners> | OneToOneLink<ProductionOrders, Warehouses> | OneToOneLink<ProductionOrders, JournalEntries> | OneToOneLink<ProductionOrders, DistributionRules> | OneToOneLink<ProductionOrders, Projects> | OneToOneLink<ProductionOrders, UnitOfMeasurements>> = [
+  export const _allFields: Array<NumberField<ProductionOrders> | StringField<ProductionOrders> | EnumField<ProductionOrders> | DateField<ProductionOrders> | CollectionField<ProductionOrders, ProductionOrderLine> | CollectionField<ProductionOrders, ProductionOrdersSalesOrderLine> | CollectionField<ProductionOrders, ProductionOrdersStage> | OneToOneLink<ProductionOrders, ProductTrees> | OneToOneLink<ProductionOrders, Users> | OneToOneLink<ProductionOrders, BusinessPartners> | OneToOneLink<ProductionOrders, Warehouses> | OneToOneLink<ProductionOrders, JournalEntries> | OneToOneLink<ProductionOrders, DistributionRules> | OneToOneLink<ProductionOrders, Projects> | OneToOneLink<ProductionOrders, UnitOfMeasurements>> = [
     ProductionOrders.ABSOLUTE_ENTRY,
     ProductionOrders.DOCUMENT_NUMBER,
     ProductionOrders.SERIES,
     ProductionOrders.ITEM_NO,
+    ProductionOrders.PRODUCTION_ORDER_STATUS,
+    ProductionOrders.PRODUCTION_ORDER_TYPE,
     ProductionOrders.PLANNED_QUANTITY,
     ProductionOrders.COMPLETED_QUANTITY,
     ProductionOrders.REJECTED_QUANTITY,
@@ -589,6 +613,7 @@ export namespace ProductionOrders {
     ProductionOrders.DUE_DATE,
     ProductionOrders.PRODUCTION_ORDER_ORIGIN_ENTRY,
     ProductionOrders.PRODUCTION_ORDER_ORIGIN_NUMBER,
+    ProductionOrders.PRODUCTION_ORDER_ORIGIN,
     ProductionOrders.USER_SIGNATURE,
     ProductionOrders.REMARKS,
     ProductionOrders.CLOSING_DATE,
@@ -599,6 +624,7 @@ export namespace ProductionOrders {
     ProductionOrders.JOURNAL_REMARKS,
     ProductionOrders.TRANSACTION_NUMBER,
     ProductionOrders.CREATION_DATE,
+    ProductionOrders.PRINTED,
     ProductionOrders.DISTRIBUTION_RULE,
     ProductionOrders.PROJECT,
     ProductionOrders.DISTRIBUTION_RULE_2,
@@ -609,6 +635,8 @@ export namespace ProductionOrders {
     ProductionOrders.START_DATE,
     ProductionOrders.PRODUCT_DESCRIPTION,
     ProductionOrders.PRIORITY,
+    ProductionOrders.ROUTING_DATE_CALCULATION,
+    ProductionOrders.UPDATE_ALLOCATION,
     ProductionOrders.PRODUCTION_ORDER_LINES,
     ProductionOrders.PRODUCTION_ORDERS_SALES_ORDER_LINES,
     ProductionOrders.PRODUCTION_ORDERS_STAGES,

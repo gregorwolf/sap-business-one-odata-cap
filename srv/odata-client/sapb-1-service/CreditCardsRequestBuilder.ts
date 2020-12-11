@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { CreditCards } from './CreditCards';
 
 /**
@@ -15,16 +15,16 @@ export class CreditCardsRequestBuilder extends RequestBuilder<CreditCards> {
    * @param creditCardCode Key property. See [[CreditCards.creditCardCode]].
    * @returns A request builder for creating requests to retrieve one `CreditCards` entity based on its keys.
    */
-  getByKey(creditCardCode: number): GetByKeyRequestBuilder<CreditCards> {
-    return new GetByKeyRequestBuilder(CreditCards, { CreditCardCode: creditCardCode });
+  getByKey(creditCardCode: number): GetByKeyRequestBuilderV4<CreditCards> {
+    return new GetByKeyRequestBuilderV4(CreditCards, { CreditCardCode: creditCardCode });
   }
 
   /**
    * Returns a request builder for querying all `CreditCards` entities.
    * @returns A request builder for creating requests to retrieve all `CreditCards` entities.
    */
-  getAll(): GetAllRequestBuilder<CreditCards> {
-    return new GetAllRequestBuilder(CreditCards);
+  getAll(): GetAllRequestBuilderV4<CreditCards> {
+    return new GetAllRequestBuilderV4(CreditCards);
   }
 
   /**
@@ -32,8 +32,8 @@ export class CreditCardsRequestBuilder extends RequestBuilder<CreditCards> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `CreditCards`.
    */
-  create(entity: CreditCards): CreateRequestBuilder<CreditCards> {
-    return new CreateRequestBuilder(CreditCards, entity);
+  create(entity: CreditCards): CreateRequestBuilderV4<CreditCards> {
+    return new CreateRequestBuilderV4(CreditCards, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class CreditCardsRequestBuilder extends RequestBuilder<CreditCards> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `CreditCards`.
    */
-  update(entity: CreditCards): UpdateRequestBuilder<CreditCards> {
-    return new UpdateRequestBuilder(CreditCards, entity);
+  update(entity: CreditCards): UpdateRequestBuilderV4<CreditCards> {
+    return new UpdateRequestBuilderV4(CreditCards, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class CreditCardsRequestBuilder extends RequestBuilder<CreditCards> {
    * @param creditCardCode Key property. See [[CreditCards.creditCardCode]].
    * @returns A request builder for creating requests that delete an entity of type `CreditCards`.
    */
-  delete(creditCardCode: number): DeleteRequestBuilder<CreditCards>;
+  delete(creditCardCode: number): DeleteRequestBuilderV4<CreditCards>;
   /**
    * Returns a request builder for deleting an entity of type `CreditCards`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `CreditCards` by taking the entity as a parameter.
    */
-  delete(entity: CreditCards): DeleteRequestBuilder<CreditCards>;
-  delete(creditCardCodeOrEntity: any): DeleteRequestBuilder<CreditCards> {
-    return new DeleteRequestBuilder(CreditCards, creditCardCodeOrEntity instanceof CreditCards ? creditCardCodeOrEntity : { CreditCardCode: creditCardCodeOrEntity! });
+  delete(entity: CreditCards): DeleteRequestBuilderV4<CreditCards>;
+  delete(creditCardCodeOrEntity: any): DeleteRequestBuilderV4<CreditCards> {
+    return new DeleteRequestBuilderV4(CreditCards, creditCardCodeOrEntity instanceof CreditCards ? creditCardCodeOrEntity : { CreditCardCode: creditCardCodeOrEntity! });
   }
 }

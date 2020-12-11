@@ -1,18 +1,13 @@
 import { DeductionTaxSubGroupsRequestBuilder } from './DeductionTaxSubGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "DeductionTaxSubGroups" of service "SAPB1".
  */
-export declare class DeductionTaxSubGroups extends Entity implements DeductionTaxSubGroupsType {
+export declare class DeductionTaxSubGroups extends EntityV4 implements DeductionTaxSubGroupsType {
     /**
      * Technical entity name for DeductionTaxSubGroups.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for DeductionTaxSubGroups.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -32,10 +27,10 @@ export declare class DeductionTaxSubGroups extends Entity implements DeductionTa
      */
     deductionTaxGroups: DeductionTaxGroups[];
     /**
-     * Returns an entity builder to construct instances `DeductionTaxSubGroups`.
+     * Returns an entity builder to construct instances of `DeductionTaxSubGroups`.
      * @returns A builder that constructs instances of entity type `DeductionTaxSubGroups`.
      */
-    static builder(): EntityBuilderType<DeductionTaxSubGroups, DeductionTaxSubGroupsTypeForceMandatory>;
+    static builder(): EntityBuilderType<DeductionTaxSubGroups, DeductionTaxSubGroupsType>;
     /**
      * Returns a request builder to construct requests for operations on the `DeductionTaxSubGroups` entity type.
      * @returns A `DeductionTaxSubGroups` request builder.
@@ -46,7 +41,7 @@ export declare class DeductionTaxSubGroups extends Entity implements DeductionTa
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `DeductionTaxSubGroups`.
      */
-    static customField(fieldName: string): CustomField<DeductionTaxSubGroups>;
+    static customField(fieldName: string): CustomFieldV4<DeductionTaxSubGroups>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -57,13 +52,8 @@ export declare class DeductionTaxSubGroups extends Entity implements DeductionTa
 }
 import { DeductionTaxGroups, DeductionTaxGroupsType } from './DeductionTaxGroups';
 export interface DeductionTaxSubGroupsType {
-    groupCode?: string;
-    groupName?: string;
-    deductionTaxGroups: DeductionTaxGroupsType[];
-}
-export interface DeductionTaxSubGroupsTypeForceMandatory {
-    groupCode: string;
-    groupName: string;
+    groupCode?: string | null;
+    groupName?: string | null;
     deductionTaxGroups: DeductionTaxGroupsType[];
 }
 export declare namespace DeductionTaxSubGroups {

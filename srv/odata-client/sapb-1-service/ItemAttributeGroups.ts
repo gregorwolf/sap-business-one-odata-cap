@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ItemAttributeGroups
@@ -343,7 +343,7 @@ export function createItemAttributeGroups(json: any): ItemAttributeGroups {
  * ItemAttributeGroupsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ItemAttributeGroupsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ItemAttributeGroupsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ItemAttributeGroups> {
   /**
    * Representation of the [[ItemAttributeGroups.attribute1]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -664,75 +664,348 @@ export class ItemAttributeGroupsField<EntityT extends Entity> extends ComplexTyp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   attribute64: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('Attribute64', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of ItemAttributeGroupsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ItemAttributeGroups);
+  }
 }
 
 export namespace ItemAttributeGroups {
+  /**
+   * Metadata information on all properties of the `ItemAttributeGroups` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ItemAttributeGroups>[] = [{
+    originalName: 'Attribute1',
+    name: 'attribute1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute2',
+    name: 'attribute2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute3',
+    name: 'attribute3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute4',
+    name: 'attribute4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute5',
+    name: 'attribute5',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute6',
+    name: 'attribute6',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute7',
+    name: 'attribute7',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute8',
+    name: 'attribute8',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute9',
+    name: 'attribute9',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute10',
+    name: 'attribute10',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute11',
+    name: 'attribute11',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute12',
+    name: 'attribute12',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute13',
+    name: 'attribute13',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute14',
+    name: 'attribute14',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute15',
+    name: 'attribute15',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute16',
+    name: 'attribute16',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute17',
+    name: 'attribute17',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute18',
+    name: 'attribute18',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute19',
+    name: 'attribute19',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute20',
+    name: 'attribute20',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute21',
+    name: 'attribute21',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute22',
+    name: 'attribute22',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute23',
+    name: 'attribute23',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute24',
+    name: 'attribute24',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute25',
+    name: 'attribute25',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute26',
+    name: 'attribute26',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute27',
+    name: 'attribute27',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute28',
+    name: 'attribute28',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute29',
+    name: 'attribute29',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute30',
+    name: 'attribute30',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute31',
+    name: 'attribute31',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute32',
+    name: 'attribute32',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Attribute33',
+    name: 'attribute33',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Attribute34',
+    name: 'attribute34',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Attribute35',
+    name: 'attribute35',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Attribute36',
+    name: 'attribute36',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Attribute37',
+    name: 'attribute37',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Attribute38',
+    name: 'attribute38',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Attribute39',
+    name: 'attribute39',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Attribute40',
+    name: 'attribute40',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Attribute41',
+    name: 'attribute41',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Attribute42',
+    name: 'attribute42',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Attribute43',
+    name: 'attribute43',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Attribute44',
+    name: 'attribute44',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Attribute45',
+    name: 'attribute45',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Attribute46',
+    name: 'attribute46',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Attribute47',
+    name: 'attribute47',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Attribute48',
+    name: 'attribute48',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Attribute49',
+    name: 'attribute49',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Attribute50',
+    name: 'attribute50',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Attribute51',
+    name: 'attribute51',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Attribute52',
+    name: 'attribute52',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Attribute53',
+    name: 'attribute53',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Attribute54',
+    name: 'attribute54',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Attribute55',
+    name: 'attribute55',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Attribute56',
+    name: 'attribute56',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Attribute57',
+    name: 'attribute57',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Attribute58',
+    name: 'attribute58',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Attribute59',
+    name: 'attribute59',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Attribute60',
+    name: 'attribute60',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Attribute61',
+    name: 'attribute61',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Attribute62',
+    name: 'attribute62',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Attribute63',
+    name: 'attribute63',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Attribute64',
+    name: 'attribute64',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ItemAttributeGroups {
-    return createComplexType(json, {
-      Attribute1: (attribute1: string) => ({ attribute1: edmToTs(attribute1, 'Edm.String') }),
-      Attribute2: (attribute2: string) => ({ attribute2: edmToTs(attribute2, 'Edm.String') }),
-      Attribute3: (attribute3: string) => ({ attribute3: edmToTs(attribute3, 'Edm.String') }),
-      Attribute4: (attribute4: string) => ({ attribute4: edmToTs(attribute4, 'Edm.String') }),
-      Attribute5: (attribute5: string) => ({ attribute5: edmToTs(attribute5, 'Edm.String') }),
-      Attribute6: (attribute6: string) => ({ attribute6: edmToTs(attribute6, 'Edm.String') }),
-      Attribute7: (attribute7: string) => ({ attribute7: edmToTs(attribute7, 'Edm.String') }),
-      Attribute8: (attribute8: string) => ({ attribute8: edmToTs(attribute8, 'Edm.String') }),
-      Attribute9: (attribute9: string) => ({ attribute9: edmToTs(attribute9, 'Edm.String') }),
-      Attribute10: (attribute10: string) => ({ attribute10: edmToTs(attribute10, 'Edm.String') }),
-      Attribute11: (attribute11: string) => ({ attribute11: edmToTs(attribute11, 'Edm.String') }),
-      Attribute12: (attribute12: string) => ({ attribute12: edmToTs(attribute12, 'Edm.String') }),
-      Attribute13: (attribute13: string) => ({ attribute13: edmToTs(attribute13, 'Edm.String') }),
-      Attribute14: (attribute14: string) => ({ attribute14: edmToTs(attribute14, 'Edm.String') }),
-      Attribute15: (attribute15: string) => ({ attribute15: edmToTs(attribute15, 'Edm.String') }),
-      Attribute16: (attribute16: string) => ({ attribute16: edmToTs(attribute16, 'Edm.String') }),
-      Attribute17: (attribute17: string) => ({ attribute17: edmToTs(attribute17, 'Edm.String') }),
-      Attribute18: (attribute18: string) => ({ attribute18: edmToTs(attribute18, 'Edm.String') }),
-      Attribute19: (attribute19: string) => ({ attribute19: edmToTs(attribute19, 'Edm.String') }),
-      Attribute20: (attribute20: string) => ({ attribute20: edmToTs(attribute20, 'Edm.String') }),
-      Attribute21: (attribute21: string) => ({ attribute21: edmToTs(attribute21, 'Edm.String') }),
-      Attribute22: (attribute22: string) => ({ attribute22: edmToTs(attribute22, 'Edm.String') }),
-      Attribute23: (attribute23: string) => ({ attribute23: edmToTs(attribute23, 'Edm.String') }),
-      Attribute24: (attribute24: string) => ({ attribute24: edmToTs(attribute24, 'Edm.String') }),
-      Attribute25: (attribute25: string) => ({ attribute25: edmToTs(attribute25, 'Edm.String') }),
-      Attribute26: (attribute26: string) => ({ attribute26: edmToTs(attribute26, 'Edm.String') }),
-      Attribute27: (attribute27: string) => ({ attribute27: edmToTs(attribute27, 'Edm.String') }),
-      Attribute28: (attribute28: string) => ({ attribute28: edmToTs(attribute28, 'Edm.String') }),
-      Attribute29: (attribute29: string) => ({ attribute29: edmToTs(attribute29, 'Edm.String') }),
-      Attribute30: (attribute30: string) => ({ attribute30: edmToTs(attribute30, 'Edm.String') }),
-      Attribute31: (attribute31: string) => ({ attribute31: edmToTs(attribute31, 'Edm.String') }),
-      Attribute32: (attribute32: string) => ({ attribute32: edmToTs(attribute32, 'Edm.String') }),
-      Attribute33: (attribute33: number) => ({ attribute33: edmToTs(attribute33, 'Edm.Int32') }),
-      Attribute34: (attribute34: number) => ({ attribute34: edmToTs(attribute34, 'Edm.Int32') }),
-      Attribute35: (attribute35: number) => ({ attribute35: edmToTs(attribute35, 'Edm.Int32') }),
-      Attribute36: (attribute36: number) => ({ attribute36: edmToTs(attribute36, 'Edm.Int32') }),
-      Attribute37: (attribute37: number) => ({ attribute37: edmToTs(attribute37, 'Edm.Int32') }),
-      Attribute38: (attribute38: number) => ({ attribute38: edmToTs(attribute38, 'Edm.Int32') }),
-      Attribute39: (attribute39: number) => ({ attribute39: edmToTs(attribute39, 'Edm.Int32') }),
-      Attribute40: (attribute40: number) => ({ attribute40: edmToTs(attribute40, 'Edm.Int32') }),
-      Attribute41: (attribute41: number) => ({ attribute41: edmToTs(attribute41, 'Edm.Int32') }),
-      Attribute42: (attribute42: number) => ({ attribute42: edmToTs(attribute42, 'Edm.Int32') }),
-      Attribute43: (attribute43: Moment) => ({ attribute43: edmToTs(attribute43, 'Edm.DateTimeOffset') }),
-      Attribute44: (attribute44: Moment) => ({ attribute44: edmToTs(attribute44, 'Edm.DateTimeOffset') }),
-      Attribute45: (attribute45: Moment) => ({ attribute45: edmToTs(attribute45, 'Edm.DateTimeOffset') }),
-      Attribute46: (attribute46: Moment) => ({ attribute46: edmToTs(attribute46, 'Edm.DateTimeOffset') }),
-      Attribute47: (attribute47: Moment) => ({ attribute47: edmToTs(attribute47, 'Edm.DateTimeOffset') }),
-      Attribute48: (attribute48: number) => ({ attribute48: edmToTs(attribute48, 'Edm.Double') }),
-      Attribute49: (attribute49: number) => ({ attribute49: edmToTs(attribute49, 'Edm.Double') }),
-      Attribute50: (attribute50: number) => ({ attribute50: edmToTs(attribute50, 'Edm.Double') }),
-      Attribute51: (attribute51: number) => ({ attribute51: edmToTs(attribute51, 'Edm.Double') }),
-      Attribute52: (attribute52: number) => ({ attribute52: edmToTs(attribute52, 'Edm.Double') }),
-      Attribute53: (attribute53: number) => ({ attribute53: edmToTs(attribute53, 'Edm.Double') }),
-      Attribute54: (attribute54: number) => ({ attribute54: edmToTs(attribute54, 'Edm.Double') }),
-      Attribute55: (attribute55: number) => ({ attribute55: edmToTs(attribute55, 'Edm.Double') }),
-      Attribute56: (attribute56: number) => ({ attribute56: edmToTs(attribute56, 'Edm.Double') }),
-      Attribute57: (attribute57: number) => ({ attribute57: edmToTs(attribute57, 'Edm.Double') }),
-      Attribute58: (attribute58: number) => ({ attribute58: edmToTs(attribute58, 'Edm.Double') }),
-      Attribute59: (attribute59: number) => ({ attribute59: edmToTs(attribute59, 'Edm.Double') }),
-      Attribute60: (attribute60: number) => ({ attribute60: edmToTs(attribute60, 'Edm.Double') }),
-      Attribute61: (attribute61: number) => ({ attribute61: edmToTs(attribute61, 'Edm.Double') }),
-      Attribute62: (attribute62: number) => ({ attribute62: edmToTs(attribute62, 'Edm.Double') }),
-      Attribute63: (attribute63: number) => ({ attribute63: edmToTs(attribute63, 'Edm.Double') }),
-      Attribute64: (attribute64: number) => ({ attribute64: edmToTs(attribute64, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, ItemAttributeGroups);
   }
 }

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ChecksforPaymentLine
@@ -62,7 +62,7 @@ export function createChecksforPaymentLine(json: any): ChecksforPaymentLine {
  * ChecksforPaymentLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ChecksforPaymentLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ChecksforPaymentLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ChecksforPaymentLine> {
   /**
    * Representation of the [[ChecksforPaymentLine.rowNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -103,19 +103,68 @@ export class ChecksforPaymentLineField<EntityT extends Entity> extends ComplexTy
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   lineTotal: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('LineTotal', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of ChecksforPaymentLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ChecksforPaymentLine);
+  }
 }
 
 export namespace ChecksforPaymentLine {
+  /**
+   * Metadata information on all properties of the `ChecksforPaymentLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ChecksforPaymentLine>[] = [{
+    originalName: 'RowNumber',
+    name: 'rowNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'RowDetails',
+    name: 'rowDetails',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RowTotal',
+    name: 'rowTotal',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'RowCurrency',
+    name: 'rowCurrency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxDefinition',
+    name: 'taxDefinition',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxPercent',
+    name: 'taxPercent',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CreditedAccount',
+    name: 'creditedAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LineTotal',
+    name: 'lineTotal',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ChecksforPaymentLine {
-    return createComplexType(json, {
-      RowNumber: (rowNumber: number) => ({ rowNumber: edmToTs(rowNumber, 'Edm.Int32') }),
-      RowDetails: (rowDetails: string) => ({ rowDetails: edmToTs(rowDetails, 'Edm.String') }),
-      RowTotal: (rowTotal: number) => ({ rowTotal: edmToTs(rowTotal, 'Edm.Double') }),
-      RowCurrency: (rowCurrency: string) => ({ rowCurrency: edmToTs(rowCurrency, 'Edm.String') }),
-      TaxDefinition: (taxDefinition: string) => ({ taxDefinition: edmToTs(taxDefinition, 'Edm.String') }),
-      TaxPercent: (taxPercent: number) => ({ taxPercent: edmToTs(taxPercent, 'Edm.Double') }),
-      CreditedAccount: (creditedAccount: string) => ({ creditedAccount: edmToTs(creditedAccount, 'Edm.String') }),
-      LineTotal: (lineTotal: number) => ({ lineTotal: edmToTs(lineTotal, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, ChecksforPaymentLine);
   }
 }

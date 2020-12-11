@@ -5,25 +5,20 @@
  */
 import { FinancialYearsRequestBuilder } from './FinancialYearsRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "FinancialYears" of service "SAPB1".
  */
-export class FinancialYears extends Entity implements FinancialYearsType {
+export class FinancialYears extends EntityV4 implements FinancialYearsType {
   /**
    * Technical entity name for FinancialYears.
    */
   static _entityName = 'FinancialYears';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for FinancialYears.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Abs Entry.
    * @nullable
@@ -56,11 +51,11 @@ export class FinancialYears extends Entity implements FinancialYearsType {
   assessYear?: string;
 
   /**
-   * Returns an entity builder to construct instances `FinancialYears`.
+   * Returns an entity builder to construct instances of `FinancialYears`.
    * @returns A builder that constructs instances of entity type `FinancialYears`.
    */
-  static builder(): EntityBuilderType<FinancialYears, FinancialYearsTypeForceMandatory> {
-    return Entity.entityBuilder(FinancialYears);
+  static builder(): EntityBuilderType<FinancialYears, FinancialYearsType> {
+    return EntityV4.entityBuilder(FinancialYears);
   }
 
   /**
@@ -76,8 +71,8 @@ export class FinancialYears extends Entity implements FinancialYearsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `FinancialYears`.
    */
-  static customField(fieldName: string): CustomField<FinancialYears> {
-    return Entity.customFieldSelector(fieldName, FinancialYears);
+  static customField(fieldName: string): CustomFieldV4<FinancialYears> {
+    return EntityV4.customFieldSelector(fieldName, FinancialYears);
   }
 
   /**
@@ -90,21 +85,12 @@ export class FinancialYears extends Entity implements FinancialYearsType {
 }
 
 export interface FinancialYearsType {
-  absEntry?: number;
-  code?: string;
-  description?: string;
-  startDate?: Moment;
-  endDate?: Moment;
-  assessYear?: string;
-}
-
-export interface FinancialYearsTypeForceMandatory {
-  absEntry: number;
-  code: string;
-  description: string;
-  startDate: Moment;
-  endDate: Moment;
-  assessYear: string;
+  absEntry?: number | null;
+  code?: string | null;
+  description?: string | null;
+  startDate?: Moment | null;
+  endDate?: Moment | null;
+  assessYear?: string | null;
 }
 
 export namespace FinancialYears {

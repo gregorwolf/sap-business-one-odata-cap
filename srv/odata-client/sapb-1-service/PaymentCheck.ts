@@ -4,7 +4,8 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * PaymentCheck
@@ -46,6 +47,11 @@ export interface PaymentCheck {
    */
   details?: string;
   /**
+   * Trnsfrable.
+   * @nullable
+   */
+  trnsfrable?: BoYesNoEnum;
+  /**
    * Check Sum.
    * @nullable
    */
@@ -71,6 +77,11 @@ export interface PaymentCheck {
    */
   checkAccount?: string;
   /**
+   * Manual Check.
+   * @nullable
+   */
+  manualCheck?: BoYesNoEnum;
+  /**
    * Fiscal Id.
    * @nullable
    */
@@ -80,6 +91,11 @@ export interface PaymentCheck {
    * @nullable
    */
   originallyIssuedBy?: string;
+  /**
+   * Endorse.
+   * @nullable
+   */
+  endorse?: BoYesNoEnum;
   /**
    * Endorsable Check No.
    * @nullable
@@ -98,7 +114,7 @@ export function createPaymentCheck(json: any): PaymentCheck {
  * PaymentCheckField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class PaymentCheckField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class PaymentCheckField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PaymentCheck> {
   /**
    * Representation of the [[PaymentCheck.lineNum]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -135,6 +151,11 @@ export class PaymentCheckField<EntityT extends Entity> extends ComplexTypeField<
    */
   details: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Details', this, 'Edm.String');
   /**
+   * Representation of the [[PaymentCheck.trnsfrable]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  trnsfrable: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Trnsfrable', this);
+  /**
    * Representation of the [[PaymentCheck.checkSum]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -160,6 +181,11 @@ export class PaymentCheckField<EntityT extends Entity> extends ComplexTypeField<
    */
   checkAccount: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('CheckAccount', this, 'Edm.String');
   /**
+   * Representation of the [[PaymentCheck.manualCheck]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  manualCheck: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ManualCheck', this);
+  /**
    * Representation of the [[PaymentCheck.fiscalId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -170,30 +196,127 @@ export class PaymentCheckField<EntityT extends Entity> extends ComplexTypeField<
    */
   originallyIssuedBy: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('OriginallyIssuedBy', this, 'Edm.String');
   /**
+   * Representation of the [[PaymentCheck.endorse]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  endorse: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Endorse', this);
+  /**
    * Representation of the [[PaymentCheck.endorsableCheckNo]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   endorsableCheckNo: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('EndorsableCheckNo', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of PaymentCheckField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, PaymentCheck);
+  }
 }
 
 export namespace PaymentCheck {
+  /**
+   * Metadata information on all properties of the `PaymentCheck` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<PaymentCheck>[] = [{
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DueDate',
+    name: 'dueDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'CheckNumber',
+    name: 'checkNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BankCode',
+    name: 'bankCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Branch',
+    name: 'branch',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AccounttNum',
+    name: 'accounttNum',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Details',
+    name: 'details',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Trnsfrable',
+    name: 'trnsfrable',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CheckSum',
+    name: 'checkSum',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Currency',
+    name: 'currency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CountryCode',
+    name: 'countryCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CheckAbsEntry',
+    name: 'checkAbsEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CheckAccount',
+    name: 'checkAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ManualCheck',
+    name: 'manualCheck',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'FiscalID',
+    name: 'fiscalId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'OriginallyIssuedBy',
+    name: 'originallyIssuedBy',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Endorse',
+    name: 'endorse',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'EndorsableCheckNo',
+    name: 'endorsableCheckNo',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): PaymentCheck {
-    return createComplexType(json, {
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      DueDate: (dueDate: Moment) => ({ dueDate: edmToTs(dueDate, 'Edm.DateTimeOffset') }),
-      CheckNumber: (checkNumber: number) => ({ checkNumber: edmToTs(checkNumber, 'Edm.Int32') }),
-      BankCode: (bankCode: string) => ({ bankCode: edmToTs(bankCode, 'Edm.String') }),
-      Branch: (branch: string) => ({ branch: edmToTs(branch, 'Edm.String') }),
-      AccounttNum: (accounttNum: string) => ({ accounttNum: edmToTs(accounttNum, 'Edm.String') }),
-      Details: (details: string) => ({ details: edmToTs(details, 'Edm.String') }),
-      CheckSum: (checkSum: number) => ({ checkSum: edmToTs(checkSum, 'Edm.Double') }),
-      Currency: (currency: string) => ({ currency: edmToTs(currency, 'Edm.String') }),
-      CountryCode: (countryCode: string) => ({ countryCode: edmToTs(countryCode, 'Edm.String') }),
-      CheckAbsEntry: (checkAbsEntry: number) => ({ checkAbsEntry: edmToTs(checkAbsEntry, 'Edm.Int32') }),
-      CheckAccount: (checkAccount: string) => ({ checkAccount: edmToTs(checkAccount, 'Edm.String') }),
-      FiscalID: (fiscalId: string) => ({ fiscalId: edmToTs(fiscalId, 'Edm.String') }),
-      OriginallyIssuedBy: (originallyIssuedBy: string) => ({ originallyIssuedBy: edmToTs(originallyIssuedBy, 'Edm.String') }),
-      EndorsableCheckNo: (endorsableCheckNo: number) => ({ endorsableCheckNo: edmToTs(endorsableCheckNo, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, PaymentCheck);
   }
 }

@@ -4,8 +4,8 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { WtdValueRange, WtdValueRangeField } from './WtdValueRange';
-import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { WtdValueRange } from './WtdValueRange';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * WtdEffectiveDate
@@ -30,7 +30,7 @@ export interface WtdEffectiveDate {
    * Wtd Value Range Collection.
    * @nullable
    */
-  wtdValueRangeCollection?: WtdValueRange;
+  wtdValueRangeCollection?: WtdValueRange[];
 }
 
 /**
@@ -44,7 +44,7 @@ export function createWtdEffectiveDate(json: any): WtdEffectiveDate {
  * WtdEffectiveDateField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class WtdEffectiveDateField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class WtdEffectiveDateField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, WtdEffectiveDate> {
   /**
    * Representation of the [[WtdEffectiveDate.lineNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -64,16 +64,49 @@ export class WtdEffectiveDateField<EntityT extends Entity> extends ComplexTypeFi
    * Representation of the [[WtdEffectiveDate.wtdValueRangeCollection]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  wtdValueRangeCollection: WtdValueRangeField<EntityT> = new WtdValueRangeField('WTDValueRangeCollection', this);
+  wtdValueRangeCollection: CollectionField<EntityT, WtdValueRange> = new CollectionField('WTDValueRangeCollection', this, WtdValueRange);
+
+  /**
+   * Creates an instance of WtdEffectiveDateField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, WtdEffectiveDate);
+  }
 }
 
 export namespace WtdEffectiveDate {
+  /**
+   * Metadata information on all properties of the `WtdEffectiveDate` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<WtdEffectiveDate>[] = [{
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'EffectiveFrom',
+    name: 'effectiveFrom',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Rate',
+    name: 'rate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WTDValueRangeCollection',
+    name: 'wtdValueRangeCollection',
+    type: WtdValueRange,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | WtdValueRange }): WtdEffectiveDate {
-    return createComplexType(json, {
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      EffectiveFrom: (effectiveFrom: Moment) => ({ effectiveFrom: edmToTs(effectiveFrom, 'Edm.DateTimeOffset') }),
-      Rate: (rate: number) => ({ rate: edmToTs(rate, 'Edm.Double') }),
-      WTDValueRangeCollection: (wtdValueRangeCollection: WtdValueRange) => ({ wtdValueRangeCollection: WtdValueRange.build(wtdValueRangeCollection) })
-    });
+    return deserializeComplexTypeV4(json, WtdEffectiveDate);
   }
 }

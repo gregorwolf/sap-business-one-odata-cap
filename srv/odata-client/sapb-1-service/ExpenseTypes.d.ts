@@ -1,18 +1,14 @@
 import { ExpenseTypesRequestBuilder } from './ExpenseTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ExpenseTypes" of service "SAPB1".
  */
-export declare class ExpenseTypes extends Entity implements ExpenseTypesType {
+export declare class ExpenseTypes extends EntityV4 implements ExpenseTypesType {
     /**
      * Technical entity name for ExpenseTypes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ExpenseTypes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -33,6 +29,11 @@ export declare class ExpenseTypes extends Entity implements ExpenseTypesType {
      */
     expenseAccount?: string;
     /**
+     * Paid By Company.
+     * @nullable
+     */
+    paidByCompany?: BoYesNoEnum;
+    /**
      * Vat Group.
      * @nullable
      */
@@ -46,10 +47,10 @@ export declare class ExpenseTypes extends Entity implements ExpenseTypesType {
      */
     salesTaxCode: SalesTaxCodes;
     /**
-     * Returns an entity builder to construct instances `ExpenseTypes`.
+     * Returns an entity builder to construct instances of `ExpenseTypes`.
      * @returns A builder that constructs instances of entity type `ExpenseTypes`.
      */
-    static builder(): EntityBuilderType<ExpenseTypes, ExpenseTypesTypeForceMandatory>;
+    static builder(): EntityBuilderType<ExpenseTypes, ExpenseTypesType>;
     /**
      * Returns a request builder to construct requests for operations on the `ExpenseTypes` entity type.
      * @returns A `ExpenseTypes` request builder.
@@ -60,7 +61,7 @@ export declare class ExpenseTypes extends Entity implements ExpenseTypesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ExpenseTypes`.
      */
-    static customField(fieldName: string): CustomField<ExpenseTypes>;
+    static customField(fieldName: string): CustomFieldV4<ExpenseTypes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -72,18 +73,11 @@ export declare class ExpenseTypes extends Entity implements ExpenseTypesType {
 import { ChartOfAccounts, ChartOfAccountsType } from './ChartOfAccounts';
 import { SalesTaxCodes, SalesTaxCodesType } from './SalesTaxCodes';
 export interface ExpenseTypesType {
-    expenseType?: string;
-    expenseName?: string;
-    expenseAccount?: string;
-    vatGroup?: string;
-    chartOfAccount: ChartOfAccountsType;
-    salesTaxCode: SalesTaxCodesType;
-}
-export interface ExpenseTypesTypeForceMandatory {
-    expenseType: string;
-    expenseName: string;
-    expenseAccount: string;
-    vatGroup: string;
+    expenseType?: string | null;
+    expenseName?: string | null;
+    expenseAccount?: string | null;
+    paidByCompany?: BoYesNoEnum | null;
+    vatGroup?: string | null;
     chartOfAccount: ChartOfAccountsType;
     salesTaxCode: SalesTaxCodesType;
 }
@@ -104,6 +98,11 @@ export declare namespace ExpenseTypes {
      */
     const EXPENSE_ACCOUNT: StringField<ExpenseTypes>;
     /**
+     * Static representation of the [[paidByCompany]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PAID_BY_COMPANY: EnumField<ExpenseTypes>;
+    /**
      * Static representation of the [[vatGroup]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -121,7 +120,7 @@ export declare namespace ExpenseTypes {
     /**
      * All fields of the ExpenseTypes entity.
      */
-    const _allFields: Array<StringField<ExpenseTypes> | OneToOneLink<ExpenseTypes, ChartOfAccounts> | OneToOneLink<ExpenseTypes, SalesTaxCodes>>;
+    const _allFields: Array<StringField<ExpenseTypes> | EnumField<ExpenseTypes> | OneToOneLink<ExpenseTypes, ChartOfAccounts> | OneToOneLink<ExpenseTypes, SalesTaxCodes>>;
     /**
      * All fields selector.
      */

@@ -1,18 +1,13 @@
 import { BoePortfoliosRequestBuilder } from './BoePortfoliosRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "BOEPortfolios" of service "SAPB1".
  */
-export declare class BoePortfolios extends Entity implements BoePortfoliosType {
+export declare class BoePortfolios extends EntityV4 implements BoePortfoliosType {
     /**
      * Technical entity name for BoePortfolios.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BoePortfolios.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -43,10 +38,10 @@ export declare class BoePortfolios extends Entity implements BoePortfoliosType {
      */
     portfolioDescription?: string;
     /**
-     * Returns an entity builder to construct instances `BoePortfolios`.
+     * Returns an entity builder to construct instances of `BoePortfolios`.
      * @returns A builder that constructs instances of entity type `BoePortfolios`.
      */
-    static builder(): EntityBuilderType<BoePortfolios, BoePortfoliosTypeForceMandatory>;
+    static builder(): EntityBuilderType<BoePortfolios, BoePortfoliosType>;
     /**
      * Returns a request builder to construct requests for operations on the `BoePortfolios` entity type.
      * @returns A `BoePortfolios` request builder.
@@ -57,7 +52,7 @@ export declare class BoePortfolios extends Entity implements BoePortfoliosType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `BoePortfolios`.
      */
-    static customField(fieldName: string): CustomField<BoePortfolios>;
+    static customField(fieldName: string): CustomFieldV4<BoePortfolios>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -67,18 +62,11 @@ export declare class BoePortfolios extends Entity implements BoePortfoliosType {
     };
 }
 export interface BoePortfoliosType {
-    portfolioEntry?: number;
-    portfolioId?: string;
-    portfolioCode?: string;
-    portfolioNum?: string;
-    portfolioDescription?: string;
-}
-export interface BoePortfoliosTypeForceMandatory {
-    portfolioEntry: number;
-    portfolioId: string;
-    portfolioCode: string;
-    portfolioNum: string;
-    portfolioDescription: string;
+    portfolioEntry?: number | null;
+    portfolioId?: string | null;
+    portfolioCode?: string | null;
+    portfolioNum?: string | null;
+    portfolioDescription?: string | null;
 }
 export declare namespace BoePortfolios {
     /**

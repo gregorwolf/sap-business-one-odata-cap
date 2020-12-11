@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { SalesOpportunityReasonsSetupRequestBuilder } from './SalesOpportunityReasonsSetupRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "SalesOpportunityReasonsSetup" of service "SAPB1".
  */
-export class SalesOpportunityReasonsSetup extends Entity implements SalesOpportunityReasonsSetupType {
+export class SalesOpportunityReasonsSetup extends EntityV4 implements SalesOpportunityReasonsSetupType {
   /**
    * Technical entity name for SalesOpportunityReasonsSetup.
    */
   static _entityName = 'SalesOpportunityReasonsSetup';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for SalesOpportunityReasonsSetup.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Sequence No.
    * @nullable
@@ -44,11 +39,11 @@ export class SalesOpportunityReasonsSetup extends Entity implements SalesOpportu
   salesOpportunities!: SalesOpportunities[];
 
   /**
-   * Returns an entity builder to construct instances `SalesOpportunityReasonsSetup`.
+   * Returns an entity builder to construct instances of `SalesOpportunityReasonsSetup`.
    * @returns A builder that constructs instances of entity type `SalesOpportunityReasonsSetup`.
    */
-  static builder(): EntityBuilderType<SalesOpportunityReasonsSetup, SalesOpportunityReasonsSetupTypeForceMandatory> {
-    return Entity.entityBuilder(SalesOpportunityReasonsSetup);
+  static builder(): EntityBuilderType<SalesOpportunityReasonsSetup, SalesOpportunityReasonsSetupType> {
+    return EntityV4.entityBuilder(SalesOpportunityReasonsSetup);
   }
 
   /**
@@ -64,8 +59,8 @@ export class SalesOpportunityReasonsSetup extends Entity implements SalesOpportu
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `SalesOpportunityReasonsSetup`.
    */
-  static customField(fieldName: string): CustomField<SalesOpportunityReasonsSetup> {
-    return Entity.customFieldSelector(fieldName, SalesOpportunityReasonsSetup);
+  static customField(fieldName: string): CustomFieldV4<SalesOpportunityReasonsSetup> {
+    return EntityV4.customFieldSelector(fieldName, SalesOpportunityReasonsSetup);
   }
 
   /**
@@ -80,16 +75,9 @@ export class SalesOpportunityReasonsSetup extends Entity implements SalesOpportu
 import { SalesOpportunities, SalesOpportunitiesType } from './SalesOpportunities';
 
 export interface SalesOpportunityReasonsSetupType {
-  sequenceNo?: number;
-  description?: string;
-  sort?: number;
-  salesOpportunities: SalesOpportunitiesType[];
-}
-
-export interface SalesOpportunityReasonsSetupTypeForceMandatory {
-  sequenceNo: number;
-  description: string;
-  sort: number;
+  sequenceNo?: number | null;
+  description?: string | null;
+  sort?: number | null;
   salesOpportunities: SalesOpportunitiesType[];
 }
 

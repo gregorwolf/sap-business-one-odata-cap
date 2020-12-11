@@ -1,4 +1,4 @@
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { StockTransferDrafts } from './StockTransferDrafts';
 /**
  * Request builder class for operations supported on the [[StockTransferDrafts]] entity.
@@ -9,35 +9,35 @@ export declare class StockTransferDraftsRequestBuilder extends RequestBuilder<St
      * @param docEntry Key property. See [[StockTransferDrafts.docEntry]].
      * @returns A request builder for creating requests to retrieve one `StockTransferDrafts` entity based on its keys.
      */
-    getByKey(docEntry: number): GetByKeyRequestBuilder<StockTransferDrafts>;
+    getByKey(docEntry: number): GetByKeyRequestBuilderV4<StockTransferDrafts>;
     /**
      * Returns a request builder for querying all `StockTransferDrafts` entities.
      * @returns A request builder for creating requests to retrieve all `StockTransferDrafts` entities.
      */
-    getAll(): GetAllRequestBuilder<StockTransferDrafts>;
+    getAll(): GetAllRequestBuilderV4<StockTransferDrafts>;
     /**
      * Returns a request builder for creating a `StockTransferDrafts` entity.
      * @param entity The entity to be created
      * @returns A request builder for creating requests that create an entity of type `StockTransferDrafts`.
      */
-    create(entity: StockTransferDrafts): CreateRequestBuilder<StockTransferDrafts>;
+    create(entity: StockTransferDrafts): CreateRequestBuilderV4<StockTransferDrafts>;
     /**
      * Returns a request builder for updating an entity of type `StockTransferDrafts`.
      * @param entity The entity to be updated
      * @returns A request builder for creating requests that update an entity of type `StockTransferDrafts`.
      */
-    update(entity: StockTransferDrafts): UpdateRequestBuilder<StockTransferDrafts>;
+    update(entity: StockTransferDrafts): UpdateRequestBuilderV4<StockTransferDrafts>;
     /**
      * Returns a request builder for deleting an entity of type `StockTransferDrafts`.
      * @param docEntry Key property. See [[StockTransferDrafts.docEntry]].
      * @returns A request builder for creating requests that delete an entity of type `StockTransferDrafts`.
      */
-    delete(docEntry: number): DeleteRequestBuilder<StockTransferDrafts>;
+    delete(docEntry: number): DeleteRequestBuilderV4<StockTransferDrafts>;
     /**
      * Returns a request builder for deleting an entity of type `StockTransferDrafts`.
      * @param entity Pass the entity to be deleted.
      * @returns A request builder for creating requests that delete an entity of type `StockTransferDrafts` by taking the entity as a parameter.
      */
-    delete(entity: StockTransferDrafts): DeleteRequestBuilder<StockTransferDrafts>;
+    delete(entity: StockTransferDrafts): DeleteRequestBuilderV4<StockTransferDrafts>;
 }
 //# sourceMappingURL=StockTransferDraftsRequestBuilder.d.ts.map

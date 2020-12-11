@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { FaAccountDeterminationsRequestBuilder } from './FaAccountDeterminationsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "FAAccountDeterminations" of service "SAPB1".
  */
-export class FaAccountDeterminations extends Entity implements FaAccountDeterminationsType {
+export class FaAccountDeterminations extends EntityV4 implements FaAccountDeterminationsType {
   /**
    * Technical entity name for FaAccountDeterminations.
    */
   static _entityName = 'FAAccountDeterminations';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for FaAccountDeterminations.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -124,11 +119,11 @@ export class FaAccountDeterminations extends Entity implements FaAccountDetermin
   chartOfAccount!: ChartOfAccounts;
 
   /**
-   * Returns an entity builder to construct instances `FaAccountDeterminations`.
+   * Returns an entity builder to construct instances of `FaAccountDeterminations`.
    * @returns A builder that constructs instances of entity type `FaAccountDeterminations`.
    */
-  static builder(): EntityBuilderType<FaAccountDeterminations, FaAccountDeterminationsTypeForceMandatory> {
-    return Entity.entityBuilder(FaAccountDeterminations);
+  static builder(): EntityBuilderType<FaAccountDeterminations, FaAccountDeterminationsType> {
+    return EntityV4.entityBuilder(FaAccountDeterminations);
   }
 
   /**
@@ -144,8 +139,8 @@ export class FaAccountDeterminations extends Entity implements FaAccountDetermin
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `FaAccountDeterminations`.
    */
-  static customField(fieldName: string): CustomField<FaAccountDeterminations> {
-    return Entity.customFieldSelector(fieldName, FaAccountDeterminations);
+  static customField(fieldName: string): CustomFieldV4<FaAccountDeterminations> {
+    return EntityV4.customFieldSelector(fieldName, FaAccountDeterminations);
   }
 
   /**
@@ -160,48 +155,25 @@ export class FaAccountDeterminations extends Entity implements FaAccountDetermin
 import { ChartOfAccounts, ChartOfAccountsType } from './ChartOfAccounts';
 
 export interface FaAccountDeterminationsType {
-  code?: string;
-  description?: string;
-  assetBalanceSheetAccount?: string;
-  clearingAccountAcquisition?: string;
-  revaluationReserveAccount?: string;
-  revaluationReserveClearing?: string;
-  ordinaryDepreciation?: string;
-  accumulatedOrdinaryDepr?: string;
-  unplannedDepreciation?: string;
-  accumulatedUnplannedDepr?: string;
-  specialDepreciation?: string;
-  accumulatedSpecialDepr?: string;
-  revenuefromAssetSalesNet?: string;
-  retirementwithExpenseNet?: string;
-  retirementwithRevenueNet?: string;
-  leavewithExpenseNbvGross?: string;
-  leavewithRevenueNbvGross?: string;
-  revenueAccountforRetirement?: string;
-  revenueClearingAccount?: string;
-  chartOfAccount: ChartOfAccountsType;
-}
-
-export interface FaAccountDeterminationsTypeForceMandatory {
-  code: string;
-  description: string;
-  assetBalanceSheetAccount: string;
-  clearingAccountAcquisition: string;
-  revaluationReserveAccount: string;
-  revaluationReserveClearing: string;
-  ordinaryDepreciation: string;
-  accumulatedOrdinaryDepr: string;
-  unplannedDepreciation: string;
-  accumulatedUnplannedDepr: string;
-  specialDepreciation: string;
-  accumulatedSpecialDepr: string;
-  revenuefromAssetSalesNet: string;
-  retirementwithExpenseNet: string;
-  retirementwithRevenueNet: string;
-  leavewithExpenseNbvGross: string;
-  leavewithRevenueNbvGross: string;
-  revenueAccountforRetirement: string;
-  revenueClearingAccount: string;
+  code?: string | null;
+  description?: string | null;
+  assetBalanceSheetAccount?: string | null;
+  clearingAccountAcquisition?: string | null;
+  revaluationReserveAccount?: string | null;
+  revaluationReserveClearing?: string | null;
+  ordinaryDepreciation?: string | null;
+  accumulatedOrdinaryDepr?: string | null;
+  unplannedDepreciation?: string | null;
+  accumulatedUnplannedDepr?: string | null;
+  specialDepreciation?: string | null;
+  accumulatedSpecialDepr?: string | null;
+  revenuefromAssetSalesNet?: string | null;
+  retirementwithExpenseNet?: string | null;
+  retirementwithRevenueNet?: string | null;
+  leavewithExpenseNbvGross?: string | null;
+  leavewithRevenueNbvGross?: string | null;
+  revenueAccountforRetirement?: string | null;
+  revenueClearingAccount?: string | null;
   chartOfAccount: ChartOfAccountsType;
 }
 

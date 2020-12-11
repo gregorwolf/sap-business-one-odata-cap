@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * WithholdingTaxCodesValueRange_Line
@@ -37,7 +37,7 @@ export function createWithholdingTaxCodesValueRange_Line(json: any): Withholding
  * WithholdingTaxCodesValueRange_LineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class WithholdingTaxCodesValueRange_LineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class WithholdingTaxCodesValueRange_LineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, WithholdingTaxCodesValueRange_Line> {
   /**
    * Representation of the [[WithholdingTaxCodesValueRange_Line.valueFrom]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -53,14 +53,43 @@ export class WithholdingTaxCodesValueRange_LineField<EntityT extends Entity> ext
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   rate: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('Rate', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of WithholdingTaxCodesValueRange_LineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, WithholdingTaxCodesValueRange_Line);
+  }
 }
 
 export namespace WithholdingTaxCodesValueRange_Line {
+  /**
+   * Metadata information on all properties of the `WithholdingTaxCodesValueRange_Line` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<WithholdingTaxCodesValueRange_Line>[] = [{
+    originalName: 'ValueFrom',
+    name: 'valueFrom',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WTaxToBeDeductible',
+    name: 'wTaxToBeDeductible',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Rate',
+    name: 'rate',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): WithholdingTaxCodesValueRange_Line {
-    return createComplexType(json, {
-      ValueFrom: (valueFrom: number) => ({ valueFrom: edmToTs(valueFrom, 'Edm.Double') }),
-      WTaxToBeDeductible: (wTaxToBeDeductible: number) => ({ wTaxToBeDeductible: edmToTs(wTaxToBeDeductible, 'Edm.Double') }),
-      Rate: (rate: number) => ({ rate: edmToTs(rate, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, WithholdingTaxCodesValueRange_Line);
   }
 }

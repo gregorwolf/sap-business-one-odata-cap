@@ -5,37 +5,51 @@
  */
 import { ItemsRequestBuilder } from './ItemsRequestBuilder';
 import { Moment } from 'moment';
-import { ItemPrice, ItemPriceField } from './ItemPrice';
-import { ItemWarehouseInfo, ItemWarehouseInfoField } from './ItemWarehouseInfo';
-import { ItemPreferredVendor, ItemPreferredVendorField } from './ItemPreferredVendor';
-import { ItemLocalizationInfo, ItemLocalizationInfoField } from './ItemLocalizationInfo';
-import { ItemProject, ItemProjectField } from './ItemProject';
-import { ItemDistributionRule, ItemDistributionRuleField } from './ItemDistributionRule';
-import { ItemAttributeGroups, ItemAttributeGroupsField } from './ItemAttributeGroups';
-import { ItemDepreciationParameter, ItemDepreciationParameterField } from './ItemDepreciationParameter';
-import { ItemPeriodControl, ItemPeriodControlField } from './ItemPeriodControl';
-import { ItemUnitOfMeasurement, ItemUnitOfMeasurementField } from './ItemUnitOfMeasurement';
-import { ItemBarCode, ItemBarCodeField } from './ItemBarCode';
+import { ItemPrice } from './ItemPrice';
+import { ItemWarehouseInfo } from './ItemWarehouseInfo';
+import { ItemPreferredVendor } from './ItemPreferredVendor';
+import { ItemLocalizationInfo } from './ItemLocalizationInfo';
+import { ItemProject } from './ItemProject';
+import { ItemDistributionRule } from './ItemDistributionRule';
+import { ItemAttributeGroups } from './ItemAttributeGroups';
+import { ItemDepreciationParameter } from './ItemDepreciationParameter';
+import { ItemPeriodControl } from './ItemPeriodControl';
+import { ItemUnitOfMeasurement } from './ItemUnitOfMeasurement';
+import { ItemBarCode } from './ItemBarCode';
 import { ItemIntrastatExtension, ItemIntrastatExtensionField } from './ItemIntrastatExtension';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoItemTreeTypes } from './BoItemTreeTypes';
+import { BoGlMethods } from './BoGlMethods';
+import { BoTaxTypes } from './BoTaxTypes';
+import { BoInventorySystem } from './BoInventorySystem';
+import { BoIssueMethod } from './BoIssueMethod';
+import { BoManageMethod } from './BoManageMethod';
+import { BoPlanningSystem } from './BoPlanningSystem';
+import { BoProcurementMethod } from './BoProcurementMethod';
+import { BoMrpComponentWarehouse } from './BoMrpComponentWarehouse';
+import { ItemTypeEnum } from './ItemTypeEnum';
+import { ItemClassEnum } from './ItemClassEnum';
+import { BoMaterialTypes } from './BoMaterialTypes';
+import { TypeOfAdvancedRulesEnum } from './TypeOfAdvancedRulesEnum';
+import { IssuePrimarilyByEnum } from './IssuePrimarilyByEnum';
+import { AssetStatusEnum } from './AssetStatusEnum';
+import { SpecialProductTypeEnum } from './SpecialProductTypeEnum';
+import { GstTaxCategoryEnum } from './GstTaxCategoryEnum';
+import { SoiExcisableTypeEnum } from './SoiExcisableTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "Items" of service "SAPB1".
  */
-export class Items extends Entity implements ItemsType {
+export class Items extends EntityV4 implements ItemsType {
   /**
    * Technical entity name for Items.
    */
   static _entityName = 'Items';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for Items.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Item Code.
    * @nullable
@@ -71,6 +85,26 @@ export class Items extends Entity implements ItemsType {
    * @nullable
    */
   barCode?: string;
+  /**
+   * Vat Liable.
+   * @nullable
+   */
+  vatLiable?: BoYesNoEnum;
+  /**
+   * Purchase Item.
+   * @nullable
+   */
+  purchaseItem?: BoYesNoEnum;
+  /**
+   * Sales Item.
+   * @nullable
+   */
+  salesItem?: BoYesNoEnum;
+  /**
+   * Inventory Item.
+   * @nullable
+   */
+  inventoryItem?: BoYesNoEnum;
   /**
    * Income Account.
    * @nullable
@@ -137,6 +171,16 @@ export class Items extends Entity implements ItemsType {
    */
   commissionGroup?: number;
   /**
+   * Tree Type.
+   * @nullable
+   */
+  treeType?: BoItemTreeTypes;
+  /**
+   * Asset Item.
+   * @nullable
+   */
+  assetItem?: BoYesNoEnum;
+  /**
    * Data Export Code.
    * @nullable
    */
@@ -162,6 +206,21 @@ export class Items extends Entity implements ItemsType {
    */
   quantityOrderedByCustomers?: number;
   /**
+   * Manage Serial Numbers.
+   * @nullable
+   */
+  manageSerialNumbers?: BoYesNoEnum;
+  /**
+   * Manage Batch Numbers.
+   * @nullable
+   */
+  manageBatchNumbers?: BoYesNoEnum;
+  /**
+   * Valid.
+   * @nullable
+   */
+  valid?: BoYesNoEnum;
+  /**
    * Valid From.
    * @nullable
    */
@@ -176,6 +235,11 @@ export class Items extends Entity implements ItemsType {
    * @nullable
    */
   validRemarks?: string;
+  /**
+   * Frozen.
+   * @nullable
+   */
+  frozen?: BoYesNoEnum;
   /**
    * Frozen From.
    * @nullable
@@ -417,10 +481,25 @@ export class Items extends Entity implements ItemsType {
    */
   shipType?: number;
   /**
+   * Gl Method.
+   * @nullable
+   */
+  glMethod?: BoGlMethods;
+  /**
+   * Tax Type.
+   * @nullable
+   */
+  taxType?: BoTaxTypes;
+  /**
    * Max Inventory.
    * @nullable
    */
   maxInventory?: number;
+  /**
+   * Manage Stock By Warehouse.
+   * @nullable
+   */
+  manageStockByWarehouse?: BoYesNoEnum;
   /**
    * Purchase Height Unit 1.
    * @nullable
@@ -502,6 +581,26 @@ export class Items extends Entity implements ItemsType {
    */
   salesUnitWidth1?: number;
   /**
+   * Force Selection Of Serial Number.
+   * @nullable
+   */
+  forceSelectionOfSerialNumber?: BoYesNoEnum;
+  /**
+   * Manage Serial Numbers On Release Only.
+   * @nullable
+   */
+  manageSerialNumbersOnReleaseOnly?: BoYesNoEnum;
+  /**
+   * Wt Liable.
+   * @nullable
+   */
+  wtLiable?: BoYesNoEnum;
+  /**
+   * Cost Accounting Method.
+   * @nullable
+   */
+  costAccountingMethod?: BoInventorySystem;
+  /**
    * Sww.
    * @nullable
    */
@@ -511,6 +610,11 @@ export class Items extends Entity implements ItemsType {
    * @nullable
    */
   warrantyTemplate?: string;
+  /**
+   * Indirect Tax.
+   * @nullable
+   */
+  indirectTax?: BoYesNoEnum;
   /**
    * Ar Tax Code.
    * @nullable
@@ -532,10 +636,40 @@ export class Items extends Entity implements ItemsType {
    */
   itemCountryOrg?: string;
   /**
+   * Issue Method.
+   * @nullable
+   */
+  issueMethod?: BoIssueMethod;
+  /**
+   * Sri And Batch Manage Method.
+   * @nullable
+   */
+  sriAndBatchManageMethod?: BoManageMethod;
+  /**
+   * Is Phantom.
+   * @nullable
+   */
+  isPhantom?: BoYesNoEnum;
+  /**
    * Inventory Uom.
    * @nullable
    */
   inventoryUom?: string;
+  /**
+   * Planning System.
+   * @nullable
+   */
+  planningSystem?: BoPlanningSystem;
+  /**
+   * Procurement Method.
+   * @nullable
+   */
+  procurementMethod?: BoProcurementMethod;
+  /**
+   * Component Warehouse.
+   * @nullable
+   */
+  componentWarehouse?: BoMrpComponentWarehouse;
   /**
    * Order Intervals.
    * @nullable
@@ -557,6 +691,16 @@ export class Items extends Entity implements ItemsType {
    */
   minOrderQuantity?: number;
   /**
+   * Item Type.
+   * @nullable
+   */
+  itemType?: ItemTypeEnum;
+  /**
+   * Item Class.
+   * @nullable
+   */
+  itemClass?: ItemClassEnum;
+  /**
    * Outgoing Service Code.
    * @nullable
    */
@@ -577,6 +721,11 @@ export class Items extends Entity implements ItemsType {
    */
   ncmCode?: number;
   /**
+   * Material Type.
+   * @nullable
+   */
+  materialType?: BoMaterialTypes;
+  /**
    * Material Group.
    * @nullable
    */
@@ -586,6 +735,331 @@ export class Items extends Entity implements ItemsType {
    * @nullable
    */
   productSource?: string;
+  /**
+   * Properties 1.
+   * @nullable
+   */
+  properties1?: BoYesNoEnum;
+  /**
+   * Properties 2.
+   * @nullable
+   */
+  properties2?: BoYesNoEnum;
+  /**
+   * Properties 3.
+   * @nullable
+   */
+  properties3?: BoYesNoEnum;
+  /**
+   * Properties 4.
+   * @nullable
+   */
+  properties4?: BoYesNoEnum;
+  /**
+   * Properties 5.
+   * @nullable
+   */
+  properties5?: BoYesNoEnum;
+  /**
+   * Properties 6.
+   * @nullable
+   */
+  properties6?: BoYesNoEnum;
+  /**
+   * Properties 7.
+   * @nullable
+   */
+  properties7?: BoYesNoEnum;
+  /**
+   * Properties 8.
+   * @nullable
+   */
+  properties8?: BoYesNoEnum;
+  /**
+   * Properties 9.
+   * @nullable
+   */
+  properties9?: BoYesNoEnum;
+  /**
+   * Properties 10.
+   * @nullable
+   */
+  properties10?: BoYesNoEnum;
+  /**
+   * Properties 11.
+   * @nullable
+   */
+  properties11?: BoYesNoEnum;
+  /**
+   * Properties 12.
+   * @nullable
+   */
+  properties12?: BoYesNoEnum;
+  /**
+   * Properties 13.
+   * @nullable
+   */
+  properties13?: BoYesNoEnum;
+  /**
+   * Properties 14.
+   * @nullable
+   */
+  properties14?: BoYesNoEnum;
+  /**
+   * Properties 15.
+   * @nullable
+   */
+  properties15?: BoYesNoEnum;
+  /**
+   * Properties 16.
+   * @nullable
+   */
+  properties16?: BoYesNoEnum;
+  /**
+   * Properties 17.
+   * @nullable
+   */
+  properties17?: BoYesNoEnum;
+  /**
+   * Properties 18.
+   * @nullable
+   */
+  properties18?: BoYesNoEnum;
+  /**
+   * Properties 19.
+   * @nullable
+   */
+  properties19?: BoYesNoEnum;
+  /**
+   * Properties 20.
+   * @nullable
+   */
+  properties20?: BoYesNoEnum;
+  /**
+   * Properties 21.
+   * @nullable
+   */
+  properties21?: BoYesNoEnum;
+  /**
+   * Properties 22.
+   * @nullable
+   */
+  properties22?: BoYesNoEnum;
+  /**
+   * Properties 23.
+   * @nullable
+   */
+  properties23?: BoYesNoEnum;
+  /**
+   * Properties 24.
+   * @nullable
+   */
+  properties24?: BoYesNoEnum;
+  /**
+   * Properties 25.
+   * @nullable
+   */
+  properties25?: BoYesNoEnum;
+  /**
+   * Properties 26.
+   * @nullable
+   */
+  properties26?: BoYesNoEnum;
+  /**
+   * Properties 27.
+   * @nullable
+   */
+  properties27?: BoYesNoEnum;
+  /**
+   * Properties 28.
+   * @nullable
+   */
+  properties28?: BoYesNoEnum;
+  /**
+   * Properties 29.
+   * @nullable
+   */
+  properties29?: BoYesNoEnum;
+  /**
+   * Properties 30.
+   * @nullable
+   */
+  properties30?: BoYesNoEnum;
+  /**
+   * Properties 31.
+   * @nullable
+   */
+  properties31?: BoYesNoEnum;
+  /**
+   * Properties 32.
+   * @nullable
+   */
+  properties32?: BoYesNoEnum;
+  /**
+   * Properties 33.
+   * @nullable
+   */
+  properties33?: BoYesNoEnum;
+  /**
+   * Properties 34.
+   * @nullable
+   */
+  properties34?: BoYesNoEnum;
+  /**
+   * Properties 35.
+   * @nullable
+   */
+  properties35?: BoYesNoEnum;
+  /**
+   * Properties 36.
+   * @nullable
+   */
+  properties36?: BoYesNoEnum;
+  /**
+   * Properties 37.
+   * @nullable
+   */
+  properties37?: BoYesNoEnum;
+  /**
+   * Properties 38.
+   * @nullable
+   */
+  properties38?: BoYesNoEnum;
+  /**
+   * Properties 39.
+   * @nullable
+   */
+  properties39?: BoYesNoEnum;
+  /**
+   * Properties 40.
+   * @nullable
+   */
+  properties40?: BoYesNoEnum;
+  /**
+   * Properties 41.
+   * @nullable
+   */
+  properties41?: BoYesNoEnum;
+  /**
+   * Properties 42.
+   * @nullable
+   */
+  properties42?: BoYesNoEnum;
+  /**
+   * Properties 43.
+   * @nullable
+   */
+  properties43?: BoYesNoEnum;
+  /**
+   * Properties 44.
+   * @nullable
+   */
+  properties44?: BoYesNoEnum;
+  /**
+   * Properties 45.
+   * @nullable
+   */
+  properties45?: BoYesNoEnum;
+  /**
+   * Properties 46.
+   * @nullable
+   */
+  properties46?: BoYesNoEnum;
+  /**
+   * Properties 47.
+   * @nullable
+   */
+  properties47?: BoYesNoEnum;
+  /**
+   * Properties 48.
+   * @nullable
+   */
+  properties48?: BoYesNoEnum;
+  /**
+   * Properties 49.
+   * @nullable
+   */
+  properties49?: BoYesNoEnum;
+  /**
+   * Properties 50.
+   * @nullable
+   */
+  properties50?: BoYesNoEnum;
+  /**
+   * Properties 51.
+   * @nullable
+   */
+  properties51?: BoYesNoEnum;
+  /**
+   * Properties 52.
+   * @nullable
+   */
+  properties52?: BoYesNoEnum;
+  /**
+   * Properties 53.
+   * @nullable
+   */
+  properties53?: BoYesNoEnum;
+  /**
+   * Properties 54.
+   * @nullable
+   */
+  properties54?: BoYesNoEnum;
+  /**
+   * Properties 55.
+   * @nullable
+   */
+  properties55?: BoYesNoEnum;
+  /**
+   * Properties 56.
+   * @nullable
+   */
+  properties56?: BoYesNoEnum;
+  /**
+   * Properties 57.
+   * @nullable
+   */
+  properties57?: BoYesNoEnum;
+  /**
+   * Properties 58.
+   * @nullable
+   */
+  properties58?: BoYesNoEnum;
+  /**
+   * Properties 59.
+   * @nullable
+   */
+  properties59?: BoYesNoEnum;
+  /**
+   * Properties 60.
+   * @nullable
+   */
+  properties60?: BoYesNoEnum;
+  /**
+   * Properties 61.
+   * @nullable
+   */
+  properties61?: BoYesNoEnum;
+  /**
+   * Properties 62.
+   * @nullable
+   */
+  properties62?: BoYesNoEnum;
+  /**
+   * Properties 63.
+   * @nullable
+   */
+  properties63?: BoYesNoEnum;
+  /**
+   * Properties 64.
+   * @nullable
+   */
+  properties64?: BoYesNoEnum;
+  /**
+   * Auto Create Serial Numbers On Release.
+   * @nullable
+   */
+  autoCreateSerialNumbersOnRelease?: BoYesNoEnum;
   /**
    * Dnf Entry.
    * @nullable
@@ -632,6 +1106,21 @@ export class Items extends Entity implements ItemsType {
    */
   toleranceDays?: number;
   /**
+   * Type Of Advanced Rules.
+   * @nullable
+   */
+  typeOfAdvancedRules?: TypeOfAdvancedRulesEnum;
+  /**
+   * Issue Primarily By.
+   * @nullable
+   */
+  issuePrimarilyBy?: IssuePrimarilyByEnum;
+  /**
+   * No Discounts.
+   * @nullable
+   */
+  noDiscounts?: BoYesNoEnum;
+  /**
    * Asset Class.
    * @nullable
    */
@@ -662,10 +1151,35 @@ export class Items extends Entity implements ItemsType {
    */
   location?: number;
   /**
+   * Asset Status.
+   * @nullable
+   */
+  assetStatus?: AssetStatusEnum;
+  /**
    * Capitalization Date.
    * @nullable
    */
   capitalizationDate?: Moment;
+  /**
+   * Statistical Asset.
+   * @nullable
+   */
+  statisticalAsset?: BoYesNoEnum;
+  /**
+   * Cession.
+   * @nullable
+   */
+  cession?: BoYesNoEnum;
+  /**
+   * Deactivate After Useful Life.
+   * @nullable
+   */
+  deactivateAfterUsefulLife?: BoYesNoEnum;
+  /**
+   * Manage By Quantity.
+   * @nullable
+   */
+  manageByQuantity?: BoYesNoEnum;
   /**
    * Uo M Group Entry.
    * @nullable
@@ -732,6 +1246,11 @@ export class Items extends Entity implements ItemsType {
    */
   defaultCountingUoMEntry?: number;
   /**
+   * Excisable.
+   * @nullable
+   */
+  excisable?: BoYesNoEnum;
+  /**
    * Chapter Id.
    * @nullable
    */
@@ -742,10 +1261,30 @@ export class Items extends Entity implements ItemsType {
    */
   scsCode?: string;
   /**
+   * Sp Prod Type.
+   * @nullable
+   */
+  spProdType?: SpecialProductTypeEnum;
+  /**
    * Prod Std Cost.
    * @nullable
    */
   prodStdCost?: number;
+  /**
+   * In Cost Rollup.
+   * @nullable
+   */
+  inCostRollup?: BoYesNoEnum;
+  /**
+   * Virtual Asset Item.
+   * @nullable
+   */
+  virtualAssetItem?: BoYesNoEnum;
+  /**
+   * Enforce Asset Serial Numbers.
+   * @nullable
+   */
+  enforceAssetSerialNumbers?: BoYesNoEnum;
   /**
    * Attachment Entry.
    * @nullable
@@ -767,10 +1306,20 @@ export class Items extends Entity implements ItemsType {
    */
   updateTime?: Time;
   /**
+   * Gst Relevnt.
+   * @nullable
+   */
+  gstRelevnt?: BoYesNoEnum;
+  /**
    * Sac Entry.
    * @nullable
    */
   sacEntry?: number;
+  /**
+   * Gst Tax Category.
+   * @nullable
+   */
+  gstTaxCategory?: GstTaxCategoryEnum;
   /**
    * Service Category Entry.
    * @nullable
@@ -796,6 +1345,11 @@ export class Items extends Entity implements ItemsType {
    * @nullable
    */
   assVal4Wtr?: number;
+  /**
+   * Soi Excisable.
+   * @nullable
+   */
+  soiExcisable?: SoiExcisableTypeEnum;
   /**
    * Tnved.
    * @nullable
@@ -1032,11 +1586,11 @@ export class Items extends Entity implements ItemsType {
   resources!: Resources[];
 
   /**
-   * Returns an entity builder to construct instances `Items`.
+   * Returns an entity builder to construct instances of `Items`.
    * @returns A builder that constructs instances of entity type `Items`.
    */
-  static builder(): EntityBuilderType<Items, ItemsTypeForceMandatory> {
-    return Entity.entityBuilder(Items);
+  static builder(): EntityBuilderType<Items, ItemsType> {
+    return EntityV4.entityBuilder(Items);
   }
 
   /**
@@ -1052,8 +1606,8 @@ export class Items extends Entity implements ItemsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `Items`.
    */
-  static customField(fieldName: string): CustomField<Items> {
-    return Entity.customFieldSelector(fieldName, Items);
+  static customField(fieldName: string): CustomFieldV4<Items> {
+    return EntityV4.customFieldSelector(fieldName, Items);
   }
 
   /**
@@ -1107,382 +1661,280 @@ import { ServiceCalls, ServiceCallsType } from './ServiceCalls';
 import { AlternateCatNum, AlternateCatNumType } from './AlternateCatNum';
 
 export interface ItemsType {
-  itemCode?: string;
-  itemName?: string;
-  foreignName?: string;
-  itemsGroupCode?: number;
-  customsGroupCode?: number;
-  salesVatGroup?: string;
-  barCode?: string;
-  incomeAccount?: string;
-  exemptIncomeAccount?: string;
-  expanseAccount?: string;
-  mainsupplier?: string;
-  supplierCatalogNo?: string;
-  desiredInventory?: number;
-  minInventory?: number;
-  picture?: string;
-  userText?: string;
-  serialNum?: string;
-  commissionPercent?: number;
-  commissionSum?: number;
-  commissionGroup?: number;
-  dataExportCode?: string;
-  manufacturer?: number;
-  quantityOnStock?: number;
-  quantityOrderedFromVendors?: number;
-  quantityOrderedByCustomers?: number;
-  validFrom?: Moment;
-  validTo?: Moment;
-  validRemarks?: string;
-  frozenFrom?: Moment;
-  frozenTo?: Moment;
-  frozenRemarks?: string;
-  salesUnit?: string;
-  salesItemsPerUnit?: number;
-  salesPackagingUnit?: string;
-  salesQtyPerPackUnit?: number;
-  salesUnitLength?: number;
-  salesLengthUnit?: number;
-  salesUnitWidth?: number;
-  salesWidthUnit?: number;
-  salesUnitHeight?: number;
-  salesHeightUnit?: number;
-  salesUnitVolume?: number;
-  salesVolumeUnit?: number;
-  salesUnitWeight?: number;
-  salesWeightUnit?: number;
-  purchaseUnit?: string;
-  purchaseItemsPerUnit?: number;
-  purchasePackagingUnit?: string;
-  purchaseQtyPerPackUnit?: number;
-  purchaseUnitLength?: number;
-  purchaseLengthUnit?: number;
-  purchaseUnitWidth?: number;
-  purchaseWidthUnit?: number;
-  purchaseUnitHeight?: number;
-  purchaseHeightUnit?: number;
-  purchaseUnitVolume?: number;
-  purchaseVolumeUnit?: number;
-  purchaseUnitWeight?: number;
-  purchaseWeightUnit?: number;
-  purchaseVatGroup?: string;
-  salesFactor1?: number;
-  salesFactor2?: number;
-  salesFactor3?: number;
-  salesFactor4?: number;
-  purchaseFactor1?: number;
-  purchaseFactor2?: number;
-  purchaseFactor3?: number;
-  purchaseFactor4?: number;
-  movingAveragePrice?: number;
-  foreignRevenuesAccount?: string;
-  ecRevenuesAccount?: string;
-  foreignExpensesAccount?: string;
-  ecExpensesAccount?: string;
-  avgStdPrice?: number;
-  defaultWarehouse?: string;
-  shipType?: number;
-  maxInventory?: number;
-  purchaseHeightUnit1?: number;
-  purchaseUnitHeight1?: number;
-  purchaseLengthUnit1?: number;
-  purchaseUnitLength1?: number;
-  purchaseWeightUnit1?: number;
-  purchaseUnitWeight1?: number;
-  purchaseWidthUnit1?: number;
-  purchaseUnitWidth1?: number;
-  salesHeightUnit1?: number;
-  salesUnitHeight1?: number;
-  salesLengthUnit1?: number;
-  salesUnitLength1?: number;
-  salesWeightUnit1?: number;
-  salesUnitWeight1?: number;
-  salesWidthUnit1?: number;
-  salesUnitWidth1?: number;
-  sww?: string;
-  warrantyTemplate?: string;
-  arTaxCode?: string;
-  apTaxCode?: string;
-  baseUnitName?: string;
-  itemCountryOrg?: string;
-  inventoryUom?: string;
-  orderIntervals?: number;
-  orderMultiple?: number;
-  leadTime?: number;
-  minOrderQuantity?: number;
-  outgoingServiceCode?: number;
-  incomingServiceCode?: number;
-  serviceGroup?: number;
-  ncmCode?: number;
-  materialGroup?: number;
-  productSource?: string;
-  dnfEntry?: number;
-  gtsItemSpec?: string;
-  gtsItemTaxCategory?: string;
-  fuelId?: number;
-  beverageTableCode?: string;
-  beverageGroupCode?: string;
-  beverageCommercialBrandCode?: number;
-  series?: number;
-  toleranceDays?: number;
-  assetClass?: string;
-  assetGroup?: string;
-  inventoryNumber?: string;
-  technician?: number;
-  employee?: number;
-  location?: number;
-  capitalizationDate?: Moment;
-  uoMGroupEntry?: number;
-  inventoryUoMEntry?: number;
-  defaultSalesUoMEntry?: number;
-  defaultPurchasingUoMEntry?: number;
-  depreciationGroup?: string;
-  assetSerialNumber?: string;
-  inventoryWeight?: number;
-  inventoryWeightUnit?: number;
-  inventoryWeight1?: number;
-  inventoryWeightUnit1?: number;
-  defaultCountingUnit?: string;
-  countingItemsPerUnit?: number;
-  defaultCountingUoMEntry?: number;
-  chapterId?: number;
-  scsCode?: string;
-  prodStdCost?: number;
-  attachmentEntry?: number;
-  linkedResource?: string;
-  updateDate?: Moment;
-  updateTime?: Time;
-  sacEntry?: number;
-  serviceCategoryEntry?: number;
-  capitalGoodsOnHoldPercent?: number;
-  capitalGoodsOnHoldLimit?: number;
-  assessableValue?: number;
-  assVal4Wtr?: number;
-  tnved?: string;
-  pricingUnit?: number;
-  itemPrices?: ItemPrice[];
-  itemWarehouseInfoCollection?: ItemWarehouseInfo[];
-  itemPreferredVendors?: ItemPreferredVendor[];
-  itemLocalizationInfos?: ItemLocalizationInfo[];
-  itemProjects?: ItemProject[];
-  itemDistributionRules?: ItemDistributionRule[];
-  itemAttributeGroups?: ItemAttributeGroups[];
-  itemDepreciationParameters?: ItemDepreciationParameter[];
-  itemPeriodControls?: ItemPeriodControl[];
-  itemUnitOfMeasurementCollection?: ItemUnitOfMeasurement[];
-  itemBarCodeCollection?: ItemBarCode[];
-  itemIntrastatExtension?: ItemIntrastatExtension;
-  specialPrices: SpecialPricesType[];
-  itemGroups: ItemGroupsType;
-  customsGroup: CustomsGroupsType;
-  vatGroup: VatGroupsType;
-  chartOfAccount: ChartOfAccountsType;
-  businessPartner: BusinessPartnersType;
-  commissionGroup2: CommissionGroupsType;
-  manufacturer2: ManufacturersType;
-  shippingType: ShippingTypesType;
-  contractTemplate: ContractTemplatesType;
-  salesTaxCode: SalesTaxCodesType;
-  inventoryCycles: InventoryCyclesType;
-  serviceGroup2: ServiceGroupsType;
-  ncmCodeSetup: NcmCodesSetupType;
-  materialGroup2: MaterialGroupsType;
-  dnfCodeSetup: DnfCodeSetupType;
-  brazilFuelIndexer: BrazilFuelIndexersType;
-  brazilStringIndexer: BrazilStringIndexersType;
-  brazilNumericIndexer: BrazilNumericIndexersType;
-  assetClass2: AssetClassesType;
-  assetGroup2: AssetGroupsType;
-  employeeInfo: EmployeesInfoType;
-  warehouseLocation: WarehouseLocationsType;
-  unitOfMeasurementGroup: UnitOfMeasurementGroupsType;
-  unitOfMeasurement: UnitOfMeasurementsType;
-  assetDepreciationGroup: AssetDepreciationGroupsType;
-  resource: ResourcesType;
-  indiaSacCode: IndiaSacCodeType;
-  stockTakings: StockTakingsType[];
-  depreciationAreas: DepreciationAreasType[];
-  productTrees: ProductTreesType[];
-  glAccountAdvancedRules: GlAccountAdvancedRulesType[];
-  barCodes: BarCodesType[];
-  batchNumberDetails: BatchNumberDetailsType[];
-  serialNumberDetails: SerialNumberDetailsType[];
-  binLocations: BinLocationsType[];
-  customerEquipmentCards: CustomerEquipmentCardsType[];
-  knowledgeBaseSolutions: KnowledgeBaseSolutionsType[];
-  serviceCalls: ServiceCallsType[];
-  alternateCatNum: AlternateCatNumType[];
-  resources: ResourcesType[];
-}
-
-export interface ItemsTypeForceMandatory {
-  itemCode: string;
-  itemName: string;
-  foreignName: string;
-  itemsGroupCode: number;
-  customsGroupCode: number;
-  salesVatGroup: string;
-  barCode: string;
-  incomeAccount: string;
-  exemptIncomeAccount: string;
-  expanseAccount: string;
-  mainsupplier: string;
-  supplierCatalogNo: string;
-  desiredInventory: number;
-  minInventory: number;
-  picture: string;
-  userText: string;
-  serialNum: string;
-  commissionPercent: number;
-  commissionSum: number;
-  commissionGroup: number;
-  dataExportCode: string;
-  manufacturer: number;
-  quantityOnStock: number;
-  quantityOrderedFromVendors: number;
-  quantityOrderedByCustomers: number;
-  validFrom: Moment;
-  validTo: Moment;
-  validRemarks: string;
-  frozenFrom: Moment;
-  frozenTo: Moment;
-  frozenRemarks: string;
-  salesUnit: string;
-  salesItemsPerUnit: number;
-  salesPackagingUnit: string;
-  salesQtyPerPackUnit: number;
-  salesUnitLength: number;
-  salesLengthUnit: number;
-  salesUnitWidth: number;
-  salesWidthUnit: number;
-  salesUnitHeight: number;
-  salesHeightUnit: number;
-  salesUnitVolume: number;
-  salesVolumeUnit: number;
-  salesUnitWeight: number;
-  salesWeightUnit: number;
-  purchaseUnit: string;
-  purchaseItemsPerUnit: number;
-  purchasePackagingUnit: string;
-  purchaseQtyPerPackUnit: number;
-  purchaseUnitLength: number;
-  purchaseLengthUnit: number;
-  purchaseUnitWidth: number;
-  purchaseWidthUnit: number;
-  purchaseUnitHeight: number;
-  purchaseHeightUnit: number;
-  purchaseUnitVolume: number;
-  purchaseVolumeUnit: number;
-  purchaseUnitWeight: number;
-  purchaseWeightUnit: number;
-  purchaseVatGroup: string;
-  salesFactor1: number;
-  salesFactor2: number;
-  salesFactor3: number;
-  salesFactor4: number;
-  purchaseFactor1: number;
-  purchaseFactor2: number;
-  purchaseFactor3: number;
-  purchaseFactor4: number;
-  movingAveragePrice: number;
-  foreignRevenuesAccount: string;
-  ecRevenuesAccount: string;
-  foreignExpensesAccount: string;
-  ecExpensesAccount: string;
-  avgStdPrice: number;
-  defaultWarehouse: string;
-  shipType: number;
-  maxInventory: number;
-  purchaseHeightUnit1: number;
-  purchaseUnitHeight1: number;
-  purchaseLengthUnit1: number;
-  purchaseUnitLength1: number;
-  purchaseWeightUnit1: number;
-  purchaseUnitWeight1: number;
-  purchaseWidthUnit1: number;
-  purchaseUnitWidth1: number;
-  salesHeightUnit1: number;
-  salesUnitHeight1: number;
-  salesLengthUnit1: number;
-  salesUnitLength1: number;
-  salesWeightUnit1: number;
-  salesUnitWeight1: number;
-  salesWidthUnit1: number;
-  salesUnitWidth1: number;
-  sww: string;
-  warrantyTemplate: string;
-  arTaxCode: string;
-  apTaxCode: string;
-  baseUnitName: string;
-  itemCountryOrg: string;
-  inventoryUom: string;
-  orderIntervals: number;
-  orderMultiple: number;
-  leadTime: number;
-  minOrderQuantity: number;
-  outgoingServiceCode: number;
-  incomingServiceCode: number;
-  serviceGroup: number;
-  ncmCode: number;
-  materialGroup: number;
-  productSource: string;
-  dnfEntry: number;
-  gtsItemSpec: string;
-  gtsItemTaxCategory: string;
-  fuelId: number;
-  beverageTableCode: string;
-  beverageGroupCode: string;
-  beverageCommercialBrandCode: number;
-  series: number;
-  toleranceDays: number;
-  assetClass: string;
-  assetGroup: string;
-  inventoryNumber: string;
-  technician: number;
-  employee: number;
-  location: number;
-  capitalizationDate: Moment;
-  uoMGroupEntry: number;
-  inventoryUoMEntry: number;
-  defaultSalesUoMEntry: number;
-  defaultPurchasingUoMEntry: number;
-  depreciationGroup: string;
-  assetSerialNumber: string;
-  inventoryWeight: number;
-  inventoryWeightUnit: number;
-  inventoryWeight1: number;
-  inventoryWeightUnit1: number;
-  defaultCountingUnit: string;
-  countingItemsPerUnit: number;
-  defaultCountingUoMEntry: number;
-  chapterId: number;
-  scsCode: string;
-  prodStdCost: number;
-  attachmentEntry: number;
-  linkedResource: string;
-  updateDate: Moment;
-  updateTime: Time;
-  sacEntry: number;
-  serviceCategoryEntry: number;
-  capitalGoodsOnHoldPercent: number;
-  capitalGoodsOnHoldLimit: number;
-  assessableValue: number;
-  assVal4Wtr: number;
-  tnved: string;
-  pricingUnit: number;
-  itemPrices: ItemPrice[];
-  itemWarehouseInfoCollection: ItemWarehouseInfo[];
-  itemPreferredVendors: ItemPreferredVendor[];
-  itemLocalizationInfos: ItemLocalizationInfo[];
-  itemProjects: ItemProject[];
-  itemDistributionRules: ItemDistributionRule[];
-  itemAttributeGroups: ItemAttributeGroups[];
-  itemDepreciationParameters: ItemDepreciationParameter[];
-  itemPeriodControls: ItemPeriodControl[];
-  itemUnitOfMeasurementCollection: ItemUnitOfMeasurement[];
-  itemBarCodeCollection: ItemBarCode[];
-  itemIntrastatExtension: ItemIntrastatExtension;
+  itemCode?: string | null;
+  itemName?: string | null;
+  foreignName?: string | null;
+  itemsGroupCode?: number | null;
+  customsGroupCode?: number | null;
+  salesVatGroup?: string | null;
+  barCode?: string | null;
+  vatLiable?: BoYesNoEnum | null;
+  purchaseItem?: BoYesNoEnum | null;
+  salesItem?: BoYesNoEnum | null;
+  inventoryItem?: BoYesNoEnum | null;
+  incomeAccount?: string | null;
+  exemptIncomeAccount?: string | null;
+  expanseAccount?: string | null;
+  mainsupplier?: string | null;
+  supplierCatalogNo?: string | null;
+  desiredInventory?: number | null;
+  minInventory?: number | null;
+  picture?: string | null;
+  userText?: string | null;
+  serialNum?: string | null;
+  commissionPercent?: number | null;
+  commissionSum?: number | null;
+  commissionGroup?: number | null;
+  treeType?: BoItemTreeTypes | null;
+  assetItem?: BoYesNoEnum | null;
+  dataExportCode?: string | null;
+  manufacturer?: number | null;
+  quantityOnStock?: number | null;
+  quantityOrderedFromVendors?: number | null;
+  quantityOrderedByCustomers?: number | null;
+  manageSerialNumbers?: BoYesNoEnum | null;
+  manageBatchNumbers?: BoYesNoEnum | null;
+  valid?: BoYesNoEnum | null;
+  validFrom?: Moment | null;
+  validTo?: Moment | null;
+  validRemarks?: string | null;
+  frozen?: BoYesNoEnum | null;
+  frozenFrom?: Moment | null;
+  frozenTo?: Moment | null;
+  frozenRemarks?: string | null;
+  salesUnit?: string | null;
+  salesItemsPerUnit?: number | null;
+  salesPackagingUnit?: string | null;
+  salesQtyPerPackUnit?: number | null;
+  salesUnitLength?: number | null;
+  salesLengthUnit?: number | null;
+  salesUnitWidth?: number | null;
+  salesWidthUnit?: number | null;
+  salesUnitHeight?: number | null;
+  salesHeightUnit?: number | null;
+  salesUnitVolume?: number | null;
+  salesVolumeUnit?: number | null;
+  salesUnitWeight?: number | null;
+  salesWeightUnit?: number | null;
+  purchaseUnit?: string | null;
+  purchaseItemsPerUnit?: number | null;
+  purchasePackagingUnit?: string | null;
+  purchaseQtyPerPackUnit?: number | null;
+  purchaseUnitLength?: number | null;
+  purchaseLengthUnit?: number | null;
+  purchaseUnitWidth?: number | null;
+  purchaseWidthUnit?: number | null;
+  purchaseUnitHeight?: number | null;
+  purchaseHeightUnit?: number | null;
+  purchaseUnitVolume?: number | null;
+  purchaseVolumeUnit?: number | null;
+  purchaseUnitWeight?: number | null;
+  purchaseWeightUnit?: number | null;
+  purchaseVatGroup?: string | null;
+  salesFactor1?: number | null;
+  salesFactor2?: number | null;
+  salesFactor3?: number | null;
+  salesFactor4?: number | null;
+  purchaseFactor1?: number | null;
+  purchaseFactor2?: number | null;
+  purchaseFactor3?: number | null;
+  purchaseFactor4?: number | null;
+  movingAveragePrice?: number | null;
+  foreignRevenuesAccount?: string | null;
+  ecRevenuesAccount?: string | null;
+  foreignExpensesAccount?: string | null;
+  ecExpensesAccount?: string | null;
+  avgStdPrice?: number | null;
+  defaultWarehouse?: string | null;
+  shipType?: number | null;
+  glMethod?: BoGlMethods | null;
+  taxType?: BoTaxTypes | null;
+  maxInventory?: number | null;
+  manageStockByWarehouse?: BoYesNoEnum | null;
+  purchaseHeightUnit1?: number | null;
+  purchaseUnitHeight1?: number | null;
+  purchaseLengthUnit1?: number | null;
+  purchaseUnitLength1?: number | null;
+  purchaseWeightUnit1?: number | null;
+  purchaseUnitWeight1?: number | null;
+  purchaseWidthUnit1?: number | null;
+  purchaseUnitWidth1?: number | null;
+  salesHeightUnit1?: number | null;
+  salesUnitHeight1?: number | null;
+  salesLengthUnit1?: number | null;
+  salesUnitLength1?: number | null;
+  salesWeightUnit1?: number | null;
+  salesUnitWeight1?: number | null;
+  salesWidthUnit1?: number | null;
+  salesUnitWidth1?: number | null;
+  forceSelectionOfSerialNumber?: BoYesNoEnum | null;
+  manageSerialNumbersOnReleaseOnly?: BoYesNoEnum | null;
+  wtLiable?: BoYesNoEnum | null;
+  costAccountingMethod?: BoInventorySystem | null;
+  sww?: string | null;
+  warrantyTemplate?: string | null;
+  indirectTax?: BoYesNoEnum | null;
+  arTaxCode?: string | null;
+  apTaxCode?: string | null;
+  baseUnitName?: string | null;
+  itemCountryOrg?: string | null;
+  issueMethod?: BoIssueMethod | null;
+  sriAndBatchManageMethod?: BoManageMethod | null;
+  isPhantom?: BoYesNoEnum | null;
+  inventoryUom?: string | null;
+  planningSystem?: BoPlanningSystem | null;
+  procurementMethod?: BoProcurementMethod | null;
+  componentWarehouse?: BoMrpComponentWarehouse | null;
+  orderIntervals?: number | null;
+  orderMultiple?: number | null;
+  leadTime?: number | null;
+  minOrderQuantity?: number | null;
+  itemType?: ItemTypeEnum | null;
+  itemClass?: ItemClassEnum | null;
+  outgoingServiceCode?: number | null;
+  incomingServiceCode?: number | null;
+  serviceGroup?: number | null;
+  ncmCode?: number | null;
+  materialType?: BoMaterialTypes | null;
+  materialGroup?: number | null;
+  productSource?: string | null;
+  properties1?: BoYesNoEnum | null;
+  properties2?: BoYesNoEnum | null;
+  properties3?: BoYesNoEnum | null;
+  properties4?: BoYesNoEnum | null;
+  properties5?: BoYesNoEnum | null;
+  properties6?: BoYesNoEnum | null;
+  properties7?: BoYesNoEnum | null;
+  properties8?: BoYesNoEnum | null;
+  properties9?: BoYesNoEnum | null;
+  properties10?: BoYesNoEnum | null;
+  properties11?: BoYesNoEnum | null;
+  properties12?: BoYesNoEnum | null;
+  properties13?: BoYesNoEnum | null;
+  properties14?: BoYesNoEnum | null;
+  properties15?: BoYesNoEnum | null;
+  properties16?: BoYesNoEnum | null;
+  properties17?: BoYesNoEnum | null;
+  properties18?: BoYesNoEnum | null;
+  properties19?: BoYesNoEnum | null;
+  properties20?: BoYesNoEnum | null;
+  properties21?: BoYesNoEnum | null;
+  properties22?: BoYesNoEnum | null;
+  properties23?: BoYesNoEnum | null;
+  properties24?: BoYesNoEnum | null;
+  properties25?: BoYesNoEnum | null;
+  properties26?: BoYesNoEnum | null;
+  properties27?: BoYesNoEnum | null;
+  properties28?: BoYesNoEnum | null;
+  properties29?: BoYesNoEnum | null;
+  properties30?: BoYesNoEnum | null;
+  properties31?: BoYesNoEnum | null;
+  properties32?: BoYesNoEnum | null;
+  properties33?: BoYesNoEnum | null;
+  properties34?: BoYesNoEnum | null;
+  properties35?: BoYesNoEnum | null;
+  properties36?: BoYesNoEnum | null;
+  properties37?: BoYesNoEnum | null;
+  properties38?: BoYesNoEnum | null;
+  properties39?: BoYesNoEnum | null;
+  properties40?: BoYesNoEnum | null;
+  properties41?: BoYesNoEnum | null;
+  properties42?: BoYesNoEnum | null;
+  properties43?: BoYesNoEnum | null;
+  properties44?: BoYesNoEnum | null;
+  properties45?: BoYesNoEnum | null;
+  properties46?: BoYesNoEnum | null;
+  properties47?: BoYesNoEnum | null;
+  properties48?: BoYesNoEnum | null;
+  properties49?: BoYesNoEnum | null;
+  properties50?: BoYesNoEnum | null;
+  properties51?: BoYesNoEnum | null;
+  properties52?: BoYesNoEnum | null;
+  properties53?: BoYesNoEnum | null;
+  properties54?: BoYesNoEnum | null;
+  properties55?: BoYesNoEnum | null;
+  properties56?: BoYesNoEnum | null;
+  properties57?: BoYesNoEnum | null;
+  properties58?: BoYesNoEnum | null;
+  properties59?: BoYesNoEnum | null;
+  properties60?: BoYesNoEnum | null;
+  properties61?: BoYesNoEnum | null;
+  properties62?: BoYesNoEnum | null;
+  properties63?: BoYesNoEnum | null;
+  properties64?: BoYesNoEnum | null;
+  autoCreateSerialNumbersOnRelease?: BoYesNoEnum | null;
+  dnfEntry?: number | null;
+  gtsItemSpec?: string | null;
+  gtsItemTaxCategory?: string | null;
+  fuelId?: number | null;
+  beverageTableCode?: string | null;
+  beverageGroupCode?: string | null;
+  beverageCommercialBrandCode?: number | null;
+  series?: number | null;
+  toleranceDays?: number | null;
+  typeOfAdvancedRules?: TypeOfAdvancedRulesEnum | null;
+  issuePrimarilyBy?: IssuePrimarilyByEnum | null;
+  noDiscounts?: BoYesNoEnum | null;
+  assetClass?: string | null;
+  assetGroup?: string | null;
+  inventoryNumber?: string | null;
+  technician?: number | null;
+  employee?: number | null;
+  location?: number | null;
+  assetStatus?: AssetStatusEnum | null;
+  capitalizationDate?: Moment | null;
+  statisticalAsset?: BoYesNoEnum | null;
+  cession?: BoYesNoEnum | null;
+  deactivateAfterUsefulLife?: BoYesNoEnum | null;
+  manageByQuantity?: BoYesNoEnum | null;
+  uoMGroupEntry?: number | null;
+  inventoryUoMEntry?: number | null;
+  defaultSalesUoMEntry?: number | null;
+  defaultPurchasingUoMEntry?: number | null;
+  depreciationGroup?: string | null;
+  assetSerialNumber?: string | null;
+  inventoryWeight?: number | null;
+  inventoryWeightUnit?: number | null;
+  inventoryWeight1?: number | null;
+  inventoryWeightUnit1?: number | null;
+  defaultCountingUnit?: string | null;
+  countingItemsPerUnit?: number | null;
+  defaultCountingUoMEntry?: number | null;
+  excisable?: BoYesNoEnum | null;
+  chapterId?: number | null;
+  scsCode?: string | null;
+  spProdType?: SpecialProductTypeEnum | null;
+  prodStdCost?: number | null;
+  inCostRollup?: BoYesNoEnum | null;
+  virtualAssetItem?: BoYesNoEnum | null;
+  enforceAssetSerialNumbers?: BoYesNoEnum | null;
+  attachmentEntry?: number | null;
+  linkedResource?: string | null;
+  updateDate?: Moment | null;
+  updateTime?: Time | null;
+  gstRelevnt?: BoYesNoEnum | null;
+  sacEntry?: number | null;
+  gstTaxCategory?: GstTaxCategoryEnum | null;
+  serviceCategoryEntry?: number | null;
+  capitalGoodsOnHoldPercent?: number | null;
+  capitalGoodsOnHoldLimit?: number | null;
+  assessableValue?: number | null;
+  assVal4Wtr?: number | null;
+  soiExcisable?: SoiExcisableTypeEnum | null;
+  tnved?: string | null;
+  pricingUnit?: number | null;
+  itemPrices?: ItemPrice[] | null;
+  itemWarehouseInfoCollection?: ItemWarehouseInfo[] | null;
+  itemPreferredVendors?: ItemPreferredVendor[] | null;
+  itemLocalizationInfos?: ItemLocalizationInfo[] | null;
+  itemProjects?: ItemProject[] | null;
+  itemDistributionRules?: ItemDistributionRule[] | null;
+  itemAttributeGroups?: ItemAttributeGroups[] | null;
+  itemDepreciationParameters?: ItemDepreciationParameter[] | null;
+  itemPeriodControls?: ItemPeriodControl[] | null;
+  itemUnitOfMeasurementCollection?: ItemUnitOfMeasurement[] | null;
+  itemBarCodeCollection?: ItemBarCode[] | null;
+  itemIntrastatExtension?: ItemIntrastatExtension | null;
   specialPrices: SpecialPricesType[];
   itemGroups: ItemGroupsType;
   customsGroup: CustomsGroupsType;
@@ -1563,6 +2015,26 @@ export namespace Items {
    */
   export const BAR_CODE: StringField<Items> = new StringField('BarCode', Items, 'Edm.String');
   /**
+   * Static representation of the [[vatLiable]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const VAT_LIABLE: EnumField<Items> = new EnumField('VatLiable', Items);
+  /**
+   * Static representation of the [[purchaseItem]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PURCHASE_ITEM: EnumField<Items> = new EnumField('PurchaseItem', Items);
+  /**
+   * Static representation of the [[salesItem]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SALES_ITEM: EnumField<Items> = new EnumField('SalesItem', Items);
+  /**
+   * Static representation of the [[inventoryItem]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INVENTORY_ITEM: EnumField<Items> = new EnumField('InventoryItem', Items);
+  /**
    * Static representation of the [[incomeAccount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1628,6 +2100,16 @@ export namespace Items {
    */
   export const COMMISSION_GROUP: NumberField<Items> = new NumberField('CommissionGroup', Items, 'Edm.Int32');
   /**
+   * Static representation of the [[treeType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TREE_TYPE: EnumField<Items> = new EnumField('TreeType', Items);
+  /**
+   * Static representation of the [[assetItem]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ASSET_ITEM: EnumField<Items> = new EnumField('AssetItem', Items);
+  /**
    * Static representation of the [[dataExportCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1653,6 +2135,21 @@ export namespace Items {
    */
   export const QUANTITY_ORDERED_BY_CUSTOMERS: NumberField<Items> = new NumberField('QuantityOrderedByCustomers', Items, 'Edm.Double');
   /**
+   * Static representation of the [[manageSerialNumbers]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const MANAGE_SERIAL_NUMBERS: EnumField<Items> = new EnumField('ManageSerialNumbers', Items);
+  /**
+   * Static representation of the [[manageBatchNumbers]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const MANAGE_BATCH_NUMBERS: EnumField<Items> = new EnumField('ManageBatchNumbers', Items);
+  /**
+   * Static representation of the [[valid]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const VALID: EnumField<Items> = new EnumField('Valid', Items);
+  /**
    * Static representation of the [[validFrom]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1667,6 +2164,11 @@ export namespace Items {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const VALID_REMARKS: StringField<Items> = new StringField('ValidRemarks', Items, 'Edm.String');
+  /**
+   * Static representation of the [[frozen]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const FROZEN: EnumField<Items> = new EnumField('Frozen', Items);
   /**
    * Static representation of the [[frozenFrom]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1908,10 +2410,25 @@ export namespace Items {
    */
   export const SHIP_TYPE: NumberField<Items> = new NumberField('ShipType', Items, 'Edm.Int32');
   /**
+   * Static representation of the [[glMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const GL_METHOD: EnumField<Items> = new EnumField('GLMethod', Items);
+  /**
+   * Static representation of the [[taxType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TAX_TYPE: EnumField<Items> = new EnumField('TaxType', Items);
+  /**
    * Static representation of the [[maxInventory]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const MAX_INVENTORY: NumberField<Items> = new NumberField('MaxInventory', Items, 'Edm.Double');
+  /**
+   * Static representation of the [[manageStockByWarehouse]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const MANAGE_STOCK_BY_WAREHOUSE: EnumField<Items> = new EnumField('ManageStockByWarehouse', Items);
   /**
    * Static representation of the [[purchaseHeightUnit1]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1993,6 +2510,26 @@ export namespace Items {
    */
   export const SALES_UNIT_WIDTH_1: NumberField<Items> = new NumberField('SalesUnitWidth1', Items, 'Edm.Double');
   /**
+   * Static representation of the [[forceSelectionOfSerialNumber]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const FORCE_SELECTION_OF_SERIAL_NUMBER: EnumField<Items> = new EnumField('ForceSelectionOfSerialNumber', Items);
+  /**
+   * Static representation of the [[manageSerialNumbersOnReleaseOnly]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const MANAGE_SERIAL_NUMBERS_ON_RELEASE_ONLY: EnumField<Items> = new EnumField('ManageSerialNumbersOnReleaseOnly', Items);
+  /**
+   * Static representation of the [[wtLiable]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const WT_LIABLE: EnumField<Items> = new EnumField('WTLiable', Items);
+  /**
+   * Static representation of the [[costAccountingMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const COST_ACCOUNTING_METHOD: EnumField<Items> = new EnumField('CostAccountingMethod', Items);
+  /**
    * Static representation of the [[sww]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2002,6 +2539,11 @@ export namespace Items {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const WARRANTY_TEMPLATE: StringField<Items> = new StringField('WarrantyTemplate', Items, 'Edm.String');
+  /**
+   * Static representation of the [[indirectTax]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INDIRECT_TAX: EnumField<Items> = new EnumField('IndirectTax', Items);
   /**
    * Static representation of the [[arTaxCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2023,10 +2565,40 @@ export namespace Items {
    */
   export const ITEM_COUNTRY_ORG: StringField<Items> = new StringField('ItemCountryOrg', Items, 'Edm.String');
   /**
+   * Static representation of the [[issueMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ISSUE_METHOD: EnumField<Items> = new EnumField('IssueMethod', Items);
+  /**
+   * Static representation of the [[sriAndBatchManageMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SRI_AND_BATCH_MANAGE_METHOD: EnumField<Items> = new EnumField('SRIAndBatchManageMethod', Items);
+  /**
+   * Static representation of the [[isPhantom]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_PHANTOM: EnumField<Items> = new EnumField('IsPhantom', Items);
+  /**
    * Static representation of the [[inventoryUom]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const INVENTORY_UOM: StringField<Items> = new StringField('InventoryUOM', Items, 'Edm.String');
+  /**
+   * Static representation of the [[planningSystem]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PLANNING_SYSTEM: EnumField<Items> = new EnumField('PlanningSystem', Items);
+  /**
+   * Static representation of the [[procurementMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROCUREMENT_METHOD: EnumField<Items> = new EnumField('ProcurementMethod', Items);
+  /**
+   * Static representation of the [[componentWarehouse]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const COMPONENT_WAREHOUSE: EnumField<Items> = new EnumField('ComponentWarehouse', Items);
   /**
    * Static representation of the [[orderIntervals]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2048,6 +2620,16 @@ export namespace Items {
    */
   export const MIN_ORDER_QUANTITY: NumberField<Items> = new NumberField('MinOrderQuantity', Items, 'Edm.Double');
   /**
+   * Static representation of the [[itemType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ITEM_TYPE: EnumField<Items> = new EnumField('ItemType', Items);
+  /**
+   * Static representation of the [[itemClass]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ITEM_CLASS: EnumField<Items> = new EnumField('ItemClass', Items);
+  /**
    * Static representation of the [[outgoingServiceCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2068,6 +2650,11 @@ export namespace Items {
    */
   export const NCM_CODE: NumberField<Items> = new NumberField('NCMCode', Items, 'Edm.Int32');
   /**
+   * Static representation of the [[materialType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const MATERIAL_TYPE: EnumField<Items> = new EnumField('MaterialType', Items);
+  /**
    * Static representation of the [[materialGroup]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2077,6 +2664,331 @@ export namespace Items {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const PRODUCT_SOURCE: StringField<Items> = new StringField('ProductSource', Items, 'Edm.String');
+  /**
+   * Static representation of the [[properties1]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_1: EnumField<Items> = new EnumField('Properties1', Items);
+  /**
+   * Static representation of the [[properties2]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_2: EnumField<Items> = new EnumField('Properties2', Items);
+  /**
+   * Static representation of the [[properties3]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_3: EnumField<Items> = new EnumField('Properties3', Items);
+  /**
+   * Static representation of the [[properties4]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_4: EnumField<Items> = new EnumField('Properties4', Items);
+  /**
+   * Static representation of the [[properties5]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_5: EnumField<Items> = new EnumField('Properties5', Items);
+  /**
+   * Static representation of the [[properties6]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_6: EnumField<Items> = new EnumField('Properties6', Items);
+  /**
+   * Static representation of the [[properties7]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_7: EnumField<Items> = new EnumField('Properties7', Items);
+  /**
+   * Static representation of the [[properties8]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_8: EnumField<Items> = new EnumField('Properties8', Items);
+  /**
+   * Static representation of the [[properties9]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_9: EnumField<Items> = new EnumField('Properties9', Items);
+  /**
+   * Static representation of the [[properties10]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_10: EnumField<Items> = new EnumField('Properties10', Items);
+  /**
+   * Static representation of the [[properties11]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_11: EnumField<Items> = new EnumField('Properties11', Items);
+  /**
+   * Static representation of the [[properties12]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_12: EnumField<Items> = new EnumField('Properties12', Items);
+  /**
+   * Static representation of the [[properties13]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_13: EnumField<Items> = new EnumField('Properties13', Items);
+  /**
+   * Static representation of the [[properties14]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_14: EnumField<Items> = new EnumField('Properties14', Items);
+  /**
+   * Static representation of the [[properties15]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_15: EnumField<Items> = new EnumField('Properties15', Items);
+  /**
+   * Static representation of the [[properties16]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_16: EnumField<Items> = new EnumField('Properties16', Items);
+  /**
+   * Static representation of the [[properties17]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_17: EnumField<Items> = new EnumField('Properties17', Items);
+  /**
+   * Static representation of the [[properties18]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_18: EnumField<Items> = new EnumField('Properties18', Items);
+  /**
+   * Static representation of the [[properties19]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_19: EnumField<Items> = new EnumField('Properties19', Items);
+  /**
+   * Static representation of the [[properties20]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_20: EnumField<Items> = new EnumField('Properties20', Items);
+  /**
+   * Static representation of the [[properties21]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_21: EnumField<Items> = new EnumField('Properties21', Items);
+  /**
+   * Static representation of the [[properties22]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_22: EnumField<Items> = new EnumField('Properties22', Items);
+  /**
+   * Static representation of the [[properties23]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_23: EnumField<Items> = new EnumField('Properties23', Items);
+  /**
+   * Static representation of the [[properties24]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_24: EnumField<Items> = new EnumField('Properties24', Items);
+  /**
+   * Static representation of the [[properties25]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_25: EnumField<Items> = new EnumField('Properties25', Items);
+  /**
+   * Static representation of the [[properties26]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_26: EnumField<Items> = new EnumField('Properties26', Items);
+  /**
+   * Static representation of the [[properties27]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_27: EnumField<Items> = new EnumField('Properties27', Items);
+  /**
+   * Static representation of the [[properties28]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_28: EnumField<Items> = new EnumField('Properties28', Items);
+  /**
+   * Static representation of the [[properties29]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_29: EnumField<Items> = new EnumField('Properties29', Items);
+  /**
+   * Static representation of the [[properties30]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_30: EnumField<Items> = new EnumField('Properties30', Items);
+  /**
+   * Static representation of the [[properties31]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_31: EnumField<Items> = new EnumField('Properties31', Items);
+  /**
+   * Static representation of the [[properties32]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_32: EnumField<Items> = new EnumField('Properties32', Items);
+  /**
+   * Static representation of the [[properties33]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_33: EnumField<Items> = new EnumField('Properties33', Items);
+  /**
+   * Static representation of the [[properties34]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_34: EnumField<Items> = new EnumField('Properties34', Items);
+  /**
+   * Static representation of the [[properties35]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_35: EnumField<Items> = new EnumField('Properties35', Items);
+  /**
+   * Static representation of the [[properties36]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_36: EnumField<Items> = new EnumField('Properties36', Items);
+  /**
+   * Static representation of the [[properties37]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_37: EnumField<Items> = new EnumField('Properties37', Items);
+  /**
+   * Static representation of the [[properties38]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_38: EnumField<Items> = new EnumField('Properties38', Items);
+  /**
+   * Static representation of the [[properties39]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_39: EnumField<Items> = new EnumField('Properties39', Items);
+  /**
+   * Static representation of the [[properties40]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_40: EnumField<Items> = new EnumField('Properties40', Items);
+  /**
+   * Static representation of the [[properties41]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_41: EnumField<Items> = new EnumField('Properties41', Items);
+  /**
+   * Static representation of the [[properties42]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_42: EnumField<Items> = new EnumField('Properties42', Items);
+  /**
+   * Static representation of the [[properties43]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_43: EnumField<Items> = new EnumField('Properties43', Items);
+  /**
+   * Static representation of the [[properties44]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_44: EnumField<Items> = new EnumField('Properties44', Items);
+  /**
+   * Static representation of the [[properties45]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_45: EnumField<Items> = new EnumField('Properties45', Items);
+  /**
+   * Static representation of the [[properties46]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_46: EnumField<Items> = new EnumField('Properties46', Items);
+  /**
+   * Static representation of the [[properties47]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_47: EnumField<Items> = new EnumField('Properties47', Items);
+  /**
+   * Static representation of the [[properties48]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_48: EnumField<Items> = new EnumField('Properties48', Items);
+  /**
+   * Static representation of the [[properties49]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_49: EnumField<Items> = new EnumField('Properties49', Items);
+  /**
+   * Static representation of the [[properties50]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_50: EnumField<Items> = new EnumField('Properties50', Items);
+  /**
+   * Static representation of the [[properties51]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_51: EnumField<Items> = new EnumField('Properties51', Items);
+  /**
+   * Static representation of the [[properties52]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_52: EnumField<Items> = new EnumField('Properties52', Items);
+  /**
+   * Static representation of the [[properties53]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_53: EnumField<Items> = new EnumField('Properties53', Items);
+  /**
+   * Static representation of the [[properties54]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_54: EnumField<Items> = new EnumField('Properties54', Items);
+  /**
+   * Static representation of the [[properties55]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_55: EnumField<Items> = new EnumField('Properties55', Items);
+  /**
+   * Static representation of the [[properties56]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_56: EnumField<Items> = new EnumField('Properties56', Items);
+  /**
+   * Static representation of the [[properties57]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_57: EnumField<Items> = new EnumField('Properties57', Items);
+  /**
+   * Static representation of the [[properties58]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_58: EnumField<Items> = new EnumField('Properties58', Items);
+  /**
+   * Static representation of the [[properties59]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_59: EnumField<Items> = new EnumField('Properties59', Items);
+  /**
+   * Static representation of the [[properties60]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_60: EnumField<Items> = new EnumField('Properties60', Items);
+  /**
+   * Static representation of the [[properties61]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_61: EnumField<Items> = new EnumField('Properties61', Items);
+  /**
+   * Static representation of the [[properties62]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_62: EnumField<Items> = new EnumField('Properties62', Items);
+  /**
+   * Static representation of the [[properties63]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_63: EnumField<Items> = new EnumField('Properties63', Items);
+  /**
+   * Static representation of the [[properties64]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROPERTIES_64: EnumField<Items> = new EnumField('Properties64', Items);
+  /**
+   * Static representation of the [[autoCreateSerialNumbersOnRelease]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const AUTO_CREATE_SERIAL_NUMBERS_ON_RELEASE: EnumField<Items> = new EnumField('AutoCreateSerialNumbersOnRelease', Items);
   /**
    * Static representation of the [[dnfEntry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2123,6 +3035,21 @@ export namespace Items {
    */
   export const TOLERANCE_DAYS: NumberField<Items> = new NumberField('ToleranceDays', Items, 'Edm.Int32');
   /**
+   * Static representation of the [[typeOfAdvancedRules]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TYPE_OF_ADVANCED_RULES: EnumField<Items> = new EnumField('TypeOfAdvancedRules', Items);
+  /**
+   * Static representation of the [[issuePrimarilyBy]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ISSUE_PRIMARILY_BY: EnumField<Items> = new EnumField('IssuePrimarilyBy', Items);
+  /**
+   * Static representation of the [[noDiscounts]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const NO_DISCOUNTS: EnumField<Items> = new EnumField('NoDiscounts', Items);
+  /**
    * Static representation of the [[assetClass]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2153,10 +3080,35 @@ export namespace Items {
    */
   export const LOCATION: NumberField<Items> = new NumberField('Location', Items, 'Edm.Int32');
   /**
+   * Static representation of the [[assetStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ASSET_STATUS: EnumField<Items> = new EnumField('AssetStatus', Items);
+  /**
    * Static representation of the [[capitalizationDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CAPITALIZATION_DATE: DateField<Items> = new DateField('CapitalizationDate', Items, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[statisticalAsset]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const STATISTICAL_ASSET: EnumField<Items> = new EnumField('StatisticalAsset', Items);
+  /**
+   * Static representation of the [[cession]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CESSION: EnumField<Items> = new EnumField('Cession', Items);
+  /**
+   * Static representation of the [[deactivateAfterUsefulLife]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DEACTIVATE_AFTER_USEFUL_LIFE: EnumField<Items> = new EnumField('DeactivateAfterUsefulLife', Items);
+  /**
+   * Static representation of the [[manageByQuantity]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const MANAGE_BY_QUANTITY: EnumField<Items> = new EnumField('ManageByQuantity', Items);
   /**
    * Static representation of the [[uoMGroupEntry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2223,6 +3175,11 @@ export namespace Items {
    */
   export const DEFAULT_COUNTING_UO_M_ENTRY: NumberField<Items> = new NumberField('DefaultCountingUoMEntry', Items, 'Edm.Int32');
   /**
+   * Static representation of the [[excisable]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const EXCISABLE: EnumField<Items> = new EnumField('Excisable', Items);
+  /**
    * Static representation of the [[chapterId]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2233,10 +3190,30 @@ export namespace Items {
    */
   export const SCS_CODE: StringField<Items> = new StringField('ScsCode', Items, 'Edm.String');
   /**
+   * Static representation of the [[spProdType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SP_PROD_TYPE: EnumField<Items> = new EnumField('SpProdType', Items);
+  /**
    * Static representation of the [[prodStdCost]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const PROD_STD_COST: NumberField<Items> = new NumberField('ProdStdCost', Items, 'Edm.Double');
+  /**
+   * Static representation of the [[inCostRollup]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IN_COST_ROLLUP: EnumField<Items> = new EnumField('InCostRollup', Items);
+  /**
+   * Static representation of the [[virtualAssetItem]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const VIRTUAL_ASSET_ITEM: EnumField<Items> = new EnumField('VirtualAssetItem', Items);
+  /**
+   * Static representation of the [[enforceAssetSerialNumbers]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ENFORCE_ASSET_SERIAL_NUMBERS: EnumField<Items> = new EnumField('EnforceAssetSerialNumbers', Items);
   /**
    * Static representation of the [[attachmentEntry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2258,10 +3235,20 @@ export namespace Items {
    */
   export const UPDATE_TIME: TimeField<Items> = new TimeField('UpdateTime', Items, 'Edm.TimeOfDay');
   /**
+   * Static representation of the [[gstRelevnt]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const GST_RELEVNT: EnumField<Items> = new EnumField('GSTRelevnt', Items);
+  /**
    * Static representation of the [[sacEntry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const SAC_ENTRY: NumberField<Items> = new NumberField('SACEntry', Items, 'Edm.Int32');
+  /**
+   * Static representation of the [[gstTaxCategory]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const GST_TAX_CATEGORY: EnumField<Items> = new EnumField('GSTTaxCategory', Items);
   /**
    * Static representation of the [[serviceCategoryEntry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2288,6 +3275,11 @@ export namespace Items {
    */
   export const ASS_VAL_4_WTR: NumberField<Items> = new NumberField('AssVal4WTR', Items, 'Edm.Double');
   /**
+   * Static representation of the [[soiExcisable]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SOI_EXCISABLE: EnumField<Items> = new EnumField('SOIExcisable', Items);
+  /**
    * Static representation of the [[tnved]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2301,57 +3293,57 @@ export namespace Items {
    * Static representation of the [[itemPrices]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ITEM_PRICES: CollectionField<Items> = new CollectionField('ItemPrices', Items, new ItemPriceField('', Items));
+  export const ITEM_PRICES: CollectionField<Items, ItemPrice> = new CollectionField('ItemPrices', Items, ItemPrice);
   /**
    * Static representation of the [[itemWarehouseInfoCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ITEM_WAREHOUSE_INFO_COLLECTION: CollectionField<Items> = new CollectionField('ItemWarehouseInfoCollection', Items, new ItemWarehouseInfoField('', Items));
+  export const ITEM_WAREHOUSE_INFO_COLLECTION: CollectionField<Items, ItemWarehouseInfo> = new CollectionField('ItemWarehouseInfoCollection', Items, ItemWarehouseInfo);
   /**
    * Static representation of the [[itemPreferredVendors]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ITEM_PREFERRED_VENDORS: CollectionField<Items> = new CollectionField('ItemPreferredVendors', Items, new ItemPreferredVendorField('', Items));
+  export const ITEM_PREFERRED_VENDORS: CollectionField<Items, ItemPreferredVendor> = new CollectionField('ItemPreferredVendors', Items, ItemPreferredVendor);
   /**
    * Static representation of the [[itemLocalizationInfos]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ITEM_LOCALIZATION_INFOS: CollectionField<Items> = new CollectionField('ItemLocalizationInfos', Items, new ItemLocalizationInfoField('', Items));
+  export const ITEM_LOCALIZATION_INFOS: CollectionField<Items, ItemLocalizationInfo> = new CollectionField('ItemLocalizationInfos', Items, ItemLocalizationInfo);
   /**
    * Static representation of the [[itemProjects]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ITEM_PROJECTS: CollectionField<Items> = new CollectionField('ItemProjects', Items, new ItemProjectField('', Items));
+  export const ITEM_PROJECTS: CollectionField<Items, ItemProject> = new CollectionField('ItemProjects', Items, ItemProject);
   /**
    * Static representation of the [[itemDistributionRules]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ITEM_DISTRIBUTION_RULES: CollectionField<Items> = new CollectionField('ItemDistributionRules', Items, new ItemDistributionRuleField('', Items));
+  export const ITEM_DISTRIBUTION_RULES: CollectionField<Items, ItemDistributionRule> = new CollectionField('ItemDistributionRules', Items, ItemDistributionRule);
   /**
    * Static representation of the [[itemAttributeGroups]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ITEM_ATTRIBUTE_GROUPS: CollectionField<Items> = new CollectionField('ItemAttributeGroups', Items, new ItemAttributeGroupsField('', Items));
+  export const ITEM_ATTRIBUTE_GROUPS: CollectionField<Items, ItemAttributeGroups> = new CollectionField('ItemAttributeGroups', Items, ItemAttributeGroups);
   /**
    * Static representation of the [[itemDepreciationParameters]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ITEM_DEPRECIATION_PARAMETERS: CollectionField<Items> = new CollectionField('ItemDepreciationParameters', Items, new ItemDepreciationParameterField('', Items));
+  export const ITEM_DEPRECIATION_PARAMETERS: CollectionField<Items, ItemDepreciationParameter> = new CollectionField('ItemDepreciationParameters', Items, ItemDepreciationParameter);
   /**
    * Static representation of the [[itemPeriodControls]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ITEM_PERIOD_CONTROLS: CollectionField<Items> = new CollectionField('ItemPeriodControls', Items, new ItemPeriodControlField('', Items));
+  export const ITEM_PERIOD_CONTROLS: CollectionField<Items, ItemPeriodControl> = new CollectionField('ItemPeriodControls', Items, ItemPeriodControl);
   /**
    * Static representation of the [[itemUnitOfMeasurementCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ITEM_UNIT_OF_MEASUREMENT_COLLECTION: CollectionField<Items> = new CollectionField('ItemUnitOfMeasurementCollection', Items, new ItemUnitOfMeasurementField('', Items));
+  export const ITEM_UNIT_OF_MEASUREMENT_COLLECTION: CollectionField<Items, ItemUnitOfMeasurement> = new CollectionField('ItemUnitOfMeasurementCollection', Items, ItemUnitOfMeasurement);
   /**
    * Static representation of the [[itemBarCodeCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ITEM_BAR_CODE_COLLECTION: CollectionField<Items> = new CollectionField('ItemBarCodeCollection', Items, new ItemBarCodeField('', Items));
+  export const ITEM_BAR_CODE_COLLECTION: CollectionField<Items, ItemBarCode> = new CollectionField('ItemBarCodeCollection', Items, ItemBarCode);
   /**
    * Static representation of the [[itemIntrastatExtension]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2565,7 +3557,7 @@ export namespace Items {
   /**
    * All fields of the Items entity.
    */
-  export const _allFields: Array<StringField<Items> | NumberField<Items> | DateField<Items> | TimeField<Items> | CollectionField<Items> | ItemIntrastatExtensionField<Items> | OneToManyLink<Items, SpecialPrices> | OneToOneLink<Items, ItemGroups> | OneToOneLink<Items, CustomsGroups> | OneToOneLink<Items, VatGroups> | OneToOneLink<Items, ChartOfAccounts> | OneToOneLink<Items, BusinessPartners> | OneToOneLink<Items, CommissionGroups> | OneToOneLink<Items, Manufacturers> | OneToOneLink<Items, ShippingTypes> | OneToOneLink<Items, ContractTemplates> | OneToOneLink<Items, SalesTaxCodes> | OneToOneLink<Items, InventoryCycles> | OneToOneLink<Items, ServiceGroups> | OneToOneLink<Items, NcmCodesSetup> | OneToOneLink<Items, MaterialGroups> | OneToOneLink<Items, DnfCodeSetup> | OneToOneLink<Items, BrazilFuelIndexers> | OneToOneLink<Items, BrazilStringIndexers> | OneToOneLink<Items, BrazilNumericIndexers> | OneToOneLink<Items, AssetClasses> | OneToOneLink<Items, AssetGroups> | OneToOneLink<Items, EmployeesInfo> | OneToOneLink<Items, WarehouseLocations> | OneToOneLink<Items, UnitOfMeasurementGroups> | OneToOneLink<Items, UnitOfMeasurements> | OneToOneLink<Items, AssetDepreciationGroups> | OneToOneLink<Items, Resources> | OneToOneLink<Items, IndiaSacCode> | OneToManyLink<Items, StockTakings> | OneToManyLink<Items, DepreciationAreas> | OneToManyLink<Items, ProductTrees> | OneToManyLink<Items, GlAccountAdvancedRules> | OneToManyLink<Items, BarCodes> | OneToManyLink<Items, BatchNumberDetails> | OneToManyLink<Items, SerialNumberDetails> | OneToManyLink<Items, BinLocations> | OneToManyLink<Items, CustomerEquipmentCards> | OneToManyLink<Items, KnowledgeBaseSolutions> | OneToManyLink<Items, ServiceCalls> | OneToManyLink<Items, AlternateCatNum> | OneToManyLink<Items, Resources>> = [
+  export const _allFields: Array<StringField<Items> | NumberField<Items> | EnumField<Items> | DateField<Items> | TimeField<Items> | CollectionField<Items, ItemPrice> | CollectionField<Items, ItemWarehouseInfo> | CollectionField<Items, ItemPreferredVendor> | CollectionField<Items, ItemLocalizationInfo> | CollectionField<Items, ItemProject> | CollectionField<Items, ItemDistributionRule> | CollectionField<Items, ItemAttributeGroups> | CollectionField<Items, ItemDepreciationParameter> | CollectionField<Items, ItemPeriodControl> | CollectionField<Items, ItemUnitOfMeasurement> | CollectionField<Items, ItemBarCode> | ItemIntrastatExtensionField<Items> | OneToManyLink<Items, SpecialPrices> | OneToOneLink<Items, ItemGroups> | OneToOneLink<Items, CustomsGroups> | OneToOneLink<Items, VatGroups> | OneToOneLink<Items, ChartOfAccounts> | OneToOneLink<Items, BusinessPartners> | OneToOneLink<Items, CommissionGroups> | OneToOneLink<Items, Manufacturers> | OneToOneLink<Items, ShippingTypes> | OneToOneLink<Items, ContractTemplates> | OneToOneLink<Items, SalesTaxCodes> | OneToOneLink<Items, InventoryCycles> | OneToOneLink<Items, ServiceGroups> | OneToOneLink<Items, NcmCodesSetup> | OneToOneLink<Items, MaterialGroups> | OneToOneLink<Items, DnfCodeSetup> | OneToOneLink<Items, BrazilFuelIndexers> | OneToOneLink<Items, BrazilStringIndexers> | OneToOneLink<Items, BrazilNumericIndexers> | OneToOneLink<Items, AssetClasses> | OneToOneLink<Items, AssetGroups> | OneToOneLink<Items, EmployeesInfo> | OneToOneLink<Items, WarehouseLocations> | OneToOneLink<Items, UnitOfMeasurementGroups> | OneToOneLink<Items, UnitOfMeasurements> | OneToOneLink<Items, AssetDepreciationGroups> | OneToOneLink<Items, Resources> | OneToOneLink<Items, IndiaSacCode> | OneToManyLink<Items, StockTakings> | OneToManyLink<Items, DepreciationAreas> | OneToManyLink<Items, ProductTrees> | OneToManyLink<Items, GlAccountAdvancedRules> | OneToManyLink<Items, BarCodes> | OneToManyLink<Items, BatchNumberDetails> | OneToManyLink<Items, SerialNumberDetails> | OneToManyLink<Items, BinLocations> | OneToManyLink<Items, CustomerEquipmentCards> | OneToManyLink<Items, KnowledgeBaseSolutions> | OneToManyLink<Items, ServiceCalls> | OneToManyLink<Items, AlternateCatNum> | OneToManyLink<Items, Resources>> = [
     Items.ITEM_CODE,
     Items.ITEM_NAME,
     Items.FOREIGN_NAME,
@@ -2573,6 +3565,10 @@ export namespace Items {
     Items.CUSTOMS_GROUP_CODE,
     Items.SALES_VAT_GROUP,
     Items.BAR_CODE,
+    Items.VAT_LIABLE,
+    Items.PURCHASE_ITEM,
+    Items.SALES_ITEM,
+    Items.INVENTORY_ITEM,
     Items.INCOME_ACCOUNT,
     Items.EXEMPT_INCOME_ACCOUNT,
     Items.EXPANSE_ACCOUNT,
@@ -2586,14 +3582,20 @@ export namespace Items {
     Items.COMMISSION_PERCENT,
     Items.COMMISSION_SUM,
     Items.COMMISSION_GROUP,
+    Items.TREE_TYPE,
+    Items.ASSET_ITEM,
     Items.DATA_EXPORT_CODE,
     Items.MANUFACTURER,
     Items.QUANTITY_ON_STOCK,
     Items.QUANTITY_ORDERED_FROM_VENDORS,
     Items.QUANTITY_ORDERED_BY_CUSTOMERS,
+    Items.MANAGE_SERIAL_NUMBERS,
+    Items.MANAGE_BATCH_NUMBERS,
+    Items.VALID,
     Items.VALID_FROM,
     Items.VALID_TO,
     Items.VALID_REMARKS,
+    Items.FROZEN,
     Items.FROZEN_FROM,
     Items.FROZEN_TO,
     Items.FROZEN_REMARKS,
@@ -2642,7 +3644,10 @@ export namespace Items {
     Items.AVG_STD_PRICE,
     Items.DEFAULT_WAREHOUSE,
     Items.SHIP_TYPE,
+    Items.GL_METHOD,
+    Items.TAX_TYPE,
     Items.MAX_INVENTORY,
+    Items.MANAGE_STOCK_BY_WAREHOUSE,
     Items.PURCHASE_HEIGHT_UNIT_1,
     Items.PURCHASE_UNIT_HEIGHT_1,
     Items.PURCHASE_LENGTH_UNIT_1,
@@ -2659,23 +3664,102 @@ export namespace Items {
     Items.SALES_UNIT_WEIGHT_1,
     Items.SALES_WIDTH_UNIT_1,
     Items.SALES_UNIT_WIDTH_1,
+    Items.FORCE_SELECTION_OF_SERIAL_NUMBER,
+    Items.MANAGE_SERIAL_NUMBERS_ON_RELEASE_ONLY,
+    Items.WT_LIABLE,
+    Items.COST_ACCOUNTING_METHOD,
     Items.SWW,
     Items.WARRANTY_TEMPLATE,
+    Items.INDIRECT_TAX,
     Items.AR_TAX_CODE,
     Items.AP_TAX_CODE,
     Items.BASE_UNIT_NAME,
     Items.ITEM_COUNTRY_ORG,
+    Items.ISSUE_METHOD,
+    Items.SRI_AND_BATCH_MANAGE_METHOD,
+    Items.IS_PHANTOM,
     Items.INVENTORY_UOM,
+    Items.PLANNING_SYSTEM,
+    Items.PROCUREMENT_METHOD,
+    Items.COMPONENT_WAREHOUSE,
     Items.ORDER_INTERVALS,
     Items.ORDER_MULTIPLE,
     Items.LEAD_TIME,
     Items.MIN_ORDER_QUANTITY,
+    Items.ITEM_TYPE,
+    Items.ITEM_CLASS,
     Items.OUTGOING_SERVICE_CODE,
     Items.INCOMING_SERVICE_CODE,
     Items.SERVICE_GROUP,
     Items.NCM_CODE,
+    Items.MATERIAL_TYPE,
     Items.MATERIAL_GROUP,
     Items.PRODUCT_SOURCE,
+    Items.PROPERTIES_1,
+    Items.PROPERTIES_2,
+    Items.PROPERTIES_3,
+    Items.PROPERTIES_4,
+    Items.PROPERTIES_5,
+    Items.PROPERTIES_6,
+    Items.PROPERTIES_7,
+    Items.PROPERTIES_8,
+    Items.PROPERTIES_9,
+    Items.PROPERTIES_10,
+    Items.PROPERTIES_11,
+    Items.PROPERTIES_12,
+    Items.PROPERTIES_13,
+    Items.PROPERTIES_14,
+    Items.PROPERTIES_15,
+    Items.PROPERTIES_16,
+    Items.PROPERTIES_17,
+    Items.PROPERTIES_18,
+    Items.PROPERTIES_19,
+    Items.PROPERTIES_20,
+    Items.PROPERTIES_21,
+    Items.PROPERTIES_22,
+    Items.PROPERTIES_23,
+    Items.PROPERTIES_24,
+    Items.PROPERTIES_25,
+    Items.PROPERTIES_26,
+    Items.PROPERTIES_27,
+    Items.PROPERTIES_28,
+    Items.PROPERTIES_29,
+    Items.PROPERTIES_30,
+    Items.PROPERTIES_31,
+    Items.PROPERTIES_32,
+    Items.PROPERTIES_33,
+    Items.PROPERTIES_34,
+    Items.PROPERTIES_35,
+    Items.PROPERTIES_36,
+    Items.PROPERTIES_37,
+    Items.PROPERTIES_38,
+    Items.PROPERTIES_39,
+    Items.PROPERTIES_40,
+    Items.PROPERTIES_41,
+    Items.PROPERTIES_42,
+    Items.PROPERTIES_43,
+    Items.PROPERTIES_44,
+    Items.PROPERTIES_45,
+    Items.PROPERTIES_46,
+    Items.PROPERTIES_47,
+    Items.PROPERTIES_48,
+    Items.PROPERTIES_49,
+    Items.PROPERTIES_50,
+    Items.PROPERTIES_51,
+    Items.PROPERTIES_52,
+    Items.PROPERTIES_53,
+    Items.PROPERTIES_54,
+    Items.PROPERTIES_55,
+    Items.PROPERTIES_56,
+    Items.PROPERTIES_57,
+    Items.PROPERTIES_58,
+    Items.PROPERTIES_59,
+    Items.PROPERTIES_60,
+    Items.PROPERTIES_61,
+    Items.PROPERTIES_62,
+    Items.PROPERTIES_63,
+    Items.PROPERTIES_64,
+    Items.AUTO_CREATE_SERIAL_NUMBERS_ON_RELEASE,
     Items.DNF_ENTRY,
     Items.GTS_ITEM_SPEC,
     Items.GTS_ITEM_TAX_CATEGORY,
@@ -2685,13 +3769,21 @@ export namespace Items {
     Items.BEVERAGE_COMMERCIAL_BRAND_CODE,
     Items.SERIES,
     Items.TOLERANCE_DAYS,
+    Items.TYPE_OF_ADVANCED_RULES,
+    Items.ISSUE_PRIMARILY_BY,
+    Items.NO_DISCOUNTS,
     Items.ASSET_CLASS,
     Items.ASSET_GROUP,
     Items.INVENTORY_NUMBER,
     Items.TECHNICIAN,
     Items.EMPLOYEE,
     Items.LOCATION,
+    Items.ASSET_STATUS,
     Items.CAPITALIZATION_DATE,
+    Items.STATISTICAL_ASSET,
+    Items.CESSION,
+    Items.DEACTIVATE_AFTER_USEFUL_LIFE,
+    Items.MANAGE_BY_QUANTITY,
     Items.UO_M_GROUP_ENTRY,
     Items.INVENTORY_UO_M_ENTRY,
     Items.DEFAULT_SALES_UO_M_ENTRY,
@@ -2705,19 +3797,27 @@ export namespace Items {
     Items.DEFAULT_COUNTING_UNIT,
     Items.COUNTING_ITEMS_PER_UNIT,
     Items.DEFAULT_COUNTING_UO_M_ENTRY,
+    Items.EXCISABLE,
     Items.CHAPTER_ID,
     Items.SCS_CODE,
+    Items.SP_PROD_TYPE,
     Items.PROD_STD_COST,
+    Items.IN_COST_ROLLUP,
+    Items.VIRTUAL_ASSET_ITEM,
+    Items.ENFORCE_ASSET_SERIAL_NUMBERS,
     Items.ATTACHMENT_ENTRY,
     Items.LINKED_RESOURCE,
     Items.UPDATE_DATE,
     Items.UPDATE_TIME,
+    Items.GST_RELEVNT,
     Items.SAC_ENTRY,
+    Items.GST_TAX_CATEGORY,
     Items.SERVICE_CATEGORY_ENTRY,
     Items.CAPITAL_GOODS_ON_HOLD_PERCENT,
     Items.CAPITAL_GOODS_ON_HOLD_LIMIT,
     Items.ASSESSABLE_VALUE,
     Items.ASS_VAL_4_WTR,
+    Items.SOI_EXCISABLE,
     Items.TNVED,
     Items.PRICING_UNIT,
     Items.ITEM_PRICES,

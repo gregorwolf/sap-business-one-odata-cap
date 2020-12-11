@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.BarCodes = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var BarCodesRequestBuilder_1 = require("./BarCodesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "BarCodes" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var BarCodes = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `BarCodes`.
+     * Returns an entity builder to construct instances of `BarCodes`.
      * @returns A builder that constructs instances of entity type `BarCodes`.
      */
     BarCodes.builder = function () {
-        return v4_1.Entity.entityBuilder(BarCodes);
+        return core_1.EntityV4.entityBuilder(BarCodes);
     };
     /**
      * Returns a request builder to construct requests for operations on the `BarCodes` entity type.
@@ -60,7 +60,7 @@ var BarCodes = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `BarCodes`.
      */
     BarCodes.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, BarCodes);
+        return core_1.EntityV4.customFieldSelector(fieldName, BarCodes);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var BarCodes = /** @class */ (function (_super) {
      */
     BarCodes._entityName = 'BarCodes';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BarCodes.
-     */
-    BarCodes._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    BarCodes._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    BarCodes._defaultServicePath = '/b1s/v2/';
     return BarCodes;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.BarCodes = BarCodes;
 var Items_1 = require("./Items");
 var UnitOfMeasurements_1 = require("./UnitOfMeasurements");
@@ -92,37 +87,37 @@ var UnitOfMeasurements_1 = require("./UnitOfMeasurements");
      * Static representation of the [[absEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BarCodes.ABS_ENTRY = new v4_1.NumberField('AbsEntry', BarCodes, 'Edm.Int32');
+    BarCodes.ABS_ENTRY = new core_1.NumberField('AbsEntry', BarCodes, 'Edm.Int32');
     /**
      * Static representation of the [[itemNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BarCodes.ITEM_NO = new v4_1.StringField('ItemNo', BarCodes, 'Edm.String');
+    BarCodes.ITEM_NO = new core_1.StringField('ItemNo', BarCodes, 'Edm.String');
     /**
      * Static representation of the [[uoMEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BarCodes.UO_M_ENTRY = new v4_1.NumberField('UoMEntry', BarCodes, 'Edm.Int32');
+    BarCodes.UO_M_ENTRY = new core_1.NumberField('UoMEntry', BarCodes, 'Edm.Int32');
     /**
      * Static representation of the [[barcode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BarCodes.BARCODE = new v4_1.StringField('Barcode', BarCodes, 'Edm.String');
+    BarCodes.BARCODE = new core_1.StringField('Barcode', BarCodes, 'Edm.String');
     /**
      * Static representation of the [[freeText]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BarCodes.FREE_TEXT = new v4_1.StringField('FreeText', BarCodes, 'Edm.String');
+    BarCodes.FREE_TEXT = new core_1.StringField('FreeText', BarCodes, 'Edm.String');
     /**
      * Static representation of the one-to-one navigation property [[item]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BarCodes.ITEM = new v4_1.OneToOneLink('Item', BarCodes, Items_1.Items);
+    BarCodes.ITEM = new core_1.OneToOneLink('Item', BarCodes, Items_1.Items);
     /**
      * Static representation of the one-to-one navigation property [[unitOfMeasurement]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BarCodes.UNIT_OF_MEASUREMENT = new v4_1.OneToOneLink('UnitOfMeasurement', BarCodes, UnitOfMeasurements_1.UnitOfMeasurements);
+    BarCodes.UNIT_OF_MEASUREMENT = new core_1.OneToOneLink('UnitOfMeasurement', BarCodes, UnitOfMeasurements_1.UnitOfMeasurements);
     /**
      * All fields of the BarCodes entity.
      */
@@ -138,7 +133,7 @@ var UnitOfMeasurements_1 = require("./UnitOfMeasurements");
     /**
      * All fields selector.
      */
-    BarCodes.ALL_FIELDS = new v4_1.AllFields('*', BarCodes);
+    BarCodes.ALL_FIELDS = new core_1.AllFields('*', BarCodes);
     /**
      * All key fields of the BarCodes entity.
      */

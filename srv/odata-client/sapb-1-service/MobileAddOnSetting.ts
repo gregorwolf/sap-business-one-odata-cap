@@ -4,25 +4,24 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { MobileAddOnSettingRequestBuilder } from './MobileAddOnSettingRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, StringField } from '@sap-cloud-sdk/core/v4';
+import { MobileAddonSettingTypeEnum } from './MobileAddonSettingTypeEnum';
+import { ViewStyleTypeEnum } from './ViewStyleTypeEnum';
+import { LogonMethodEnum } from './LogonMethodEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "MobileAddOnSetting" of service "SAPB1".
  */
-export class MobileAddOnSetting extends Entity implements MobileAddOnSettingType {
+export class MobileAddOnSetting extends EntityV4 implements MobileAddOnSettingType {
   /**
    * Technical entity name for MobileAddOnSetting.
    */
   static _entityName = 'MobileAddOnSetting';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for MobileAddOnSetting.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -39,17 +38,47 @@ export class MobileAddOnSetting extends Entity implements MobileAddOnSettingType
    */
   url?: string;
   /**
+   * Type.
+   * @nullable
+   */
+  type?: MobileAddonSettingTypeEnum;
+  /**
    * Provider.
    * @nullable
    */
   provider?: string;
+  /**
+   * View Style.
+   * @nullable
+   */
+  viewStyle?: ViewStyleTypeEnum;
+  /**
+   * Logon Method.
+   * @nullable
+   */
+  logonMethod?: LogonMethodEnum;
+  /**
+   * Enable.
+   * @nullable
+   */
+  enable?: BoYesNoEnum;
+  /**
+   * B 1 Mobile App.
+   * @nullable
+   */
+  b1MobileApp?: BoYesNoEnum;
+  /**
+   * B 1 Sales App.
+   * @nullable
+   */
+  b1SalesApp?: BoYesNoEnum;
 
   /**
-   * Returns an entity builder to construct instances `MobileAddOnSetting`.
+   * Returns an entity builder to construct instances of `MobileAddOnSetting`.
    * @returns A builder that constructs instances of entity type `MobileAddOnSetting`.
    */
-  static builder(): EntityBuilderType<MobileAddOnSetting, MobileAddOnSettingTypeForceMandatory> {
-    return Entity.entityBuilder(MobileAddOnSetting);
+  static builder(): EntityBuilderType<MobileAddOnSetting, MobileAddOnSettingType> {
+    return EntityV4.entityBuilder(MobileAddOnSetting);
   }
 
   /**
@@ -65,8 +94,8 @@ export class MobileAddOnSetting extends Entity implements MobileAddOnSettingType
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `MobileAddOnSetting`.
    */
-  static customField(fieldName: string): CustomField<MobileAddOnSetting> {
-    return Entity.customFieldSelector(fieldName, MobileAddOnSetting);
+  static customField(fieldName: string): CustomFieldV4<MobileAddOnSetting> {
+    return EntityV4.customFieldSelector(fieldName, MobileAddOnSetting);
   }
 
   /**
@@ -79,17 +108,16 @@ export class MobileAddOnSetting extends Entity implements MobileAddOnSettingType
 }
 
 export interface MobileAddOnSettingType {
-  code?: string;
-  description?: string;
-  url?: string;
-  provider?: string;
-}
-
-export interface MobileAddOnSettingTypeForceMandatory {
-  code: string;
-  description: string;
-  url: string;
-  provider: string;
+  code?: string | null;
+  description?: string | null;
+  url?: string | null;
+  type?: MobileAddonSettingTypeEnum | null;
+  provider?: string | null;
+  viewStyle?: ViewStyleTypeEnum | null;
+  logonMethod?: LogonMethodEnum | null;
+  enable?: BoYesNoEnum | null;
+  b1MobileApp?: BoYesNoEnum | null;
+  b1SalesApp?: BoYesNoEnum | null;
 }
 
 export namespace MobileAddOnSetting {
@@ -109,18 +137,54 @@ export namespace MobileAddOnSetting {
    */
   export const URL: StringField<MobileAddOnSetting> = new StringField('Url', MobileAddOnSetting, 'Edm.String');
   /**
+   * Static representation of the [[type]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TYPE: EnumField<MobileAddOnSetting> = new EnumField('Type', MobileAddOnSetting);
+  /**
    * Static representation of the [[provider]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const PROVIDER: StringField<MobileAddOnSetting> = new StringField('Provider', MobileAddOnSetting, 'Edm.String');
   /**
+   * Static representation of the [[viewStyle]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const VIEW_STYLE: EnumField<MobileAddOnSetting> = new EnumField('ViewStyle', MobileAddOnSetting);
+  /**
+   * Static representation of the [[logonMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LOGON_METHOD: EnumField<MobileAddOnSetting> = new EnumField('LogonMethod', MobileAddOnSetting);
+  /**
+   * Static representation of the [[enable]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ENABLE: EnumField<MobileAddOnSetting> = new EnumField('Enable', MobileAddOnSetting);
+  /**
+   * Static representation of the [[b1MobileApp]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const B_1_MOBILE_APP: EnumField<MobileAddOnSetting> = new EnumField('B1MobileApp', MobileAddOnSetting);
+  /**
+   * Static representation of the [[b1SalesApp]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const B_1_SALES_APP: EnumField<MobileAddOnSetting> = new EnumField('B1SalesApp', MobileAddOnSetting);
+  /**
    * All fields of the MobileAddOnSetting entity.
    */
-  export const _allFields: Array<StringField<MobileAddOnSetting>> = [
+  export const _allFields: Array<StringField<MobileAddOnSetting> | EnumField<MobileAddOnSetting>> = [
     MobileAddOnSetting.CODE,
     MobileAddOnSetting.DESCRIPTION,
     MobileAddOnSetting.URL,
-    MobileAddOnSetting.PROVIDER
+    MobileAddOnSetting.TYPE,
+    MobileAddOnSetting.PROVIDER,
+    MobileAddOnSetting.VIEW_STYLE,
+    MobileAddOnSetting.LOGON_METHOD,
+    MobileAddOnSetting.ENABLE,
+    MobileAddOnSetting.B_1_MOBILE_APP,
+    MobileAddOnSetting.B_1_SALES_APP
   ];
   /**
    * All fields selector.

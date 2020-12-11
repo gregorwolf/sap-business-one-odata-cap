@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * EmployeeBranchAssignmentItem
@@ -32,7 +32,7 @@ export function createEmployeeBranchAssignmentItem(json: any): EmployeeBranchAss
  * EmployeeBranchAssignmentItemField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class EmployeeBranchAssignmentItemField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class EmployeeBranchAssignmentItemField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, EmployeeBranchAssignmentItem> {
   /**
    * Representation of the [[EmployeeBranchAssignmentItem.employeeId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -43,13 +43,38 @@ export class EmployeeBranchAssignmentItemField<EntityT extends Entity> extends C
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   bplid: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('BPLID', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of EmployeeBranchAssignmentItemField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, EmployeeBranchAssignmentItem);
+  }
 }
 
 export namespace EmployeeBranchAssignmentItem {
+  /**
+   * Metadata information on all properties of the `EmployeeBranchAssignmentItem` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<EmployeeBranchAssignmentItem>[] = [{
+    originalName: 'EmployeeID',
+    name: 'employeeId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BPLID',
+    name: 'bplid',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): EmployeeBranchAssignmentItem {
-    return createComplexType(json, {
-      EmployeeID: (employeeId: number) => ({ employeeId: edmToTs(employeeId, 'Edm.Int32') }),
-      BPLID: (bplid: number) => ({ bplid: edmToTs(bplid, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, EmployeeBranchAssignmentItem);
   }
 }

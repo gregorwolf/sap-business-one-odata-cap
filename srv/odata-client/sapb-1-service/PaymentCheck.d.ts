@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * PaymentCheck
  */
@@ -40,6 +41,11 @@ export interface PaymentCheck {
      */
     details?: string;
     /**
+     * Trnsfrable.
+     * @nullable
+     */
+    trnsfrable?: BoYesNoEnum;
+    /**
      * Check Sum.
      * @nullable
      */
@@ -65,6 +71,11 @@ export interface PaymentCheck {
      */
     checkAccount?: string;
     /**
+     * Manual Check.
+     * @nullable
+     */
+    manualCheck?: BoYesNoEnum;
+    /**
      * Fiscal Id.
      * @nullable
      */
@@ -74,6 +85,11 @@ export interface PaymentCheck {
      * @nullable
      */
     originallyIssuedBy?: string;
+    /**
+     * Endorse.
+     * @nullable
+     */
+    endorse?: BoYesNoEnum;
     /**
      * Endorsable Check No.
      * @nullable
@@ -88,7 +104,7 @@ export declare function createPaymentCheck(json: any): PaymentCheck;
  * PaymentCheckField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class PaymentCheckField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class PaymentCheckField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PaymentCheck> {
     /**
      * Representation of the [[PaymentCheck.lineNum]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -125,6 +141,11 @@ export declare class PaymentCheckField<EntityT extends Entity> extends ComplexTy
      */
     details: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[PaymentCheck.trnsfrable]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    trnsfrable: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[PaymentCheck.checkSum]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -150,6 +171,11 @@ export declare class PaymentCheckField<EntityT extends Entity> extends ComplexTy
      */
     checkAccount: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[PaymentCheck.manualCheck]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    manualCheck: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[PaymentCheck.fiscalId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -160,12 +186,31 @@ export declare class PaymentCheckField<EntityT extends Entity> extends ComplexTy
      */
     originallyIssuedBy: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[PaymentCheck.endorse]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    endorse: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[PaymentCheck.endorsableCheckNo]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     endorsableCheckNo: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of PaymentCheckField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace PaymentCheck {
+    /**
+     * Metadata information on all properties of the `PaymentCheck` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<PaymentCheck>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): PaymentCheck;

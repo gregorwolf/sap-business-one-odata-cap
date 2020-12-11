@@ -5,25 +5,20 @@
  */
 import { CustomsDeclarationRequestBuilder } from './CustomsDeclarationRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, Field, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "CustomsDeclaration" of service "SAPB1".
  */
-export class CustomsDeclaration extends Entity implements CustomsDeclarationType {
+export class CustomsDeclaration extends EntityV4 implements CustomsDeclarationType {
   /**
    * Technical entity name for CustomsDeclaration.
    */
   static _entityName = 'CustomsDeclaration';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for CustomsDeclaration.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Ccd Num.
    * @nullable
@@ -71,11 +66,11 @@ export class CustomsDeclaration extends Entity implements CustomsDeclarationType
   paymentKey?: string;
 
   /**
-   * Returns an entity builder to construct instances `CustomsDeclaration`.
+   * Returns an entity builder to construct instances of `CustomsDeclaration`.
    * @returns A builder that constructs instances of entity type `CustomsDeclaration`.
    */
-  static builder(): EntityBuilderType<CustomsDeclaration, CustomsDeclarationTypeForceMandatory> {
-    return Entity.entityBuilder(CustomsDeclaration);
+  static builder(): EntityBuilderType<CustomsDeclaration, CustomsDeclarationType> {
+    return EntityV4.entityBuilder(CustomsDeclaration);
   }
 
   /**
@@ -91,8 +86,8 @@ export class CustomsDeclaration extends Entity implements CustomsDeclarationType
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `CustomsDeclaration`.
    */
-  static customField(fieldName: string): CustomField<CustomsDeclaration> {
-    return Entity.customFieldSelector(fieldName, CustomsDeclaration);
+  static customField(fieldName: string): CustomFieldV4<CustomsDeclaration> {
+    return EntityV4.customFieldSelector(fieldName, CustomsDeclaration);
   }
 
   /**
@@ -105,27 +100,15 @@ export class CustomsDeclaration extends Entity implements CustomsDeclarationType
 }
 
 export interface CustomsDeclarationType {
-  ccdNum?: string;
-  date?: Moment;
-  customsBroker?: string;
-  docNum?: string;
-  docDate?: Moment;
-  supplyNum?: string;
-  supplyDate?: Moment;
-  customsTerminal?: string;
-  paymentKey?: string;
-}
-
-export interface CustomsDeclarationTypeForceMandatory {
-  ccdNum: string;
-  date: Moment;
-  customsBroker: string;
-  docNum: string;
-  docDate: Moment;
-  supplyNum: string;
-  supplyDate: Moment;
-  customsTerminal: string;
-  paymentKey: string;
+  ccdNum?: string | null;
+  date?: Moment | null;
+  customsBroker?: string | null;
+  docNum?: string | null;
+  docDate?: Moment | null;
+  supplyNum?: string | null;
+  supplyDate?: Moment | null;
+  customsTerminal?: string | null;
+  paymentKey?: string | null;
 }
 
 export namespace CustomsDeclaration {

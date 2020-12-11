@@ -1,5 +1,7 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ImportOrExportTypeEnum } from './ImportOrExportTypeEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * TaxExtension
  */
@@ -200,6 +202,11 @@ export interface TaxExtension {
      */
     countryB?: string;
     /**
+     * Import Or Export.
+     * @nullable
+     */
+    importOrExport?: BoYesNoEnum;
+    /**
      * Main Usage.
      * @nullable
      */
@@ -245,6 +252,11 @@ export interface TaxExtension {
      */
     originalBillOfEntryDate?: Moment;
     /**
+     * Import Or Export Type.
+     * @nullable
+     */
+    importOrExportType?: ImportOrExportTypeEnum;
+    /**
      * Port Code.
      * @nullable
      */
@@ -258,7 +270,7 @@ export declare function createTaxExtension(json: any): TaxExtension;
  * TaxExtensionField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class TaxExtensionField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class TaxExtensionField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, TaxExtension> {
     /**
      * Representation of the [[TaxExtension.taxId0]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -455,6 +467,11 @@ export declare class TaxExtensionField<EntityT extends Entity> extends ComplexTy
      */
     countryB: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[TaxExtension.importOrExport]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    importOrExport: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[TaxExtension.mainUsage]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -500,12 +517,31 @@ export declare class TaxExtensionField<EntityT extends Entity> extends ComplexTy
      */
     originalBillOfEntryDate: ComplexTypeDatePropertyField<EntityT>;
     /**
+     * Representation of the [[TaxExtension.importOrExportType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    importOrExportType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[TaxExtension.portCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     portCode: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Creates an instance of TaxExtensionField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace TaxExtension {
+    /**
+     * Metadata information on all properties of the `TaxExtension` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<TaxExtension>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): TaxExtension;

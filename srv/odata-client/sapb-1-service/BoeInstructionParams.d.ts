@@ -1,4 +1,4 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * BoeInstructionParams
  */
@@ -22,7 +22,7 @@ export declare function createBoeInstructionParams(json: any): BoeInstructionPar
  * BoeInstructionParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class BoeInstructionParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class BoeInstructionParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BoeInstructionParams> {
     /**
      * Representation of the [[BoeInstructionParams.instructionEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -33,8 +33,22 @@ export declare class BoeInstructionParamsField<EntityT extends Entity> extends C
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     instructionCode: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Creates an instance of BoeInstructionParamsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace BoeInstructionParams {
+    /**
+     * Metadata information on all properties of the `BoeInstructionParams` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<BoeInstructionParams>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): BoeInstructionParams;

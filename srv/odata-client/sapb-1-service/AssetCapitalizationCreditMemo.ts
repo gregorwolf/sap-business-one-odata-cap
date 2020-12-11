@@ -5,27 +5,27 @@
  */
 import { AssetCapitalizationCreditMemoRequestBuilder } from './AssetCapitalizationCreditMemoRequestBuilder';
 import { Moment } from 'moment';
-import { AssetDocumentLine, AssetDocumentLineField } from './AssetDocumentLine';
-import { AssetDocumentAreaJournal, AssetDocumentAreaJournalField } from './AssetDocumentAreaJournal';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AssetDocumentLine } from './AssetDocumentLine';
+import { AssetDocumentAreaJournal } from './AssetDocumentAreaJournal';
+import { AssetDocumentStatusEnum } from './AssetDocumentStatusEnum';
+import { AssetDocumentTypeEnum } from './AssetDocumentTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ClosingOptionEnum } from './ClosingOptionEnum';
+import { AssetOriginalTypeEnum } from './AssetOriginalTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "AssetCapitalizationCreditMemo" of service "SAPB1".
  */
-export class AssetCapitalizationCreditMemo extends Entity implements AssetCapitalizationCreditMemoType {
+export class AssetCapitalizationCreditMemo extends EntityV4 implements AssetCapitalizationCreditMemoType {
   /**
    * Technical entity name for AssetCapitalizationCreditMemo.
    */
   static _entityName = 'AssetCapitalizationCreditMemo';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for AssetCapitalizationCreditMemo.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Doc Entry.
    * @nullable
@@ -51,6 +51,11 @@ export class AssetCapitalizationCreditMemo extends Entity implements AssetCapita
    * @nullable
    */
   documentDate?: Moment;
+  /**
+   * Status.
+   * @nullable
+   */
+  status?: AssetDocumentStatusEnum;
   /**
    * Remarks.
    * @nullable
@@ -92,10 +97,30 @@ export class AssetCapitalizationCreditMemo extends Entity implements AssetCapita
    */
   assetValueDate?: Moment;
   /**
+   * Document Type.
+   * @nullable
+   */
+  documentType?: AssetDocumentTypeEnum;
+  /**
+   * Summerize By Projects.
+   * @nullable
+   */
+  summerizeByProjects?: BoYesNoEnum;
+  /**
+   * Summerize By Distribution Rules.
+   * @nullable
+   */
+  summerizeByDistributionRules?: BoYesNoEnum;
+  /**
    * Manual Depreciation Type.
    * @nullable
    */
   manualDepreciationType?: string;
+  /**
+   * Hand Written.
+   * @nullable
+   */
+  handWritten?: BoYesNoEnum;
   /**
    * Cancellation Date.
    * @nullable
@@ -116,6 +141,21 @@ export class AssetCapitalizationCreditMemo extends Entity implements AssetCapita
    * @nullable
    */
   origin?: number;
+  /**
+   * Low Value Asset Retirement.
+   * @nullable
+   */
+  lowValueAssetRetirement?: BoYesNoEnum;
+  /**
+   * Cancellation Option.
+   * @nullable
+   */
+  cancellationOption?: ClosingOptionEnum;
+  /**
+   * Original Type.
+   * @nullable
+   */
+  originalType?: AssetOriginalTypeEnum;
   /**
    * Base Reference.
    * @nullable
@@ -159,11 +199,11 @@ export class AssetCapitalizationCreditMemo extends Entity implements AssetCapita
   businessPlace!: BusinessPlaces;
 
   /**
-   * Returns an entity builder to construct instances `AssetCapitalizationCreditMemo`.
+   * Returns an entity builder to construct instances of `AssetCapitalizationCreditMemo`.
    * @returns A builder that constructs instances of entity type `AssetCapitalizationCreditMemo`.
    */
-  static builder(): EntityBuilderType<AssetCapitalizationCreditMemo, AssetCapitalizationCreditMemoTypeForceMandatory> {
-    return Entity.entityBuilder(AssetCapitalizationCreditMemo);
+  static builder(): EntityBuilderType<AssetCapitalizationCreditMemo, AssetCapitalizationCreditMemoType> {
+    return EntityV4.entityBuilder(AssetCapitalizationCreditMemo);
   }
 
   /**
@@ -179,8 +219,8 @@ export class AssetCapitalizationCreditMemo extends Entity implements AssetCapita
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `AssetCapitalizationCreditMemo`.
    */
-  static customField(fieldName: string): CustomField<AssetCapitalizationCreditMemo> {
-    return Entity.customFieldSelector(fieldName, AssetCapitalizationCreditMemo);
+  static customField(fieldName: string): CustomFieldV4<AssetCapitalizationCreditMemo> {
+    return EntityV4.customFieldSelector(fieldName, AssetCapitalizationCreditMemo);
   }
 
   /**
@@ -198,59 +238,37 @@ import { DepreciationAreas, DepreciationAreasType } from './DepreciationAreas';
 import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 
 export interface AssetCapitalizationCreditMemoType {
-  docEntry?: number;
-  docNum?: number;
-  series?: number;
-  postingDate?: Moment;
-  documentDate?: Moment;
-  remarks?: string;
-  reference?: string;
-  currency?: string;
-  documentRate?: number;
-  documentTotal?: number;
-  documentTotalFc?: number;
-  documentTotalSc?: number;
-  assetValueDate?: Moment;
-  manualDepreciationType?: string;
-  cancellationDate?: Moment;
-  depreciationArea?: string;
-  bplId?: number;
-  origin?: number;
-  baseReference?: string;
-  bplName?: string;
-  vatRegNum?: string;
-  assetDocumentLineCollection?: AssetDocumentLine[];
-  assetDocumentAreaJournalCollection?: AssetDocumentAreaJournal[];
-  currency2: CurrenciesType;
-  depreciationType: DepreciationTypesType;
-  depreciationArea2: DepreciationAreasType;
-  businessPlace: BusinessPlacesType;
-}
-
-export interface AssetCapitalizationCreditMemoTypeForceMandatory {
-  docEntry: number;
-  docNum: number;
-  series: number;
-  postingDate: Moment;
-  documentDate: Moment;
-  remarks: string;
-  reference: string;
-  currency: string;
-  documentRate: number;
-  documentTotal: number;
-  documentTotalFc: number;
-  documentTotalSc: number;
-  assetValueDate: Moment;
-  manualDepreciationType: string;
-  cancellationDate: Moment;
-  depreciationArea: string;
-  bplId: number;
-  origin: number;
-  baseReference: string;
-  bplName: string;
-  vatRegNum: string;
-  assetDocumentLineCollection: AssetDocumentLine[];
-  assetDocumentAreaJournalCollection: AssetDocumentAreaJournal[];
+  docEntry?: number | null;
+  docNum?: number | null;
+  series?: number | null;
+  postingDate?: Moment | null;
+  documentDate?: Moment | null;
+  status?: AssetDocumentStatusEnum | null;
+  remarks?: string | null;
+  reference?: string | null;
+  currency?: string | null;
+  documentRate?: number | null;
+  documentTotal?: number | null;
+  documentTotalFc?: number | null;
+  documentTotalSc?: number | null;
+  assetValueDate?: Moment | null;
+  documentType?: AssetDocumentTypeEnum | null;
+  summerizeByProjects?: BoYesNoEnum | null;
+  summerizeByDistributionRules?: BoYesNoEnum | null;
+  manualDepreciationType?: string | null;
+  handWritten?: BoYesNoEnum | null;
+  cancellationDate?: Moment | null;
+  depreciationArea?: string | null;
+  bplId?: number | null;
+  origin?: number | null;
+  lowValueAssetRetirement?: BoYesNoEnum | null;
+  cancellationOption?: ClosingOptionEnum | null;
+  originalType?: AssetOriginalTypeEnum | null;
+  baseReference?: string | null;
+  bplName?: string | null;
+  vatRegNum?: string | null;
+  assetDocumentLineCollection?: AssetDocumentLine[] | null;
+  assetDocumentAreaJournalCollection?: AssetDocumentAreaJournal[] | null;
   currency2: CurrenciesType;
   depreciationType: DepreciationTypesType;
   depreciationArea2: DepreciationAreasType;
@@ -283,6 +301,11 @@ export namespace AssetCapitalizationCreditMemo {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOCUMENT_DATE: DateField<AssetCapitalizationCreditMemo> = new DateField('DocumentDate', AssetCapitalizationCreditMemo, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[status]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const STATUS: EnumField<AssetCapitalizationCreditMemo> = new EnumField('Status', AssetCapitalizationCreditMemo);
   /**
    * Static representation of the [[remarks]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -324,10 +347,30 @@ export namespace AssetCapitalizationCreditMemo {
    */
   export const ASSET_VALUE_DATE: DateField<AssetCapitalizationCreditMemo> = new DateField('AssetValueDate', AssetCapitalizationCreditMemo, 'Edm.DateTimeOffset');
   /**
+   * Static representation of the [[documentType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_TYPE: EnumField<AssetCapitalizationCreditMemo> = new EnumField('DocumentType', AssetCapitalizationCreditMemo);
+  /**
+   * Static representation of the [[summerizeByProjects]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SUMMERIZE_BY_PROJECTS: EnumField<AssetCapitalizationCreditMemo> = new EnumField('SummerizeByProjects', AssetCapitalizationCreditMemo);
+  /**
+   * Static representation of the [[summerizeByDistributionRules]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SUMMERIZE_BY_DISTRIBUTION_RULES: EnumField<AssetCapitalizationCreditMemo> = new EnumField('SummerizeByDistributionRules', AssetCapitalizationCreditMemo);
+  /**
    * Static representation of the [[manualDepreciationType]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const MANUAL_DEPRECIATION_TYPE: StringField<AssetCapitalizationCreditMemo> = new StringField('ManualDepreciationType', AssetCapitalizationCreditMemo, 'Edm.String');
+  /**
+   * Static representation of the [[handWritten]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const HAND_WRITTEN: EnumField<AssetCapitalizationCreditMemo> = new EnumField('HandWritten', AssetCapitalizationCreditMemo);
   /**
    * Static representation of the [[cancellationDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -349,6 +392,21 @@ export namespace AssetCapitalizationCreditMemo {
    */
   export const ORIGIN: NumberField<AssetCapitalizationCreditMemo> = new NumberField('Origin', AssetCapitalizationCreditMemo, 'Edm.Int32');
   /**
+   * Static representation of the [[lowValueAssetRetirement]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LOW_VALUE_ASSET_RETIREMENT: EnumField<AssetCapitalizationCreditMemo> = new EnumField('LowValueAssetRetirement', AssetCapitalizationCreditMemo);
+  /**
+   * Static representation of the [[cancellationOption]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CANCELLATION_OPTION: EnumField<AssetCapitalizationCreditMemo> = new EnumField('CancellationOption', AssetCapitalizationCreditMemo);
+  /**
+   * Static representation of the [[originalType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ORIGINAL_TYPE: EnumField<AssetCapitalizationCreditMemo> = new EnumField('OriginalType', AssetCapitalizationCreditMemo);
+  /**
    * Static representation of the [[baseReference]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -367,12 +425,12 @@ export namespace AssetCapitalizationCreditMemo {
    * Static representation of the [[assetDocumentLineCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ASSET_DOCUMENT_LINE_COLLECTION: CollectionField<AssetCapitalizationCreditMemo> = new CollectionField('AssetDocumentLineCollection', AssetCapitalizationCreditMemo, new AssetDocumentLineField('', AssetCapitalizationCreditMemo));
+  export const ASSET_DOCUMENT_LINE_COLLECTION: CollectionField<AssetCapitalizationCreditMemo, AssetDocumentLine> = new CollectionField('AssetDocumentLineCollection', AssetCapitalizationCreditMemo, AssetDocumentLine);
   /**
    * Static representation of the [[assetDocumentAreaJournalCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ASSET_DOCUMENT_AREA_JOURNAL_COLLECTION: CollectionField<AssetCapitalizationCreditMemo> = new CollectionField('AssetDocumentAreaJournalCollection', AssetCapitalizationCreditMemo, new AssetDocumentAreaJournalField('', AssetCapitalizationCreditMemo));
+  export const ASSET_DOCUMENT_AREA_JOURNAL_COLLECTION: CollectionField<AssetCapitalizationCreditMemo, AssetDocumentAreaJournal> = new CollectionField('AssetDocumentAreaJournalCollection', AssetCapitalizationCreditMemo, AssetDocumentAreaJournal);
   /**
    * Static representation of the one-to-one navigation property [[currency2]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -396,12 +454,13 @@ export namespace AssetCapitalizationCreditMemo {
   /**
    * All fields of the AssetCapitalizationCreditMemo entity.
    */
-  export const _allFields: Array<NumberField<AssetCapitalizationCreditMemo> | DateField<AssetCapitalizationCreditMemo> | StringField<AssetCapitalizationCreditMemo> | CollectionField<AssetCapitalizationCreditMemo> | OneToOneLink<AssetCapitalizationCreditMemo, Currencies> | OneToOneLink<AssetCapitalizationCreditMemo, DepreciationTypes> | OneToOneLink<AssetCapitalizationCreditMemo, DepreciationAreas> | OneToOneLink<AssetCapitalizationCreditMemo, BusinessPlaces>> = [
+  export const _allFields: Array<NumberField<AssetCapitalizationCreditMemo> | DateField<AssetCapitalizationCreditMemo> | EnumField<AssetCapitalizationCreditMemo> | StringField<AssetCapitalizationCreditMemo> | CollectionField<AssetCapitalizationCreditMemo, AssetDocumentLine> | CollectionField<AssetCapitalizationCreditMemo, AssetDocumentAreaJournal> | OneToOneLink<AssetCapitalizationCreditMemo, Currencies> | OneToOneLink<AssetCapitalizationCreditMemo, DepreciationTypes> | OneToOneLink<AssetCapitalizationCreditMemo, DepreciationAreas> | OneToOneLink<AssetCapitalizationCreditMemo, BusinessPlaces>> = [
     AssetCapitalizationCreditMemo.DOC_ENTRY,
     AssetCapitalizationCreditMemo.DOC_NUM,
     AssetCapitalizationCreditMemo.SERIES,
     AssetCapitalizationCreditMemo.POSTING_DATE,
     AssetCapitalizationCreditMemo.DOCUMENT_DATE,
+    AssetCapitalizationCreditMemo.STATUS,
     AssetCapitalizationCreditMemo.REMARKS,
     AssetCapitalizationCreditMemo.REFERENCE,
     AssetCapitalizationCreditMemo.CURRENCY,
@@ -410,11 +469,18 @@ export namespace AssetCapitalizationCreditMemo {
     AssetCapitalizationCreditMemo.DOCUMENT_TOTAL_FC,
     AssetCapitalizationCreditMemo.DOCUMENT_TOTAL_SC,
     AssetCapitalizationCreditMemo.ASSET_VALUE_DATE,
+    AssetCapitalizationCreditMemo.DOCUMENT_TYPE,
+    AssetCapitalizationCreditMemo.SUMMERIZE_BY_PROJECTS,
+    AssetCapitalizationCreditMemo.SUMMERIZE_BY_DISTRIBUTION_RULES,
     AssetCapitalizationCreditMemo.MANUAL_DEPRECIATION_TYPE,
+    AssetCapitalizationCreditMemo.HAND_WRITTEN,
     AssetCapitalizationCreditMemo.CANCELLATION_DATE,
     AssetCapitalizationCreditMemo.DEPRECIATION_AREA,
     AssetCapitalizationCreditMemo.BPL_ID,
     AssetCapitalizationCreditMemo.ORIGIN,
+    AssetCapitalizationCreditMemo.LOW_VALUE_ASSET_RETIREMENT,
+    AssetCapitalizationCreditMemo.CANCELLATION_OPTION,
+    AssetCapitalizationCreditMemo.ORIGINAL_TYPE,
     AssetCapitalizationCreditMemo.BASE_REFERENCE,
     AssetCapitalizationCreditMemo.BPL_NAME,
     AssetCapitalizationCreditMemo.VAT_REG_NUM,

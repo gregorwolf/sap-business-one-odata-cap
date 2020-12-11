@@ -1,18 +1,13 @@
 import { SalesOpportunityInterestsSetupRequestBuilder } from './SalesOpportunityInterestsSetupRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "SalesOpportunityInterestsSetup" of service "SAPB1".
  */
-export declare class SalesOpportunityInterestsSetup extends Entity implements SalesOpportunityInterestsSetupType {
+export declare class SalesOpportunityInterestsSetup extends EntityV4 implements SalesOpportunityInterestsSetupType {
     /**
      * Technical entity name for SalesOpportunityInterestsSetup.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for SalesOpportunityInterestsSetup.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -37,10 +32,10 @@ export declare class SalesOpportunityInterestsSetup extends Entity implements Sa
      */
     salesOpportunities: SalesOpportunities[];
     /**
-     * Returns an entity builder to construct instances `SalesOpportunityInterestsSetup`.
+     * Returns an entity builder to construct instances of `SalesOpportunityInterestsSetup`.
      * @returns A builder that constructs instances of entity type `SalesOpportunityInterestsSetup`.
      */
-    static builder(): EntityBuilderType<SalesOpportunityInterestsSetup, SalesOpportunityInterestsSetupTypeForceMandatory>;
+    static builder(): EntityBuilderType<SalesOpportunityInterestsSetup, SalesOpportunityInterestsSetupType>;
     /**
      * Returns a request builder to construct requests for operations on the `SalesOpportunityInterestsSetup` entity type.
      * @returns A `SalesOpportunityInterestsSetup` request builder.
@@ -51,7 +46,7 @@ export declare class SalesOpportunityInterestsSetup extends Entity implements Sa
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `SalesOpportunityInterestsSetup`.
      */
-    static customField(fieldName: string): CustomField<SalesOpportunityInterestsSetup>;
+    static customField(fieldName: string): CustomFieldV4<SalesOpportunityInterestsSetup>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -62,15 +57,9 @@ export declare class SalesOpportunityInterestsSetup extends Entity implements Sa
 }
 import { SalesOpportunities, SalesOpportunitiesType } from './SalesOpportunities';
 export interface SalesOpportunityInterestsSetupType {
-    sequenceNo?: number;
-    description?: string;
-    sort?: number;
-    salesOpportunities: SalesOpportunitiesType[];
-}
-export interface SalesOpportunityInterestsSetupTypeForceMandatory {
-    sequenceNo: number;
-    description: string;
-    sort: number;
+    sequenceNo?: number | null;
+    description?: string | null;
+    sort?: number | null;
     salesOpportunities: SalesOpportunitiesType[];
 }
 export declare namespace SalesOpportunityInterestsSetup {

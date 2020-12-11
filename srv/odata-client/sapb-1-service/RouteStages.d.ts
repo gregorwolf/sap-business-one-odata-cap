@@ -1,19 +1,14 @@
 import { RouteStagesRequestBuilder } from './RouteStagesRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, Field, NumberField, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "RouteStages" of service "SAPB1".
  */
-export declare class RouteStages extends Entity implements RouteStagesType {
+export declare class RouteStages extends EntityV4 implements RouteStagesType {
     /**
      * Technical entity name for RouteStages.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for RouteStages.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -49,10 +44,10 @@ export declare class RouteStages extends Entity implements RouteStagesType {
      */
     dateOfUpdate?: Moment;
     /**
-     * Returns an entity builder to construct instances `RouteStages`.
+     * Returns an entity builder to construct instances of `RouteStages`.
      * @returns A builder that constructs instances of entity type `RouteStages`.
      */
-    static builder(): EntityBuilderType<RouteStages, RouteStagesTypeForceMandatory>;
+    static builder(): EntityBuilderType<RouteStages, RouteStagesType>;
     /**
      * Returns a request builder to construct requests for operations on the `RouteStages` entity type.
      * @returns A `RouteStages` request builder.
@@ -63,7 +58,7 @@ export declare class RouteStages extends Entity implements RouteStagesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `RouteStages`.
      */
-    static customField(fieldName: string): CustomField<RouteStages>;
+    static customField(fieldName: string): CustomFieldV4<RouteStages>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -73,20 +68,12 @@ export declare class RouteStages extends Entity implements RouteStagesType {
     };
 }
 export interface RouteStagesType {
-    internalNumber?: number;
-    code?: string;
-    description?: string;
-    creationDate?: Moment;
-    generationTime?: Time;
-    dateOfUpdate?: Moment;
-}
-export interface RouteStagesTypeForceMandatory {
-    internalNumber: number;
-    code: string;
-    description: string;
-    creationDate: Moment;
-    generationTime: Time;
-    dateOfUpdate: Moment;
+    internalNumber?: number | null;
+    code?: string | null;
+    description?: string | null;
+    creationDate?: Moment | null;
+    generationTime?: Time | null;
+    dateOfUpdate?: Moment | null;
 }
 export declare namespace RouteStages {
     /**

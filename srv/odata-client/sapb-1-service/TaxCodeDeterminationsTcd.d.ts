@@ -2,20 +2,16 @@ import { TaxCodeDeterminationsTcdRequestBuilder } from './TaxCodeDeterminationsT
 import { TaxCodeDeterminationTcdDefaultWt } from './TaxCodeDeterminationTcdDefaultWt';
 import { TaxCodeDeterminationTcdByUsage } from './TaxCodeDeterminationTcdByUsage';
 import { TaxCodeDeterminationTcdKeyField } from './TaxCodeDeterminationTcdKeyField';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { TaxCodeDeterminationTcdTypeEnum } from './TaxCodeDeterminationTcdTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "TaxCodeDeterminationsTCD" of service "SAPB1".
  */
-export declare class TaxCodeDeterminationsTcd extends Entity implements TaxCodeDeterminationsTcdType {
+export declare class TaxCodeDeterminationsTcd extends EntityV4 implements TaxCodeDeterminationsTcdType {
     /**
      * Technical entity name for TaxCodeDeterminationsTcd.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for TaxCodeDeterminationsTcd.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -25,6 +21,11 @@ export declare class TaxCodeDeterminationsTcd extends Entity implements TaxCodeD
      * @nullable
      */
     absId?: number;
+    /**
+     * Tcd Type.
+     * @nullable
+     */
+    tcdType?: TaxCodeDeterminationTcdTypeEnum;
     /**
      * Dft Ar Code.
      * @nullable
@@ -51,10 +52,10 @@ export declare class TaxCodeDeterminationsTcd extends Entity implements TaxCodeD
      */
     taxCodeDeterminationTcdKeyFields?: TaxCodeDeterminationTcdKeyField[];
     /**
-     * Returns an entity builder to construct instances `TaxCodeDeterminationsTcd`.
+     * Returns an entity builder to construct instances of `TaxCodeDeterminationsTcd`.
      * @returns A builder that constructs instances of entity type `TaxCodeDeterminationsTcd`.
      */
-    static builder(): EntityBuilderType<TaxCodeDeterminationsTcd, TaxCodeDeterminationsTcdTypeForceMandatory>;
+    static builder(): EntityBuilderType<TaxCodeDeterminationsTcd, TaxCodeDeterminationsTcdType>;
     /**
      * Returns a request builder to construct requests for operations on the `TaxCodeDeterminationsTcd` entity type.
      * @returns A `TaxCodeDeterminationsTcd` request builder.
@@ -65,7 +66,7 @@ export declare class TaxCodeDeterminationsTcd extends Entity implements TaxCodeD
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `TaxCodeDeterminationsTcd`.
      */
-    static customField(fieldName: string): CustomField<TaxCodeDeterminationsTcd>;
+    static customField(fieldName: string): CustomFieldV4<TaxCodeDeterminationsTcd>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -75,20 +76,13 @@ export declare class TaxCodeDeterminationsTcd extends Entity implements TaxCodeD
     };
 }
 export interface TaxCodeDeterminationsTcdType {
-    absId?: number;
-    dftArCode?: string;
-    dftApCode?: string;
-    taxCodeDeterminationTcdDefaultWTs?: TaxCodeDeterminationTcdDefaultWt[];
-    taxCodeDeterminationTcdByUsages?: TaxCodeDeterminationTcdByUsage[];
-    taxCodeDeterminationTcdKeyFields?: TaxCodeDeterminationTcdKeyField[];
-}
-export interface TaxCodeDeterminationsTcdTypeForceMandatory {
-    absId: number;
-    dftArCode: string;
-    dftApCode: string;
-    taxCodeDeterminationTcdDefaultWTs: TaxCodeDeterminationTcdDefaultWt[];
-    taxCodeDeterminationTcdByUsages: TaxCodeDeterminationTcdByUsage[];
-    taxCodeDeterminationTcdKeyFields: TaxCodeDeterminationTcdKeyField[];
+    absId?: number | null;
+    tcdType?: TaxCodeDeterminationTcdTypeEnum | null;
+    dftArCode?: string | null;
+    dftApCode?: string | null;
+    taxCodeDeterminationTcdDefaultWTs?: TaxCodeDeterminationTcdDefaultWt[] | null;
+    taxCodeDeterminationTcdByUsages?: TaxCodeDeterminationTcdByUsage[] | null;
+    taxCodeDeterminationTcdKeyFields?: TaxCodeDeterminationTcdKeyField[] | null;
 }
 export declare namespace TaxCodeDeterminationsTcd {
     /**
@@ -96,6 +90,11 @@ export declare namespace TaxCodeDeterminationsTcd {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const ABS_ID: NumberField<TaxCodeDeterminationsTcd>;
+    /**
+     * Static representation of the [[tcdType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TCD_TYPE: EnumField<TaxCodeDeterminationsTcd>;
     /**
      * Static representation of the [[dftArCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -110,21 +109,21 @@ export declare namespace TaxCodeDeterminationsTcd {
      * Static representation of the [[taxCodeDeterminationTcdDefaultWTs]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const TAX_CODE_DETERMINATION_TCD_DEFAULT_W_TS: CollectionField<TaxCodeDeterminationsTcd>;
+    const TAX_CODE_DETERMINATION_TCD_DEFAULT_W_TS: CollectionField<TaxCodeDeterminationsTcd, TaxCodeDeterminationTcdDefaultWt>;
     /**
      * Static representation of the [[taxCodeDeterminationTcdByUsages]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const TAX_CODE_DETERMINATION_TCD_BY_USAGES: CollectionField<TaxCodeDeterminationsTcd>;
+    const TAX_CODE_DETERMINATION_TCD_BY_USAGES: CollectionField<TaxCodeDeterminationsTcd, TaxCodeDeterminationTcdByUsage>;
     /**
      * Static representation of the [[taxCodeDeterminationTcdKeyFields]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const TAX_CODE_DETERMINATION_TCD_KEY_FIELDS: CollectionField<TaxCodeDeterminationsTcd>;
+    const TAX_CODE_DETERMINATION_TCD_KEY_FIELDS: CollectionField<TaxCodeDeterminationsTcd, TaxCodeDeterminationTcdKeyField>;
     /**
      * All fields of the TaxCodeDeterminationsTcd entity.
      */
-    const _allFields: Array<NumberField<TaxCodeDeterminationsTcd> | StringField<TaxCodeDeterminationsTcd> | CollectionField<TaxCodeDeterminationsTcd>>;
+    const _allFields: Array<NumberField<TaxCodeDeterminationsTcd> | EnumField<TaxCodeDeterminationsTcd> | StringField<TaxCodeDeterminationsTcd> | CollectionField<TaxCodeDeterminationsTcd, TaxCodeDeterminationTcdDefaultWt> | CollectionField<TaxCodeDeterminationsTcd, TaxCodeDeterminationTcdByUsage> | CollectionField<TaxCodeDeterminationsTcd, TaxCodeDeterminationTcdKeyField>>;
     /**
      * All fields selector.
      */

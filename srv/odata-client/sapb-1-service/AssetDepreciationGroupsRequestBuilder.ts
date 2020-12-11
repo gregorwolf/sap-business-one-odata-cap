@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { AssetDepreciationGroups } from './AssetDepreciationGroups';
 
 /**
@@ -15,16 +15,16 @@ export class AssetDepreciationGroupsRequestBuilder extends RequestBuilder<AssetD
    * @param code Key property. See [[AssetDepreciationGroups.code]].
    * @returns A request builder for creating requests to retrieve one `AssetDepreciationGroups` entity based on its keys.
    */
-  getByKey(code: string): GetByKeyRequestBuilder<AssetDepreciationGroups> {
-    return new GetByKeyRequestBuilder(AssetDepreciationGroups, { Code: code });
+  getByKey(code: string): GetByKeyRequestBuilderV4<AssetDepreciationGroups> {
+    return new GetByKeyRequestBuilderV4(AssetDepreciationGroups, { Code: code });
   }
 
   /**
    * Returns a request builder for querying all `AssetDepreciationGroups` entities.
    * @returns A request builder for creating requests to retrieve all `AssetDepreciationGroups` entities.
    */
-  getAll(): GetAllRequestBuilder<AssetDepreciationGroups> {
-    return new GetAllRequestBuilder(AssetDepreciationGroups);
+  getAll(): GetAllRequestBuilderV4<AssetDepreciationGroups> {
+    return new GetAllRequestBuilderV4(AssetDepreciationGroups);
   }
 
   /**
@@ -32,8 +32,8 @@ export class AssetDepreciationGroupsRequestBuilder extends RequestBuilder<AssetD
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `AssetDepreciationGroups`.
    */
-  create(entity: AssetDepreciationGroups): CreateRequestBuilder<AssetDepreciationGroups> {
-    return new CreateRequestBuilder(AssetDepreciationGroups, entity);
+  create(entity: AssetDepreciationGroups): CreateRequestBuilderV4<AssetDepreciationGroups> {
+    return new CreateRequestBuilderV4(AssetDepreciationGroups, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class AssetDepreciationGroupsRequestBuilder extends RequestBuilder<AssetD
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `AssetDepreciationGroups`.
    */
-  update(entity: AssetDepreciationGroups): UpdateRequestBuilder<AssetDepreciationGroups> {
-    return new UpdateRequestBuilder(AssetDepreciationGroups, entity);
+  update(entity: AssetDepreciationGroups): UpdateRequestBuilderV4<AssetDepreciationGroups> {
+    return new UpdateRequestBuilderV4(AssetDepreciationGroups, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class AssetDepreciationGroupsRequestBuilder extends RequestBuilder<AssetD
    * @param code Key property. See [[AssetDepreciationGroups.code]].
    * @returns A request builder for creating requests that delete an entity of type `AssetDepreciationGroups`.
    */
-  delete(code: string): DeleteRequestBuilder<AssetDepreciationGroups>;
+  delete(code: string): DeleteRequestBuilderV4<AssetDepreciationGroups>;
   /**
    * Returns a request builder for deleting an entity of type `AssetDepreciationGroups`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `AssetDepreciationGroups` by taking the entity as a parameter.
    */
-  delete(entity: AssetDepreciationGroups): DeleteRequestBuilder<AssetDepreciationGroups>;
-  delete(codeOrEntity: any): DeleteRequestBuilder<AssetDepreciationGroups> {
-    return new DeleteRequestBuilder(AssetDepreciationGroups, codeOrEntity instanceof AssetDepreciationGroups ? codeOrEntity : { Code: codeOrEntity! });
+  delete(entity: AssetDepreciationGroups): DeleteRequestBuilderV4<AssetDepreciationGroups>;
+  delete(codeOrEntity: any): DeleteRequestBuilderV4<AssetDepreciationGroups> {
+    return new DeleteRequestBuilderV4(AssetDepreciationGroups, codeOrEntity instanceof AssetDepreciationGroups ? codeOrEntity : { Code: codeOrEntity! });
   }
 }

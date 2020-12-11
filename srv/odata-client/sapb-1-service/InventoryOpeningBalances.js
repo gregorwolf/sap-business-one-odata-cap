@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.InventoryOpeningBalances = void 0;
  */
 var InventoryOpeningBalancesRequestBuilder_1 = require("./InventoryOpeningBalancesRequestBuilder");
 var InventoryOpeningBalanceLine_1 = require("./InventoryOpeningBalanceLine");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "InventoryOpeningBalances" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var InventoryOpeningBalances = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `InventoryOpeningBalances`.
+     * Returns an entity builder to construct instances of `InventoryOpeningBalances`.
      * @returns A builder that constructs instances of entity type `InventoryOpeningBalances`.
      */
     InventoryOpeningBalances.builder = function () {
-        return v4_1.Entity.entityBuilder(InventoryOpeningBalances);
+        return core_1.EntityV4.entityBuilder(InventoryOpeningBalances);
     };
     /**
      * Returns a request builder to construct requests for operations on the `InventoryOpeningBalances` entity type.
@@ -61,7 +61,7 @@ var InventoryOpeningBalances = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `InventoryOpeningBalances`.
      */
     InventoryOpeningBalances.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, InventoryOpeningBalances);
+        return core_1.EntityV4.customFieldSelector(fieldName, InventoryOpeningBalances);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,16 +75,11 @@ var InventoryOpeningBalances = /** @class */ (function (_super) {
      */
     InventoryOpeningBalances._entityName = 'InventoryOpeningBalances';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for InventoryOpeningBalances.
-     */
-    InventoryOpeningBalances._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    InventoryOpeningBalances._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    InventoryOpeningBalances._defaultServicePath = '/b1s/v2/';
     return InventoryOpeningBalances;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.InventoryOpeningBalances = InventoryOpeningBalances;
 var BusinessPlaces_1 = require("./BusinessPlaces");
 (function (InventoryOpeningBalances) {
@@ -92,77 +87,82 @@ var BusinessPlaces_1 = require("./BusinessPlaces");
      * Static representation of the [[documentEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryOpeningBalances.DOCUMENT_ENTRY = new v4_1.NumberField('DocumentEntry', InventoryOpeningBalances, 'Edm.Int32');
+    InventoryOpeningBalances.DOCUMENT_ENTRY = new core_1.NumberField('DocumentEntry', InventoryOpeningBalances, 'Edm.Int32');
     /**
      * Static representation of the [[postingDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryOpeningBalances.POSTING_DATE = new v4_1.DateField('PostingDate', InventoryOpeningBalances, 'Edm.DateTimeOffset');
+    InventoryOpeningBalances.POSTING_DATE = new core_1.DateField('PostingDate', InventoryOpeningBalances, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[documentDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryOpeningBalances.DOCUMENT_DATE = new v4_1.DateField('DocumentDate', InventoryOpeningBalances, 'Edm.DateTimeOffset');
+    InventoryOpeningBalances.DOCUMENT_DATE = new core_1.DateField('DocumentDate', InventoryOpeningBalances, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[documentNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryOpeningBalances.DOCUMENT_NUMBER = new v4_1.NumberField('DocumentNumber', InventoryOpeningBalances, 'Edm.Int32');
+    InventoryOpeningBalances.DOCUMENT_NUMBER = new core_1.NumberField('DocumentNumber', InventoryOpeningBalances, 'Edm.Int32');
     /**
      * Static representation of the [[series]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryOpeningBalances.SERIES = new v4_1.NumberField('Series', InventoryOpeningBalances, 'Edm.Int32');
+    InventoryOpeningBalances.SERIES = new core_1.NumberField('Series', InventoryOpeningBalances, 'Edm.Int32');
     /**
      * Static representation of the [[reference2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryOpeningBalances.REFERENCE_2 = new v4_1.StringField('Reference2', InventoryOpeningBalances, 'Edm.String');
+    InventoryOpeningBalances.REFERENCE_2 = new core_1.StringField('Reference2', InventoryOpeningBalances, 'Edm.String');
     /**
      * Static representation of the [[remarks]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryOpeningBalances.REMARKS = new v4_1.StringField('Remarks', InventoryOpeningBalances, 'Edm.String');
+    InventoryOpeningBalances.REMARKS = new core_1.StringField('Remarks', InventoryOpeningBalances, 'Edm.String');
     /**
      * Static representation of the [[branchId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryOpeningBalances.BRANCH_ID = new v4_1.NumberField('BranchID', InventoryOpeningBalances, 'Edm.Int32');
+    InventoryOpeningBalances.BRANCH_ID = new core_1.NumberField('BranchID', InventoryOpeningBalances, 'Edm.Int32');
+    /**
+     * Static representation of the [[priceSource]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    InventoryOpeningBalances.PRICE_SOURCE = new core_1.EnumField('PriceSource', InventoryOpeningBalances);
     /**
      * Static representation of the [[priceList]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryOpeningBalances.PRICE_LIST = new v4_1.NumberField('PriceList', InventoryOpeningBalances, 'Edm.Int32');
+    InventoryOpeningBalances.PRICE_LIST = new core_1.NumberField('PriceList', InventoryOpeningBalances, 'Edm.Int32');
     /**
      * Static representation of the [[journalRemark]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryOpeningBalances.JOURNAL_REMARK = new v4_1.StringField('JournalRemark', InventoryOpeningBalances, 'Edm.String');
+    InventoryOpeningBalances.JOURNAL_REMARK = new core_1.StringField('JournalRemark', InventoryOpeningBalances, 'Edm.String');
     /**
      * Static representation of the [[docObjectCodeEx]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryOpeningBalances.DOC_OBJECT_CODE_EX = new v4_1.StringField('DocObjectCodeEx', InventoryOpeningBalances, 'Edm.String');
+    InventoryOpeningBalances.DOC_OBJECT_CODE_EX = new core_1.StringField('DocObjectCodeEx', InventoryOpeningBalances, 'Edm.String');
     /**
      * Static representation of the [[periodIndicator]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryOpeningBalances.PERIOD_INDICATOR = new v4_1.StringField('PeriodIndicator', InventoryOpeningBalances, 'Edm.String');
+    InventoryOpeningBalances.PERIOD_INDICATOR = new core_1.StringField('PeriodIndicator', InventoryOpeningBalances, 'Edm.String');
     /**
      * Static representation of the [[financialPeriod]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryOpeningBalances.FINANCIAL_PERIOD = new v4_1.NumberField('FinancialPeriod', InventoryOpeningBalances, 'Edm.Int32');
+    InventoryOpeningBalances.FINANCIAL_PERIOD = new core_1.NumberField('FinancialPeriod', InventoryOpeningBalances, 'Edm.Int32');
     /**
      * Static representation of the [[inventoryOpeningBalanceLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryOpeningBalances.INVENTORY_OPENING_BALANCE_LINES = new v4_1.CollectionField('InventoryOpeningBalanceLines', InventoryOpeningBalances, new InventoryOpeningBalanceLine_1.InventoryOpeningBalanceLineField('', InventoryOpeningBalances));
+    InventoryOpeningBalances.INVENTORY_OPENING_BALANCE_LINES = new core_1.CollectionField('InventoryOpeningBalanceLines', InventoryOpeningBalances, InventoryOpeningBalanceLine_1.InventoryOpeningBalanceLine);
     /**
      * Static representation of the one-to-one navigation property [[businessPlace]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryOpeningBalances.BUSINESS_PLACE = new v4_1.OneToOneLink('BusinessPlace', InventoryOpeningBalances, BusinessPlaces_1.BusinessPlaces);
+    InventoryOpeningBalances.BUSINESS_PLACE = new core_1.OneToOneLink('BusinessPlace', InventoryOpeningBalances, BusinessPlaces_1.BusinessPlaces);
     /**
      * All fields of the InventoryOpeningBalances entity.
      */
@@ -175,6 +175,7 @@ var BusinessPlaces_1 = require("./BusinessPlaces");
         InventoryOpeningBalances.REFERENCE_2,
         InventoryOpeningBalances.REMARKS,
         InventoryOpeningBalances.BRANCH_ID,
+        InventoryOpeningBalances.PRICE_SOURCE,
         InventoryOpeningBalances.PRICE_LIST,
         InventoryOpeningBalances.JOURNAL_REMARK,
         InventoryOpeningBalances.DOC_OBJECT_CODE_EX,
@@ -186,7 +187,7 @@ var BusinessPlaces_1 = require("./BusinessPlaces");
     /**
      * All fields selector.
      */
-    InventoryOpeningBalances.ALL_FIELDS = new v4_1.AllFields('*', InventoryOpeningBalances);
+    InventoryOpeningBalances.ALL_FIELDS = new core_1.AllFields('*', InventoryOpeningBalances);
     /**
      * All key fields of the InventoryOpeningBalances entity.
      */

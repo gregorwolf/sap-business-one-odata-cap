@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { PurchaseTaxInvoices } from './PurchaseTaxInvoices';
 
 /**
@@ -15,16 +15,16 @@ export class PurchaseTaxInvoicesRequestBuilder extends RequestBuilder<PurchaseTa
    * @param docEntry Key property. See [[PurchaseTaxInvoices.docEntry]].
    * @returns A request builder for creating requests to retrieve one `PurchaseTaxInvoices` entity based on its keys.
    */
-  getByKey(docEntry: number): GetByKeyRequestBuilder<PurchaseTaxInvoices> {
-    return new GetByKeyRequestBuilder(PurchaseTaxInvoices, { DocEntry: docEntry });
+  getByKey(docEntry: number): GetByKeyRequestBuilderV4<PurchaseTaxInvoices> {
+    return new GetByKeyRequestBuilderV4(PurchaseTaxInvoices, { DocEntry: docEntry });
   }
 
   /**
    * Returns a request builder for querying all `PurchaseTaxInvoices` entities.
    * @returns A request builder for creating requests to retrieve all `PurchaseTaxInvoices` entities.
    */
-  getAll(): GetAllRequestBuilder<PurchaseTaxInvoices> {
-    return new GetAllRequestBuilder(PurchaseTaxInvoices);
+  getAll(): GetAllRequestBuilderV4<PurchaseTaxInvoices> {
+    return new GetAllRequestBuilderV4(PurchaseTaxInvoices);
   }
 
   /**
@@ -32,8 +32,8 @@ export class PurchaseTaxInvoicesRequestBuilder extends RequestBuilder<PurchaseTa
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `PurchaseTaxInvoices`.
    */
-  create(entity: PurchaseTaxInvoices): CreateRequestBuilder<PurchaseTaxInvoices> {
-    return new CreateRequestBuilder(PurchaseTaxInvoices, entity);
+  create(entity: PurchaseTaxInvoices): CreateRequestBuilderV4<PurchaseTaxInvoices> {
+    return new CreateRequestBuilderV4(PurchaseTaxInvoices, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class PurchaseTaxInvoicesRequestBuilder extends RequestBuilder<PurchaseTa
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `PurchaseTaxInvoices`.
    */
-  update(entity: PurchaseTaxInvoices): UpdateRequestBuilder<PurchaseTaxInvoices> {
-    return new UpdateRequestBuilder(PurchaseTaxInvoices, entity);
+  update(entity: PurchaseTaxInvoices): UpdateRequestBuilderV4<PurchaseTaxInvoices> {
+    return new UpdateRequestBuilderV4(PurchaseTaxInvoices, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class PurchaseTaxInvoicesRequestBuilder extends RequestBuilder<PurchaseTa
    * @param docEntry Key property. See [[PurchaseTaxInvoices.docEntry]].
    * @returns A request builder for creating requests that delete an entity of type `PurchaseTaxInvoices`.
    */
-  delete(docEntry: number): DeleteRequestBuilder<PurchaseTaxInvoices>;
+  delete(docEntry: number): DeleteRequestBuilderV4<PurchaseTaxInvoices>;
   /**
    * Returns a request builder for deleting an entity of type `PurchaseTaxInvoices`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `PurchaseTaxInvoices` by taking the entity as a parameter.
    */
-  delete(entity: PurchaseTaxInvoices): DeleteRequestBuilder<PurchaseTaxInvoices>;
-  delete(docEntryOrEntity: any): DeleteRequestBuilder<PurchaseTaxInvoices> {
-    return new DeleteRequestBuilder(PurchaseTaxInvoices, docEntryOrEntity instanceof PurchaseTaxInvoices ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
+  delete(entity: PurchaseTaxInvoices): DeleteRequestBuilderV4<PurchaseTaxInvoices>;
+  delete(docEntryOrEntity: any): DeleteRequestBuilderV4<PurchaseTaxInvoices> {
+    return new DeleteRequestBuilderV4(PurchaseTaxInvoices, docEntryOrEntity instanceof PurchaseTaxInvoices ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
   }
 }

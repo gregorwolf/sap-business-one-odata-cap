@@ -11,20 +11,38 @@ import { DocumentInstallment } from './DocumentInstallment';
 import { DownPaymentToDraw } from './DownPaymentToDraw';
 import { TaxExtension, TaxExtensionField } from './TaxExtension';
 import { AddressExtension, AddressExtensionField } from './AddressExtension';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoDocumentTypes } from './BoDocumentTypes';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { PrintStatusEnum } from './PrintStatusEnum';
+import { BoDocSummaryTypes } from './BoDocSummaryTypes';
+import { BoObjectTypes } from './BoObjectTypes';
+import { BoDocWhsUpdateTypes } from './BoDocWhsUpdateTypes';
+import { BoDocumentSubType } from './BoDocumentSubType';
+import { BoStatus } from './BoStatus';
+import { DownPaymentTypeEnum } from './DownPaymentTypeEnum';
+import { BoPayTermDueTypes } from './BoPayTermDueTypes';
+import { EDocGenerationTypeEnum } from './EDocGenerationTypeEnum';
+import { EDocStatusEnum } from './EDocStatusEnum';
+import { BoSoStatus } from './BoSoStatus';
+import { ClosingOptionEnum } from './ClosingOptionEnum';
+import { DocumentAuthorizationStatusEnum } from './DocumentAuthorizationStatusEnum';
+import { CancelStatusEnum } from './CancelStatusEnum';
+import { DocumentDeliveryTypeEnum } from './DocumentDeliveryTypeEnum';
+import { ElecCommStatusEnum } from './ElecCommStatusEnum';
+import { FolioLetterEnum } from './FolioLetterEnum';
+import { BoInterimDocTypes } from './BoInterimDocTypes';
+import { PriceModeDocumentEnum } from './PriceModeDocumentEnum';
+import { GstTransactionTypeEnum } from './GstTransactionTypeEnum';
+import { CommissionTradeTypeEnum } from './CommissionTradeTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "CreditNotes" of service "SAPB1".
  */
-export declare class CreditNotes extends Entity implements CreditNotesType {
+export declare class CreditNotes extends EntityV4 implements CreditNotesType {
     /**
      * Technical entity name for CreditNotes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for CreditNotes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -39,6 +57,21 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      * @nullable
      */
     docNum?: number;
+    /**
+     * Doc Type.
+     * @nullable
+     */
+    docType?: BoDocumentTypes;
+    /**
+     * Hand Written.
+     * @nullable
+     */
+    handWritten?: BoYesNoEnum;
+    /**
+     * Printed.
+     * @nullable
+     */
+    printed?: PrintStatusEnum;
     /**
      * Doc Date.
      * @nullable
@@ -130,15 +163,30 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     transportationCode?: number;
     /**
+     * Confirmed.
+     * @nullable
+     */
+    confirmed?: BoYesNoEnum;
+    /**
      * Import File Num.
      * @nullable
      */
     importFileNum?: number;
     /**
+     * Summery Type.
+     * @nullable
+     */
+    summeryType?: BoDocSummaryTypes;
+    /**
      * Contact Person Code.
      * @nullable
      */
     contactPersonCode?: number;
+    /**
+     * Show Scn.
+     * @nullable
+     */
+    showScn?: BoYesNoEnum;
     /**
      * Series.
      * @nullable
@@ -149,6 +197,16 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      * @nullable
      */
     taxDate?: Moment;
+    /**
+     * Partial Supply.
+     * @nullable
+     */
+    partialSupply?: BoYesNoEnum;
+    /**
+     * Doc Object Code.
+     * @nullable
+     */
+    docObjectCode?: BoObjectTypes;
     /**
      * Ship To Code.
      * @nullable
@@ -210,6 +268,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     vatSumFc?: number;
     /**
+     * Net Procedure.
+     * @nullable
+     */
+    netProcedure?: BoYesNoEnum;
+    /**
      * Doc Total Fc.
      * @nullable
      */
@@ -230,6 +293,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     box1099?: string;
     /**
+     * Revision Po.
+     * @nullable
+     */
+    revisionPo?: BoYesNoEnum;
+    /**
      * Requried Date.
      * @nullable
      */
@@ -240,15 +308,40 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     cancelDate?: Moment;
     /**
+     * Block Dunning.
+     * @nullable
+     */
+    blockDunning?: BoYesNoEnum;
+    /**
+     * Submitted.
+     * @nullable
+     */
+    submitted?: BoYesNoEnum;
+    /**
      * Segment.
      * @nullable
      */
     segment?: number;
     /**
+     * Pick Status.
+     * @nullable
+     */
+    pickStatus?: BoYesNoEnum;
+    /**
+     * Pick.
+     * @nullable
+     */
+    pick?: BoYesNoEnum;
+    /**
      * Payment Method.
      * @nullable
      */
     paymentMethod?: string;
+    /**
+     * Payment Block.
+     * @nullable
+     */
+    paymentBlock?: BoYesNoEnum;
     /**
      * Payment Block Entry.
      * @nullable
@@ -259,6 +352,16 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      * @nullable
      */
     centralBankIndicator?: string;
+    /**
+     * Maximum Cash Discount.
+     * @nullable
+     */
+    maximumCashDiscount?: BoYesNoEnum;
+    /**
+     * Reserve.
+     * @nullable
+     */
+    reserve?: BoYesNoEnum;
     /**
      * Project.
      * @nullable
@@ -275,6 +378,16 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     exemptionValidityDateTo?: Moment;
     /**
+     * Ware House Update Type.
+     * @nullable
+     */
+    wareHouseUpdateType?: BoDocWhsUpdateTypes;
+    /**
+     * Rounding.
+     * @nullable
+     */
+    rounding?: BoYesNoEnum;
+    /**
      * External Corrected Doc Num.
      * @nullable
      */
@@ -290,6 +403,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     nextCorrectingDocument?: number;
     /**
+     * Deferred Tax.
+     * @nullable
+     */
+    deferredTax?: BoYesNoEnum;
+    /**
      * Tax Exemption Letter Num.
      * @nullable
      */
@@ -304,6 +422,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      * @nullable
      */
     wtAppliedFc?: number;
+    /**
+     * Bill Of Exchange Reserved.
+     * @nullable
+     */
+    billOfExchangeReserved?: BoYesNoEnum;
     /**
      * Agent Code.
      * @nullable
@@ -334,6 +457,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      * @nullable
      */
     numberOfInstallments?: number;
+    /**
+     * Apply Tax On First Installment.
+     * @nullable
+     */
+    applyTaxOnFirstInstallment?: BoYesNoEnum;
     /**
      * Wt Non Subject Amount.
      * @nullable
@@ -415,6 +543,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     folioNumber?: number;
     /**
+     * Document Sub Type.
+     * @nullable
+     */
+    documentSubType?: BoDocumentSubType;
+    /**
      * Bp Channel Code.
      * @nullable
      */
@@ -430,6 +563,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     address2?: string;
     /**
+     * Document Status.
+     * @nullable
+     */
+    documentStatus?: BoStatus;
+    /**
      * Period Indicator.
      * @nullable
      */
@@ -444,6 +582,16 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      * @nullable
      */
     manualNumber?: string;
+    /**
+     * Use Shpd Goods Act.
+     * @nullable
+     */
+    useShpdGoodsAct?: BoYesNoEnum;
+    /**
+     * Is Pay To Bank.
+     * @nullable
+     */
+    isPayToBank?: BoYesNoEnum;
     /**
      * Pay To Bank Country.
      * @nullable
@@ -474,6 +622,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      * @nullable
      */
     downPayment?: number;
+    /**
+     * Reserve Invoice.
+     * @nullable
+     */
+    reserveInvoice?: BoYesNoEnum;
     /**
      * Language Code.
      * @nullable
@@ -520,6 +673,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     sequenceModel?: string;
     /**
+     * Use Correction Vat Group.
+     * @nullable
+     */
+    useCorrectionVatGroup?: BoYesNoEnum;
+    /**
      * Total Discount.
      * @nullable
      */
@@ -534,6 +692,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      * @nullable
      */
     downPaymentPercentage?: number;
+    /**
+     * Down Payment Type.
+     * @nullable
+     */
+    downPaymentType?: DownPaymentTypeEnum;
     /**
      * Down Payment Amount Sc.
      * @nullable
@@ -580,6 +743,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     roundingDiffAmountSc?: number;
     /**
+     * Cancelled.
+     * @nullable
+     */
+    cancelled?: BoYesNoEnum;
+    /**
      * Signature Input Message.
      * @nullable
      */
@@ -604,6 +772,16 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      * @nullable
      */
     controlAccount?: string;
+    /**
+     * Insurance Operation 347.
+     * @nullable
+     */
+    insuranceOperation347?: BoYesNoEnum;
+    /**
+     * Archive Nonremovable Sales Quotation.
+     * @nullable
+     */
+    archiveNonremovableSalesQuotation?: BoYesNoEnum;
     /**
      * Gts Checker.
      * @nullable
@@ -630,6 +808,16 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     cashDiscountDateOffset?: number;
     /**
+     * Start From.
+     * @nullable
+     */
+    startFrom?: BoPayTermDueTypes;
+    /**
+     * Nts Approved.
+     * @nullable
+     */
+    ntsApproved?: BoYesNoEnum;
+    /**
      * E Tax Web Site.
      * @nullable
      */
@@ -644,6 +832,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      * @nullable
      */
     ntsApprovedNumber?: string;
+    /**
+     * E Doc Generation Type.
+     * @nullable
+     */
+    eDocGenerationType?: EDocGenerationTypeEnum;
     /**
      * E Doc Series.
      * @nullable
@@ -660,6 +853,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     eDocExportFormat?: number;
     /**
+     * E Doc Status.
+     * @nullable
+     */
+    eDocStatus?: EDocStatusEnum;
+    /**
      * E Doc Error Code.
      * @nullable
      */
@@ -670,6 +868,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     eDocErrorMessage?: string;
     /**
+     * Down Payment Status.
+     * @nullable
+     */
+    downPaymentStatus?: BoSoStatus;
+    /**
      * Group Series.
      * @nullable
      */
@@ -679,6 +882,26 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      * @nullable
      */
     groupNumber?: number;
+    /**
+     * Group Hand Written.
+     * @nullable
+     */
+    groupHandWritten?: BoYesNoEnum;
+    /**
+     * Reopen Original Document.
+     * @nullable
+     */
+    reopenOriginalDocument?: BoYesNoEnum;
+    /**
+     * Reopen Manually Closed Or Canceled Document.
+     * @nullable
+     */
+    reopenManuallyClosedOrCanceledDocument?: BoYesNoEnum;
+    /**
+     * Create Online Quotation.
+     * @nullable
+     */
+    createOnlineQuotation?: BoYesNoEnum;
     /**
      * Pos Equipment Number.
      * @nullable
@@ -695,10 +918,30 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     posCashierNumber?: number;
     /**
+     * Apply Current Vat Rates For Down Payments To Draw.
+     * @nullable
+     */
+    applyCurrentVatRatesForDownPaymentsToDraw?: BoYesNoEnum;
+    /**
+     * Closing Option.
+     * @nullable
+     */
+    closingOption?: ClosingOptionEnum;
+    /**
      * Specified Closing Date.
      * @nullable
      */
     specifiedClosingDate?: Moment;
+    /**
+     * Open For Landed Costs.
+     * @nullable
+     */
+    openForLandedCosts?: BoYesNoEnum;
+    /**
+     * Authorization Status.
+     * @nullable
+     */
+    authorizationStatus?: DocumentAuthorizationStatusEnum;
     /**
      * Total Discount Fc.
      * @nullable
@@ -709,6 +952,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      * @nullable
      */
     totalDiscountSc?: number;
+    /**
+     * Relevant To Gts.
+     * @nullable
+     */
+    relevantToGts?: BoYesNoEnum;
     /**
      * Bpl Name.
      * @nullable
@@ -745,6 +993,16 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     blanketAgreementNumber?: number;
     /**
+     * Is Alteration.
+     * @nullable
+     */
+    isAlteration?: BoYesNoEnum;
+    /**
+     * Cancel Status.
+     * @nullable
+     */
+    cancelStatus?: CancelStatusEnum;
+    /**
      * Asset Value Date.
      * @nullable
      */
@@ -775,10 +1033,20 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     requesterEmail?: string;
     /**
+     * Send Notification.
+     * @nullable
+     */
+    sendNotification?: BoYesNoEnum;
+    /**
      * Req Type.
      * @nullable
      */
     reqType?: number;
+    /**
+     * Document Delivery.
+     * @nullable
+     */
+    documentDelivery?: DocumentDeliveryTypeEnum;
     /**
      * Authorization Code.
      * @nullable
@@ -815,10 +1083,30 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     atDocumentType?: string;
     /**
+     * Elec Comm Status.
+     * @nullable
+     */
+    elecCommStatus?: ElecCommStatusEnum;
+    /**
      * Elec Comm Message.
      * @nullable
      */
     elecCommMessage?: string;
+    /**
+     * Reuse Document Num.
+     * @nullable
+     */
+    reuseDocumentNum?: BoYesNoEnum;
+    /**
+     * Reuse Nota Fiscal Num.
+     * @nullable
+     */
+    reuseNotaFiscalNum?: BoYesNoEnum;
+    /**
+     * Print Sepa Direct.
+     * @nullable
+     */
+    printSepaDirect?: BoYesNoEnum;
     /**
      * Fiscal Doc Num.
      * @nullable
@@ -840,6 +1128,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     pointOfIssueCode?: string;
     /**
+     * Letter.
+     * @nullable
+     */
+    letter?: FolioLetterEnum;
+    /**
      * Folio Number From.
      * @nullable
      */
@@ -849,6 +1142,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      * @nullable
      */
     folioNumberTo?: number;
+    /**
+     * Interim Type.
+     * @nullable
+     */
+    interimType?: BoInterimDocTypes;
     /**
      * Related Type.
      * @nullable
@@ -875,6 +1173,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     reportingSectionControlStatementVat?: string;
     /**
+     * Exclude From Tax Report Control Statement Vat.
+     * @nullable
+     */
+    excludeFromTaxReportControlStatementVat?: BoYesNoEnum;
+    /**
      * Pos Cash Register.
      * @nullable
      */
@@ -885,10 +1188,20 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     updateTime?: Time;
     /**
+     * Price Mode.
+     * @nullable
+     */
+    priceMode?: PriceModeDocumentEnum;
+    /**
      * Down Payment Trasaction Id.
      * @nullable
      */
     downPaymentTrasactionId?: string;
+    /**
+     * Revision.
+     * @nullable
+     */
+    revision?: BoYesNoEnum;
     /**
      * Original Ref No.
      * @nullable
@@ -899,6 +1212,11 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      * @nullable
      */
     originalRefDate?: Moment;
+    /**
+     * Gst Transaction Type.
+     * @nullable
+     */
+    gstTransactionType?: GstTransactionTypeEnum;
     /**
      * Original Credit Or Debit No.
      * @nullable
@@ -934,6 +1252,21 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      * @nullable
      */
     shipFrom?: string;
+    /**
+     * Commission Trade.
+     * @nullable
+     */
+    commissionTrade?: CommissionTradeTypeEnum;
+    /**
+     * Commission Trade Return.
+     * @nullable
+     */
+    commissionTradeReturn?: BoYesNoEnum;
+    /**
+     * Use Bill To Addr To Determine Tax.
+     * @nullable
+     */
+    useBillToAddrToDetermineTax?: BoYesNoEnum;
     /**
      * Issuing Reason.
      * @nullable
@@ -1084,10 +1417,10 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      */
     posDailySummary: PosDailySummary;
     /**
-     * Returns an entity builder to construct instances `CreditNotes`.
+     * Returns an entity builder to construct instances of `CreditNotes`.
      * @returns A builder that constructs instances of entity type `CreditNotes`.
      */
-    static builder(): EntityBuilderType<CreditNotes, CreditNotesTypeForceMandatory>;
+    static builder(): EntityBuilderType<CreditNotes, CreditNotesType>;
     /**
      * Returns a request builder to construct requests for operations on the `CreditNotes` entity type.
      * @returns A `CreditNotes` request builder.
@@ -1098,7 +1431,7 @@ export declare class CreditNotes extends Entity implements CreditNotesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `CreditNotes`.
      */
-    static customField(fieldName: string): CustomField<CreditNotes>;
+    static customField(fieldName: string): CustomFieldV4<CreditNotes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -1129,417 +1462,263 @@ import { Branches, BranchesType } from './Branches';
 import { Departments, DepartmentsType } from './Departments';
 import { PosDailySummary, PosDailySummaryType } from './PosDailySummary';
 export interface CreditNotesType {
-    docEntry?: number;
-    docNum?: number;
-    docDate?: Moment;
-    docDueDate?: Moment;
-    cardCode?: string;
-    cardName?: string;
-    address?: string;
-    numAtCard?: string;
-    docTotal?: number;
-    attachmentEntry?: number;
-    docCurrency?: string;
-    docRate?: number;
-    reference1?: string;
-    reference2?: string;
-    comments?: string;
-    journalMemo?: string;
-    paymentGroupCode?: number;
-    docTime?: Time;
-    salesPersonCode?: number;
-    transportationCode?: number;
-    importFileNum?: number;
-    contactPersonCode?: number;
-    series?: number;
-    taxDate?: Moment;
-    shipToCode?: string;
-    indicator?: string;
-    federalTaxId?: string;
-    discountPercent?: number;
-    paymentReference?: string;
-    creationDate?: Moment;
-    updateDate?: Moment;
-    financialPeriod?: number;
-    transNum?: number;
-    vatSum?: number;
-    vatSumSys?: number;
-    vatSumFc?: number;
-    docTotalFc?: number;
-    docTotalSys?: number;
-    form1099?: number;
-    box1099?: string;
-    requriedDate?: Moment;
-    cancelDate?: Moment;
-    segment?: number;
-    paymentMethod?: string;
-    paymentBlockEntry?: number;
-    centralBankIndicator?: string;
-    project?: string;
-    exemptionValidityDateFrom?: Moment;
-    exemptionValidityDateTo?: Moment;
-    externalCorrectedDocNum?: string;
-    internalCorrectedDocNum?: number;
-    nextCorrectingDocument?: number;
-    taxExemptionLetterNum?: string;
-    wtApplied?: number;
-    wtAppliedFc?: number;
-    agentCode?: string;
-    wtAppliedSc?: number;
-    totalEqualizationTax?: number;
-    totalEqualizationTaxFc?: number;
-    totalEqualizationTaxSc?: number;
-    numberOfInstallments?: number;
-    wtNonSubjectAmount?: number;
-    wtNonSubjectAmountSc?: number;
-    wtNonSubjectAmountFc?: number;
-    wtExemptedAmount?: number;
-    wtExemptedAmountSc?: number;
-    wtExemptedAmountFc?: number;
-    baseAmount?: number;
-    baseAmountSc?: number;
-    baseAmountFc?: number;
-    wtAmount?: number;
-    wtAmountSc?: number;
-    wtAmountFc?: number;
-    vatDate?: Moment;
-    documentsOwner?: number;
-    folioPrefixString?: string;
-    folioNumber?: number;
-    bpChannelCode?: string;
-    bpChannelContact?: number;
-    address2?: string;
-    periodIndicator?: string;
-    payToCode?: string;
-    manualNumber?: string;
-    payToBankCountry?: string;
-    payToBankCode?: string;
-    payToBankAccountNo?: string;
-    payToBankBranch?: string;
-    bplIdAssignedToInvoice?: number;
-    downPayment?: number;
-    languageCode?: number;
-    trackingNumber?: string;
-    pickRemark?: string;
-    closingDate?: Moment;
-    sequenceCode?: number;
-    sequenceSerial?: number;
-    seriesString?: string;
-    subSeriesString?: string;
-    sequenceModel?: string;
-    totalDiscount?: number;
-    downPaymentAmount?: number;
-    downPaymentPercentage?: number;
-    downPaymentAmountSc?: number;
-    downPaymentAmountFc?: number;
-    vatPercent?: number;
-    serviceGrossProfitPercent?: number;
-    openingRemarks?: string;
-    closingRemarks?: string;
-    roundingDiffAmount?: number;
-    roundingDiffAmountFc?: number;
-    roundingDiffAmountSc?: number;
-    signatureInputMessage?: string;
-    signatureDigest?: string;
-    certificationNumber?: string;
-    privateKeyVersion?: number;
-    controlAccount?: string;
-    gtsChecker?: number;
-    gtsPayee?: number;
-    extraMonth?: number;
-    extraDays?: number;
-    cashDiscountDateOffset?: number;
-    eTaxWebSite?: number;
-    eTaxNumber?: string;
-    ntsApprovedNumber?: string;
-    eDocSeries?: number;
-    eDocNum?: string;
-    eDocExportFormat?: number;
-    eDocErrorCode?: string;
-    eDocErrorMessage?: string;
-    groupSeries?: number;
-    groupNumber?: number;
-    posEquipmentNumber?: string;
-    posManufacturerSerialNumber?: string;
-    posCashierNumber?: number;
-    specifiedClosingDate?: Moment;
-    totalDiscountFc?: number;
-    totalDiscountSc?: number;
-    bplName?: string;
-    vatRegNum?: string;
-    annualInvoiceDeclarationReference?: number;
-    supplier?: string;
-    releaser?: number;
-    receiver?: number;
-    blanketAgreementNumber?: number;
-    assetValueDate?: Moment;
-    requester?: string;
-    requesterName?: string;
-    requesterBranch?: number;
-    requesterDepartment?: number;
-    requesterEmail?: string;
-    reqType?: number;
-    authorizationCode?: string;
-    startDeliveryDate?: Moment;
-    startDeliveryTime?: Time;
-    endDeliveryDate?: Moment;
-    endDeliveryTime?: Time;
-    vehiclePlate?: string;
-    atDocumentType?: string;
-    elecCommMessage?: string;
-    fiscalDocNum?: string;
-    posDailySummaryNo?: number;
-    posReceiptNo?: number;
-    pointOfIssueCode?: string;
-    folioNumberFrom?: number;
-    folioNumberTo?: number;
-    relatedType?: number;
-    relatedEntry?: number;
-    documentTaxId?: string;
-    dateOfReportingControlStatementVat?: Moment;
-    reportingSectionControlStatementVat?: string;
-    posCashRegister?: number;
-    updateTime?: Time;
-    downPaymentTrasactionId?: string;
-    originalRefNo?: string;
-    originalRefDate?: Moment;
-    originalCreditOrDebitNo?: string;
-    originalCreditOrDebitDate?: Moment;
-    eCommerceOperator?: string;
-    eCommerceGstin?: string;
-    taxInvoiceNo?: string;
-    taxInvoiceDate?: Moment;
-    shipFrom?: string;
-    issuingReason?: number;
-    documentApprovalRequests?: DocumentApprovalRequest[];
-    documentLines?: DocumentLine[];
-    documentAdditionalExpenses?: DocumentAdditionalExpense[];
-    withholdingTaxDataWtxCollection?: WithholdingTaxDataWtx[];
-    withholdingTaxDataCollection?: WithholdingTaxData[];
-    documentPackages?: DocumentPackage[];
-    documentSpecialLines?: DocumentSpecialLine[];
-    documentInstallments?: DocumentInstallment[];
-    downPaymentsToDraw?: DownPaymentToDraw[];
-    taxExtension?: TaxExtension;
-    addressExtension?: AddressExtension;
-    soiWizardId?: number;
-    businessPartner: BusinessPartnersType;
-    currency: CurrenciesType;
-    paymentTermsType: PaymentTermsTypesType;
-    salesPerson: SalesPersonsType;
-    shippingType: ShippingTypesType;
-    factoringIndicator: FactoringIndicatorsType;
-    journalEntry: JournalEntriesType;
-    forms1099: Forms1099Type;
-    wizardPaymentMethod: WizardPaymentMethodsType;
-    paymentBlock2: PaymentBlocksType;
-    project2: ProjectsType;
-    employeeInfo: EmployeesInfoType;
-    country: CountriesType;
-    businessPlace: BusinessPlacesType;
-    userLanguage: UserLanguagesType;
-    nfModel: NfModelsType;
-    chartOfAccount: ChartOfAccountsType;
-    taxWebSite: TaxWebSitesType;
-    branch: BranchesType;
-    department: DepartmentsType;
-    posDailySummary: PosDailySummaryType;
-}
-export interface CreditNotesTypeForceMandatory {
-    docEntry: number;
-    docNum: number;
-    docDate: Moment;
-    docDueDate: Moment;
-    cardCode: string;
-    cardName: string;
-    address: string;
-    numAtCard: string;
-    docTotal: number;
-    attachmentEntry: number;
-    docCurrency: string;
-    docRate: number;
-    reference1: string;
-    reference2: string;
-    comments: string;
-    journalMemo: string;
-    paymentGroupCode: number;
-    docTime: Time;
-    salesPersonCode: number;
-    transportationCode: number;
-    importFileNum: number;
-    contactPersonCode: number;
-    series: number;
-    taxDate: Moment;
-    shipToCode: string;
-    indicator: string;
-    federalTaxId: string;
-    discountPercent: number;
-    paymentReference: string;
-    creationDate: Moment;
-    updateDate: Moment;
-    financialPeriod: number;
-    transNum: number;
-    vatSum: number;
-    vatSumSys: number;
-    vatSumFc: number;
-    docTotalFc: number;
-    docTotalSys: number;
-    form1099: number;
-    box1099: string;
-    requriedDate: Moment;
-    cancelDate: Moment;
-    segment: number;
-    paymentMethod: string;
-    paymentBlockEntry: number;
-    centralBankIndicator: string;
-    project: string;
-    exemptionValidityDateFrom: Moment;
-    exemptionValidityDateTo: Moment;
-    externalCorrectedDocNum: string;
-    internalCorrectedDocNum: number;
-    nextCorrectingDocument: number;
-    taxExemptionLetterNum: string;
-    wtApplied: number;
-    wtAppliedFc: number;
-    agentCode: string;
-    wtAppliedSc: number;
-    totalEqualizationTax: number;
-    totalEqualizationTaxFc: number;
-    totalEqualizationTaxSc: number;
-    numberOfInstallments: number;
-    wtNonSubjectAmount: number;
-    wtNonSubjectAmountSc: number;
-    wtNonSubjectAmountFc: number;
-    wtExemptedAmount: number;
-    wtExemptedAmountSc: number;
-    wtExemptedAmountFc: number;
-    baseAmount: number;
-    baseAmountSc: number;
-    baseAmountFc: number;
-    wtAmount: number;
-    wtAmountSc: number;
-    wtAmountFc: number;
-    vatDate: Moment;
-    documentsOwner: number;
-    folioPrefixString: string;
-    folioNumber: number;
-    bpChannelCode: string;
-    bpChannelContact: number;
-    address2: string;
-    periodIndicator: string;
-    payToCode: string;
-    manualNumber: string;
-    payToBankCountry: string;
-    payToBankCode: string;
-    payToBankAccountNo: string;
-    payToBankBranch: string;
-    bplIdAssignedToInvoice: number;
-    downPayment: number;
-    languageCode: number;
-    trackingNumber: string;
-    pickRemark: string;
-    closingDate: Moment;
-    sequenceCode: number;
-    sequenceSerial: number;
-    seriesString: string;
-    subSeriesString: string;
-    sequenceModel: string;
-    totalDiscount: number;
-    downPaymentAmount: number;
-    downPaymentPercentage: number;
-    downPaymentAmountSc: number;
-    downPaymentAmountFc: number;
-    vatPercent: number;
-    serviceGrossProfitPercent: number;
-    openingRemarks: string;
-    closingRemarks: string;
-    roundingDiffAmount: number;
-    roundingDiffAmountFc: number;
-    roundingDiffAmountSc: number;
-    signatureInputMessage: string;
-    signatureDigest: string;
-    certificationNumber: string;
-    privateKeyVersion: number;
-    controlAccount: string;
-    gtsChecker: number;
-    gtsPayee: number;
-    extraMonth: number;
-    extraDays: number;
-    cashDiscountDateOffset: number;
-    eTaxWebSite: number;
-    eTaxNumber: string;
-    ntsApprovedNumber: string;
-    eDocSeries: number;
-    eDocNum: string;
-    eDocExportFormat: number;
-    eDocErrorCode: string;
-    eDocErrorMessage: string;
-    groupSeries: number;
-    groupNumber: number;
-    posEquipmentNumber: string;
-    posManufacturerSerialNumber: string;
-    posCashierNumber: number;
-    specifiedClosingDate: Moment;
-    totalDiscountFc: number;
-    totalDiscountSc: number;
-    bplName: string;
-    vatRegNum: string;
-    annualInvoiceDeclarationReference: number;
-    supplier: string;
-    releaser: number;
-    receiver: number;
-    blanketAgreementNumber: number;
-    assetValueDate: Moment;
-    requester: string;
-    requesterName: string;
-    requesterBranch: number;
-    requesterDepartment: number;
-    requesterEmail: string;
-    reqType: number;
-    authorizationCode: string;
-    startDeliveryDate: Moment;
-    startDeliveryTime: Time;
-    endDeliveryDate: Moment;
-    endDeliveryTime: Time;
-    vehiclePlate: string;
-    atDocumentType: string;
-    elecCommMessage: string;
-    fiscalDocNum: string;
-    posDailySummaryNo: number;
-    posReceiptNo: number;
-    pointOfIssueCode: string;
-    folioNumberFrom: number;
-    folioNumberTo: number;
-    relatedType: number;
-    relatedEntry: number;
-    documentTaxId: string;
-    dateOfReportingControlStatementVat: Moment;
-    reportingSectionControlStatementVat: string;
-    posCashRegister: number;
-    updateTime: Time;
-    downPaymentTrasactionId: string;
-    originalRefNo: string;
-    originalRefDate: Moment;
-    originalCreditOrDebitNo: string;
-    originalCreditOrDebitDate: Moment;
-    eCommerceOperator: string;
-    eCommerceGstin: string;
-    taxInvoiceNo: string;
-    taxInvoiceDate: Moment;
-    shipFrom: string;
-    issuingReason: number;
-    documentApprovalRequests: DocumentApprovalRequest[];
-    documentLines: DocumentLine[];
-    documentAdditionalExpenses: DocumentAdditionalExpense[];
-    withholdingTaxDataWtxCollection: WithholdingTaxDataWtx[];
-    withholdingTaxDataCollection: WithholdingTaxData[];
-    documentPackages: DocumentPackage[];
-    documentSpecialLines: DocumentSpecialLine[];
-    documentInstallments: DocumentInstallment[];
-    downPaymentsToDraw: DownPaymentToDraw[];
-    taxExtension: TaxExtension;
-    addressExtension: AddressExtension;
-    soiWizardId: number;
+    docEntry?: number | null;
+    docNum?: number | null;
+    docType?: BoDocumentTypes | null;
+    handWritten?: BoYesNoEnum | null;
+    printed?: PrintStatusEnum | null;
+    docDate?: Moment | null;
+    docDueDate?: Moment | null;
+    cardCode?: string | null;
+    cardName?: string | null;
+    address?: string | null;
+    numAtCard?: string | null;
+    docTotal?: number | null;
+    attachmentEntry?: number | null;
+    docCurrency?: string | null;
+    docRate?: number | null;
+    reference1?: string | null;
+    reference2?: string | null;
+    comments?: string | null;
+    journalMemo?: string | null;
+    paymentGroupCode?: number | null;
+    docTime?: Time | null;
+    salesPersonCode?: number | null;
+    transportationCode?: number | null;
+    confirmed?: BoYesNoEnum | null;
+    importFileNum?: number | null;
+    summeryType?: BoDocSummaryTypes | null;
+    contactPersonCode?: number | null;
+    showScn?: BoYesNoEnum | null;
+    series?: number | null;
+    taxDate?: Moment | null;
+    partialSupply?: BoYesNoEnum | null;
+    docObjectCode?: BoObjectTypes | null;
+    shipToCode?: string | null;
+    indicator?: string | null;
+    federalTaxId?: string | null;
+    discountPercent?: number | null;
+    paymentReference?: string | null;
+    creationDate?: Moment | null;
+    updateDate?: Moment | null;
+    financialPeriod?: number | null;
+    transNum?: number | null;
+    vatSum?: number | null;
+    vatSumSys?: number | null;
+    vatSumFc?: number | null;
+    netProcedure?: BoYesNoEnum | null;
+    docTotalFc?: number | null;
+    docTotalSys?: number | null;
+    form1099?: number | null;
+    box1099?: string | null;
+    revisionPo?: BoYesNoEnum | null;
+    requriedDate?: Moment | null;
+    cancelDate?: Moment | null;
+    blockDunning?: BoYesNoEnum | null;
+    submitted?: BoYesNoEnum | null;
+    segment?: number | null;
+    pickStatus?: BoYesNoEnum | null;
+    pick?: BoYesNoEnum | null;
+    paymentMethod?: string | null;
+    paymentBlock?: BoYesNoEnum | null;
+    paymentBlockEntry?: number | null;
+    centralBankIndicator?: string | null;
+    maximumCashDiscount?: BoYesNoEnum | null;
+    reserve?: BoYesNoEnum | null;
+    project?: string | null;
+    exemptionValidityDateFrom?: Moment | null;
+    exemptionValidityDateTo?: Moment | null;
+    wareHouseUpdateType?: BoDocWhsUpdateTypes | null;
+    rounding?: BoYesNoEnum | null;
+    externalCorrectedDocNum?: string | null;
+    internalCorrectedDocNum?: number | null;
+    nextCorrectingDocument?: number | null;
+    deferredTax?: BoYesNoEnum | null;
+    taxExemptionLetterNum?: string | null;
+    wtApplied?: number | null;
+    wtAppliedFc?: number | null;
+    billOfExchangeReserved?: BoYesNoEnum | null;
+    agentCode?: string | null;
+    wtAppliedSc?: number | null;
+    totalEqualizationTax?: number | null;
+    totalEqualizationTaxFc?: number | null;
+    totalEqualizationTaxSc?: number | null;
+    numberOfInstallments?: number | null;
+    applyTaxOnFirstInstallment?: BoYesNoEnum | null;
+    wtNonSubjectAmount?: number | null;
+    wtNonSubjectAmountSc?: number | null;
+    wtNonSubjectAmountFc?: number | null;
+    wtExemptedAmount?: number | null;
+    wtExemptedAmountSc?: number | null;
+    wtExemptedAmountFc?: number | null;
+    baseAmount?: number | null;
+    baseAmountSc?: number | null;
+    baseAmountFc?: number | null;
+    wtAmount?: number | null;
+    wtAmountSc?: number | null;
+    wtAmountFc?: number | null;
+    vatDate?: Moment | null;
+    documentsOwner?: number | null;
+    folioPrefixString?: string | null;
+    folioNumber?: number | null;
+    documentSubType?: BoDocumentSubType | null;
+    bpChannelCode?: string | null;
+    bpChannelContact?: number | null;
+    address2?: string | null;
+    documentStatus?: BoStatus | null;
+    periodIndicator?: string | null;
+    payToCode?: string | null;
+    manualNumber?: string | null;
+    useShpdGoodsAct?: BoYesNoEnum | null;
+    isPayToBank?: BoYesNoEnum | null;
+    payToBankCountry?: string | null;
+    payToBankCode?: string | null;
+    payToBankAccountNo?: string | null;
+    payToBankBranch?: string | null;
+    bplIdAssignedToInvoice?: number | null;
+    downPayment?: number | null;
+    reserveInvoice?: BoYesNoEnum | null;
+    languageCode?: number | null;
+    trackingNumber?: string | null;
+    pickRemark?: string | null;
+    closingDate?: Moment | null;
+    sequenceCode?: number | null;
+    sequenceSerial?: number | null;
+    seriesString?: string | null;
+    subSeriesString?: string | null;
+    sequenceModel?: string | null;
+    useCorrectionVatGroup?: BoYesNoEnum | null;
+    totalDiscount?: number | null;
+    downPaymentAmount?: number | null;
+    downPaymentPercentage?: number | null;
+    downPaymentType?: DownPaymentTypeEnum | null;
+    downPaymentAmountSc?: number | null;
+    downPaymentAmountFc?: number | null;
+    vatPercent?: number | null;
+    serviceGrossProfitPercent?: number | null;
+    openingRemarks?: string | null;
+    closingRemarks?: string | null;
+    roundingDiffAmount?: number | null;
+    roundingDiffAmountFc?: number | null;
+    roundingDiffAmountSc?: number | null;
+    cancelled?: BoYesNoEnum | null;
+    signatureInputMessage?: string | null;
+    signatureDigest?: string | null;
+    certificationNumber?: string | null;
+    privateKeyVersion?: number | null;
+    controlAccount?: string | null;
+    insuranceOperation347?: BoYesNoEnum | null;
+    archiveNonremovableSalesQuotation?: BoYesNoEnum | null;
+    gtsChecker?: number | null;
+    gtsPayee?: number | null;
+    extraMonth?: number | null;
+    extraDays?: number | null;
+    cashDiscountDateOffset?: number | null;
+    startFrom?: BoPayTermDueTypes | null;
+    ntsApproved?: BoYesNoEnum | null;
+    eTaxWebSite?: number | null;
+    eTaxNumber?: string | null;
+    ntsApprovedNumber?: string | null;
+    eDocGenerationType?: EDocGenerationTypeEnum | null;
+    eDocSeries?: number | null;
+    eDocNum?: string | null;
+    eDocExportFormat?: number | null;
+    eDocStatus?: EDocStatusEnum | null;
+    eDocErrorCode?: string | null;
+    eDocErrorMessage?: string | null;
+    downPaymentStatus?: BoSoStatus | null;
+    groupSeries?: number | null;
+    groupNumber?: number | null;
+    groupHandWritten?: BoYesNoEnum | null;
+    reopenOriginalDocument?: BoYesNoEnum | null;
+    reopenManuallyClosedOrCanceledDocument?: BoYesNoEnum | null;
+    createOnlineQuotation?: BoYesNoEnum | null;
+    posEquipmentNumber?: string | null;
+    posManufacturerSerialNumber?: string | null;
+    posCashierNumber?: number | null;
+    applyCurrentVatRatesForDownPaymentsToDraw?: BoYesNoEnum | null;
+    closingOption?: ClosingOptionEnum | null;
+    specifiedClosingDate?: Moment | null;
+    openForLandedCosts?: BoYesNoEnum | null;
+    authorizationStatus?: DocumentAuthorizationStatusEnum | null;
+    totalDiscountFc?: number | null;
+    totalDiscountSc?: number | null;
+    relevantToGts?: BoYesNoEnum | null;
+    bplName?: string | null;
+    vatRegNum?: string | null;
+    annualInvoiceDeclarationReference?: number | null;
+    supplier?: string | null;
+    releaser?: number | null;
+    receiver?: number | null;
+    blanketAgreementNumber?: number | null;
+    isAlteration?: BoYesNoEnum | null;
+    cancelStatus?: CancelStatusEnum | null;
+    assetValueDate?: Moment | null;
+    requester?: string | null;
+    requesterName?: string | null;
+    requesterBranch?: number | null;
+    requesterDepartment?: number | null;
+    requesterEmail?: string | null;
+    sendNotification?: BoYesNoEnum | null;
+    reqType?: number | null;
+    documentDelivery?: DocumentDeliveryTypeEnum | null;
+    authorizationCode?: string | null;
+    startDeliveryDate?: Moment | null;
+    startDeliveryTime?: Time | null;
+    endDeliveryDate?: Moment | null;
+    endDeliveryTime?: Time | null;
+    vehiclePlate?: string | null;
+    atDocumentType?: string | null;
+    elecCommStatus?: ElecCommStatusEnum | null;
+    elecCommMessage?: string | null;
+    reuseDocumentNum?: BoYesNoEnum | null;
+    reuseNotaFiscalNum?: BoYesNoEnum | null;
+    printSepaDirect?: BoYesNoEnum | null;
+    fiscalDocNum?: string | null;
+    posDailySummaryNo?: number | null;
+    posReceiptNo?: number | null;
+    pointOfIssueCode?: string | null;
+    letter?: FolioLetterEnum | null;
+    folioNumberFrom?: number | null;
+    folioNumberTo?: number | null;
+    interimType?: BoInterimDocTypes | null;
+    relatedType?: number | null;
+    relatedEntry?: number | null;
+    documentTaxId?: string | null;
+    dateOfReportingControlStatementVat?: Moment | null;
+    reportingSectionControlStatementVat?: string | null;
+    excludeFromTaxReportControlStatementVat?: BoYesNoEnum | null;
+    posCashRegister?: number | null;
+    updateTime?: Time | null;
+    priceMode?: PriceModeDocumentEnum | null;
+    downPaymentTrasactionId?: string | null;
+    revision?: BoYesNoEnum | null;
+    originalRefNo?: string | null;
+    originalRefDate?: Moment | null;
+    gstTransactionType?: GstTransactionTypeEnum | null;
+    originalCreditOrDebitNo?: string | null;
+    originalCreditOrDebitDate?: Moment | null;
+    eCommerceOperator?: string | null;
+    eCommerceGstin?: string | null;
+    taxInvoiceNo?: string | null;
+    taxInvoiceDate?: Moment | null;
+    shipFrom?: string | null;
+    commissionTrade?: CommissionTradeTypeEnum | null;
+    commissionTradeReturn?: BoYesNoEnum | null;
+    useBillToAddrToDetermineTax?: BoYesNoEnum | null;
+    issuingReason?: number | null;
+    documentApprovalRequests?: DocumentApprovalRequest[] | null;
+    documentLines?: DocumentLine[] | null;
+    documentAdditionalExpenses?: DocumentAdditionalExpense[] | null;
+    withholdingTaxDataWtxCollection?: WithholdingTaxDataWtx[] | null;
+    withholdingTaxDataCollection?: WithholdingTaxData[] | null;
+    documentPackages?: DocumentPackage[] | null;
+    documentSpecialLines?: DocumentSpecialLine[] | null;
+    documentInstallments?: DocumentInstallment[] | null;
+    downPaymentsToDraw?: DownPaymentToDraw[] | null;
+    taxExtension?: TaxExtension | null;
+    addressExtension?: AddressExtension | null;
+    soiWizardId?: number | null;
     businessPartner: BusinessPartnersType;
     currency: CurrenciesType;
     paymentTermsType: PaymentTermsTypesType;
@@ -1573,6 +1752,21 @@ export declare namespace CreditNotes {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DOC_NUM: NumberField<CreditNotes>;
+    /**
+     * Static representation of the [[docType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DOC_TYPE: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[handWritten]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const HAND_WRITTEN: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[printed]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PRINTED: EnumField<CreditNotes>;
     /**
      * Static representation of the [[docDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1664,15 +1858,30 @@ export declare namespace CreditNotes {
      */
     const TRANSPORTATION_CODE: NumberField<CreditNotes>;
     /**
+     * Static representation of the [[confirmed]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CONFIRMED: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[importFileNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const IMPORT_FILE_NUM: NumberField<CreditNotes>;
     /**
+     * Static representation of the [[summeryType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SUMMERY_TYPE: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[contactPersonCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const CONTACT_PERSON_CODE: NumberField<CreditNotes>;
+    /**
+     * Static representation of the [[showScn]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SHOW_SCN: EnumField<CreditNotes>;
     /**
      * Static representation of the [[series]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1683,6 +1892,16 @@ export declare namespace CreditNotes {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const TAX_DATE: DateField<CreditNotes>;
+    /**
+     * Static representation of the [[partialSupply]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PARTIAL_SUPPLY: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[docObjectCode]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DOC_OBJECT_CODE: EnumField<CreditNotes>;
     /**
      * Static representation of the [[shipToCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1744,6 +1963,11 @@ export declare namespace CreditNotes {
      */
     const VAT_SUM_FC: NumberField<CreditNotes>;
     /**
+     * Static representation of the [[netProcedure]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const NET_PROCEDURE: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[docTotalFc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -1764,6 +1988,11 @@ export declare namespace CreditNotes {
      */
     const BOX_1099: StringField<CreditNotes>;
     /**
+     * Static representation of the [[revisionPo]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REVISION_PO: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[requriedDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -1774,15 +2003,40 @@ export declare namespace CreditNotes {
      */
     const CANCEL_DATE: DateField<CreditNotes>;
     /**
+     * Static representation of the [[blockDunning]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BLOCK_DUNNING: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[submitted]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SUBMITTED: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[segment]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const SEGMENT: NumberField<CreditNotes>;
     /**
+     * Static representation of the [[pickStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PICK_STATUS: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[pick]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PICK: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[paymentMethod]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const PAYMENT_METHOD: StringField<CreditNotes>;
+    /**
+     * Static representation of the [[paymentBlock]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PAYMENT_BLOCK: EnumField<CreditNotes>;
     /**
      * Static representation of the [[paymentBlockEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1793,6 +2047,16 @@ export declare namespace CreditNotes {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const CENTRAL_BANK_INDICATOR: StringField<CreditNotes>;
+    /**
+     * Static representation of the [[maximumCashDiscount]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const MAXIMUM_CASH_DISCOUNT: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[reserve]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RESERVE: EnumField<CreditNotes>;
     /**
      * Static representation of the [[project]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1809,6 +2073,16 @@ export declare namespace CreditNotes {
      */
     const EXEMPTION_VALIDITY_DATE_TO: DateField<CreditNotes>;
     /**
+     * Static representation of the [[wareHouseUpdateType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const WARE_HOUSE_UPDATE_TYPE: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[rounding]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ROUNDING: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[externalCorrectedDocNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -1824,6 +2098,11 @@ export declare namespace CreditNotes {
      */
     const NEXT_CORRECTING_DOCUMENT: NumberField<CreditNotes>;
     /**
+     * Static representation of the [[deferredTax]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DEFERRED_TAX: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[taxExemptionLetterNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -1838,6 +2117,11 @@ export declare namespace CreditNotes {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const WT_APPLIED_FC: NumberField<CreditNotes>;
+    /**
+     * Static representation of the [[billOfExchangeReserved]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BILL_OF_EXCHANGE_RESERVED: EnumField<CreditNotes>;
     /**
      * Static representation of the [[agentCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1868,6 +2152,11 @@ export declare namespace CreditNotes {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const NUMBER_OF_INSTALLMENTS: NumberField<CreditNotes>;
+    /**
+     * Static representation of the [[applyTaxOnFirstInstallment]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const APPLY_TAX_ON_FIRST_INSTALLMENT: EnumField<CreditNotes>;
     /**
      * Static representation of the [[wtNonSubjectAmount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1949,6 +2238,11 @@ export declare namespace CreditNotes {
      */
     const FOLIO_NUMBER: NumberField<CreditNotes>;
     /**
+     * Static representation of the [[documentSubType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DOCUMENT_SUB_TYPE: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[bpChannelCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -1964,6 +2258,11 @@ export declare namespace CreditNotes {
      */
     const ADDRESS_2: StringField<CreditNotes>;
     /**
+     * Static representation of the [[documentStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DOCUMENT_STATUS: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[periodIndicator]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -1978,6 +2277,16 @@ export declare namespace CreditNotes {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const MANUAL_NUMBER: StringField<CreditNotes>;
+    /**
+     * Static representation of the [[useShpdGoodsAct]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const USE_SHPD_GOODS_ACT: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[isPayToBank]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IS_PAY_TO_BANK: EnumField<CreditNotes>;
     /**
      * Static representation of the [[payToBankCountry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2008,6 +2317,11 @@ export declare namespace CreditNotes {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DOWN_PAYMENT: NumberField<CreditNotes>;
+    /**
+     * Static representation of the [[reserveInvoice]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RESERVE_INVOICE: EnumField<CreditNotes>;
     /**
      * Static representation of the [[languageCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2054,6 +2368,11 @@ export declare namespace CreditNotes {
      */
     const SEQUENCE_MODEL: StringField<CreditNotes>;
     /**
+     * Static representation of the [[useCorrectionVatGroup]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const USE_CORRECTION_VAT_GROUP: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[totalDiscount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2068,6 +2387,11 @@ export declare namespace CreditNotes {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DOWN_PAYMENT_PERCENTAGE: NumberField<CreditNotes>;
+    /**
+     * Static representation of the [[downPaymentType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DOWN_PAYMENT_TYPE: EnumField<CreditNotes>;
     /**
      * Static representation of the [[downPaymentAmountSc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2114,6 +2438,11 @@ export declare namespace CreditNotes {
      */
     const ROUNDING_DIFF_AMOUNT_SC: NumberField<CreditNotes>;
     /**
+     * Static representation of the [[cancelled]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CANCELLED: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[signatureInputMessage]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2138,6 +2467,16 @@ export declare namespace CreditNotes {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const CONTROL_ACCOUNT: StringField<CreditNotes>;
+    /**
+     * Static representation of the [[insuranceOperation347]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const INSURANCE_OPERATION_347: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[archiveNonremovableSalesQuotation]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ARCHIVE_NONREMOVABLE_SALES_QUOTATION: EnumField<CreditNotes>;
     /**
      * Static representation of the [[gtsChecker]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2164,6 +2503,16 @@ export declare namespace CreditNotes {
      */
     const CASH_DISCOUNT_DATE_OFFSET: NumberField<CreditNotes>;
     /**
+     * Static representation of the [[startFrom]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const START_FROM: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[ntsApproved]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const NTS_APPROVED: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[eTaxWebSite]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2178,6 +2527,11 @@ export declare namespace CreditNotes {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const NTS_APPROVED_NUMBER: StringField<CreditNotes>;
+    /**
+     * Static representation of the [[eDocGenerationType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const E_DOC_GENERATION_TYPE: EnumField<CreditNotes>;
     /**
      * Static representation of the [[eDocSeries]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2194,6 +2548,11 @@ export declare namespace CreditNotes {
      */
     const E_DOC_EXPORT_FORMAT: NumberField<CreditNotes>;
     /**
+     * Static representation of the [[eDocStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const E_DOC_STATUS: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[eDocErrorCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2204,6 +2563,11 @@ export declare namespace CreditNotes {
      */
     const E_DOC_ERROR_MESSAGE: StringField<CreditNotes>;
     /**
+     * Static representation of the [[downPaymentStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DOWN_PAYMENT_STATUS: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[groupSeries]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2213,6 +2577,26 @@ export declare namespace CreditNotes {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const GROUP_NUMBER: NumberField<CreditNotes>;
+    /**
+     * Static representation of the [[groupHandWritten]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const GROUP_HAND_WRITTEN: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[reopenOriginalDocument]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REOPEN_ORIGINAL_DOCUMENT: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[reopenManuallyClosedOrCanceledDocument]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REOPEN_MANUALLY_CLOSED_OR_CANCELED_DOCUMENT: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[createOnlineQuotation]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CREATE_ONLINE_QUOTATION: EnumField<CreditNotes>;
     /**
      * Static representation of the [[posEquipmentNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2229,10 +2613,30 @@ export declare namespace CreditNotes {
      */
     const POS_CASHIER_NUMBER: NumberField<CreditNotes>;
     /**
+     * Static representation of the [[applyCurrentVatRatesForDownPaymentsToDraw]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const APPLY_CURRENT_VAT_RATES_FOR_DOWN_PAYMENTS_TO_DRAW: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[closingOption]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CLOSING_OPTION: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[specifiedClosingDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const SPECIFIED_CLOSING_DATE: DateField<CreditNotes>;
+    /**
+     * Static representation of the [[openForLandedCosts]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const OPEN_FOR_LANDED_COSTS: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[authorizationStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const AUTHORIZATION_STATUS: EnumField<CreditNotes>;
     /**
      * Static representation of the [[totalDiscountFc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2243,6 +2647,11 @@ export declare namespace CreditNotes {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const TOTAL_DISCOUNT_SC: NumberField<CreditNotes>;
+    /**
+     * Static representation of the [[relevantToGts]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RELEVANT_TO_GTS: EnumField<CreditNotes>;
     /**
      * Static representation of the [[bplName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2279,6 +2688,16 @@ export declare namespace CreditNotes {
      */
     const BLANKET_AGREEMENT_NUMBER: NumberField<CreditNotes>;
     /**
+     * Static representation of the [[isAlteration]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IS_ALTERATION: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[cancelStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CANCEL_STATUS: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[assetValueDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2309,10 +2728,20 @@ export declare namespace CreditNotes {
      */
     const REQUESTER_EMAIL: StringField<CreditNotes>;
     /**
+     * Static representation of the [[sendNotification]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SEND_NOTIFICATION: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[reqType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const REQ_TYPE: NumberField<CreditNotes>;
+    /**
+     * Static representation of the [[documentDelivery]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DOCUMENT_DELIVERY: EnumField<CreditNotes>;
     /**
      * Static representation of the [[authorizationCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2349,10 +2778,30 @@ export declare namespace CreditNotes {
      */
     const AT_DOCUMENT_TYPE: StringField<CreditNotes>;
     /**
+     * Static representation of the [[elecCommStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ELEC_COMM_STATUS: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[elecCommMessage]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const ELEC_COMM_MESSAGE: StringField<CreditNotes>;
+    /**
+     * Static representation of the [[reuseDocumentNum]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REUSE_DOCUMENT_NUM: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[reuseNotaFiscalNum]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REUSE_NOTA_FISCAL_NUM: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[printSepaDirect]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PRINT_SEPA_DIRECT: EnumField<CreditNotes>;
     /**
      * Static representation of the [[fiscalDocNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2374,6 +2823,11 @@ export declare namespace CreditNotes {
      */
     const POINT_OF_ISSUE_CODE: StringField<CreditNotes>;
     /**
+     * Static representation of the [[letter]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const LETTER: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[folioNumberFrom]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2383,6 +2837,11 @@ export declare namespace CreditNotes {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const FOLIO_NUMBER_TO: NumberField<CreditNotes>;
+    /**
+     * Static representation of the [[interimType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const INTERIM_TYPE: EnumField<CreditNotes>;
     /**
      * Static representation of the [[relatedType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2409,6 +2868,11 @@ export declare namespace CreditNotes {
      */
     const REPORTING_SECTION_CONTROL_STATEMENT_VAT: StringField<CreditNotes>;
     /**
+     * Static representation of the [[excludeFromTaxReportControlStatementVat]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const EXCLUDE_FROM_TAX_REPORT_CONTROL_STATEMENT_VAT: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[posCashRegister]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2419,10 +2883,20 @@ export declare namespace CreditNotes {
      */
     const UPDATE_TIME: TimeField<CreditNotes>;
     /**
+     * Static representation of the [[priceMode]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PRICE_MODE: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[downPaymentTrasactionId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DOWN_PAYMENT_TRASACTION_ID: StringField<CreditNotes>;
+    /**
+     * Static representation of the [[revision]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REVISION: EnumField<CreditNotes>;
     /**
      * Static representation of the [[originalRefNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2433,6 +2907,11 @@ export declare namespace CreditNotes {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const ORIGINAL_REF_DATE: DateField<CreditNotes>;
+    /**
+     * Static representation of the [[gstTransactionType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const GST_TRANSACTION_TYPE: EnumField<CreditNotes>;
     /**
      * Static representation of the [[originalCreditOrDebitNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2469,6 +2948,21 @@ export declare namespace CreditNotes {
      */
     const SHIP_FROM: StringField<CreditNotes>;
     /**
+     * Static representation of the [[commissionTrade]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COMMISSION_TRADE: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[commissionTradeReturn]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COMMISSION_TRADE_RETURN: EnumField<CreditNotes>;
+    /**
+     * Static representation of the [[useBillToAddrToDetermineTax]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const USE_BILL_TO_ADDR_TO_DETERMINE_TAX: EnumField<CreditNotes>;
+    /**
      * Static representation of the [[issuingReason]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2477,47 +2971,47 @@ export declare namespace CreditNotes {
      * Static representation of the [[documentApprovalRequests]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const DOCUMENT_APPROVAL_REQUESTS: CollectionField<CreditNotes>;
+    const DOCUMENT_APPROVAL_REQUESTS: CollectionField<CreditNotes, DocumentApprovalRequest>;
     /**
      * Static representation of the [[documentLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const DOCUMENT_LINES: CollectionField<CreditNotes>;
+    const DOCUMENT_LINES: CollectionField<CreditNotes, DocumentLine>;
     /**
      * Static representation of the [[documentAdditionalExpenses]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const DOCUMENT_ADDITIONAL_EXPENSES: CollectionField<CreditNotes>;
+    const DOCUMENT_ADDITIONAL_EXPENSES: CollectionField<CreditNotes, DocumentAdditionalExpense>;
     /**
      * Static representation of the [[withholdingTaxDataWtxCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const WITHHOLDING_TAX_DATA_WTX_COLLECTION: CollectionField<CreditNotes>;
+    const WITHHOLDING_TAX_DATA_WTX_COLLECTION: CollectionField<CreditNotes, WithholdingTaxDataWtx>;
     /**
      * Static representation of the [[withholdingTaxDataCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const WITHHOLDING_TAX_DATA_COLLECTION: CollectionField<CreditNotes>;
+    const WITHHOLDING_TAX_DATA_COLLECTION: CollectionField<CreditNotes, WithholdingTaxData>;
     /**
      * Static representation of the [[documentPackages]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const DOCUMENT_PACKAGES: CollectionField<CreditNotes>;
+    const DOCUMENT_PACKAGES: CollectionField<CreditNotes, DocumentPackage>;
     /**
      * Static representation of the [[documentSpecialLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const DOCUMENT_SPECIAL_LINES: CollectionField<CreditNotes>;
+    const DOCUMENT_SPECIAL_LINES: CollectionField<CreditNotes, DocumentSpecialLine>;
     /**
      * Static representation of the [[documentInstallments]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const DOCUMENT_INSTALLMENTS: CollectionField<CreditNotes>;
+    const DOCUMENT_INSTALLMENTS: CollectionField<CreditNotes, DocumentInstallment>;
     /**
      * Static representation of the [[downPaymentsToDraw]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const DOWN_PAYMENTS_TO_DRAW: CollectionField<CreditNotes>;
+    const DOWN_PAYMENTS_TO_DRAW: CollectionField<CreditNotes, DownPaymentToDraw>;
     /**
      * Static representation of the [[taxExtension]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2641,7 +3135,7 @@ export declare namespace CreditNotes {
     /**
      * All fields of the CreditNotes entity.
      */
-    const _allFields: Array<NumberField<CreditNotes> | DateField<CreditNotes> | StringField<CreditNotes> | TimeField<CreditNotes> | CollectionField<CreditNotes> | TaxExtensionField<CreditNotes> | AddressExtensionField<CreditNotes> | OneToOneLink<CreditNotes, BusinessPartners> | OneToOneLink<CreditNotes, Currencies> | OneToOneLink<CreditNotes, PaymentTermsTypes> | OneToOneLink<CreditNotes, SalesPersons> | OneToOneLink<CreditNotes, ShippingTypes> | OneToOneLink<CreditNotes, FactoringIndicators> | OneToOneLink<CreditNotes, JournalEntries> | OneToOneLink<CreditNotes, Forms1099> | OneToOneLink<CreditNotes, WizardPaymentMethods> | OneToOneLink<CreditNotes, PaymentBlocks> | OneToOneLink<CreditNotes, Projects> | OneToOneLink<CreditNotes, EmployeesInfo> | OneToOneLink<CreditNotes, Countries> | OneToOneLink<CreditNotes, BusinessPlaces> | OneToOneLink<CreditNotes, UserLanguages> | OneToOneLink<CreditNotes, NfModels> | OneToOneLink<CreditNotes, ChartOfAccounts> | OneToOneLink<CreditNotes, TaxWebSites> | OneToOneLink<CreditNotes, Branches> | OneToOneLink<CreditNotes, Departments> | OneToOneLink<CreditNotes, PosDailySummary>>;
+    const _allFields: Array<NumberField<CreditNotes> | EnumField<CreditNotes> | DateField<CreditNotes> | StringField<CreditNotes> | TimeField<CreditNotes> | CollectionField<CreditNotes, DocumentApprovalRequest> | CollectionField<CreditNotes, DocumentLine> | CollectionField<CreditNotes, DocumentAdditionalExpense> | CollectionField<CreditNotes, WithholdingTaxDataWtx> | CollectionField<CreditNotes, WithholdingTaxData> | CollectionField<CreditNotes, DocumentPackage> | CollectionField<CreditNotes, DocumentSpecialLine> | CollectionField<CreditNotes, DocumentInstallment> | CollectionField<CreditNotes, DownPaymentToDraw> | TaxExtensionField<CreditNotes> | AddressExtensionField<CreditNotes> | OneToOneLink<CreditNotes, BusinessPartners> | OneToOneLink<CreditNotes, Currencies> | OneToOneLink<CreditNotes, PaymentTermsTypes> | OneToOneLink<CreditNotes, SalesPersons> | OneToOneLink<CreditNotes, ShippingTypes> | OneToOneLink<CreditNotes, FactoringIndicators> | OneToOneLink<CreditNotes, JournalEntries> | OneToOneLink<CreditNotes, Forms1099> | OneToOneLink<CreditNotes, WizardPaymentMethods> | OneToOneLink<CreditNotes, PaymentBlocks> | OneToOneLink<CreditNotes, Projects> | OneToOneLink<CreditNotes, EmployeesInfo> | OneToOneLink<CreditNotes, Countries> | OneToOneLink<CreditNotes, BusinessPlaces> | OneToOneLink<CreditNotes, UserLanguages> | OneToOneLink<CreditNotes, NfModels> | OneToOneLink<CreditNotes, ChartOfAccounts> | OneToOneLink<CreditNotes, TaxWebSites> | OneToOneLink<CreditNotes, Branches> | OneToOneLink<CreditNotes, Departments> | OneToOneLink<CreditNotes, PosDailySummary>>;
     /**
      * All fields selector.
      */

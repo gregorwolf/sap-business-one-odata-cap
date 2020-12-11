@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.RouteStages = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var RouteStagesRequestBuilder_1 = require("./RouteStagesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "RouteStages" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var RouteStages = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `RouteStages`.
+     * Returns an entity builder to construct instances of `RouteStages`.
      * @returns A builder that constructs instances of entity type `RouteStages`.
      */
     RouteStages.builder = function () {
-        return v4_1.Entity.entityBuilder(RouteStages);
+        return core_1.EntityV4.entityBuilder(RouteStages);
     };
     /**
      * Returns a request builder to construct requests for operations on the `RouteStages` entity type.
@@ -60,7 +60,7 @@ var RouteStages = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `RouteStages`.
      */
     RouteStages.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, RouteStages);
+        return core_1.EntityV4.customFieldSelector(fieldName, RouteStages);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,48 +74,43 @@ var RouteStages = /** @class */ (function (_super) {
      */
     RouteStages._entityName = 'RouteStages';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for RouteStages.
-     */
-    RouteStages._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    RouteStages._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    RouteStages._defaultServicePath = '/b1s/v2/';
     return RouteStages;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.RouteStages = RouteStages;
 (function (RouteStages) {
     /**
      * Static representation of the [[internalNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    RouteStages.INTERNAL_NUMBER = new v4_1.NumberField('InternalNumber', RouteStages, 'Edm.Int32');
+    RouteStages.INTERNAL_NUMBER = new core_1.NumberField('InternalNumber', RouteStages, 'Edm.Int32');
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    RouteStages.CODE = new v4_1.StringField('Code', RouteStages, 'Edm.String');
+    RouteStages.CODE = new core_1.StringField('Code', RouteStages, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    RouteStages.DESCRIPTION = new v4_1.StringField('Description', RouteStages, 'Edm.String');
+    RouteStages.DESCRIPTION = new core_1.StringField('Description', RouteStages, 'Edm.String');
     /**
      * Static representation of the [[creationDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    RouteStages.CREATION_DATE = new v4_1.DateField('CreationDate', RouteStages, 'Edm.DateTimeOffset');
+    RouteStages.CREATION_DATE = new core_1.DateField('CreationDate', RouteStages, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[generationTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    RouteStages.GENERATION_TIME = new v4_1.TimeField('GenerationTime', RouteStages, 'Edm.TimeOfDay');
+    RouteStages.GENERATION_TIME = new core_1.TimeField('GenerationTime', RouteStages, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[dateOfUpdate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    RouteStages.DATE_OF_UPDATE = new v4_1.DateField('DateOfUpdate', RouteStages, 'Edm.DateTimeOffset');
+    RouteStages.DATE_OF_UPDATE = new core_1.DateField('DateOfUpdate', RouteStages, 'Edm.DateTimeOffset');
     /**
      * All fields of the RouteStages entity.
      */
@@ -130,7 +125,7 @@ exports.RouteStages = RouteStages;
     /**
      * All fields selector.
      */
-    RouteStages.ALL_FIELDS = new v4_1.AllFields('*', RouteStages);
+    RouteStages.ALL_FIELDS = new core_1.AllFields('*', RouteStages);
     /**
      * All key fields of the RouteStages entity.
      */

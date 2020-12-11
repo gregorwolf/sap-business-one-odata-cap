@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { LegalDataLineTypeEnum } from './LegalDataLineTypeEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * LegalDataDetail
@@ -19,6 +20,11 @@ export interface LegalDataDetail {
    * @nullable
    */
   lineSequence?: number;
+  /**
+   * Line Type.
+   * @nullable
+   */
+  lineType?: LegalDataLineTypeEnum;
   /**
    * Tax Code.
    * @nullable
@@ -47,7 +53,7 @@ export function createLegalDataDetail(json: any): LegalDataDetail {
  * LegalDataDetailField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class LegalDataDetailField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class LegalDataDetailField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, LegalDataDetail> {
   /**
    * Representation of the [[LegalDataDetail.docEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -58,6 +64,11 @@ export class LegalDataDetailField<EntityT extends Entity> extends ComplexTypeFie
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   lineSequence: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('LineSequence', this, 'Edm.Int32');
+  /**
+   * Representation of the [[LegalDataDetail.lineType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  lineType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('LineType', this);
   /**
    * Representation of the [[LegalDataDetail.taxCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -73,16 +84,58 @@ export class LegalDataDetailField<EntityT extends Entity> extends ComplexTypeFie
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   amount: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('Amount', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of LegalDataDetailField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, LegalDataDetail);
+  }
 }
 
 export namespace LegalDataDetail {
+  /**
+   * Metadata information on all properties of the `LegalDataDetail` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<LegalDataDetail>[] = [{
+    originalName: 'DocEntry',
+    name: 'docEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineSequence',
+    name: 'lineSequence',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineType',
+    name: 'lineType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'TaxCode',
+    name: 'taxCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxRate',
+    name: 'taxRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Amount',
+    name: 'amount',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): LegalDataDetail {
-    return createComplexType(json, {
-      DocEntry: (docEntry: number) => ({ docEntry: edmToTs(docEntry, 'Edm.Int32') }),
-      LineSequence: (lineSequence: number) => ({ lineSequence: edmToTs(lineSequence, 'Edm.Int32') }),
-      TaxCode: (taxCode: string) => ({ taxCode: edmToTs(taxCode, 'Edm.String') }),
-      TaxRate: (taxRate: number) => ({ taxRate: edmToTs(taxRate, 'Edm.Double') }),
-      Amount: (amount: number) => ({ amount: edmToTs(amount, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, LegalDataDetail);
   }
 }

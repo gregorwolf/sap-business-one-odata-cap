@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { CreditPaymentMethodsRequestBuilder } from './CreditPaymentMethodsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { InstallmentPaymentsPossiblityEnum } from './InstallmentPaymentsPossiblityEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "CreditPaymentMethods" of service "SAPB1".
  */
-export class CreditPaymentMethods extends Entity implements CreditPaymentMethodsType {
+export class CreditPaymentMethods extends EntityV4 implements CreditPaymentMethodsType {
   /**
    * Technical entity name for CreditPaymentMethods.
    */
   static _entityName = 'CreditPaymentMethods';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for CreditPaymentMethods.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Payment Method Code.
    * @nullable
@@ -59,6 +55,11 @@ export class CreditPaymentMethods extends Entity implements CreditPaymentMethods
    */
   maxQtyWithoutApproval?: number;
   /**
+   * Installment Payments Possible.
+   * @nullable
+   */
+  installmentPaymentsPossible?: InstallmentPaymentsPossiblityEnum;
+  /**
    * One-to-one navigation property to the [[CreditCards]] entity.
    */
   creditCard!: CreditCards;
@@ -68,11 +69,11 @@ export class CreditPaymentMethods extends Entity implements CreditPaymentMethods
   creditCardPayment!: CreditCardPayments;
 
   /**
-   * Returns an entity builder to construct instances `CreditPaymentMethods`.
+   * Returns an entity builder to construct instances of `CreditPaymentMethods`.
    * @returns A builder that constructs instances of entity type `CreditPaymentMethods`.
    */
-  static builder(): EntityBuilderType<CreditPaymentMethods, CreditPaymentMethodsTypeForceMandatory> {
-    return Entity.entityBuilder(CreditPaymentMethods);
+  static builder(): EntityBuilderType<CreditPaymentMethods, CreditPaymentMethodsType> {
+    return EntityV4.entityBuilder(CreditPaymentMethods);
   }
 
   /**
@@ -88,8 +89,8 @@ export class CreditPaymentMethods extends Entity implements CreditPaymentMethods
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `CreditPaymentMethods`.
    */
-  static customField(fieldName: string): CustomField<CreditPaymentMethods> {
-    return Entity.customFieldSelector(fieldName, CreditPaymentMethods);
+  static customField(fieldName: string): CustomFieldV4<CreditPaymentMethods> {
+    return EntityV4.customFieldSelector(fieldName, CreditPaymentMethods);
   }
 
   /**
@@ -105,25 +106,14 @@ import { CreditCards, CreditCardsType } from './CreditCards';
 import { CreditCardPayments, CreditCardPaymentsType } from './CreditCardPayments';
 
 export interface CreditPaymentMethodsType {
-  paymentMethodCode?: number;
-  name?: string;
-  assignedtoCreditCard?: number;
-  paymentCode?: string;
-  minimumCreditAmount?: number;
-  minimumPaymentAmount?: number;
-  maxQtyWithoutApproval?: number;
-  creditCard: CreditCardsType;
-  creditCardPayment: CreditCardPaymentsType;
-}
-
-export interface CreditPaymentMethodsTypeForceMandatory {
-  paymentMethodCode: number;
-  name: string;
-  assignedtoCreditCard: number;
-  paymentCode: string;
-  minimumCreditAmount: number;
-  minimumPaymentAmount: number;
-  maxQtyWithoutApproval: number;
+  paymentMethodCode?: number | null;
+  name?: string | null;
+  assignedtoCreditCard?: number | null;
+  paymentCode?: string | null;
+  minimumCreditAmount?: number | null;
+  minimumPaymentAmount?: number | null;
+  maxQtyWithoutApproval?: number | null;
+  installmentPaymentsPossible?: InstallmentPaymentsPossiblityEnum | null;
   creditCard: CreditCardsType;
   creditCardPayment: CreditCardPaymentsType;
 }
@@ -165,6 +155,11 @@ export namespace CreditPaymentMethods {
    */
   export const MAX_QTY_WITHOUT_APPROVAL: NumberField<CreditPaymentMethods> = new NumberField('MaxQtyWithoutApproval', CreditPaymentMethods, 'Edm.Double');
   /**
+   * Static representation of the [[installmentPaymentsPossible]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INSTALLMENT_PAYMENTS_POSSIBLE: EnumField<CreditPaymentMethods> = new EnumField('InstallmentPaymentsPossible', CreditPaymentMethods);
+  /**
    * Static representation of the one-to-one navigation property [[creditCard]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -177,7 +172,7 @@ export namespace CreditPaymentMethods {
   /**
    * All fields of the CreditPaymentMethods entity.
    */
-  export const _allFields: Array<NumberField<CreditPaymentMethods> | StringField<CreditPaymentMethods> | OneToOneLink<CreditPaymentMethods, CreditCards> | OneToOneLink<CreditPaymentMethods, CreditCardPayments>> = [
+  export const _allFields: Array<NumberField<CreditPaymentMethods> | StringField<CreditPaymentMethods> | EnumField<CreditPaymentMethods> | OneToOneLink<CreditPaymentMethods, CreditCards> | OneToOneLink<CreditPaymentMethods, CreditCardPayments>> = [
     CreditPaymentMethods.PAYMENT_METHOD_CODE,
     CreditPaymentMethods.NAME,
     CreditPaymentMethods.ASSIGNEDTO_CREDIT_CARD,
@@ -185,6 +180,7 @@ export namespace CreditPaymentMethods {
     CreditPaymentMethods.MINIMUM_CREDIT_AMOUNT,
     CreditPaymentMethods.MINIMUM_PAYMENT_AMOUNT,
     CreditPaymentMethods.MAX_QTY_WITHOUT_APPROVAL,
+    CreditPaymentMethods.INSTALLMENT_PAYMENTS_POSSIBLE,
     CreditPaymentMethods.CREDIT_CARD,
     CreditPaymentMethods.CREDIT_CARD_PAYMENT
   ];

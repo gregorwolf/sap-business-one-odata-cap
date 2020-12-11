@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ColumnsPreferencesParams
@@ -32,7 +32,7 @@ export function createColumnsPreferencesParams(json: any): ColumnsPreferencesPar
  * ColumnsPreferencesParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ColumnsPreferencesParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ColumnsPreferencesParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ColumnsPreferencesParams> {
   /**
    * Representation of the [[ColumnsPreferencesParams.user]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -43,13 +43,38 @@ export class ColumnsPreferencesParamsField<EntityT extends Entity> extends Compl
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   formId: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('FormID', this, 'Edm.String');
+
+  /**
+   * Creates an instance of ColumnsPreferencesParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ColumnsPreferencesParams);
+  }
 }
 
 export namespace ColumnsPreferencesParams {
+  /**
+   * Metadata information on all properties of the `ColumnsPreferencesParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ColumnsPreferencesParams>[] = [{
+    originalName: 'User',
+    name: 'user',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'FormID',
+    name: 'formId',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ColumnsPreferencesParams {
-    return createComplexType(json, {
-      User: (user: number) => ({ user: edmToTs(user, 'Edm.Int32') }),
-      FormID: (formId: string) => ({ formId: edmToTs(formId, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, ColumnsPreferencesParams);
   }
 }

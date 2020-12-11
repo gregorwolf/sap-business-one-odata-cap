@@ -1,18 +1,13 @@
 import { ServiceCallTypesRequestBuilder } from './ServiceCallTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ServiceCallTypes" of service "SAPB1".
  */
-export declare class ServiceCallTypes extends Entity implements ServiceCallTypesType {
+export declare class ServiceCallTypes extends EntityV4 implements ServiceCallTypesType {
     /**
      * Technical entity name for ServiceCallTypes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ServiceCallTypes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -37,10 +32,10 @@ export declare class ServiceCallTypes extends Entity implements ServiceCallTypes
      */
     serviceCalls: ServiceCalls[];
     /**
-     * Returns an entity builder to construct instances `ServiceCallTypes`.
+     * Returns an entity builder to construct instances of `ServiceCallTypes`.
      * @returns A builder that constructs instances of entity type `ServiceCallTypes`.
      */
-    static builder(): EntityBuilderType<ServiceCallTypes, ServiceCallTypesTypeForceMandatory>;
+    static builder(): EntityBuilderType<ServiceCallTypes, ServiceCallTypesType>;
     /**
      * Returns a request builder to construct requests for operations on the `ServiceCallTypes` entity type.
      * @returns A `ServiceCallTypes` request builder.
@@ -51,7 +46,7 @@ export declare class ServiceCallTypes extends Entity implements ServiceCallTypes
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ServiceCallTypes`.
      */
-    static customField(fieldName: string): CustomField<ServiceCallTypes>;
+    static customField(fieldName: string): CustomFieldV4<ServiceCallTypes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -62,15 +57,9 @@ export declare class ServiceCallTypes extends Entity implements ServiceCallTypes
 }
 import { ServiceCalls, ServiceCallsType } from './ServiceCalls';
 export interface ServiceCallTypesType {
-    callTypeId?: number;
-    name?: string;
-    description?: string;
-    serviceCalls: ServiceCallsType[];
-}
-export interface ServiceCallTypesTypeForceMandatory {
-    callTypeId: number;
-    name: string;
-    description: string;
+    callTypeId?: number | null;
+    name?: string | null;
+    description?: string | null;
     serviceCalls: ServiceCallsType[];
 }
 export declare namespace ServiceCallTypes {

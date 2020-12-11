@@ -5,25 +5,20 @@
  */
 import { RouteStagesRequestBuilder } from './RouteStagesRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, Field, NumberField, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "RouteStages" of service "SAPB1".
  */
-export class RouteStages extends Entity implements RouteStagesType {
+export class RouteStages extends EntityV4 implements RouteStagesType {
   /**
    * Technical entity name for RouteStages.
    */
   static _entityName = 'RouteStages';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for RouteStages.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Internal Number.
    * @nullable
@@ -56,11 +51,11 @@ export class RouteStages extends Entity implements RouteStagesType {
   dateOfUpdate?: Moment;
 
   /**
-   * Returns an entity builder to construct instances `RouteStages`.
+   * Returns an entity builder to construct instances of `RouteStages`.
    * @returns A builder that constructs instances of entity type `RouteStages`.
    */
-  static builder(): EntityBuilderType<RouteStages, RouteStagesTypeForceMandatory> {
-    return Entity.entityBuilder(RouteStages);
+  static builder(): EntityBuilderType<RouteStages, RouteStagesType> {
+    return EntityV4.entityBuilder(RouteStages);
   }
 
   /**
@@ -76,8 +71,8 @@ export class RouteStages extends Entity implements RouteStagesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `RouteStages`.
    */
-  static customField(fieldName: string): CustomField<RouteStages> {
-    return Entity.customFieldSelector(fieldName, RouteStages);
+  static customField(fieldName: string): CustomFieldV4<RouteStages> {
+    return EntityV4.customFieldSelector(fieldName, RouteStages);
   }
 
   /**
@@ -90,21 +85,12 @@ export class RouteStages extends Entity implements RouteStagesType {
 }
 
 export interface RouteStagesType {
-  internalNumber?: number;
-  code?: string;
-  description?: string;
-  creationDate?: Moment;
-  generationTime?: Time;
-  dateOfUpdate?: Moment;
-}
-
-export interface RouteStagesTypeForceMandatory {
-  internalNumber: number;
-  code: string;
-  description: string;
-  creationDate: Moment;
-  generationTime: Time;
-  dateOfUpdate: Moment;
+  internalNumber?: number | null;
+  code?: string | null;
+  description?: string | null;
+  creationDate?: Moment | null;
+  generationTime?: Time | null;
+  dateOfUpdate?: Moment | null;
 }
 
 export namespace RouteStages {

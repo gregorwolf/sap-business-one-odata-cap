@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -14,12 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FixedAssetValues = exports.FixedAssetValuesField = exports.createFixedAssetValues = void 0;
-/*
- * Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
- *
- * This is a generated file powered by the SAP Cloud SDK for JavaScript.
- */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[FixedAssetValues.build]] instead.
  */
@@ -33,72 +28,130 @@ exports.createFixedAssetValues = createFixedAssetValues;
  */
 var FixedAssetValuesField = /** @class */ (function (_super) {
     __extends(FixedAssetValuesField, _super);
-    function FixedAssetValuesField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of FixedAssetValuesField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function FixedAssetValuesField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, FixedAssetValues) || this;
+        /**
+         * Representation of the [[FixedAssetValues.transactionType]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.transactionType = new core_1.ComplexTypeEnumPropertyField('TransactionType', _this);
         /**
          * Representation of the [[FixedAssetValues.acquisitionCost]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.acquisitionCost = new v4_1.ComplexTypeNumberPropertyField('AcquisitionCost', _this, 'Edm.Double');
+        _this.acquisitionCost = new core_1.ComplexTypeNumberPropertyField('AcquisitionCost', _this, 'Edm.Double');
         /**
          * Representation of the [[FixedAssetValues.quantity]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.quantity = new v4_1.ComplexTypeNumberPropertyField('Quantity', _this, 'Edm.Double');
+        _this.quantity = new core_1.ComplexTypeNumberPropertyField('Quantity', _this, 'Edm.Double');
         /**
          * Representation of the [[FixedAssetValues.depreciationValue]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.depreciationValue = new v4_1.ComplexTypeNumberPropertyField('DepreciationValue', _this, 'Edm.Double');
+        _this.depreciationValue = new core_1.ComplexTypeNumberPropertyField('DepreciationValue', _this, 'Edm.Double');
         /**
          * Representation of the [[FixedAssetValues.netBookValue]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.netBookValue = new v4_1.ComplexTypeNumberPropertyField('NetBookValue', _this, 'Edm.Double');
+        _this.netBookValue = new core_1.ComplexTypeNumberPropertyField('NetBookValue', _this, 'Edm.Double');
         /**
          * Representation of the [[FixedAssetValues.ordinaryDepreciationValue]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.ordinaryDepreciationValue = new v4_1.ComplexTypeNumberPropertyField('OrdinaryDepreciationValue', _this, 'Edm.Double');
+        _this.ordinaryDepreciationValue = new core_1.ComplexTypeNumberPropertyField('OrdinaryDepreciationValue', _this, 'Edm.Double');
         /**
          * Representation of the [[FixedAssetValues.unplanedDepreciationValue]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.unplanedDepreciationValue = new v4_1.ComplexTypeNumberPropertyField('UnplanedDepreciationValue', _this, 'Edm.Double');
+        _this.unplanedDepreciationValue = new core_1.ComplexTypeNumberPropertyField('UnplanedDepreciationValue', _this, 'Edm.Double');
         /**
          * Representation of the [[FixedAssetValues.specialDepreciationValue]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.specialDepreciationValue = new v4_1.ComplexTypeNumberPropertyField('SpecialDepreciationValue', _this, 'Edm.Double');
+        _this.specialDepreciationValue = new core_1.ComplexTypeNumberPropertyField('SpecialDepreciationValue', _this, 'Edm.Double');
         /**
          * Representation of the [[FixedAssetValues.writeUp]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.writeUp = new v4_1.ComplexTypeNumberPropertyField('WriteUp', _this, 'Edm.Double');
+        _this.writeUp = new core_1.ComplexTypeNumberPropertyField('WriteUp', _this, 'Edm.Double');
         /**
          * Representation of the [[FixedAssetValues.appreciation]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.appreciation = new v4_1.ComplexTypeNumberPropertyField('Appreciation', _this, 'Edm.Double');
+        _this.appreciation = new core_1.ComplexTypeNumberPropertyField('Appreciation', _this, 'Edm.Double');
         return _this;
     }
     return FixedAssetValuesField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.FixedAssetValuesField = FixedAssetValuesField;
 var FixedAssetValues;
 (function (FixedAssetValues) {
+    /**
+     * Metadata information on all properties of the `FixedAssetValues` complex type.
+     */
+    FixedAssetValues._propertyMetadata = [{
+            originalName: 'TransactionType',
+            name: 'transactionType',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'AcquisitionCost',
+            name: 'acquisitionCost',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Quantity',
+            name: 'quantity',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'DepreciationValue',
+            name: 'depreciationValue',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'NetBookValue',
+            name: 'netBookValue',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'OrdinaryDepreciationValue',
+            name: 'ordinaryDepreciationValue',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'UnplanedDepreciationValue',
+            name: 'unplanedDepreciationValue',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'SpecialDepreciationValue',
+            name: 'specialDepreciationValue',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'WriteUp',
+            name: 'writeUp',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Appreciation',
+            name: 'appreciation',
+            type: 'Edm.Double',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            AcquisitionCost: function (acquisitionCost) { return ({ acquisitionCost: v4_1.edmToTs(acquisitionCost, 'Edm.Double') }); },
-            Quantity: function (quantity) { return ({ quantity: v4_1.edmToTs(quantity, 'Edm.Double') }); },
-            DepreciationValue: function (depreciationValue) { return ({ depreciationValue: v4_1.edmToTs(depreciationValue, 'Edm.Double') }); },
-            NetBookValue: function (netBookValue) { return ({ netBookValue: v4_1.edmToTs(netBookValue, 'Edm.Double') }); },
-            OrdinaryDepreciationValue: function (ordinaryDepreciationValue) { return ({ ordinaryDepreciationValue: v4_1.edmToTs(ordinaryDepreciationValue, 'Edm.Double') }); },
-            UnplanedDepreciationValue: function (unplanedDepreciationValue) { return ({ unplanedDepreciationValue: v4_1.edmToTs(unplanedDepreciationValue, 'Edm.Double') }); },
-            SpecialDepreciationValue: function (specialDepreciationValue) { return ({ specialDepreciationValue: v4_1.edmToTs(specialDepreciationValue, 'Edm.Double') }); },
-            WriteUp: function (writeUp) { return ({ writeUp: v4_1.edmToTs(writeUp, 'Edm.Double') }); },
-            Appreciation: function (appreciation) { return ({ appreciation: v4_1.edmToTs(appreciation, 'Edm.Double') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, FixedAssetValues);
     }
     FixedAssetValues.build = build;
 })(FixedAssetValues = exports.FixedAssetValues || (exports.FixedAssetValues = {}));

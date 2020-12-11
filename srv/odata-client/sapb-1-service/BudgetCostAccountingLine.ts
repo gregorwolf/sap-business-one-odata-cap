@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * BudgetCostAccountingLine
@@ -52,7 +52,7 @@ export function createBudgetCostAccountingLine(json: any): BudgetCostAccountingL
  * BudgetCostAccountingLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class BudgetCostAccountingLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class BudgetCostAccountingLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BudgetCostAccountingLine> {
   /**
    * Representation of the [[BudgetCostAccountingLine.distrRuleCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -83,17 +83,58 @@ export class BudgetCostAccountingLineField<EntityT extends Entity> extends Compl
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   distrRuleCreditSc: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DistrRuleCreditSC', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of BudgetCostAccountingLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, BudgetCostAccountingLine);
+  }
 }
 
 export namespace BudgetCostAccountingLine {
+  /**
+   * Metadata information on all properties of the `BudgetCostAccountingLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<BudgetCostAccountingLine>[] = [{
+    originalName: 'DistrRuleCode',
+    name: 'distrRuleCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Dimension',
+    name: 'dimension',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DistrRuleDebitLC',
+    name: 'distrRuleDebitLc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DistrRuleDebitSC',
+    name: 'distrRuleDebitSc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DistrRuleCreditLC',
+    name: 'distrRuleCreditLc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DistrRuleCreditSC',
+    name: 'distrRuleCreditSc',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): BudgetCostAccountingLine {
-    return createComplexType(json, {
-      DistrRuleCode: (distrRuleCode: string) => ({ distrRuleCode: edmToTs(distrRuleCode, 'Edm.String') }),
-      Dimension: (dimension: number) => ({ dimension: edmToTs(dimension, 'Edm.Int32') }),
-      DistrRuleDebitLC: (distrRuleDebitLc: number) => ({ distrRuleDebitLc: edmToTs(distrRuleDebitLc, 'Edm.Double') }),
-      DistrRuleDebitSC: (distrRuleDebitSc: number) => ({ distrRuleDebitSc: edmToTs(distrRuleDebitSc, 'Edm.Double') }),
-      DistrRuleCreditLC: (distrRuleCreditLc: number) => ({ distrRuleCreditLc: edmToTs(distrRuleCreditLc, 'Edm.Double') }),
-      DistrRuleCreditSC: (distrRuleCreditSc: number) => ({ distrRuleCreditSc: edmToTs(distrRuleCreditSc, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, BudgetCostAccountingLine);
   }
 }

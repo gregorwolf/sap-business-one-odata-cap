@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.BusinessPlacesRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var BusinessPlaces_1 = require("./BusinessPlaces");
 /**
  * Request builder class for operations supported on the [[BusinessPlaces]] entity.
@@ -35,14 +35,14 @@ var BusinessPlacesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `BusinessPlaces` entity based on its keys.
      */
     BusinessPlacesRequestBuilder.prototype.getByKey = function (bplid) {
-        return new v4_1.GetByKeyRequestBuilder(BusinessPlaces_1.BusinessPlaces, { BPLID: bplid });
+        return new core_1.GetByKeyRequestBuilderV4(BusinessPlaces_1.BusinessPlaces, { BPLID: bplid });
     };
     /**
      * Returns a request builder for querying all `BusinessPlaces` entities.
      * @returns A request builder for creating requests to retrieve all `BusinessPlaces` entities.
      */
     BusinessPlacesRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(BusinessPlaces_1.BusinessPlaces);
+        return new core_1.GetAllRequestBuilderV4(BusinessPlaces_1.BusinessPlaces);
     };
     /**
      * Returns a request builder for creating a `BusinessPlaces` entity.
@@ -50,7 +50,7 @@ var BusinessPlacesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `BusinessPlaces`.
      */
     BusinessPlacesRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(BusinessPlaces_1.BusinessPlaces, entity);
+        return new core_1.CreateRequestBuilderV4(BusinessPlaces_1.BusinessPlaces, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `BusinessPlaces`.
@@ -58,12 +58,12 @@ var BusinessPlacesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `BusinessPlaces`.
      */
     BusinessPlacesRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(BusinessPlaces_1.BusinessPlaces, entity);
+        return new core_1.UpdateRequestBuilderV4(BusinessPlaces_1.BusinessPlaces, entity);
     };
     BusinessPlacesRequestBuilder.prototype.delete = function (bplidOrEntity) {
-        return new v4_1.DeleteRequestBuilder(BusinessPlaces_1.BusinessPlaces, bplidOrEntity instanceof BusinessPlaces_1.BusinessPlaces ? bplidOrEntity : { BPLID: bplidOrEntity });
+        return new core_1.DeleteRequestBuilderV4(BusinessPlaces_1.BusinessPlaces, bplidOrEntity instanceof BusinessPlaces_1.BusinessPlaces ? bplidOrEntity : { BPLID: bplidOrEntity });
     };
     return BusinessPlacesRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.BusinessPlacesRequestBuilder = BusinessPlacesRequestBuilder;
 //# sourceMappingURL=BusinessPlacesRequestBuilder.js.map

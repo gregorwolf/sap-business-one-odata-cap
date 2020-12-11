@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { DepartmentsRequestBuilder } from './DepartmentsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "Departments" of service "SAPB1".
  */
-export class Departments extends Entity implements DepartmentsType {
+export class Departments extends EntityV4 implements DepartmentsType {
   /**
    * Technical entity name for Departments.
    */
   static _entityName = 'Departments';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for Departments.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -144,11 +139,11 @@ export class Departments extends Entity implements DepartmentsType {
   goodsReturnRequest!: GoodsReturnRequest[];
 
   /**
-   * Returns an entity builder to construct instances `Departments`.
+   * Returns an entity builder to construct instances of `Departments`.
    * @returns A builder that constructs instances of entity type `Departments`.
    */
-  static builder(): EntityBuilderType<Departments, DepartmentsTypeForceMandatory> {
-    return Entity.entityBuilder(Departments);
+  static builder(): EntityBuilderType<Departments, DepartmentsType> {
+    return EntityV4.entityBuilder(Departments);
   }
 
   /**
@@ -164,8 +159,8 @@ export class Departments extends Entity implements DepartmentsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `Departments`.
    */
-  static customField(fieldName: string): CustomField<Departments> {
-    return Entity.customFieldSelector(fieldName, Departments);
+  static customField(fieldName: string): CustomFieldV4<Departments> {
+    return EntityV4.customFieldSelector(fieldName, Departments);
   }
 
   /**
@@ -205,41 +200,9 @@ import { PurchaseOrders, PurchaseOrdersType } from './PurchaseOrders';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 
 export interface DepartmentsType {
-  code?: number;
-  name?: string;
-  description?: string;
-  inventoryGenEntries: InventoryGenEntriesType[];
-  purchaseQuotations: PurchaseQuotationsType[];
-  deliveryNotes: DeliveryNotesType[];
-  quotations: QuotationsType[];
-  inventoryGenExits: InventoryGenExitsType[];
-  purchaseRequests: PurchaseRequestsType[];
-  returnRequest: ReturnRequestType[];
-  users: UsersType[];
-  purchaseReturns: PurchaseReturnsType[];
-  invoices: InvoicesType[];
-  creditNotes: CreditNotesType[];
-  orders: OrdersType[];
-  downPayments: DownPaymentsType[];
-  drafts: DraftsType[];
-  returns: ReturnsType[];
-  correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-  correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-  correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-  purchaseInvoices: PurchaseInvoicesType[];
-  purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-  correctionInvoice: CorrectionInvoiceType[];
-  purchaseCreditNotes: PurchaseCreditNotesType[];
-  purchaseDownPayments: PurchaseDownPaymentsType[];
-  employeesInfo: EmployeesInfoType[];
-  purchaseOrders: PurchaseOrdersType[];
-  goodsReturnRequest: GoodsReturnRequestType[];
-}
-
-export interface DepartmentsTypeForceMandatory {
-  code: number;
-  name: string;
-  description: string;
+  code?: number | null;
+  name?: string | null;
+  description?: string | null;
   inventoryGenEntries: InventoryGenEntriesType[];
   purchaseQuotations: PurchaseQuotationsType[];
   deliveryNotes: DeliveryNotesType[];

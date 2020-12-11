@@ -3,9 +3,9 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { FifoLayer, FifoLayerField } from './FifoLayer';
-import { SnbLines, SnbLinesField } from './SnbLines';
-import { CollectionField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { FifoLayer } from './FifoLayer';
+import { SnbLines } from './SnbLines';
+import { CollectionField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * MaterialRevaluationLine
@@ -110,12 +110,12 @@ export interface MaterialRevaluationLine {
    * Fifo Layers.
    * @nullable
    */
-  fifoLayers?: FifoLayer;
+  fifoLayers?: FifoLayer[];
   /**
    * Snb Lines Collection.
    * @nullable
    */
-  snbLinesCollection?: SnbLines;
+  snbLinesCollection?: SnbLines[];
 }
 
 /**
@@ -129,7 +129,7 @@ export function createMaterialRevaluationLine(json: any): MaterialRevaluationLin
  * MaterialRevaluationLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class MaterialRevaluationLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class MaterialRevaluationLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, MaterialRevaluationLine> {
   /**
    * Representation of the [[MaterialRevaluationLine.lineNum]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -229,38 +229,139 @@ export class MaterialRevaluationLineField<EntityT extends Entity> extends Comple
    * Representation of the [[MaterialRevaluationLine.fifoLayers]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  fifoLayers: FifoLayerField<EntityT> = new FifoLayerField('FIFOLayers', this);
+  fifoLayers: CollectionField<EntityT, FifoLayer> = new CollectionField('FIFOLayers', this, FifoLayer);
   /**
    * Representation of the [[MaterialRevaluationLine.snbLinesCollection]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  snbLinesCollection: SnbLinesField<EntityT> = new SnbLinesField('SNBLinesCollection', this);
+  snbLinesCollection: CollectionField<EntityT, SnbLines> = new CollectionField('SNBLinesCollection', this, SnbLines);
+
+  /**
+   * Creates an instance of MaterialRevaluationLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, MaterialRevaluationLine);
+  }
 }
 
 export namespace MaterialRevaluationLine {
+  /**
+   * Metadata information on all properties of the `MaterialRevaluationLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<MaterialRevaluationLine>[] = [{
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ItemCode',
+    name: 'itemCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemDescription',
+    name: 'itemDescription',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Quantity',
+    name: 'quantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Price',
+    name: 'price',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WarehouseCode',
+    name: 'warehouseCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ActualPrice',
+    name: 'actualPrice',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'OnHand',
+    name: 'onHand',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DebitCredit',
+    name: 'debitCredit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DocEntry',
+    name: 'docEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'RevaluationDecrementAccount',
+    name: 'revaluationDecrementAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RevaluationIncrementAccount',
+    name: 'revaluationIncrementAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RevalAmountToStock',
+    name: 'revalAmountToStock',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Project',
+    name: 'project',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule',
+    name: 'distributionRule',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule2',
+    name: 'distributionRule2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule3',
+    name: 'distributionRule3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule4',
+    name: 'distributionRule4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule5',
+    name: 'distributionRule5',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FIFOLayers',
+    name: 'fifoLayers',
+    type: FifoLayer,
+    isCollection: true
+  }, {
+    originalName: 'SNBLinesCollection',
+    name: 'snbLinesCollection',
+    type: SnbLines,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | FifoLayer | SnbLines }): MaterialRevaluationLine {
-    return createComplexType(json, {
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      ItemCode: (itemCode: string) => ({ itemCode: edmToTs(itemCode, 'Edm.String') }),
-      ItemDescription: (itemDescription: string) => ({ itemDescription: edmToTs(itemDescription, 'Edm.String') }),
-      Quantity: (quantity: number) => ({ quantity: edmToTs(quantity, 'Edm.Double') }),
-      Price: (price: number) => ({ price: edmToTs(price, 'Edm.Double') }),
-      WarehouseCode: (warehouseCode: string) => ({ warehouseCode: edmToTs(warehouseCode, 'Edm.String') }),
-      ActualPrice: (actualPrice: number) => ({ actualPrice: edmToTs(actualPrice, 'Edm.Double') }),
-      OnHand: (onHand: number) => ({ onHand: edmToTs(onHand, 'Edm.Double') }),
-      DebitCredit: (debitCredit: number) => ({ debitCredit: edmToTs(debitCredit, 'Edm.Double') }),
-      DocEntry: (docEntry: number) => ({ docEntry: edmToTs(docEntry, 'Edm.Int32') }),
-      RevaluationDecrementAccount: (revaluationDecrementAccount: string) => ({ revaluationDecrementAccount: edmToTs(revaluationDecrementAccount, 'Edm.String') }),
-      RevaluationIncrementAccount: (revaluationIncrementAccount: string) => ({ revaluationIncrementAccount: edmToTs(revaluationIncrementAccount, 'Edm.String') }),
-      RevalAmountToStock: (revalAmountToStock: number) => ({ revalAmountToStock: edmToTs(revalAmountToStock, 'Edm.Double') }),
-      Project: (project: string) => ({ project: edmToTs(project, 'Edm.String') }),
-      DistributionRule: (distributionRule: string) => ({ distributionRule: edmToTs(distributionRule, 'Edm.String') }),
-      DistributionRule2: (distributionRule2: string) => ({ distributionRule2: edmToTs(distributionRule2, 'Edm.String') }),
-      DistributionRule3: (distributionRule3: string) => ({ distributionRule3: edmToTs(distributionRule3, 'Edm.String') }),
-      DistributionRule4: (distributionRule4: string) => ({ distributionRule4: edmToTs(distributionRule4, 'Edm.String') }),
-      DistributionRule5: (distributionRule5: string) => ({ distributionRule5: edmToTs(distributionRule5, 'Edm.String') }),
-      FIFOLayers: (fifoLayers: FifoLayer) => ({ fifoLayers: FifoLayer.build(fifoLayers) }),
-      SNBLinesCollection: (snbLinesCollection: SnbLines) => ({ snbLinesCollection: SnbLines.build(snbLinesCollection) })
-    });
+    return deserializeComplexTypeV4(json, MaterialRevaluationLine);
   }
 }

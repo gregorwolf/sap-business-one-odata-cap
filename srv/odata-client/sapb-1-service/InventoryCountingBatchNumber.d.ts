@@ -1,5 +1,7 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { CounterTypeEnum } from './CounterTypeEnum';
+import { MultipleCounterRoleEnum } from './MultipleCounterRoleEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * InventoryCountingBatchNumber
  */
@@ -60,10 +62,20 @@ export interface InventoryCountingBatchNumber {
      */
     documentEntry?: number;
     /**
+     * Counter Type.
+     * @nullable
+     */
+    counterType?: CounterTypeEnum;
+    /**
      * Counter Id.
      * @nullable
      */
     counterId?: number;
+    /**
+     * Multiple Counter Role.
+     * @nullable
+     */
+    multipleCounterRole?: MultipleCounterRoleEnum;
     /**
      * Tracking Note.
      * @nullable
@@ -83,7 +95,7 @@ export declare function createInventoryCountingBatchNumber(json: any): Inventory
  * InventoryCountingBatchNumberField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class InventoryCountingBatchNumberField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class InventoryCountingBatchNumberField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, InventoryCountingBatchNumber> {
     /**
      * Representation of the [[InventoryCountingBatchNumber.batchNumber]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -140,10 +152,20 @@ export declare class InventoryCountingBatchNumberField<EntityT extends Entity> e
      */
     documentEntry: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[InventoryCountingBatchNumber.counterType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    counterType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[InventoryCountingBatchNumber.counterId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     counterId: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[InventoryCountingBatchNumber.multipleCounterRole]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    multipleCounterRole: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[InventoryCountingBatchNumber.trackingNote]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -154,8 +176,22 @@ export declare class InventoryCountingBatchNumberField<EntityT extends Entity> e
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     trackingNoteLine: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of InventoryCountingBatchNumberField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace InventoryCountingBatchNumber {
+    /**
+     * Metadata information on all properties of the `InventoryCountingBatchNumber` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<InventoryCountingBatchNumber>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): InventoryCountingBatchNumber;

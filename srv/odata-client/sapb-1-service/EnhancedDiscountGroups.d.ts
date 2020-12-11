@@ -1,20 +1,18 @@
 import { EnhancedDiscountGroupsRequestBuilder } from './EnhancedDiscountGroupsRequestBuilder';
 import { Moment } from 'moment';
 import { DiscountGroupLine } from './DiscountGroupLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { DiscountGroupTypeEnum } from './DiscountGroupTypeEnum';
+import { DiscountGroupRelationsEnum } from './DiscountGroupRelationsEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "EnhancedDiscountGroups" of service "SAPB1".
  */
-export declare class EnhancedDiscountGroups extends Entity implements EnhancedDiscountGroupsType {
+export declare class EnhancedDiscountGroups extends EntityV4 implements EnhancedDiscountGroupsType {
     /**
      * Technical entity name for EnhancedDiscountGroups.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for EnhancedDiscountGroups.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -25,10 +23,25 @@ export declare class EnhancedDiscountGroups extends Entity implements EnhancedDi
      */
     absEntry?: number;
     /**
+     * Type.
+     * @nullable
+     */
+    type?: DiscountGroupTypeEnum;
+    /**
      * Object Code.
      * @nullable
      */
     objectCode?: string;
+    /**
+     * Discount Relations.
+     * @nullable
+     */
+    discountRelations?: DiscountGroupRelationsEnum;
+    /**
+     * Active.
+     * @nullable
+     */
+    active?: BoYesNoEnum;
     /**
      * Valid From.
      * @nullable
@@ -45,10 +58,10 @@ export declare class EnhancedDiscountGroups extends Entity implements EnhancedDi
      */
     discountGroupLineCollection?: DiscountGroupLine[];
     /**
-     * Returns an entity builder to construct instances `EnhancedDiscountGroups`.
+     * Returns an entity builder to construct instances of `EnhancedDiscountGroups`.
      * @returns A builder that constructs instances of entity type `EnhancedDiscountGroups`.
      */
-    static builder(): EntityBuilderType<EnhancedDiscountGroups, EnhancedDiscountGroupsTypeForceMandatory>;
+    static builder(): EntityBuilderType<EnhancedDiscountGroups, EnhancedDiscountGroupsType>;
     /**
      * Returns a request builder to construct requests for operations on the `EnhancedDiscountGroups` entity type.
      * @returns A `EnhancedDiscountGroups` request builder.
@@ -59,7 +72,7 @@ export declare class EnhancedDiscountGroups extends Entity implements EnhancedDi
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `EnhancedDiscountGroups`.
      */
-    static customField(fieldName: string): CustomField<EnhancedDiscountGroups>;
+    static customField(fieldName: string): CustomFieldV4<EnhancedDiscountGroups>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -69,18 +82,14 @@ export declare class EnhancedDiscountGroups extends Entity implements EnhancedDi
     };
 }
 export interface EnhancedDiscountGroupsType {
-    absEntry?: number;
-    objectCode?: string;
-    validFrom?: Moment;
-    validTo?: Moment;
-    discountGroupLineCollection?: DiscountGroupLine[];
-}
-export interface EnhancedDiscountGroupsTypeForceMandatory {
-    absEntry: number;
-    objectCode: string;
-    validFrom: Moment;
-    validTo: Moment;
-    discountGroupLineCollection: DiscountGroupLine[];
+    absEntry?: number | null;
+    type?: DiscountGroupTypeEnum | null;
+    objectCode?: string | null;
+    discountRelations?: DiscountGroupRelationsEnum | null;
+    active?: BoYesNoEnum | null;
+    validFrom?: Moment | null;
+    validTo?: Moment | null;
+    discountGroupLineCollection?: DiscountGroupLine[] | null;
 }
 export declare namespace EnhancedDiscountGroups {
     /**
@@ -89,10 +98,25 @@ export declare namespace EnhancedDiscountGroups {
      */
     const ABS_ENTRY: NumberField<EnhancedDiscountGroups>;
     /**
+     * Static representation of the [[type]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TYPE: EnumField<EnhancedDiscountGroups>;
+    /**
      * Static representation of the [[objectCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const OBJECT_CODE: StringField<EnhancedDiscountGroups>;
+    /**
+     * Static representation of the [[discountRelations]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DISCOUNT_RELATIONS: EnumField<EnhancedDiscountGroups>;
+    /**
+     * Static representation of the [[active]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ACTIVE: EnumField<EnhancedDiscountGroups>;
     /**
      * Static representation of the [[validFrom]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -107,11 +131,11 @@ export declare namespace EnhancedDiscountGroups {
      * Static representation of the [[discountGroupLineCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const DISCOUNT_GROUP_LINE_COLLECTION: CollectionField<EnhancedDiscountGroups>;
+    const DISCOUNT_GROUP_LINE_COLLECTION: CollectionField<EnhancedDiscountGroups, DiscountGroupLine>;
     /**
      * All fields of the EnhancedDiscountGroups entity.
      */
-    const _allFields: Array<NumberField<EnhancedDiscountGroups> | StringField<EnhancedDiscountGroups> | DateField<EnhancedDiscountGroups> | CollectionField<EnhancedDiscountGroups>>;
+    const _allFields: Array<NumberField<EnhancedDiscountGroups> | EnumField<EnhancedDiscountGroups> | StringField<EnhancedDiscountGroups> | DateField<EnhancedDiscountGroups> | CollectionField<EnhancedDiscountGroups, DiscountGroupLine>>;
     /**
      * All fields selector.
      */

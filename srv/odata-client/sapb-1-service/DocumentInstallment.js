@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DocumentInstallment = exports.DocumentInstallmentField = exports.createDocumentInstallment = void 0;
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[DocumentInstallment.build]] instead.
  */
@@ -28,60 +28,110 @@ exports.createDocumentInstallment = createDocumentInstallment;
  */
 var DocumentInstallmentField = /** @class */ (function (_super) {
     __extends(DocumentInstallmentField, _super);
-    function DocumentInstallmentField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of DocumentInstallmentField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function DocumentInstallmentField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, DocumentInstallment) || this;
         /**
          * Representation of the [[DocumentInstallment.dueDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.dueDate = new v4_1.ComplexTypeDatePropertyField('DueDate', _this, 'Edm.DateTimeOffset');
+        _this.dueDate = new core_1.ComplexTypeDatePropertyField('DueDate', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[DocumentInstallment.percentage]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.percentage = new v4_1.ComplexTypeNumberPropertyField('Percentage', _this, 'Edm.Double');
+        _this.percentage = new core_1.ComplexTypeNumberPropertyField('Percentage', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentInstallment.total]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.total = new v4_1.ComplexTypeNumberPropertyField('Total', _this, 'Edm.Double');
+        _this.total = new core_1.ComplexTypeNumberPropertyField('Total', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentInstallment.lastDunningDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.lastDunningDate = new v4_1.ComplexTypeDatePropertyField('LastDunningDate', _this, 'Edm.DateTimeOffset');
+        _this.lastDunningDate = new core_1.ComplexTypeDatePropertyField('LastDunningDate', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[DocumentInstallment.dunningLevel]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.dunningLevel = new v4_1.ComplexTypeNumberPropertyField('DunningLevel', _this, 'Edm.Int32');
+        _this.dunningLevel = new core_1.ComplexTypeNumberPropertyField('DunningLevel', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentInstallment.totalFc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.totalFc = new v4_1.ComplexTypeNumberPropertyField('TotalFC', _this, 'Edm.Double');
+        _this.totalFc = new core_1.ComplexTypeNumberPropertyField('TotalFC', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentInstallment.installmentId]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.installmentId = new v4_1.ComplexTypeNumberPropertyField('InstallmentId', _this, 'Edm.Int32');
+        _this.installmentId = new core_1.ComplexTypeNumberPropertyField('InstallmentId', _this, 'Edm.Int32');
+        /**
+         * Representation of the [[DocumentInstallment.paymentOrdered]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.paymentOrdered = new core_1.ComplexTypeEnumPropertyField('PaymentOrdered', _this);
         return _this;
     }
     return DocumentInstallmentField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.DocumentInstallmentField = DocumentInstallmentField;
 var DocumentInstallment;
 (function (DocumentInstallment) {
+    /**
+     * Metadata information on all properties of the `DocumentInstallment` complex type.
+     */
+    DocumentInstallment._propertyMetadata = [{
+            originalName: 'DueDate',
+            name: 'dueDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'Percentage',
+            name: 'percentage',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Total',
+            name: 'total',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'LastDunningDate',
+            name: 'lastDunningDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'DunningLevel',
+            name: 'dunningLevel',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'TotalFC',
+            name: 'totalFc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'InstallmentId',
+            name: 'installmentId',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'PaymentOrdered',
+            name: 'paymentOrdered',
+            type: 'Edm.Enum',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            DueDate: function (dueDate) { return ({ dueDate: v4_1.edmToTs(dueDate, 'Edm.DateTimeOffset') }); },
-            Percentage: function (percentage) { return ({ percentage: v4_1.edmToTs(percentage, 'Edm.Double') }); },
-            Total: function (total) { return ({ total: v4_1.edmToTs(total, 'Edm.Double') }); },
-            LastDunningDate: function (lastDunningDate) { return ({ lastDunningDate: v4_1.edmToTs(lastDunningDate, 'Edm.DateTimeOffset') }); },
-            DunningLevel: function (dunningLevel) { return ({ dunningLevel: v4_1.edmToTs(dunningLevel, 'Edm.Int32') }); },
-            TotalFC: function (totalFc) { return ({ totalFc: v4_1.edmToTs(totalFc, 'Edm.Double') }); },
-            InstallmentId: function (installmentId) { return ({ installmentId: v4_1.edmToTs(installmentId, 'Edm.Int32') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, DocumentInstallment);
     }
     DocumentInstallment.build = build;
 })(DocumentInstallment = exports.DocumentInstallment || (exports.DocumentInstallment = {}));

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.GovPayCodes = void 0;
  */
 var GovPayCodesRequestBuilder_1 = require("./GovPayCodesRequestBuilder");
 var GovPayCodeAuthority_1 = require("./GovPayCodeAuthority");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "GovPayCodes" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var GovPayCodes = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `GovPayCodes`.
+     * Returns an entity builder to construct instances of `GovPayCodes`.
      * @returns A builder that constructs instances of entity type `GovPayCodes`.
      */
     GovPayCodes.builder = function () {
-        return v4_1.Entity.entityBuilder(GovPayCodes);
+        return core_1.EntityV4.entityBuilder(GovPayCodes);
     };
     /**
      * Returns a request builder to construct requests for operations on the `GovPayCodes` entity type.
@@ -61,7 +61,7 @@ var GovPayCodes = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `GovPayCodes`.
      */
     GovPayCodes.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, GovPayCodes);
+        return core_1.EntityV4.customFieldSelector(fieldName, GovPayCodes);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,16 +75,11 @@ var GovPayCodes = /** @class */ (function (_super) {
      */
     GovPayCodes._entityName = 'GovPayCodes';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for GovPayCodes.
-     */
-    GovPayCodes._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    GovPayCodes._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    GovPayCodes._defaultServicePath = '/b1s/v2/';
     return GovPayCodes;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.GovPayCodes = GovPayCodes;
 var NfTaxCategories_1 = require("./NfTaxCategories");
 (function (GovPayCodes) {
@@ -92,27 +87,37 @@ var NfTaxCategories_1 = require("./NfTaxCategories");
      * Static representation of the [[absId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GovPayCodes.ABS_ID = new v4_1.NumberField('AbsId', GovPayCodes, 'Edm.Int32');
+    GovPayCodes.ABS_ID = new core_1.NumberField('AbsId', GovPayCodes, 'Edm.Int32');
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GovPayCodes.CODE = new v4_1.StringField('Code', GovPayCodes, 'Edm.String');
+    GovPayCodes.CODE = new core_1.StringField('Code', GovPayCodes, 'Edm.String');
     /**
      * Static representation of the [[descr]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GovPayCodes.DESCR = new v4_1.StringField('Descr', GovPayCodes, 'Edm.String');
+    GovPayCodes.DESCR = new core_1.StringField('Descr', GovPayCodes, 'Edm.String');
+    /**
+     * Static representation of the [[stateTax]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    GovPayCodes.STATE_TAX = new core_1.EnumField('StateTax', GovPayCodes);
+    /**
+     * Static representation of the [[prdcity]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    GovPayCodes.PRDCITY = new core_1.EnumField('Prdcity', GovPayCodes);
     /**
      * Static representation of the [[govPayCodeAuthorities]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GovPayCodes.GOV_PAY_CODE_AUTHORITIES = new v4_1.CollectionField('GovPayCodeAuthorities', GovPayCodes, new GovPayCodeAuthority_1.GovPayCodeAuthorityField('', GovPayCodes));
+    GovPayCodes.GOV_PAY_CODE_AUTHORITIES = new core_1.CollectionField('GovPayCodeAuthorities', GovPayCodes, GovPayCodeAuthority_1.GovPayCodeAuthority);
     /**
      * Static representation of the one-to-many navigation property [[nfTaxCategories]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GovPayCodes.NF_TAX_CATEGORIES = new v4_1.OneToManyLink('NFTaxCategories', GovPayCodes, NfTaxCategories_1.NfTaxCategories);
+    GovPayCodes.NF_TAX_CATEGORIES = new core_1.OneToManyLink('NFTaxCategories', GovPayCodes, NfTaxCategories_1.NfTaxCategories);
     /**
      * All fields of the GovPayCodes entity.
      */
@@ -120,13 +125,15 @@ var NfTaxCategories_1 = require("./NfTaxCategories");
         GovPayCodes.ABS_ID,
         GovPayCodes.CODE,
         GovPayCodes.DESCR,
+        GovPayCodes.STATE_TAX,
+        GovPayCodes.PRDCITY,
         GovPayCodes.GOV_PAY_CODE_AUTHORITIES,
         GovPayCodes.NF_TAX_CATEGORIES
     ];
     /**
      * All fields selector.
      */
-    GovPayCodes.ALL_FIELDS = new v4_1.AllFields('*', GovPayCodes);
+    GovPayCodes.ALL_FIELDS = new core_1.AllFields('*', GovPayCodes);
     /**
      * All key fields of the GovPayCodes entity.
      */

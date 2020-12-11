@@ -5,28 +5,26 @@
  */
 import { InventoryCountingsRequestBuilder } from './InventoryCountingsRequestBuilder';
 import { Moment } from 'moment';
-import { TeamCounter, TeamCounterField } from './TeamCounter';
-import { IndividualCounter, IndividualCounterField } from './IndividualCounter';
-import { InventoryCountingLine, InventoryCountingLineField } from './InventoryCountingLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { TeamCounter } from './TeamCounter';
+import { IndividualCounter } from './IndividualCounter';
+import { InventoryCountingLine } from './InventoryCountingLine';
+import { CounterTypeEnum } from './CounterTypeEnum';
+import { CountingDocumentStatusEnum } from './CountingDocumentStatusEnum';
+import { CountingTypeEnum } from './CountingTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "InventoryCountings" of service "SAPB1".
  */
-export class InventoryCountings extends Entity implements InventoryCountingsType {
+export class InventoryCountings extends EntityV4 implements InventoryCountingsType {
   /**
    * Technical entity name for InventoryCountings.
    */
   static _entityName = 'InventoryCountings';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for InventoryCountings.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Document Entry.
    * @nullable
@@ -53,10 +51,20 @@ export class InventoryCountings extends Entity implements InventoryCountingsType
    */
   countTime?: Time;
   /**
+   * Single Counter Type.
+   * @nullable
+   */
+  singleCounterType?: CounterTypeEnum;
+  /**
    * Single Counter Id.
    * @nullable
    */
   singleCounterId?: number;
+  /**
+   * Document Status.
+   * @nullable
+   */
+  documentStatus?: CountingDocumentStatusEnum;
   /**
    * Remarks.
    * @nullable
@@ -88,6 +96,11 @@ export class InventoryCountings extends Entity implements InventoryCountingsType
    */
   periodIndicator?: string;
   /**
+   * Counting Type.
+   * @nullable
+   */
+  countingType?: CountingTypeEnum;
+  /**
    * Team Counters.
    * @nullable
    */
@@ -108,11 +121,11 @@ export class InventoryCountings extends Entity implements InventoryCountingsType
   businessPlace!: BusinessPlaces;
 
   /**
-   * Returns an entity builder to construct instances `InventoryCountings`.
+   * Returns an entity builder to construct instances of `InventoryCountings`.
    * @returns A builder that constructs instances of entity type `InventoryCountings`.
    */
-  static builder(): EntityBuilderType<InventoryCountings, InventoryCountingsTypeForceMandatory> {
-    return Entity.entityBuilder(InventoryCountings);
+  static builder(): EntityBuilderType<InventoryCountings, InventoryCountingsType> {
+    return EntityV4.entityBuilder(InventoryCountings);
   }
 
   /**
@@ -128,8 +141,8 @@ export class InventoryCountings extends Entity implements InventoryCountingsType
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `InventoryCountings`.
    */
-  static customField(fieldName: string): CustomField<InventoryCountings> {
-    return Entity.customFieldSelector(fieldName, InventoryCountings);
+  static customField(fieldName: string): CustomFieldV4<InventoryCountings> {
+    return EntityV4.customFieldSelector(fieldName, InventoryCountings);
   }
 
   /**
@@ -144,40 +157,24 @@ export class InventoryCountings extends Entity implements InventoryCountingsType
 import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 
 export interface InventoryCountingsType {
-  documentEntry?: number;
-  documentNumber?: number;
-  series?: number;
-  countDate?: Moment;
-  countTime?: Time;
-  singleCounterId?: number;
-  remarks?: string;
-  reference2?: string;
-  branchId?: number;
-  docObjectCodeEx?: string;
-  financialPeriod?: number;
-  periodIndicator?: string;
-  teamCounters?: TeamCounter[];
-  individualCounters?: IndividualCounter[];
-  inventoryCountingLines?: InventoryCountingLine[];
-  businessPlace: BusinessPlacesType;
-}
-
-export interface InventoryCountingsTypeForceMandatory {
-  documentEntry: number;
-  documentNumber: number;
-  series: number;
-  countDate: Moment;
-  countTime: Time;
-  singleCounterId: number;
-  remarks: string;
-  reference2: string;
-  branchId: number;
-  docObjectCodeEx: string;
-  financialPeriod: number;
-  periodIndicator: string;
-  teamCounters: TeamCounter[];
-  individualCounters: IndividualCounter[];
-  inventoryCountingLines: InventoryCountingLine[];
+  documentEntry?: number | null;
+  documentNumber?: number | null;
+  series?: number | null;
+  countDate?: Moment | null;
+  countTime?: Time | null;
+  singleCounterType?: CounterTypeEnum | null;
+  singleCounterId?: number | null;
+  documentStatus?: CountingDocumentStatusEnum | null;
+  remarks?: string | null;
+  reference2?: string | null;
+  branchId?: number | null;
+  docObjectCodeEx?: string | null;
+  financialPeriod?: number | null;
+  periodIndicator?: string | null;
+  countingType?: CountingTypeEnum | null;
+  teamCounters?: TeamCounter[] | null;
+  individualCounters?: IndividualCounter[] | null;
+  inventoryCountingLines?: InventoryCountingLine[] | null;
   businessPlace: BusinessPlacesType;
 }
 
@@ -208,10 +205,20 @@ export namespace InventoryCountings {
    */
   export const COUNT_TIME: TimeField<InventoryCountings> = new TimeField('CountTime', InventoryCountings, 'Edm.TimeOfDay');
   /**
+   * Static representation of the [[singleCounterType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SINGLE_COUNTER_TYPE: EnumField<InventoryCountings> = new EnumField('SingleCounterType', InventoryCountings);
+  /**
    * Static representation of the [[singleCounterId]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const SINGLE_COUNTER_ID: NumberField<InventoryCountings> = new NumberField('SingleCounterID', InventoryCountings, 'Edm.Int32');
+  /**
+   * Static representation of the [[documentStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_STATUS: EnumField<InventoryCountings> = new EnumField('DocumentStatus', InventoryCountings);
   /**
    * Static representation of the [[remarks]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -243,20 +250,25 @@ export namespace InventoryCountings {
    */
   export const PERIOD_INDICATOR: StringField<InventoryCountings> = new StringField('PeriodIndicator', InventoryCountings, 'Edm.String');
   /**
+   * Static representation of the [[countingType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const COUNTING_TYPE: EnumField<InventoryCountings> = new EnumField('CountingType', InventoryCountings);
+  /**
    * Static representation of the [[teamCounters]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const TEAM_COUNTERS: CollectionField<InventoryCountings> = new CollectionField('TeamCounters', InventoryCountings, new TeamCounterField('', InventoryCountings));
+  export const TEAM_COUNTERS: CollectionField<InventoryCountings, TeamCounter> = new CollectionField('TeamCounters', InventoryCountings, TeamCounter);
   /**
    * Static representation of the [[individualCounters]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const INDIVIDUAL_COUNTERS: CollectionField<InventoryCountings> = new CollectionField('IndividualCounters', InventoryCountings, new IndividualCounterField('', InventoryCountings));
+  export const INDIVIDUAL_COUNTERS: CollectionField<InventoryCountings, IndividualCounter> = new CollectionField('IndividualCounters', InventoryCountings, IndividualCounter);
   /**
    * Static representation of the [[inventoryCountingLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const INVENTORY_COUNTING_LINES: CollectionField<InventoryCountings> = new CollectionField('InventoryCountingLines', InventoryCountings, new InventoryCountingLineField('', InventoryCountings));
+  export const INVENTORY_COUNTING_LINES: CollectionField<InventoryCountings, InventoryCountingLine> = new CollectionField('InventoryCountingLines', InventoryCountings, InventoryCountingLine);
   /**
    * Static representation of the one-to-one navigation property [[businessPlace]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -265,19 +277,22 @@ export namespace InventoryCountings {
   /**
    * All fields of the InventoryCountings entity.
    */
-  export const _allFields: Array<NumberField<InventoryCountings> | DateField<InventoryCountings> | TimeField<InventoryCountings> | StringField<InventoryCountings> | CollectionField<InventoryCountings> | OneToOneLink<InventoryCountings, BusinessPlaces>> = [
+  export const _allFields: Array<NumberField<InventoryCountings> | DateField<InventoryCountings> | TimeField<InventoryCountings> | EnumField<InventoryCountings> | StringField<InventoryCountings> | CollectionField<InventoryCountings, TeamCounter> | CollectionField<InventoryCountings, IndividualCounter> | CollectionField<InventoryCountings, InventoryCountingLine> | OneToOneLink<InventoryCountings, BusinessPlaces>> = [
     InventoryCountings.DOCUMENT_ENTRY,
     InventoryCountings.DOCUMENT_NUMBER,
     InventoryCountings.SERIES,
     InventoryCountings.COUNT_DATE,
     InventoryCountings.COUNT_TIME,
+    InventoryCountings.SINGLE_COUNTER_TYPE,
     InventoryCountings.SINGLE_COUNTER_ID,
+    InventoryCountings.DOCUMENT_STATUS,
     InventoryCountings.REMARKS,
     InventoryCountings.REFERENCE_2,
     InventoryCountings.BRANCH_ID,
     InventoryCountings.DOC_OBJECT_CODE_EX,
     InventoryCountings.FINANCIAL_PERIOD,
     InventoryCountings.PERIOD_INDICATOR,
+    InventoryCountings.COUNTING_TYPE,
     InventoryCountings.TEAM_COUNTERS,
     InventoryCountings.INDIVIDUAL_COUNTERS,
     InventoryCountings.INVENTORY_COUNTING_LINES,

@@ -1,5 +1,5 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * ItemDepreciationParameter
  */
@@ -63,7 +63,7 @@ export declare function createItemDepreciationParameter(json: any): ItemDeprecia
  * ItemDepreciationParameterField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class ItemDepreciationParameterField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class ItemDepreciationParameterField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ItemDepreciationParameter> {
     /**
      * Representation of the [[ItemDepreciationParameter.fiscalYear]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -114,8 +114,22 @@ export declare class ItemDepreciationParameterField<EntityT extends Entity> exte
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     standardUnits: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of ItemDepreciationParameterField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace ItemDepreciationParameter {
+    /**
+     * Metadata information on all properties of the `ItemDepreciationParameter` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<ItemDepreciationParameter>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): ItemDepreciationParameter;

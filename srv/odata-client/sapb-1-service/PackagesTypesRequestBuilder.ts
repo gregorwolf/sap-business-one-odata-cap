@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { PackagesTypes } from './PackagesTypes';
 
 /**
@@ -15,16 +15,16 @@ export class PackagesTypesRequestBuilder extends RequestBuilder<PackagesTypes> {
    * @param code Key property. See [[PackagesTypes.code]].
    * @returns A request builder for creating requests to retrieve one `PackagesTypes` entity based on its keys.
    */
-  getByKey(code: number): GetByKeyRequestBuilder<PackagesTypes> {
-    return new GetByKeyRequestBuilder(PackagesTypes, { Code: code });
+  getByKey(code: number): GetByKeyRequestBuilderV4<PackagesTypes> {
+    return new GetByKeyRequestBuilderV4(PackagesTypes, { Code: code });
   }
 
   /**
    * Returns a request builder for querying all `PackagesTypes` entities.
    * @returns A request builder for creating requests to retrieve all `PackagesTypes` entities.
    */
-  getAll(): GetAllRequestBuilder<PackagesTypes> {
-    return new GetAllRequestBuilder(PackagesTypes);
+  getAll(): GetAllRequestBuilderV4<PackagesTypes> {
+    return new GetAllRequestBuilderV4(PackagesTypes);
   }
 
   /**
@@ -32,8 +32,8 @@ export class PackagesTypesRequestBuilder extends RequestBuilder<PackagesTypes> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `PackagesTypes`.
    */
-  create(entity: PackagesTypes): CreateRequestBuilder<PackagesTypes> {
-    return new CreateRequestBuilder(PackagesTypes, entity);
+  create(entity: PackagesTypes): CreateRequestBuilderV4<PackagesTypes> {
+    return new CreateRequestBuilderV4(PackagesTypes, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class PackagesTypesRequestBuilder extends RequestBuilder<PackagesTypes> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `PackagesTypes`.
    */
-  update(entity: PackagesTypes): UpdateRequestBuilder<PackagesTypes> {
-    return new UpdateRequestBuilder(PackagesTypes, entity);
+  update(entity: PackagesTypes): UpdateRequestBuilderV4<PackagesTypes> {
+    return new UpdateRequestBuilderV4(PackagesTypes, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class PackagesTypesRequestBuilder extends RequestBuilder<PackagesTypes> {
    * @param code Key property. See [[PackagesTypes.code]].
    * @returns A request builder for creating requests that delete an entity of type `PackagesTypes`.
    */
-  delete(code: number): DeleteRequestBuilder<PackagesTypes>;
+  delete(code: number): DeleteRequestBuilderV4<PackagesTypes>;
   /**
    * Returns a request builder for deleting an entity of type `PackagesTypes`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `PackagesTypes` by taking the entity as a parameter.
    */
-  delete(entity: PackagesTypes): DeleteRequestBuilder<PackagesTypes>;
-  delete(codeOrEntity: any): DeleteRequestBuilder<PackagesTypes> {
-    return new DeleteRequestBuilder(PackagesTypes, codeOrEntity instanceof PackagesTypes ? codeOrEntity : { Code: codeOrEntity! });
+  delete(entity: PackagesTypes): DeleteRequestBuilderV4<PackagesTypes>;
+  delete(codeOrEntity: any): DeleteRequestBuilderV4<PackagesTypes> {
+    return new DeleteRequestBuilderV4(PackagesTypes, codeOrEntity instanceof PackagesTypes ? codeOrEntity : { Code: codeOrEntity! });
   }
 }

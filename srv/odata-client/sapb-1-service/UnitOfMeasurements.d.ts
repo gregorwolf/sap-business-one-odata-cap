@@ -1,18 +1,13 @@
 import { UnitOfMeasurementsRequestBuilder } from './UnitOfMeasurementsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "UnitOfMeasurements" of service "SAPB1".
  */
-export declare class UnitOfMeasurements extends Entity implements UnitOfMeasurementsType {
+export declare class UnitOfMeasurements extends EntityV4 implements UnitOfMeasurementsType {
     /**
      * Technical entity name for UnitOfMeasurements.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for UnitOfMeasurements.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -152,10 +147,10 @@ export declare class UnitOfMeasurements extends Entity implements UnitOfMeasurem
      */
     binLocations: BinLocations[];
     /**
-     * Returns an entity builder to construct instances `UnitOfMeasurements`.
+     * Returns an entity builder to construct instances of `UnitOfMeasurements`.
      * @returns A builder that constructs instances of entity type `UnitOfMeasurements`.
      */
-    static builder(): EntityBuilderType<UnitOfMeasurements, UnitOfMeasurementsTypeForceMandatory>;
+    static builder(): EntityBuilderType<UnitOfMeasurements, UnitOfMeasurementsType>;
     /**
      * Returns a request builder to construct requests for operations on the `UnitOfMeasurements` entity type.
      * @returns A `UnitOfMeasurements` request builder.
@@ -166,7 +161,7 @@ export declare class UnitOfMeasurements extends Entity implements UnitOfMeasurem
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `UnitOfMeasurements`.
      */
-    static customField(fieldName: string): CustomField<UnitOfMeasurements>;
+    static customField(fieldName: string): CustomFieldV4<UnitOfMeasurements>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -182,58 +177,28 @@ import { UnitOfMeasurementGroups, UnitOfMeasurementGroupsType } from './UnitOfMe
 import { BarCodes, BarCodesType } from './BarCodes';
 import { BinLocations, BinLocationsType } from './BinLocations';
 export interface UnitOfMeasurementsType {
-    absEntry?: number;
-    code?: string;
-    name?: string;
-    length1?: number;
-    length1Unit?: number;
-    length2?: number;
-    length2Unit?: number;
-    width1?: number;
-    width1Unit?: number;
-    width2?: number;
-    width2Unit?: number;
-    height1?: number;
-    height1Unit?: number;
-    height2?: number;
-    height2Unit?: number;
-    volume?: number;
-    volumeUnit?: number;
-    weight1?: number;
-    weight1Unit?: number;
-    weight2?: number;
-    weight2Unit?: number;
-    internationalSymbol?: string;
-    itemGroups: ItemGroupsType[];
-    items: ItemsType[];
-    productionOrders: ProductionOrdersType[];
-    unitOfMeasurementGroups: UnitOfMeasurementGroupsType[];
-    barCodes: BarCodesType[];
-    binLocations: BinLocationsType[];
-}
-export interface UnitOfMeasurementsTypeForceMandatory {
-    absEntry: number;
-    code: string;
-    name: string;
-    length1: number;
-    length1Unit: number;
-    length2: number;
-    length2Unit: number;
-    width1: number;
-    width1Unit: number;
-    width2: number;
-    width2Unit: number;
-    height1: number;
-    height1Unit: number;
-    height2: number;
-    height2Unit: number;
-    volume: number;
-    volumeUnit: number;
-    weight1: number;
-    weight1Unit: number;
-    weight2: number;
-    weight2Unit: number;
-    internationalSymbol: string;
+    absEntry?: number | null;
+    code?: string | null;
+    name?: string | null;
+    length1?: number | null;
+    length1Unit?: number | null;
+    length2?: number | null;
+    length2Unit?: number | null;
+    width1?: number | null;
+    width1Unit?: number | null;
+    width2?: number | null;
+    width2Unit?: number | null;
+    height1?: number | null;
+    height1Unit?: number | null;
+    height2?: number | null;
+    height2Unit?: number | null;
+    volume?: number | null;
+    volumeUnit?: number | null;
+    weight1?: number | null;
+    weight1Unit?: number | null;
+    weight2?: number | null;
+    weight2Unit?: number | null;
+    internationalSymbol?: string | null;
     itemGroups: ItemGroupsType[];
     items: ItemsType[];
     productionOrders: ProductionOrdersType[];

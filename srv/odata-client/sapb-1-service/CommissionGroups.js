@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.CommissionGroups = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var CommissionGroupsRequestBuilder_1 = require("./CommissionGroupsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "CommissionGroups" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var CommissionGroups = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `CommissionGroups`.
+     * Returns an entity builder to construct instances of `CommissionGroups`.
      * @returns A builder that constructs instances of entity type `CommissionGroups`.
      */
     CommissionGroups.builder = function () {
-        return v4_1.Entity.entityBuilder(CommissionGroups);
+        return core_1.EntityV4.entityBuilder(CommissionGroups);
     };
     /**
      * Returns a request builder to construct requests for operations on the `CommissionGroups` entity type.
@@ -60,7 +60,7 @@ var CommissionGroups = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `CommissionGroups`.
      */
     CommissionGroups.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, CommissionGroups);
+        return core_1.EntityV4.customFieldSelector(fieldName, CommissionGroups);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var CommissionGroups = /** @class */ (function (_super) {
      */
     CommissionGroups._entityName = 'CommissionGroups';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for CommissionGroups.
-     */
-    CommissionGroups._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    CommissionGroups._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    CommissionGroups._defaultServicePath = '/b1s/v2/';
     return CommissionGroups;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.CommissionGroups = CommissionGroups;
 var SalesPersons_1 = require("./SalesPersons");
 var Items_1 = require("./Items");
@@ -93,32 +88,32 @@ var BusinessPartners_1 = require("./BusinessPartners");
      * Static representation of the [[commissionGroupCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CommissionGroups.COMMISSION_GROUP_CODE = new v4_1.NumberField('CommissionGroupCode', CommissionGroups, 'Edm.Int32');
+    CommissionGroups.COMMISSION_GROUP_CODE = new core_1.NumberField('CommissionGroupCode', CommissionGroups, 'Edm.Int32');
     /**
      * Static representation of the [[commissionGroupName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CommissionGroups.COMMISSION_GROUP_NAME = new v4_1.StringField('CommissionGroupName', CommissionGroups, 'Edm.String');
+    CommissionGroups.COMMISSION_GROUP_NAME = new core_1.StringField('CommissionGroupName', CommissionGroups, 'Edm.String');
     /**
      * Static representation of the [[commissionPercentage]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CommissionGroups.COMMISSION_PERCENTAGE = new v4_1.NumberField('CommissionPercentage', CommissionGroups, 'Edm.Double');
+    CommissionGroups.COMMISSION_PERCENTAGE = new core_1.NumberField('CommissionPercentage', CommissionGroups, 'Edm.Double');
     /**
      * Static representation of the one-to-many navigation property [[salesPersons]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CommissionGroups.SALES_PERSONS = new v4_1.OneToManyLink('SalesPersons', CommissionGroups, SalesPersons_1.SalesPersons);
+    CommissionGroups.SALES_PERSONS = new core_1.OneToManyLink('SalesPersons', CommissionGroups, SalesPersons_1.SalesPersons);
     /**
      * Static representation of the one-to-many navigation property [[items]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CommissionGroups.ITEMS = new v4_1.OneToManyLink('Items', CommissionGroups, Items_1.Items);
+    CommissionGroups.ITEMS = new core_1.OneToManyLink('Items', CommissionGroups, Items_1.Items);
     /**
      * Static representation of the one-to-many navigation property [[businessPartners]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CommissionGroups.BUSINESS_PARTNERS = new v4_1.OneToManyLink('BusinessPartners', CommissionGroups, BusinessPartners_1.BusinessPartners);
+    CommissionGroups.BUSINESS_PARTNERS = new core_1.OneToManyLink('BusinessPartners', CommissionGroups, BusinessPartners_1.BusinessPartners);
     /**
      * All fields of the CommissionGroups entity.
      */
@@ -133,7 +128,7 @@ var BusinessPartners_1 = require("./BusinessPartners");
     /**
      * All fields selector.
      */
-    CommissionGroups.ALL_FIELDS = new v4_1.AllFields('*', CommissionGroups);
+    CommissionGroups.ALL_FIELDS = new core_1.AllFields('*', CommissionGroups);
     /**
      * All key fields of the CommissionGroups entity.
      */

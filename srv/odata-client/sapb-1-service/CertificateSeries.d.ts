@@ -1,19 +1,14 @@
 import { CertificateSeriesRequestBuilder } from './CertificateSeriesRequestBuilder';
 import { SeriesLine } from './SeriesLine';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "CertificateSeries" of service "SAPB1".
  */
-export declare class CertificateSeries extends Entity implements CertificateSeriesType {
+export declare class CertificateSeries extends EntityV4 implements CertificateSeriesType {
     /**
      * Technical entity name for CertificateSeries.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for CertificateSeries.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -57,10 +52,10 @@ export declare class CertificateSeries extends Entity implements CertificateSeri
      */
     warehouseLocation: WarehouseLocations;
     /**
-     * Returns an entity builder to construct instances `CertificateSeries`.
+     * Returns an entity builder to construct instances of `CertificateSeries`.
      * @returns A builder that constructs instances of entity type `CertificateSeries`.
      */
-    static builder(): EntityBuilderType<CertificateSeries, CertificateSeriesTypeForceMandatory>;
+    static builder(): EntityBuilderType<CertificateSeries, CertificateSeriesType>;
     /**
      * Returns a request builder to construct requests for operations on the `CertificateSeries` entity type.
      * @returns A `CertificateSeries` request builder.
@@ -71,7 +66,7 @@ export declare class CertificateSeries extends Entity implements CertificateSeri
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `CertificateSeries`.
      */
-    static customField(fieldName: string): CustomField<CertificateSeries>;
+    static customField(fieldName: string): CustomFieldV4<CertificateSeries>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -83,22 +78,12 @@ export declare class CertificateSeries extends Entity implements CertificateSeri
 import { Sections, SectionsType } from './Sections';
 import { WarehouseLocations, WarehouseLocationsType } from './WarehouseLocations';
 export interface CertificateSeriesType {
-    absEntry?: number;
-    code?: string;
-    section?: number;
-    location?: number;
-    defaultSeries?: number;
-    seriesLines?: SeriesLine[];
-    section2: SectionsType;
-    warehouseLocation: WarehouseLocationsType;
-}
-export interface CertificateSeriesTypeForceMandatory {
-    absEntry: number;
-    code: string;
-    section: number;
-    location: number;
-    defaultSeries: number;
-    seriesLines: SeriesLine[];
+    absEntry?: number | null;
+    code?: string | null;
+    section?: number | null;
+    location?: number | null;
+    defaultSeries?: number | null;
+    seriesLines?: SeriesLine[] | null;
     section2: SectionsType;
     warehouseLocation: WarehouseLocationsType;
 }
@@ -132,7 +117,7 @@ export declare namespace CertificateSeries {
      * Static representation of the [[seriesLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const SERIES_LINES: CollectionField<CertificateSeries>;
+    const SERIES_LINES: CollectionField<CertificateSeries, SeriesLine>;
     /**
      * Static representation of the one-to-one navigation property [[section2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -146,7 +131,7 @@ export declare namespace CertificateSeries {
     /**
      * All fields of the CertificateSeries entity.
      */
-    const _allFields: Array<NumberField<CertificateSeries> | StringField<CertificateSeries> | CollectionField<CertificateSeries> | OneToOneLink<CertificateSeries, Sections> | OneToOneLink<CertificateSeries, WarehouseLocations>>;
+    const _allFields: Array<NumberField<CertificateSeries> | StringField<CertificateSeries> | CollectionField<CertificateSeries, SeriesLine> | OneToOneLink<CertificateSeries, Sections> | OneToOneLink<CertificateSeries, WarehouseLocations>>;
     /**
      * All fields selector.
      */

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { SalesOpportunities } from './SalesOpportunities';
 
 /**
@@ -15,16 +15,16 @@ export class SalesOpportunitiesRequestBuilder extends RequestBuilder<SalesOpport
    * @param sequentialNo Key property. See [[SalesOpportunities.sequentialNo]].
    * @returns A request builder for creating requests to retrieve one `SalesOpportunities` entity based on its keys.
    */
-  getByKey(sequentialNo: number): GetByKeyRequestBuilder<SalesOpportunities> {
-    return new GetByKeyRequestBuilder(SalesOpportunities, { SequentialNo: sequentialNo });
+  getByKey(sequentialNo: number): GetByKeyRequestBuilderV4<SalesOpportunities> {
+    return new GetByKeyRequestBuilderV4(SalesOpportunities, { SequentialNo: sequentialNo });
   }
 
   /**
    * Returns a request builder for querying all `SalesOpportunities` entities.
    * @returns A request builder for creating requests to retrieve all `SalesOpportunities` entities.
    */
-  getAll(): GetAllRequestBuilder<SalesOpportunities> {
-    return new GetAllRequestBuilder(SalesOpportunities);
+  getAll(): GetAllRequestBuilderV4<SalesOpportunities> {
+    return new GetAllRequestBuilderV4(SalesOpportunities);
   }
 
   /**
@@ -32,8 +32,8 @@ export class SalesOpportunitiesRequestBuilder extends RequestBuilder<SalesOpport
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `SalesOpportunities`.
    */
-  create(entity: SalesOpportunities): CreateRequestBuilder<SalesOpportunities> {
-    return new CreateRequestBuilder(SalesOpportunities, entity);
+  create(entity: SalesOpportunities): CreateRequestBuilderV4<SalesOpportunities> {
+    return new CreateRequestBuilderV4(SalesOpportunities, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class SalesOpportunitiesRequestBuilder extends RequestBuilder<SalesOpport
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `SalesOpportunities`.
    */
-  update(entity: SalesOpportunities): UpdateRequestBuilder<SalesOpportunities> {
-    return new UpdateRequestBuilder(SalesOpportunities, entity);
+  update(entity: SalesOpportunities): UpdateRequestBuilderV4<SalesOpportunities> {
+    return new UpdateRequestBuilderV4(SalesOpportunities, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class SalesOpportunitiesRequestBuilder extends RequestBuilder<SalesOpport
    * @param sequentialNo Key property. See [[SalesOpportunities.sequentialNo]].
    * @returns A request builder for creating requests that delete an entity of type `SalesOpportunities`.
    */
-  delete(sequentialNo: number): DeleteRequestBuilder<SalesOpportunities>;
+  delete(sequentialNo: number): DeleteRequestBuilderV4<SalesOpportunities>;
   /**
    * Returns a request builder for deleting an entity of type `SalesOpportunities`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `SalesOpportunities` by taking the entity as a parameter.
    */
-  delete(entity: SalesOpportunities): DeleteRequestBuilder<SalesOpportunities>;
-  delete(sequentialNoOrEntity: any): DeleteRequestBuilder<SalesOpportunities> {
-    return new DeleteRequestBuilder(SalesOpportunities, sequentialNoOrEntity instanceof SalesOpportunities ? sequentialNoOrEntity : { SequentialNo: sequentialNoOrEntity! });
+  delete(entity: SalesOpportunities): DeleteRequestBuilderV4<SalesOpportunities>;
+  delete(sequentialNoOrEntity: any): DeleteRequestBuilderV4<SalesOpportunities> {
+    return new DeleteRequestBuilderV4(SalesOpportunities, sequentialNoOrEntity instanceof SalesOpportunities ? sequentialNoOrEntity : { SequentialNo: sequentialNoOrEntity! });
   }
 }

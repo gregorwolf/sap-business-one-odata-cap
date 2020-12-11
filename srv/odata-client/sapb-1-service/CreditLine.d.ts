@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * CreditLine
  */
@@ -30,6 +31,11 @@ export interface CreditLine {
      */
     payDate?: Moment;
     /**
+     * Deposited.
+     * @nullable
+     */
+    deposited?: BoYesNoEnum;
+    /**
      * Num Of Payments.
      * @nullable
      */
@@ -44,6 +50,11 @@ export interface CreditLine {
      * @nullable
      */
     reference?: string;
+    /**
+     * Transferred.
+     * @nullable
+     */
+    transferred?: BoYesNoEnum;
     /**
      * Total.
      * @nullable
@@ -63,7 +74,7 @@ export declare function createCreditLine(json: any): CreditLine;
  * CreditLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class CreditLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class CreditLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, CreditLine> {
     /**
      * Representation of the [[CreditLine.absId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -90,6 +101,11 @@ export declare class CreditLineField<EntityT extends Entity> extends ComplexType
      */
     payDate: ComplexTypeDatePropertyField<EntityT>;
     /**
+     * Representation of the [[CreditLine.deposited]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    deposited: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[CreditLine.numOfPayments]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -105,6 +121,11 @@ export declare class CreditLineField<EntityT extends Entity> extends ComplexType
      */
     reference: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[CreditLine.transferred]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    transferred: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[CreditLine.total]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -114,8 +135,22 @@ export declare class CreditLineField<EntityT extends Entity> extends ComplexType
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     creditCurrency: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Creates an instance of CreditLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace CreditLine {
+    /**
+     * Metadata information on all properties of the `CreditLine` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<CreditLine>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): CreditLine;

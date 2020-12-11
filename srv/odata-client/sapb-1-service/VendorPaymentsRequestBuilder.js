@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.VendorPaymentsRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var VendorPayments_1 = require("./VendorPayments");
 /**
  * Request builder class for operations supported on the [[VendorPayments]] entity.
@@ -35,14 +35,14 @@ var VendorPaymentsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `VendorPayments` entity based on its keys.
      */
     VendorPaymentsRequestBuilder.prototype.getByKey = function (docEntry) {
-        return new v4_1.GetByKeyRequestBuilder(VendorPayments_1.VendorPayments, { DocEntry: docEntry });
+        return new core_1.GetByKeyRequestBuilderV4(VendorPayments_1.VendorPayments, { DocEntry: docEntry });
     };
     /**
      * Returns a request builder for querying all `VendorPayments` entities.
      * @returns A request builder for creating requests to retrieve all `VendorPayments` entities.
      */
     VendorPaymentsRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(VendorPayments_1.VendorPayments);
+        return new core_1.GetAllRequestBuilderV4(VendorPayments_1.VendorPayments);
     };
     /**
      * Returns a request builder for creating a `VendorPayments` entity.
@@ -50,7 +50,7 @@ var VendorPaymentsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `VendorPayments`.
      */
     VendorPaymentsRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(VendorPayments_1.VendorPayments, entity);
+        return new core_1.CreateRequestBuilderV4(VendorPayments_1.VendorPayments, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `VendorPayments`.
@@ -58,12 +58,12 @@ var VendorPaymentsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `VendorPayments`.
      */
     VendorPaymentsRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(VendorPayments_1.VendorPayments, entity);
+        return new core_1.UpdateRequestBuilderV4(VendorPayments_1.VendorPayments, entity);
     };
     VendorPaymentsRequestBuilder.prototype.delete = function (docEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(VendorPayments_1.VendorPayments, docEntryOrEntity instanceof VendorPayments_1.VendorPayments ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(VendorPayments_1.VendorPayments, docEntryOrEntity instanceof VendorPayments_1.VendorPayments ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
     };
     return VendorPaymentsRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.VendorPaymentsRequestBuilder = VendorPaymentsRequestBuilder;
 //# sourceMappingURL=VendorPaymentsRequestBuilder.js.map

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { BinLocationFields } from './BinLocationFields';
 
 /**
@@ -15,16 +15,16 @@ export class BinLocationFieldsRequestBuilder extends RequestBuilder<BinLocationF
    * @param absEntry Key property. See [[BinLocationFields.absEntry]].
    * @returns A request builder for creating requests to retrieve one `BinLocationFields` entity based on its keys.
    */
-  getByKey(absEntry: number): GetByKeyRequestBuilder<BinLocationFields> {
-    return new GetByKeyRequestBuilder(BinLocationFields, { AbsEntry: absEntry });
+  getByKey(absEntry: number): GetByKeyRequestBuilderV4<BinLocationFields> {
+    return new GetByKeyRequestBuilderV4(BinLocationFields, { AbsEntry: absEntry });
   }
 
   /**
    * Returns a request builder for querying all `BinLocationFields` entities.
    * @returns A request builder for creating requests to retrieve all `BinLocationFields` entities.
    */
-  getAll(): GetAllRequestBuilder<BinLocationFields> {
-    return new GetAllRequestBuilder(BinLocationFields);
+  getAll(): GetAllRequestBuilderV4<BinLocationFields> {
+    return new GetAllRequestBuilderV4(BinLocationFields);
   }
 
   /**
@@ -32,8 +32,8 @@ export class BinLocationFieldsRequestBuilder extends RequestBuilder<BinLocationF
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `BinLocationFields`.
    */
-  create(entity: BinLocationFields): CreateRequestBuilder<BinLocationFields> {
-    return new CreateRequestBuilder(BinLocationFields, entity);
+  create(entity: BinLocationFields): CreateRequestBuilderV4<BinLocationFields> {
+    return new CreateRequestBuilderV4(BinLocationFields, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class BinLocationFieldsRequestBuilder extends RequestBuilder<BinLocationF
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `BinLocationFields`.
    */
-  update(entity: BinLocationFields): UpdateRequestBuilder<BinLocationFields> {
-    return new UpdateRequestBuilder(BinLocationFields, entity);
+  update(entity: BinLocationFields): UpdateRequestBuilderV4<BinLocationFields> {
+    return new UpdateRequestBuilderV4(BinLocationFields, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class BinLocationFieldsRequestBuilder extends RequestBuilder<BinLocationF
    * @param absEntry Key property. See [[BinLocationFields.absEntry]].
    * @returns A request builder for creating requests that delete an entity of type `BinLocationFields`.
    */
-  delete(absEntry: number): DeleteRequestBuilder<BinLocationFields>;
+  delete(absEntry: number): DeleteRequestBuilderV4<BinLocationFields>;
   /**
    * Returns a request builder for deleting an entity of type `BinLocationFields`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `BinLocationFields` by taking the entity as a parameter.
    */
-  delete(entity: BinLocationFields): DeleteRequestBuilder<BinLocationFields>;
-  delete(absEntryOrEntity: any): DeleteRequestBuilder<BinLocationFields> {
-    return new DeleteRequestBuilder(BinLocationFields, absEntryOrEntity instanceof BinLocationFields ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
+  delete(entity: BinLocationFields): DeleteRequestBuilderV4<BinLocationFields>;
+  delete(absEntryOrEntity: any): DeleteRequestBuilderV4<BinLocationFields> {
+    return new DeleteRequestBuilderV4(BinLocationFields, absEntryOrEntity instanceof BinLocationFields ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
   }
 }

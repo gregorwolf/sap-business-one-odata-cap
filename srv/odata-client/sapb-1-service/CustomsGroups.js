@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.CustomsGroups = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var CustomsGroupsRequestBuilder_1 = require("./CustomsGroupsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "CustomsGroups" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var CustomsGroups = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `CustomsGroups`.
+     * Returns an entity builder to construct instances of `CustomsGroups`.
      * @returns A builder that constructs instances of entity type `CustomsGroups`.
      */
     CustomsGroups.builder = function () {
-        return v4_1.Entity.entityBuilder(CustomsGroups);
+        return core_1.EntityV4.entityBuilder(CustomsGroups);
     };
     /**
      * Returns a request builder to construct requests for operations on the `CustomsGroups` entity type.
@@ -60,7 +60,7 @@ var CustomsGroups = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `CustomsGroups`.
      */
     CustomsGroups.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, CustomsGroups);
+        return core_1.EntityV4.customFieldSelector(fieldName, CustomsGroups);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var CustomsGroups = /** @class */ (function (_super) {
      */
     CustomsGroups._entityName = 'CustomsGroups';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for CustomsGroups.
-     */
-    CustomsGroups._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    CustomsGroups._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    CustomsGroups._defaultServicePath = '/b1s/v2/';
     return CustomsGroups;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.CustomsGroups = CustomsGroups;
 var ChartOfAccounts_1 = require("./ChartOfAccounts");
 var Items_1 = require("./Items");
@@ -92,67 +87,72 @@ var Items_1 = require("./Items");
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsGroups.CODE = new v4_1.NumberField('Code', CustomsGroups, 'Edm.Int32');
+    CustomsGroups.CODE = new core_1.NumberField('Code', CustomsGroups, 'Edm.Int32');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsGroups.NAME = new v4_1.StringField('Name', CustomsGroups, 'Edm.String');
+    CustomsGroups.NAME = new core_1.StringField('Name', CustomsGroups, 'Edm.String');
     /**
      * Static representation of the [[number]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsGroups.NUMBER = new v4_1.StringField('Number', CustomsGroups, 'Edm.String');
+    CustomsGroups.NUMBER = new core_1.StringField('Number', CustomsGroups, 'Edm.String');
     /**
      * Static representation of the [[customs]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsGroups.CUSTOMS = new v4_1.NumberField('Customs', CustomsGroups, 'Edm.Double');
+    CustomsGroups.CUSTOMS = new core_1.NumberField('Customs', CustomsGroups, 'Edm.Double');
     /**
      * Static representation of the [[purchase]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsGroups.PURCHASE = new v4_1.NumberField('Purchase', CustomsGroups, 'Edm.Double');
+    CustomsGroups.PURCHASE = new core_1.NumberField('Purchase', CustomsGroups, 'Edm.Double');
     /**
      * Static representation of the [[other]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsGroups.OTHER = new v4_1.NumberField('Other', CustomsGroups, 'Edm.Double');
+    CustomsGroups.OTHER = new core_1.NumberField('Other', CustomsGroups, 'Edm.Double');
     /**
      * Static representation of the [[total]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsGroups.TOTAL = new v4_1.NumberField('Total', CustomsGroups, 'Edm.Double');
+    CustomsGroups.TOTAL = new core_1.NumberField('Total', CustomsGroups, 'Edm.Double');
+    /**
+     * Static representation of the [[locked]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    CustomsGroups.LOCKED = new core_1.EnumField('Locked', CustomsGroups);
     /**
      * Static representation of the [[customsAllocationAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsGroups.CUSTOMS_ALLOCATION_ACCOUNT = new v4_1.StringField('CustomsAllocationAccount', CustomsGroups, 'Edm.String');
+    CustomsGroups.CUSTOMS_ALLOCATION_ACCOUNT = new core_1.StringField('CustomsAllocationAccount', CustomsGroups, 'Edm.String');
     /**
      * Static representation of the [[customsExpenseAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsGroups.CUSTOMS_EXPENSE_ACCOUNT = new v4_1.StringField('CustomsExpenseAccount', CustomsGroups, 'Edm.String');
+    CustomsGroups.CUSTOMS_EXPENSE_ACCOUNT = new core_1.StringField('CustomsExpenseAccount', CustomsGroups, 'Edm.String');
     /**
      * Static representation of the [[portAddress]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsGroups.PORT_ADDRESS = new v4_1.StringField('PortAddress', CustomsGroups, 'Edm.String');
+    CustomsGroups.PORT_ADDRESS = new core_1.StringField('PortAddress', CustomsGroups, 'Edm.String');
     /**
      * Static representation of the [[portState]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsGroups.PORT_STATE = new v4_1.StringField('PortState', CustomsGroups, 'Edm.String');
+    CustomsGroups.PORT_STATE = new core_1.StringField('PortState', CustomsGroups, 'Edm.String');
     /**
      * Static representation of the one-to-one navigation property [[chartOfAccount]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsGroups.CHART_OF_ACCOUNT = new v4_1.OneToOneLink('ChartOfAccount', CustomsGroups, ChartOfAccounts_1.ChartOfAccounts);
+    CustomsGroups.CHART_OF_ACCOUNT = new core_1.OneToOneLink('ChartOfAccount', CustomsGroups, ChartOfAccounts_1.ChartOfAccounts);
     /**
      * Static representation of the one-to-many navigation property [[items]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsGroups.ITEMS = new v4_1.OneToManyLink('Items', CustomsGroups, Items_1.Items);
+    CustomsGroups.ITEMS = new core_1.OneToManyLink('Items', CustomsGroups, Items_1.Items);
     /**
      * All fields of the CustomsGroups entity.
      */
@@ -164,6 +164,7 @@ var Items_1 = require("./Items");
         CustomsGroups.PURCHASE,
         CustomsGroups.OTHER,
         CustomsGroups.TOTAL,
+        CustomsGroups.LOCKED,
         CustomsGroups.CUSTOMS_ALLOCATION_ACCOUNT,
         CustomsGroups.CUSTOMS_EXPENSE_ACCOUNT,
         CustomsGroups.PORT_ADDRESS,
@@ -174,7 +175,7 @@ var Items_1 = require("./Items");
     /**
      * All fields selector.
      */
-    CustomsGroups.ALL_FIELDS = new v4_1.AllFields('*', CustomsGroups);
+    CustomsGroups.ALL_FIELDS = new core_1.AllFields('*', CustomsGroups);
     /**
      * All key fields of the CustomsGroups entity.
      */

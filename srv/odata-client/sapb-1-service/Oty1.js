@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.Oty1 = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var Oty1RequestBuilder_1 = require("./Oty1RequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "OTY1" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var Oty1 = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `Oty1`.
+     * Returns an entity builder to construct instances of `Oty1`.
      * @returns A builder that constructs instances of entity type `Oty1`.
      */
     Oty1.builder = function () {
-        return v4_1.Entity.entityBuilder(Oty1);
+        return core_1.EntityV4.entityBuilder(Oty1);
     };
     /**
      * Returns a request builder to construct requests for operations on the `Oty1` entity type.
@@ -60,7 +60,7 @@ var Oty1 = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `Oty1`.
      */
     Oty1.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, Oty1);
+        return core_1.EntityV4.customFieldSelector(fieldName, Oty1);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,83 +74,78 @@ var Oty1 = /** @class */ (function (_super) {
      */
     Oty1._entityName = 'OTY1';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Oty1.
-     */
-    Oty1._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    Oty1._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    Oty1._defaultServicePath = '/b1s/v2/';
     return Oty1;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.Oty1 = Oty1;
 (function (Oty1) {
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Oty1.CODE = new v4_1.StringField('Code', Oty1, 'Edm.String');
+    Oty1.CODE = new core_1.StringField('Code', Oty1, 'Edm.String');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Oty1.NAME = new v4_1.StringField('Name', Oty1, 'Edm.String');
+    Oty1.NAME = new core_1.StringField('Name', Oty1, 'Edm.String');
     /**
      * Static representation of the [[docEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Oty1.DOC_ENTRY = new v4_1.NumberField('DocEntry', Oty1, 'Edm.Int32');
+    Oty1.DOC_ENTRY = new core_1.NumberField('DocEntry', Oty1, 'Edm.Int32');
     /**
      * Static representation of the [[canceled]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Oty1.CANCELED = new v4_1.StringField('Canceled', Oty1, 'Edm.String');
+    Oty1.CANCELED = new core_1.StringField('Canceled', Oty1, 'Edm.String');
     /**
      * Static representation of the [[object]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Oty1.OBJECT = new v4_1.StringField('Object', Oty1, 'Edm.String');
+    Oty1.OBJECT = new core_1.StringField('Object', Oty1, 'Edm.String');
     /**
      * Static representation of the [[logInst]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Oty1.LOG_INST = new v4_1.NumberField('LogInst', Oty1, 'Edm.Int32');
+    Oty1.LOG_INST = new core_1.NumberField('LogInst', Oty1, 'Edm.Int32');
     /**
      * Static representation of the [[userSign]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Oty1.USER_SIGN = new v4_1.NumberField('UserSign', Oty1, 'Edm.Int32');
+    Oty1.USER_SIGN = new core_1.NumberField('UserSign', Oty1, 'Edm.Int32');
     /**
      * Static representation of the [[transfered]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Oty1.TRANSFERED = new v4_1.StringField('Transfered', Oty1, 'Edm.String');
+    Oty1.TRANSFERED = new core_1.StringField('Transfered', Oty1, 'Edm.String');
     /**
      * Static representation of the [[createDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Oty1.CREATE_DATE = new v4_1.DateField('CreateDate', Oty1, 'Edm.DateTimeOffset');
+    Oty1.CREATE_DATE = new core_1.DateField('CreateDate', Oty1, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[createTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Oty1.CREATE_TIME = new v4_1.TimeField('CreateTime', Oty1, 'Edm.TimeOfDay');
+    Oty1.CREATE_TIME = new core_1.TimeField('CreateTime', Oty1, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[updateDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Oty1.UPDATE_DATE = new v4_1.DateField('UpdateDate', Oty1, 'Edm.DateTimeOffset');
+    Oty1.UPDATE_DATE = new core_1.DateField('UpdateDate', Oty1, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[updateTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Oty1.UPDATE_TIME = new v4_1.TimeField('UpdateTime', Oty1, 'Edm.TimeOfDay');
+    Oty1.UPDATE_TIME = new core_1.TimeField('UpdateTime', Oty1, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[dataSource]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Oty1.DATA_SOURCE = new v4_1.StringField('DataSource', Oty1, 'Edm.String');
+    Oty1.DATA_SOURCE = new core_1.StringField('DataSource', Oty1, 'Edm.String');
     /**
      * All fields of the Oty1 entity.
      */
@@ -172,7 +167,7 @@ exports.Oty1 = Oty1;
     /**
      * All fields selector.
      */
-    Oty1.ALL_FIELDS = new v4_1.AllFields('*', Oty1);
+    Oty1.ALL_FIELDS = new core_1.AllFields('*', Oty1);
     /**
      * All key fields of the Oty1 entity.
      */

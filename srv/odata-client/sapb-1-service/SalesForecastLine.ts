@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * SalesForecastLine
@@ -43,7 +43,7 @@ export function createSalesForecastLine(json: any): SalesForecastLine {
  * SalesForecastLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class SalesForecastLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class SalesForecastLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, SalesForecastLine> {
   /**
    * Representation of the [[SalesForecastLine.quantity]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -64,15 +64,48 @@ export class SalesForecastLineField<EntityT extends Entity> extends ComplexTypeF
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   warehouse: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Warehouse', this, 'Edm.String');
+
+  /**
+   * Creates an instance of SalesForecastLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, SalesForecastLine);
+  }
 }
 
 export namespace SalesForecastLine {
+  /**
+   * Metadata information on all properties of the `SalesForecastLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<SalesForecastLine>[] = [{
+    originalName: 'Quantity',
+    name: 'quantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ForecastedDay',
+    name: 'forecastedDay',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ItemNo',
+    name: 'itemNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Warehouse',
+    name: 'warehouse',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): SalesForecastLine {
-    return createComplexType(json, {
-      Quantity: (quantity: number) => ({ quantity: edmToTs(quantity, 'Edm.Double') }),
-      ForecastedDay: (forecastedDay: Moment) => ({ forecastedDay: edmToTs(forecastedDay, 'Edm.DateTimeOffset') }),
-      ItemNo: (itemNo: string) => ({ itemNo: edmToTs(itemNo, 'Edm.String') }),
-      Warehouse: (warehouse: string) => ({ warehouse: edmToTs(warehouse, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, SalesForecastLine);
   }
 }

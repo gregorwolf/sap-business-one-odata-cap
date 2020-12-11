@@ -1,5 +1,5 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * WtdItem
  */
@@ -33,7 +33,7 @@ export declare function createWtdItem(json: any): WtdItem;
  * WtdItemField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class WtdItemField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class WtdItemField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, WtdItem> {
     /**
      * Representation of the [[WtdItem.itemCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -54,8 +54,22 @@ export declare class WtdItemField<EntityT extends Entity> extends ComplexTypeFie
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     effectiveDateTo: ComplexTypeDatePropertyField<EntityT>;
+    /**
+     * Creates an instance of WtdItemField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace WtdItem {
+    /**
+     * Metadata information on all properties of the `WtdItem` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<WtdItem>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): WtdItem;

@@ -1,18 +1,13 @@
 import { ItemPropertiesRequestBuilder } from './ItemPropertiesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ItemProperties" of service "SAPB1".
  */
-export declare class ItemProperties extends Entity implements ItemPropertiesType {
+export declare class ItemProperties extends EntityV4 implements ItemPropertiesType {
     /**
      * Technical entity name for ItemProperties.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ItemProperties.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -28,10 +23,10 @@ export declare class ItemProperties extends Entity implements ItemPropertiesType
      */
     propertyName?: string;
     /**
-     * Returns an entity builder to construct instances `ItemProperties`.
+     * Returns an entity builder to construct instances of `ItemProperties`.
      * @returns A builder that constructs instances of entity type `ItemProperties`.
      */
-    static builder(): EntityBuilderType<ItemProperties, ItemPropertiesTypeForceMandatory>;
+    static builder(): EntityBuilderType<ItemProperties, ItemPropertiesType>;
     /**
      * Returns a request builder to construct requests for operations on the `ItemProperties` entity type.
      * @returns A `ItemProperties` request builder.
@@ -42,7 +37,7 @@ export declare class ItemProperties extends Entity implements ItemPropertiesType
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ItemProperties`.
      */
-    static customField(fieldName: string): CustomField<ItemProperties>;
+    static customField(fieldName: string): CustomFieldV4<ItemProperties>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -52,12 +47,8 @@ export declare class ItemProperties extends Entity implements ItemPropertiesType
     };
 }
 export interface ItemPropertiesType {
-    number?: number;
-    propertyName?: string;
-}
-export interface ItemPropertiesTypeForceMandatory {
-    number: number;
-    propertyName: string;
+    number?: number | null;
+    propertyName?: string | null;
 }
 export declare namespace ItemProperties {
     /**

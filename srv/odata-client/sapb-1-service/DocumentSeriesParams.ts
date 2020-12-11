@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * DocumentSeriesParams
@@ -37,7 +37,7 @@ export function createDocumentSeriesParams(json: any): DocumentSeriesParams {
  * DocumentSeriesParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class DocumentSeriesParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class DocumentSeriesParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, DocumentSeriesParams> {
   /**
    * Representation of the [[DocumentSeriesParams.document]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -53,14 +53,43 @@ export class DocumentSeriesParamsField<EntityT extends Entity> extends ComplexTy
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   series: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('Series', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of DocumentSeriesParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, DocumentSeriesParams);
+  }
 }
 
 export namespace DocumentSeriesParams {
+  /**
+   * Metadata information on all properties of the `DocumentSeriesParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<DocumentSeriesParams>[] = [{
+    originalName: 'Document',
+    name: 'document',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DocumentSubType',
+    name: 'documentSubType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Series',
+    name: 'series',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): DocumentSeriesParams {
-    return createComplexType(json, {
-      Document: (document: string) => ({ document: edmToTs(document, 'Edm.String') }),
-      DocumentSubType: (documentSubType: string) => ({ documentSubType: edmToTs(documentSubType, 'Edm.String') }),
-      Series: (series: number) => ({ series: edmToTs(series, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, DocumentSeriesParams);
   }
 }

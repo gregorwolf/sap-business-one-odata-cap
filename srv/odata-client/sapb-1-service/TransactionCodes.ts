@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { TransactionCodesRequestBuilder } from './TransactionCodesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "TransactionCodes" of service "SAPB1".
  */
-export class TransactionCodes extends Entity implements TransactionCodesType {
+export class TransactionCodes extends EntityV4 implements TransactionCodesType {
   /**
    * Technical entity name for TransactionCodes.
    */
   static _entityName = 'TransactionCodes';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for TransactionCodes.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -55,11 +50,11 @@ export class TransactionCodes extends Entity implements TransactionCodesType {
   incomingPayments!: IncomingPayments[];
 
   /**
-   * Returns an entity builder to construct instances `TransactionCodes`.
+   * Returns an entity builder to construct instances of `TransactionCodes`.
    * @returns A builder that constructs instances of entity type `TransactionCodes`.
    */
-  static builder(): EntityBuilderType<TransactionCodes, TransactionCodesTypeForceMandatory> {
-    return Entity.entityBuilder(TransactionCodes);
+  static builder(): EntityBuilderType<TransactionCodes, TransactionCodesType> {
+    return EntityV4.entityBuilder(TransactionCodes);
   }
 
   /**
@@ -75,8 +70,8 @@ export class TransactionCodes extends Entity implements TransactionCodesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `TransactionCodes`.
    */
-  static customField(fieldName: string): CustomField<TransactionCodes> {
-    return Entity.customFieldSelector(fieldName, TransactionCodes);
+  static customField(fieldName: string): CustomFieldV4<TransactionCodes> {
+    return EntityV4.customFieldSelector(fieldName, TransactionCodes);
   }
 
   /**
@@ -95,18 +90,8 @@ import { PaymentDrafts, PaymentDraftsType } from './PaymentDrafts';
 import { IncomingPayments, IncomingPaymentsType } from './IncomingPayments';
 
 export interface TransactionCodesType {
-  code?: string;
-  description?: string;
-  vendorPayments: VendorPaymentsType[];
-  journalEntries: JournalEntriesType[];
-  chartOfAccounts: ChartOfAccountsType[];
-  paymentDrafts: PaymentDraftsType[];
-  incomingPayments: IncomingPaymentsType[];
-}
-
-export interface TransactionCodesTypeForceMandatory {
-  code: string;
-  description: string;
+  code?: string | null;
+  description?: string | null;
   vendorPayments: VendorPaymentsType[];
   journalEntries: JournalEntriesType[];
   chartOfAccounts: ChartOfAccountsType[];

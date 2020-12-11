@@ -1,20 +1,16 @@
 import { MessagesRequestBuilder } from './MessagesRequestBuilder';
 import { MessageDataColumn } from './MessageDataColumn';
 import { Recipient } from './Recipient';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoMsgPriorities } from './BoMsgPriorities';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "Messages" of service "SAPB1".
  */
-export declare class Messages extends Entity implements MessagesType {
+export declare class Messages extends EntityV4 implements MessagesType {
     /**
      * Technical entity name for Messages.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Messages.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -29,6 +25,11 @@ export declare class Messages extends Entity implements MessagesType {
      * @nullable
      */
     user?: number;
+    /**
+     * Priority.
+     * @nullable
+     */
+    priority?: BoMsgPriorities;
     /**
      * Subject.
      * @nullable
@@ -55,10 +56,10 @@ export declare class Messages extends Entity implements MessagesType {
      */
     recipientCollection?: Recipient[];
     /**
-     * Returns an entity builder to construct instances `Messages`.
+     * Returns an entity builder to construct instances of `Messages`.
      * @returns A builder that constructs instances of entity type `Messages`.
      */
-    static builder(): EntityBuilderType<Messages, MessagesTypeForceMandatory>;
+    static builder(): EntityBuilderType<Messages, MessagesType>;
     /**
      * Returns a request builder to construct requests for operations on the `Messages` entity type.
      * @returns A `Messages` request builder.
@@ -69,7 +70,7 @@ export declare class Messages extends Entity implements MessagesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `Messages`.
      */
-    static customField(fieldName: string): CustomField<Messages>;
+    static customField(fieldName: string): CustomFieldV4<Messages>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -79,22 +80,14 @@ export declare class Messages extends Entity implements MessagesType {
     };
 }
 export interface MessagesType {
-    code?: number;
-    user?: number;
-    subject?: string;
-    text?: string;
-    attachment?: number;
-    messageDataColumns?: MessageDataColumn[];
-    recipientCollection?: Recipient[];
-}
-export interface MessagesTypeForceMandatory {
-    code: number;
-    user: number;
-    subject: string;
-    text: string;
-    attachment: number;
-    messageDataColumns: MessageDataColumn[];
-    recipientCollection: Recipient[];
+    code?: number | null;
+    user?: number | null;
+    priority?: BoMsgPriorities | null;
+    subject?: string | null;
+    text?: string | null;
+    attachment?: number | null;
+    messageDataColumns?: MessageDataColumn[] | null;
+    recipientCollection?: Recipient[] | null;
 }
 export declare namespace Messages {
     /**
@@ -107,6 +100,11 @@ export declare namespace Messages {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const USER: NumberField<Messages>;
+    /**
+     * Static representation of the [[priority]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PRIORITY: EnumField<Messages>;
     /**
      * Static representation of the [[subject]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -126,16 +124,16 @@ export declare namespace Messages {
      * Static representation of the [[messageDataColumns]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const MESSAGE_DATA_COLUMNS: CollectionField<Messages>;
+    const MESSAGE_DATA_COLUMNS: CollectionField<Messages, MessageDataColumn>;
     /**
      * Static representation of the [[recipientCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const RECIPIENT_COLLECTION: CollectionField<Messages>;
+    const RECIPIENT_COLLECTION: CollectionField<Messages, Recipient>;
     /**
      * All fields of the Messages entity.
      */
-    const _allFields: Array<NumberField<Messages> | StringField<Messages> | CollectionField<Messages>>;
+    const _allFields: Array<NumberField<Messages> | EnumField<Messages> | StringField<Messages> | CollectionField<Messages, MessageDataColumn> | CollectionField<Messages, Recipient>>;
     /**
      * All fields selector.
      */

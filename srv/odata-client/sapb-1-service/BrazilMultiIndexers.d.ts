@@ -1,18 +1,14 @@
 import { BrazilMultiIndexersRequestBuilder } from './BrazilMultiIndexersRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { BrazilMultiIndexerTypes } from './BrazilMultiIndexerTypes';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "BrazilMultiIndexers" of service "SAPB1".
  */
-export declare class BrazilMultiIndexers extends Entity implements BrazilMultiIndexersType {
+export declare class BrazilMultiIndexers extends EntityV4 implements BrazilMultiIndexersType {
     /**
      * Technical entity name for BrazilMultiIndexers.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BrazilMultiIndexers.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -22,6 +18,11 @@ export declare class BrazilMultiIndexers extends Entity implements BrazilMultiIn
      * @nullable
      */
     id?: number;
+    /**
+     * Indexer Type.
+     * @nullable
+     */
+    indexerType?: BrazilMultiIndexerTypes;
     /**
      * Code.
      * @nullable
@@ -48,10 +49,10 @@ export declare class BrazilMultiIndexers extends Entity implements BrazilMultiIn
      */
     thirdRefIndexerCode?: string;
     /**
-     * Returns an entity builder to construct instances `BrazilMultiIndexers`.
+     * Returns an entity builder to construct instances of `BrazilMultiIndexers`.
      * @returns A builder that constructs instances of entity type `BrazilMultiIndexers`.
      */
-    static builder(): EntityBuilderType<BrazilMultiIndexers, BrazilMultiIndexersTypeForceMandatory>;
+    static builder(): EntityBuilderType<BrazilMultiIndexers, BrazilMultiIndexersType>;
     /**
      * Returns a request builder to construct requests for operations on the `BrazilMultiIndexers` entity type.
      * @returns A `BrazilMultiIndexers` request builder.
@@ -62,7 +63,7 @@ export declare class BrazilMultiIndexers extends Entity implements BrazilMultiIn
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `BrazilMultiIndexers`.
      */
-    static customField(fieldName: string): CustomField<BrazilMultiIndexers>;
+    static customField(fieldName: string): CustomFieldV4<BrazilMultiIndexers>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -72,20 +73,13 @@ export declare class BrazilMultiIndexers extends Entity implements BrazilMultiIn
     };
 }
 export interface BrazilMultiIndexersType {
-    id?: number;
-    code?: string;
-    description?: string;
-    firstRefIndexerCode?: string;
-    secondRefIndexerCode?: string;
-    thirdRefIndexerCode?: string;
-}
-export interface BrazilMultiIndexersTypeForceMandatory {
-    id: number;
-    code: string;
-    description: string;
-    firstRefIndexerCode: string;
-    secondRefIndexerCode: string;
-    thirdRefIndexerCode: string;
+    id?: number | null;
+    indexerType?: BrazilMultiIndexerTypes | null;
+    code?: string | null;
+    description?: string | null;
+    firstRefIndexerCode?: string | null;
+    secondRefIndexerCode?: string | null;
+    thirdRefIndexerCode?: string | null;
 }
 export declare namespace BrazilMultiIndexers {
     /**
@@ -93,6 +87,11 @@ export declare namespace BrazilMultiIndexers {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const ID: NumberField<BrazilMultiIndexers>;
+    /**
+     * Static representation of the [[indexerType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const INDEXER_TYPE: EnumField<BrazilMultiIndexers>;
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -121,7 +120,7 @@ export declare namespace BrazilMultiIndexers {
     /**
      * All fields of the BrazilMultiIndexers entity.
      */
-    const _allFields: Array<NumberField<BrazilMultiIndexers> | StringField<BrazilMultiIndexers>>;
+    const _allFields: Array<NumberField<BrazilMultiIndexers> | EnumField<BrazilMultiIndexers> | StringField<BrazilMultiIndexers>>;
     /**
      * All fields selector.
      */

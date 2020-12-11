@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { BpPriorities } from './BpPriorities';
 
 /**
@@ -15,16 +15,16 @@ export class BpPrioritiesRequestBuilder extends RequestBuilder<BpPriorities> {
    * @param priority Key property. See [[BpPriorities.priority]].
    * @returns A request builder for creating requests to retrieve one `BpPriorities` entity based on its keys.
    */
-  getByKey(priority: number): GetByKeyRequestBuilder<BpPriorities> {
-    return new GetByKeyRequestBuilder(BpPriorities, { Priority: priority });
+  getByKey(priority: number): GetByKeyRequestBuilderV4<BpPriorities> {
+    return new GetByKeyRequestBuilderV4(BpPriorities, { Priority: priority });
   }
 
   /**
    * Returns a request builder for querying all `BpPriorities` entities.
    * @returns A request builder for creating requests to retrieve all `BpPriorities` entities.
    */
-  getAll(): GetAllRequestBuilder<BpPriorities> {
-    return new GetAllRequestBuilder(BpPriorities);
+  getAll(): GetAllRequestBuilderV4<BpPriorities> {
+    return new GetAllRequestBuilderV4(BpPriorities);
   }
 
   /**
@@ -32,8 +32,8 @@ export class BpPrioritiesRequestBuilder extends RequestBuilder<BpPriorities> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `BpPriorities`.
    */
-  create(entity: BpPriorities): CreateRequestBuilder<BpPriorities> {
-    return new CreateRequestBuilder(BpPriorities, entity);
+  create(entity: BpPriorities): CreateRequestBuilderV4<BpPriorities> {
+    return new CreateRequestBuilderV4(BpPriorities, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class BpPrioritiesRequestBuilder extends RequestBuilder<BpPriorities> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `BpPriorities`.
    */
-  update(entity: BpPriorities): UpdateRequestBuilder<BpPriorities> {
-    return new UpdateRequestBuilder(BpPriorities, entity);
+  update(entity: BpPriorities): UpdateRequestBuilderV4<BpPriorities> {
+    return new UpdateRequestBuilderV4(BpPriorities, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class BpPrioritiesRequestBuilder extends RequestBuilder<BpPriorities> {
    * @param priority Key property. See [[BpPriorities.priority]].
    * @returns A request builder for creating requests that delete an entity of type `BpPriorities`.
    */
-  delete(priority: number): DeleteRequestBuilder<BpPriorities>;
+  delete(priority: number): DeleteRequestBuilderV4<BpPriorities>;
   /**
    * Returns a request builder for deleting an entity of type `BpPriorities`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `BpPriorities` by taking the entity as a parameter.
    */
-  delete(entity: BpPriorities): DeleteRequestBuilder<BpPriorities>;
-  delete(priorityOrEntity: any): DeleteRequestBuilder<BpPriorities> {
-    return new DeleteRequestBuilder(BpPriorities, priorityOrEntity instanceof BpPriorities ? priorityOrEntity : { Priority: priorityOrEntity! });
+  delete(entity: BpPriorities): DeleteRequestBuilderV4<BpPriorities>;
+  delete(priorityOrEntity: any): DeleteRequestBuilderV4<BpPriorities> {
+    return new DeleteRequestBuilderV4(BpPriorities, priorityOrEntity instanceof BpPriorities ? priorityOrEntity : { Priority: priorityOrEntity! });
   }
 }

@@ -4,15 +4,16 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { PmsStageData, PmsStageDataField } from './PmsStageData';
-import { PmsOpenIssueData, PmsOpenIssueDataField } from './PmsOpenIssueData';
-import { PmsDocumentData, PmsDocumentDataField } from './PmsDocumentData';
-import { PmsActivityData, PmsActivityDataField } from './PmsActivityData';
-import { PmsWorkOrderData, PmsWorkOrderDataField } from './PmsWorkOrderData';
+import { PmsStageData } from './PmsStageData';
+import { PmsOpenIssueData } from './PmsOpenIssueData';
+import { PmsDocumentData } from './PmsDocumentData';
+import { PmsActivityData } from './PmsActivityData';
+import { PmsWorkOrderData } from './PmsWorkOrderData';
 import { PmsSummaryData, PmsSummaryDataField } from './PmsSummaryData';
-import { PmsDocAttachement, PmsDocAttachementField } from './PmsDocAttachement';
-import { PmsStageAttachement, PmsStageAttachementField } from './PmsStageAttachement';
-import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { PmsDocAttachement } from './PmsDocAttachement';
+import { PmsStageAttachement } from './PmsStageAttachement';
+import { SubprojectStatusTypeEnum } from './SubprojectStatusTypeEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * PmSubprojectDocumentData
@@ -69,6 +70,11 @@ export interface PmSubprojectDocumentData {
    */
   subprojectContribution?: number;
   /**
+   * Subproject Status.
+   * @nullable
+   */
+  subprojectStatus?: SubprojectStatusTypeEnum;
+  /**
    * Subproject End Date.
    * @nullable
    */
@@ -97,27 +103,27 @@ export interface PmSubprojectDocumentData {
    * Pms Stages Collection.
    * @nullable
    */
-  pmsStagesCollection?: PmsStageData;
+  pmsStagesCollection?: PmsStageData[];
   /**
    * Pms Open Issues Collection.
    * @nullable
    */
-  pmsOpenIssuesCollection?: PmsOpenIssueData;
+  pmsOpenIssuesCollection?: PmsOpenIssueData[];
   /**
    * Pms Documents Collection.
    * @nullable
    */
-  pmsDocumentsCollection?: PmsDocumentData;
+  pmsDocumentsCollection?: PmsDocumentData[];
   /**
    * Pms Activities Collection.
    * @nullable
    */
-  pmsActivitiesCollection?: PmsActivityData;
+  pmsActivitiesCollection?: PmsActivityData[];
   /**
    * Pms Work Orders Collection.
    * @nullable
    */
-  pmsWorkOrdersCollection?: PmsWorkOrderData;
+  pmsWorkOrdersCollection?: PmsWorkOrderData[];
   /**
    * Pms Summary Data.
    * @nullable
@@ -127,12 +133,12 @@ export interface PmSubprojectDocumentData {
    * Pms Doc Attachements.
    * @nullable
    */
-  pmsDocAttachements?: PmsDocAttachement;
+  pmsDocAttachements?: PmsDocAttachement[];
   /**
    * Pms Stage Attachements.
    * @nullable
    */
-  pmsStageAttachements?: PmsStageAttachement;
+  pmsStageAttachements?: PmsStageAttachement[];
 }
 
 /**
@@ -146,7 +152,7 @@ export function createPmSubprojectDocumentData(json: any): PmSubprojectDocumentD
  * PmSubprojectDocumentDataField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class PmSubprojectDocumentDataField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class PmSubprojectDocumentDataField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PmSubprojectDocumentData> {
   /**
    * Representation of the [[PmSubprojectDocumentData.absEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -198,6 +204,11 @@ export class PmSubprojectDocumentDataField<EntityT extends Entity> extends Compl
    */
   subprojectContribution: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('SubprojectContribution', this, 'Edm.Double');
   /**
+   * Representation of the [[PmSubprojectDocumentData.subprojectStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  subprojectStatus: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SubprojectStatus', this);
+  /**
    * Representation of the [[PmSubprojectDocumentData.subprojectEndDate]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -226,27 +237,27 @@ export class PmSubprojectDocumentDataField<EntityT extends Entity> extends Compl
    * Representation of the [[PmSubprojectDocumentData.pmsStagesCollection]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  pmsStagesCollection: PmsStageDataField<EntityT> = new PmsStageDataField('PMS_StagesCollection', this);
+  pmsStagesCollection: CollectionField<EntityT, PmsStageData> = new CollectionField('PMS_StagesCollection', this, PmsStageData);
   /**
    * Representation of the [[PmSubprojectDocumentData.pmsOpenIssuesCollection]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  pmsOpenIssuesCollection: PmsOpenIssueDataField<EntityT> = new PmsOpenIssueDataField('PMS_OpenIssuesCollection', this);
+  pmsOpenIssuesCollection: CollectionField<EntityT, PmsOpenIssueData> = new CollectionField('PMS_OpenIssuesCollection', this, PmsOpenIssueData);
   /**
    * Representation of the [[PmSubprojectDocumentData.pmsDocumentsCollection]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  pmsDocumentsCollection: PmsDocumentDataField<EntityT> = new PmsDocumentDataField('PMS_DocumentsCollection', this);
+  pmsDocumentsCollection: CollectionField<EntityT, PmsDocumentData> = new CollectionField('PMS_DocumentsCollection', this, PmsDocumentData);
   /**
    * Representation of the [[PmSubprojectDocumentData.pmsActivitiesCollection]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  pmsActivitiesCollection: PmsActivityDataField<EntityT> = new PmsActivityDataField('PMS_ActivitiesCollection', this);
+  pmsActivitiesCollection: CollectionField<EntityT, PmsActivityData> = new CollectionField('PMS_ActivitiesCollection', this, PmsActivityData);
   /**
    * Representation of the [[PmSubprojectDocumentData.pmsWorkOrdersCollection]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  pmsWorkOrdersCollection: PmsWorkOrderDataField<EntityT> = new PmsWorkOrderDataField('PMS_WorkOrdersCollection', this);
+  pmsWorkOrdersCollection: CollectionField<EntityT, PmsWorkOrderData> = new CollectionField('PMS_WorkOrdersCollection', this, PmsWorkOrderData);
   /**
    * Representation of the [[PmSubprojectDocumentData.pmsSummaryData]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -256,40 +267,154 @@ export class PmSubprojectDocumentDataField<EntityT extends Entity> extends Compl
    * Representation of the [[PmSubprojectDocumentData.pmsDocAttachements]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  pmsDocAttachements: PmsDocAttachementField<EntityT> = new PmsDocAttachementField('PMS_DocAttachements', this);
+  pmsDocAttachements: CollectionField<EntityT, PmsDocAttachement> = new CollectionField('PMS_DocAttachements', this, PmsDocAttachement);
   /**
    * Representation of the [[PmSubprojectDocumentData.pmsStageAttachements]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  pmsStageAttachements: PmsStageAttachementField<EntityT> = new PmsStageAttachementField('PMS_StageAttachements', this);
+  pmsStageAttachements: CollectionField<EntityT, PmsStageAttachement> = new CollectionField('PMS_StageAttachements', this, PmsStageAttachement);
+
+  /**
+   * Creates an instance of PmSubprojectDocumentDataField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, PmSubprojectDocumentData);
+  }
 }
 
 export namespace PmSubprojectDocumentData {
+  /**
+   * Metadata information on all properties of the `PmSubprojectDocumentData` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<PmSubprojectDocumentData>[] = [{
+    originalName: 'AbsEntry',
+    name: 'absEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Owner',
+    name: 'owner',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SubprojectName',
+    name: 'subprojectName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StartDate',
+    name: 'startDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'FinishedPercent',
+    name: 'finishedPercent',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ParentID',
+    name: 'parentId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ProjectID',
+    name: 'projectId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Order',
+    name: 'order',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SubprojectType',
+    name: 'subprojectType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SubprojectContribution',
+    name: 'subprojectContribution',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SubprojectStatus',
+    name: 'subprojectStatus',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SubprojectEndDate',
+    name: 'subprojectEndDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ActualCost',
+    name: 'actualCost',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PlannedCost',
+    name: 'plannedCost',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SubprojectDepth',
+    name: 'subprojectDepth',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DueDate',
+    name: 'dueDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'PMS_StagesCollection',
+    name: 'pmsStagesCollection',
+    type: PmsStageData,
+    isCollection: true
+  }, {
+    originalName: 'PMS_OpenIssuesCollection',
+    name: 'pmsOpenIssuesCollection',
+    type: PmsOpenIssueData,
+    isCollection: true
+  }, {
+    originalName: 'PMS_DocumentsCollection',
+    name: 'pmsDocumentsCollection',
+    type: PmsDocumentData,
+    isCollection: true
+  }, {
+    originalName: 'PMS_ActivitiesCollection',
+    name: 'pmsActivitiesCollection',
+    type: PmsActivityData,
+    isCollection: true
+  }, {
+    originalName: 'PMS_WorkOrdersCollection',
+    name: 'pmsWorkOrdersCollection',
+    type: PmsWorkOrderData,
+    isCollection: true
+  }, {
+    originalName: 'PMS_SummaryData',
+    name: 'pmsSummaryData',
+    type: PmsSummaryData,
+    isCollection: false
+  }, {
+    originalName: 'PMS_DocAttachements',
+    name: 'pmsDocAttachements',
+    type: PmsDocAttachement,
+    isCollection: true
+  }, {
+    originalName: 'PMS_StageAttachements',
+    name: 'pmsStageAttachements',
+    type: PmsStageAttachement,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | PmsActivityData | PmsDocAttachement | PmsDocumentData | PmsOpenIssueData | PmsStageAttachement | PmsStageData | PmsSummaryData | PmsWorkOrderData }): PmSubprojectDocumentData {
-    return createComplexType(json, {
-      AbsEntry: (absEntry: number) => ({ absEntry: edmToTs(absEntry, 'Edm.Int32') }),
-      Owner: (owner: number) => ({ owner: edmToTs(owner, 'Edm.Int32') }),
-      SubprojectName: (subprojectName: string) => ({ subprojectName: edmToTs(subprojectName, 'Edm.String') }),
-      StartDate: (startDate: Moment) => ({ startDate: edmToTs(startDate, 'Edm.DateTimeOffset') }),
-      FinishedPercent: (finishedPercent: number) => ({ finishedPercent: edmToTs(finishedPercent, 'Edm.Double') }),
-      ParentID: (parentId: number) => ({ parentId: edmToTs(parentId, 'Edm.Int32') }),
-      ProjectID: (projectId: number) => ({ projectId: edmToTs(projectId, 'Edm.Int32') }),
-      Order: (order: number) => ({ order: edmToTs(order, 'Edm.Int32') }),
-      SubprojectType: (subprojectType: number) => ({ subprojectType: edmToTs(subprojectType, 'Edm.Int32') }),
-      SubprojectContribution: (subprojectContribution: number) => ({ subprojectContribution: edmToTs(subprojectContribution, 'Edm.Double') }),
-      SubprojectEndDate: (subprojectEndDate: Moment) => ({ subprojectEndDate: edmToTs(subprojectEndDate, 'Edm.DateTimeOffset') }),
-      ActualCost: (actualCost: number) => ({ actualCost: edmToTs(actualCost, 'Edm.Double') }),
-      PlannedCost: (plannedCost: number) => ({ plannedCost: edmToTs(plannedCost, 'Edm.Double') }),
-      SubprojectDepth: (subprojectDepth: number) => ({ subprojectDepth: edmToTs(subprojectDepth, 'Edm.Int32') }),
-      DueDate: (dueDate: Moment) => ({ dueDate: edmToTs(dueDate, 'Edm.DateTimeOffset') }),
-      PMS_StagesCollection: (pmsStagesCollection: PmsStageData) => ({ pmsStagesCollection: PmsStageData.build(pmsStagesCollection) }),
-      PMS_OpenIssuesCollection: (pmsOpenIssuesCollection: PmsOpenIssueData) => ({ pmsOpenIssuesCollection: PmsOpenIssueData.build(pmsOpenIssuesCollection) }),
-      PMS_DocumentsCollection: (pmsDocumentsCollection: PmsDocumentData) => ({ pmsDocumentsCollection: PmsDocumentData.build(pmsDocumentsCollection) }),
-      PMS_ActivitiesCollection: (pmsActivitiesCollection: PmsActivityData) => ({ pmsActivitiesCollection: PmsActivityData.build(pmsActivitiesCollection) }),
-      PMS_WorkOrdersCollection: (pmsWorkOrdersCollection: PmsWorkOrderData) => ({ pmsWorkOrdersCollection: PmsWorkOrderData.build(pmsWorkOrdersCollection) }),
-      PMS_SummaryData: (pmsSummaryData: PmsSummaryData) => ({ pmsSummaryData: PmsSummaryData.build(pmsSummaryData) }),
-      PMS_DocAttachements: (pmsDocAttachements: PmsDocAttachement) => ({ pmsDocAttachements: PmsDocAttachement.build(pmsDocAttachements) }),
-      PMS_StageAttachements: (pmsStageAttachements: PmsStageAttachement) => ({ pmsStageAttachements: PmsStageAttachement.build(pmsStageAttachements) })
-    });
+    return deserializeComplexTypeV4(json, PmSubprojectDocumentData);
   }
 }

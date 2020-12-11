@@ -1,4 +1,4 @@
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { AssetClasses } from './AssetClasses';
 /**
  * Request builder class for operations supported on the [[AssetClasses]] entity.
@@ -9,35 +9,35 @@ export declare class AssetClassesRequestBuilder extends RequestBuilder<AssetClas
      * @param code Key property. See [[AssetClasses.code]].
      * @returns A request builder for creating requests to retrieve one `AssetClasses` entity based on its keys.
      */
-    getByKey(code: string): GetByKeyRequestBuilder<AssetClasses>;
+    getByKey(code: string): GetByKeyRequestBuilderV4<AssetClasses>;
     /**
      * Returns a request builder for querying all `AssetClasses` entities.
      * @returns A request builder for creating requests to retrieve all `AssetClasses` entities.
      */
-    getAll(): GetAllRequestBuilder<AssetClasses>;
+    getAll(): GetAllRequestBuilderV4<AssetClasses>;
     /**
      * Returns a request builder for creating a `AssetClasses` entity.
      * @param entity The entity to be created
      * @returns A request builder for creating requests that create an entity of type `AssetClasses`.
      */
-    create(entity: AssetClasses): CreateRequestBuilder<AssetClasses>;
+    create(entity: AssetClasses): CreateRequestBuilderV4<AssetClasses>;
     /**
      * Returns a request builder for updating an entity of type `AssetClasses`.
      * @param entity The entity to be updated
      * @returns A request builder for creating requests that update an entity of type `AssetClasses`.
      */
-    update(entity: AssetClasses): UpdateRequestBuilder<AssetClasses>;
+    update(entity: AssetClasses): UpdateRequestBuilderV4<AssetClasses>;
     /**
      * Returns a request builder for deleting an entity of type `AssetClasses`.
      * @param code Key property. See [[AssetClasses.code]].
      * @returns A request builder for creating requests that delete an entity of type `AssetClasses`.
      */
-    delete(code: string): DeleteRequestBuilder<AssetClasses>;
+    delete(code: string): DeleteRequestBuilderV4<AssetClasses>;
     /**
      * Returns a request builder for deleting an entity of type `AssetClasses`.
      * @param entity Pass the entity to be deleted.
      * @returns A request builder for creating requests that delete an entity of type `AssetClasses` by taking the entity as a parameter.
      */
-    delete(entity: AssetClasses): DeleteRequestBuilder<AssetClasses>;
+    delete(entity: AssetClasses): DeleteRequestBuilderV4<AssetClasses>;
 }
 //# sourceMappingURL=AssetClassesRequestBuilder.d.ts.map

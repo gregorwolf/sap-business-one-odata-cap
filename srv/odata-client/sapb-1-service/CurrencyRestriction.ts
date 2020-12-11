@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * CurrencyRestriction
@@ -24,6 +25,11 @@ export interface CurrencyRestriction {
    * @nullable
    */
   currencyName?: string;
+  /**
+   * Choose.
+   * @nullable
+   */
+  choose?: BoYesNoEnum;
 }
 
 /**
@@ -37,7 +43,7 @@ export function createCurrencyRestriction(json: any): CurrencyRestriction {
  * CurrencyRestrictionField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class CurrencyRestrictionField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class CurrencyRestrictionField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, CurrencyRestriction> {
   /**
    * Representation of the [[CurrencyRestriction.paymentMethodCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -53,14 +59,53 @@ export class CurrencyRestrictionField<EntityT extends Entity> extends ComplexTyp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   currencyName: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('CurrencyName', this, 'Edm.String');
+  /**
+   * Representation of the [[CurrencyRestriction.choose]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  choose: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Choose', this);
+
+  /**
+   * Creates an instance of CurrencyRestrictionField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, CurrencyRestriction);
+  }
 }
 
 export namespace CurrencyRestriction {
+  /**
+   * Metadata information on all properties of the `CurrencyRestriction` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<CurrencyRestriction>[] = [{
+    originalName: 'PaymentMethodCode',
+    name: 'paymentMethodCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CurrencyCode',
+    name: 'currencyCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CurrencyName',
+    name: 'currencyName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Choose',
+    name: 'choose',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): CurrencyRestriction {
-    return createComplexType(json, {
-      PaymentMethodCode: (paymentMethodCode: string) => ({ paymentMethodCode: edmToTs(paymentMethodCode, 'Edm.String') }),
-      CurrencyCode: (currencyCode: string) => ({ currencyCode: edmToTs(currencyCode, 'Edm.String') }),
-      CurrencyName: (currencyName: string) => ({ currencyName: edmToTs(currencyName, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, CurrencyRestriction);
   }
 }

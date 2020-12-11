@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.UserPermissionTree = void 0;
  */
 var UserPermissionTreeRequestBuilder_1 = require("./UserPermissionTreeRequestBuilder");
 var UserPermissionForm_1 = require("./UserPermissionForm");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "UserPermissionTree" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var UserPermissionTree = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `UserPermissionTree`.
+     * Returns an entity builder to construct instances of `UserPermissionTree`.
      * @returns A builder that constructs instances of entity type `UserPermissionTree`.
      */
     UserPermissionTree.builder = function () {
-        return v4_1.Entity.entityBuilder(UserPermissionTree);
+        return core_1.EntityV4.entityBuilder(UserPermissionTree);
     };
     /**
      * Returns a request builder to construct requests for operations on the `UserPermissionTree` entity type.
@@ -61,7 +61,7 @@ var UserPermissionTree = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `UserPermissionTree`.
      */
     UserPermissionTree.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, UserPermissionTree);
+        return core_1.EntityV4.customFieldSelector(fieldName, UserPermissionTree);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,16 +75,11 @@ var UserPermissionTree = /** @class */ (function (_super) {
      */
     UserPermissionTree._entityName = 'UserPermissionTree';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for UserPermissionTree.
-     */
-    UserPermissionTree._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    UserPermissionTree._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    UserPermissionTree._defaultServicePath = '/b1s/v2/';
     return UserPermissionTree;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.UserPermissionTree = UserPermissionTree;
 var Users_1 = require("./Users");
 (function (UserPermissionTree) {
@@ -92,42 +87,52 @@ var Users_1 = require("./Users");
      * Static representation of the [[userSignature]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserPermissionTree.USER_SIGNATURE = new v4_1.NumberField('UserSignature', UserPermissionTree, 'Edm.Int32');
+    UserPermissionTree.USER_SIGNATURE = new core_1.NumberField('UserSignature', UserPermissionTree, 'Edm.Int32');
     /**
      * Static representation of the [[displayOrder]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserPermissionTree.DISPLAY_ORDER = new v4_1.NumberField('DisplayOrder', UserPermissionTree, 'Edm.Int32');
+    UserPermissionTree.DISPLAY_ORDER = new core_1.NumberField('DisplayOrder', UserPermissionTree, 'Edm.Int32');
     /**
      * Static representation of the [[permissionId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserPermissionTree.PERMISSION_ID = new v4_1.StringField('PermissionID', UserPermissionTree, 'Edm.String');
+    UserPermissionTree.PERMISSION_ID = new core_1.StringField('PermissionID', UserPermissionTree, 'Edm.String');
+    /**
+     * Static representation of the [[options]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    UserPermissionTree.OPTIONS = new core_1.EnumField('Options', UserPermissionTree);
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserPermissionTree.NAME = new v4_1.StringField('Name', UserPermissionTree, 'Edm.String');
+    UserPermissionTree.NAME = new core_1.StringField('Name', UserPermissionTree, 'Edm.String');
     /**
      * Static representation of the [[levels]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserPermissionTree.LEVELS = new v4_1.NumberField('Levels', UserPermissionTree, 'Edm.Int32');
+    UserPermissionTree.LEVELS = new core_1.NumberField('Levels', UserPermissionTree, 'Edm.Int32');
+    /**
+     * Static representation of the [[isItem]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    UserPermissionTree.IS_ITEM = new core_1.EnumField('IsItem', UserPermissionTree);
     /**
      * Static representation of the [[parentId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserPermissionTree.PARENT_ID = new v4_1.StringField('ParentID', UserPermissionTree, 'Edm.String');
+    UserPermissionTree.PARENT_ID = new core_1.StringField('ParentID', UserPermissionTree, 'Edm.String');
     /**
      * Static representation of the [[userPermissionForms]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserPermissionTree.USER_PERMISSION_FORMS = new v4_1.CollectionField('UserPermissionForms', UserPermissionTree, new UserPermissionForm_1.UserPermissionFormField('', UserPermissionTree));
+    UserPermissionTree.USER_PERMISSION_FORMS = new core_1.CollectionField('UserPermissionForms', UserPermissionTree, UserPermissionForm_1.UserPermissionForm);
     /**
      * Static representation of the one-to-one navigation property [[user]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserPermissionTree.USER = new v4_1.OneToOneLink('User', UserPermissionTree, Users_1.Users);
+    UserPermissionTree.USER = new core_1.OneToOneLink('User', UserPermissionTree, Users_1.Users);
     /**
      * All fields of the UserPermissionTree entity.
      */
@@ -135,8 +140,10 @@ var Users_1 = require("./Users");
         UserPermissionTree.USER_SIGNATURE,
         UserPermissionTree.DISPLAY_ORDER,
         UserPermissionTree.PERMISSION_ID,
+        UserPermissionTree.OPTIONS,
         UserPermissionTree.NAME,
         UserPermissionTree.LEVELS,
+        UserPermissionTree.IS_ITEM,
         UserPermissionTree.PARENT_ID,
         UserPermissionTree.USER_PERMISSION_FORMS,
         UserPermissionTree.USER
@@ -144,7 +151,7 @@ var Users_1 = require("./Users");
     /**
      * All fields selector.
      */
-    UserPermissionTree.ALL_FIELDS = new v4_1.AllFields('*', UserPermissionTree);
+    UserPermissionTree.ALL_FIELDS = new core_1.AllFields('*', UserPermissionTree);
     /**
      * All key fields of the UserPermissionTree entity.
      */

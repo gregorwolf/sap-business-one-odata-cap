@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { TerritoriesRequestBuilder } from './TerritoriesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "Territories" of service "SAPB1".
  */
-export class Territories extends Entity implements TerritoriesType {
+export class Territories extends EntityV4 implements TerritoriesType {
   /**
    * Technical entity name for Territories.
    */
   static _entityName = 'Territories';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for Territories.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Territory Id.
    * @nullable
@@ -38,6 +34,11 @@ export class Territories extends Entity implements TerritoriesType {
    * @nullable
    */
   locationIndex?: number;
+  /**
+   * Inactive.
+   * @nullable
+   */
+  inactive?: BoYesNoEnum;
   /**
    * Parent.
    * @nullable
@@ -61,11 +62,11 @@ export class Territories extends Entity implements TerritoriesType {
   projectManagements!: ProjectManagements[];
 
   /**
-   * Returns an entity builder to construct instances `Territories`.
+   * Returns an entity builder to construct instances of `Territories`.
    * @returns A builder that constructs instances of entity type `Territories`.
    */
-  static builder(): EntityBuilderType<Territories, TerritoriesTypeForceMandatory> {
-    return Entity.entityBuilder(Territories);
+  static builder(): EntityBuilderType<Territories, TerritoriesType> {
+    return EntityV4.entityBuilder(Territories);
   }
 
   /**
@@ -81,8 +82,8 @@ export class Territories extends Entity implements TerritoriesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `Territories`.
    */
-  static customField(fieldName: string): CustomField<Territories> {
-    return Entity.customFieldSelector(fieldName, Territories);
+  static customField(fieldName: string): CustomFieldV4<Territories> {
+    return EntityV4.customFieldSelector(fieldName, Territories);
   }
 
   /**
@@ -100,21 +101,11 @@ import { CustomerEquipmentCards, CustomerEquipmentCardsType } from './CustomerEq
 import { ProjectManagements, ProjectManagementsType } from './ProjectManagements';
 
 export interface TerritoriesType {
-  territoryId?: number;
-  description?: string;
-  locationIndex?: number;
-  parent?: number;
-  salesOpportunities: SalesOpportunitiesType[];
-  businessPartners: BusinessPartnersType[];
-  customerEquipmentCards: CustomerEquipmentCardsType[];
-  projectManagements: ProjectManagementsType[];
-}
-
-export interface TerritoriesTypeForceMandatory {
-  territoryId: number;
-  description: string;
-  locationIndex: number;
-  parent: number;
+  territoryId?: number | null;
+  description?: string | null;
+  locationIndex?: number | null;
+  inactive?: BoYesNoEnum | null;
+  parent?: number | null;
   salesOpportunities: SalesOpportunitiesType[];
   businessPartners: BusinessPartnersType[];
   customerEquipmentCards: CustomerEquipmentCardsType[];
@@ -137,6 +128,11 @@ export namespace Territories {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const LOCATION_INDEX: NumberField<Territories> = new NumberField('LocationIndex', Territories, 'Edm.Int32');
+  /**
+   * Static representation of the [[inactive]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INACTIVE: EnumField<Territories> = new EnumField('Inactive', Territories);
   /**
    * Static representation of the [[parent]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -165,10 +161,11 @@ export namespace Territories {
   /**
    * All fields of the Territories entity.
    */
-  export const _allFields: Array<NumberField<Territories> | StringField<Territories> | OneToManyLink<Territories, SalesOpportunities> | OneToManyLink<Territories, BusinessPartners> | OneToManyLink<Territories, CustomerEquipmentCards> | OneToManyLink<Territories, ProjectManagements>> = [
+  export const _allFields: Array<NumberField<Territories> | StringField<Territories> | EnumField<Territories> | OneToManyLink<Territories, SalesOpportunities> | OneToManyLink<Territories, BusinessPartners> | OneToManyLink<Territories, CustomerEquipmentCards> | OneToManyLink<Territories, ProjectManagements>> = [
     Territories.TERRITORY_ID,
     Territories.DESCRIPTION,
     Territories.LOCATION_INDEX,
+    Territories.INACTIVE,
     Territories.PARENT,
     Territories.SALES_OPPORTUNITIES,
     Territories.BUSINESS_PARTNERS,

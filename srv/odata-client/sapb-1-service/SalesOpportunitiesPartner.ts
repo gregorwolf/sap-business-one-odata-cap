@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * SalesOpportunitiesPartner
@@ -47,7 +47,7 @@ export function createSalesOpportunitiesPartner(json: any): SalesOpportunitiesPa
  * SalesOpportunitiesPartnerField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class SalesOpportunitiesPartnerField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class SalesOpportunitiesPartnerField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, SalesOpportunitiesPartner> {
   /**
    * Representation of the [[SalesOpportunitiesPartner.rowNo]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -73,16 +73,53 @@ export class SalesOpportunitiesPartnerField<EntityT extends Entity> extends Comp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   sequenceNo: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('SequenceNo', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of SalesOpportunitiesPartnerField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, SalesOpportunitiesPartner);
+  }
 }
 
 export namespace SalesOpportunitiesPartner {
+  /**
+   * Metadata information on all properties of the `SalesOpportunitiesPartner` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<SalesOpportunitiesPartner>[] = [{
+    originalName: 'RowNo',
+    name: 'rowNo',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Partners',
+    name: 'partners',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Details',
+    name: 'details',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RelationshipCode',
+    name: 'relationshipCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SequenceNo',
+    name: 'sequenceNo',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): SalesOpportunitiesPartner {
-    return createComplexType(json, {
-      RowNo: (rowNo: number) => ({ rowNo: edmToTs(rowNo, 'Edm.Int32') }),
-      Partners: (partners: number) => ({ partners: edmToTs(partners, 'Edm.Int32') }),
-      Details: (details: string) => ({ details: edmToTs(details, 'Edm.String') }),
-      RelationshipCode: (relationshipCode: number) => ({ relationshipCode: edmToTs(relationshipCode, 'Edm.Int32') }),
-      SequenceNo: (sequenceNo: number) => ({ sequenceNo: edmToTs(sequenceNo, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, SalesOpportunitiesPartner);
   }
 }

@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeTimePropertyField, Entity, FieldType, Time } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeTimePropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, Time } from '@sap-cloud-sdk/core';
 /**
  * MessageHeader
  */
@@ -9,6 +10,16 @@ export interface MessageHeader {
      * @nullable
      */
     code?: number;
+    /**
+     * Received.
+     * @nullable
+     */
+    received?: BoYesNoEnum;
+    /**
+     * Read.
+     * @nullable
+     */
+    read?: BoYesNoEnum;
     /**
      * Received Date.
      * @nullable
@@ -38,12 +49,22 @@ export declare function createMessageHeader(json: any): MessageHeader;
  * MessageHeaderField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class MessageHeaderField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class MessageHeaderField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, MessageHeader> {
     /**
      * Representation of the [[MessageHeader.code]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     code: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[MessageHeader.received]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    received: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[MessageHeader.read]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    read: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[MessageHeader.receivedDate]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -64,8 +85,22 @@ export declare class MessageHeaderField<EntityT extends Entity> extends ComplexT
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     sentTime: ComplexTypeTimePropertyField<EntityT>;
+    /**
+     * Creates an instance of MessageHeaderField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace MessageHeader {
+    /**
+     * Metadata information on all properties of the `MessageHeader` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<MessageHeader>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): MessageHeader;

@@ -1,18 +1,13 @@
 import { TaxWebSitesRequestBuilder } from './TaxWebSitesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "TaxWebSites" of service "SAPB1".
  */
-export declare class TaxWebSites extends Entity implements TaxWebSitesType {
+export declare class TaxWebSites extends EntityV4 implements TaxWebSitesType {
     /**
      * Technical entity name for TaxWebSites.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for TaxWebSites.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -142,10 +137,10 @@ export declare class TaxWebSites extends Entity implements TaxWebSitesType {
      */
     goodsReturnRequest: GoodsReturnRequest[];
     /**
-     * Returns an entity builder to construct instances `TaxWebSites`.
+     * Returns an entity builder to construct instances of `TaxWebSites`.
      * @returns A builder that constructs instances of entity type `TaxWebSites`.
      */
-    static builder(): EntityBuilderType<TaxWebSites, TaxWebSitesTypeForceMandatory>;
+    static builder(): EntityBuilderType<TaxWebSites, TaxWebSitesType>;
     /**
      * Returns a request builder to construct requests for operations on the `TaxWebSites` entity type.
      * @returns A `TaxWebSites` request builder.
@@ -156,7 +151,7 @@ export declare class TaxWebSites extends Entity implements TaxWebSitesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `TaxWebSites`.
      */
-    static customField(fieldName: string): CustomField<TaxWebSites>;
+    static customField(fieldName: string): CustomFieldV4<TaxWebSites>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -192,42 +187,10 @@ import { PurchaseDownPayments, PurchaseDownPaymentsType } from './PurchaseDownPa
 import { PurchaseOrders, PurchaseOrdersType } from './PurchaseOrders';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 export interface TaxWebSitesType {
-    absEntry?: number;
-    webSiteName?: string;
-    webSiteUrl?: string;
-    description?: string;
-    inventoryGenEntries: InventoryGenEntriesType[];
-    purchaseQuotations: PurchaseQuotationsType[];
-    deliveryNotes: DeliveryNotesType[];
-    businessPartners: BusinessPartnersType[];
-    quotations: QuotationsType[];
-    taxInvoiceReport: TaxInvoiceReportType[];
-    inventoryGenExits: InventoryGenExitsType[];
-    purchaseRequests: PurchaseRequestsType[];
-    returnRequest: ReturnRequestType[];
-    purchaseReturns: PurchaseReturnsType[];
-    invoices: InvoicesType[];
-    creditNotes: CreditNotesType[];
-    orders: OrdersType[];
-    downPayments: DownPaymentsType[];
-    drafts: DraftsType[];
-    returns: ReturnsType[];
-    correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-    correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-    correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-    purchaseInvoices: PurchaseInvoicesType[];
-    purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-    correctionInvoice: CorrectionInvoiceType[];
-    purchaseCreditNotes: PurchaseCreditNotesType[];
-    purchaseDownPayments: PurchaseDownPaymentsType[];
-    purchaseOrders: PurchaseOrdersType[];
-    goodsReturnRequest: GoodsReturnRequestType[];
-}
-export interface TaxWebSitesTypeForceMandatory {
-    absEntry: number;
-    webSiteName: string;
-    webSiteUrl: string;
-    description: string;
+    absEntry?: number | null;
+    webSiteName?: string | null;
+    webSiteUrl?: string | null;
+    description?: string | null;
     inventoryGenEntries: InventoryGenEntriesType[];
     purchaseQuotations: PurchaseQuotationsType[];
     deliveryNotes: DeliveryNotesType[];

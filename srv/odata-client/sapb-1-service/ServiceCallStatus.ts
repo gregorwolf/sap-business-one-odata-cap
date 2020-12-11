@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ServiceCallStatusRequestBuilder } from './ServiceCallStatusRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ServiceCallStatus" of service "SAPB1".
  */
-export class ServiceCallStatus extends Entity implements ServiceCallStatusType {
+export class ServiceCallStatus extends EntityV4 implements ServiceCallStatusType {
   /**
    * Technical entity name for ServiceCallStatus.
    */
   static _entityName = 'ServiceCallStatus';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ServiceCallStatus.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Status Id.
    * @nullable
@@ -44,11 +39,11 @@ export class ServiceCallStatus extends Entity implements ServiceCallStatusType {
   serviceCalls!: ServiceCalls[];
 
   /**
-   * Returns an entity builder to construct instances `ServiceCallStatus`.
+   * Returns an entity builder to construct instances of `ServiceCallStatus`.
    * @returns A builder that constructs instances of entity type `ServiceCallStatus`.
    */
-  static builder(): EntityBuilderType<ServiceCallStatus, ServiceCallStatusTypeForceMandatory> {
-    return Entity.entityBuilder(ServiceCallStatus);
+  static builder(): EntityBuilderType<ServiceCallStatus, ServiceCallStatusType> {
+    return EntityV4.entityBuilder(ServiceCallStatus);
   }
 
   /**
@@ -64,8 +59,8 @@ export class ServiceCallStatus extends Entity implements ServiceCallStatusType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ServiceCallStatus`.
    */
-  static customField(fieldName: string): CustomField<ServiceCallStatus> {
-    return Entity.customFieldSelector(fieldName, ServiceCallStatus);
+  static customField(fieldName: string): CustomFieldV4<ServiceCallStatus> {
+    return EntityV4.customFieldSelector(fieldName, ServiceCallStatus);
   }
 
   /**
@@ -80,16 +75,9 @@ export class ServiceCallStatus extends Entity implements ServiceCallStatusType {
 import { ServiceCalls, ServiceCallsType } from './ServiceCalls';
 
 export interface ServiceCallStatusType {
-  statusId?: number;
-  name?: string;
-  description?: string;
-  serviceCalls: ServiceCallsType[];
-}
-
-export interface ServiceCallStatusTypeForceMandatory {
-  statusId: number;
-  name: string;
-  description: string;
+  statusId?: number | null;
+  name?: string | null;
+  description?: string | null;
   serviceCalls: ServiceCallsType[];
 }
 

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * DeterminationCriteriaParams
@@ -27,18 +27,39 @@ export function createDeterminationCriteriaParams(json: any): DeterminationCrite
  * DeterminationCriteriaParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class DeterminationCriteriaParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class DeterminationCriteriaParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, DeterminationCriteriaParams> {
   /**
    * Representation of the [[DeterminationCriteriaParams.dmcId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   dmcId: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DmcId', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of DeterminationCriteriaParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, DeterminationCriteriaParams);
+  }
 }
 
 export namespace DeterminationCriteriaParams {
+  /**
+   * Metadata information on all properties of the `DeterminationCriteriaParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<DeterminationCriteriaParams>[] = [{
+    originalName: 'DmcId',
+    name: 'dmcId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): DeterminationCriteriaParams {
-    return createComplexType(json, {
-      DmcId: (dmcId: number) => ({ dmcId: edmToTs(dmcId, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, DeterminationCriteriaParams);
   }
 }

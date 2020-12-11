@@ -1,6 +1,8 @@
 import { Moment } from 'moment';
-import { CashFlowAssignment, CashFlowAssignmentField } from './CashFlowAssignment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { CashFlowAssignment } from './CashFlowAssignment';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoTaxPostAccEnum } from './BoTaxPostAccEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * JournalEntryLine
  */
@@ -121,6 +123,11 @@ export interface JournalEntryLine {
      */
     vatDate?: Moment;
     /**
+     * Vat Line.
+     * @nullable
+     */
+    vatLine?: BoYesNoEnum;
+    /**
      * System Base Amount.
      * @nullable
      */
@@ -171,6 +178,11 @@ export interface JournalEntryLine {
      */
     taxCode?: string;
     /**
+     * Tax Post Account.
+     * @nullable
+     */
+    taxPostAccount?: BoTaxPostAccEnum;
+    /**
      * Costing Code 5.
      * @nullable
      */
@@ -206,6 +218,21 @@ export interface JournalEntryLine {
      */
     systemTotalTax?: number;
     /**
+     * Wt Liable.
+     * @nullable
+     */
+    wtLiable?: BoYesNoEnum;
+    /**
+     * Wt Row.
+     * @nullable
+     */
+    wtRow?: BoYesNoEnum;
+    /**
+     * Payment Block.
+     * @nullable
+     */
+    paymentBlock?: BoYesNoEnum;
+    /**
      * Block Reason.
      * @nullable
      */
@@ -231,6 +258,11 @@ export interface JournalEntryLine {
      */
     vatRegNum?: string;
     /**
+     * Payment Ordered.
+     * @nullable
+     */
+    paymentOrdered?: BoYesNoEnum;
+    /**
      * Exposed Trans Number.
      * @nullable
      */
@@ -254,7 +286,7 @@ export interface JournalEntryLine {
      * Cash Flow Assignments.
      * @nullable
      */
-    cashFlowAssignments?: CashFlowAssignment;
+    cashFlowAssignments?: CashFlowAssignment[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[JournalEntryLine.build]] instead.
@@ -264,7 +296,7 @@ export declare function createJournalEntryLine(json: any): JournalEntryLine;
  * JournalEntryLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class JournalEntryLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class JournalEntryLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, JournalEntryLine> {
     /**
      * Representation of the [[JournalEntryLine.lineId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -381,6 +413,11 @@ export declare class JournalEntryLineField<EntityT extends Entity> extends Compl
      */
     vatDate: ComplexTypeDatePropertyField<EntityT>;
     /**
+     * Representation of the [[JournalEntryLine.vatLine]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    vatLine: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[JournalEntryLine.systemBaseAmount]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -431,6 +468,11 @@ export declare class JournalEntryLineField<EntityT extends Entity> extends Compl
      */
     taxCode: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[JournalEntryLine.taxPostAccount]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    taxPostAccount: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[JournalEntryLine.costingCode5]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -466,6 +508,21 @@ export declare class JournalEntryLineField<EntityT extends Entity> extends Compl
      */
     systemTotalTax: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[JournalEntryLine.wtLiable]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    wtLiable: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[JournalEntryLine.wtRow]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    wtRow: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[JournalEntryLine.paymentBlock]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    paymentBlock: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[JournalEntryLine.blockReason]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -491,6 +548,11 @@ export declare class JournalEntryLineField<EntityT extends Entity> extends Compl
      */
     vatRegNum: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[JournalEntryLine.paymentOrdered]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    paymentOrdered: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[JournalEntryLine.exposedTransNumber]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -514,9 +576,23 @@ export declare class JournalEntryLineField<EntityT extends Entity> extends Compl
      * Representation of the [[JournalEntryLine.cashFlowAssignments]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    cashFlowAssignments: CashFlowAssignmentField<EntityT>;
+    cashFlowAssignments: CollectionField<EntityT, CashFlowAssignment>;
+    /**
+     * Creates an instance of JournalEntryLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace JournalEntryLine {
+    /**
+     * Metadata information on all properties of the `JournalEntryLine` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<JournalEntryLine>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | CashFlowAssignment;
     }): JournalEntryLine;

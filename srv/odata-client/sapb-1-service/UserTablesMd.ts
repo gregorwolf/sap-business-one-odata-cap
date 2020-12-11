@@ -4,25 +4,22 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { UserTablesMdRequestBuilder } from './UserTablesMdRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoUtbTableType } from './BoUtbTableType';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "UserTablesMD" of service "SAPB1".
  */
-export class UserTablesMd extends Entity implements UserTablesMdType {
+export class UserTablesMd extends EntityV4 implements UserTablesMdType {
   /**
    * Technical entity name for UserTablesMd.
    */
   static _entityName = 'UserTablesMD';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for UserTablesMd.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Table Name.
    * @nullable
@@ -33,6 +30,16 @@ export class UserTablesMd extends Entity implements UserTablesMdType {
    * @nullable
    */
   tableDescription?: string;
+  /**
+   * Table Type.
+   * @nullable
+   */
+  tableType?: BoUtbTableType;
+  /**
+   * Archivable.
+   * @nullable
+   */
+  archivable?: BoYesNoEnum;
   /**
    * Archive Date Field.
    * @nullable
@@ -48,11 +55,11 @@ export class UserTablesMd extends Entity implements UserTablesMdType {
   userFieldsMd!: UserFieldsMd[];
 
   /**
-   * Returns an entity builder to construct instances `UserTablesMd`.
+   * Returns an entity builder to construct instances of `UserTablesMd`.
    * @returns A builder that constructs instances of entity type `UserTablesMd`.
    */
-  static builder(): EntityBuilderType<UserTablesMd, UserTablesMdTypeForceMandatory> {
-    return Entity.entityBuilder(UserTablesMd);
+  static builder(): EntityBuilderType<UserTablesMd, UserTablesMdType> {
+    return EntityV4.entityBuilder(UserTablesMd);
   }
 
   /**
@@ -68,8 +75,8 @@ export class UserTablesMd extends Entity implements UserTablesMdType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `UserTablesMd`.
    */
-  static customField(fieldName: string): CustomField<UserTablesMd> {
-    return Entity.customFieldSelector(fieldName, UserTablesMd);
+  static customField(fieldName: string): CustomFieldV4<UserTablesMd> {
+    return EntityV4.customFieldSelector(fieldName, UserTablesMd);
   }
 
   /**
@@ -85,17 +92,11 @@ import { UserObjectsMd, UserObjectsMdType } from './UserObjectsMd';
 import { UserFieldsMd, UserFieldsMdType } from './UserFieldsMd';
 
 export interface UserTablesMdType {
-  tableName?: string;
-  tableDescription?: string;
-  archiveDateField?: string;
-  userObjectsMd: UserObjectsMdType[];
-  userFieldsMd: UserFieldsMdType[];
-}
-
-export interface UserTablesMdTypeForceMandatory {
-  tableName: string;
-  tableDescription: string;
-  archiveDateField: string;
+  tableName?: string | null;
+  tableDescription?: string | null;
+  tableType?: BoUtbTableType | null;
+  archivable?: BoYesNoEnum | null;
+  archiveDateField?: string | null;
   userObjectsMd: UserObjectsMdType[];
   userFieldsMd: UserFieldsMdType[];
 }
@@ -111,6 +112,16 @@ export namespace UserTablesMd {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const TABLE_DESCRIPTION: StringField<UserTablesMd> = new StringField('TableDescription', UserTablesMd, 'Edm.String');
+  /**
+   * Static representation of the [[tableType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TABLE_TYPE: EnumField<UserTablesMd> = new EnumField('TableType', UserTablesMd);
+  /**
+   * Static representation of the [[archivable]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ARCHIVABLE: EnumField<UserTablesMd> = new EnumField('Archivable', UserTablesMd);
   /**
    * Static representation of the [[archiveDateField]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -129,9 +140,11 @@ export namespace UserTablesMd {
   /**
    * All fields of the UserTablesMd entity.
    */
-  export const _allFields: Array<StringField<UserTablesMd> | OneToManyLink<UserTablesMd, UserObjectsMd> | OneToManyLink<UserTablesMd, UserFieldsMd>> = [
+  export const _allFields: Array<StringField<UserTablesMd> | EnumField<UserTablesMd> | OneToManyLink<UserTablesMd, UserObjectsMd> | OneToManyLink<UserTablesMd, UserFieldsMd>> = [
     UserTablesMd.TABLE_NAME,
     UserTablesMd.TABLE_DESCRIPTION,
+    UserTablesMd.TABLE_TYPE,
+    UserTablesMd.ARCHIVABLE,
     UserTablesMd.ARCHIVE_DATE_FIELD,
     UserTablesMd.USER_OBJECTS_MD,
     UserTablesMd.USER_FIELDS_MD

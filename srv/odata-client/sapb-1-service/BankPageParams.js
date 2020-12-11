@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.BankPageParams = exports.BankPageParamsField = exports.createBankPagePar
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[BankPageParams.build]] instead.
  */
@@ -33,30 +33,50 @@ exports.createBankPageParams = createBankPageParams;
  */
 var BankPageParamsField = /** @class */ (function (_super) {
     __extends(BankPageParamsField, _super);
-    function BankPageParamsField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of BankPageParamsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function BankPageParamsField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, BankPageParams) || this;
         /**
          * Representation of the [[BankPageParams.accountCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.accountCode = new v4_1.ComplexTypeStringPropertyField('AccountCode', _this, 'Edm.String');
+        _this.accountCode = new core_1.ComplexTypeStringPropertyField('AccountCode', _this, 'Edm.String');
         /**
          * Representation of the [[BankPageParams.sequence]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.sequence = new v4_1.ComplexTypeNumberPropertyField('Sequence', _this, 'Edm.Int32');
+        _this.sequence = new core_1.ComplexTypeNumberPropertyField('Sequence', _this, 'Edm.Int32');
         return _this;
     }
     return BankPageParamsField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.BankPageParamsField = BankPageParamsField;
 var BankPageParams;
 (function (BankPageParams) {
+    /**
+     * Metadata information on all properties of the `BankPageParams` complex type.
+     */
+    BankPageParams._propertyMetadata = [{
+            originalName: 'AccountCode',
+            name: 'accountCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Sequence',
+            name: 'sequence',
+            type: 'Edm.Int32',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            AccountCode: function (accountCode) { return ({ accountCode: v4_1.edmToTs(accountCode, 'Edm.String') }); },
-            Sequence: function (sequence) { return ({ sequence: v4_1.edmToTs(sequence, 'Edm.Int32') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, BankPageParams);
     }
     BankPageParams.build = build;
 })(BankPageParams = exports.BankPageParams || (exports.BankPageParams = {}));

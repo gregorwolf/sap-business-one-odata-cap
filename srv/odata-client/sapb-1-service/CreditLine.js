@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreditLine = exports.CreditLineField = exports.createCreditLine = void 0;
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[CreditLine.build]] instead.
  */
@@ -28,78 +28,150 @@ exports.createCreditLine = createCreditLine;
  */
 var CreditLineField = /** @class */ (function (_super) {
     __extends(CreditLineField, _super);
-    function CreditLineField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of CreditLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function CreditLineField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, CreditLine) || this;
         /**
          * Representation of the [[CreditLine.absId]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.absId = new v4_1.ComplexTypeNumberPropertyField('AbsId', _this, 'Edm.Int32');
+        _this.absId = new core_1.ComplexTypeNumberPropertyField('AbsId', _this, 'Edm.Int32');
         /**
          * Representation of the [[CreditLine.creditCard]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.creditCard = new v4_1.ComplexTypeNumberPropertyField('CreditCard', _this, 'Edm.Int32');
+        _this.creditCard = new core_1.ComplexTypeNumberPropertyField('CreditCard', _this, 'Edm.Int32');
         /**
          * Representation of the [[CreditLine.voucherNumber]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.voucherNumber = new v4_1.ComplexTypeStringPropertyField('VoucherNumber', _this, 'Edm.String');
+        _this.voucherNumber = new core_1.ComplexTypeStringPropertyField('VoucherNumber', _this, 'Edm.String');
         /**
          * Representation of the [[CreditLine.paymentMethodCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.paymentMethodCode = new v4_1.ComplexTypeNumberPropertyField('PaymentMethodCode', _this, 'Edm.Int32');
+        _this.paymentMethodCode = new core_1.ComplexTypeNumberPropertyField('PaymentMethodCode', _this, 'Edm.Int32');
         /**
          * Representation of the [[CreditLine.payDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.payDate = new v4_1.ComplexTypeDatePropertyField('PayDate', _this, 'Edm.DateTimeOffset');
+        _this.payDate = new core_1.ComplexTypeDatePropertyField('PayDate', _this, 'Edm.DateTimeOffset');
+        /**
+         * Representation of the [[CreditLine.deposited]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.deposited = new core_1.ComplexTypeEnumPropertyField('Deposited', _this);
         /**
          * Representation of the [[CreditLine.numOfPayments]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.numOfPayments = new v4_1.ComplexTypeNumberPropertyField('NumOfPayments', _this, 'Edm.Int32');
+        _this.numOfPayments = new core_1.ComplexTypeNumberPropertyField('NumOfPayments', _this, 'Edm.Int32');
         /**
          * Representation of the [[CreditLine.customer]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.customer = new v4_1.ComplexTypeStringPropertyField('Customer', _this, 'Edm.String');
+        _this.customer = new core_1.ComplexTypeStringPropertyField('Customer', _this, 'Edm.String');
         /**
          * Representation of the [[CreditLine.reference]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.reference = new v4_1.ComplexTypeStringPropertyField('Reference', _this, 'Edm.String');
+        _this.reference = new core_1.ComplexTypeStringPropertyField('Reference', _this, 'Edm.String');
+        /**
+         * Representation of the [[CreditLine.transferred]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.transferred = new core_1.ComplexTypeEnumPropertyField('Transferred', _this);
         /**
          * Representation of the [[CreditLine.total]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.total = new v4_1.ComplexTypeNumberPropertyField('Total', _this, 'Edm.Double');
+        _this.total = new core_1.ComplexTypeNumberPropertyField('Total', _this, 'Edm.Double');
         /**
          * Representation of the [[CreditLine.creditCurrency]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.creditCurrency = new v4_1.ComplexTypeStringPropertyField('CreditCurrency', _this, 'Edm.String');
+        _this.creditCurrency = new core_1.ComplexTypeStringPropertyField('CreditCurrency', _this, 'Edm.String');
         return _this;
     }
     return CreditLineField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.CreditLineField = CreditLineField;
 var CreditLine;
 (function (CreditLine) {
+    /**
+     * Metadata information on all properties of the `CreditLine` complex type.
+     */
+    CreditLine._propertyMetadata = [{
+            originalName: 'AbsId',
+            name: 'absId',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'CreditCard',
+            name: 'creditCard',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'VoucherNumber',
+            name: 'voucherNumber',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'PaymentMethodCode',
+            name: 'paymentMethodCode',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'PayDate',
+            name: 'payDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'Deposited',
+            name: 'deposited',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'NumOfPayments',
+            name: 'numOfPayments',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Customer',
+            name: 'customer',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Reference',
+            name: 'reference',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Transferred',
+            name: 'transferred',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'Total',
+            name: 'total',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'CreditCurrency',
+            name: 'creditCurrency',
+            type: 'Edm.String',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            AbsId: function (absId) { return ({ absId: v4_1.edmToTs(absId, 'Edm.Int32') }); },
-            CreditCard: function (creditCard) { return ({ creditCard: v4_1.edmToTs(creditCard, 'Edm.Int32') }); },
-            VoucherNumber: function (voucherNumber) { return ({ voucherNumber: v4_1.edmToTs(voucherNumber, 'Edm.String') }); },
-            PaymentMethodCode: function (paymentMethodCode) { return ({ paymentMethodCode: v4_1.edmToTs(paymentMethodCode, 'Edm.Int32') }); },
-            PayDate: function (payDate) { return ({ payDate: v4_1.edmToTs(payDate, 'Edm.DateTimeOffset') }); },
-            NumOfPayments: function (numOfPayments) { return ({ numOfPayments: v4_1.edmToTs(numOfPayments, 'Edm.Int32') }); },
-            Customer: function (customer) { return ({ customer: v4_1.edmToTs(customer, 'Edm.String') }); },
-            Reference: function (reference) { return ({ reference: v4_1.edmToTs(reference, 'Edm.String') }); },
-            Total: function (total) { return ({ total: v4_1.edmToTs(total, 'Edm.Double') }); },
-            CreditCurrency: function (creditCurrency) { return ({ creditCurrency: v4_1.edmToTs(creditCurrency, 'Edm.String') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, CreditLine);
     }
     CreditLine.build = build;
 })(CreditLine = exports.CreditLine || (exports.CreditLine = {}));

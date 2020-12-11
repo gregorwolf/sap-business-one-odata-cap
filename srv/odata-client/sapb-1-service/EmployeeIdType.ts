@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { EmployeeIdTypeRequestBuilder } from './EmployeeIdTypeRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "EmployeeIDType" of service "SAPB1".
  */
-export class EmployeeIdType extends Entity implements EmployeeIdTypeType {
+export class EmployeeIdType extends EntityV4 implements EmployeeIdTypeType {
   /**
    * Technical entity name for EmployeeIdType.
    */
   static _entityName = 'EmployeeIDType';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for EmployeeIdType.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Id Type.
    * @nullable
@@ -34,11 +29,11 @@ export class EmployeeIdType extends Entity implements EmployeeIdTypeType {
   employeesInfo!: EmployeesInfo[];
 
   /**
-   * Returns an entity builder to construct instances `EmployeeIdType`.
+   * Returns an entity builder to construct instances of `EmployeeIdType`.
    * @returns A builder that constructs instances of entity type `EmployeeIdType`.
    */
-  static builder(): EntityBuilderType<EmployeeIdType, EmployeeIdTypeTypeForceMandatory> {
-    return Entity.entityBuilder(EmployeeIdType);
+  static builder(): EntityBuilderType<EmployeeIdType, EmployeeIdTypeType> {
+    return EntityV4.entityBuilder(EmployeeIdType);
   }
 
   /**
@@ -54,8 +49,8 @@ export class EmployeeIdType extends Entity implements EmployeeIdTypeType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `EmployeeIdType`.
    */
-  static customField(fieldName: string): CustomField<EmployeeIdType> {
-    return Entity.customFieldSelector(fieldName, EmployeeIdType);
+  static customField(fieldName: string): CustomFieldV4<EmployeeIdType> {
+    return EntityV4.customFieldSelector(fieldName, EmployeeIdType);
   }
 
   /**
@@ -70,12 +65,7 @@ export class EmployeeIdType extends Entity implements EmployeeIdTypeType {
 import { EmployeesInfo, EmployeesInfoType } from './EmployeesInfo';
 
 export interface EmployeeIdTypeType {
-  idType?: string;
-  employeesInfo: EmployeesInfoType[];
-}
-
-export interface EmployeeIdTypeTypeForceMandatory {
-  idType: string;
+  idType?: string | null;
   employeesInfo: EmployeesInfoType[];
 }
 

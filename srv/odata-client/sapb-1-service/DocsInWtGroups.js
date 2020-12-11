@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.DocsInWtGroups = exports.DocsInWtGroupsField = exports.createDocsInWtGro
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[DocsInWtGroups.build]] instead.
  */
@@ -33,66 +33,110 @@ exports.createDocsInWtGroups = createDocsInWtGroups;
  */
 var DocsInWtGroupsField = /** @class */ (function (_super) {
     __extends(DocsInWtGroupsField, _super);
-    function DocsInWtGroupsField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of DocsInWtGroupsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function DocsInWtGroupsField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, DocsInWtGroups) || this;
         /**
          * Representation of the [[DocsInWtGroups.docEntry]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.docEntry = new v4_1.ComplexTypeNumberPropertyField('DocEntry', _this, 'Edm.Int32');
+        _this.docEntry = new core_1.ComplexTypeNumberPropertyField('DocEntry', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocsInWtGroups.docObjType]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.docObjType = new v4_1.ComplexTypeStringPropertyField('DocObjType', _this, 'Edm.String');
+        _this.docObjType = new core_1.ComplexTypeStringPropertyField('DocObjType', _this, 'Edm.String');
         /**
          * Representation of the [[DocsInWtGroups.vatAmount]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.vatAmount = new v4_1.ComplexTypeNumberPropertyField('VATAmount', _this, 'Edm.Double');
+        _this.vatAmount = new core_1.ComplexTypeNumberPropertyField('VATAmount', _this, 'Edm.Double');
         /**
          * Representation of the [[DocsInWtGroups.docTotal]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.docTotal = new v4_1.ComplexTypeNumberPropertyField('DocTotal', _this, 'Edm.Double');
+        _this.docTotal = new core_1.ComplexTypeNumberPropertyField('DocTotal', _this, 'Edm.Double');
         /**
          * Representation of the [[DocsInWtGroups.baseAmount]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.baseAmount = new v4_1.ComplexTypeNumberPropertyField('BaseAmount', _this, 'Edm.Double');
+        _this.baseAmount = new core_1.ComplexTypeNumberPropertyField('BaseAmount', _this, 'Edm.Double');
         /**
          * Representation of the [[DocsInWtGroups.accumAmount]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.accumAmount = new v4_1.ComplexTypeNumberPropertyField('AccumAmount', _this, 'Edm.Double');
+        _this.accumAmount = new core_1.ComplexTypeNumberPropertyField('AccumAmount', _this, 'Edm.Double');
         /**
          * Representation of the [[DocsInWtGroups.perceptAmount]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.perceptAmount = new v4_1.ComplexTypeNumberPropertyField('PerceptAmount', _this, 'Edm.Double');
+        _this.perceptAmount = new core_1.ComplexTypeNumberPropertyField('PerceptAmount', _this, 'Edm.Double');
         /**
          * Representation of the [[DocsInWtGroups.percent]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.percent = new v4_1.ComplexTypeNumberPropertyField('Percent', _this, 'Edm.Double');
+        _this.percent = new core_1.ComplexTypeNumberPropertyField('Percent', _this, 'Edm.Double');
         return _this;
     }
     return DocsInWtGroupsField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.DocsInWtGroupsField = DocsInWtGroupsField;
 var DocsInWtGroups;
 (function (DocsInWtGroups) {
+    /**
+     * Metadata information on all properties of the `DocsInWtGroups` complex type.
+     */
+    DocsInWtGroups._propertyMetadata = [{
+            originalName: 'DocEntry',
+            name: 'docEntry',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'DocObjType',
+            name: 'docObjType',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'VATAmount',
+            name: 'vatAmount',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'DocTotal',
+            name: 'docTotal',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'BaseAmount',
+            name: 'baseAmount',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'AccumAmount',
+            name: 'accumAmount',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'PerceptAmount',
+            name: 'perceptAmount',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Percent',
+            name: 'percent',
+            type: 'Edm.Double',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            DocEntry: function (docEntry) { return ({ docEntry: v4_1.edmToTs(docEntry, 'Edm.Int32') }); },
-            DocObjType: function (docObjType) { return ({ docObjType: v4_1.edmToTs(docObjType, 'Edm.String') }); },
-            VATAmount: function (vatAmount) { return ({ vatAmount: v4_1.edmToTs(vatAmount, 'Edm.Double') }); },
-            DocTotal: function (docTotal) { return ({ docTotal: v4_1.edmToTs(docTotal, 'Edm.Double') }); },
-            BaseAmount: function (baseAmount) { return ({ baseAmount: v4_1.edmToTs(baseAmount, 'Edm.Double') }); },
-            AccumAmount: function (accumAmount) { return ({ accumAmount: v4_1.edmToTs(accumAmount, 'Edm.Double') }); },
-            PerceptAmount: function (perceptAmount) { return ({ perceptAmount: v4_1.edmToTs(perceptAmount, 'Edm.Double') }); },
-            Percent: function (percent) { return ({ percent: v4_1.edmToTs(percent, 'Edm.Double') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, DocsInWtGroups);
     }
     DocsInWtGroups.build = build;
 })(DocsInWtGroups = exports.DocsInWtGroups || (exports.DocsInWtGroups = {}));

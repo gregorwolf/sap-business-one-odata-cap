@@ -4,14 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ReconciliationJournalEntryLine, ReconciliationJournalEntryLineField } from './ReconciliationJournalEntryLine';
-import { ReconciliationBankStatementLine, ReconciliationBankStatementLineField } from './ReconciliationBankStatementLine';
-import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ReconciliationJournalEntryLine } from './ReconciliationJournalEntryLine';
+import { ReconciliationBankStatementLine } from './ReconciliationBankStatementLine';
+import { ReconciliationAccountTypeEnum } from './ReconciliationAccountTypeEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ExternalReconciliation
  */
 export interface ExternalReconciliation {
+  /**
+   * Reconciliation Account Type.
+   * @nullable
+   */
+  reconciliationAccountType?: ReconciliationAccountTypeEnum;
   /**
    * Account Code.
    * @nullable
@@ -51,12 +57,12 @@ export interface ExternalReconciliation {
    * Reconciliation Journal Entry Lines.
    * @nullable
    */
-  reconciliationJournalEntryLines?: ReconciliationJournalEntryLine;
+  reconciliationJournalEntryLines?: ReconciliationJournalEntryLine[];
   /**
    * Reconciliation Bank Statement Lines.
    * @nullable
    */
-  reconciliationBankStatementLines?: ReconciliationBankStatementLine;
+  reconciliationBankStatementLines?: ReconciliationBankStatementLine[];
 }
 
 /**
@@ -70,7 +76,12 @@ export function createExternalReconciliation(json: any): ExternalReconciliation 
  * ExternalReconciliationField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ExternalReconciliationField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ExternalReconciliationField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ExternalReconciliation> {
+  /**
+   * Representation of the [[ExternalReconciliation.reconciliationAccountType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  reconciliationAccountType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ReconciliationAccountType', this);
   /**
    * Representation of the [[ExternalReconciliation.accountCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -110,26 +121,84 @@ export class ExternalReconciliationField<EntityT extends Entity> extends Complex
    * Representation of the [[ExternalReconciliation.reconciliationJournalEntryLines]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  reconciliationJournalEntryLines: ReconciliationJournalEntryLineField<EntityT> = new ReconciliationJournalEntryLineField('ReconciliationJournalEntryLines', this);
+  reconciliationJournalEntryLines: CollectionField<EntityT, ReconciliationJournalEntryLine> = new CollectionField('ReconciliationJournalEntryLines', this, ReconciliationJournalEntryLine);
   /**
    * Representation of the [[ExternalReconciliation.reconciliationBankStatementLines]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  reconciliationBankStatementLines: ReconciliationBankStatementLineField<EntityT> = new ReconciliationBankStatementLineField('ReconciliationBankStatementLines', this);
+  reconciliationBankStatementLines: CollectionField<EntityT, ReconciliationBankStatementLine> = new CollectionField('ReconciliationBankStatementLines', this, ReconciliationBankStatementLine);
+
+  /**
+   * Creates an instance of ExternalReconciliationField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ExternalReconciliation);
+  }
 }
 
 export namespace ExternalReconciliation {
+  /**
+   * Metadata information on all properties of the `ExternalReconciliation` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ExternalReconciliation>[] = [{
+    originalName: 'ReconciliationAccountType',
+    name: 'reconciliationAccountType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AccountCode',
+    name: 'accountCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ReconciliationNo',
+    name: 'reconciliationNo',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Amount',
+    name: 'amount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CurrencyType',
+    name: 'currencyType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ReconciliationType',
+    name: 'reconciliationType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ReconciliationDate',
+    name: 'reconciliationDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'CreationDate',
+    name: 'creationDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ReconciliationJournalEntryLines',
+    name: 'reconciliationJournalEntryLines',
+    type: ReconciliationJournalEntryLine,
+    isCollection: true
+  }, {
+    originalName: 'ReconciliationBankStatementLines',
+    name: 'reconciliationBankStatementLines',
+    type: ReconciliationBankStatementLine,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | ReconciliationBankStatementLine | ReconciliationJournalEntryLine }): ExternalReconciliation {
-    return createComplexType(json, {
-      AccountCode: (accountCode: string) => ({ accountCode: edmToTs(accountCode, 'Edm.String') }),
-      ReconciliationNo: (reconciliationNo: number) => ({ reconciliationNo: edmToTs(reconciliationNo, 'Edm.Int32') }),
-      Amount: (amount: number) => ({ amount: edmToTs(amount, 'Edm.Double') }),
-      CurrencyType: (currencyType: string) => ({ currencyType: edmToTs(currencyType, 'Edm.String') }),
-      ReconciliationType: (reconciliationType: string) => ({ reconciliationType: edmToTs(reconciliationType, 'Edm.String') }),
-      ReconciliationDate: (reconciliationDate: Moment) => ({ reconciliationDate: edmToTs(reconciliationDate, 'Edm.DateTimeOffset') }),
-      CreationDate: (creationDate: Moment) => ({ creationDate: edmToTs(creationDate, 'Edm.DateTimeOffset') }),
-      ReconciliationJournalEntryLines: (reconciliationJournalEntryLines: ReconciliationJournalEntryLine) => ({ reconciliationJournalEntryLines: ReconciliationJournalEntryLine.build(reconciliationJournalEntryLines) }),
-      ReconciliationBankStatementLines: (reconciliationBankStatementLines: ReconciliationBankStatementLine) => ({ reconciliationBankStatementLines: ReconciliationBankStatementLine.build(reconciliationBankStatementLines) })
-    });
+    return deserializeComplexTypeV4(json, ExternalReconciliation);
   }
 }

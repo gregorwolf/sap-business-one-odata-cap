@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { QueryCategoriesRequestBuilder } from './QueryCategoriesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "QueryCategories" of service "SAPB1".
  */
-export class QueryCategories extends Entity implements QueryCategoriesType {
+export class QueryCategories extends EntityV4 implements QueryCategoriesType {
   /**
    * Technical entity name for QueryCategories.
    */
   static _entityName = 'QueryCategories';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for QueryCategories.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -44,11 +39,11 @@ export class QueryCategories extends Entity implements QueryCategoriesType {
   userQueries!: UserQueries[];
 
   /**
-   * Returns an entity builder to construct instances `QueryCategories`.
+   * Returns an entity builder to construct instances of `QueryCategories`.
    * @returns A builder that constructs instances of entity type `QueryCategories`.
    */
-  static builder(): EntityBuilderType<QueryCategories, QueryCategoriesTypeForceMandatory> {
-    return Entity.entityBuilder(QueryCategories);
+  static builder(): EntityBuilderType<QueryCategories, QueryCategoriesType> {
+    return EntityV4.entityBuilder(QueryCategories);
   }
 
   /**
@@ -64,8 +59,8 @@ export class QueryCategories extends Entity implements QueryCategoriesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `QueryCategories`.
    */
-  static customField(fieldName: string): CustomField<QueryCategories> {
-    return Entity.customFieldSelector(fieldName, QueryCategories);
+  static customField(fieldName: string): CustomFieldV4<QueryCategories> {
+    return EntityV4.customFieldSelector(fieldName, QueryCategories);
   }
 
   /**
@@ -80,16 +75,9 @@ export class QueryCategories extends Entity implements QueryCategoriesType {
 import { UserQueries, UserQueriesType } from './UserQueries';
 
 export interface QueryCategoriesType {
-  code?: number;
-  name?: string;
-  permissions?: string;
-  userQueries: UserQueriesType[];
-}
-
-export interface QueryCategoriesTypeForceMandatory {
-  code: number;
-  name: string;
-  permissions: string;
+  code?: number | null;
+  name?: string | null;
+  permissions?: string | null;
   userQueries: UserQueriesType[];
 }
 

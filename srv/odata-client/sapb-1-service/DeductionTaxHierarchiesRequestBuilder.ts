@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { DeductionTaxHierarchies } from './DeductionTaxHierarchies';
 
 /**
@@ -15,16 +15,16 @@ export class DeductionTaxHierarchiesRequestBuilder extends RequestBuilder<Deduct
    * @param absEntry Key property. See [[DeductionTaxHierarchies.absEntry]].
    * @returns A request builder for creating requests to retrieve one `DeductionTaxHierarchies` entity based on its keys.
    */
-  getByKey(absEntry: number): GetByKeyRequestBuilder<DeductionTaxHierarchies> {
-    return new GetByKeyRequestBuilder(DeductionTaxHierarchies, { AbsEntry: absEntry });
+  getByKey(absEntry: number): GetByKeyRequestBuilderV4<DeductionTaxHierarchies> {
+    return new GetByKeyRequestBuilderV4(DeductionTaxHierarchies, { AbsEntry: absEntry });
   }
 
   /**
    * Returns a request builder for querying all `DeductionTaxHierarchies` entities.
    * @returns A request builder for creating requests to retrieve all `DeductionTaxHierarchies` entities.
    */
-  getAll(): GetAllRequestBuilder<DeductionTaxHierarchies> {
-    return new GetAllRequestBuilder(DeductionTaxHierarchies);
+  getAll(): GetAllRequestBuilderV4<DeductionTaxHierarchies> {
+    return new GetAllRequestBuilderV4(DeductionTaxHierarchies);
   }
 
   /**
@@ -32,8 +32,8 @@ export class DeductionTaxHierarchiesRequestBuilder extends RequestBuilder<Deduct
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `DeductionTaxHierarchies`.
    */
-  create(entity: DeductionTaxHierarchies): CreateRequestBuilder<DeductionTaxHierarchies> {
-    return new CreateRequestBuilder(DeductionTaxHierarchies, entity);
+  create(entity: DeductionTaxHierarchies): CreateRequestBuilderV4<DeductionTaxHierarchies> {
+    return new CreateRequestBuilderV4(DeductionTaxHierarchies, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class DeductionTaxHierarchiesRequestBuilder extends RequestBuilder<Deduct
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `DeductionTaxHierarchies`.
    */
-  update(entity: DeductionTaxHierarchies): UpdateRequestBuilder<DeductionTaxHierarchies> {
-    return new UpdateRequestBuilder(DeductionTaxHierarchies, entity);
+  update(entity: DeductionTaxHierarchies): UpdateRequestBuilderV4<DeductionTaxHierarchies> {
+    return new UpdateRequestBuilderV4(DeductionTaxHierarchies, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class DeductionTaxHierarchiesRequestBuilder extends RequestBuilder<Deduct
    * @param absEntry Key property. See [[DeductionTaxHierarchies.absEntry]].
    * @returns A request builder for creating requests that delete an entity of type `DeductionTaxHierarchies`.
    */
-  delete(absEntry: number): DeleteRequestBuilder<DeductionTaxHierarchies>;
+  delete(absEntry: number): DeleteRequestBuilderV4<DeductionTaxHierarchies>;
   /**
    * Returns a request builder for deleting an entity of type `DeductionTaxHierarchies`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `DeductionTaxHierarchies` by taking the entity as a parameter.
    */
-  delete(entity: DeductionTaxHierarchies): DeleteRequestBuilder<DeductionTaxHierarchies>;
-  delete(absEntryOrEntity: any): DeleteRequestBuilder<DeductionTaxHierarchies> {
-    return new DeleteRequestBuilder(DeductionTaxHierarchies, absEntryOrEntity instanceof DeductionTaxHierarchies ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
+  delete(entity: DeductionTaxHierarchies): DeleteRequestBuilderV4<DeductionTaxHierarchies>;
+  delete(absEntryOrEntity: any): DeleteRequestBuilderV4<DeductionTaxHierarchies> {
+    return new DeleteRequestBuilderV4(DeductionTaxHierarchies, absEntryOrEntity instanceof DeductionTaxHierarchies ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
   }
 }

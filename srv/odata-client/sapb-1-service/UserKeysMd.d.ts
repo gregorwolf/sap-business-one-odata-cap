@@ -1,19 +1,15 @@
 import { UserKeysMdRequestBuilder } from './UserKeysMdRequestBuilder';
 import { UserKeysMdElement } from './UserKeysMdElement';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "UserKeysMD" of service "SAPB1".
  */
-export declare class UserKeysMd extends Entity implements UserKeysMdType {
+export declare class UserKeysMd extends EntityV4 implements UserKeysMdType {
     /**
      * Technical entity name for UserKeysMd.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for UserKeysMd.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -34,15 +30,20 @@ export declare class UserKeysMd extends Entity implements UserKeysMdType {
      */
     keyName?: string;
     /**
+     * Unique.
+     * @nullable
+     */
+    unique?: BoYesNoEnum;
+    /**
      * User Keys Md Elements.
      * @nullable
      */
     userKeysMdElements?: UserKeysMdElement[];
     /**
-     * Returns an entity builder to construct instances `UserKeysMd`.
+     * Returns an entity builder to construct instances of `UserKeysMd`.
      * @returns A builder that constructs instances of entity type `UserKeysMd`.
      */
-    static builder(): EntityBuilderType<UserKeysMd, UserKeysMdTypeForceMandatory>;
+    static builder(): EntityBuilderType<UserKeysMd, UserKeysMdType>;
     /**
      * Returns a request builder to construct requests for operations on the `UserKeysMd` entity type.
      * @returns A `UserKeysMd` request builder.
@@ -53,7 +54,7 @@ export declare class UserKeysMd extends Entity implements UserKeysMdType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `UserKeysMd`.
      */
-    static customField(fieldName: string): CustomField<UserKeysMd>;
+    static customField(fieldName: string): CustomFieldV4<UserKeysMd>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -63,16 +64,11 @@ export declare class UserKeysMd extends Entity implements UserKeysMdType {
     };
 }
 export interface UserKeysMdType {
-    tableName?: string;
-    keyIndex?: number;
-    keyName?: string;
-    userKeysMdElements?: UserKeysMdElement[];
-}
-export interface UserKeysMdTypeForceMandatory {
-    tableName: string;
-    keyIndex: number;
-    keyName: string;
-    userKeysMdElements: UserKeysMdElement[];
+    tableName?: string | null;
+    keyIndex?: number | null;
+    keyName?: string | null;
+    unique?: BoYesNoEnum | null;
+    userKeysMdElements?: UserKeysMdElement[] | null;
 }
 export declare namespace UserKeysMd {
     /**
@@ -91,14 +87,19 @@ export declare namespace UserKeysMd {
      */
     const KEY_NAME: StringField<UserKeysMd>;
     /**
+     * Static representation of the [[unique]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const UNIQUE: EnumField<UserKeysMd>;
+    /**
      * Static representation of the [[userKeysMdElements]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const USER_KEYS_MD_ELEMENTS: CollectionField<UserKeysMd>;
+    const USER_KEYS_MD_ELEMENTS: CollectionField<UserKeysMd, UserKeysMdElement>;
     /**
      * All fields of the UserKeysMd entity.
      */
-    const _allFields: Array<StringField<UserKeysMd> | NumberField<UserKeysMd> | CollectionField<UserKeysMd>>;
+    const _allFields: Array<StringField<UserKeysMd> | NumberField<UserKeysMd> | EnumField<UserKeysMd> | CollectionField<UserKeysMd, UserKeysMdElement>>;
     /**
      * All fields selector.
      */

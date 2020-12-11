@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ActivityStatusesRequestBuilder } from './ActivityStatusesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ActivityStatuses" of service "SAPB1".
  */
-export class ActivityStatuses extends Entity implements ActivityStatusesType {
+export class ActivityStatuses extends EntityV4 implements ActivityStatusesType {
   /**
    * Technical entity name for ActivityStatuses.
    */
   static _entityName = 'ActivityStatuses';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ActivityStatuses.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Status Description.
    * @nullable
@@ -48,11 +43,11 @@ export class ActivityStatuses extends Entity implements ActivityStatusesType {
   activities!: Activities[];
 
   /**
-   * Returns an entity builder to construct instances `ActivityStatuses`.
+   * Returns an entity builder to construct instances of `ActivityStatuses`.
    * @returns A builder that constructs instances of entity type `ActivityStatuses`.
    */
-  static builder(): EntityBuilderType<ActivityStatuses, ActivityStatusesTypeForceMandatory> {
-    return Entity.entityBuilder(ActivityStatuses);
+  static builder(): EntityBuilderType<ActivityStatuses, ActivityStatusesType> {
+    return EntityV4.entityBuilder(ActivityStatuses);
   }
 
   /**
@@ -68,8 +63,8 @@ export class ActivityStatuses extends Entity implements ActivityStatusesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ActivityStatuses`.
    */
-  static customField(fieldName: string): CustomField<ActivityStatuses> {
-    return Entity.customFieldSelector(fieldName, ActivityStatuses);
+  static customField(fieldName: string): CustomFieldV4<ActivityStatuses> {
+    return EntityV4.customFieldSelector(fieldName, ActivityStatuses);
   }
 
   /**
@@ -85,17 +80,9 @@ import { Contacts, ContactsType } from './Contacts';
 import { Activities, ActivitiesType } from './Activities';
 
 export interface ActivityStatusesType {
-  statusDescription?: string;
-  statusId?: number;
-  statusName?: string;
-  contacts: ContactsType[];
-  activities: ActivitiesType[];
-}
-
-export interface ActivityStatusesTypeForceMandatory {
-  statusDescription: string;
-  statusId: number;
-  statusName: string;
+  statusDescription?: string | null;
+  statusId?: number | null;
+  statusName?: string | null;
   contacts: ContactsType[];
   activities: ActivitiesType[];
 }

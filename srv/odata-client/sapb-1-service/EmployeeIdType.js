@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.EmployeeIdType = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var EmployeeIdTypeRequestBuilder_1 = require("./EmployeeIdTypeRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "EmployeeIDType" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var EmployeeIdType = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `EmployeeIdType`.
+     * Returns an entity builder to construct instances of `EmployeeIdType`.
      * @returns A builder that constructs instances of entity type `EmployeeIdType`.
      */
     EmployeeIdType.builder = function () {
-        return v4_1.Entity.entityBuilder(EmployeeIdType);
+        return core_1.EntityV4.entityBuilder(EmployeeIdType);
     };
     /**
      * Returns a request builder to construct requests for operations on the `EmployeeIdType` entity type.
@@ -60,7 +60,7 @@ var EmployeeIdType = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `EmployeeIdType`.
      */
     EmployeeIdType.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, EmployeeIdType);
+        return core_1.EntityV4.customFieldSelector(fieldName, EmployeeIdType);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var EmployeeIdType = /** @class */ (function (_super) {
      */
     EmployeeIdType._entityName = 'EmployeeIDType';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for EmployeeIdType.
-     */
-    EmployeeIdType._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    EmployeeIdType._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    EmployeeIdType._defaultServicePath = '/b1s/v2/';
     return EmployeeIdType;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.EmployeeIdType = EmployeeIdType;
 var EmployeesInfo_1 = require("./EmployeesInfo");
 (function (EmployeeIdType) {
@@ -91,12 +86,12 @@ var EmployeesInfo_1 = require("./EmployeesInfo");
      * Static representation of the [[idType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    EmployeeIdType.ID_TYPE = new v4_1.StringField('IDType', EmployeeIdType, 'Edm.String');
+    EmployeeIdType.ID_TYPE = new core_1.StringField('IDType', EmployeeIdType, 'Edm.String');
     /**
      * Static representation of the one-to-many navigation property [[employeesInfo]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    EmployeeIdType.EMPLOYEES_INFO = new v4_1.OneToManyLink('EmployeesInfo', EmployeeIdType, EmployeesInfo_1.EmployeesInfo);
+    EmployeeIdType.EMPLOYEES_INFO = new core_1.OneToManyLink('EmployeesInfo', EmployeeIdType, EmployeesInfo_1.EmployeesInfo);
     /**
      * All fields of the EmployeeIdType entity.
      */
@@ -107,7 +102,7 @@ var EmployeesInfo_1 = require("./EmployeesInfo");
     /**
      * All fields selector.
      */
-    EmployeeIdType.ALL_FIELDS = new v4_1.AllFields('*', EmployeeIdType);
+    EmployeeIdType.ALL_FIELDS = new core_1.AllFields('*', EmployeeIdType);
     /**
      * All key fields of the EmployeeIdType entity.
      */

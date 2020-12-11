@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { PaymentRunExport } from './PaymentRunExport';
 
 /**
@@ -15,16 +15,16 @@ export class PaymentRunExportRequestBuilder extends RequestBuilder<PaymentRunExp
    * @param absoluteEntry Key property. See [[PaymentRunExport.absoluteEntry]].
    * @returns A request builder for creating requests to retrieve one `PaymentRunExport` entity based on its keys.
    */
-  getByKey(absoluteEntry: number): GetByKeyRequestBuilder<PaymentRunExport> {
-    return new GetByKeyRequestBuilder(PaymentRunExport, { AbsoluteEntry: absoluteEntry });
+  getByKey(absoluteEntry: number): GetByKeyRequestBuilderV4<PaymentRunExport> {
+    return new GetByKeyRequestBuilderV4(PaymentRunExport, { AbsoluteEntry: absoluteEntry });
   }
 
   /**
    * Returns a request builder for querying all `PaymentRunExport` entities.
    * @returns A request builder for creating requests to retrieve all `PaymentRunExport` entities.
    */
-  getAll(): GetAllRequestBuilder<PaymentRunExport> {
-    return new GetAllRequestBuilder(PaymentRunExport);
+  getAll(): GetAllRequestBuilderV4<PaymentRunExport> {
+    return new GetAllRequestBuilderV4(PaymentRunExport);
   }
 
   /**
@@ -32,8 +32,8 @@ export class PaymentRunExportRequestBuilder extends RequestBuilder<PaymentRunExp
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `PaymentRunExport`.
    */
-  create(entity: PaymentRunExport): CreateRequestBuilder<PaymentRunExport> {
-    return new CreateRequestBuilder(PaymentRunExport, entity);
+  create(entity: PaymentRunExport): CreateRequestBuilderV4<PaymentRunExport> {
+    return new CreateRequestBuilderV4(PaymentRunExport, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class PaymentRunExportRequestBuilder extends RequestBuilder<PaymentRunExp
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `PaymentRunExport`.
    */
-  update(entity: PaymentRunExport): UpdateRequestBuilder<PaymentRunExport> {
-    return new UpdateRequestBuilder(PaymentRunExport, entity);
+  update(entity: PaymentRunExport): UpdateRequestBuilderV4<PaymentRunExport> {
+    return new UpdateRequestBuilderV4(PaymentRunExport, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class PaymentRunExportRequestBuilder extends RequestBuilder<PaymentRunExp
    * @param absoluteEntry Key property. See [[PaymentRunExport.absoluteEntry]].
    * @returns A request builder for creating requests that delete an entity of type `PaymentRunExport`.
    */
-  delete(absoluteEntry: number): DeleteRequestBuilder<PaymentRunExport>;
+  delete(absoluteEntry: number): DeleteRequestBuilderV4<PaymentRunExport>;
   /**
    * Returns a request builder for deleting an entity of type `PaymentRunExport`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `PaymentRunExport` by taking the entity as a parameter.
    */
-  delete(entity: PaymentRunExport): DeleteRequestBuilder<PaymentRunExport>;
-  delete(absoluteEntryOrEntity: any): DeleteRequestBuilder<PaymentRunExport> {
-    return new DeleteRequestBuilder(PaymentRunExport, absoluteEntryOrEntity instanceof PaymentRunExport ? absoluteEntryOrEntity : { AbsoluteEntry: absoluteEntryOrEntity! });
+  delete(entity: PaymentRunExport): DeleteRequestBuilderV4<PaymentRunExport>;
+  delete(absoluteEntryOrEntity: any): DeleteRequestBuilderV4<PaymentRunExport> {
+    return new DeleteRequestBuilderV4(PaymentRunExport, absoluteEntryOrEntity instanceof PaymentRunExport ? absoluteEntryOrEntity : { AbsoluteEntry: absoluteEntryOrEntity! });
   }
 }

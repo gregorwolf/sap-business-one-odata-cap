@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * DepositParams
@@ -37,7 +37,7 @@ export function createDepositParams(json: any): DepositParams {
  * DepositParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class DepositParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class DepositParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, DepositParams> {
   /**
    * Representation of the [[DepositParams.depositNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -53,14 +53,43 @@ export class DepositParamsField<EntityT extends Entity> extends ComplexTypeField
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   series: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('Series', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of DepositParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, DepositParams);
+  }
 }
 
 export namespace DepositParams {
+  /**
+   * Metadata information on all properties of the `DepositParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<DepositParams>[] = [{
+    originalName: 'DepositNumber',
+    name: 'depositNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AbsEntry',
+    name: 'absEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Series',
+    name: 'series',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): DepositParams {
-    return createComplexType(json, {
-      DepositNumber: (depositNumber: number) => ({ depositNumber: edmToTs(depositNumber, 'Edm.Int32') }),
-      AbsEntry: (absEntry: number) => ({ absEntry: edmToTs(absEntry, 'Edm.Int32') }),
-      Series: (series: number) => ({ series: edmToTs(series, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, DepositParams);
   }
 }

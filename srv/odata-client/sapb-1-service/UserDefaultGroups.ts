@@ -4,25 +4,22 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { UserDefaultGroupsRequestBuilder } from './UserDefaultGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoPrintReceiptEnum } from './BoPrintReceiptEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "UserDefaultGroups" of service "SAPB1".
  */
-export class UserDefaultGroups extends Entity implements UserDefaultGroupsType {
+export class UserDefaultGroups extends EntityV4 implements UserDefaultGroupsType {
   /**
    * Technical entity name for UserDefaultGroups.
    */
   static _entityName = 'UserDefaultGroups';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for UserDefaultGroups.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -58,6 +55,16 @@ export class UserDefaultGroups extends Entity implements UserDefaultGroupsType {
    * @nullable
    */
   checkingAcct?: string;
+  /**
+   * Print Receipt.
+   * @nullable
+   */
+  printReceipt?: BoPrintReceiptEnum;
+  /**
+   * Print Invoiceand Paymentin S.
+   * @nullable
+   */
+  printInvoiceandPaymentinS?: BoYesNoEnum;
   /**
    * Windows Color.
    * @nullable
@@ -139,10 +146,25 @@ export class UserDefaultGroups extends Entity implements UserDefaultGroupsType {
    */
   userSignature?: number;
   /**
+   * Use Tax.
+   * @nullable
+   */
+  useTax?: BoYesNoEnum;
+  /**
+   * Use Warehouse Addressin Apd.
+   * @nullable
+   */
+  useWarehouseAddressinApd?: BoYesNoEnum;
+  /**
    * Bplid.
    * @nullable
    */
   bplid?: number;
+  /**
+   * Asset In Doc.
+   * @nullable
+   */
+  assetInDoc?: BoYesNoEnum;
   /**
    * One-to-one navigation property to the [[Warehouses]] entity.
    */
@@ -173,11 +195,11 @@ export class UserDefaultGroups extends Entity implements UserDefaultGroupsType {
   businessPlace!: BusinessPlaces;
 
   /**
-   * Returns an entity builder to construct instances `UserDefaultGroups`.
+   * Returns an entity builder to construct instances of `UserDefaultGroups`.
    * @returns A builder that constructs instances of entity type `UserDefaultGroups`.
    */
-  static builder(): EntityBuilderType<UserDefaultGroups, UserDefaultGroupsTypeForceMandatory> {
-    return Entity.entityBuilder(UserDefaultGroups);
+  static builder(): EntityBuilderType<UserDefaultGroups, UserDefaultGroupsType> {
+    return EntityV4.entityBuilder(UserDefaultGroups);
   }
 
   /**
@@ -193,8 +215,8 @@ export class UserDefaultGroups extends Entity implements UserDefaultGroupsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `UserDefaultGroups`.
    */
-  static customField(fieldName: string): CustomField<UserDefaultGroups> {
-    return Entity.customFieldSelector(fieldName, UserDefaultGroups);
+  static customField(fieldName: string): CustomFieldV4<UserDefaultGroups> {
+    return EntityV4.customFieldSelector(fieldName, UserDefaultGroups);
   }
 
   /**
@@ -215,64 +237,35 @@ import { Users, UsersType } from './Users';
 import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 
 export interface UserDefaultGroupsType {
-  code?: string;
-  name?: string;
-  warehouse?: string;
-  salesEmployee?: number;
-  bPforInvoicePayment?: string;
-  cashAccount?: string;
-  checkingAcct?: string;
-  windowsColor?: number;
-  address?: string;
-  country?: string;
-  printingHeader?: string;
-  phoneNumber1?: string;
-  phoneNumber2?: string;
-  faxNumber?: string;
-  eMail?: string;
-  addressinForeignLanguage?: string;
-  printingHeaderInForeignLangu?: string;
-  phoneNumber1ForeignLang?: string;
-  phoneNumber2ForeignLang?: string;
-  faxNumberForeignLang?: string;
-  defaultTaxCode?: string;
-  additionalIdNumber?: string;
-  userSignature?: number;
-  bplid?: number;
-  warehouse2: WarehousesType;
-  salesPerson: SalesPersonsType;
-  businessPartner: BusinessPartnersType;
-  country2: CountriesType;
-  salesTaxCode: SalesTaxCodesType;
-  user: UsersType;
-  businessPlace: BusinessPlacesType;
-}
-
-export interface UserDefaultGroupsTypeForceMandatory {
-  code: string;
-  name: string;
-  warehouse: string;
-  salesEmployee: number;
-  bPforInvoicePayment: string;
-  cashAccount: string;
-  checkingAcct: string;
-  windowsColor: number;
-  address: string;
-  country: string;
-  printingHeader: string;
-  phoneNumber1: string;
-  phoneNumber2: string;
-  faxNumber: string;
-  eMail: string;
-  addressinForeignLanguage: string;
-  printingHeaderInForeignLangu: string;
-  phoneNumber1ForeignLang: string;
-  phoneNumber2ForeignLang: string;
-  faxNumberForeignLang: string;
-  defaultTaxCode: string;
-  additionalIdNumber: string;
-  userSignature: number;
-  bplid: number;
+  code?: string | null;
+  name?: string | null;
+  warehouse?: string | null;
+  salesEmployee?: number | null;
+  bPforInvoicePayment?: string | null;
+  cashAccount?: string | null;
+  checkingAcct?: string | null;
+  printReceipt?: BoPrintReceiptEnum | null;
+  printInvoiceandPaymentinS?: BoYesNoEnum | null;
+  windowsColor?: number | null;
+  address?: string | null;
+  country?: string | null;
+  printingHeader?: string | null;
+  phoneNumber1?: string | null;
+  phoneNumber2?: string | null;
+  faxNumber?: string | null;
+  eMail?: string | null;
+  addressinForeignLanguage?: string | null;
+  printingHeaderInForeignLangu?: string | null;
+  phoneNumber1ForeignLang?: string | null;
+  phoneNumber2ForeignLang?: string | null;
+  faxNumberForeignLang?: string | null;
+  defaultTaxCode?: string | null;
+  additionalIdNumber?: string | null;
+  userSignature?: number | null;
+  useTax?: BoYesNoEnum | null;
+  useWarehouseAddressinApd?: BoYesNoEnum | null;
+  bplid?: number | null;
+  assetInDoc?: BoYesNoEnum | null;
   warehouse2: WarehousesType;
   salesPerson: SalesPersonsType;
   businessPartner: BusinessPartnersType;
@@ -318,6 +311,16 @@ export namespace UserDefaultGroups {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CHECKING_ACCT: StringField<UserDefaultGroups> = new StringField('CheckingAcct', UserDefaultGroups, 'Edm.String');
+  /**
+   * Static representation of the [[printReceipt]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRINT_RECEIPT: EnumField<UserDefaultGroups> = new EnumField('PrintReceipt', UserDefaultGroups);
+  /**
+   * Static representation of the [[printInvoiceandPaymentinS]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRINT_INVOICEAND_PAYMENTIN_S: EnumField<UserDefaultGroups> = new EnumField('PrintInvoiceandPaymentinS', UserDefaultGroups);
   /**
    * Static representation of the [[windowsColor]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -399,10 +402,25 @@ export namespace UserDefaultGroups {
    */
   export const USER_SIGNATURE: NumberField<UserDefaultGroups> = new NumberField('UserSignature', UserDefaultGroups, 'Edm.Int32');
   /**
+   * Static representation of the [[useTax]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const USE_TAX: EnumField<UserDefaultGroups> = new EnumField('UseTax', UserDefaultGroups);
+  /**
+   * Static representation of the [[useWarehouseAddressinApd]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const USE_WAREHOUSE_ADDRESSIN_APD: EnumField<UserDefaultGroups> = new EnumField('UseWarehouseAddressinAPD', UserDefaultGroups);
+  /**
    * Static representation of the [[bplid]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const BPLID: NumberField<UserDefaultGroups> = new NumberField('BPLID', UserDefaultGroups, 'Edm.Int32');
+  /**
+   * Static representation of the [[assetInDoc]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ASSET_IN_DOC: EnumField<UserDefaultGroups> = new EnumField('AssetInDoc', UserDefaultGroups);
   /**
    * Static representation of the one-to-one navigation property [[warehouse2]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -441,7 +459,7 @@ export namespace UserDefaultGroups {
   /**
    * All fields of the UserDefaultGroups entity.
    */
-  export const _allFields: Array<StringField<UserDefaultGroups> | NumberField<UserDefaultGroups> | OneToOneLink<UserDefaultGroups, Warehouses> | OneToOneLink<UserDefaultGroups, SalesPersons> | OneToOneLink<UserDefaultGroups, BusinessPartners> | OneToOneLink<UserDefaultGroups, Countries> | OneToOneLink<UserDefaultGroups, SalesTaxCodes> | OneToOneLink<UserDefaultGroups, Users> | OneToOneLink<UserDefaultGroups, BusinessPlaces>> = [
+  export const _allFields: Array<StringField<UserDefaultGroups> | NumberField<UserDefaultGroups> | EnumField<UserDefaultGroups> | OneToOneLink<UserDefaultGroups, Warehouses> | OneToOneLink<UserDefaultGroups, SalesPersons> | OneToOneLink<UserDefaultGroups, BusinessPartners> | OneToOneLink<UserDefaultGroups, Countries> | OneToOneLink<UserDefaultGroups, SalesTaxCodes> | OneToOneLink<UserDefaultGroups, Users> | OneToOneLink<UserDefaultGroups, BusinessPlaces>> = [
     UserDefaultGroups.CODE,
     UserDefaultGroups.NAME,
     UserDefaultGroups.WAREHOUSE,
@@ -449,6 +467,8 @@ export namespace UserDefaultGroups {
     UserDefaultGroups.B_PFOR_INVOICE_PAYMENT,
     UserDefaultGroups.CASH_ACCOUNT,
     UserDefaultGroups.CHECKING_ACCT,
+    UserDefaultGroups.PRINT_RECEIPT,
+    UserDefaultGroups.PRINT_INVOICEAND_PAYMENTIN_S,
     UserDefaultGroups.WINDOWS_COLOR,
     UserDefaultGroups.ADDRESS,
     UserDefaultGroups.COUNTRY,
@@ -465,7 +485,10 @@ export namespace UserDefaultGroups {
     UserDefaultGroups.DEFAULT_TAX_CODE,
     UserDefaultGroups.ADDITIONAL_ID_NUMBER,
     UserDefaultGroups.USER_SIGNATURE,
+    UserDefaultGroups.USE_TAX,
+    UserDefaultGroups.USE_WAREHOUSE_ADDRESSIN_APD,
     UserDefaultGroups.BPLID,
+    UserDefaultGroups.ASSET_IN_DOC,
     UserDefaultGroups.WAREHOUSE_2,
     UserDefaultGroups.SALES_PERSON,
     UserDefaultGroups.BUSINESS_PARTNER,

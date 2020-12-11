@@ -1,18 +1,13 @@
 import { NcmCodesSetupRequestBuilder } from './NcmCodesSetupRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "NCMCodesSetup" of service "SAPB1".
  */
-export declare class NcmCodesSetup extends Entity implements NcmCodesSetupType {
+export declare class NcmCodesSetup extends EntityV4 implements NcmCodesSetupType {
     /**
      * Technical entity name for NcmCodesSetup.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for NcmCodesSetup.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -41,10 +36,10 @@ export declare class NcmCodesSetup extends Entity implements NcmCodesSetupType {
      */
     dnfCodeSetup: DnfCodeSetup[];
     /**
-     * Returns an entity builder to construct instances `NcmCodesSetup`.
+     * Returns an entity builder to construct instances of `NcmCodesSetup`.
      * @returns A builder that constructs instances of entity type `NcmCodesSetup`.
      */
-    static builder(): EntityBuilderType<NcmCodesSetup, NcmCodesSetupTypeForceMandatory>;
+    static builder(): EntityBuilderType<NcmCodesSetup, NcmCodesSetupType>;
     /**
      * Returns a request builder to construct requests for operations on the `NcmCodesSetup` entity type.
      * @returns A `NcmCodesSetup` request builder.
@@ -55,7 +50,7 @@ export declare class NcmCodesSetup extends Entity implements NcmCodesSetupType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `NcmCodesSetup`.
      */
-    static customField(fieldName: string): CustomField<NcmCodesSetup>;
+    static customField(fieldName: string): CustomFieldV4<NcmCodesSetup>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -67,16 +62,9 @@ export declare class NcmCodesSetup extends Entity implements NcmCodesSetupType {
 import { Items, ItemsType } from './Items';
 import { DnfCodeSetup, DnfCodeSetupType } from './DnfCodeSetup';
 export interface NcmCodesSetupType {
-    absEntry?: number;
-    ncmCode?: string;
-    description?: string;
-    items: ItemsType[];
-    dnfCodeSetup: DnfCodeSetupType[];
-}
-export interface NcmCodesSetupTypeForceMandatory {
-    absEntry: number;
-    ncmCode: string;
-    description: string;
+    absEntry?: number | null;
+    ncmCode?: string | null;
+    description?: string | null;
     items: ItemsType[];
     dnfCodeSetup: DnfCodeSetupType[];
 }

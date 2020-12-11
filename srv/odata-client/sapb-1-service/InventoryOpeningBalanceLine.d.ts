@@ -1,6 +1,7 @@
-import { InventoryOpeningBalanceSerialNumber, InventoryOpeningBalanceSerialNumberField } from './InventoryOpeningBalanceSerialNumber';
-import { InventoryOpeningBalanceBatchNumber, InventoryOpeningBalanceBatchNumberField } from './InventoryOpeningBalanceBatchNumber';
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { InventoryOpeningBalanceSerialNumber } from './InventoryOpeningBalanceSerialNumber';
+import { InventoryOpeningBalanceBatchNumber } from './InventoryOpeningBalanceBatchNumber';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { CollectionField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * InventoryOpeningBalanceLine
  */
@@ -126,6 +127,11 @@ export interface InventoryOpeningBalanceLine {
      */
     currency?: string;
     /**
+     * Allow Bin Negative Quantity.
+     * @nullable
+     */
+    allowBinNegativeQuantity?: BoYesNoEnum;
+    /**
      * Actual Price.
      * @nullable
      */
@@ -144,12 +150,12 @@ export interface InventoryOpeningBalanceLine {
      * Inventory Opening Balance Serial Numbers.
      * @nullable
      */
-    inventoryOpeningBalanceSerialNumbers?: InventoryOpeningBalanceSerialNumber;
+    inventoryOpeningBalanceSerialNumbers?: InventoryOpeningBalanceSerialNumber[];
     /**
      * Inventory Opening Balance Batch Numbers.
      * @nullable
      */
-    inventoryOpeningBalanceBatchNumbers?: InventoryOpeningBalanceBatchNumber;
+    inventoryOpeningBalanceBatchNumbers?: InventoryOpeningBalanceBatchNumber[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[InventoryOpeningBalanceLine.build]] instead.
@@ -159,7 +165,7 @@ export declare function createInventoryOpeningBalanceLine(json: any): InventoryO
  * InventoryOpeningBalanceLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class InventoryOpeningBalanceLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class InventoryOpeningBalanceLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, InventoryOpeningBalanceLine> {
     /**
      * Representation of the [[InventoryOpeningBalanceLine.documentEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -281,6 +287,11 @@ export declare class InventoryOpeningBalanceLineField<EntityT extends Entity> ex
      */
     currency: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[InventoryOpeningBalanceLine.allowBinNegativeQuantity]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    allowBinNegativeQuantity: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[InventoryOpeningBalanceLine.actualPrice]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -299,14 +310,28 @@ export declare class InventoryOpeningBalanceLineField<EntityT extends Entity> ex
      * Representation of the [[InventoryOpeningBalanceLine.inventoryOpeningBalanceSerialNumbers]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    inventoryOpeningBalanceSerialNumbers: InventoryOpeningBalanceSerialNumberField<EntityT>;
+    inventoryOpeningBalanceSerialNumbers: CollectionField<EntityT, InventoryOpeningBalanceSerialNumber>;
     /**
      * Representation of the [[InventoryOpeningBalanceLine.inventoryOpeningBalanceBatchNumbers]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    inventoryOpeningBalanceBatchNumbers: InventoryOpeningBalanceBatchNumberField<EntityT>;
+    inventoryOpeningBalanceBatchNumbers: CollectionField<EntityT, InventoryOpeningBalanceBatchNumber>;
+    /**
+     * Creates an instance of InventoryOpeningBalanceLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace InventoryOpeningBalanceLine {
+    /**
+     * Metadata information on all properties of the `InventoryOpeningBalanceLine` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<InventoryOpeningBalanceLine>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | InventoryOpeningBalanceBatchNumber | InventoryOpeningBalanceSerialNumber;
     }): InventoryOpeningBalanceLine;

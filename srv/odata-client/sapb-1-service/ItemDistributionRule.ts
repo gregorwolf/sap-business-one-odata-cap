@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ItemDistributionRule
@@ -63,7 +63,7 @@ export function createItemDistributionRule(json: any): ItemDistributionRule {
  * ItemDistributionRuleField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ItemDistributionRuleField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ItemDistributionRuleField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ItemDistributionRule> {
   /**
    * Representation of the [[ItemDistributionRule.lineNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -104,19 +104,68 @@ export class ItemDistributionRuleField<EntityT extends Entity> extends ComplexTy
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   distributionRule5: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('DistributionRule5', this, 'Edm.String');
+
+  /**
+   * Creates an instance of ItemDistributionRuleField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ItemDistributionRule);
+  }
 }
 
 export namespace ItemDistributionRule {
+  /**
+   * Metadata information on all properties of the `ItemDistributionRule` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ItemDistributionRule>[] = [{
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ValidFrom',
+    name: 'validFrom',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ValidTo',
+    name: 'validTo',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule',
+    name: 'distributionRule',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule2',
+    name: 'distributionRule2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule3',
+    name: 'distributionRule3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule4',
+    name: 'distributionRule4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule5',
+    name: 'distributionRule5',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ItemDistributionRule {
-    return createComplexType(json, {
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      ValidFrom: (validFrom: Moment) => ({ validFrom: edmToTs(validFrom, 'Edm.DateTimeOffset') }),
-      ValidTo: (validTo: Moment) => ({ validTo: edmToTs(validTo, 'Edm.DateTimeOffset') }),
-      DistributionRule: (distributionRule: string) => ({ distributionRule: edmToTs(distributionRule, 'Edm.String') }),
-      DistributionRule2: (distributionRule2: string) => ({ distributionRule2: edmToTs(distributionRule2, 'Edm.String') }),
-      DistributionRule3: (distributionRule3: string) => ({ distributionRule3: edmToTs(distributionRule3, 'Edm.String') }),
-      DistributionRule4: (distributionRule4: string) => ({ distributionRule4: edmToTs(distributionRule4, 'Edm.String') }),
-      DistributionRule5: (distributionRule5: string) => ({ distributionRule5: edmToTs(distributionRule5, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, ItemDistributionRule);
   }
 }

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { Branches } from './Branches';
 
 /**
@@ -15,16 +15,16 @@ export class BranchesRequestBuilder extends RequestBuilder<Branches> {
    * @param code Key property. See [[Branches.code]].
    * @returns A request builder for creating requests to retrieve one `Branches` entity based on its keys.
    */
-  getByKey(code: number): GetByKeyRequestBuilder<Branches> {
-    return new GetByKeyRequestBuilder(Branches, { Code: code });
+  getByKey(code: number): GetByKeyRequestBuilderV4<Branches> {
+    return new GetByKeyRequestBuilderV4(Branches, { Code: code });
   }
 
   /**
    * Returns a request builder for querying all `Branches` entities.
    * @returns A request builder for creating requests to retrieve all `Branches` entities.
    */
-  getAll(): GetAllRequestBuilder<Branches> {
-    return new GetAllRequestBuilder(Branches);
+  getAll(): GetAllRequestBuilderV4<Branches> {
+    return new GetAllRequestBuilderV4(Branches);
   }
 
   /**
@@ -32,8 +32,8 @@ export class BranchesRequestBuilder extends RequestBuilder<Branches> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `Branches`.
    */
-  create(entity: Branches): CreateRequestBuilder<Branches> {
-    return new CreateRequestBuilder(Branches, entity);
+  create(entity: Branches): CreateRequestBuilderV4<Branches> {
+    return new CreateRequestBuilderV4(Branches, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class BranchesRequestBuilder extends RequestBuilder<Branches> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `Branches`.
    */
-  update(entity: Branches): UpdateRequestBuilder<Branches> {
-    return new UpdateRequestBuilder(Branches, entity);
+  update(entity: Branches): UpdateRequestBuilderV4<Branches> {
+    return new UpdateRequestBuilderV4(Branches, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class BranchesRequestBuilder extends RequestBuilder<Branches> {
    * @param code Key property. See [[Branches.code]].
    * @returns A request builder for creating requests that delete an entity of type `Branches`.
    */
-  delete(code: number): DeleteRequestBuilder<Branches>;
+  delete(code: number): DeleteRequestBuilderV4<Branches>;
   /**
    * Returns a request builder for deleting an entity of type `Branches`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `Branches` by taking the entity as a parameter.
    */
-  delete(entity: Branches): DeleteRequestBuilder<Branches>;
-  delete(codeOrEntity: any): DeleteRequestBuilder<Branches> {
-    return new DeleteRequestBuilder(Branches, codeOrEntity instanceof Branches ? codeOrEntity : { Code: codeOrEntity! });
+  delete(entity: Branches): DeleteRequestBuilderV4<Branches>;
+  delete(codeOrEntity: any): DeleteRequestBuilderV4<Branches> {
+    return new DeleteRequestBuilderV4(Branches, codeOrEntity instanceof Branches ? codeOrEntity : { Code: codeOrEntity! });
   }
 }

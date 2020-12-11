@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { AssetDepreciationGroupsRequestBuilder } from './AssetDepreciationGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "AssetDepreciationGroups" of service "SAPB1".
  */
-export class AssetDepreciationGroups extends Entity implements AssetDepreciationGroupsType {
+export class AssetDepreciationGroups extends EntityV4 implements AssetDepreciationGroupsType {
   /**
    * Technical entity name for AssetDepreciationGroups.
    */
   static _entityName = 'AssetDepreciationGroups';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for AssetDepreciationGroups.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -44,11 +39,11 @@ export class AssetDepreciationGroups extends Entity implements AssetDepreciation
   items!: Items[];
 
   /**
-   * Returns an entity builder to construct instances `AssetDepreciationGroups`.
+   * Returns an entity builder to construct instances of `AssetDepreciationGroups`.
    * @returns A builder that constructs instances of entity type `AssetDepreciationGroups`.
    */
-  static builder(): EntityBuilderType<AssetDepreciationGroups, AssetDepreciationGroupsTypeForceMandatory> {
-    return Entity.entityBuilder(AssetDepreciationGroups);
+  static builder(): EntityBuilderType<AssetDepreciationGroups, AssetDepreciationGroupsType> {
+    return EntityV4.entityBuilder(AssetDepreciationGroups);
   }
 
   /**
@@ -64,8 +59,8 @@ export class AssetDepreciationGroups extends Entity implements AssetDepreciation
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `AssetDepreciationGroups`.
    */
-  static customField(fieldName: string): CustomField<AssetDepreciationGroups> {
-    return Entity.customFieldSelector(fieldName, AssetDepreciationGroups);
+  static customField(fieldName: string): CustomFieldV4<AssetDepreciationGroups> {
+    return EntityV4.customFieldSelector(fieldName, AssetDepreciationGroups);
   }
 
   /**
@@ -80,16 +75,9 @@ export class AssetDepreciationGroups extends Entity implements AssetDepreciation
 import { Items, ItemsType } from './Items';
 
 export interface AssetDepreciationGroupsType {
-  code?: string;
-  description?: string;
-  group?: string;
-  items: ItemsType[];
-}
-
-export interface AssetDepreciationGroupsTypeForceMandatory {
-  code: string;
-  description: string;
-  group: string;
+  code?: string | null;
+  description?: string | null;
+  group?: string | null;
   items: ItemsType[];
 }
 

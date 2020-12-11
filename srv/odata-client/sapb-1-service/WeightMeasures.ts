@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { WeightMeasuresRequestBuilder } from './WeightMeasuresRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "WeightMeasures" of service "SAPB1".
  */
-export class WeightMeasures extends Entity implements WeightMeasuresType {
+export class WeightMeasures extends EntityV4 implements WeightMeasuresType {
   /**
    * Technical entity name for WeightMeasures.
    */
   static _entityName = 'WeightMeasures';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for WeightMeasures.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Unit Code.
    * @nullable
@@ -49,11 +44,11 @@ export class WeightMeasures extends Entity implements WeightMeasuresType {
   binLocations!: BinLocations[];
 
   /**
-   * Returns an entity builder to construct instances `WeightMeasures`.
+   * Returns an entity builder to construct instances of `WeightMeasures`.
    * @returns A builder that constructs instances of entity type `WeightMeasures`.
    */
-  static builder(): EntityBuilderType<WeightMeasures, WeightMeasuresTypeForceMandatory> {
-    return Entity.entityBuilder(WeightMeasures);
+  static builder(): EntityBuilderType<WeightMeasures, WeightMeasuresType> {
+    return EntityV4.entityBuilder(WeightMeasures);
   }
 
   /**
@@ -69,8 +64,8 @@ export class WeightMeasures extends Entity implements WeightMeasuresType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `WeightMeasures`.
    */
-  static customField(fieldName: string): CustomField<WeightMeasures> {
-    return Entity.customFieldSelector(fieldName, WeightMeasures);
+  static customField(fieldName: string): CustomFieldV4<WeightMeasures> {
+    return EntityV4.customFieldSelector(fieldName, WeightMeasures);
   }
 
   /**
@@ -85,18 +80,10 @@ export class WeightMeasures extends Entity implements WeightMeasuresType {
 import { BinLocations, BinLocationsType } from './BinLocations';
 
 export interface WeightMeasuresType {
-  unitCode?: number;
-  unitDisplay?: string;
-  unitName?: string;
-  unitWeightinmg?: number;
-  binLocations: BinLocationsType[];
-}
-
-export interface WeightMeasuresTypeForceMandatory {
-  unitCode: number;
-  unitDisplay: string;
-  unitName: string;
-  unitWeightinmg: number;
+  unitCode?: number | null;
+  unitDisplay?: string | null;
+  unitName?: string | null;
+  unitWeightinmg?: number | null;
   binLocations: BinLocationsType[];
 }
 

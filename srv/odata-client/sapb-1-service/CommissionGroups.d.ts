@@ -1,18 +1,13 @@
 import { CommissionGroupsRequestBuilder } from './CommissionGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "CommissionGroups" of service "SAPB1".
  */
-export declare class CommissionGroups extends Entity implements CommissionGroupsType {
+export declare class CommissionGroups extends EntityV4 implements CommissionGroupsType {
     /**
      * Technical entity name for CommissionGroups.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for CommissionGroups.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -45,10 +40,10 @@ export declare class CommissionGroups extends Entity implements CommissionGroups
      */
     businessPartners: BusinessPartners[];
     /**
-     * Returns an entity builder to construct instances `CommissionGroups`.
+     * Returns an entity builder to construct instances of `CommissionGroups`.
      * @returns A builder that constructs instances of entity type `CommissionGroups`.
      */
-    static builder(): EntityBuilderType<CommissionGroups, CommissionGroupsTypeForceMandatory>;
+    static builder(): EntityBuilderType<CommissionGroups, CommissionGroupsType>;
     /**
      * Returns a request builder to construct requests for operations on the `CommissionGroups` entity type.
      * @returns A `CommissionGroups` request builder.
@@ -59,7 +54,7 @@ export declare class CommissionGroups extends Entity implements CommissionGroups
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `CommissionGroups`.
      */
-    static customField(fieldName: string): CustomField<CommissionGroups>;
+    static customField(fieldName: string): CustomFieldV4<CommissionGroups>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -72,17 +67,9 @@ import { SalesPersons, SalesPersonsType } from './SalesPersons';
 import { Items, ItemsType } from './Items';
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 export interface CommissionGroupsType {
-    commissionGroupCode?: number;
-    commissionGroupName?: string;
-    commissionPercentage?: number;
-    salesPersons: SalesPersonsType[];
-    items: ItemsType[];
-    businessPartners: BusinessPartnersType[];
-}
-export interface CommissionGroupsTypeForceMandatory {
-    commissionGroupCode: number;
-    commissionGroupName: string;
-    commissionPercentage: number;
+    commissionGroupCode?: number | null;
+    commissionGroupName?: string | null;
+    commissionPercentage?: number | null;
     salesPersons: SalesPersonsType[];
     items: ItemsType[];
     businessPartners: BusinessPartnersType[];

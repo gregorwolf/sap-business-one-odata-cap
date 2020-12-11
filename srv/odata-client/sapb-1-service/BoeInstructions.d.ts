@@ -1,18 +1,14 @@
 import { BoeInstructionsRequestBuilder } from './BoeInstructionsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "BOEInstructions" of service "SAPB1".
  */
-export declare class BoeInstructions extends Entity implements BoeInstructionsType {
+export declare class BoeInstructions extends EntityV4 implements BoeInstructionsType {
     /**
      * Technical entity name for BoeInstructions.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BoeInstructions.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -33,10 +29,15 @@ export declare class BoeInstructions extends Entity implements BoeInstructionsTy
      */
     instructionDesc?: string;
     /**
-     * Returns an entity builder to construct instances `BoeInstructions`.
+     * Is Cancel Instruction.
+     * @nullable
+     */
+    isCancelInstruction?: BoYesNoEnum;
+    /**
+     * Returns an entity builder to construct instances of `BoeInstructions`.
      * @returns A builder that constructs instances of entity type `BoeInstructions`.
      */
-    static builder(): EntityBuilderType<BoeInstructions, BoeInstructionsTypeForceMandatory>;
+    static builder(): EntityBuilderType<BoeInstructions, BoeInstructionsType>;
     /**
      * Returns a request builder to construct requests for operations on the `BoeInstructions` entity type.
      * @returns A `BoeInstructions` request builder.
@@ -47,7 +48,7 @@ export declare class BoeInstructions extends Entity implements BoeInstructionsTy
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `BoeInstructions`.
      */
-    static customField(fieldName: string): CustomField<BoeInstructions>;
+    static customField(fieldName: string): CustomFieldV4<BoeInstructions>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -57,14 +58,10 @@ export declare class BoeInstructions extends Entity implements BoeInstructionsTy
     };
 }
 export interface BoeInstructionsType {
-    instructionEntry?: number;
-    instructionCode?: string;
-    instructionDesc?: string;
-}
-export interface BoeInstructionsTypeForceMandatory {
-    instructionEntry: number;
-    instructionCode: string;
-    instructionDesc: string;
+    instructionEntry?: number | null;
+    instructionCode?: string | null;
+    instructionDesc?: string | null;
+    isCancelInstruction?: BoYesNoEnum | null;
 }
 export declare namespace BoeInstructions {
     /**
@@ -83,9 +80,14 @@ export declare namespace BoeInstructions {
      */
     const INSTRUCTION_DESC: StringField<BoeInstructions>;
     /**
+     * Static representation of the [[isCancelInstruction]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IS_CANCEL_INSTRUCTION: EnumField<BoeInstructions>;
+    /**
      * All fields of the BoeInstructions entity.
      */
-    const _allFields: Array<NumberField<BoeInstructions> | StringField<BoeInstructions>>;
+    const _allFields: Array<NumberField<BoeInstructions> | StringField<BoeInstructions> | EnumField<BoeInstructions>>;
     /**
      * All fields selector.
      */

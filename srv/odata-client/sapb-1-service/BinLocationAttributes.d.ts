@@ -1,18 +1,13 @@
 import { BinLocationAttributesRequestBuilder } from './BinLocationAttributesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "BinLocationAttributes" of service "SAPB1".
  */
-export declare class BinLocationAttributes extends Entity implements BinLocationAttributesType {
+export declare class BinLocationAttributes extends EntityV4 implements BinLocationAttributesType {
     /**
      * Technical entity name for BinLocationAttributes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BinLocationAttributes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -37,10 +32,10 @@ export declare class BinLocationAttributes extends Entity implements BinLocation
      */
     binLocationField: BinLocationFields;
     /**
-     * Returns an entity builder to construct instances `BinLocationAttributes`.
+     * Returns an entity builder to construct instances of `BinLocationAttributes`.
      * @returns A builder that constructs instances of entity type `BinLocationAttributes`.
      */
-    static builder(): EntityBuilderType<BinLocationAttributes, BinLocationAttributesTypeForceMandatory>;
+    static builder(): EntityBuilderType<BinLocationAttributes, BinLocationAttributesType>;
     /**
      * Returns a request builder to construct requests for operations on the `BinLocationAttributes` entity type.
      * @returns A `BinLocationAttributes` request builder.
@@ -51,7 +46,7 @@ export declare class BinLocationAttributes extends Entity implements BinLocation
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `BinLocationAttributes`.
      */
-    static customField(fieldName: string): CustomField<BinLocationAttributes>;
+    static customField(fieldName: string): CustomFieldV4<BinLocationAttributes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -62,15 +57,9 @@ export declare class BinLocationAttributes extends Entity implements BinLocation
 }
 import { BinLocationFields, BinLocationFieldsType } from './BinLocationFields';
 export interface BinLocationAttributesType {
-    attribute?: number;
-    code?: string;
-    absEntry?: number;
-    binLocationField: BinLocationFieldsType;
-}
-export interface BinLocationAttributesTypeForceMandatory {
-    attribute: number;
-    code: string;
-    absEntry: number;
+    attribute?: number | null;
+    code?: string | null;
+    absEntry?: number | null;
     binLocationField: BinLocationFieldsType;
 }
 export declare namespace BinLocationAttributes {

@@ -4,7 +4,9 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoRcptCredTypes } from './BoRcptCredTypes';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * PaymentCreditCard
@@ -100,6 +102,16 @@ export interface PaymentCreditCard {
    * @nullable
    */
   numOfCreditPayments?: number;
+  /**
+   * Credit Type.
+   * @nullable
+   */
+  creditType?: BoRcptCredTypes;
+  /**
+   * Split Payments.
+   * @nullable
+   */
+  splitPayments?: BoYesNoEnum;
 }
 
 /**
@@ -113,7 +125,7 @@ export function createPaymentCreditCard(json: any): PaymentCreditCard {
  * PaymentCreditCardField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class PaymentCreditCardField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class PaymentCreditCardField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PaymentCreditCard> {
   /**
    * Representation of the [[PaymentCreditCard.lineNum]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -204,29 +216,138 @@ export class PaymentCreditCardField<EntityT extends Entity> extends ComplexTypeF
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   numOfCreditPayments: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('NumOfCreditPayments', this, 'Edm.Int32');
+  /**
+   * Representation of the [[PaymentCreditCard.creditType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  creditType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CreditType', this);
+  /**
+   * Representation of the [[PaymentCreditCard.splitPayments]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  splitPayments: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SplitPayments', this);
+
+  /**
+   * Creates an instance of PaymentCreditCardField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, PaymentCreditCard);
+  }
 }
 
 export namespace PaymentCreditCard {
+  /**
+   * Metadata information on all properties of the `PaymentCreditCard` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<PaymentCreditCard>[] = [{
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CreditCard',
+    name: 'creditCard',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CreditAcct',
+    name: 'creditAcct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CreditCardNumber',
+    name: 'creditCardNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CardValidUntil',
+    name: 'cardValidUntil',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'VoucherNum',
+    name: 'voucherNum',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'OwnerIdNum',
+    name: 'ownerIdNum',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'OwnerPhone',
+    name: 'ownerPhone',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PaymentMethodCode',
+    name: 'paymentMethodCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'NumOfPayments',
+    name: 'numOfPayments',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'FirstPaymentDue',
+    name: 'firstPaymentDue',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'FirstPaymentSum',
+    name: 'firstPaymentSum',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalPaymentSum',
+    name: 'additionalPaymentSum',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CreditSum',
+    name: 'creditSum',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CreditCur',
+    name: 'creditCur',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CreditRate',
+    name: 'creditRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ConfirmationNum',
+    name: 'confirmationNum',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'NumOfCreditPayments',
+    name: 'numOfCreditPayments',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CreditType',
+    name: 'creditType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SplitPayments',
+    name: 'splitPayments',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): PaymentCreditCard {
-    return createComplexType(json, {
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      CreditCard: (creditCard: number) => ({ creditCard: edmToTs(creditCard, 'Edm.Int32') }),
-      CreditAcct: (creditAcct: string) => ({ creditAcct: edmToTs(creditAcct, 'Edm.String') }),
-      CreditCardNumber: (creditCardNumber: string) => ({ creditCardNumber: edmToTs(creditCardNumber, 'Edm.String') }),
-      CardValidUntil: (cardValidUntil: Moment) => ({ cardValidUntil: edmToTs(cardValidUntil, 'Edm.DateTimeOffset') }),
-      VoucherNum: (voucherNum: string) => ({ voucherNum: edmToTs(voucherNum, 'Edm.String') }),
-      OwnerIdNum: (ownerIdNum: string) => ({ ownerIdNum: edmToTs(ownerIdNum, 'Edm.String') }),
-      OwnerPhone: (ownerPhone: string) => ({ ownerPhone: edmToTs(ownerPhone, 'Edm.String') }),
-      PaymentMethodCode: (paymentMethodCode: number) => ({ paymentMethodCode: edmToTs(paymentMethodCode, 'Edm.Int32') }),
-      NumOfPayments: (numOfPayments: number) => ({ numOfPayments: edmToTs(numOfPayments, 'Edm.Int32') }),
-      FirstPaymentDue: (firstPaymentDue: Moment) => ({ firstPaymentDue: edmToTs(firstPaymentDue, 'Edm.DateTimeOffset') }),
-      FirstPaymentSum: (firstPaymentSum: number) => ({ firstPaymentSum: edmToTs(firstPaymentSum, 'Edm.Double') }),
-      AdditionalPaymentSum: (additionalPaymentSum: number) => ({ additionalPaymentSum: edmToTs(additionalPaymentSum, 'Edm.Double') }),
-      CreditSum: (creditSum: number) => ({ creditSum: edmToTs(creditSum, 'Edm.Double') }),
-      CreditCur: (creditCur: string) => ({ creditCur: edmToTs(creditCur, 'Edm.String') }),
-      CreditRate: (creditRate: number) => ({ creditRate: edmToTs(creditRate, 'Edm.Double') }),
-      ConfirmationNum: (confirmationNum: string) => ({ confirmationNum: edmToTs(confirmationNum, 'Edm.String') }),
-      NumOfCreditPayments: (numOfCreditPayments: number) => ({ numOfCreditPayments: edmToTs(numOfCreditPayments, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, PaymentCreditCard);
   }
 }

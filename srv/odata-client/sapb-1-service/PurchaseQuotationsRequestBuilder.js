@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.PurchaseQuotationsRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var PurchaseQuotations_1 = require("./PurchaseQuotations");
 /**
  * Request builder class for operations supported on the [[PurchaseQuotations]] entity.
@@ -35,14 +35,14 @@ var PurchaseQuotationsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `PurchaseQuotations` entity based on its keys.
      */
     PurchaseQuotationsRequestBuilder.prototype.getByKey = function (docEntry) {
-        return new v4_1.GetByKeyRequestBuilder(PurchaseQuotations_1.PurchaseQuotations, { DocEntry: docEntry });
+        return new core_1.GetByKeyRequestBuilderV4(PurchaseQuotations_1.PurchaseQuotations, { DocEntry: docEntry });
     };
     /**
      * Returns a request builder for querying all `PurchaseQuotations` entities.
      * @returns A request builder for creating requests to retrieve all `PurchaseQuotations` entities.
      */
     PurchaseQuotationsRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(PurchaseQuotations_1.PurchaseQuotations);
+        return new core_1.GetAllRequestBuilderV4(PurchaseQuotations_1.PurchaseQuotations);
     };
     /**
      * Returns a request builder for creating a `PurchaseQuotations` entity.
@@ -50,7 +50,7 @@ var PurchaseQuotationsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `PurchaseQuotations`.
      */
     PurchaseQuotationsRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(PurchaseQuotations_1.PurchaseQuotations, entity);
+        return new core_1.CreateRequestBuilderV4(PurchaseQuotations_1.PurchaseQuotations, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `PurchaseQuotations`.
@@ -58,12 +58,12 @@ var PurchaseQuotationsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `PurchaseQuotations`.
      */
     PurchaseQuotationsRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(PurchaseQuotations_1.PurchaseQuotations, entity);
+        return new core_1.UpdateRequestBuilderV4(PurchaseQuotations_1.PurchaseQuotations, entity);
     };
     PurchaseQuotationsRequestBuilder.prototype.delete = function (docEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(PurchaseQuotations_1.PurchaseQuotations, docEntryOrEntity instanceof PurchaseQuotations_1.PurchaseQuotations ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(PurchaseQuotations_1.PurchaseQuotations, docEntryOrEntity instanceof PurchaseQuotations_1.PurchaseQuotations ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
     };
     return PurchaseQuotationsRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.PurchaseQuotationsRequestBuilder = PurchaseQuotationsRequestBuilder;
 //# sourceMappingURL=PurchaseQuotationsRequestBuilder.js.map

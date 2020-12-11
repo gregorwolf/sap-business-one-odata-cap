@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.DnfCodeSetup = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var DnfCodeSetupRequestBuilder_1 = require("./DnfCodeSetupRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "DNFCodeSetup" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var DnfCodeSetup = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `DnfCodeSetup`.
+     * Returns an entity builder to construct instances of `DnfCodeSetup`.
      * @returns A builder that constructs instances of entity type `DnfCodeSetup`.
      */
     DnfCodeSetup.builder = function () {
-        return v4_1.Entity.entityBuilder(DnfCodeSetup);
+        return core_1.EntityV4.entityBuilder(DnfCodeSetup);
     };
     /**
      * Returns a request builder to construct requests for operations on the `DnfCodeSetup` entity type.
@@ -60,7 +60,7 @@ var DnfCodeSetup = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `DnfCodeSetup`.
      */
     DnfCodeSetup.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, DnfCodeSetup);
+        return core_1.EntityV4.customFieldSelector(fieldName, DnfCodeSetup);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var DnfCodeSetup = /** @class */ (function (_super) {
      */
     DnfCodeSetup._entityName = 'DNFCodeSetup';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for DnfCodeSetup.
-     */
-    DnfCodeSetup._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    DnfCodeSetup._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    DnfCodeSetup._defaultServicePath = '/b1s/v2/';
     return DnfCodeSetup;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.DnfCodeSetup = DnfCodeSetup;
 var Items_1 = require("./Items");
 var NcmCodesSetup_1 = require("./NcmCodesSetup");
@@ -92,37 +87,37 @@ var NcmCodesSetup_1 = require("./NcmCodesSetup");
      * Static representation of the [[absEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DnfCodeSetup.ABS_ENTRY = new v4_1.NumberField('AbsEntry', DnfCodeSetup, 'Edm.Int32');
+    DnfCodeSetup.ABS_ENTRY = new core_1.NumberField('AbsEntry', DnfCodeSetup, 'Edm.Int32');
     /**
      * Static representation of the [[ncmCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DnfCodeSetup.NCM_CODE = new v4_1.NumberField('NCMCode', DnfCodeSetup, 'Edm.Int32');
+    DnfCodeSetup.NCM_CODE = new core_1.NumberField('NCMCode', DnfCodeSetup, 'Edm.Int32');
     /**
      * Static representation of the [[dnfCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DnfCodeSetup.DNF_CODE = new v4_1.StringField('DNFCode', DnfCodeSetup, 'Edm.String');
+    DnfCodeSetup.DNF_CODE = new core_1.StringField('DNFCode', DnfCodeSetup, 'Edm.String');
     /**
      * Static representation of the [[uoM]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DnfCodeSetup.UO_M = new v4_1.StringField('UoM', DnfCodeSetup, 'Edm.String');
+    DnfCodeSetup.UO_M = new core_1.StringField('UoM', DnfCodeSetup, 'Edm.String');
     /**
      * Static representation of the [[factor]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DnfCodeSetup.FACTOR = new v4_1.NumberField('Factor', DnfCodeSetup, 'Edm.Double');
+    DnfCodeSetup.FACTOR = new core_1.NumberField('Factor', DnfCodeSetup, 'Edm.Double');
     /**
      * Static representation of the one-to-many navigation property [[items]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DnfCodeSetup.ITEMS = new v4_1.OneToManyLink('Items', DnfCodeSetup, Items_1.Items);
+    DnfCodeSetup.ITEMS = new core_1.OneToManyLink('Items', DnfCodeSetup, Items_1.Items);
     /**
      * Static representation of the one-to-one navigation property [[ncmCodeSetup]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DnfCodeSetup.NCM_CODE_SETUP = new v4_1.OneToOneLink('NCMCodeSetup', DnfCodeSetup, NcmCodesSetup_1.NcmCodesSetup);
+    DnfCodeSetup.NCM_CODE_SETUP = new core_1.OneToOneLink('NCMCodeSetup', DnfCodeSetup, NcmCodesSetup_1.NcmCodesSetup);
     /**
      * All fields of the DnfCodeSetup entity.
      */
@@ -138,7 +133,7 @@ var NcmCodesSetup_1 = require("./NcmCodesSetup");
     /**
      * All fields selector.
      */
-    DnfCodeSetup.ALL_FIELDS = new v4_1.AllFields('*', DnfCodeSetup);
+    DnfCodeSetup.ALL_FIELDS = new core_1.AllFields('*', DnfCodeSetup);
     /**
      * All key fields of the DnfCodeSetup entity.
      */

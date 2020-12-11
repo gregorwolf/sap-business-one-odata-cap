@@ -4,30 +4,26 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ApprovalTemplatesRequestBuilder } from './ApprovalTemplatesRequestBuilder';
-import { ApprovalTemplateUser, ApprovalTemplateUserField } from './ApprovalTemplateUser';
-import { ApprovalTemplateStage, ApprovalTemplateStageField } from './ApprovalTemplateStage';
-import { ApprovalTemplateDocument, ApprovalTemplateDocumentField } from './ApprovalTemplateDocument';
-import { ApprovalTemplateTerm, ApprovalTemplateTermField } from './ApprovalTemplateTerm';
-import { ApprovalTemplateQuery, ApprovalTemplateQueryField } from './ApprovalTemplateQuery';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { ApprovalTemplateUser } from './ApprovalTemplateUser';
+import { ApprovalTemplateStage } from './ApprovalTemplateStage';
+import { ApprovalTemplateDocument } from './ApprovalTemplateDocument';
+import { ApprovalTemplateTerm } from './ApprovalTemplateTerm';
+import { ApprovalTemplateQuery } from './ApprovalTemplateQuery';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ApprovalTemplates" of service "SAPB1".
  */
-export class ApprovalTemplates extends Entity implements ApprovalTemplatesType {
+export class ApprovalTemplates extends EntityV4 implements ApprovalTemplatesType {
   /**
    * Technical entity name for ApprovalTemplates.
    */
   static _entityName = 'ApprovalTemplates';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ApprovalTemplates.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -43,6 +39,21 @@ export class ApprovalTemplates extends Entity implements ApprovalTemplatesType {
    * @nullable
    */
   remarks?: string;
+  /**
+   * Use Terms.
+   * @nullable
+   */
+  useTerms?: BoYesNoEnum;
+  /**
+   * Is Active.
+   * @nullable
+   */
+  isActive?: BoYesNoEnum;
+  /**
+   * Is Active When Updating Documents.
+   * @nullable
+   */
+  isActiveWhenUpdatingDocuments?: BoYesNoEnum;
   /**
    * Approval Template Users.
    * @nullable
@@ -74,11 +85,11 @@ export class ApprovalTemplates extends Entity implements ApprovalTemplatesType {
   approvalRequests!: ApprovalRequests[];
 
   /**
-   * Returns an entity builder to construct instances `ApprovalTemplates`.
+   * Returns an entity builder to construct instances of `ApprovalTemplates`.
    * @returns A builder that constructs instances of entity type `ApprovalTemplates`.
    */
-  static builder(): EntityBuilderType<ApprovalTemplates, ApprovalTemplatesTypeForceMandatory> {
-    return Entity.entityBuilder(ApprovalTemplates);
+  static builder(): EntityBuilderType<ApprovalTemplates, ApprovalTemplatesType> {
+    return EntityV4.entityBuilder(ApprovalTemplates);
   }
 
   /**
@@ -94,8 +105,8 @@ export class ApprovalTemplates extends Entity implements ApprovalTemplatesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ApprovalTemplates`.
    */
-  static customField(fieldName: string): CustomField<ApprovalTemplates> {
-    return Entity.customFieldSelector(fieldName, ApprovalTemplates);
+  static customField(fieldName: string): CustomFieldV4<ApprovalTemplates> {
+    return EntityV4.customFieldSelector(fieldName, ApprovalTemplates);
   }
 
   /**
@@ -110,26 +121,17 @@ export class ApprovalTemplates extends Entity implements ApprovalTemplatesType {
 import { ApprovalRequests, ApprovalRequestsType } from './ApprovalRequests';
 
 export interface ApprovalTemplatesType {
-  code?: number;
-  name?: string;
-  remarks?: string;
-  approvalTemplateUsers?: ApprovalTemplateUser[];
-  approvalTemplateStages?: ApprovalTemplateStage[];
-  approvalTemplateDocuments?: ApprovalTemplateDocument[];
-  approvalTemplateTerms?: ApprovalTemplateTerm[];
-  approvalTemplateQueries?: ApprovalTemplateQuery[];
-  approvalRequests: ApprovalRequestsType[];
-}
-
-export interface ApprovalTemplatesTypeForceMandatory {
-  code: number;
-  name: string;
-  remarks: string;
-  approvalTemplateUsers: ApprovalTemplateUser[];
-  approvalTemplateStages: ApprovalTemplateStage[];
-  approvalTemplateDocuments: ApprovalTemplateDocument[];
-  approvalTemplateTerms: ApprovalTemplateTerm[];
-  approvalTemplateQueries: ApprovalTemplateQuery[];
+  code?: number | null;
+  name?: string | null;
+  remarks?: string | null;
+  useTerms?: BoYesNoEnum | null;
+  isActive?: BoYesNoEnum | null;
+  isActiveWhenUpdatingDocuments?: BoYesNoEnum | null;
+  approvalTemplateUsers?: ApprovalTemplateUser[] | null;
+  approvalTemplateStages?: ApprovalTemplateStage[] | null;
+  approvalTemplateDocuments?: ApprovalTemplateDocument[] | null;
+  approvalTemplateTerms?: ApprovalTemplateTerm[] | null;
+  approvalTemplateQueries?: ApprovalTemplateQuery[] | null;
   approvalRequests: ApprovalRequestsType[];
 }
 
@@ -150,30 +152,45 @@ export namespace ApprovalTemplates {
    */
   export const REMARKS: StringField<ApprovalTemplates> = new StringField('Remarks', ApprovalTemplates, 'Edm.String');
   /**
+   * Static representation of the [[useTerms]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const USE_TERMS: EnumField<ApprovalTemplates> = new EnumField('UseTerms', ApprovalTemplates);
+  /**
+   * Static representation of the [[isActive]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_ACTIVE: EnumField<ApprovalTemplates> = new EnumField('IsActive', ApprovalTemplates);
+  /**
+   * Static representation of the [[isActiveWhenUpdatingDocuments]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_ACTIVE_WHEN_UPDATING_DOCUMENTS: EnumField<ApprovalTemplates> = new EnumField('IsActiveWhenUpdatingDocuments', ApprovalTemplates);
+  /**
    * Static representation of the [[approvalTemplateUsers]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const APPROVAL_TEMPLATE_USERS: CollectionField<ApprovalTemplates> = new CollectionField('ApprovalTemplateUsers', ApprovalTemplates, new ApprovalTemplateUserField('', ApprovalTemplates));
+  export const APPROVAL_TEMPLATE_USERS: CollectionField<ApprovalTemplates, ApprovalTemplateUser> = new CollectionField('ApprovalTemplateUsers', ApprovalTemplates, ApprovalTemplateUser);
   /**
    * Static representation of the [[approvalTemplateStages]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const APPROVAL_TEMPLATE_STAGES: CollectionField<ApprovalTemplates> = new CollectionField('ApprovalTemplateStages', ApprovalTemplates, new ApprovalTemplateStageField('', ApprovalTemplates));
+  export const APPROVAL_TEMPLATE_STAGES: CollectionField<ApprovalTemplates, ApprovalTemplateStage> = new CollectionField('ApprovalTemplateStages', ApprovalTemplates, ApprovalTemplateStage);
   /**
    * Static representation of the [[approvalTemplateDocuments]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const APPROVAL_TEMPLATE_DOCUMENTS: CollectionField<ApprovalTemplates> = new CollectionField('ApprovalTemplateDocuments', ApprovalTemplates, new ApprovalTemplateDocumentField('', ApprovalTemplates));
+  export const APPROVAL_TEMPLATE_DOCUMENTS: CollectionField<ApprovalTemplates, ApprovalTemplateDocument> = new CollectionField('ApprovalTemplateDocuments', ApprovalTemplates, ApprovalTemplateDocument);
   /**
    * Static representation of the [[approvalTemplateTerms]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const APPROVAL_TEMPLATE_TERMS: CollectionField<ApprovalTemplates> = new CollectionField('ApprovalTemplateTerms', ApprovalTemplates, new ApprovalTemplateTermField('', ApprovalTemplates));
+  export const APPROVAL_TEMPLATE_TERMS: CollectionField<ApprovalTemplates, ApprovalTemplateTerm> = new CollectionField('ApprovalTemplateTerms', ApprovalTemplates, ApprovalTemplateTerm);
   /**
    * Static representation of the [[approvalTemplateQueries]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const APPROVAL_TEMPLATE_QUERIES: CollectionField<ApprovalTemplates> = new CollectionField('ApprovalTemplateQueries', ApprovalTemplates, new ApprovalTemplateQueryField('', ApprovalTemplates));
+  export const APPROVAL_TEMPLATE_QUERIES: CollectionField<ApprovalTemplates, ApprovalTemplateQuery> = new CollectionField('ApprovalTemplateQueries', ApprovalTemplates, ApprovalTemplateQuery);
   /**
    * Static representation of the one-to-many navigation property [[approvalRequests]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -182,10 +199,13 @@ export namespace ApprovalTemplates {
   /**
    * All fields of the ApprovalTemplates entity.
    */
-  export const _allFields: Array<NumberField<ApprovalTemplates> | StringField<ApprovalTemplates> | CollectionField<ApprovalTemplates> | OneToManyLink<ApprovalTemplates, ApprovalRequests>> = [
+  export const _allFields: Array<NumberField<ApprovalTemplates> | StringField<ApprovalTemplates> | EnumField<ApprovalTemplates> | CollectionField<ApprovalTemplates, ApprovalTemplateUser> | CollectionField<ApprovalTemplates, ApprovalTemplateStage> | CollectionField<ApprovalTemplates, ApprovalTemplateDocument> | CollectionField<ApprovalTemplates, ApprovalTemplateTerm> | CollectionField<ApprovalTemplates, ApprovalTemplateQuery> | OneToManyLink<ApprovalTemplates, ApprovalRequests>> = [
     ApprovalTemplates.CODE,
     ApprovalTemplates.NAME,
     ApprovalTemplates.REMARKS,
+    ApprovalTemplates.USE_TERMS,
+    ApprovalTemplates.IS_ACTIVE,
+    ApprovalTemplates.IS_ACTIVE_WHEN_UPDATING_DOCUMENTS,
     ApprovalTemplates.APPROVAL_TEMPLATE_USERS,
     ApprovalTemplates.APPROVAL_TEMPLATE_STAGES,
     ApprovalTemplates.APPROVAL_TEMPLATE_DOCUMENTS,

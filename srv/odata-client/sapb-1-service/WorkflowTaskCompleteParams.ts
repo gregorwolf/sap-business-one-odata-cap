@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * WorkflowTaskCompleteParams
@@ -37,7 +37,7 @@ export function createWorkflowTaskCompleteParams(json: any): WorkflowTaskComplet
  * WorkflowTaskCompleteParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class WorkflowTaskCompleteParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class WorkflowTaskCompleteParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, WorkflowTaskCompleteParams> {
   /**
    * Representation of the [[WorkflowTaskCompleteParams.taskId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -53,14 +53,43 @@ export class WorkflowTaskCompleteParamsField<EntityT extends Entity> extends Com
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   triggerParams: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('TriggerParams', this, 'Edm.String');
+
+  /**
+   * Creates an instance of WorkflowTaskCompleteParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, WorkflowTaskCompleteParams);
+  }
 }
 
 export namespace WorkflowTaskCompleteParams {
+  /**
+   * Metadata information on all properties of the `WorkflowTaskCompleteParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<WorkflowTaskCompleteParams>[] = [{
+    originalName: 'TaskID',
+    name: 'taskId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Note',
+    name: 'note',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TriggerParams',
+    name: 'triggerParams',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): WorkflowTaskCompleteParams {
-    return createComplexType(json, {
-      TaskID: (taskId: number) => ({ taskId: edmToTs(taskId, 'Edm.Int32') }),
-      Note: (note: string) => ({ note: edmToTs(note, 'Edm.String') }),
-      TriggerParams: (triggerParams: string) => ({ triggerParams: edmToTs(triggerParams, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, WorkflowTaskCompleteParams);
   }
 }

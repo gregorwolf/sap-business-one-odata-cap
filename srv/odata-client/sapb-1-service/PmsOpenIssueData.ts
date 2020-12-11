@@ -4,7 +4,8 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * PmsOpenIssueData
@@ -35,6 +36,11 @@ export interface PmsOpenIssueData {
    * @nullable
    */
   remarks?: string;
+  /**
+   * Closed.
+   * @nullable
+   */
+  closed?: BoYesNoEnum;
   /**
    * Solution Id.
    * @nullable
@@ -73,7 +79,7 @@ export function createPmsOpenIssueData(json: any): PmsOpenIssueData {
  * PmsOpenIssueDataField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class PmsOpenIssueDataField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class PmsOpenIssueDataField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PmsOpenIssueData> {
   /**
    * Representation of the [[PmsOpenIssueData.lineId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -100,6 +106,11 @@ export class PmsOpenIssueDataField<EntityT extends Entity> extends ComplexTypeFi
    */
   remarks: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Remarks', this, 'Edm.String');
   /**
+   * Representation of the [[PmsOpenIssueData.closed]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  closed: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Closed', this);
+  /**
    * Representation of the [[PmsOpenIssueData.solutionId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -124,21 +135,83 @@ export class PmsOpenIssueDataField<EntityT extends Entity> extends ComplexTypeFi
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   effort: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('Effort', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of PmsOpenIssueDataField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, PmsOpenIssueData);
+  }
 }
 
 export namespace PmsOpenIssueData {
+  /**
+   * Metadata information on all properties of the `PmsOpenIssueData` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<PmsOpenIssueData>[] = [{
+    originalName: 'LineID',
+    name: 'lineId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'StageID',
+    name: 'stageId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Area',
+    name: 'area',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Priority',
+    name: 'priority',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Remarks',
+    name: 'remarks',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Closed',
+    name: 'closed',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SolutionID',
+    name: 'solutionId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Responsible',
+    name: 'responsible',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'EnteredBy',
+    name: 'enteredBy',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'EnteredDate',
+    name: 'enteredDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Effort',
+    name: 'effort',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): PmsOpenIssueData {
-    return createComplexType(json, {
-      LineID: (lineId: number) => ({ lineId: edmToTs(lineId, 'Edm.Int32') }),
-      StageID: (stageId: number) => ({ stageId: edmToTs(stageId, 'Edm.Int32') }),
-      Area: (area: number) => ({ area: edmToTs(area, 'Edm.Int32') }),
-      Priority: (priority: number) => ({ priority: edmToTs(priority, 'Edm.Int32') }),
-      Remarks: (remarks: string) => ({ remarks: edmToTs(remarks, 'Edm.String') }),
-      SolutionID: (solutionId: number) => ({ solutionId: edmToTs(solutionId, 'Edm.Int32') }),
-      Responsible: (responsible: number) => ({ responsible: edmToTs(responsible, 'Edm.Int32') }),
-      EnteredBy: (enteredBy: number) => ({ enteredBy: edmToTs(enteredBy, 'Edm.Int32') }),
-      EnteredDate: (enteredDate: Moment) => ({ enteredDate: edmToTs(enteredDate, 'Edm.DateTimeOffset') }),
-      Effort: (effort: number) => ({ effort: edmToTs(effort, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, PmsOpenIssueData);
   }
 }

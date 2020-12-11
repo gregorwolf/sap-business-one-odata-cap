@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { JournalEntries } from './JournalEntries';
 
 /**
@@ -15,16 +15,16 @@ export class JournalEntriesRequestBuilder extends RequestBuilder<JournalEntries>
    * @param jdtNum Key property. See [[JournalEntries.jdtNum]].
    * @returns A request builder for creating requests to retrieve one `JournalEntries` entity based on its keys.
    */
-  getByKey(jdtNum: number): GetByKeyRequestBuilder<JournalEntries> {
-    return new GetByKeyRequestBuilder(JournalEntries, { JdtNum: jdtNum });
+  getByKey(jdtNum: number): GetByKeyRequestBuilderV4<JournalEntries> {
+    return new GetByKeyRequestBuilderV4(JournalEntries, { JdtNum: jdtNum });
   }
 
   /**
    * Returns a request builder for querying all `JournalEntries` entities.
    * @returns A request builder for creating requests to retrieve all `JournalEntries` entities.
    */
-  getAll(): GetAllRequestBuilder<JournalEntries> {
-    return new GetAllRequestBuilder(JournalEntries);
+  getAll(): GetAllRequestBuilderV4<JournalEntries> {
+    return new GetAllRequestBuilderV4(JournalEntries);
   }
 
   /**
@@ -32,8 +32,8 @@ export class JournalEntriesRequestBuilder extends RequestBuilder<JournalEntries>
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `JournalEntries`.
    */
-  create(entity: JournalEntries): CreateRequestBuilder<JournalEntries> {
-    return new CreateRequestBuilder(JournalEntries, entity);
+  create(entity: JournalEntries): CreateRequestBuilderV4<JournalEntries> {
+    return new CreateRequestBuilderV4(JournalEntries, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class JournalEntriesRequestBuilder extends RequestBuilder<JournalEntries>
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `JournalEntries`.
    */
-  update(entity: JournalEntries): UpdateRequestBuilder<JournalEntries> {
-    return new UpdateRequestBuilder(JournalEntries, entity);
+  update(entity: JournalEntries): UpdateRequestBuilderV4<JournalEntries> {
+    return new UpdateRequestBuilderV4(JournalEntries, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class JournalEntriesRequestBuilder extends RequestBuilder<JournalEntries>
    * @param jdtNum Key property. See [[JournalEntries.jdtNum]].
    * @returns A request builder for creating requests that delete an entity of type `JournalEntries`.
    */
-  delete(jdtNum: number): DeleteRequestBuilder<JournalEntries>;
+  delete(jdtNum: number): DeleteRequestBuilderV4<JournalEntries>;
   /**
    * Returns a request builder for deleting an entity of type `JournalEntries`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `JournalEntries` by taking the entity as a parameter.
    */
-  delete(entity: JournalEntries): DeleteRequestBuilder<JournalEntries>;
-  delete(jdtNumOrEntity: any): DeleteRequestBuilder<JournalEntries> {
-    return new DeleteRequestBuilder(JournalEntries, jdtNumOrEntity instanceof JournalEntries ? jdtNumOrEntity : { JdtNum: jdtNumOrEntity! });
+  delete(entity: JournalEntries): DeleteRequestBuilderV4<JournalEntries>;
+  delete(jdtNumOrEntity: any): DeleteRequestBuilderV4<JournalEntries> {
+    return new DeleteRequestBuilderV4(JournalEntries, jdtNumOrEntity instanceof JournalEntries ? jdtNumOrEntity : { JdtNum: jdtNumOrEntity! });
   }
 }

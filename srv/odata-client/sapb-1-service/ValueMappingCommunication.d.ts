@@ -1,19 +1,16 @@
 import { ValueMappingCommunicationRequestBuilder } from './ValueMappingCommunicationRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { VmCommunicationTypeEnum } from './VmCommunicationTypeEnum';
+import { VmCommunicationStatusEnum } from './VmCommunicationStatusEnum';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ValueMappingCommunication" of service "SAPB1".
  */
-export declare class ValueMappingCommunication extends Entity implements ValueMappingCommunicationType {
+export declare class ValueMappingCommunication extends EntityV4 implements ValueMappingCommunicationType {
     /**
      * Technical entity name for ValueMappingCommunication.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ValueMappingCommunication.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -33,6 +30,11 @@ export declare class ValueMappingCommunication extends Entity implements ValueMa
      * @nullable
      */
     objectId?: number;
+    /**
+     * Communication Type.
+     * @nullable
+     */
+    communicationType?: VmCommunicationTypeEnum;
     /**
      * Start Date.
      * @nullable
@@ -59,10 +61,15 @@ export declare class ValueMappingCommunication extends Entity implements ValueMa
      */
     message?: string;
     /**
-     * Returns an entity builder to construct instances `ValueMappingCommunication`.
+     * Status.
+     * @nullable
+     */
+    status?: VmCommunicationStatusEnum;
+    /**
+     * Returns an entity builder to construct instances of `ValueMappingCommunication`.
      * @returns A builder that constructs instances of entity type `ValueMappingCommunication`.
      */
-    static builder(): EntityBuilderType<ValueMappingCommunication, ValueMappingCommunicationTypeForceMandatory>;
+    static builder(): EntityBuilderType<ValueMappingCommunication, ValueMappingCommunicationType>;
     /**
      * Returns a request builder to construct requests for operations on the `ValueMappingCommunication` entity type.
      * @returns A `ValueMappingCommunication` request builder.
@@ -73,7 +80,7 @@ export declare class ValueMappingCommunication extends Entity implements ValueMa
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ValueMappingCommunication`.
      */
-    static customField(fieldName: string): CustomField<ValueMappingCommunication>;
+    static customField(fieldName: string): CustomFieldV4<ValueMappingCommunication>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -83,24 +90,16 @@ export declare class ValueMappingCommunication extends Entity implements ValueMa
     };
 }
 export interface ValueMappingCommunicationType {
-    absEntry?: number;
-    thirdPartySystemId?: number;
-    objectId?: number;
-    startDate?: Moment;
-    startTime?: number;
-    endDate?: Moment;
-    endTime?: number;
-    message?: string;
-}
-export interface ValueMappingCommunicationTypeForceMandatory {
-    absEntry: number;
-    thirdPartySystemId: number;
-    objectId: number;
-    startDate: Moment;
-    startTime: number;
-    endDate: Moment;
-    endTime: number;
-    message: string;
+    absEntry?: number | null;
+    thirdPartySystemId?: number | null;
+    objectId?: number | null;
+    communicationType?: VmCommunicationTypeEnum | null;
+    startDate?: Moment | null;
+    startTime?: number | null;
+    endDate?: Moment | null;
+    endTime?: number | null;
+    message?: string | null;
+    status?: VmCommunicationStatusEnum | null;
 }
 export declare namespace ValueMappingCommunication {
     /**
@@ -118,6 +117,11 @@ export declare namespace ValueMappingCommunication {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const OBJECT_ID: NumberField<ValueMappingCommunication>;
+    /**
+     * Static representation of the [[communicationType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COMMUNICATION_TYPE: EnumField<ValueMappingCommunication>;
     /**
      * Static representation of the [[startDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -144,9 +148,14 @@ export declare namespace ValueMappingCommunication {
      */
     const MESSAGE: StringField<ValueMappingCommunication>;
     /**
+     * Static representation of the [[status]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const STATUS: EnumField<ValueMappingCommunication>;
+    /**
      * All fields of the ValueMappingCommunication entity.
      */
-    const _allFields: Array<NumberField<ValueMappingCommunication> | DateField<ValueMappingCommunication> | StringField<ValueMappingCommunication>>;
+    const _allFields: Array<NumberField<ValueMappingCommunication> | EnumField<ValueMappingCommunication> | DateField<ValueMappingCommunication> | StringField<ValueMappingCommunication>>;
     /**
      * All fields selector.
      */

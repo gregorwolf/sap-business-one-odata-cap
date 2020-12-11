@@ -1,18 +1,18 @@
 import { WarehousesRequestBuilder } from './WarehousesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoDocWhsAutoIssueMethod } from './BoDocWhsAutoIssueMethod';
+import { ReceivingBinLocationsMethodEnum } from './ReceivingBinLocationsMethodEnum';
+import { AutoAllocOnReceiptMethodEnum } from './AutoAllocOnReceiptMethodEnum';
+import { ReceivingUpToMethodEnum } from './ReceivingUpToMethodEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "Warehouses" of service "SAPB1".
  */
-export declare class Warehouses extends Entity implements WarehousesType {
+export declare class Warehouses extends EntityV4 implements WarehousesType {
     /**
      * Technical entity name for Warehouses.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Warehouses.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -62,6 +62,11 @@ export declare class Warehouses extends Entity implements WarehousesType {
      * @nullable
      */
     stockInflationAdjustAccount?: string;
+    /**
+     * Allow Use Tax.
+     * @nullable
+     */
+    allowUseTax?: BoYesNoEnum;
     /**
      * Cost Inflation Account.
      * @nullable
@@ -198,6 +203,11 @@ export declare class Warehouses extends Entity implements WarehousesType {
      */
     warehouseName?: string;
     /**
+     * Drop Ship.
+     * @nullable
+     */
+    dropShip?: BoYesNoEnum;
+    /**
      * Wip Material Variance Account.
      * @nullable
      */
@@ -227,6 +237,11 @@ export declare class Warehouses extends Entity implements WarehousesType {
      * @nullable
      */
     county?: string;
+    /**
+     * Nettable.
+     * @nullable
+     */
+    nettable?: BoYesNoEnum;
     /**
      * Increasing Acc.
      * @nullable
@@ -298,6 +313,11 @@ export declare class Warehouses extends Entity implements WarehousesType {
      */
     whShipToName?: string;
     /**
+     * Excisable.
+     * @nullable
+     */
+    excisable?: BoYesNoEnum;
+    /**
      * Wh Incoming Cenvat Account.
      * @nullable
      */
@@ -343,10 +363,20 @@ export declare class Warehouses extends Entity implements WarehousesType {
      */
     shipper?: string;
     /**
+     * Manage Serial And Batch Numbers.
+     * @nullable
+     */
+    manageSerialAndBatchNumbers?: BoYesNoEnum;
+    /**
      * Global Location Number.
      * @nullable
      */
     globalLocationNumber?: string;
+    /**
+     * Enable Bin Locations.
+     * @nullable
+     */
+    enableBinLocations?: BoYesNoEnum;
     /**
      * Bin Loc Code Separator.
      * @nullable
@@ -358,10 +388,60 @@ export declare class Warehouses extends Entity implements WarehousesType {
      */
     defaultBin?: number;
     /**
+     * Default Bin Enforced.
+     * @nullable
+     */
+    defaultBinEnforced?: BoYesNoEnum;
+    /**
+     * Auto Alloc On Issue.
+     * @nullable
+     */
+    autoAllocOnIssue?: BoDocWhsAutoIssueMethod;
+    /**
+     * Enable Receiving Bin Locations.
+     * @nullable
+     */
+    enableReceivingBinLocations?: BoYesNoEnum;
+    /**
+     * Receiving Bin Locations By.
+     * @nullable
+     */
+    receivingBinLocationsBy?: ReceivingBinLocationsMethodEnum;
+    /**
      * Purchase Balance Account.
      * @nullable
      */
     purchaseBalanceAccount?: string;
+    /**
+     * Inactive.
+     * @nullable
+     */
+    inactive?: BoYesNoEnum;
+    /**
+     * Restrict Receipt To Empty Bin Location.
+     * @nullable
+     */
+    restrictReceiptToEmptyBinLocation?: BoYesNoEnum;
+    /**
+     * Receive Up To Max Quantity.
+     * @nullable
+     */
+    receiveUpToMaxQuantity?: BoYesNoEnum;
+    /**
+     * Auto Alloc On Receipt.
+     * @nullable
+     */
+    autoAllocOnReceipt?: AutoAllocOnReceiptMethodEnum;
+    /**
+     * Receive Up To Max Weight.
+     * @nullable
+     */
+    receiveUpToMaxWeight?: BoYesNoEnum;
+    /**
+     * Receive Up To Method.
+     * @nullable
+     */
+    receiveUpToMethod?: ReceivingUpToMethodEnum;
     /**
      * One-to-many navigation property to the [[UserDefaultGroups]] entity.
      */
@@ -431,10 +511,10 @@ export declare class Warehouses extends Entity implements WarehousesType {
      */
     stockTransferDrafts: StockTransferDrafts[];
     /**
-     * Returns an entity builder to construct instances `Warehouses`.
+     * Returns an entity builder to construct instances of `Warehouses`.
      * @returns A builder that constructs instances of entity type `Warehouses`.
      */
-    static builder(): EntityBuilderType<Warehouses, WarehousesTypeForceMandatory>;
+    static builder(): EntityBuilderType<Warehouses, WarehousesType>;
     /**
      * Returns a request builder to construct requests for operations on the `Warehouses` entity type.
      * @returns A `Warehouses` request builder.
@@ -445,7 +525,7 @@ export declare class Warehouses extends Entity implements WarehousesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `Warehouses`.
      */
-    static customField(fieldName: string): CustomField<Warehouses>;
+    static customField(fieldName: string): CustomFieldV4<Warehouses>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -471,163 +551,91 @@ import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 import { InventoryTransferRequests, InventoryTransferRequestsType } from './InventoryTransferRequests';
 import { StockTransferDrafts, StockTransferDraftsType } from './StockTransferDrafts';
 export interface WarehousesType {
-    street?: string;
-    stockInflationOffsetAccount?: string;
-    zipCode?: string;
-    decreasingAccount?: string;
-    purchaseAccount?: string;
-    euRevenuesAccount?: string;
-    returningAccount?: string;
-    shippedGoodsAccount?: string;
-    stockInflationAdjustAccount?: string;
-    costInflationAccount?: string;
-    foreignExpensesAccount?: string;
-    euExpensesAccount?: string;
-    costInflationOffsetAccount?: string;
-    expensesClearingAccount?: string;
-    purchaseReturningAccount?: string;
-    vatInRevenueAccount?: string;
-    federalTaxId?: string;
-    location?: number;
-    block?: string;
-    expenseAccount?: string;
-    decreaseGlAccount?: string;
-    revenuesAccount?: string;
-    taxGroup?: string;
-    exemptRevenuesAccount?: string;
-    purchaseOffsetAccount?: string;
-    costOfGoodsSold?: string;
-    warehouseCode?: string;
-    state?: string;
-    city?: string;
-    priceDifferencesAccount?: string;
-    varianceAccount?: string;
-    country?: string;
-    increaseGlAccount?: string;
-    exchangeRateDifferencesAccount?: string;
-    wipMaterialAccount?: string;
-    warehouseName?: string;
-    wipMaterialVarianceAccount?: string;
-    transfersAcc?: string;
-    internalKey?: number;
-    foreignRevenuesAcc?: string;
-    buildingFloorRoom?: string;
-    county?: string;
-    increasingAcc?: string;
-    expenseOffsetingAct?: string;
-    goodsClearingAcc?: string;
-    stockAccount?: string;
-    businessPlaceId?: number;
-    purchaseCreditAcc?: string;
-    euPurchaseCreditAcc?: string;
-    foreignPurchaseCreditAcc?: string;
-    salesCreditAcc?: string;
-    salesCreditEuAcc?: string;
-    exemptedCredits?: string;
-    salesCreditForeignAcc?: string;
-    negativeInventoryAdjustmentAccount?: string;
-    whShipToName?: string;
-    whIncomingCenvatAccount?: string;
-    whOutgoingCenvatAccount?: string;
-    stockInTransitAccount?: string;
-    wipOffsetProfitAndLossAccount?: string;
-    inventoryOffsetProfitAndLossAccount?: string;
-    addressType?: string;
-    streetNo?: string;
-    storekeeper?: number;
-    shipper?: string;
-    globalLocationNumber?: string;
-    binLocCodeSeparator?: string;
-    defaultBin?: number;
-    purchaseBalanceAccount?: string;
-    userDefaultGroups: UserDefaultGroupsType[];
-    chartOfAccount: ChartOfAccountsType;
-    warehouseLocation: WarehouseLocationsType;
-    salesTaxCode: SalesTaxCodesType;
-    country2: CountriesType;
-    employeeInfo: EmployeesInfoType;
-    businessPartner: BusinessPartnersType;
-    binLocation: BinLocationsType;
-    stockTakings: StockTakingsType[];
-    productionOrders: ProductionOrdersType[];
-    resourceCapacities: ResourceCapacitiesType[];
-    glAccountAdvancedRules: GlAccountAdvancedRulesType[];
-    stockTransfers: StockTransfersType[];
-    businessPlaces: BusinessPlacesType[];
-    inventoryTransferRequests: InventoryTransferRequestsType[];
-    binLocations: BinLocationsType[];
-    stockTransferDrafts: StockTransferDraftsType[];
-}
-export interface WarehousesTypeForceMandatory {
-    street: string;
-    stockInflationOffsetAccount: string;
-    zipCode: string;
-    decreasingAccount: string;
-    purchaseAccount: string;
-    euRevenuesAccount: string;
-    returningAccount: string;
-    shippedGoodsAccount: string;
-    stockInflationAdjustAccount: string;
-    costInflationAccount: string;
-    foreignExpensesAccount: string;
-    euExpensesAccount: string;
-    costInflationOffsetAccount: string;
-    expensesClearingAccount: string;
-    purchaseReturningAccount: string;
-    vatInRevenueAccount: string;
-    federalTaxId: string;
-    location: number;
-    block: string;
-    expenseAccount: string;
-    decreaseGlAccount: string;
-    revenuesAccount: string;
-    taxGroup: string;
-    exemptRevenuesAccount: string;
-    purchaseOffsetAccount: string;
-    costOfGoodsSold: string;
-    warehouseCode: string;
-    state: string;
-    city: string;
-    priceDifferencesAccount: string;
-    varianceAccount: string;
-    country: string;
-    increaseGlAccount: string;
-    exchangeRateDifferencesAccount: string;
-    wipMaterialAccount: string;
-    warehouseName: string;
-    wipMaterialVarianceAccount: string;
-    transfersAcc: string;
-    internalKey: number;
-    foreignRevenuesAcc: string;
-    buildingFloorRoom: string;
-    county: string;
-    increasingAcc: string;
-    expenseOffsetingAct: string;
-    goodsClearingAcc: string;
-    stockAccount: string;
-    businessPlaceId: number;
-    purchaseCreditAcc: string;
-    euPurchaseCreditAcc: string;
-    foreignPurchaseCreditAcc: string;
-    salesCreditAcc: string;
-    salesCreditEuAcc: string;
-    exemptedCredits: string;
-    salesCreditForeignAcc: string;
-    negativeInventoryAdjustmentAccount: string;
-    whShipToName: string;
-    whIncomingCenvatAccount: string;
-    whOutgoingCenvatAccount: string;
-    stockInTransitAccount: string;
-    wipOffsetProfitAndLossAccount: string;
-    inventoryOffsetProfitAndLossAccount: string;
-    addressType: string;
-    streetNo: string;
-    storekeeper: number;
-    shipper: string;
-    globalLocationNumber: string;
-    binLocCodeSeparator: string;
-    defaultBin: number;
-    purchaseBalanceAccount: string;
+    street?: string | null;
+    stockInflationOffsetAccount?: string | null;
+    zipCode?: string | null;
+    decreasingAccount?: string | null;
+    purchaseAccount?: string | null;
+    euRevenuesAccount?: string | null;
+    returningAccount?: string | null;
+    shippedGoodsAccount?: string | null;
+    stockInflationAdjustAccount?: string | null;
+    allowUseTax?: BoYesNoEnum | null;
+    costInflationAccount?: string | null;
+    foreignExpensesAccount?: string | null;
+    euExpensesAccount?: string | null;
+    costInflationOffsetAccount?: string | null;
+    expensesClearingAccount?: string | null;
+    purchaseReturningAccount?: string | null;
+    vatInRevenueAccount?: string | null;
+    federalTaxId?: string | null;
+    location?: number | null;
+    block?: string | null;
+    expenseAccount?: string | null;
+    decreaseGlAccount?: string | null;
+    revenuesAccount?: string | null;
+    taxGroup?: string | null;
+    exemptRevenuesAccount?: string | null;
+    purchaseOffsetAccount?: string | null;
+    costOfGoodsSold?: string | null;
+    warehouseCode?: string | null;
+    state?: string | null;
+    city?: string | null;
+    priceDifferencesAccount?: string | null;
+    varianceAccount?: string | null;
+    country?: string | null;
+    increaseGlAccount?: string | null;
+    exchangeRateDifferencesAccount?: string | null;
+    wipMaterialAccount?: string | null;
+    warehouseName?: string | null;
+    dropShip?: BoYesNoEnum | null;
+    wipMaterialVarianceAccount?: string | null;
+    transfersAcc?: string | null;
+    internalKey?: number | null;
+    foreignRevenuesAcc?: string | null;
+    buildingFloorRoom?: string | null;
+    county?: string | null;
+    nettable?: BoYesNoEnum | null;
+    increasingAcc?: string | null;
+    expenseOffsetingAct?: string | null;
+    goodsClearingAcc?: string | null;
+    stockAccount?: string | null;
+    businessPlaceId?: number | null;
+    purchaseCreditAcc?: string | null;
+    euPurchaseCreditAcc?: string | null;
+    foreignPurchaseCreditAcc?: string | null;
+    salesCreditAcc?: string | null;
+    salesCreditEuAcc?: string | null;
+    exemptedCredits?: string | null;
+    salesCreditForeignAcc?: string | null;
+    negativeInventoryAdjustmentAccount?: string | null;
+    whShipToName?: string | null;
+    excisable?: BoYesNoEnum | null;
+    whIncomingCenvatAccount?: string | null;
+    whOutgoingCenvatAccount?: string | null;
+    stockInTransitAccount?: string | null;
+    wipOffsetProfitAndLossAccount?: string | null;
+    inventoryOffsetProfitAndLossAccount?: string | null;
+    addressType?: string | null;
+    streetNo?: string | null;
+    storekeeper?: number | null;
+    shipper?: string | null;
+    manageSerialAndBatchNumbers?: BoYesNoEnum | null;
+    globalLocationNumber?: string | null;
+    enableBinLocations?: BoYesNoEnum | null;
+    binLocCodeSeparator?: string | null;
+    defaultBin?: number | null;
+    defaultBinEnforced?: BoYesNoEnum | null;
+    autoAllocOnIssue?: BoDocWhsAutoIssueMethod | null;
+    enableReceivingBinLocations?: BoYesNoEnum | null;
+    receivingBinLocationsBy?: ReceivingBinLocationsMethodEnum | null;
+    purchaseBalanceAccount?: string | null;
+    inactive?: BoYesNoEnum | null;
+    restrictReceiptToEmptyBinLocation?: BoYesNoEnum | null;
+    receiveUpToMaxQuantity?: BoYesNoEnum | null;
+    autoAllocOnReceipt?: AutoAllocOnReceiptMethodEnum | null;
+    receiveUpToMaxWeight?: BoYesNoEnum | null;
+    receiveUpToMethod?: ReceivingUpToMethodEnum | null;
     userDefaultGroups: UserDefaultGroupsType[];
     chartOfAccount: ChartOfAccountsType;
     warehouseLocation: WarehouseLocationsType;
@@ -692,6 +700,11 @@ export declare namespace Warehouses {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const STOCK_INFLATION_ADJUST_ACCOUNT: StringField<Warehouses>;
+    /**
+     * Static representation of the [[allowUseTax]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ALLOW_USE_TAX: EnumField<Warehouses>;
     /**
      * Static representation of the [[costInflationAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -828,6 +841,11 @@ export declare namespace Warehouses {
      */
     const WAREHOUSE_NAME: StringField<Warehouses>;
     /**
+     * Static representation of the [[dropShip]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DROP_SHIP: EnumField<Warehouses>;
+    /**
      * Static representation of the [[wipMaterialVarianceAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -857,6 +875,11 @@ export declare namespace Warehouses {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const COUNTY: StringField<Warehouses>;
+    /**
+     * Static representation of the [[nettable]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const NETTABLE: EnumField<Warehouses>;
     /**
      * Static representation of the [[increasingAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -928,6 +951,11 @@ export declare namespace Warehouses {
      */
     const WH_SHIP_TO_NAME: StringField<Warehouses>;
     /**
+     * Static representation of the [[excisable]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const EXCISABLE: EnumField<Warehouses>;
+    /**
      * Static representation of the [[whIncomingCenvatAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -973,10 +1001,20 @@ export declare namespace Warehouses {
      */
     const SHIPPER: StringField<Warehouses>;
     /**
+     * Static representation of the [[manageSerialAndBatchNumbers]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const MANAGE_SERIAL_AND_BATCH_NUMBERS: EnumField<Warehouses>;
+    /**
      * Static representation of the [[globalLocationNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const GLOBAL_LOCATION_NUMBER: StringField<Warehouses>;
+    /**
+     * Static representation of the [[enableBinLocations]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ENABLE_BIN_LOCATIONS: EnumField<Warehouses>;
     /**
      * Static representation of the [[binLocCodeSeparator]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -988,10 +1026,60 @@ export declare namespace Warehouses {
      */
     const DEFAULT_BIN: NumberField<Warehouses>;
     /**
+     * Static representation of the [[defaultBinEnforced]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DEFAULT_BIN_ENFORCED: EnumField<Warehouses>;
+    /**
+     * Static representation of the [[autoAllocOnIssue]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const AUTO_ALLOC_ON_ISSUE: EnumField<Warehouses>;
+    /**
+     * Static representation of the [[enableReceivingBinLocations]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ENABLE_RECEIVING_BIN_LOCATIONS: EnumField<Warehouses>;
+    /**
+     * Static representation of the [[receivingBinLocationsBy]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RECEIVING_BIN_LOCATIONS_BY: EnumField<Warehouses>;
+    /**
      * Static representation of the [[purchaseBalanceAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const PURCHASE_BALANCE_ACCOUNT: StringField<Warehouses>;
+    /**
+     * Static representation of the [[inactive]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const INACTIVE: EnumField<Warehouses>;
+    /**
+     * Static representation of the [[restrictReceiptToEmptyBinLocation]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RESTRICT_RECEIPT_TO_EMPTY_BIN_LOCATION: EnumField<Warehouses>;
+    /**
+     * Static representation of the [[receiveUpToMaxQuantity]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RECEIVE_UP_TO_MAX_QUANTITY: EnumField<Warehouses>;
+    /**
+     * Static representation of the [[autoAllocOnReceipt]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const AUTO_ALLOC_ON_RECEIPT: EnumField<Warehouses>;
+    /**
+     * Static representation of the [[receiveUpToMaxWeight]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RECEIVE_UP_TO_MAX_WEIGHT: EnumField<Warehouses>;
+    /**
+     * Static representation of the [[receiveUpToMethod]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RECEIVE_UP_TO_METHOD: EnumField<Warehouses>;
     /**
      * Static representation of the one-to-many navigation property [[userDefaultGroups]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1080,7 +1168,7 @@ export declare namespace Warehouses {
     /**
      * All fields of the Warehouses entity.
      */
-    const _allFields: Array<StringField<Warehouses> | NumberField<Warehouses> | OneToManyLink<Warehouses, UserDefaultGroups> | OneToOneLink<Warehouses, ChartOfAccounts> | OneToOneLink<Warehouses, WarehouseLocations> | OneToOneLink<Warehouses, SalesTaxCodes> | OneToOneLink<Warehouses, Countries> | OneToOneLink<Warehouses, EmployeesInfo> | OneToOneLink<Warehouses, BusinessPartners> | OneToOneLink<Warehouses, BinLocations> | OneToManyLink<Warehouses, StockTakings> | OneToManyLink<Warehouses, ProductionOrders> | OneToManyLink<Warehouses, ResourceCapacities> | OneToManyLink<Warehouses, GlAccountAdvancedRules> | OneToManyLink<Warehouses, StockTransfers> | OneToManyLink<Warehouses, BusinessPlaces> | OneToManyLink<Warehouses, InventoryTransferRequests> | OneToManyLink<Warehouses, BinLocations> | OneToManyLink<Warehouses, StockTransferDrafts>>;
+    const _allFields: Array<StringField<Warehouses> | EnumField<Warehouses> | NumberField<Warehouses> | OneToManyLink<Warehouses, UserDefaultGroups> | OneToOneLink<Warehouses, ChartOfAccounts> | OneToOneLink<Warehouses, WarehouseLocations> | OneToOneLink<Warehouses, SalesTaxCodes> | OneToOneLink<Warehouses, Countries> | OneToOneLink<Warehouses, EmployeesInfo> | OneToOneLink<Warehouses, BusinessPartners> | OneToOneLink<Warehouses, BinLocations> | OneToManyLink<Warehouses, StockTakings> | OneToManyLink<Warehouses, ProductionOrders> | OneToManyLink<Warehouses, ResourceCapacities> | OneToManyLink<Warehouses, GlAccountAdvancedRules> | OneToManyLink<Warehouses, StockTransfers> | OneToManyLink<Warehouses, BusinessPlaces> | OneToManyLink<Warehouses, InventoryTransferRequests> | OneToManyLink<Warehouses, BinLocations> | OneToManyLink<Warehouses, StockTransferDrafts>>;
     /**
      * All fields selector.
      */

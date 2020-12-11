@@ -1,18 +1,13 @@
 import { AssetGroupsRequestBuilder } from './AssetGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "AssetGroups" of service "SAPB1".
  */
-export declare class AssetGroups extends Entity implements AssetGroupsType {
+export declare class AssetGroups extends EntityV4 implements AssetGroupsType {
     /**
      * Technical entity name for AssetGroups.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for AssetGroups.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -32,10 +27,10 @@ export declare class AssetGroups extends Entity implements AssetGroupsType {
      */
     items: Items[];
     /**
-     * Returns an entity builder to construct instances `AssetGroups`.
+     * Returns an entity builder to construct instances of `AssetGroups`.
      * @returns A builder that constructs instances of entity type `AssetGroups`.
      */
-    static builder(): EntityBuilderType<AssetGroups, AssetGroupsTypeForceMandatory>;
+    static builder(): EntityBuilderType<AssetGroups, AssetGroupsType>;
     /**
      * Returns a request builder to construct requests for operations on the `AssetGroups` entity type.
      * @returns A `AssetGroups` request builder.
@@ -46,7 +41,7 @@ export declare class AssetGroups extends Entity implements AssetGroupsType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `AssetGroups`.
      */
-    static customField(fieldName: string): CustomField<AssetGroups>;
+    static customField(fieldName: string): CustomFieldV4<AssetGroups>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -57,13 +52,8 @@ export declare class AssetGroups extends Entity implements AssetGroupsType {
 }
 import { Items, ItemsType } from './Items';
 export interface AssetGroupsType {
-    code?: string;
-    description?: string;
-    items: ItemsType[];
-}
-export interface AssetGroupsTypeForceMandatory {
-    code: string;
-    description: string;
+    code?: string | null;
+    description?: string | null;
     items: ItemsType[];
 }
 export declare namespace AssetGroups {

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { WarehouseSublevelCodes } from './WarehouseSublevelCodes';
 
 /**
@@ -15,16 +15,16 @@ export class WarehouseSublevelCodesRequestBuilder extends RequestBuilder<Warehou
    * @param absEntry Key property. See [[WarehouseSublevelCodes.absEntry]].
    * @returns A request builder for creating requests to retrieve one `WarehouseSublevelCodes` entity based on its keys.
    */
-  getByKey(absEntry: number): GetByKeyRequestBuilder<WarehouseSublevelCodes> {
-    return new GetByKeyRequestBuilder(WarehouseSublevelCodes, { AbsEntry: absEntry });
+  getByKey(absEntry: number): GetByKeyRequestBuilderV4<WarehouseSublevelCodes> {
+    return new GetByKeyRequestBuilderV4(WarehouseSublevelCodes, { AbsEntry: absEntry });
   }
 
   /**
    * Returns a request builder for querying all `WarehouseSublevelCodes` entities.
    * @returns A request builder for creating requests to retrieve all `WarehouseSublevelCodes` entities.
    */
-  getAll(): GetAllRequestBuilder<WarehouseSublevelCodes> {
-    return new GetAllRequestBuilder(WarehouseSublevelCodes);
+  getAll(): GetAllRequestBuilderV4<WarehouseSublevelCodes> {
+    return new GetAllRequestBuilderV4(WarehouseSublevelCodes);
   }
 
   /**
@@ -32,8 +32,8 @@ export class WarehouseSublevelCodesRequestBuilder extends RequestBuilder<Warehou
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `WarehouseSublevelCodes`.
    */
-  create(entity: WarehouseSublevelCodes): CreateRequestBuilder<WarehouseSublevelCodes> {
-    return new CreateRequestBuilder(WarehouseSublevelCodes, entity);
+  create(entity: WarehouseSublevelCodes): CreateRequestBuilderV4<WarehouseSublevelCodes> {
+    return new CreateRequestBuilderV4(WarehouseSublevelCodes, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class WarehouseSublevelCodesRequestBuilder extends RequestBuilder<Warehou
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `WarehouseSublevelCodes`.
    */
-  update(entity: WarehouseSublevelCodes): UpdateRequestBuilder<WarehouseSublevelCodes> {
-    return new UpdateRequestBuilder(WarehouseSublevelCodes, entity);
+  update(entity: WarehouseSublevelCodes): UpdateRequestBuilderV4<WarehouseSublevelCodes> {
+    return new UpdateRequestBuilderV4(WarehouseSublevelCodes, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class WarehouseSublevelCodesRequestBuilder extends RequestBuilder<Warehou
    * @param absEntry Key property. See [[WarehouseSublevelCodes.absEntry]].
    * @returns A request builder for creating requests that delete an entity of type `WarehouseSublevelCodes`.
    */
-  delete(absEntry: number): DeleteRequestBuilder<WarehouseSublevelCodes>;
+  delete(absEntry: number): DeleteRequestBuilderV4<WarehouseSublevelCodes>;
   /**
    * Returns a request builder for deleting an entity of type `WarehouseSublevelCodes`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `WarehouseSublevelCodes` by taking the entity as a parameter.
    */
-  delete(entity: WarehouseSublevelCodes): DeleteRequestBuilder<WarehouseSublevelCodes>;
-  delete(absEntryOrEntity: any): DeleteRequestBuilder<WarehouseSublevelCodes> {
-    return new DeleteRequestBuilder(WarehouseSublevelCodes, absEntryOrEntity instanceof WarehouseSublevelCodes ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
+  delete(entity: WarehouseSublevelCodes): DeleteRequestBuilderV4<WarehouseSublevelCodes>;
+  delete(absEntryOrEntity: any): DeleteRequestBuilderV4<WarehouseSublevelCodes> {
+    return new DeleteRequestBuilderV4(WarehouseSublevelCodes, absEntryOrEntity instanceof WarehouseSublevelCodes ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
   }
 }

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { BoePortfolios } from './BoePortfolios';
 
 /**
@@ -15,16 +15,16 @@ export class BoePortfoliosRequestBuilder extends RequestBuilder<BoePortfolios> {
    * @param portfolioEntry Key property. See [[BoePortfolios.portfolioEntry]].
    * @returns A request builder for creating requests to retrieve one `BoePortfolios` entity based on its keys.
    */
-  getByKey(portfolioEntry: number): GetByKeyRequestBuilder<BoePortfolios> {
-    return new GetByKeyRequestBuilder(BoePortfolios, { PortfolioEntry: portfolioEntry });
+  getByKey(portfolioEntry: number): GetByKeyRequestBuilderV4<BoePortfolios> {
+    return new GetByKeyRequestBuilderV4(BoePortfolios, { PortfolioEntry: portfolioEntry });
   }
 
   /**
    * Returns a request builder for querying all `BoePortfolios` entities.
    * @returns A request builder for creating requests to retrieve all `BoePortfolios` entities.
    */
-  getAll(): GetAllRequestBuilder<BoePortfolios> {
-    return new GetAllRequestBuilder(BoePortfolios);
+  getAll(): GetAllRequestBuilderV4<BoePortfolios> {
+    return new GetAllRequestBuilderV4(BoePortfolios);
   }
 
   /**
@@ -32,8 +32,8 @@ export class BoePortfoliosRequestBuilder extends RequestBuilder<BoePortfolios> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `BoePortfolios`.
    */
-  create(entity: BoePortfolios): CreateRequestBuilder<BoePortfolios> {
-    return new CreateRequestBuilder(BoePortfolios, entity);
+  create(entity: BoePortfolios): CreateRequestBuilderV4<BoePortfolios> {
+    return new CreateRequestBuilderV4(BoePortfolios, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class BoePortfoliosRequestBuilder extends RequestBuilder<BoePortfolios> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `BoePortfolios`.
    */
-  update(entity: BoePortfolios): UpdateRequestBuilder<BoePortfolios> {
-    return new UpdateRequestBuilder(BoePortfolios, entity);
+  update(entity: BoePortfolios): UpdateRequestBuilderV4<BoePortfolios> {
+    return new UpdateRequestBuilderV4(BoePortfolios, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class BoePortfoliosRequestBuilder extends RequestBuilder<BoePortfolios> {
    * @param portfolioEntry Key property. See [[BoePortfolios.portfolioEntry]].
    * @returns A request builder for creating requests that delete an entity of type `BoePortfolios`.
    */
-  delete(portfolioEntry: number): DeleteRequestBuilder<BoePortfolios>;
+  delete(portfolioEntry: number): DeleteRequestBuilderV4<BoePortfolios>;
   /**
    * Returns a request builder for deleting an entity of type `BoePortfolios`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `BoePortfolios` by taking the entity as a parameter.
    */
-  delete(entity: BoePortfolios): DeleteRequestBuilder<BoePortfolios>;
-  delete(portfolioEntryOrEntity: any): DeleteRequestBuilder<BoePortfolios> {
-    return new DeleteRequestBuilder(BoePortfolios, portfolioEntryOrEntity instanceof BoePortfolios ? portfolioEntryOrEntity : { PortfolioEntry: portfolioEntryOrEntity! });
+  delete(entity: BoePortfolios): DeleteRequestBuilderV4<BoePortfolios>;
+  delete(portfolioEntryOrEntity: any): DeleteRequestBuilderV4<BoePortfolios> {
+    return new DeleteRequestBuilderV4(BoePortfolios, portfolioEntryOrEntity instanceof BoePortfolios ? portfolioEntryOrEntity : { PortfolioEntry: portfolioEntryOrEntity! });
   }
 }

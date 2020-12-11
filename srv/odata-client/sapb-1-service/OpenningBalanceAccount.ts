@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * OpenningBalanceAccount
@@ -53,7 +53,7 @@ export function createOpenningBalanceAccount(json: any): OpenningBalanceAccount 
  * OpenningBalanceAccountField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class OpenningBalanceAccountField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class OpenningBalanceAccountField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, OpenningBalanceAccount> {
   /**
    * Representation of the [[OpenningBalanceAccount.openBalanceAccount]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -84,17 +84,58 @@ export class OpenningBalanceAccountField<EntityT extends Entity> extends Complex
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   bplid: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('BPLID', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of OpenningBalanceAccountField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, OpenningBalanceAccount);
+  }
 }
 
 export namespace OpenningBalanceAccount {
+  /**
+   * Metadata information on all properties of the `OpenningBalanceAccount` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<OpenningBalanceAccount>[] = [{
+    originalName: 'OpenBalanceAccount',
+    name: 'openBalanceAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Date',
+    name: 'date',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Ref1',
+    name: 'ref1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Ref2',
+    name: 'ref2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Details',
+    name: 'details',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPLID',
+    name: 'bplid',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): OpenningBalanceAccount {
-    return createComplexType(json, {
-      OpenBalanceAccount: (openBalanceAccount: string) => ({ openBalanceAccount: edmToTs(openBalanceAccount, 'Edm.String') }),
-      Date: (date: Moment) => ({ date: edmToTs(date, 'Edm.DateTimeOffset') }),
-      Ref1: (ref1: string) => ({ ref1: edmToTs(ref1, 'Edm.String') }),
-      Ref2: (ref2: string) => ({ ref2: edmToTs(ref2, 'Edm.String') }),
-      Details: (details: string) => ({ details: edmToTs(details, 'Edm.String') }),
-      BPLID: (bplid: number) => ({ bplid: edmToTs(bplid, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, OpenningBalanceAccount);
   }
 }

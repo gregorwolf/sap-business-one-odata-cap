@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { B1SessionsRequestBuilder } from './B1SessionsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "B1Sessions" of service "SAPB1".
  */
-export class B1Sessions extends Entity implements B1SessionsType {
+export class B1Sessions extends EntityV4 implements B1SessionsType {
   /**
    * Technical entity name for B1Sessions.
    */
   static _entityName = 'B1Sessions';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for B1Sessions.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Version.
    * @nullable
@@ -40,11 +35,11 @@ export class B1Sessions extends Entity implements B1SessionsType {
   sessionId?: string;
 
   /**
-   * Returns an entity builder to construct instances `B1Sessions`.
+   * Returns an entity builder to construct instances of `B1Sessions`.
    * @returns A builder that constructs instances of entity type `B1Sessions`.
    */
-  static builder(): EntityBuilderType<B1Sessions, B1SessionsTypeForceMandatory> {
-    return Entity.entityBuilder(B1Sessions);
+  static builder(): EntityBuilderType<B1Sessions, B1SessionsType> {
+    return EntityV4.entityBuilder(B1Sessions);
   }
 
   /**
@@ -60,8 +55,8 @@ export class B1Sessions extends Entity implements B1SessionsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `B1Sessions`.
    */
-  static customField(fieldName: string): CustomField<B1Sessions> {
-    return Entity.customFieldSelector(fieldName, B1Sessions);
+  static customField(fieldName: string): CustomFieldV4<B1Sessions> {
+    return EntityV4.customFieldSelector(fieldName, B1Sessions);
   }
 
   /**
@@ -74,15 +69,9 @@ export class B1Sessions extends Entity implements B1SessionsType {
 }
 
 export interface B1SessionsType {
-  version?: string;
-  sessionTimeout?: number;
-  sessionId?: string;
-}
-
-export interface B1SessionsTypeForceMandatory {
-  version: string;
-  sessionTimeout: number;
-  sessionId: string;
+  version?: string | null;
+  sessionTimeout?: number | null;
+  sessionId?: string | null;
 }
 
 export namespace B1Sessions {

@@ -1,5 +1,12 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ResourceCapacityTypeEnum } from './ResourceCapacityTypeEnum';
+import { ResourceCapacitySourceTypeEnum } from './ResourceCapacitySourceTypeEnum';
+import { ResourceCapacityBaseTypeEnum } from './ResourceCapacityBaseTypeEnum';
+import { ResourceCapacityActionEnum } from './ResourceCapacityActionEnum';
+import { ResourceCapacityOwningTypeEnum } from './ResourceCapacityOwningTypeEnum';
+import { ResourceCapacityRevertedTypeEnum } from './ResourceCapacityRevertedTypeEnum';
+import { ResourceCapacityMemoSourceEnum } from './ResourceCapacityMemoSourceEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * ResourceCapacityParams
  */
@@ -25,10 +32,20 @@ export interface ResourceCapacityParams {
      */
     date?: Moment;
     /**
+     * Type.
+     * @nullable
+     */
+    type?: ResourceCapacityTypeEnum;
+    /**
      * Capacity.
      * @nullable
      */
     capacity?: number;
+    /**
+     * Source Type.
+     * @nullable
+     */
+    sourceType?: ResourceCapacitySourceTypeEnum;
     /**
      * Source Entry.
      * @nullable
@@ -40,6 +57,11 @@ export interface ResourceCapacityParams {
      */
     sourceLineNum?: number;
     /**
+     * Base Type.
+     * @nullable
+     */
+    baseType?: ResourceCapacityBaseTypeEnum;
+    /**
      * Base Entry.
      * @nullable
      */
@@ -49,6 +71,16 @@ export interface ResourceCapacityParams {
      * @nullable
      */
     baseLineNum?: number;
+    /**
+     * Action.
+     * @nullable
+     */
+    action?: ResourceCapacityActionEnum;
+    /**
+     * Owning Type.
+     * @nullable
+     */
+    owningType?: ResourceCapacityOwningTypeEnum;
     /**
      * Owning Entry.
      * @nullable
@@ -60,6 +92,11 @@ export interface ResourceCapacityParams {
      */
     owningLineNum?: number;
     /**
+     * Reverted Type.
+     * @nullable
+     */
+    revertedType?: ResourceCapacityRevertedTypeEnum;
+    /**
      * Reverted Entry.
      * @nullable
      */
@@ -70,6 +107,11 @@ export interface ResourceCapacityParams {
      */
     revertedLineNum?: number;
     /**
+     * Memo Source.
+     * @nullable
+     */
+    memoSource?: ResourceCapacityMemoSourceEnum;
+    /**
      * Memo.
      * @nullable
      */
@@ -79,6 +121,11 @@ export interface ResourceCapacityParams {
      * @nullable
      */
     singleRunCapacity?: number;
+    /**
+     * Single Run Memo Source.
+     * @nullable
+     */
+    singleRunMemoSource?: ResourceCapacityMemoSourceEnum;
     /**
      * Single Run Memo.
      * @nullable
@@ -93,7 +140,7 @@ export declare function createResourceCapacityParams(json: any): ResourceCapacit
  * ResourceCapacityParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class ResourceCapacityParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class ResourceCapacityParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ResourceCapacityParams> {
     /**
      * Representation of the [[ResourceCapacityParams.id]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -115,10 +162,20 @@ export declare class ResourceCapacityParamsField<EntityT extends Entity> extends
      */
     date: ComplexTypeDatePropertyField<EntityT>;
     /**
+     * Representation of the [[ResourceCapacityParams.type]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    type: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ResourceCapacityParams.capacity]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     capacity: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[ResourceCapacityParams.sourceType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    sourceType: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[ResourceCapacityParams.sourceEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -130,6 +187,11 @@ export declare class ResourceCapacityParamsField<EntityT extends Entity> extends
      */
     sourceLineNum: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[ResourceCapacityParams.baseType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    baseType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ResourceCapacityParams.baseEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -139,6 +201,16 @@ export declare class ResourceCapacityParamsField<EntityT extends Entity> extends
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     baseLineNum: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[ResourceCapacityParams.action]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    action: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ResourceCapacityParams.owningType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    owningType: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[ResourceCapacityParams.owningEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -150,6 +222,11 @@ export declare class ResourceCapacityParamsField<EntityT extends Entity> extends
      */
     owningLineNum: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[ResourceCapacityParams.revertedType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    revertedType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ResourceCapacityParams.revertedEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -159,6 +236,11 @@ export declare class ResourceCapacityParamsField<EntityT extends Entity> extends
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     revertedLineNum: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[ResourceCapacityParams.memoSource]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    memoSource: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[ResourceCapacityParams.memo]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -170,12 +252,31 @@ export declare class ResourceCapacityParamsField<EntityT extends Entity> extends
      */
     singleRunCapacity: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[ResourceCapacityParams.singleRunMemoSource]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    singleRunMemoSource: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ResourceCapacityParams.singleRunMemo]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     singleRunMemo: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Creates an instance of ResourceCapacityParamsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace ResourceCapacityParams {
+    /**
+     * Metadata information on all properties of the `ResourceCapacityParams` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<ResourceCapacityParams>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): ResourceCapacityParams;

@@ -1,18 +1,14 @@
 import { RetornoCodesRequestBuilder } from './RetornoCodesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoBoeStatus } from './BoBoeStatus';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "RetornoCodes" of service "SAPB1".
  */
-export declare class RetornoCodes extends Entity implements RetornoCodesType {
+export declare class RetornoCodes extends EntityV4 implements RetornoCodesType {
     /**
      * Technical entity name for RetornoCodes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for RetornoCodes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -32,6 +28,11 @@ export declare class RetornoCodes extends Entity implements RetornoCodesType {
      * @nullable
      */
     movementCode?: number;
+    /**
+     * Boe Status.
+     * @nullable
+     */
+    boeStatus?: BoBoeStatus;
     /**
      * Description.
      * @nullable
@@ -53,10 +54,10 @@ export declare class RetornoCodes extends Entity implements RetornoCodesType {
      */
     bankCode?: string;
     /**
-     * Returns an entity builder to construct instances `RetornoCodes`.
+     * Returns an entity builder to construct instances of `RetornoCodes`.
      * @returns A builder that constructs instances of entity type `RetornoCodes`.
      */
-    static builder(): EntityBuilderType<RetornoCodes, RetornoCodesTypeForceMandatory>;
+    static builder(): EntityBuilderType<RetornoCodes, RetornoCodesType>;
     /**
      * Returns a request builder to construct requests for operations on the `RetornoCodes` entity type.
      * @returns A `RetornoCodes` request builder.
@@ -67,7 +68,7 @@ export declare class RetornoCodes extends Entity implements RetornoCodesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `RetornoCodes`.
      */
-    static customField(fieldName: string): CustomField<RetornoCodes>;
+    static customField(fieldName: string): CustomFieldV4<RetornoCodes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -77,22 +78,14 @@ export declare class RetornoCodes extends Entity implements RetornoCodesType {
     };
 }
 export interface RetornoCodesType {
-    absEntry?: number;
-    occurenceCode?: number;
-    movementCode?: number;
-    description?: string;
-    color?: number;
-    fileFormat?: string;
-    bankCode?: string;
-}
-export interface RetornoCodesTypeForceMandatory {
-    absEntry: number;
-    occurenceCode: number;
-    movementCode: number;
-    description: string;
-    color: number;
-    fileFormat: string;
-    bankCode: string;
+    absEntry?: number | null;
+    occurenceCode?: number | null;
+    movementCode?: number | null;
+    boeStatus?: BoBoeStatus | null;
+    description?: string | null;
+    color?: number | null;
+    fileFormat?: string | null;
+    bankCode?: string | null;
 }
 export declare namespace RetornoCodes {
     /**
@@ -110,6 +103,11 @@ export declare namespace RetornoCodes {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const MOVEMENT_CODE: NumberField<RetornoCodes>;
+    /**
+     * Static representation of the [[boeStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BOE_STATUS: EnumField<RetornoCodes>;
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -133,7 +131,7 @@ export declare namespace RetornoCodes {
     /**
      * All fields of the RetornoCodes entity.
      */
-    const _allFields: Array<NumberField<RetornoCodes> | StringField<RetornoCodes>>;
+    const _allFields: Array<NumberField<RetornoCodes> | EnumField<RetornoCodes> | StringField<RetornoCodes>>;
     /**
      * All fields selector.
      */

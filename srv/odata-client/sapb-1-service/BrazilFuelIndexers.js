@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.BrazilFuelIndexers = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var BrazilFuelIndexersRequestBuilder_1 = require("./BrazilFuelIndexersRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "BrazilFuelIndexers" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var BrazilFuelIndexers = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `BrazilFuelIndexers`.
+     * Returns an entity builder to construct instances of `BrazilFuelIndexers`.
      * @returns A builder that constructs instances of entity type `BrazilFuelIndexers`.
      */
     BrazilFuelIndexers.builder = function () {
-        return v4_1.Entity.entityBuilder(BrazilFuelIndexers);
+        return core_1.EntityV4.entityBuilder(BrazilFuelIndexers);
     };
     /**
      * Returns a request builder to construct requests for operations on the `BrazilFuelIndexers` entity type.
@@ -60,7 +60,7 @@ var BrazilFuelIndexers = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `BrazilFuelIndexers`.
      */
     BrazilFuelIndexers.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, BrazilFuelIndexers);
+        return core_1.EntityV4.customFieldSelector(fieldName, BrazilFuelIndexers);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var BrazilFuelIndexers = /** @class */ (function (_super) {
      */
     BrazilFuelIndexers._entityName = 'BrazilFuelIndexers';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BrazilFuelIndexers.
-     */
-    BrazilFuelIndexers._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    BrazilFuelIndexers._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    BrazilFuelIndexers._defaultServicePath = '/b1s/v2/';
     return BrazilFuelIndexers;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.BrazilFuelIndexers = BrazilFuelIndexers;
 var Items_1 = require("./Items");
 (function (BrazilFuelIndexers) {
@@ -91,27 +86,27 @@ var Items_1 = require("./Items");
      * Static representation of the [[fuelId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BrazilFuelIndexers.FUEL_ID = new v4_1.NumberField('FuelID', BrazilFuelIndexers, 'Edm.Int32');
+    BrazilFuelIndexers.FUEL_ID = new core_1.NumberField('FuelID', BrazilFuelIndexers, 'Edm.Int32');
     /**
      * Static representation of the [[fuelGroupCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BrazilFuelIndexers.FUEL_GROUP_CODE = new v4_1.NumberField('FuelGroupCode', BrazilFuelIndexers, 'Edm.Int32');
+    BrazilFuelIndexers.FUEL_GROUP_CODE = new core_1.NumberField('FuelGroupCode', BrazilFuelIndexers, 'Edm.Int32');
     /**
      * Static representation of the [[fuelCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BrazilFuelIndexers.FUEL_CODE = new v4_1.StringField('FuelCode', BrazilFuelIndexers, 'Edm.String');
+    BrazilFuelIndexers.FUEL_CODE = new core_1.StringField('FuelCode', BrazilFuelIndexers, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BrazilFuelIndexers.DESCRIPTION = new v4_1.StringField('Description', BrazilFuelIndexers, 'Edm.String');
+    BrazilFuelIndexers.DESCRIPTION = new core_1.StringField('Description', BrazilFuelIndexers, 'Edm.String');
     /**
      * Static representation of the one-to-many navigation property [[items]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BrazilFuelIndexers.ITEMS = new v4_1.OneToManyLink('Items', BrazilFuelIndexers, Items_1.Items);
+    BrazilFuelIndexers.ITEMS = new core_1.OneToManyLink('Items', BrazilFuelIndexers, Items_1.Items);
     /**
      * All fields of the BrazilFuelIndexers entity.
      */
@@ -125,7 +120,7 @@ var Items_1 = require("./Items");
     /**
      * All fields selector.
      */
-    BrazilFuelIndexers.ALL_FIELDS = new v4_1.AllFields('*', BrazilFuelIndexers);
+    BrazilFuelIndexers.ALL_FIELDS = new core_1.AllFields('*', BrazilFuelIndexers);
     /**
      * All key fields of the BrazilFuelIndexers entity.
      */

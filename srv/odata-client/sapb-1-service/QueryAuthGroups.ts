@@ -4,26 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { QueryAuthGroupsRequestBuilder } from './QueryAuthGroupsRequestBuilder';
-import { CategoryGroup, CategoryGroupField } from './CategoryGroup';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { CategoryGroup } from './CategoryGroup';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "QueryAuthGroups" of service "SAPB1".
  */
-export class QueryAuthGroups extends Entity implements QueryAuthGroupsType {
+export class QueryAuthGroups extends EntityV4 implements QueryAuthGroupsType {
   /**
    * Technical entity name for QueryAuthGroups.
    */
   static _entityName = 'QueryAuthGroups';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for QueryAuthGroups.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Auth Group Code.
    * @nullable
@@ -46,11 +41,11 @@ export class QueryAuthGroups extends Entity implements QueryAuthGroupsType {
   categoryGroupCollection?: CategoryGroup[];
 
   /**
-   * Returns an entity builder to construct instances `QueryAuthGroups`.
+   * Returns an entity builder to construct instances of `QueryAuthGroups`.
    * @returns A builder that constructs instances of entity type `QueryAuthGroups`.
    */
-  static builder(): EntityBuilderType<QueryAuthGroups, QueryAuthGroupsTypeForceMandatory> {
-    return Entity.entityBuilder(QueryAuthGroups);
+  static builder(): EntityBuilderType<QueryAuthGroups, QueryAuthGroupsType> {
+    return EntityV4.entityBuilder(QueryAuthGroups);
   }
 
   /**
@@ -66,8 +61,8 @@ export class QueryAuthGroups extends Entity implements QueryAuthGroupsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `QueryAuthGroups`.
    */
-  static customField(fieldName: string): CustomField<QueryAuthGroups> {
-    return Entity.customFieldSelector(fieldName, QueryAuthGroups);
+  static customField(fieldName: string): CustomFieldV4<QueryAuthGroups> {
+    return EntityV4.customFieldSelector(fieldName, QueryAuthGroups);
   }
 
   /**
@@ -80,17 +75,10 @@ export class QueryAuthGroups extends Entity implements QueryAuthGroupsType {
 }
 
 export interface QueryAuthGroupsType {
-  authGroupCode?: string;
-  authGroupDes?: string;
-  authGroupId?: number;
-  categoryGroupCollection?: CategoryGroup[];
-}
-
-export interface QueryAuthGroupsTypeForceMandatory {
-  authGroupCode: string;
-  authGroupDes: string;
-  authGroupId: number;
-  categoryGroupCollection: CategoryGroup[];
+  authGroupCode?: string | null;
+  authGroupDes?: string | null;
+  authGroupId?: number | null;
+  categoryGroupCollection?: CategoryGroup[] | null;
 }
 
 export namespace QueryAuthGroups {
@@ -113,11 +101,11 @@ export namespace QueryAuthGroups {
    * Static representation of the [[categoryGroupCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const CATEGORY_GROUP_COLLECTION: CollectionField<QueryAuthGroups> = new CollectionField('CategoryGroupCollection', QueryAuthGroups, new CategoryGroupField('', QueryAuthGroups));
+  export const CATEGORY_GROUP_COLLECTION: CollectionField<QueryAuthGroups, CategoryGroup> = new CollectionField('CategoryGroupCollection', QueryAuthGroups, CategoryGroup);
   /**
    * All fields of the QueryAuthGroups entity.
    */
-  export const _allFields: Array<StringField<QueryAuthGroups> | NumberField<QueryAuthGroups> | CollectionField<QueryAuthGroups>> = [
+  export const _allFields: Array<StringField<QueryAuthGroups> | NumberField<QueryAuthGroups> | CollectionField<QueryAuthGroups, CategoryGroup>> = [
     QueryAuthGroups.AUTH_GROUP_CODE,
     QueryAuthGroups.AUTH_GROUP_DES,
     QueryAuthGroups.AUTH_GROUP_ID,

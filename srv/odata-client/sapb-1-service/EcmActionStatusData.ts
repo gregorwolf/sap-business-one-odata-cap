@@ -4,7 +4,8 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { EcmActionStatusEnum } from './EcmActionStatusEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * EcmActionStatusData
@@ -15,6 +16,11 @@ export interface EcmActionStatusData {
    * @nullable
    */
   absEntry?: number;
+  /**
+   * Act Status.
+   * @nullable
+   */
+  actStatus?: EcmActionStatusEnum;
   /**
    * Report Id.
    * @nullable
@@ -43,12 +49,17 @@ export function createEcmActionStatusData(json: any): EcmActionStatusData {
  * EcmActionStatusDataField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class EcmActionStatusDataField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class EcmActionStatusDataField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, EcmActionStatusData> {
   /**
    * Representation of the [[EcmActionStatusData.absEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   absEntry: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('AbsEntry', this, 'Edm.Int32');
+  /**
+   * Representation of the [[EcmActionStatusData.actStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  actStatus: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ActStatus', this);
   /**
    * Representation of the [[EcmActionStatusData.reportId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -64,15 +75,53 @@ export class EcmActionStatusDataField<EntityT extends Entity> extends ComplexTyp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   actMessage: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('ActMessage', this, 'Edm.String');
+
+  /**
+   * Creates an instance of EcmActionStatusDataField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, EcmActionStatusData);
+  }
 }
 
 export namespace EcmActionStatusData {
+  /**
+   * Metadata information on all properties of the `EcmActionStatusData` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<EcmActionStatusData>[] = [{
+    originalName: 'AbsEntry',
+    name: 'absEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ActStatus',
+    name: 'actStatus',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ReportID',
+    name: 'reportId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ReceivDate',
+    name: 'receivDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ActMessage',
+    name: 'actMessage',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): EcmActionStatusData {
-    return createComplexType(json, {
-      AbsEntry: (absEntry: number) => ({ absEntry: edmToTs(absEntry, 'Edm.Int32') }),
-      ReportID: (reportId: string) => ({ reportId: edmToTs(reportId, 'Edm.String') }),
-      ReceivDate: (receivDate: Moment) => ({ receivDate: edmToTs(receivDate, 'Edm.DateTimeOffset') }),
-      ActMessage: (actMessage: string) => ({ actMessage: edmToTs(actMessage, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, EcmActionStatusData);
   }
 }

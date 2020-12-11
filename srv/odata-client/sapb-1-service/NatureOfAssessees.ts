@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { NatureOfAssesseesRequestBuilder } from './NatureOfAssesseesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AssesseeTypeEnum } from './AssesseeTypeEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "NatureOfAssessees" of service "SAPB1".
  */
-export class NatureOfAssessees extends Entity implements NatureOfAssesseesType {
+export class NatureOfAssessees extends EntityV4 implements NatureOfAssesseesType {
   /**
    * Technical entity name for NatureOfAssessees.
    */
   static _entityName = 'NatureOfAssessees';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for NatureOfAssessees.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Abs Entry.
    * @nullable
@@ -39,16 +35,21 @@ export class NatureOfAssessees extends Entity implements NatureOfAssesseesType {
    */
   description?: string;
   /**
+   * Assessee Type.
+   * @nullable
+   */
+  assesseeType?: AssesseeTypeEnum;
+  /**
    * One-to-many navigation property to the [[WithholdingTaxCodes]] entity.
    */
   withholdingTaxCodes!: WithholdingTaxCodes[];
 
   /**
-   * Returns an entity builder to construct instances `NatureOfAssessees`.
+   * Returns an entity builder to construct instances of `NatureOfAssessees`.
    * @returns A builder that constructs instances of entity type `NatureOfAssessees`.
    */
-  static builder(): EntityBuilderType<NatureOfAssessees, NatureOfAssesseesTypeForceMandatory> {
-    return Entity.entityBuilder(NatureOfAssessees);
+  static builder(): EntityBuilderType<NatureOfAssessees, NatureOfAssesseesType> {
+    return EntityV4.entityBuilder(NatureOfAssessees);
   }
 
   /**
@@ -64,8 +65,8 @@ export class NatureOfAssessees extends Entity implements NatureOfAssesseesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `NatureOfAssessees`.
    */
-  static customField(fieldName: string): CustomField<NatureOfAssessees> {
-    return Entity.customFieldSelector(fieldName, NatureOfAssessees);
+  static customField(fieldName: string): CustomFieldV4<NatureOfAssessees> {
+    return EntityV4.customFieldSelector(fieldName, NatureOfAssessees);
   }
 
   /**
@@ -80,16 +81,10 @@ export class NatureOfAssessees extends Entity implements NatureOfAssesseesType {
 import { WithholdingTaxCodes, WithholdingTaxCodesType } from './WithholdingTaxCodes';
 
 export interface NatureOfAssesseesType {
-  absEntry?: number;
-  code?: string;
-  description?: string;
-  withholdingTaxCodes: WithholdingTaxCodesType[];
-}
-
-export interface NatureOfAssesseesTypeForceMandatory {
-  absEntry: number;
-  code: string;
-  description: string;
+  absEntry?: number | null;
+  code?: string | null;
+  description?: string | null;
+  assesseeType?: AssesseeTypeEnum | null;
   withholdingTaxCodes: WithholdingTaxCodesType[];
 }
 
@@ -110,6 +105,11 @@ export namespace NatureOfAssessees {
    */
   export const DESCRIPTION: StringField<NatureOfAssessees> = new StringField('Description', NatureOfAssessees, 'Edm.String');
   /**
+   * Static representation of the [[assesseeType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ASSESSEE_TYPE: EnumField<NatureOfAssessees> = new EnumField('AssesseeType', NatureOfAssessees);
+  /**
    * Static representation of the one-to-many navigation property [[withholdingTaxCodes]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -117,10 +117,11 @@ export namespace NatureOfAssessees {
   /**
    * All fields of the NatureOfAssessees entity.
    */
-  export const _allFields: Array<NumberField<NatureOfAssessees> | StringField<NatureOfAssessees> | OneToManyLink<NatureOfAssessees, WithholdingTaxCodes>> = [
+  export const _allFields: Array<NumberField<NatureOfAssessees> | StringField<NatureOfAssessees> | EnumField<NatureOfAssessees> | OneToManyLink<NatureOfAssessees, WithholdingTaxCodes>> = [
     NatureOfAssessees.ABS_ENTRY,
     NatureOfAssessees.CODE,
     NatureOfAssessees.DESCRIPTION,
+    NatureOfAssessees.ASSESSEE_TYPE,
     NatureOfAssessees.WITHHOLDING_TAX_CODES
   ];
   /**

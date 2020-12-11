@@ -5,28 +5,27 @@
  */
 import { DepositsRequestBuilder } from './DepositsRequestBuilder';
 import { Moment } from 'moment';
-import { CheckLine, CheckLineField } from './CheckLine';
-import { CreditLine, CreditLineField } from './CreditLine';
-import { BoeLine, BoeLineField } from './BoeLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { CheckLine } from './CheckLine';
+import { CreditLine } from './CreditLine';
+import { BoeLine } from './BoeLine';
+import { BoDepositTypeEnum } from './BoDepositTypeEnum';
+import { BoDepositAccountTypeEnum } from './BoDepositAccountTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoCheckDepositTypeEnum } from './BoCheckDepositTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "Deposits" of service "SAPB1".
  */
-export class Deposits extends Entity implements DepositsType {
+export class Deposits extends EntityV4 implements DepositsType {
   /**
    * Technical entity name for Deposits.
    */
   static _entityName = 'Deposits';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for Deposits.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Deposit Number.
    * @nullable
@@ -37,6 +36,11 @@ export class Deposits extends Entity implements DepositsType {
    * @nullable
    */
   absEntry?: number;
+  /**
+   * Deposit Type.
+   * @nullable
+   */
+  depositType?: BoDepositTypeEnum;
   /**
    * Deposit Date.
    * @nullable
@@ -138,6 +142,16 @@ export class Deposits extends Entity implements DepositsType {
    */
   taxCode?: string;
   /**
+   * Deposit Account Type.
+   * @nullable
+   */
+  depositAccountType?: BoDepositAccountTypeEnum;
+  /**
+   * Reconcile After Deposit.
+   * @nullable
+   */
+  reconcileAfterDeposit?: BoYesNoEnum;
+  /**
    * Voucher Account.
    * @nullable
    */
@@ -208,6 +222,11 @@ export class Deposits extends Entity implements DepositsType {
    */
   bplid?: number;
   /**
+   * Check Deposit Type.
+   * @nullable
+   */
+  checkDepositType?: BoCheckDepositTypeEnum;
+  /**
    * Check Lines.
    * @nullable
    */
@@ -240,11 +259,11 @@ export class Deposits extends Entity implements DepositsType {
   businessPlace!: BusinessPlaces;
 
   /**
-   * Returns an entity builder to construct instances `Deposits`.
+   * Returns an entity builder to construct instances of `Deposits`.
    * @returns A builder that constructs instances of entity type `Deposits`.
    */
-  static builder(): EntityBuilderType<Deposits, DepositsTypeForceMandatory> {
-    return Entity.entityBuilder(Deposits);
+  static builder(): EntityBuilderType<Deposits, DepositsType> {
+    return EntityV4.entityBuilder(Deposits);
   }
 
   /**
@@ -260,8 +279,8 @@ export class Deposits extends Entity implements DepositsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `Deposits`.
    */
-  static customField(fieldName: string): CustomField<Deposits> {
-    return Entity.customFieldSelector(fieldName, Deposits);
+  static customField(fieldName: string): CustomFieldV4<Deposits> {
+    return EntityV4.customFieldSelector(fieldName, Deposits);
   }
 
   /**
@@ -279,91 +298,49 @@ import { DistributionRules, DistributionRulesType } from './DistributionRules';
 import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 
 export interface DepositsType {
-  depositNumber?: number;
-  absEntry?: number;
-  depositDate?: Moment;
-  depositCurrency?: string;
-  depositAccount?: string;
-  depositorName?: string;
-  bank?: string;
-  bankAccountNum?: string;
-  bankBranch?: string;
-  bankReference?: string;
-  journalRemarks?: string;
-  totalLc?: number;
-  totalFc?: number;
-  totalSc?: number;
-  allocationAccount?: string;
-  docRate?: number;
-  taxAccount?: string;
-  taxAmount?: number;
-  commissionAccount?: string;
-  commission?: number;
-  commissionDate?: Moment;
-  taxCode?: string;
-  voucherAccount?: string;
-  series?: number;
-  project?: string;
-  distributionRule?: string;
-  distributionRule2?: string;
-  distributionRule3?: string;
-  distributionRule4?: string;
-  distributionRule5?: string;
-  commissionCurrency?: string;
-  commissionSc?: number;
-  commissionFc?: number;
-  taxAmountSc?: number;
-  taxAmountFc?: number;
-  bplid?: number;
-  checkLines?: CheckLine[];
-  creditLines?: CreditLine[];
-  boeLines?: BoeLine[];
-  vatGroup: VatGroupsType;
-  project2: ProjectsType;
-  distributionRule6: DistributionRulesType;
-  businessPlace: BusinessPlacesType;
-}
-
-export interface DepositsTypeForceMandatory {
-  depositNumber: number;
-  absEntry: number;
-  depositDate: Moment;
-  depositCurrency: string;
-  depositAccount: string;
-  depositorName: string;
-  bank: string;
-  bankAccountNum: string;
-  bankBranch: string;
-  bankReference: string;
-  journalRemarks: string;
-  totalLc: number;
-  totalFc: number;
-  totalSc: number;
-  allocationAccount: string;
-  docRate: number;
-  taxAccount: string;
-  taxAmount: number;
-  commissionAccount: string;
-  commission: number;
-  commissionDate: Moment;
-  taxCode: string;
-  voucherAccount: string;
-  series: number;
-  project: string;
-  distributionRule: string;
-  distributionRule2: string;
-  distributionRule3: string;
-  distributionRule4: string;
-  distributionRule5: string;
-  commissionCurrency: string;
-  commissionSc: number;
-  commissionFc: number;
-  taxAmountSc: number;
-  taxAmountFc: number;
-  bplid: number;
-  checkLines: CheckLine[];
-  creditLines: CreditLine[];
-  boeLines: BoeLine[];
+  depositNumber?: number | null;
+  absEntry?: number | null;
+  depositType?: BoDepositTypeEnum | null;
+  depositDate?: Moment | null;
+  depositCurrency?: string | null;
+  depositAccount?: string | null;
+  depositorName?: string | null;
+  bank?: string | null;
+  bankAccountNum?: string | null;
+  bankBranch?: string | null;
+  bankReference?: string | null;
+  journalRemarks?: string | null;
+  totalLc?: number | null;
+  totalFc?: number | null;
+  totalSc?: number | null;
+  allocationAccount?: string | null;
+  docRate?: number | null;
+  taxAccount?: string | null;
+  taxAmount?: number | null;
+  commissionAccount?: string | null;
+  commission?: number | null;
+  commissionDate?: Moment | null;
+  taxCode?: string | null;
+  depositAccountType?: BoDepositAccountTypeEnum | null;
+  reconcileAfterDeposit?: BoYesNoEnum | null;
+  voucherAccount?: string | null;
+  series?: number | null;
+  project?: string | null;
+  distributionRule?: string | null;
+  distributionRule2?: string | null;
+  distributionRule3?: string | null;
+  distributionRule4?: string | null;
+  distributionRule5?: string | null;
+  commissionCurrency?: string | null;
+  commissionSc?: number | null;
+  commissionFc?: number | null;
+  taxAmountSc?: number | null;
+  taxAmountFc?: number | null;
+  bplid?: number | null;
+  checkDepositType?: BoCheckDepositTypeEnum | null;
+  checkLines?: CheckLine[] | null;
+  creditLines?: CreditLine[] | null;
+  boeLines?: BoeLine[] | null;
   vatGroup: VatGroupsType;
   project2: ProjectsType;
   distributionRule6: DistributionRulesType;
@@ -381,6 +358,11 @@ export namespace Deposits {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const ABS_ENTRY: NumberField<Deposits> = new NumberField('AbsEntry', Deposits, 'Edm.Int32');
+  /**
+   * Static representation of the [[depositType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DEPOSIT_TYPE: EnumField<Deposits> = new EnumField('DepositType', Deposits);
   /**
    * Static representation of the [[depositDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -482,6 +464,16 @@ export namespace Deposits {
    */
   export const TAX_CODE: StringField<Deposits> = new StringField('TaxCode', Deposits, 'Edm.String');
   /**
+   * Static representation of the [[depositAccountType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DEPOSIT_ACCOUNT_TYPE: EnumField<Deposits> = new EnumField('DepositAccountType', Deposits);
+  /**
+   * Static representation of the [[reconcileAfterDeposit]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RECONCILE_AFTER_DEPOSIT: EnumField<Deposits> = new EnumField('ReconcileAfterDeposit', Deposits);
+  /**
    * Static representation of the [[voucherAccount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -552,20 +544,25 @@ export namespace Deposits {
    */
   export const BPLID: NumberField<Deposits> = new NumberField('BPLID', Deposits, 'Edm.Int32');
   /**
+   * Static representation of the [[checkDepositType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CHECK_DEPOSIT_TYPE: EnumField<Deposits> = new EnumField('CheckDepositType', Deposits);
+  /**
    * Static representation of the [[checkLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const CHECK_LINES: CollectionField<Deposits> = new CollectionField('CheckLines', Deposits, new CheckLineField('', Deposits));
+  export const CHECK_LINES: CollectionField<Deposits, CheckLine> = new CollectionField('CheckLines', Deposits, CheckLine);
   /**
    * Static representation of the [[creditLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const CREDIT_LINES: CollectionField<Deposits> = new CollectionField('CreditLines', Deposits, new CreditLineField('', Deposits));
+  export const CREDIT_LINES: CollectionField<Deposits, CreditLine> = new CollectionField('CreditLines', Deposits, CreditLine);
   /**
    * Static representation of the [[boeLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const BOE_LINES: CollectionField<Deposits> = new CollectionField('BOELines', Deposits, new BoeLineField('', Deposits));
+  export const BOE_LINES: CollectionField<Deposits, BoeLine> = new CollectionField('BOELines', Deposits, BoeLine);
   /**
    * Static representation of the one-to-one navigation property [[vatGroup]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -589,9 +586,10 @@ export namespace Deposits {
   /**
    * All fields of the Deposits entity.
    */
-  export const _allFields: Array<NumberField<Deposits> | DateField<Deposits> | StringField<Deposits> | CollectionField<Deposits> | OneToOneLink<Deposits, VatGroups> | OneToOneLink<Deposits, Projects> | OneToOneLink<Deposits, DistributionRules> | OneToOneLink<Deposits, BusinessPlaces>> = [
+  export const _allFields: Array<NumberField<Deposits> | EnumField<Deposits> | DateField<Deposits> | StringField<Deposits> | CollectionField<Deposits, CheckLine> | CollectionField<Deposits, CreditLine> | CollectionField<Deposits, BoeLine> | OneToOneLink<Deposits, VatGroups> | OneToOneLink<Deposits, Projects> | OneToOneLink<Deposits, DistributionRules> | OneToOneLink<Deposits, BusinessPlaces>> = [
     Deposits.DEPOSIT_NUMBER,
     Deposits.ABS_ENTRY,
+    Deposits.DEPOSIT_TYPE,
     Deposits.DEPOSIT_DATE,
     Deposits.DEPOSIT_CURRENCY,
     Deposits.DEPOSIT_ACCOUNT,
@@ -612,6 +610,8 @@ export namespace Deposits {
     Deposits.COMMISSION,
     Deposits.COMMISSION_DATE,
     Deposits.TAX_CODE,
+    Deposits.DEPOSIT_ACCOUNT_TYPE,
+    Deposits.RECONCILE_AFTER_DEPOSIT,
     Deposits.VOUCHER_ACCOUNT,
     Deposits.SERIES,
     Deposits.PROJECT,
@@ -626,6 +626,7 @@ export namespace Deposits {
     Deposits.TAX_AMOUNT_SC,
     Deposits.TAX_AMOUNT_FC,
     Deposits.BPLID,
+    Deposits.CHECK_DEPOSIT_TYPE,
     Deposits.CHECK_LINES,
     Deposits.CREDIT_LINES,
     Deposits.BOE_LINES,

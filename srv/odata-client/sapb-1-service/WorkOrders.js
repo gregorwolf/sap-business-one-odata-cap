@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.WorkOrders = void 0;
  */
 var WorkOrdersRequestBuilder_1 = require("./WorkOrdersRequestBuilder");
 var WorkOrderLine_1 = require("./WorkOrderLine");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "WorkOrders" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var WorkOrders = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `WorkOrders`.
+     * Returns an entity builder to construct instances of `WorkOrders`.
      * @returns A builder that constructs instances of entity type `WorkOrders`.
      */
     WorkOrders.builder = function () {
-        return v4_1.Entity.entityBuilder(WorkOrders);
+        return core_1.EntityV4.entityBuilder(WorkOrders);
     };
     /**
      * Returns a request builder to construct requests for operations on the `WorkOrders` entity type.
@@ -61,7 +61,7 @@ var WorkOrders = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `WorkOrders`.
      */
     WorkOrders.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, WorkOrders);
+        return core_1.EntityV4.customFieldSelector(fieldName, WorkOrders);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,16 +75,11 @@ var WorkOrders = /** @class */ (function (_super) {
      */
     WorkOrders._entityName = 'WorkOrders';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for WorkOrders.
-     */
-    WorkOrders._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    WorkOrders._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    WorkOrders._defaultServicePath = '/b1s/v2/';
     return WorkOrders;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.WorkOrders = WorkOrders;
 var Users_1 = require("./Users");
 var BusinessPartners_1 = require("./BusinessPartners");
@@ -92,139 +87,151 @@ var ChartOfAccounts_1 = require("./ChartOfAccounts");
 var PriceLists_1 = require("./PriceLists");
 (function (WorkOrders) {
     /**
+     * Static representation of the [[status]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    WorkOrders.STATUS = new core_1.EnumField('Status', WorkOrders);
+    /**
+     * Static representation of the [[canceled]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    WorkOrders.CANCELED = new core_1.EnumField('Canceled', WorkOrders);
+    /**
      * Static representation of the [[orderDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.ORDER_DATE = new v4_1.DateField('OrderDate', WorkOrders, 'Edm.DateTimeOffset');
+    WorkOrders.ORDER_DATE = new core_1.DateField('OrderDate', WorkOrders, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[workStartDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.WORK_START_DATE = new v4_1.DateField('WorkStartDate', WorkOrders, 'Edm.DateTimeOffset');
+    WorkOrders.WORK_START_DATE = new core_1.DateField('WorkStartDate', WorkOrders, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[expectedCompletionDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.EXPECTED_COMPLETION_DATE = new v4_1.DateField('ExpectedCompletionDate', WorkOrders, 'Edm.DateTimeOffset');
+    WorkOrders.EXPECTED_COMPLETION_DATE = new core_1.DateField('ExpectedCompletionDate', WorkOrders, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[workFinishDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.WORK_FINISH_DATE = new v4_1.DateField('WorkFinishDate', WorkOrders, 'Edm.DateTimeOffset');
+    WorkOrders.WORK_FINISH_DATE = new core_1.DateField('WorkFinishDate', WorkOrders, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[receiverName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.RECEIVER_NAME = new v4_1.StringField('ReceiverName', WorkOrders, 'Edm.String');
+    WorkOrders.RECEIVER_NAME = new core_1.StringField('ReceiverName', WorkOrders, 'Edm.String');
     /**
      * Static representation of the [[ordererCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.ORDERER_CODE = new v4_1.StringField('OrdererCode', WorkOrders, 'Edm.String');
+    WorkOrders.ORDERER_CODE = new core_1.StringField('OrdererCode', WorkOrders, 'Edm.String');
     /**
      * Static representation of the [[ordererName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.ORDERER_NAME = new v4_1.StringField('OrdererName', WorkOrders, 'Edm.String');
+    WorkOrders.ORDERER_NAME = new core_1.StringField('OrdererName', WorkOrders, 'Edm.String');
     /**
      * Static representation of the [[customerRefNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.CUSTOMER_REF_NO = new v4_1.StringField('CustomerRefNo', WorkOrders, 'Edm.String');
+    WorkOrders.CUSTOMER_REF_NO = new core_1.StringField('CustomerRefNo', WorkOrders, 'Edm.String');
     /**
      * Static representation of the [[orderTotal]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.ORDER_TOTAL = new v4_1.NumberField('OrderTotal', WorkOrders, 'Edm.Double');
+    WorkOrders.ORDER_TOTAL = new core_1.NumberField('OrderTotal', WorkOrders, 'Edm.Double');
     /**
      * Static representation of the [[totalCurrency]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.TOTAL_CURRENCY = new v4_1.StringField('TotalCurrency', WorkOrders, 'Edm.String');
+    WorkOrders.TOTAL_CURRENCY = new core_1.StringField('TotalCurrency', WorkOrders, 'Edm.String');
     /**
      * Static representation of the [[generationTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.GENERATION_TIME = new v4_1.NumberField('GenerationTime', WorkOrders, 'Edm.Int32');
+    WorkOrders.GENERATION_TIME = new core_1.NumberField('GenerationTime', WorkOrders, 'Edm.Int32');
     /**
      * Static representation of the [[comment]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.COMMENT = new v4_1.StringField('Comment', WorkOrders, 'Edm.String');
+    WorkOrders.COMMENT = new core_1.StringField('Comment', WorkOrders, 'Edm.String');
     /**
      * Static representation of the [[instructionNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.INSTRUCTION_NUMBER = new v4_1.NumberField('InstructionNumber', WorkOrders, 'Edm.Int32');
+    WorkOrders.INSTRUCTION_NUMBER = new core_1.NumberField('InstructionNumber', WorkOrders, 'Edm.Int32');
     /**
      * Static representation of the [[contactPerson]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.CONTACT_PERSON = new v4_1.NumberField('ContactPerson', WorkOrders, 'Edm.Int32');
+    WorkOrders.CONTACT_PERSON = new core_1.NumberField('ContactPerson', WorkOrders, 'Edm.Int32');
     /**
      * Static representation of the [[series]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.SERIES = new v4_1.NumberField('Series', WorkOrders, 'Edm.Int32');
+    WorkOrders.SERIES = new core_1.NumberField('Series', WorkOrders, 'Edm.Int32');
     /**
      * Static representation of the [[activeAccountCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.ACTIVE_ACCOUNT_CODE = new v4_1.StringField('ActiveAccountCode', WorkOrders, 'Edm.String');
+    WorkOrders.ACTIVE_ACCOUNT_CODE = new core_1.StringField('ActiveAccountCode', WorkOrders, 'Edm.String');
     /**
      * Static representation of the [[workSum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.WORK_SUM = new v4_1.NumberField('WorkSum', WorkOrders, 'Edm.Double');
+    WorkOrders.WORK_SUM = new core_1.NumberField('WorkSum', WorkOrders, 'Edm.Double');
     /**
      * Static representation of the [[journalRemarks]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.JOURNAL_REMARKS = new v4_1.StringField('JournalRemarks', WorkOrders, 'Edm.String');
+    WorkOrders.JOURNAL_REMARKS = new core_1.StringField('JournalRemarks', WorkOrders, 'Edm.String');
     /**
      * Static representation of the [[priceListNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.PRICE_LIST_NUM = new v4_1.NumberField('PriceListNum', WorkOrders, 'Edm.Int32');
+    WorkOrders.PRICE_LIST_NUM = new core_1.NumberField('PriceListNum', WorkOrders, 'Edm.Int32');
     /**
      * Static representation of the [[financialPeriod]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.FINANCIAL_PERIOD = new v4_1.NumberField('FinancialPeriod', WorkOrders, 'Edm.Int32');
+    WorkOrders.FINANCIAL_PERIOD = new core_1.NumberField('FinancialPeriod', WorkOrders, 'Edm.Int32');
     /**
      * Static representation of the [[orderNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.ORDER_NUM = new v4_1.NumberField('OrderNum', WorkOrders, 'Edm.Int32');
+    WorkOrders.ORDER_NUM = new core_1.NumberField('OrderNum', WorkOrders, 'Edm.Int32');
     /**
      * Static representation of the [[workOrderLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.WORK_ORDER_LINES = new v4_1.CollectionField('WorkOrder_Lines', WorkOrders, new WorkOrderLine_1.WorkOrderLineField('', WorkOrders));
+    WorkOrders.WORK_ORDER_LINES = new core_1.CollectionField('WorkOrder_Lines', WorkOrders, WorkOrderLine_1.WorkOrderLine);
     /**
      * Static representation of the one-to-one navigation property [[user]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.USER = new v4_1.OneToOneLink('User', WorkOrders, Users_1.Users);
+    WorkOrders.USER = new core_1.OneToOneLink('User', WorkOrders, Users_1.Users);
     /**
      * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.BUSINESS_PARTNER = new v4_1.OneToOneLink('BusinessPartner', WorkOrders, BusinessPartners_1.BusinessPartners);
+    WorkOrders.BUSINESS_PARTNER = new core_1.OneToOneLink('BusinessPartner', WorkOrders, BusinessPartners_1.BusinessPartners);
     /**
      * Static representation of the one-to-one navigation property [[chartOfAccount]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.CHART_OF_ACCOUNT = new v4_1.OneToOneLink('ChartOfAccount', WorkOrders, ChartOfAccounts_1.ChartOfAccounts);
+    WorkOrders.CHART_OF_ACCOUNT = new core_1.OneToOneLink('ChartOfAccount', WorkOrders, ChartOfAccounts_1.ChartOfAccounts);
     /**
      * Static representation of the one-to-one navigation property [[priceList]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WorkOrders.PRICE_LIST = new v4_1.OneToOneLink('PriceList', WorkOrders, PriceLists_1.PriceLists);
+    WorkOrders.PRICE_LIST = new core_1.OneToOneLink('PriceList', WorkOrders, PriceLists_1.PriceLists);
     /**
      * All fields of the WorkOrders entity.
      */
     WorkOrders._allFields = [
+        WorkOrders.STATUS,
+        WorkOrders.CANCELED,
         WorkOrders.ORDER_DATE,
         WorkOrders.WORK_START_DATE,
         WorkOrders.EXPECTED_COMPLETION_DATE,
@@ -255,7 +262,7 @@ var PriceLists_1 = require("./PriceLists");
     /**
      * All fields selector.
      */
-    WorkOrders.ALL_FIELDS = new v4_1.AllFields('*', WorkOrders);
+    WorkOrders.ALL_FIELDS = new core_1.AllFields('*', WorkOrders);
     /**
      * All key fields of the WorkOrders entity.
      */

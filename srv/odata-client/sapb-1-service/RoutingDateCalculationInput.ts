@@ -4,7 +4,8 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ResourceAllocationEnum } from './ResourceAllocationEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * RoutingDateCalculationInput
@@ -41,6 +42,11 @@ export interface RoutingDateCalculationInput {
    */
   firstDateProportion?: number;
   /**
+   * Resource Alloc.
+   * @nullable
+   */
+  resourceAlloc?: ResourceAllocationEnum;
+  /**
    * Wor Obj Abs.
    * @nullable
    */
@@ -63,7 +69,7 @@ export function createRoutingDateCalculationInput(json: any): RoutingDateCalcula
  * RoutingDateCalculationInputField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class RoutingDateCalculationInputField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class RoutingDateCalculationInputField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, RoutingDateCalculationInput> {
   /**
    * Representation of the [[RoutingDateCalculationInput.resourceCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -95,6 +101,11 @@ export class RoutingDateCalculationInputField<EntityT extends Entity> extends Co
    */
   firstDateProportion: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('FirstDateProportion', this, 'Edm.Double');
   /**
+   * Representation of the [[RoutingDateCalculationInput.resourceAlloc]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  resourceAlloc: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ResourceAlloc', this);
+  /**
    * Representation of the [[RoutingDateCalculationInput.worObjAbs]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -104,19 +115,73 @@ export class RoutingDateCalculationInputField<EntityT extends Entity> extends Co
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   worLine: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('WORLine', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of RoutingDateCalculationInputField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, RoutingDateCalculationInput);
+  }
 }
 
 export namespace RoutingDateCalculationInput {
+  /**
+   * Metadata information on all properties of the `RoutingDateCalculationInput` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<RoutingDateCalculationInput>[] = [{
+    originalName: 'ResourceCode',
+    name: 'resourceCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WarehouseCode',
+    name: 'warehouseCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CalculateFromDate',
+    name: 'calculateFromDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'CalculateUntilDate',
+    name: 'calculateUntilDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'CapacitySum',
+    name: 'capacitySum',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FirstDateProportion',
+    name: 'firstDateProportion',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ResourceAlloc',
+    name: 'resourceAlloc',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'WORObjAbs',
+    name: 'worObjAbs',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'WORLine',
+    name: 'worLine',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): RoutingDateCalculationInput {
-    return createComplexType(json, {
-      ResourceCode: (resourceCode: string) => ({ resourceCode: edmToTs(resourceCode, 'Edm.String') }),
-      WarehouseCode: (warehouseCode: string) => ({ warehouseCode: edmToTs(warehouseCode, 'Edm.String') }),
-      CalculateFromDate: (calculateFromDate: Moment) => ({ calculateFromDate: edmToTs(calculateFromDate, 'Edm.DateTimeOffset') }),
-      CalculateUntilDate: (calculateUntilDate: Moment) => ({ calculateUntilDate: edmToTs(calculateUntilDate, 'Edm.DateTimeOffset') }),
-      CapacitySum: (capacitySum: number) => ({ capacitySum: edmToTs(capacitySum, 'Edm.Double') }),
-      FirstDateProportion: (firstDateProportion: number) => ({ firstDateProportion: edmToTs(firstDateProportion, 'Edm.Double') }),
-      WORObjAbs: (worObjAbs: number) => ({ worObjAbs: edmToTs(worObjAbs, 'Edm.Int32') }),
-      WORLine: (worLine: number) => ({ worLine: edmToTs(worLine, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, RoutingDateCalculationInput);
   }
 }

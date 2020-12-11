@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * UoMPrice
@@ -64,6 +65,11 @@ export interface UoMPrice {
    * @nullable
    */
   additionalCurrency2?: string;
+  /**
+   * Auto.
+   * @nullable
+   */
+  auto?: BoYesNoEnum;
 }
 
 /**
@@ -77,7 +83,7 @@ export function createUoMPrice(json: any): UoMPrice {
  * UoMPriceField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class UoMPriceField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class UoMPriceField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, UoMPrice> {
   /**
    * Representation of the [[UoMPrice.priceList]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -133,22 +139,93 @@ export class UoMPriceField<EntityT extends Entity> extends ComplexTypeField<Enti
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   additionalCurrency2: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('AdditionalCurrency2', this, 'Edm.String');
+  /**
+   * Representation of the [[UoMPrice.auto]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  auto: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Auto', this);
+
+  /**
+   * Creates an instance of UoMPriceField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, UoMPrice);
+  }
 }
 
 export namespace UoMPrice {
+  /**
+   * Metadata information on all properties of the `UoMPrice` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<UoMPrice>[] = [{
+    originalName: 'PriceList',
+    name: 'priceList',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'UoMEntry',
+    name: 'uoMEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ReduceBy',
+    name: 'reduceBy',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Price',
+    name: 'price',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Currency',
+    name: 'currency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalReduceBy1',
+    name: 'additionalReduceBy1',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalPrice1',
+    name: 'additionalPrice1',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalCurrency1',
+    name: 'additionalCurrency1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalReduceBy2',
+    name: 'additionalReduceBy2',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalPrice2',
+    name: 'additionalPrice2',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalCurrency2',
+    name: 'additionalCurrency2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Auto',
+    name: 'auto',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): UoMPrice {
-    return createComplexType(json, {
-      PriceList: (priceList: number) => ({ priceList: edmToTs(priceList, 'Edm.Int32') }),
-      UoMEntry: (uoMEntry: number) => ({ uoMEntry: edmToTs(uoMEntry, 'Edm.Int32') }),
-      ReduceBy: (reduceBy: number) => ({ reduceBy: edmToTs(reduceBy, 'Edm.Double') }),
-      Price: (price: number) => ({ price: edmToTs(price, 'Edm.Double') }),
-      Currency: (currency: string) => ({ currency: edmToTs(currency, 'Edm.String') }),
-      AdditionalReduceBy1: (additionalReduceBy1: number) => ({ additionalReduceBy1: edmToTs(additionalReduceBy1, 'Edm.Double') }),
-      AdditionalPrice1: (additionalPrice1: number) => ({ additionalPrice1: edmToTs(additionalPrice1, 'Edm.Double') }),
-      AdditionalCurrency1: (additionalCurrency1: string) => ({ additionalCurrency1: edmToTs(additionalCurrency1, 'Edm.String') }),
-      AdditionalReduceBy2: (additionalReduceBy2: number) => ({ additionalReduceBy2: edmToTs(additionalReduceBy2, 'Edm.Double') }),
-      AdditionalPrice2: (additionalPrice2: number) => ({ additionalPrice2: edmToTs(additionalPrice2, 'Edm.Double') }),
-      AdditionalCurrency2: (additionalCurrency2: string) => ({ additionalCurrency2: edmToTs(additionalCurrency2, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, UoMPrice);
   }
 }

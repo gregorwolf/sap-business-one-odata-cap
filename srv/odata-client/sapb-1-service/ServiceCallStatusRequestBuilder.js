@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.ServiceCallStatusRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var ServiceCallStatus_1 = require("./ServiceCallStatus");
 /**
  * Request builder class for operations supported on the [[ServiceCallStatus]] entity.
@@ -35,14 +35,14 @@ var ServiceCallStatusRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `ServiceCallStatus` entity based on its keys.
      */
     ServiceCallStatusRequestBuilder.prototype.getByKey = function (statusId) {
-        return new v4_1.GetByKeyRequestBuilder(ServiceCallStatus_1.ServiceCallStatus, { StatusId: statusId });
+        return new core_1.GetByKeyRequestBuilderV4(ServiceCallStatus_1.ServiceCallStatus, { StatusId: statusId });
     };
     /**
      * Returns a request builder for querying all `ServiceCallStatus` entities.
      * @returns A request builder for creating requests to retrieve all `ServiceCallStatus` entities.
      */
     ServiceCallStatusRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(ServiceCallStatus_1.ServiceCallStatus);
+        return new core_1.GetAllRequestBuilderV4(ServiceCallStatus_1.ServiceCallStatus);
     };
     /**
      * Returns a request builder for creating a `ServiceCallStatus` entity.
@@ -50,7 +50,7 @@ var ServiceCallStatusRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `ServiceCallStatus`.
      */
     ServiceCallStatusRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(ServiceCallStatus_1.ServiceCallStatus, entity);
+        return new core_1.CreateRequestBuilderV4(ServiceCallStatus_1.ServiceCallStatus, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `ServiceCallStatus`.
@@ -58,12 +58,12 @@ var ServiceCallStatusRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `ServiceCallStatus`.
      */
     ServiceCallStatusRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(ServiceCallStatus_1.ServiceCallStatus, entity);
+        return new core_1.UpdateRequestBuilderV4(ServiceCallStatus_1.ServiceCallStatus, entity);
     };
     ServiceCallStatusRequestBuilder.prototype.delete = function (statusIdOrEntity) {
-        return new v4_1.DeleteRequestBuilder(ServiceCallStatus_1.ServiceCallStatus, statusIdOrEntity instanceof ServiceCallStatus_1.ServiceCallStatus ? statusIdOrEntity : { StatusId: statusIdOrEntity });
+        return new core_1.DeleteRequestBuilderV4(ServiceCallStatus_1.ServiceCallStatus, statusIdOrEntity instanceof ServiceCallStatus_1.ServiceCallStatus ? statusIdOrEntity : { StatusId: statusIdOrEntity });
     };
     return ServiceCallStatusRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.ServiceCallStatusRequestBuilder = ServiceCallStatusRequestBuilder;
 //# sourceMappingURL=ServiceCallStatusRequestBuilder.js.map

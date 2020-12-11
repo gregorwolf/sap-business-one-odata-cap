@@ -1,4 +1,5 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoStatus } from './BoStatus';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * WithholdingTaxData
  */
@@ -114,6 +115,11 @@ export interface WithholdingTaxData {
      */
     baseDocumentReference?: number;
     /**
+     * Status.
+     * @nullable
+     */
+    status?: BoStatus;
+    /**
      * Target Abs Entry.
      * @nullable
      */
@@ -132,7 +138,7 @@ export declare function createWithholdingTaxData(json: any): WithholdingTaxData;
  * WithholdingTaxDataField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class WithholdingTaxDataField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class WithholdingTaxDataField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, WithholdingTaxData> {
     /**
      * Representation of the [[WithholdingTaxData.wtCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -244,6 +250,11 @@ export declare class WithholdingTaxDataField<EntityT extends Entity> extends Com
      */
     baseDocumentReference: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[WithholdingTaxData.status]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    status: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[WithholdingTaxData.targetAbsEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -253,8 +264,22 @@ export declare class WithholdingTaxDataField<EntityT extends Entity> extends Com
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     targetDocumentType: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of WithholdingTaxDataField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace WithholdingTaxData {
+    /**
+     * Metadata information on all properties of the `WithholdingTaxData` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<WithholdingTaxData>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): WithholdingTaxData;

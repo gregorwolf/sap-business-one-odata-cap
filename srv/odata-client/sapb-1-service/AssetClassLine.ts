@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * AssetClassLine
@@ -24,6 +25,11 @@ export interface AssetClassLine {
    * @nullable
    */
   depreciationAreaId?: string;
+  /**
+   * Active Status.
+   * @nullable
+   */
+  activeStatus?: BoYesNoEnum;
   /**
    * Account Determination.
    * @nullable
@@ -52,7 +58,7 @@ export function createAssetClassLine(json: any): AssetClassLine {
  * AssetClassLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class AssetClassLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class AssetClassLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, AssetClassLine> {
   /**
    * Representation of the [[AssetClassLine.code]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -69,6 +75,11 @@ export class AssetClassLineField<EntityT extends Entity> extends ComplexTypeFiel
    */
   depreciationAreaId: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('DepreciationAreaID', this, 'Edm.String');
   /**
+   * Representation of the [[AssetClassLine.activeStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  activeStatus: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ActiveStatus', this);
+  /**
    * Representation of the [[AssetClassLine.accountDetermination]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -83,17 +94,63 @@ export class AssetClassLineField<EntityT extends Entity> extends ComplexTypeFiel
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   useLife: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('UseLife', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of AssetClassLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, AssetClassLine);
+  }
 }
 
 export namespace AssetClassLine {
+  /**
+   * Metadata information on all properties of the `AssetClassLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<AssetClassLine>[] = [{
+    originalName: 'Code',
+    name: 'code',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DepreciationAreaID',
+    name: 'depreciationAreaId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ActiveStatus',
+    name: 'activeStatus',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AccountDetermination',
+    name: 'accountDetermination',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DepreciationTypeID',
+    name: 'depreciationTypeId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UseLife',
+    name: 'useLife',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): AssetClassLine {
-    return createComplexType(json, {
-      Code: (code: string) => ({ code: edmToTs(code, 'Edm.String') }),
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      DepreciationAreaID: (depreciationAreaId: string) => ({ depreciationAreaId: edmToTs(depreciationAreaId, 'Edm.String') }),
-      AccountDetermination: (accountDetermination: string) => ({ accountDetermination: edmToTs(accountDetermination, 'Edm.String') }),
-      DepreciationTypeID: (depreciationTypeId: string) => ({ depreciationTypeId: edmToTs(depreciationTypeId, 'Edm.String') }),
-      UseLife: (useLife: number) => ({ useLife: edmToTs(useLife, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, AssetClassLine);
   }
 }

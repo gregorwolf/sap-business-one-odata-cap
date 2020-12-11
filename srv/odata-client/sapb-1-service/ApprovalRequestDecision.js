@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -14,12 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ApprovalRequestDecision = exports.ApprovalRequestDecisionField = exports.createApprovalRequestDecision = void 0;
-/*
- * Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
- *
- * This is a generated file powered by the SAP Cloud SDK for JavaScript.
- */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[ApprovalRequestDecision.build]] instead.
  */
@@ -33,36 +28,70 @@ exports.createApprovalRequestDecision = createApprovalRequestDecision;
  */
 var ApprovalRequestDecisionField = /** @class */ (function (_super) {
     __extends(ApprovalRequestDecisionField, _super);
-    function ApprovalRequestDecisionField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of ApprovalRequestDecisionField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function ApprovalRequestDecisionField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, ApprovalRequestDecision) || this;
         /**
          * Representation of the [[ApprovalRequestDecision.approverUserName]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.approverUserName = new v4_1.ComplexTypeStringPropertyField('ApproverUserName', _this, 'Edm.String');
+        _this.approverUserName = new core_1.ComplexTypeStringPropertyField('ApproverUserName', _this, 'Edm.String');
         /**
          * Representation of the [[ApprovalRequestDecision.approverPassword]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.approverPassword = new v4_1.ComplexTypeStringPropertyField('ApproverPassword', _this, 'Edm.String');
+        _this.approverPassword = new core_1.ComplexTypeStringPropertyField('ApproverPassword', _this, 'Edm.String');
+        /**
+         * Representation of the [[ApprovalRequestDecision.status]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.status = new core_1.ComplexTypeEnumPropertyField('Status', _this);
         /**
          * Representation of the [[ApprovalRequestDecision.remarks]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.remarks = new v4_1.ComplexTypeStringPropertyField('Remarks', _this, 'Edm.String');
+        _this.remarks = new core_1.ComplexTypeStringPropertyField('Remarks', _this, 'Edm.String');
         return _this;
     }
     return ApprovalRequestDecisionField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.ApprovalRequestDecisionField = ApprovalRequestDecisionField;
 var ApprovalRequestDecision;
 (function (ApprovalRequestDecision) {
+    /**
+     * Metadata information on all properties of the `ApprovalRequestDecision` complex type.
+     */
+    ApprovalRequestDecision._propertyMetadata = [{
+            originalName: 'ApproverUserName',
+            name: 'approverUserName',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'ApproverPassword',
+            name: 'approverPassword',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Status',
+            name: 'status',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'Remarks',
+            name: 'remarks',
+            type: 'Edm.String',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            ApproverUserName: function (approverUserName) { return ({ approverUserName: v4_1.edmToTs(approverUserName, 'Edm.String') }); },
-            ApproverPassword: function (approverPassword) { return ({ approverPassword: v4_1.edmToTs(approverPassword, 'Edm.String') }); },
-            Remarks: function (remarks) { return ({ remarks: v4_1.edmToTs(remarks, 'Edm.String') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, ApprovalRequestDecision);
     }
     ApprovalRequestDecision.build = build;
 })(ApprovalRequestDecision = exports.ApprovalRequestDecision || (exports.ApprovalRequestDecision = {}));

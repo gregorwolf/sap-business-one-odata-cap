@@ -5,27 +5,26 @@
  */
 import { AlertManagementsRequestBuilder } from './AlertManagementsRequestBuilder';
 import { Moment } from 'moment';
-import { AlertManagementRecipient, AlertManagementRecipientField } from './AlertManagementRecipient';
-import { AlertManagementDocument, AlertManagementDocumentField } from './AlertManagementDocument';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { AlertManagementRecipient } from './AlertManagementRecipient';
+import { AlertManagementDocument } from './AlertManagementDocument';
+import { AlertManagementTypeEnum } from './AlertManagementTypeEnum';
+import { AlertManagementPriorityEnum } from './AlertManagementPriorityEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AlertManagementFrequencyType } from './AlertManagementFrequencyType';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "AlertManagements" of service "SAPB1".
  */
-export class AlertManagements extends Entity implements AlertManagementsType {
+export class AlertManagements extends EntityV4 implements AlertManagementsType {
   /**
    * Technical entity name for AlertManagements.
    */
   static _entityName = 'AlertManagements';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for AlertManagements.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -37,6 +36,21 @@ export class AlertManagements extends Entity implements AlertManagementsType {
    */
   name?: string;
   /**
+   * Type.
+   * @nullable
+   */
+  type?: AlertManagementTypeEnum;
+  /**
+   * Priority.
+   * @nullable
+   */
+  priority?: AlertManagementPriorityEnum;
+  /**
+   * Active.
+   * @nullable
+   */
+  active?: BoYesNoEnum;
+  /**
    * Param.
    * @nullable
    */
@@ -46,6 +60,11 @@ export class AlertManagements extends Entity implements AlertManagementsType {
    * @nullable
    */
   queryId?: number;
+  /**
+   * Frequency Type.
+   * @nullable
+   */
+  frequencyType?: AlertManagementFrequencyType;
   /**
    * Day Of Execution.
    * @nullable
@@ -77,6 +96,11 @@ export class AlertManagements extends Entity implements AlertManagementsType {
    */
   nextExecutionTime?: Time;
   /**
+   * Save History.
+   * @nullable
+   */
+  saveHistory?: BoYesNoEnum;
+  /**
    * Frequency Interval.
    * @nullable
    */
@@ -93,11 +117,11 @@ export class AlertManagements extends Entity implements AlertManagementsType {
   alertManagementDocuments?: AlertManagementDocument[];
 
   /**
-   * Returns an entity builder to construct instances `AlertManagements`.
+   * Returns an entity builder to construct instances of `AlertManagements`.
    * @returns A builder that constructs instances of entity type `AlertManagements`.
    */
-  static builder(): EntityBuilderType<AlertManagements, AlertManagementsTypeForceMandatory> {
-    return Entity.entityBuilder(AlertManagements);
+  static builder(): EntityBuilderType<AlertManagements, AlertManagementsType> {
+    return EntityV4.entityBuilder(AlertManagements);
   }
 
   /**
@@ -113,8 +137,8 @@ export class AlertManagements extends Entity implements AlertManagementsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `AlertManagements`.
    */
-  static customField(fieldName: string): CustomField<AlertManagements> {
-    return Entity.customFieldSelector(fieldName, AlertManagements);
+  static customField(fieldName: string): CustomFieldV4<AlertManagements> {
+    return EntityV4.customFieldSelector(fieldName, AlertManagements);
   }
 
   /**
@@ -127,35 +151,24 @@ export class AlertManagements extends Entity implements AlertManagementsType {
 }
 
 export interface AlertManagementsType {
-  code?: number;
-  name?: string;
-  param?: string;
-  queryId?: number;
-  dayOfExecution?: number;
-  executionTime?: Time;
-  lastExecutionDate?: Moment;
-  lastExecutionTime?: number;
-  nextExecutionDate?: Moment;
-  nextExecutionTime?: Time;
-  frequencyInterval?: number;
-  alertManagementRecipients?: AlertManagementRecipient[];
-  alertManagementDocuments?: AlertManagementDocument[];
-}
-
-export interface AlertManagementsTypeForceMandatory {
-  code: number;
-  name: string;
-  param: string;
-  queryId: number;
-  dayOfExecution: number;
-  executionTime: Time;
-  lastExecutionDate: Moment;
-  lastExecutionTime: number;
-  nextExecutionDate: Moment;
-  nextExecutionTime: Time;
-  frequencyInterval: number;
-  alertManagementRecipients: AlertManagementRecipient[];
-  alertManagementDocuments: AlertManagementDocument[];
+  code?: number | null;
+  name?: string | null;
+  type?: AlertManagementTypeEnum | null;
+  priority?: AlertManagementPriorityEnum | null;
+  active?: BoYesNoEnum | null;
+  param?: string | null;
+  queryId?: number | null;
+  frequencyType?: AlertManagementFrequencyType | null;
+  dayOfExecution?: number | null;
+  executionTime?: Time | null;
+  lastExecutionDate?: Moment | null;
+  lastExecutionTime?: number | null;
+  nextExecutionDate?: Moment | null;
+  nextExecutionTime?: Time | null;
+  saveHistory?: BoYesNoEnum | null;
+  frequencyInterval?: number | null;
+  alertManagementRecipients?: AlertManagementRecipient[] | null;
+  alertManagementDocuments?: AlertManagementDocument[] | null;
 }
 
 export namespace AlertManagements {
@@ -170,6 +183,21 @@ export namespace AlertManagements {
    */
   export const NAME: StringField<AlertManagements> = new StringField('Name', AlertManagements, 'Edm.String');
   /**
+   * Static representation of the [[type]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TYPE: EnumField<AlertManagements> = new EnumField('Type', AlertManagements);
+  /**
+   * Static representation of the [[priority]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRIORITY: EnumField<AlertManagements> = new EnumField('Priority', AlertManagements);
+  /**
+   * Static representation of the [[active]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ACTIVE: EnumField<AlertManagements> = new EnumField('Active', AlertManagements);
+  /**
    * Static representation of the [[param]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -179,6 +207,11 @@ export namespace AlertManagements {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const QUERY_ID: NumberField<AlertManagements> = new NumberField('QueryID', AlertManagements, 'Edm.Int32');
+  /**
+   * Static representation of the [[frequencyType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const FREQUENCY_TYPE: EnumField<AlertManagements> = new EnumField('FrequencyType', AlertManagements);
   /**
    * Static representation of the [[dayOfExecution]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -210,6 +243,11 @@ export namespace AlertManagements {
    */
   export const NEXT_EXECUTION_TIME: TimeField<AlertManagements> = new TimeField('NextExecutionTime', AlertManagements, 'Edm.TimeOfDay');
   /**
+   * Static representation of the [[saveHistory]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SAVE_HISTORY: EnumField<AlertManagements> = new EnumField('SaveHistory', AlertManagements);
+  /**
    * Static representation of the [[frequencyInterval]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -218,26 +256,31 @@ export namespace AlertManagements {
    * Static representation of the [[alertManagementRecipients]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ALERT_MANAGEMENT_RECIPIENTS: CollectionField<AlertManagements> = new CollectionField('AlertManagementRecipients', AlertManagements, new AlertManagementRecipientField('', AlertManagements));
+  export const ALERT_MANAGEMENT_RECIPIENTS: CollectionField<AlertManagements, AlertManagementRecipient> = new CollectionField('AlertManagementRecipients', AlertManagements, AlertManagementRecipient);
   /**
    * Static representation of the [[alertManagementDocuments]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ALERT_MANAGEMENT_DOCUMENTS: CollectionField<AlertManagements> = new CollectionField('AlertManagementDocuments', AlertManagements, new AlertManagementDocumentField('', AlertManagements));
+  export const ALERT_MANAGEMENT_DOCUMENTS: CollectionField<AlertManagements, AlertManagementDocument> = new CollectionField('AlertManagementDocuments', AlertManagements, AlertManagementDocument);
   /**
    * All fields of the AlertManagements entity.
    */
-  export const _allFields: Array<NumberField<AlertManagements> | StringField<AlertManagements> | TimeField<AlertManagements> | DateField<AlertManagements> | CollectionField<AlertManagements>> = [
+  export const _allFields: Array<NumberField<AlertManagements> | StringField<AlertManagements> | EnumField<AlertManagements> | TimeField<AlertManagements> | DateField<AlertManagements> | CollectionField<AlertManagements, AlertManagementRecipient> | CollectionField<AlertManagements, AlertManagementDocument>> = [
     AlertManagements.CODE,
     AlertManagements.NAME,
+    AlertManagements.TYPE,
+    AlertManagements.PRIORITY,
+    AlertManagements.ACTIVE,
     AlertManagements.PARAM,
     AlertManagements.QUERY_ID,
+    AlertManagements.FREQUENCY_TYPE,
     AlertManagements.DAY_OF_EXECUTION,
     AlertManagements.EXECUTION_TIME,
     AlertManagements.LAST_EXECUTION_DATE,
     AlertManagements.LAST_EXECUTION_TIME,
     AlertManagements.NEXT_EXECUTION_DATE,
     AlertManagements.NEXT_EXECUTION_TIME,
+    AlertManagements.SAVE_HISTORY,
     AlertManagements.FREQUENCY_INTERVAL,
     AlertManagements.ALERT_MANAGEMENT_RECIPIENTS,
     AlertManagements.ALERT_MANAGEMENT_DOCUMENTS

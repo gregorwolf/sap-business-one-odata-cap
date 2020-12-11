@@ -5,27 +5,27 @@
  */
 import { AssetTransferRequestBuilder } from './AssetTransferRequestBuilder';
 import { Moment } from 'moment';
-import { AssetDocumentLine, AssetDocumentLineField } from './AssetDocumentLine';
-import { AssetDocumentAreaJournal, AssetDocumentAreaJournalField } from './AssetDocumentAreaJournal';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AssetDocumentLine } from './AssetDocumentLine';
+import { AssetDocumentAreaJournal } from './AssetDocumentAreaJournal';
+import { AssetDocumentStatusEnum } from './AssetDocumentStatusEnum';
+import { AssetDocumentTypeEnum } from './AssetDocumentTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ClosingOptionEnum } from './ClosingOptionEnum';
+import { AssetOriginalTypeEnum } from './AssetOriginalTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "AssetTransfer" of service "SAPB1".
  */
-export class AssetTransfer extends Entity implements AssetTransferType {
+export class AssetTransfer extends EntityV4 implements AssetTransferType {
   /**
    * Technical entity name for AssetTransfer.
    */
   static _entityName = 'AssetTransfer';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for AssetTransfer.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Doc Entry.
    * @nullable
@@ -51,6 +51,11 @@ export class AssetTransfer extends Entity implements AssetTransferType {
    * @nullable
    */
   documentDate?: Moment;
+  /**
+   * Status.
+   * @nullable
+   */
+  status?: AssetDocumentStatusEnum;
   /**
    * Remarks.
    * @nullable
@@ -92,10 +97,30 @@ export class AssetTransfer extends Entity implements AssetTransferType {
    */
   assetValueDate?: Moment;
   /**
+   * Document Type.
+   * @nullable
+   */
+  documentType?: AssetDocumentTypeEnum;
+  /**
+   * Summerize By Projects.
+   * @nullable
+   */
+  summerizeByProjects?: BoYesNoEnum;
+  /**
+   * Summerize By Distribution Rules.
+   * @nullable
+   */
+  summerizeByDistributionRules?: BoYesNoEnum;
+  /**
    * Manual Depreciation Type.
    * @nullable
    */
   manualDepreciationType?: string;
+  /**
+   * Hand Written.
+   * @nullable
+   */
+  handWritten?: BoYesNoEnum;
   /**
    * Cancellation Date.
    * @nullable
@@ -116,6 +141,21 @@ export class AssetTransfer extends Entity implements AssetTransferType {
    * @nullable
    */
   origin?: number;
+  /**
+   * Low Value Asset Retirement.
+   * @nullable
+   */
+  lowValueAssetRetirement?: BoYesNoEnum;
+  /**
+   * Cancellation Option.
+   * @nullable
+   */
+  cancellationOption?: ClosingOptionEnum;
+  /**
+   * Original Type.
+   * @nullable
+   */
+  originalType?: AssetOriginalTypeEnum;
   /**
    * Base Reference.
    * @nullable
@@ -159,11 +199,11 @@ export class AssetTransfer extends Entity implements AssetTransferType {
   businessPlace!: BusinessPlaces;
 
   /**
-   * Returns an entity builder to construct instances `AssetTransfer`.
+   * Returns an entity builder to construct instances of `AssetTransfer`.
    * @returns A builder that constructs instances of entity type `AssetTransfer`.
    */
-  static builder(): EntityBuilderType<AssetTransfer, AssetTransferTypeForceMandatory> {
-    return Entity.entityBuilder(AssetTransfer);
+  static builder(): EntityBuilderType<AssetTransfer, AssetTransferType> {
+    return EntityV4.entityBuilder(AssetTransfer);
   }
 
   /**
@@ -179,8 +219,8 @@ export class AssetTransfer extends Entity implements AssetTransferType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `AssetTransfer`.
    */
-  static customField(fieldName: string): CustomField<AssetTransfer> {
-    return Entity.customFieldSelector(fieldName, AssetTransfer);
+  static customField(fieldName: string): CustomFieldV4<AssetTransfer> {
+    return EntityV4.customFieldSelector(fieldName, AssetTransfer);
   }
 
   /**
@@ -198,59 +238,37 @@ import { DepreciationAreas, DepreciationAreasType } from './DepreciationAreas';
 import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 
 export interface AssetTransferType {
-  docEntry?: number;
-  docNum?: number;
-  series?: number;
-  postingDate?: Moment;
-  documentDate?: Moment;
-  remarks?: string;
-  reference?: string;
-  currency?: string;
-  documentRate?: number;
-  documentTotal?: number;
-  documentTotalFc?: number;
-  documentTotalSc?: number;
-  assetValueDate?: Moment;
-  manualDepreciationType?: string;
-  cancellationDate?: Moment;
-  depreciationArea?: string;
-  bplId?: number;
-  origin?: number;
-  baseReference?: string;
-  bplName?: string;
-  vatRegNum?: string;
-  assetDocumentLineCollection?: AssetDocumentLine[];
-  assetDocumentAreaJournalCollection?: AssetDocumentAreaJournal[];
-  currency2: CurrenciesType;
-  depreciationType: DepreciationTypesType;
-  depreciationArea2: DepreciationAreasType;
-  businessPlace: BusinessPlacesType;
-}
-
-export interface AssetTransferTypeForceMandatory {
-  docEntry: number;
-  docNum: number;
-  series: number;
-  postingDate: Moment;
-  documentDate: Moment;
-  remarks: string;
-  reference: string;
-  currency: string;
-  documentRate: number;
-  documentTotal: number;
-  documentTotalFc: number;
-  documentTotalSc: number;
-  assetValueDate: Moment;
-  manualDepreciationType: string;
-  cancellationDate: Moment;
-  depreciationArea: string;
-  bplId: number;
-  origin: number;
-  baseReference: string;
-  bplName: string;
-  vatRegNum: string;
-  assetDocumentLineCollection: AssetDocumentLine[];
-  assetDocumentAreaJournalCollection: AssetDocumentAreaJournal[];
+  docEntry?: number | null;
+  docNum?: number | null;
+  series?: number | null;
+  postingDate?: Moment | null;
+  documentDate?: Moment | null;
+  status?: AssetDocumentStatusEnum | null;
+  remarks?: string | null;
+  reference?: string | null;
+  currency?: string | null;
+  documentRate?: number | null;
+  documentTotal?: number | null;
+  documentTotalFc?: number | null;
+  documentTotalSc?: number | null;
+  assetValueDate?: Moment | null;
+  documentType?: AssetDocumentTypeEnum | null;
+  summerizeByProjects?: BoYesNoEnum | null;
+  summerizeByDistributionRules?: BoYesNoEnum | null;
+  manualDepreciationType?: string | null;
+  handWritten?: BoYesNoEnum | null;
+  cancellationDate?: Moment | null;
+  depreciationArea?: string | null;
+  bplId?: number | null;
+  origin?: number | null;
+  lowValueAssetRetirement?: BoYesNoEnum | null;
+  cancellationOption?: ClosingOptionEnum | null;
+  originalType?: AssetOriginalTypeEnum | null;
+  baseReference?: string | null;
+  bplName?: string | null;
+  vatRegNum?: string | null;
+  assetDocumentLineCollection?: AssetDocumentLine[] | null;
+  assetDocumentAreaJournalCollection?: AssetDocumentAreaJournal[] | null;
   currency2: CurrenciesType;
   depreciationType: DepreciationTypesType;
   depreciationArea2: DepreciationAreasType;
@@ -283,6 +301,11 @@ export namespace AssetTransfer {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOCUMENT_DATE: DateField<AssetTransfer> = new DateField('DocumentDate', AssetTransfer, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[status]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const STATUS: EnumField<AssetTransfer> = new EnumField('Status', AssetTransfer);
   /**
    * Static representation of the [[remarks]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -324,10 +347,30 @@ export namespace AssetTransfer {
    */
   export const ASSET_VALUE_DATE: DateField<AssetTransfer> = new DateField('AssetValueDate', AssetTransfer, 'Edm.DateTimeOffset');
   /**
+   * Static representation of the [[documentType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_TYPE: EnumField<AssetTransfer> = new EnumField('DocumentType', AssetTransfer);
+  /**
+   * Static representation of the [[summerizeByProjects]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SUMMERIZE_BY_PROJECTS: EnumField<AssetTransfer> = new EnumField('SummerizeByProjects', AssetTransfer);
+  /**
+   * Static representation of the [[summerizeByDistributionRules]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SUMMERIZE_BY_DISTRIBUTION_RULES: EnumField<AssetTransfer> = new EnumField('SummerizeByDistributionRules', AssetTransfer);
+  /**
    * Static representation of the [[manualDepreciationType]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const MANUAL_DEPRECIATION_TYPE: StringField<AssetTransfer> = new StringField('ManualDepreciationType', AssetTransfer, 'Edm.String');
+  /**
+   * Static representation of the [[handWritten]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const HAND_WRITTEN: EnumField<AssetTransfer> = new EnumField('HandWritten', AssetTransfer);
   /**
    * Static representation of the [[cancellationDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -349,6 +392,21 @@ export namespace AssetTransfer {
    */
   export const ORIGIN: NumberField<AssetTransfer> = new NumberField('Origin', AssetTransfer, 'Edm.Int32');
   /**
+   * Static representation of the [[lowValueAssetRetirement]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LOW_VALUE_ASSET_RETIREMENT: EnumField<AssetTransfer> = new EnumField('LowValueAssetRetirement', AssetTransfer);
+  /**
+   * Static representation of the [[cancellationOption]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CANCELLATION_OPTION: EnumField<AssetTransfer> = new EnumField('CancellationOption', AssetTransfer);
+  /**
+   * Static representation of the [[originalType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ORIGINAL_TYPE: EnumField<AssetTransfer> = new EnumField('OriginalType', AssetTransfer);
+  /**
    * Static representation of the [[baseReference]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -367,12 +425,12 @@ export namespace AssetTransfer {
    * Static representation of the [[assetDocumentLineCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ASSET_DOCUMENT_LINE_COLLECTION: CollectionField<AssetTransfer> = new CollectionField('AssetDocumentLineCollection', AssetTransfer, new AssetDocumentLineField('', AssetTransfer));
+  export const ASSET_DOCUMENT_LINE_COLLECTION: CollectionField<AssetTransfer, AssetDocumentLine> = new CollectionField('AssetDocumentLineCollection', AssetTransfer, AssetDocumentLine);
   /**
    * Static representation of the [[assetDocumentAreaJournalCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ASSET_DOCUMENT_AREA_JOURNAL_COLLECTION: CollectionField<AssetTransfer> = new CollectionField('AssetDocumentAreaJournalCollection', AssetTransfer, new AssetDocumentAreaJournalField('', AssetTransfer));
+  export const ASSET_DOCUMENT_AREA_JOURNAL_COLLECTION: CollectionField<AssetTransfer, AssetDocumentAreaJournal> = new CollectionField('AssetDocumentAreaJournalCollection', AssetTransfer, AssetDocumentAreaJournal);
   /**
    * Static representation of the one-to-one navigation property [[currency2]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -396,12 +454,13 @@ export namespace AssetTransfer {
   /**
    * All fields of the AssetTransfer entity.
    */
-  export const _allFields: Array<NumberField<AssetTransfer> | DateField<AssetTransfer> | StringField<AssetTransfer> | CollectionField<AssetTransfer> | OneToOneLink<AssetTransfer, Currencies> | OneToOneLink<AssetTransfer, DepreciationTypes> | OneToOneLink<AssetTransfer, DepreciationAreas> | OneToOneLink<AssetTransfer, BusinessPlaces>> = [
+  export const _allFields: Array<NumberField<AssetTransfer> | DateField<AssetTransfer> | EnumField<AssetTransfer> | StringField<AssetTransfer> | CollectionField<AssetTransfer, AssetDocumentLine> | CollectionField<AssetTransfer, AssetDocumentAreaJournal> | OneToOneLink<AssetTransfer, Currencies> | OneToOneLink<AssetTransfer, DepreciationTypes> | OneToOneLink<AssetTransfer, DepreciationAreas> | OneToOneLink<AssetTransfer, BusinessPlaces>> = [
     AssetTransfer.DOC_ENTRY,
     AssetTransfer.DOC_NUM,
     AssetTransfer.SERIES,
     AssetTransfer.POSTING_DATE,
     AssetTransfer.DOCUMENT_DATE,
+    AssetTransfer.STATUS,
     AssetTransfer.REMARKS,
     AssetTransfer.REFERENCE,
     AssetTransfer.CURRENCY,
@@ -410,11 +469,18 @@ export namespace AssetTransfer {
     AssetTransfer.DOCUMENT_TOTAL_FC,
     AssetTransfer.DOCUMENT_TOTAL_SC,
     AssetTransfer.ASSET_VALUE_DATE,
+    AssetTransfer.DOCUMENT_TYPE,
+    AssetTransfer.SUMMERIZE_BY_PROJECTS,
+    AssetTransfer.SUMMERIZE_BY_DISTRIBUTION_RULES,
     AssetTransfer.MANUAL_DEPRECIATION_TYPE,
+    AssetTransfer.HAND_WRITTEN,
     AssetTransfer.CANCELLATION_DATE,
     AssetTransfer.DEPRECIATION_AREA,
     AssetTransfer.BPL_ID,
     AssetTransfer.ORIGIN,
+    AssetTransfer.LOW_VALUE_ASSET_RETIREMENT,
+    AssetTransfer.CANCELLATION_OPTION,
+    AssetTransfer.ORIGINAL_TYPE,
     AssetTransfer.BASE_REFERENCE,
     AssetTransfer.BPL_NAME,
     AssetTransfer.VAT_REG_NUM,

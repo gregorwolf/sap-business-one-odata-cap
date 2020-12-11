@@ -1,4 +1,6 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoIssueMethod } from './BoIssueMethod';
+import { ProductionItemType } from './ProductionItemType';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * ProductTreeLine
  */
@@ -28,6 +30,11 @@ export interface ProductTreeLine {
      * @nullable
      */
     currency?: string;
+    /**
+     * Issue Method.
+     * @nullable
+     */
+    issueMethod?: BoIssueMethod;
     /**
      * Inventory Uom.
      * @nullable
@@ -84,6 +91,11 @@ export interface ProductTreeLine {
      */
     wipAccount?: string;
     /**
+     * Item Type.
+     * @nullable
+     */
+    itemType?: ProductionItemType;
+    /**
      * Line Text.
      * @nullable
      */
@@ -117,7 +129,7 @@ export declare function createProductTreeLine(json: any): ProductTreeLine;
  * ProductTreeLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class ProductTreeLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class ProductTreeLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ProductTreeLine> {
     /**
      * Representation of the [[ProductTreeLine.itemCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -143,6 +155,11 @@ export declare class ProductTreeLineField<EntityT extends Entity> extends Comple
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     currency: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[ProductTreeLine.issueMethod]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    issueMethod: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[ProductTreeLine.inventoryUom]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -199,6 +216,11 @@ export declare class ProductTreeLineField<EntityT extends Entity> extends Comple
      */
     wipAccount: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[ProductTreeLine.itemType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    itemType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ProductTreeLine.lineText]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -223,8 +245,22 @@ export declare class ProductTreeLineField<EntityT extends Entity> extends Comple
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     visualOrder: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of ProductTreeLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace ProductTreeLine {
+    /**
+     * Metadata information on all properties of the `ProductTreeLine` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<ProductTreeLine>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): ProductTreeLine;

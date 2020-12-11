@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ElectronicFileFormatsRequestBuilder } from './ElectronicFileFormatsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ElectronicFileFormats" of service "SAPB1".
  */
-export class ElectronicFileFormats extends Entity implements ElectronicFileFormatsType {
+export class ElectronicFileFormats extends EntityV4 implements ElectronicFileFormatsType {
   /**
    * Technical entity name for ElectronicFileFormats.
    */
   static _entityName = 'ElectronicFileFormats';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ElectronicFileFormats.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Format Id.
    * @nullable
@@ -65,11 +60,11 @@ export class ElectronicFileFormats extends Entity implements ElectronicFileForma
   menuPath?: string;
 
   /**
-   * Returns an entity builder to construct instances `ElectronicFileFormats`.
+   * Returns an entity builder to construct instances of `ElectronicFileFormats`.
    * @returns A builder that constructs instances of entity type `ElectronicFileFormats`.
    */
-  static builder(): EntityBuilderType<ElectronicFileFormats, ElectronicFileFormatsTypeForceMandatory> {
-    return Entity.entityBuilder(ElectronicFileFormats);
+  static builder(): EntityBuilderType<ElectronicFileFormats, ElectronicFileFormatsType> {
+    return EntityV4.entityBuilder(ElectronicFileFormats);
   }
 
   /**
@@ -85,8 +80,8 @@ export class ElectronicFileFormats extends Entity implements ElectronicFileForma
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ElectronicFileFormats`.
    */
-  static customField(fieldName: string): CustomField<ElectronicFileFormats> {
-    return Entity.customFieldSelector(fieldName, ElectronicFileFormats);
+  static customField(fieldName: string): CustomFieldV4<ElectronicFileFormats> {
+    return EntityV4.customFieldSelector(fieldName, ElectronicFileFormats);
   }
 
   /**
@@ -99,25 +94,14 @@ export class ElectronicFileFormats extends Entity implements ElectronicFileForma
 }
 
 export interface ElectronicFileFormatsType {
-  formatId?: number;
-  name?: string;
-  description?: string;
-  version?: string;
-  schemaVersion?: string;
-  outputFilePath?: string;
-  menuName?: string;
-  menuPath?: string;
-}
-
-export interface ElectronicFileFormatsTypeForceMandatory {
-  formatId: number;
-  name: string;
-  description: string;
-  version: string;
-  schemaVersion: string;
-  outputFilePath: string;
-  menuName: string;
-  menuPath: string;
+  formatId?: number | null;
+  name?: string | null;
+  description?: string | null;
+  version?: string | null;
+  schemaVersion?: string | null;
+  outputFilePath?: string | null;
+  menuName?: string | null;
+  menuPath?: string | null;
 }
 
 export namespace ElectronicFileFormats {

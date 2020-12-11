@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * BankStatementsFilter
@@ -37,7 +37,7 @@ export function createBankStatementsFilter(json: any): BankStatementsFilter {
  * BankStatementsFilterField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class BankStatementsFilterField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class BankStatementsFilterField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BankStatementsFilter> {
   /**
    * Representation of the [[BankStatementsFilter.country]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -53,14 +53,43 @@ export class BankStatementsFilterField<EntityT extends Entity> extends ComplexTy
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   account: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Account', this, 'Edm.String');
+
+  /**
+   * Creates an instance of BankStatementsFilterField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, BankStatementsFilter);
+  }
 }
 
 export namespace BankStatementsFilter {
+  /**
+   * Metadata information on all properties of the `BankStatementsFilter` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<BankStatementsFilter>[] = [{
+    originalName: 'Country',
+    name: 'country',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Bank',
+    name: 'bank',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Account',
+    name: 'account',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): BankStatementsFilter {
-    return createComplexType(json, {
-      Country: (country: string) => ({ country: edmToTs(country, 'Edm.String') }),
-      Bank: (bank: string) => ({ bank: edmToTs(bank, 'Edm.String') }),
-      Account: (account: string) => ({ account: edmToTs(account, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, BankStatementsFilter);
   }
 }

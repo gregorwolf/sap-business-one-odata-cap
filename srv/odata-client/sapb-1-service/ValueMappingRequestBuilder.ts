@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { ValueMapping } from './ValueMapping';
 
 /**
@@ -15,16 +15,16 @@ export class ValueMappingRequestBuilder extends RequestBuilder<ValueMapping> {
    * @param absEntry Key property. See [[ValueMapping.absEntry]].
    * @returns A request builder for creating requests to retrieve one `ValueMapping` entity based on its keys.
    */
-  getByKey(absEntry: number): GetByKeyRequestBuilder<ValueMapping> {
-    return new GetByKeyRequestBuilder(ValueMapping, { AbsEntry: absEntry });
+  getByKey(absEntry: number): GetByKeyRequestBuilderV4<ValueMapping> {
+    return new GetByKeyRequestBuilderV4(ValueMapping, { AbsEntry: absEntry });
   }
 
   /**
    * Returns a request builder for querying all `ValueMapping` entities.
    * @returns A request builder for creating requests to retrieve all `ValueMapping` entities.
    */
-  getAll(): GetAllRequestBuilder<ValueMapping> {
-    return new GetAllRequestBuilder(ValueMapping);
+  getAll(): GetAllRequestBuilderV4<ValueMapping> {
+    return new GetAllRequestBuilderV4(ValueMapping);
   }
 
   /**
@@ -32,8 +32,8 @@ export class ValueMappingRequestBuilder extends RequestBuilder<ValueMapping> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `ValueMapping`.
    */
-  create(entity: ValueMapping): CreateRequestBuilder<ValueMapping> {
-    return new CreateRequestBuilder(ValueMapping, entity);
+  create(entity: ValueMapping): CreateRequestBuilderV4<ValueMapping> {
+    return new CreateRequestBuilderV4(ValueMapping, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class ValueMappingRequestBuilder extends RequestBuilder<ValueMapping> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `ValueMapping`.
    */
-  update(entity: ValueMapping): UpdateRequestBuilder<ValueMapping> {
-    return new UpdateRequestBuilder(ValueMapping, entity);
+  update(entity: ValueMapping): UpdateRequestBuilderV4<ValueMapping> {
+    return new UpdateRequestBuilderV4(ValueMapping, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class ValueMappingRequestBuilder extends RequestBuilder<ValueMapping> {
    * @param absEntry Key property. See [[ValueMapping.absEntry]].
    * @returns A request builder for creating requests that delete an entity of type `ValueMapping`.
    */
-  delete(absEntry: number): DeleteRequestBuilder<ValueMapping>;
+  delete(absEntry: number): DeleteRequestBuilderV4<ValueMapping>;
   /**
    * Returns a request builder for deleting an entity of type `ValueMapping`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `ValueMapping` by taking the entity as a parameter.
    */
-  delete(entity: ValueMapping): DeleteRequestBuilder<ValueMapping>;
-  delete(absEntryOrEntity: any): DeleteRequestBuilder<ValueMapping> {
-    return new DeleteRequestBuilder(ValueMapping, absEntryOrEntity instanceof ValueMapping ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
+  delete(entity: ValueMapping): DeleteRequestBuilderV4<ValueMapping>;
+  delete(absEntryOrEntity: any): DeleteRequestBuilderV4<ValueMapping> {
+    return new DeleteRequestBuilderV4(ValueMapping, absEntryOrEntity instanceof ValueMapping ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
   }
 }

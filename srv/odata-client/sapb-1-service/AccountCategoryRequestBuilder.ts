@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { AccountCategory } from './AccountCategory';
 
 /**
@@ -15,16 +15,16 @@ export class AccountCategoryRequestBuilder extends RequestBuilder<AccountCategor
    * @param categoryCode Key property. See [[AccountCategory.categoryCode]].
    * @returns A request builder for creating requests to retrieve one `AccountCategory` entity based on its keys.
    */
-  getByKey(categoryCode: number): GetByKeyRequestBuilder<AccountCategory> {
-    return new GetByKeyRequestBuilder(AccountCategory, { CategoryCode: categoryCode });
+  getByKey(categoryCode: number): GetByKeyRequestBuilderV4<AccountCategory> {
+    return new GetByKeyRequestBuilderV4(AccountCategory, { CategoryCode: categoryCode });
   }
 
   /**
    * Returns a request builder for querying all `AccountCategory` entities.
    * @returns A request builder for creating requests to retrieve all `AccountCategory` entities.
    */
-  getAll(): GetAllRequestBuilder<AccountCategory> {
-    return new GetAllRequestBuilder(AccountCategory);
+  getAll(): GetAllRequestBuilderV4<AccountCategory> {
+    return new GetAllRequestBuilderV4(AccountCategory);
   }
 
   /**
@@ -32,8 +32,8 @@ export class AccountCategoryRequestBuilder extends RequestBuilder<AccountCategor
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `AccountCategory`.
    */
-  create(entity: AccountCategory): CreateRequestBuilder<AccountCategory> {
-    return new CreateRequestBuilder(AccountCategory, entity);
+  create(entity: AccountCategory): CreateRequestBuilderV4<AccountCategory> {
+    return new CreateRequestBuilderV4(AccountCategory, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class AccountCategoryRequestBuilder extends RequestBuilder<AccountCategor
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `AccountCategory`.
    */
-  update(entity: AccountCategory): UpdateRequestBuilder<AccountCategory> {
-    return new UpdateRequestBuilder(AccountCategory, entity);
+  update(entity: AccountCategory): UpdateRequestBuilderV4<AccountCategory> {
+    return new UpdateRequestBuilderV4(AccountCategory, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class AccountCategoryRequestBuilder extends RequestBuilder<AccountCategor
    * @param categoryCode Key property. See [[AccountCategory.categoryCode]].
    * @returns A request builder for creating requests that delete an entity of type `AccountCategory`.
    */
-  delete(categoryCode: number): DeleteRequestBuilder<AccountCategory>;
+  delete(categoryCode: number): DeleteRequestBuilderV4<AccountCategory>;
   /**
    * Returns a request builder for deleting an entity of type `AccountCategory`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `AccountCategory` by taking the entity as a parameter.
    */
-  delete(entity: AccountCategory): DeleteRequestBuilder<AccountCategory>;
-  delete(categoryCodeOrEntity: any): DeleteRequestBuilder<AccountCategory> {
-    return new DeleteRequestBuilder(AccountCategory, categoryCodeOrEntity instanceof AccountCategory ? categoryCodeOrEntity : { CategoryCode: categoryCodeOrEntity! });
+  delete(entity: AccountCategory): DeleteRequestBuilderV4<AccountCategory>;
+  delete(categoryCodeOrEntity: any): DeleteRequestBuilderV4<AccountCategory> {
+    return new DeleteRequestBuilderV4(AccountCategory, categoryCodeOrEntity instanceof AccountCategory ? categoryCodeOrEntity : { CategoryCode: categoryCodeOrEntity! });
   }
 }

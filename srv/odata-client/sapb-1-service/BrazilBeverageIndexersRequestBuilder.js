@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.BrazilBeverageIndexersRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var BrazilBeverageIndexers_1 = require("./BrazilBeverageIndexers");
 /**
  * Request builder class for operations supported on the [[BrazilBeverageIndexers]] entity.
@@ -35,14 +35,14 @@ var BrazilBeverageIndexersRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `BrazilBeverageIndexers` entity based on its keys.
      */
     BrazilBeverageIndexersRequestBuilder.prototype.getByKey = function (beverageId) {
-        return new v4_1.GetByKeyRequestBuilder(BrazilBeverageIndexers_1.BrazilBeverageIndexers, { BeverageID: beverageId });
+        return new core_1.GetByKeyRequestBuilderV4(BrazilBeverageIndexers_1.BrazilBeverageIndexers, { BeverageID: beverageId });
     };
     /**
      * Returns a request builder for querying all `BrazilBeverageIndexers` entities.
      * @returns A request builder for creating requests to retrieve all `BrazilBeverageIndexers` entities.
      */
     BrazilBeverageIndexersRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(BrazilBeverageIndexers_1.BrazilBeverageIndexers);
+        return new core_1.GetAllRequestBuilderV4(BrazilBeverageIndexers_1.BrazilBeverageIndexers);
     };
     /**
      * Returns a request builder for creating a `BrazilBeverageIndexers` entity.
@@ -50,7 +50,7 @@ var BrazilBeverageIndexersRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `BrazilBeverageIndexers`.
      */
     BrazilBeverageIndexersRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(BrazilBeverageIndexers_1.BrazilBeverageIndexers, entity);
+        return new core_1.CreateRequestBuilderV4(BrazilBeverageIndexers_1.BrazilBeverageIndexers, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `BrazilBeverageIndexers`.
@@ -58,12 +58,12 @@ var BrazilBeverageIndexersRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `BrazilBeverageIndexers`.
      */
     BrazilBeverageIndexersRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(BrazilBeverageIndexers_1.BrazilBeverageIndexers, entity);
+        return new core_1.UpdateRequestBuilderV4(BrazilBeverageIndexers_1.BrazilBeverageIndexers, entity);
     };
     BrazilBeverageIndexersRequestBuilder.prototype.delete = function (beverageIdOrEntity) {
-        return new v4_1.DeleteRequestBuilder(BrazilBeverageIndexers_1.BrazilBeverageIndexers, beverageIdOrEntity instanceof BrazilBeverageIndexers_1.BrazilBeverageIndexers ? beverageIdOrEntity : { BeverageID: beverageIdOrEntity });
+        return new core_1.DeleteRequestBuilderV4(BrazilBeverageIndexers_1.BrazilBeverageIndexers, beverageIdOrEntity instanceof BrazilBeverageIndexers_1.BrazilBeverageIndexers ? beverageIdOrEntity : { BeverageID: beverageIdOrEntity });
     };
     return BrazilBeverageIndexersRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.BrazilBeverageIndexersRequestBuilder = BrazilBeverageIndexersRequestBuilder;
 //# sourceMappingURL=BrazilBeverageIndexersRequestBuilder.js.map

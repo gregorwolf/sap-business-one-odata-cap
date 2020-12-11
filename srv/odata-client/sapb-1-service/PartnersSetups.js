@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.PartnersSetups = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var PartnersSetupsRequestBuilder_1 = require("./PartnersSetupsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "PartnersSetups" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var PartnersSetups = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `PartnersSetups`.
+     * Returns an entity builder to construct instances of `PartnersSetups`.
      * @returns A builder that constructs instances of entity type `PartnersSetups`.
      */
     PartnersSetups.builder = function () {
-        return v4_1.Entity.entityBuilder(PartnersSetups);
+        return core_1.EntityV4.entityBuilder(PartnersSetups);
     };
     /**
      * Returns a request builder to construct requests for operations on the `PartnersSetups` entity type.
@@ -60,7 +60,7 @@ var PartnersSetups = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `PartnersSetups`.
      */
     PartnersSetups.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, PartnersSetups);
+        return core_1.EntityV4.customFieldSelector(fieldName, PartnersSetups);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var PartnersSetups = /** @class */ (function (_super) {
      */
     PartnersSetups._entityName = 'PartnersSetups';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for PartnersSetups.
-     */
-    PartnersSetups._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    PartnersSetups._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    PartnersSetups._defaultServicePath = '/b1s/v2/';
     return PartnersSetups;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.PartnersSetups = PartnersSetups;
 var Relationships_1 = require("./Relationships");
 var BusinessPartners_1 = require("./BusinessPartners");
@@ -92,32 +87,32 @@ var BusinessPartners_1 = require("./BusinessPartners");
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PartnersSetups.NAME = new v4_1.StringField('Name', PartnersSetups, 'Edm.String');
+    PartnersSetups.NAME = new core_1.StringField('Name', PartnersSetups, 'Edm.String');
     /**
      * Static representation of the [[defaultRelationship]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PartnersSetups.DEFAULT_RELATIONSHIP = new v4_1.NumberField('DefaultRelationship', PartnersSetups, 'Edm.Int32');
+    PartnersSetups.DEFAULT_RELATIONSHIP = new core_1.NumberField('DefaultRelationship', PartnersSetups, 'Edm.Int32');
     /**
      * Static representation of the [[relatedBp]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PartnersSetups.RELATED_BP = new v4_1.StringField('RelatedBP', PartnersSetups, 'Edm.String');
+    PartnersSetups.RELATED_BP = new core_1.StringField('RelatedBP', PartnersSetups, 'Edm.String');
     /**
      * Static representation of the [[details]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PartnersSetups.DETAILS = new v4_1.StringField('Details', PartnersSetups, 'Edm.String');
+    PartnersSetups.DETAILS = new core_1.StringField('Details', PartnersSetups, 'Edm.String');
     /**
      * Static representation of the one-to-one navigation property [[relationship]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PartnersSetups.RELATIONSHIP = new v4_1.OneToOneLink('Relationship', PartnersSetups, Relationships_1.Relationships);
+    PartnersSetups.RELATIONSHIP = new core_1.OneToOneLink('Relationship', PartnersSetups, Relationships_1.Relationships);
     /**
      * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PartnersSetups.BUSINESS_PARTNER = new v4_1.OneToOneLink('BusinessPartner', PartnersSetups, BusinessPartners_1.BusinessPartners);
+    PartnersSetups.BUSINESS_PARTNER = new core_1.OneToOneLink('BusinessPartner', PartnersSetups, BusinessPartners_1.BusinessPartners);
     /**
      * All fields of the PartnersSetups entity.
      */
@@ -132,7 +127,7 @@ var BusinessPartners_1 = require("./BusinessPartners");
     /**
      * All fields selector.
      */
-    PartnersSetups.ALL_FIELDS = new v4_1.AllFields('*', PartnersSetups);
+    PartnersSetups.ALL_FIELDS = new core_1.AllFields('*', PartnersSetups);
     /**
      * All key fields of the PartnersSetups entity.
      */

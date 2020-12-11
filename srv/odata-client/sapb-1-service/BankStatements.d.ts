@@ -1,20 +1,17 @@
 import { BankStatementsRequestBuilder } from './BankStatementsRequestBuilder';
 import { Moment } from 'moment';
 import { BankStatementRow } from './BankStatementRow';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BankStatementStatusEnum } from './BankStatementStatusEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "BankStatements" of service "SAPB1".
  */
-export declare class BankStatements extends Entity implements BankStatementsType {
+export declare class BankStatements extends EntityV4 implements BankStatementsType {
     /**
      * Technical entity name for BankStatements.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BankStatements.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -39,6 +36,16 @@ export declare class BankStatements extends Entity implements BankStatementsType
      * @nullable
      */
     statementDate?: Moment;
+    /**
+     * Status.
+     * @nullable
+     */
+    status?: BankStatementStatusEnum;
+    /**
+     * Imported.
+     * @nullable
+     */
+    imported?: BoYesNoEnum;
     /**
      * Starting Balance F.
      * @nullable
@@ -88,10 +95,10 @@ export declare class BankStatements extends Entity implements BankStatementsType
      */
     currency2: Currencies;
     /**
-     * Returns an entity builder to construct instances `BankStatements`.
+     * Returns an entity builder to construct instances of `BankStatements`.
      * @returns A builder that constructs instances of entity type `BankStatements`.
      */
-    static builder(): EntityBuilderType<BankStatements, BankStatementsTypeForceMandatory>;
+    static builder(): EntityBuilderType<BankStatements, BankStatementsType>;
     /**
      * Returns a request builder to construct requests for operations on the `BankStatements` entity type.
      * @returns A `BankStatements` request builder.
@@ -102,7 +109,7 @@ export declare class BankStatements extends Entity implements BankStatementsType
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `BankStatements`.
      */
-    static customField(fieldName: string): CustomField<BankStatements>;
+    static customField(fieldName: string): CustomFieldV4<BankStatements>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -114,34 +121,20 @@ export declare class BankStatements extends Entity implements BankStatementsType
 import { HouseBankAccounts, HouseBankAccountsType } from './HouseBankAccounts';
 import { Currencies, CurrenciesType } from './Currencies';
 export interface BankStatementsType {
-    internalNumber?: number;
-    bankAccountKey?: number;
-    statementNumber?: string;
-    statementDate?: Moment;
-    startingBalanceF?: number;
-    endingBalanceF?: number;
-    currency?: string;
-    startingBalanceL?: number;
-    endingBalanceL?: number;
-    bankStatementFileHash?: string;
-    bankStatementGuid?: string;
-    bankStatementRows?: BankStatementRow[];
-    houseBankAccount: HouseBankAccountsType;
-    currency2: CurrenciesType;
-}
-export interface BankStatementsTypeForceMandatory {
-    internalNumber: number;
-    bankAccountKey: number;
-    statementNumber: string;
-    statementDate: Moment;
-    startingBalanceF: number;
-    endingBalanceF: number;
-    currency: string;
-    startingBalanceL: number;
-    endingBalanceL: number;
-    bankStatementFileHash: string;
-    bankStatementGuid: string;
-    bankStatementRows: BankStatementRow[];
+    internalNumber?: number | null;
+    bankAccountKey?: number | null;
+    statementNumber?: string | null;
+    statementDate?: Moment | null;
+    status?: BankStatementStatusEnum | null;
+    imported?: BoYesNoEnum | null;
+    startingBalanceF?: number | null;
+    endingBalanceF?: number | null;
+    currency?: string | null;
+    startingBalanceL?: number | null;
+    endingBalanceL?: number | null;
+    bankStatementFileHash?: string | null;
+    bankStatementGuid?: string | null;
+    bankStatementRows?: BankStatementRow[] | null;
     houseBankAccount: HouseBankAccountsType;
     currency2: CurrenciesType;
 }
@@ -166,6 +159,16 @@ export declare namespace BankStatements {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const STATEMENT_DATE: DateField<BankStatements>;
+    /**
+     * Static representation of the [[status]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const STATUS: EnumField<BankStatements>;
+    /**
+     * Static representation of the [[imported]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IMPORTED: EnumField<BankStatements>;
     /**
      * Static representation of the [[startingBalanceF]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -205,7 +208,7 @@ export declare namespace BankStatements {
      * Static representation of the [[bankStatementRows]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const BANK_STATEMENT_ROWS: CollectionField<BankStatements>;
+    const BANK_STATEMENT_ROWS: CollectionField<BankStatements, BankStatementRow>;
     /**
      * Static representation of the one-to-one navigation property [[houseBankAccount]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -219,7 +222,7 @@ export declare namespace BankStatements {
     /**
      * All fields of the BankStatements entity.
      */
-    const _allFields: Array<NumberField<BankStatements> | StringField<BankStatements> | DateField<BankStatements> | CollectionField<BankStatements> | OneToOneLink<BankStatements, HouseBankAccounts> | OneToOneLink<BankStatements, Currencies>>;
+    const _allFields: Array<NumberField<BankStatements> | StringField<BankStatements> | DateField<BankStatements> | EnumField<BankStatements> | CollectionField<BankStatements, BankStatementRow> | OneToOneLink<BankStatements, HouseBankAccounts> | OneToOneLink<BankStatements, Currencies>>;
     /**
      * All fields selector.
      */

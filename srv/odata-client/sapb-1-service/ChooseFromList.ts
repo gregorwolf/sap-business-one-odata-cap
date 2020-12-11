@@ -4,26 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ChooseFromListRequestBuilder } from './ChooseFromListRequestBuilder';
-import { ChooseFromListLine, ChooseFromListLineField } from './ChooseFromListLine';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, StringField } from '@sap-cloud-sdk/core/v4';
+import { ChooseFromListLine } from './ChooseFromListLine';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, Field, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ChooseFromList" of service "SAPB1".
  */
-export class ChooseFromList extends Entity implements ChooseFromListType {
+export class ChooseFromList extends EntityV4 implements ChooseFromListType {
   /**
    * Technical entity name for ChooseFromList.
    */
   static _entityName = 'ChooseFromList';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ChooseFromList.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Object Name.
    * @nullable
@@ -36,11 +31,11 @@ export class ChooseFromList extends Entity implements ChooseFromListType {
   chooseFromListLines?: ChooseFromListLine[];
 
   /**
-   * Returns an entity builder to construct instances `ChooseFromList`.
+   * Returns an entity builder to construct instances of `ChooseFromList`.
    * @returns A builder that constructs instances of entity type `ChooseFromList`.
    */
-  static builder(): EntityBuilderType<ChooseFromList, ChooseFromListTypeForceMandatory> {
-    return Entity.entityBuilder(ChooseFromList);
+  static builder(): EntityBuilderType<ChooseFromList, ChooseFromListType> {
+    return EntityV4.entityBuilder(ChooseFromList);
   }
 
   /**
@@ -56,8 +51,8 @@ export class ChooseFromList extends Entity implements ChooseFromListType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ChooseFromList`.
    */
-  static customField(fieldName: string): CustomField<ChooseFromList> {
-    return Entity.customFieldSelector(fieldName, ChooseFromList);
+  static customField(fieldName: string): CustomFieldV4<ChooseFromList> {
+    return EntityV4.customFieldSelector(fieldName, ChooseFromList);
   }
 
   /**
@@ -70,13 +65,8 @@ export class ChooseFromList extends Entity implements ChooseFromListType {
 }
 
 export interface ChooseFromListType {
-  objectName?: string;
-  chooseFromListLines?: ChooseFromListLine[];
-}
-
-export interface ChooseFromListTypeForceMandatory {
-  objectName: string;
-  chooseFromListLines: ChooseFromListLine[];
+  objectName?: string | null;
+  chooseFromListLines?: ChooseFromListLine[] | null;
 }
 
 export namespace ChooseFromList {
@@ -89,11 +79,11 @@ export namespace ChooseFromList {
    * Static representation of the [[chooseFromListLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const CHOOSE_FROM_LIST_LINES: CollectionField<ChooseFromList> = new CollectionField('ChooseFromList_Lines', ChooseFromList, new ChooseFromListLineField('', ChooseFromList));
+  export const CHOOSE_FROM_LIST_LINES: CollectionField<ChooseFromList, ChooseFromListLine> = new CollectionField('ChooseFromList_Lines', ChooseFromList, ChooseFromListLine);
   /**
    * All fields of the ChooseFromList entity.
    */
-  export const _allFields: Array<StringField<ChooseFromList> | CollectionField<ChooseFromList>> = [
+  export const _allFields: Array<StringField<ChooseFromList> | CollectionField<ChooseFromList, ChooseFromListLine>> = [
     ChooseFromList.OBJECT_NAME,
     ChooseFromList.CHOOSE_FROM_LIST_LINES
   ];

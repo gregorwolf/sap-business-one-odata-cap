@@ -1,20 +1,18 @@
 import { PaymentRunExportRequestBuilder } from './PaymentRunExportRequestBuilder';
 import { Moment } from 'moment';
 import { PaymentRunExportLine } from './PaymentRunExportLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoOpexStatus } from './BoOpexStatus';
+import { PaymentRunExportRowTypeEnum } from './PaymentRunExportRowTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "PaymentRunExport" of service "SAPB1".
  */
-export declare class PaymentRunExport extends Entity implements PaymentRunExportType {
+export declare class PaymentRunExport extends EntityV4 implements PaymentRunExportType {
     /**
      * Technical entity name for PaymentRunExport.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for PaymentRunExport.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -220,10 +218,25 @@ export declare class PaymentRunExport extends Entity implements PaymentRunExport
      */
     wizCode?: number;
     /**
+     * Collection Authorization.
+     * @nullable
+     */
+    collectionAuthorization?: BoYesNoEnum;
+    /**
+     * Payee Bank Post Office.
+     * @nullable
+     */
+    payeeBankPostOffice?: BoYesNoEnum;
+    /**
      * Payee Bank Next Check Number.
      * @nullable
      */
     payeeBankNextCheckNumber?: number;
+    /**
+     * Payee Bank House Bank.
+     * @nullable
+     */
+    payeeBankHouseBank?: BoYesNoEnum;
     /**
      * Payee Bank Block.
      * @nullable
@@ -239,6 +252,11 @@ export declare class PaymentRunExport extends Entity implements PaymentRunExport
      * @nullable
      */
     payeeBankState?: string;
+    /**
+     * Payee Bank Bisr.
+     * @nullable
+     */
+    payeeBankBisr?: BoYesNoEnum;
     /**
      * Payee Bank User Num 1.
      * @nullable
@@ -279,6 +297,11 @@ export declare class PaymentRunExport extends Entity implements PaymentRunExport
      * @nullable
      */
     companyAddress?: string;
+    /**
+     * Status.
+     * @nullable
+     */
+    status?: BoOpexStatus;
     /**
      * Comp Isr Biller Id.
      * @nullable
@@ -335,6 +358,16 @@ export declare class PaymentRunExport extends Entity implements PaymentRunExport
      */
     userDepartment?: number;
     /**
+     * Debit Memo.
+     * @nullable
+     */
+    debitMemo?: BoYesNoEnum;
+    /**
+     * Eu Internal Transfer.
+     * @nullable
+     */
+    euInternalTransfer?: BoYesNoEnum;
+    /**
      * File Path.
      * @nullable
      */
@@ -369,6 +402,11 @@ export declare class PaymentRunExport extends Entity implements PaymentRunExport
      * @nullable
      */
     formatName?: string;
+    /**
+     * Payment Donewith Check.
+     * @nullable
+     */
+    paymentDonewithCheck?: BoYesNoEnum;
     /**
      * Company Block.
      * @nullable
@@ -450,6 +488,11 @@ export declare class PaymentRunExport extends Entity implements PaymentRunExport
      */
     freeText3?: string;
     /**
+     * Row Type.
+     * @nullable
+     */
+    rowType?: PaymentRunExportRowTypeEnum;
+    /**
      * Payment Run Export Lines.
      * @nullable
      */
@@ -459,10 +502,10 @@ export declare class PaymentRunExport extends Entity implements PaymentRunExport
      */
     bankChargesAllocationCode: BankChargesAllocationCodes;
     /**
-     * Returns an entity builder to construct instances `PaymentRunExport`.
+     * Returns an entity builder to construct instances of `PaymentRunExport`.
      * @returns A builder that constructs instances of entity type `PaymentRunExport`.
      */
-    static builder(): EntityBuilderType<PaymentRunExport, PaymentRunExportTypeForceMandatory>;
+    static builder(): EntityBuilderType<PaymentRunExport, PaymentRunExportType>;
     /**
      * Returns a request builder to construct requests for operations on the `PaymentRunExport` entity type.
      * @returns A `PaymentRunExport` request builder.
@@ -473,7 +516,7 @@ export declare class PaymentRunExport extends Entity implements PaymentRunExport
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `PaymentRunExport`.
      */
-    static customField(fieldName: string): CustomField<PaymentRunExport>;
+    static customField(fieldName: string): CustomFieldV4<PaymentRunExport>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -484,183 +527,102 @@ export declare class PaymentRunExport extends Entity implements PaymentRunExport
 }
 import { BankChargesAllocationCodes, BankChargesAllocationCodesType } from './BankChargesAllocationCodes';
 export interface PaymentRunExportType {
-    absoluteEntry?: number;
-    runDate?: Moment;
-    vendorNum?: string;
-    customerNum?: string;
-    paymentMethod?: string;
-    docNum?: number;
-    fiscalYear?: Moment;
-    countery?: string;
-    companyTaxNum?: string;
-    payeeName?: string;
-    payeePostalCode?: string;
-    payeeCity?: string;
-    payeeStreet?: string;
-    payeeCountry?: string;
-    payeeState?: string;
-    payeeBankName?: string;
-    payeeBankZip?: string;
-    payeeBankCity?: string;
-    payeeBankStreet?: string;
-    payeeBankCountry?: string;
-    payeeBankAccount?: string;
-    payeeBankCode?: string;
-    payeeBankCtrlKey?: string;
-    payeeBankSwiftNum?: string;
-    payeeBankIban?: string;
-    postingDate?: Moment;
-    bankAccount?: string;
-    bankCountry?: string;
-    bankCode?: string;
-    bankIban?: string;
-    glAccount?: string;
-    currency?: string;
-    docAmountLocal?: number;
-    docCurrnecy?: string;
-    docAmountForign?: number;
-    docCashDiscount?: number;
-    docCashDiscountForign?: number;
-    docNumOffieldPaid?: number;
-    docRate?: number;
-    wizCode?: number;
-    payeeBankNextCheckNumber?: number;
-    payeeBankBlock?: string;
-    payeeBankCounty?: string;
-    payeeBankState?: string;
-    payeeBankUserNum1?: string;
-    payeeBankUserNum2?: string;
-    payeeBankUserNum3?: string;
-    payeeBankUserNum4?: string;
-    instructionKey?: string;
-    paymentFormat?: string;
-    companyName?: string;
-    companyAddress?: string;
-    compIsrBillerId?: string;
-    vendorIsrBillerId?: string;
-    additionalIdNumber?: string;
-    organizationNumber?: string;
-    payeeBankBranch?: string;
-    paymentBankBranch?: string;
-    userName?: string;
-    userEMail?: string;
-    userMobilePhoneNumber?: string;
-    userFaxNumber?: string;
-    userDepartment?: number;
-    filePath?: string;
-    orderingParty?: string;
-    paymentBankControlKey?: string;
-    payeeTaxNumber?: string;
-    paymentKeyCode?: string;
-    payeeReferenceDetails?: string;
-    formatName?: string;
-    companyBlock?: string;
-    companyCity?: string;
-    companyCounty?: string;
-    companyState?: string;
-    companyStreet?: string;
-    companyZipCode?: string;
-    paymentBankCharges?: string;
-    paymentBankUserNo1?: string;
-    paymentBankUserNo2?: string;
-    paymentBankUserNo3?: string;
-    paymentBankUserNo4?: string;
-    paymentBankChargesAllocationCode?: string;
-    paymentOrderNum?: number;
-    freeText1?: string;
-    freeText2?: string;
-    freeText3?: string;
-    paymentRunExportLines?: PaymentRunExportLine[];
-    bankChargesAllocationCode: BankChargesAllocationCodesType;
-}
-export interface PaymentRunExportTypeForceMandatory {
-    absoluteEntry: number;
-    runDate: Moment;
-    vendorNum: string;
-    customerNum: string;
-    paymentMethod: string;
-    docNum: number;
-    fiscalYear: Moment;
-    countery: string;
-    companyTaxNum: string;
-    payeeName: string;
-    payeePostalCode: string;
-    payeeCity: string;
-    payeeStreet: string;
-    payeeCountry: string;
-    payeeState: string;
-    payeeBankName: string;
-    payeeBankZip: string;
-    payeeBankCity: string;
-    payeeBankStreet: string;
-    payeeBankCountry: string;
-    payeeBankAccount: string;
-    payeeBankCode: string;
-    payeeBankCtrlKey: string;
-    payeeBankSwiftNum: string;
-    payeeBankIban: string;
-    postingDate: Moment;
-    bankAccount: string;
-    bankCountry: string;
-    bankCode: string;
-    bankIban: string;
-    glAccount: string;
-    currency: string;
-    docAmountLocal: number;
-    docCurrnecy: string;
-    docAmountForign: number;
-    docCashDiscount: number;
-    docCashDiscountForign: number;
-    docNumOffieldPaid: number;
-    docRate: number;
-    wizCode: number;
-    payeeBankNextCheckNumber: number;
-    payeeBankBlock: string;
-    payeeBankCounty: string;
-    payeeBankState: string;
-    payeeBankUserNum1: string;
-    payeeBankUserNum2: string;
-    payeeBankUserNum3: string;
-    payeeBankUserNum4: string;
-    instructionKey: string;
-    paymentFormat: string;
-    companyName: string;
-    companyAddress: string;
-    compIsrBillerId: string;
-    vendorIsrBillerId: string;
-    additionalIdNumber: string;
-    organizationNumber: string;
-    payeeBankBranch: string;
-    paymentBankBranch: string;
-    userName: string;
-    userEMail: string;
-    userMobilePhoneNumber: string;
-    userFaxNumber: string;
-    userDepartment: number;
-    filePath: string;
-    orderingParty: string;
-    paymentBankControlKey: string;
-    payeeTaxNumber: string;
-    paymentKeyCode: string;
-    payeeReferenceDetails: string;
-    formatName: string;
-    companyBlock: string;
-    companyCity: string;
-    companyCounty: string;
-    companyState: string;
-    companyStreet: string;
-    companyZipCode: string;
-    paymentBankCharges: string;
-    paymentBankUserNo1: string;
-    paymentBankUserNo2: string;
-    paymentBankUserNo3: string;
-    paymentBankUserNo4: string;
-    paymentBankChargesAllocationCode: string;
-    paymentOrderNum: number;
-    freeText1: string;
-    freeText2: string;
-    freeText3: string;
-    paymentRunExportLines: PaymentRunExportLine[];
+    absoluteEntry?: number | null;
+    runDate?: Moment | null;
+    vendorNum?: string | null;
+    customerNum?: string | null;
+    paymentMethod?: string | null;
+    docNum?: number | null;
+    fiscalYear?: Moment | null;
+    countery?: string | null;
+    companyTaxNum?: string | null;
+    payeeName?: string | null;
+    payeePostalCode?: string | null;
+    payeeCity?: string | null;
+    payeeStreet?: string | null;
+    payeeCountry?: string | null;
+    payeeState?: string | null;
+    payeeBankName?: string | null;
+    payeeBankZip?: string | null;
+    payeeBankCity?: string | null;
+    payeeBankStreet?: string | null;
+    payeeBankCountry?: string | null;
+    payeeBankAccount?: string | null;
+    payeeBankCode?: string | null;
+    payeeBankCtrlKey?: string | null;
+    payeeBankSwiftNum?: string | null;
+    payeeBankIban?: string | null;
+    postingDate?: Moment | null;
+    bankAccount?: string | null;
+    bankCountry?: string | null;
+    bankCode?: string | null;
+    bankIban?: string | null;
+    glAccount?: string | null;
+    currency?: string | null;
+    docAmountLocal?: number | null;
+    docCurrnecy?: string | null;
+    docAmountForign?: number | null;
+    docCashDiscount?: number | null;
+    docCashDiscountForign?: number | null;
+    docNumOffieldPaid?: number | null;
+    docRate?: number | null;
+    wizCode?: number | null;
+    collectionAuthorization?: BoYesNoEnum | null;
+    payeeBankPostOffice?: BoYesNoEnum | null;
+    payeeBankNextCheckNumber?: number | null;
+    payeeBankHouseBank?: BoYesNoEnum | null;
+    payeeBankBlock?: string | null;
+    payeeBankCounty?: string | null;
+    payeeBankState?: string | null;
+    payeeBankBisr?: BoYesNoEnum | null;
+    payeeBankUserNum1?: string | null;
+    payeeBankUserNum2?: string | null;
+    payeeBankUserNum3?: string | null;
+    payeeBankUserNum4?: string | null;
+    instructionKey?: string | null;
+    paymentFormat?: string | null;
+    companyName?: string | null;
+    companyAddress?: string | null;
+    status?: BoOpexStatus | null;
+    compIsrBillerId?: string | null;
+    vendorIsrBillerId?: string | null;
+    additionalIdNumber?: string | null;
+    organizationNumber?: string | null;
+    payeeBankBranch?: string | null;
+    paymentBankBranch?: string | null;
+    userName?: string | null;
+    userEMail?: string | null;
+    userMobilePhoneNumber?: string | null;
+    userFaxNumber?: string | null;
+    userDepartment?: number | null;
+    debitMemo?: BoYesNoEnum | null;
+    euInternalTransfer?: BoYesNoEnum | null;
+    filePath?: string | null;
+    orderingParty?: string | null;
+    paymentBankControlKey?: string | null;
+    payeeTaxNumber?: string | null;
+    paymentKeyCode?: string | null;
+    payeeReferenceDetails?: string | null;
+    formatName?: string | null;
+    paymentDonewithCheck?: BoYesNoEnum | null;
+    companyBlock?: string | null;
+    companyCity?: string | null;
+    companyCounty?: string | null;
+    companyState?: string | null;
+    companyStreet?: string | null;
+    companyZipCode?: string | null;
+    paymentBankCharges?: string | null;
+    paymentBankUserNo1?: string | null;
+    paymentBankUserNo2?: string | null;
+    paymentBankUserNo3?: string | null;
+    paymentBankUserNo4?: string | null;
+    paymentBankChargesAllocationCode?: string | null;
+    paymentOrderNum?: number | null;
+    freeText1?: string | null;
+    freeText2?: string | null;
+    freeText3?: string | null;
+    rowType?: PaymentRunExportRowTypeEnum | null;
+    paymentRunExportLines?: PaymentRunExportLine[] | null;
     bankChargesAllocationCode: BankChargesAllocationCodesType;
 }
 export declare namespace PaymentRunExport {
@@ -865,10 +827,25 @@ export declare namespace PaymentRunExport {
      */
     const WIZ_CODE: NumberField<PaymentRunExport>;
     /**
+     * Static representation of the [[collectionAuthorization]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COLLECTION_AUTHORIZATION: EnumField<PaymentRunExport>;
+    /**
+     * Static representation of the [[payeeBankPostOffice]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PAYEE_BANK_POST_OFFICE: EnumField<PaymentRunExport>;
+    /**
      * Static representation of the [[payeeBankNextCheckNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const PAYEE_BANK_NEXT_CHECK_NUMBER: NumberField<PaymentRunExport>;
+    /**
+     * Static representation of the [[payeeBankHouseBank]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PAYEE_BANK_HOUSE_BANK: EnumField<PaymentRunExport>;
     /**
      * Static representation of the [[payeeBankBlock]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -884,6 +861,11 @@ export declare namespace PaymentRunExport {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const PAYEE_BANK_STATE: StringField<PaymentRunExport>;
+    /**
+     * Static representation of the [[payeeBankBisr]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PAYEE_BANK_BISR: EnumField<PaymentRunExport>;
     /**
      * Static representation of the [[payeeBankUserNum1]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -924,6 +906,11 @@ export declare namespace PaymentRunExport {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const COMPANY_ADDRESS: StringField<PaymentRunExport>;
+    /**
+     * Static representation of the [[status]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const STATUS: EnumField<PaymentRunExport>;
     /**
      * Static representation of the [[compIsrBillerId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -980,6 +967,16 @@ export declare namespace PaymentRunExport {
      */
     const USER_DEPARTMENT: NumberField<PaymentRunExport>;
     /**
+     * Static representation of the [[debitMemo]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DEBIT_MEMO: EnumField<PaymentRunExport>;
+    /**
+     * Static representation of the [[euInternalTransfer]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const EU_INTERNAL_TRANSFER: EnumField<PaymentRunExport>;
+    /**
      * Static representation of the [[filePath]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -1014,6 +1011,11 @@ export declare namespace PaymentRunExport {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const FORMAT_NAME: StringField<PaymentRunExport>;
+    /**
+     * Static representation of the [[paymentDonewithCheck]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PAYMENT_DONEWITH_CHECK: EnumField<PaymentRunExport>;
     /**
      * Static representation of the [[companyBlock]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1095,10 +1097,15 @@ export declare namespace PaymentRunExport {
      */
     const FREE_TEXT_3: StringField<PaymentRunExport>;
     /**
+     * Static representation of the [[rowType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ROW_TYPE: EnumField<PaymentRunExport>;
+    /**
      * Static representation of the [[paymentRunExportLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const PAYMENT_RUN_EXPORT_LINES: CollectionField<PaymentRunExport>;
+    const PAYMENT_RUN_EXPORT_LINES: CollectionField<PaymentRunExport, PaymentRunExportLine>;
     /**
      * Static representation of the one-to-one navigation property [[bankChargesAllocationCode]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1107,7 +1114,7 @@ export declare namespace PaymentRunExport {
     /**
      * All fields of the PaymentRunExport entity.
      */
-    const _allFields: Array<NumberField<PaymentRunExport> | DateField<PaymentRunExport> | StringField<PaymentRunExport> | CollectionField<PaymentRunExport> | OneToOneLink<PaymentRunExport, BankChargesAllocationCodes>>;
+    const _allFields: Array<NumberField<PaymentRunExport> | DateField<PaymentRunExport> | StringField<PaymentRunExport> | EnumField<PaymentRunExport> | CollectionField<PaymentRunExport, PaymentRunExportLine> | OneToOneLink<PaymentRunExport, BankChargesAllocationCodes>>;
     /**
      * All fields selector.
      */

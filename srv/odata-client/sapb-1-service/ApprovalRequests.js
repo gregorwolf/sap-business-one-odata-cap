@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -33,7 +33,7 @@ exports.ApprovalRequests = void 0;
 var ApprovalRequestsRequestBuilder_1 = require("./ApprovalRequestsRequestBuilder");
 var ApprovalRequestLine_1 = require("./ApprovalRequestLine");
 var ApprovalRequestDecision_1 = require("./ApprovalRequestDecision");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "ApprovalRequests" of service "SAPB1".
  */
@@ -43,11 +43,11 @@ var ApprovalRequests = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `ApprovalRequests`.
+     * Returns an entity builder to construct instances of `ApprovalRequests`.
      * @returns A builder that constructs instances of entity type `ApprovalRequests`.
      */
     ApprovalRequests.builder = function () {
-        return v4_1.Entity.entityBuilder(ApprovalRequests);
+        return core_1.EntityV4.entityBuilder(ApprovalRequests);
     };
     /**
      * Returns a request builder to construct requests for operations on the `ApprovalRequests` entity type.
@@ -62,7 +62,7 @@ var ApprovalRequests = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `ApprovalRequests`.
      */
     ApprovalRequests.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, ApprovalRequests);
+        return core_1.EntityV4.customFieldSelector(fieldName, ApprovalRequests);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -76,16 +76,11 @@ var ApprovalRequests = /** @class */ (function (_super) {
      */
     ApprovalRequests._entityName = 'ApprovalRequests';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ApprovalRequests.
-     */
-    ApprovalRequests._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    ApprovalRequests._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    ApprovalRequests._defaultServicePath = '/b1s/v2/';
     return ApprovalRequests;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.ApprovalRequests = ApprovalRequests;
 var ApprovalTemplates_1 = require("./ApprovalTemplates");
 var ApprovalStages_1 = require("./ApprovalStages");
@@ -95,87 +90,92 @@ var Users_1 = require("./Users");
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalRequests.CODE = new v4_1.NumberField('Code', ApprovalRequests, 'Edm.Int32');
+    ApprovalRequests.CODE = new core_1.NumberField('Code', ApprovalRequests, 'Edm.Int32');
     /**
      * Static representation of the [[approvalTemplatesId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalRequests.APPROVAL_TEMPLATES_ID = new v4_1.NumberField('ApprovalTemplatesID', ApprovalRequests, 'Edm.Int32');
+    ApprovalRequests.APPROVAL_TEMPLATES_ID = new core_1.NumberField('ApprovalTemplatesID', ApprovalRequests, 'Edm.Int32');
     /**
      * Static representation of the [[objectType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalRequests.OBJECT_TYPE = new v4_1.StringField('ObjectType', ApprovalRequests, 'Edm.String');
+    ApprovalRequests.OBJECT_TYPE = new core_1.StringField('ObjectType', ApprovalRequests, 'Edm.String');
     /**
      * Static representation of the [[isDraft]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalRequests.IS_DRAFT = new v4_1.StringField('IsDraft', ApprovalRequests, 'Edm.String');
+    ApprovalRequests.IS_DRAFT = new core_1.StringField('IsDraft', ApprovalRequests, 'Edm.String');
     /**
      * Static representation of the [[objectEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalRequests.OBJECT_ENTRY = new v4_1.NumberField('ObjectEntry', ApprovalRequests, 'Edm.Int32');
+    ApprovalRequests.OBJECT_ENTRY = new core_1.NumberField('ObjectEntry', ApprovalRequests, 'Edm.Int32');
+    /**
+     * Static representation of the [[status]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ApprovalRequests.STATUS = new core_1.EnumField('Status', ApprovalRequests);
     /**
      * Static representation of the [[remarks]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalRequests.REMARKS = new v4_1.StringField('Remarks', ApprovalRequests, 'Edm.String');
+    ApprovalRequests.REMARKS = new core_1.StringField('Remarks', ApprovalRequests, 'Edm.String');
     /**
      * Static representation of the [[currentStage]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalRequests.CURRENT_STAGE = new v4_1.NumberField('CurrentStage', ApprovalRequests, 'Edm.Int32');
+    ApprovalRequests.CURRENT_STAGE = new core_1.NumberField('CurrentStage', ApprovalRequests, 'Edm.Int32');
     /**
      * Static representation of the [[originatorId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalRequests.ORIGINATOR_ID = new v4_1.NumberField('OriginatorID', ApprovalRequests, 'Edm.Int32');
+    ApprovalRequests.ORIGINATOR_ID = new core_1.NumberField('OriginatorID', ApprovalRequests, 'Edm.Int32');
     /**
      * Static representation of the [[creationDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalRequests.CREATION_DATE = new v4_1.DateField('CreationDate', ApprovalRequests, 'Edm.DateTimeOffset');
+    ApprovalRequests.CREATION_DATE = new core_1.DateField('CreationDate', ApprovalRequests, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[creationTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalRequests.CREATION_TIME = new v4_1.TimeField('CreationTime', ApprovalRequests, 'Edm.TimeOfDay');
+    ApprovalRequests.CREATION_TIME = new core_1.TimeField('CreationTime', ApprovalRequests, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[draftEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalRequests.DRAFT_ENTRY = new v4_1.NumberField('DraftEntry', ApprovalRequests, 'Edm.Int32');
+    ApprovalRequests.DRAFT_ENTRY = new core_1.NumberField('DraftEntry', ApprovalRequests, 'Edm.Int32');
     /**
      * Static representation of the [[draftType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalRequests.DRAFT_TYPE = new v4_1.StringField('DraftType', ApprovalRequests, 'Edm.String');
+    ApprovalRequests.DRAFT_TYPE = new core_1.StringField('DraftType', ApprovalRequests, 'Edm.String');
     /**
      * Static representation of the [[approvalRequestLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalRequests.APPROVAL_REQUEST_LINES = new v4_1.CollectionField('ApprovalRequestLines', ApprovalRequests, new ApprovalRequestLine_1.ApprovalRequestLineField('', ApprovalRequests));
+    ApprovalRequests.APPROVAL_REQUEST_LINES = new core_1.CollectionField('ApprovalRequestLines', ApprovalRequests, ApprovalRequestLine_1.ApprovalRequestLine);
     /**
      * Static representation of the [[approvalRequestDecisions]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalRequests.APPROVAL_REQUEST_DECISIONS = new v4_1.CollectionField('ApprovalRequestDecisions', ApprovalRequests, new ApprovalRequestDecision_1.ApprovalRequestDecisionField('', ApprovalRequests));
+    ApprovalRequests.APPROVAL_REQUEST_DECISIONS = new core_1.CollectionField('ApprovalRequestDecisions', ApprovalRequests, ApprovalRequestDecision_1.ApprovalRequestDecision);
     /**
      * Static representation of the one-to-one navigation property [[approvalTemplate]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalRequests.APPROVAL_TEMPLATE = new v4_1.OneToOneLink('ApprovalTemplate', ApprovalRequests, ApprovalTemplates_1.ApprovalTemplates);
+    ApprovalRequests.APPROVAL_TEMPLATE = new core_1.OneToOneLink('ApprovalTemplate', ApprovalRequests, ApprovalTemplates_1.ApprovalTemplates);
     /**
      * Static representation of the one-to-one navigation property [[approvalStage]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalRequests.APPROVAL_STAGE = new v4_1.OneToOneLink('ApprovalStage', ApprovalRequests, ApprovalStages_1.ApprovalStages);
+    ApprovalRequests.APPROVAL_STAGE = new core_1.OneToOneLink('ApprovalStage', ApprovalRequests, ApprovalStages_1.ApprovalStages);
     /**
      * Static representation of the one-to-one navigation property [[user]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ApprovalRequests.USER = new v4_1.OneToOneLink('User', ApprovalRequests, Users_1.Users);
+    ApprovalRequests.USER = new core_1.OneToOneLink('User', ApprovalRequests, Users_1.Users);
     /**
      * All fields of the ApprovalRequests entity.
      */
@@ -185,6 +185,7 @@ var Users_1 = require("./Users");
         ApprovalRequests.OBJECT_TYPE,
         ApprovalRequests.IS_DRAFT,
         ApprovalRequests.OBJECT_ENTRY,
+        ApprovalRequests.STATUS,
         ApprovalRequests.REMARKS,
         ApprovalRequests.CURRENT_STAGE,
         ApprovalRequests.ORIGINATOR_ID,
@@ -201,7 +202,7 @@ var Users_1 = require("./Users");
     /**
      * All fields selector.
      */
-    ApprovalRequests.ALL_FIELDS = new v4_1.AllFields('*', ApprovalRequests);
+    ApprovalRequests.ALL_FIELDS = new core_1.AllFields('*', ApprovalRequests);
     /**
      * All key fields of the ApprovalRequests entity.
      */

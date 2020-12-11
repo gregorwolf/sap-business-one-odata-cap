@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WorkflowTaskNote = exports.WorkflowTaskNoteField = exports.createWorkflowTaskNote = void 0;
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[WorkflowTaskNote.build]] instead.
  */
@@ -28,48 +28,80 @@ exports.createWorkflowTaskNote = createWorkflowTaskNote;
  */
 var WorkflowTaskNoteField = /** @class */ (function (_super) {
     __extends(WorkflowTaskNoteField, _super);
-    function WorkflowTaskNoteField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of WorkflowTaskNoteField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function WorkflowTaskNoteField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, WorkflowTaskNote) || this;
         /**
          * Representation of the [[WorkflowTaskNote.taskId]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.taskId = new v4_1.ComplexTypeNumberPropertyField('TaskID', _this, 'Edm.Int32');
+        _this.taskId = new core_1.ComplexTypeNumberPropertyField('TaskID', _this, 'Edm.Int32');
         /**
          * Representation of the [[WorkflowTaskNote.lineId]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.lineId = new v4_1.ComplexTypeNumberPropertyField('LineId', _this, 'Edm.Int32');
+        _this.lineId = new core_1.ComplexTypeNumberPropertyField('LineId', _this, 'Edm.Int32');
         /**
          * Representation of the [[WorkflowTaskNote.note]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.note = new v4_1.ComplexTypeStringPropertyField('Note', _this, 'Edm.String');
+        _this.note = new core_1.ComplexTypeStringPropertyField('Note', _this, 'Edm.String');
         /**
          * Representation of the [[WorkflowTaskNote.creator]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.creator = new v4_1.ComplexTypeStringPropertyField('Creator', _this, 'Edm.String');
+        _this.creator = new core_1.ComplexTypeStringPropertyField('Creator', _this, 'Edm.String');
         /**
          * Representation of the [[WorkflowTaskNote.noteDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.noteDate = new v4_1.ComplexTypeDatePropertyField('NoteDate', _this, 'Edm.DateTimeOffset');
+        _this.noteDate = new core_1.ComplexTypeDatePropertyField('NoteDate', _this, 'Edm.DateTimeOffset');
         return _this;
     }
     return WorkflowTaskNoteField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.WorkflowTaskNoteField = WorkflowTaskNoteField;
 var WorkflowTaskNote;
 (function (WorkflowTaskNote) {
+    /**
+     * Metadata information on all properties of the `WorkflowTaskNote` complex type.
+     */
+    WorkflowTaskNote._propertyMetadata = [{
+            originalName: 'TaskID',
+            name: 'taskId',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'LineId',
+            name: 'lineId',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Note',
+            name: 'note',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Creator',
+            name: 'creator',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'NoteDate',
+            name: 'noteDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            TaskID: function (taskId) { return ({ taskId: v4_1.edmToTs(taskId, 'Edm.Int32') }); },
-            LineId: function (lineId) { return ({ lineId: v4_1.edmToTs(lineId, 'Edm.Int32') }); },
-            Note: function (note) { return ({ note: v4_1.edmToTs(note, 'Edm.String') }); },
-            Creator: function (creator) { return ({ creator: v4_1.edmToTs(creator, 'Edm.String') }); },
-            NoteDate: function (noteDate) { return ({ noteDate: v4_1.edmToTs(noteDate, 'Edm.DateTimeOffset') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, WorkflowTaskNote);
     }
     WorkflowTaskNote.build = build;
 })(WorkflowTaskNote = exports.WorkflowTaskNote || (exports.WorkflowTaskNote = {}));

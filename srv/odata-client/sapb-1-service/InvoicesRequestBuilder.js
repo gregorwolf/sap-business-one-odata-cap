@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.InvoicesRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var Invoices_1 = require("./Invoices");
 /**
  * Request builder class for operations supported on the [[Invoices]] entity.
@@ -35,14 +35,14 @@ var InvoicesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `Invoices` entity based on its keys.
      */
     InvoicesRequestBuilder.prototype.getByKey = function (docEntry) {
-        return new v4_1.GetByKeyRequestBuilder(Invoices_1.Invoices, { DocEntry: docEntry });
+        return new core_1.GetByKeyRequestBuilderV4(Invoices_1.Invoices, { DocEntry: docEntry });
     };
     /**
      * Returns a request builder for querying all `Invoices` entities.
      * @returns A request builder for creating requests to retrieve all `Invoices` entities.
      */
     InvoicesRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(Invoices_1.Invoices);
+        return new core_1.GetAllRequestBuilderV4(Invoices_1.Invoices);
     };
     /**
      * Returns a request builder for creating a `Invoices` entity.
@@ -50,7 +50,7 @@ var InvoicesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `Invoices`.
      */
     InvoicesRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(Invoices_1.Invoices, entity);
+        return new core_1.CreateRequestBuilderV4(Invoices_1.Invoices, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `Invoices`.
@@ -58,12 +58,12 @@ var InvoicesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `Invoices`.
      */
     InvoicesRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(Invoices_1.Invoices, entity);
+        return new core_1.UpdateRequestBuilderV4(Invoices_1.Invoices, entity);
     };
     InvoicesRequestBuilder.prototype.delete = function (docEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(Invoices_1.Invoices, docEntryOrEntity instanceof Invoices_1.Invoices ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(Invoices_1.Invoices, docEntryOrEntity instanceof Invoices_1.Invoices ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
     };
     return InvoicesRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.InvoicesRequestBuilder = InvoicesRequestBuilder;
 //# sourceMappingURL=InvoicesRequestBuilder.js.map

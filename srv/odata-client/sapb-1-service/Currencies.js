@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.Currencies = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var CurrenciesRequestBuilder_1 = require("./CurrenciesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "Currencies" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var Currencies = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `Currencies`.
+     * Returns an entity builder to construct instances of `Currencies`.
      * @returns A builder that constructs instances of entity type `Currencies`.
      */
     Currencies.builder = function () {
-        return v4_1.Entity.entityBuilder(Currencies);
+        return core_1.EntityV4.entityBuilder(Currencies);
     };
     /**
      * Returns a request builder to construct requests for operations on the `Currencies` entity type.
@@ -60,7 +60,7 @@ var Currencies = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `Currencies`.
      */
     Currencies.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, Currencies);
+        return core_1.EntityV4.customFieldSelector(fieldName, Currencies);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var Currencies = /** @class */ (function (_super) {
      */
     Currencies._entityName = 'Currencies';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Currencies.
-     */
-    Currencies._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    Currencies._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    Currencies._defaultServicePath = '/b1s/v2/';
     return Currencies;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.Currencies = Currencies;
 var InventoryGenEntries_1 = require("./InventoryGenEntries");
 var PurchaseQuotations_1 = require("./PurchaseQuotations");
@@ -127,262 +122,277 @@ var BankStatements_1 = require("./BankStatements");
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.CODE = new v4_1.StringField('Code', Currencies, 'Edm.String');
+    Currencies.CODE = new core_1.StringField('Code', Currencies, 'Edm.String');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.NAME = new v4_1.StringField('Name', Currencies, 'Edm.String');
+    Currencies.NAME = new core_1.StringField('Name', Currencies, 'Edm.String');
     /**
      * Static representation of the [[documentsCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.DOCUMENTS_CODE = new v4_1.StringField('DocumentsCode', Currencies, 'Edm.String');
+    Currencies.DOCUMENTS_CODE = new core_1.StringField('DocumentsCode', Currencies, 'Edm.String');
     /**
      * Static representation of the [[internationalDescription]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.INTERNATIONAL_DESCRIPTION = new v4_1.StringField('InternationalDescription', Currencies, 'Edm.String');
+    Currencies.INTERNATIONAL_DESCRIPTION = new core_1.StringField('InternationalDescription', Currencies, 'Edm.String');
     /**
      * Static representation of the [[hundredthName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.HUNDREDTH_NAME = new v4_1.StringField('HundredthName', Currencies, 'Edm.String');
+    Currencies.HUNDREDTH_NAME = new core_1.StringField('HundredthName', Currencies, 'Edm.String');
     /**
      * Static representation of the [[englishName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.ENGLISH_NAME = new v4_1.StringField('EnglishName', Currencies, 'Edm.String');
+    Currencies.ENGLISH_NAME = new core_1.StringField('EnglishName', Currencies, 'Edm.String');
     /**
      * Static representation of the [[englishHundredthName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.ENGLISH_HUNDREDTH_NAME = new v4_1.StringField('EnglishHundredthName', Currencies, 'Edm.String');
+    Currencies.ENGLISH_HUNDREDTH_NAME = new core_1.StringField('EnglishHundredthName', Currencies, 'Edm.String');
     /**
      * Static representation of the [[pluralInternationalDescription]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.PLURAL_INTERNATIONAL_DESCRIPTION = new v4_1.StringField('PluralInternationalDescription', Currencies, 'Edm.String');
+    Currencies.PLURAL_INTERNATIONAL_DESCRIPTION = new core_1.StringField('PluralInternationalDescription', Currencies, 'Edm.String');
     /**
      * Static representation of the [[pluralHundredthName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.PLURAL_HUNDREDTH_NAME = new v4_1.StringField('PluralHundredthName', Currencies, 'Edm.String');
+    Currencies.PLURAL_HUNDREDTH_NAME = new core_1.StringField('PluralHundredthName', Currencies, 'Edm.String');
     /**
      * Static representation of the [[pluralEnglishName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.PLURAL_ENGLISH_NAME = new v4_1.StringField('PluralEnglishName', Currencies, 'Edm.String');
+    Currencies.PLURAL_ENGLISH_NAME = new core_1.StringField('PluralEnglishName', Currencies, 'Edm.String');
     /**
      * Static representation of the [[pluralEnglishHundredthName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.PLURAL_ENGLISH_HUNDREDTH_NAME = new v4_1.StringField('PluralEnglishHundredthName', Currencies, 'Edm.String');
+    Currencies.PLURAL_ENGLISH_HUNDREDTH_NAME = new core_1.StringField('PluralEnglishHundredthName', Currencies, 'Edm.String');
+    /**
+     * Static representation of the [[decimals]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Currencies.DECIMALS = new core_1.EnumField('Decimals', Currencies);
+    /**
+     * Static representation of the [[rounding]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Currencies.ROUNDING = new core_1.EnumField('Rounding', Currencies);
+    /**
+     * Static representation of the [[roundingInPayment]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Currencies.ROUNDING_IN_PAYMENT = new core_1.EnumField('RoundingInPayment', Currencies);
     /**
      * Static representation of the [[maxIncomingAmtDiff]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.MAX_INCOMING_AMT_DIFF = new v4_1.NumberField('MaxIncomingAmtDiff', Currencies, 'Edm.Double');
+    Currencies.MAX_INCOMING_AMT_DIFF = new core_1.NumberField('MaxIncomingAmtDiff', Currencies, 'Edm.Double');
     /**
      * Static representation of the [[maxOutgoingAmtDiff]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.MAX_OUTGOING_AMT_DIFF = new v4_1.NumberField('MaxOutgoingAmtDiff', Currencies, 'Edm.Double');
+    Currencies.MAX_OUTGOING_AMT_DIFF = new core_1.NumberField('MaxOutgoingAmtDiff', Currencies, 'Edm.Double');
     /**
      * Static representation of the [[maxIncomingAmtDiffPercent]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.MAX_INCOMING_AMT_DIFF_PERCENT = new v4_1.NumberField('MaxIncomingAmtDiffPercent', Currencies, 'Edm.Double');
+    Currencies.MAX_INCOMING_AMT_DIFF_PERCENT = new core_1.NumberField('MaxIncomingAmtDiffPercent', Currencies, 'Edm.Double');
     /**
      * Static representation of the [[maxOutgoingAmtDiffPercent]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.MAX_OUTGOING_AMT_DIFF_PERCENT = new v4_1.NumberField('MaxOutgoingAmtDiffPercent', Currencies, 'Edm.Double');
+    Currencies.MAX_OUTGOING_AMT_DIFF_PERCENT = new core_1.NumberField('MaxOutgoingAmtDiffPercent', Currencies, 'Edm.Double');
     /**
      * Static representation of the one-to-many navigation property [[inventoryGenEntries]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.INVENTORY_GEN_ENTRIES = new v4_1.OneToManyLink('InventoryGenEntries', Currencies, InventoryGenEntries_1.InventoryGenEntries);
+    Currencies.INVENTORY_GEN_ENTRIES = new core_1.OneToManyLink('InventoryGenEntries', Currencies, InventoryGenEntries_1.InventoryGenEntries);
     /**
      * Static representation of the one-to-many navigation property [[purchaseQuotations]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.PURCHASE_QUOTATIONS = new v4_1.OneToManyLink('PurchaseQuotations', Currencies, PurchaseQuotations_1.PurchaseQuotations);
+    Currencies.PURCHASE_QUOTATIONS = new core_1.OneToManyLink('PurchaseQuotations', Currencies, PurchaseQuotations_1.PurchaseQuotations);
     /**
      * Static representation of the one-to-many navigation property [[vendorPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.VENDOR_PAYMENTS = new v4_1.OneToManyLink('VendorPayments', Currencies, VendorPayments_1.VendorPayments);
+    Currencies.VENDOR_PAYMENTS = new core_1.OneToManyLink('VendorPayments', Currencies, VendorPayments_1.VendorPayments);
     /**
      * Static representation of the one-to-many navigation property [[assetTransfer]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.ASSET_TRANSFER = new v4_1.OneToManyLink('AssetTransfer', Currencies, AssetTransfer_1.AssetTransfer);
+    Currencies.ASSET_TRANSFER = new core_1.OneToManyLink('AssetTransfer', Currencies, AssetTransfer_1.AssetTransfer);
     /**
      * Static representation of the one-to-many navigation property [[assetRetirement]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.ASSET_RETIREMENT = new v4_1.OneToManyLink('AssetRetirement', Currencies, AssetRetirement_1.AssetRetirement);
+    Currencies.ASSET_RETIREMENT = new core_1.OneToManyLink('AssetRetirement', Currencies, AssetRetirement_1.AssetRetirement);
     /**
      * Static representation of the one-to-many navigation property [[assetCapitalizationCreditMemo]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.ASSET_CAPITALIZATION_CREDIT_MEMO = new v4_1.OneToManyLink('AssetCapitalizationCreditMemo', Currencies, AssetCapitalizationCreditMemo_1.AssetCapitalizationCreditMemo);
+    Currencies.ASSET_CAPITALIZATION_CREDIT_MEMO = new core_1.OneToManyLink('AssetCapitalizationCreditMemo', Currencies, AssetCapitalizationCreditMemo_1.AssetCapitalizationCreditMemo);
     /**
      * Static representation of the one-to-many navigation property [[deliveryNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.DELIVERY_NOTES = new v4_1.OneToManyLink('DeliveryNotes', Currencies, DeliveryNotes_1.DeliveryNotes);
+    Currencies.DELIVERY_NOTES = new core_1.OneToManyLink('DeliveryNotes', Currencies, DeliveryNotes_1.DeliveryNotes);
     /**
      * Static representation of the one-to-many navigation property [[businessPartners]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.BUSINESS_PARTNERS = new v4_1.OneToManyLink('BusinessPartners', Currencies, BusinessPartners_1.BusinessPartners);
+    Currencies.BUSINESS_PARTNERS = new core_1.OneToManyLink('BusinessPartners', Currencies, BusinessPartners_1.BusinessPartners);
     /**
      * Static representation of the one-to-many navigation property [[quotations]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.QUOTATIONS = new v4_1.OneToManyLink('Quotations', Currencies, Quotations_1.Quotations);
+    Currencies.QUOTATIONS = new core_1.OneToManyLink('Quotations', Currencies, Quotations_1.Quotations);
     /**
      * Static representation of the one-to-many navigation property [[chartOfAccounts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.CHART_OF_ACCOUNTS = new v4_1.OneToManyLink('ChartOfAccounts', Currencies, ChartOfAccounts_1.ChartOfAccounts);
+    Currencies.CHART_OF_ACCOUNTS = new core_1.OneToManyLink('ChartOfAccounts', Currencies, ChartOfAccounts_1.ChartOfAccounts);
     /**
      * Static representation of the one-to-many navigation property [[inventoryGenExits]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.INVENTORY_GEN_EXITS = new v4_1.OneToManyLink('InventoryGenExits', Currencies, InventoryGenExits_1.InventoryGenExits);
+    Currencies.INVENTORY_GEN_EXITS = new core_1.OneToManyLink('InventoryGenExits', Currencies, InventoryGenExits_1.InventoryGenExits);
     /**
      * Static representation of the one-to-many navigation property [[purchaseRequests]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.PURCHASE_REQUESTS = new v4_1.OneToManyLink('PurchaseRequests', Currencies, PurchaseRequests_1.PurchaseRequests);
+    Currencies.PURCHASE_REQUESTS = new core_1.OneToManyLink('PurchaseRequests', Currencies, PurchaseRequests_1.PurchaseRequests);
     /**
      * Static representation of the one-to-many navigation property [[returnRequest]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.RETURN_REQUEST = new v4_1.OneToManyLink('ReturnRequest', Currencies, ReturnRequest_1.ReturnRequest);
+    Currencies.RETURN_REQUEST = new core_1.OneToManyLink('ReturnRequest', Currencies, ReturnRequest_1.ReturnRequest);
     /**
      * Static representation of the one-to-many navigation property [[blanketAgreements]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.BLANKET_AGREEMENTS = new v4_1.OneToManyLink('BlanketAgreements', Currencies, BlanketAgreements_1.BlanketAgreements);
+    Currencies.BLANKET_AGREEMENTS = new core_1.OneToManyLink('BlanketAgreements', Currencies, BlanketAgreements_1.BlanketAgreements);
     /**
      * Static representation of the one-to-many navigation property [[purchaseReturns]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.PURCHASE_RETURNS = new v4_1.OneToManyLink('PurchaseReturns', Currencies, PurchaseReturns_1.PurchaseReturns);
+    Currencies.PURCHASE_RETURNS = new core_1.OneToManyLink('PurchaseReturns', Currencies, PurchaseReturns_1.PurchaseReturns);
     /**
      * Static representation of the one-to-many navigation property [[invoices]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.INVOICES = new v4_1.OneToManyLink('Invoices', Currencies, Invoices_1.Invoices);
+    Currencies.INVOICES = new core_1.OneToManyLink('Invoices', Currencies, Invoices_1.Invoices);
     /**
      * Static representation of the one-to-many navigation property [[assetCapitalization]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.ASSET_CAPITALIZATION = new v4_1.OneToManyLink('AssetCapitalization', Currencies, AssetCapitalization_1.AssetCapitalization);
+    Currencies.ASSET_CAPITALIZATION = new core_1.OneToManyLink('AssetCapitalization', Currencies, AssetCapitalization_1.AssetCapitalization);
     /**
      * Static representation of the one-to-many navigation property [[creditNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.CREDIT_NOTES = new v4_1.OneToManyLink('CreditNotes', Currencies, CreditNotes_1.CreditNotes);
+    Currencies.CREDIT_NOTES = new core_1.OneToManyLink('CreditNotes', Currencies, CreditNotes_1.CreditNotes);
     /**
      * Static representation of the one-to-many navigation property [[orders]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.ORDERS = new v4_1.OneToManyLink('Orders', Currencies, Orders_1.Orders);
+    Currencies.ORDERS = new core_1.OneToManyLink('Orders', Currencies, Orders_1.Orders);
     /**
      * Static representation of the one-to-many navigation property [[assetManualDepreciation]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.ASSET_MANUAL_DEPRECIATION = new v4_1.OneToManyLink('AssetManualDepreciation', Currencies, AssetManualDepreciation_1.AssetManualDepreciation);
+    Currencies.ASSET_MANUAL_DEPRECIATION = new core_1.OneToManyLink('AssetManualDepreciation', Currencies, AssetManualDepreciation_1.AssetManualDepreciation);
     /**
      * Static representation of the one-to-many navigation property [[downPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.DOWN_PAYMENTS = new v4_1.OneToManyLink('DownPayments', Currencies, DownPayments_1.DownPayments);
+    Currencies.DOWN_PAYMENTS = new core_1.OneToManyLink('DownPayments', Currencies, DownPayments_1.DownPayments);
     /**
      * Static representation of the one-to-many navigation property [[drafts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.DRAFTS = new v4_1.OneToManyLink('Drafts', Currencies, Drafts_1.Drafts);
+    Currencies.DRAFTS = new core_1.OneToManyLink('Drafts', Currencies, Drafts_1.Drafts);
     /**
      * Static representation of the one-to-many navigation property [[paymentDrafts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.PAYMENT_DRAFTS = new v4_1.OneToManyLink('PaymentDrafts', Currencies, PaymentDrafts_1.PaymentDrafts);
+    Currencies.PAYMENT_DRAFTS = new core_1.OneToManyLink('PaymentDrafts', Currencies, PaymentDrafts_1.PaymentDrafts);
     /**
      * Static representation of the one-to-many navigation property [[returns]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.RETURNS = new v4_1.OneToManyLink('Returns', Currencies, Returns_1.Returns);
+    Currencies.RETURNS = new core_1.OneToManyLink('Returns', Currencies, Returns_1.Returns);
     /**
      * Static representation of the one-to-many navigation property [[correctionInvoiceReversal]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.CORRECTION_INVOICE_REVERSAL = new v4_1.OneToManyLink('CorrectionInvoiceReversal', Currencies, CorrectionInvoiceReversal_1.CorrectionInvoiceReversal);
+    Currencies.CORRECTION_INVOICE_REVERSAL = new core_1.OneToManyLink('CorrectionInvoiceReversal', Currencies, CorrectionInvoiceReversal_1.CorrectionInvoiceReversal);
     /**
      * Static representation of the one-to-many navigation property [[correctionPurchaseInvoice]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.CORRECTION_PURCHASE_INVOICE = new v4_1.OneToManyLink('CorrectionPurchaseInvoice', Currencies, CorrectionPurchaseInvoice_1.CorrectionPurchaseInvoice);
+    Currencies.CORRECTION_PURCHASE_INVOICE = new core_1.OneToManyLink('CorrectionPurchaseInvoice', Currencies, CorrectionPurchaseInvoice_1.CorrectionPurchaseInvoice);
     /**
      * Static representation of the one-to-many navigation property [[correctionPurchaseInvoiceReversal]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.CORRECTION_PURCHASE_INVOICE_REVERSAL = new v4_1.OneToManyLink('CorrectionPurchaseInvoiceReversal', Currencies, CorrectionPurchaseInvoiceReversal_1.CorrectionPurchaseInvoiceReversal);
+    Currencies.CORRECTION_PURCHASE_INVOICE_REVERSAL = new core_1.OneToManyLink('CorrectionPurchaseInvoiceReversal', Currencies, CorrectionPurchaseInvoiceReversal_1.CorrectionPurchaseInvoiceReversal);
     /**
      * Static representation of the one-to-many navigation property [[purchaseInvoices]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.PURCHASE_INVOICES = new v4_1.OneToManyLink('PurchaseInvoices', Currencies, PurchaseInvoices_1.PurchaseInvoices);
+    Currencies.PURCHASE_INVOICES = new core_1.OneToManyLink('PurchaseInvoices', Currencies, PurchaseInvoices_1.PurchaseInvoices);
     /**
      * Static representation of the one-to-many navigation property [[purchaseDeliveryNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.PURCHASE_DELIVERY_NOTES = new v4_1.OneToManyLink('PurchaseDeliveryNotes', Currencies, PurchaseDeliveryNotes_1.PurchaseDeliveryNotes);
+    Currencies.PURCHASE_DELIVERY_NOTES = new core_1.OneToManyLink('PurchaseDeliveryNotes', Currencies, PurchaseDeliveryNotes_1.PurchaseDeliveryNotes);
     /**
      * Static representation of the one-to-many navigation property [[correctionInvoice]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.CORRECTION_INVOICE = new v4_1.OneToManyLink('CorrectionInvoice', Currencies, CorrectionInvoice_1.CorrectionInvoice);
+    Currencies.CORRECTION_INVOICE = new core_1.OneToManyLink('CorrectionInvoice', Currencies, CorrectionInvoice_1.CorrectionInvoice);
     /**
      * Static representation of the one-to-many navigation property [[purchaseCreditNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.PURCHASE_CREDIT_NOTES = new v4_1.OneToManyLink('PurchaseCreditNotes', Currencies, PurchaseCreditNotes_1.PurchaseCreditNotes);
+    Currencies.PURCHASE_CREDIT_NOTES = new core_1.OneToManyLink('PurchaseCreditNotes', Currencies, PurchaseCreditNotes_1.PurchaseCreditNotes);
     /**
      * Static representation of the one-to-many navigation property [[purchaseDownPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.PURCHASE_DOWN_PAYMENTS = new v4_1.OneToManyLink('PurchaseDownPayments', Currencies, PurchaseDownPayments_1.PurchaseDownPayments);
+    Currencies.PURCHASE_DOWN_PAYMENTS = new core_1.OneToManyLink('PurchaseDownPayments', Currencies, PurchaseDownPayments_1.PurchaseDownPayments);
     /**
      * Static representation of the one-to-many navigation property [[purchaseOrders]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.PURCHASE_ORDERS = new v4_1.OneToManyLink('PurchaseOrders', Currencies, PurchaseOrders_1.PurchaseOrders);
+    Currencies.PURCHASE_ORDERS = new core_1.OneToManyLink('PurchaseOrders', Currencies, PurchaseOrders_1.PurchaseOrders);
     /**
      * Static representation of the one-to-many navigation property [[withholdingTaxCodes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.WITHHOLDING_TAX_CODES = new v4_1.OneToManyLink('WithholdingTaxCodes', Currencies, WithholdingTaxCodes_1.WithholdingTaxCodes);
+    Currencies.WITHHOLDING_TAX_CODES = new core_1.OneToManyLink('WithholdingTaxCodes', Currencies, WithholdingTaxCodes_1.WithholdingTaxCodes);
     /**
      * Static representation of the one-to-many navigation property [[goodsReturnRequest]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.GOODS_RETURN_REQUEST = new v4_1.OneToManyLink('GoodsReturnRequest', Currencies, GoodsReturnRequest_1.GoodsReturnRequest);
+    Currencies.GOODS_RETURN_REQUEST = new core_1.OneToManyLink('GoodsReturnRequest', Currencies, GoodsReturnRequest_1.GoodsReturnRequest);
     /**
      * Static representation of the one-to-many navigation property [[incomingPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.INCOMING_PAYMENTS = new v4_1.OneToManyLink('IncomingPayments', Currencies, IncomingPayments_1.IncomingPayments);
+    Currencies.INCOMING_PAYMENTS = new core_1.OneToManyLink('IncomingPayments', Currencies, IncomingPayments_1.IncomingPayments);
     /**
      * Static representation of the one-to-many navigation property [[bankStatements]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Currencies.BANK_STATEMENTS = new v4_1.OneToManyLink('BankStatements', Currencies, BankStatements_1.BankStatements);
+    Currencies.BANK_STATEMENTS = new core_1.OneToManyLink('BankStatements', Currencies, BankStatements_1.BankStatements);
     /**
      * All fields of the Currencies entity.
      */
@@ -398,6 +408,9 @@ var BankStatements_1 = require("./BankStatements");
         Currencies.PLURAL_HUNDREDTH_NAME,
         Currencies.PLURAL_ENGLISH_NAME,
         Currencies.PLURAL_ENGLISH_HUNDREDTH_NAME,
+        Currencies.DECIMALS,
+        Currencies.ROUNDING,
+        Currencies.ROUNDING_IN_PAYMENT,
         Currencies.MAX_INCOMING_AMT_DIFF,
         Currencies.MAX_OUTGOING_AMT_DIFF,
         Currencies.MAX_INCOMING_AMT_DIFF_PERCENT,
@@ -443,7 +456,7 @@ var BankStatements_1 = require("./BankStatements");
     /**
      * All fields selector.
      */
-    Currencies.ALL_FIELDS = new v4_1.AllFields('*', Currencies);
+    Currencies.ALL_FIELDS = new core_1.AllFields('*', Currencies);
     /**
      * All key fields of the Currencies entity.
      */

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.UserGroups = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var UserGroupsRequestBuilder_1 = require("./UserGroupsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "UserGroups" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var UserGroups = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `UserGroups`.
+     * Returns an entity builder to construct instances of `UserGroups`.
      * @returns A builder that constructs instances of entity type `UserGroups`.
      */
     UserGroups.builder = function () {
-        return v4_1.Entity.entityBuilder(UserGroups);
+        return core_1.EntityV4.entityBuilder(UserGroups);
     };
     /**
      * Returns a request builder to construct requests for operations on the `UserGroups` entity type.
@@ -60,7 +60,7 @@ var UserGroups = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `UserGroups`.
      */
     UserGroups.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, UserGroups);
+        return core_1.EntityV4.customFieldSelector(fieldName, UserGroups);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,48 +74,48 @@ var UserGroups = /** @class */ (function (_super) {
      */
     UserGroups._entityName = 'UserGroups';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for UserGroups.
-     */
-    UserGroups._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    UserGroups._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    UserGroups._defaultServicePath = '/b1s/v2/';
     return UserGroups;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.UserGroups = UserGroups;
 (function (UserGroups) {
     /**
      * Static representation of the [[userGroupId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserGroups.USER_GROUP_ID = new v4_1.NumberField('UserGroupId', UserGroups, 'Edm.Int32');
+    UserGroups.USER_GROUP_ID = new core_1.NumberField('UserGroupId', UserGroups, 'Edm.Int32');
     /**
      * Static representation of the [[userGroupName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserGroups.USER_GROUP_NAME = new v4_1.StringField('UserGroupName', UserGroups, 'Edm.String');
+    UserGroups.USER_GROUP_NAME = new core_1.StringField('UserGroupName', UserGroups, 'Edm.String');
     /**
      * Static representation of the [[userGroupDec]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserGroups.USER_GROUP_DEC = new v4_1.StringField('UserGroupDec', UserGroups, 'Edm.String');
+    UserGroups.USER_GROUP_DEC = new core_1.StringField('UserGroupDec', UserGroups, 'Edm.String');
     /**
      * Static representation of the [[tplId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserGroups.TPL_ID = new v4_1.NumberField('TPLId', UserGroups, 'Edm.Int32');
+    UserGroups.TPL_ID = new core_1.NumberField('TPLId', UserGroups, 'Edm.Int32');
     /**
      * Static representation of the [[startDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserGroups.START_DATE = new v4_1.DateField('StartDate', UserGroups, 'Edm.DateTimeOffset');
+    UserGroups.START_DATE = new core_1.DateField('StartDate', UserGroups, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[dueDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserGroups.DUE_DATE = new v4_1.DateField('DueDate', UserGroups, 'Edm.DateTimeOffset');
+    UserGroups.DUE_DATE = new core_1.DateField('DueDate', UserGroups, 'Edm.DateTimeOffset');
+    /**
+     * Static representation of the [[userGroupType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    UserGroups.USER_GROUP_TYPE = new core_1.EnumField('UserGroupType', UserGroups);
     /**
      * All fields of the UserGroups entity.
      */
@@ -125,12 +125,13 @@ exports.UserGroups = UserGroups;
         UserGroups.USER_GROUP_DEC,
         UserGroups.TPL_ID,
         UserGroups.START_DATE,
-        UserGroups.DUE_DATE
+        UserGroups.DUE_DATE,
+        UserGroups.USER_GROUP_TYPE
     ];
     /**
      * All fields selector.
      */
-    UserGroups.ALL_FIELDS = new v4_1.AllFields('*', UserGroups);
+    UserGroups.ALL_FIELDS = new core_1.AllFields('*', UserGroups);
     /**
      * All key fields of the UserGroups entity.
      */

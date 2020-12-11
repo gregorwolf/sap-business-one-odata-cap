@@ -1,19 +1,18 @@
 import { UserFieldsMdRequestBuilder } from './UserFieldsMdRequestBuilder';
 import { ValidValueMd } from './ValidValueMd';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoFieldTypes } from './BoFieldTypes';
+import { BoFldSubTypes } from './BoFldSubTypes';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { UdfLinkedSystemObjectTypesEnum } from './UdfLinkedSystemObjectTypesEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "UserFieldsMD" of service "SAPB1".
  */
-export declare class UserFieldsMd extends Entity implements UserFieldsMdType {
+export declare class UserFieldsMd extends EntityV4 implements UserFieldsMdType {
     /**
      * Technical entity name for UserFieldsMd.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for UserFieldsMd.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -24,6 +23,11 @@ export declare class UserFieldsMd extends Entity implements UserFieldsMdType {
      */
     name?: string;
     /**
+     * Type.
+     * @nullable
+     */
+    type?: BoFieldTypes;
+    /**
      * Size.
      * @nullable
      */
@@ -33,6 +37,11 @@ export declare class UserFieldsMd extends Entity implements UserFieldsMdType {
      * @nullable
      */
     description?: string;
+    /**
+     * Sub Type.
+     * @nullable
+     */
+    subType?: BoFldSubTypes;
     /**
      * Linked Table.
      * @nullable
@@ -59,10 +68,20 @@ export declare class UserFieldsMd extends Entity implements UserFieldsMdType {
      */
     editSize?: number;
     /**
+     * Mandatory.
+     * @nullable
+     */
+    mandatory?: BoYesNoEnum;
+    /**
      * Linked Udo.
      * @nullable
      */
     linkedUdo?: string;
+    /**
+     * Linked System Object.
+     * @nullable
+     */
+    linkedSystemObject?: UdfLinkedSystemObjectTypesEnum;
     /**
      * Valid Values Md.
      * @nullable
@@ -73,10 +92,10 @@ export declare class UserFieldsMd extends Entity implements UserFieldsMdType {
      */
     userTablesMd: UserTablesMd;
     /**
-     * Returns an entity builder to construct instances `UserFieldsMd`.
+     * Returns an entity builder to construct instances of `UserFieldsMd`.
      * @returns A builder that constructs instances of entity type `UserFieldsMd`.
      */
-    static builder(): EntityBuilderType<UserFieldsMd, UserFieldsMdTypeForceMandatory>;
+    static builder(): EntityBuilderType<UserFieldsMd, UserFieldsMdType>;
     /**
      * Returns a request builder to construct requests for operations on the `UserFieldsMd` entity type.
      * @returns A `UserFieldsMd` request builder.
@@ -87,7 +106,7 @@ export declare class UserFieldsMd extends Entity implements UserFieldsMdType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `UserFieldsMd`.
      */
-    static customField(fieldName: string): CustomField<UserFieldsMd>;
+    static customField(fieldName: string): CustomFieldV4<UserFieldsMd>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -98,29 +117,20 @@ export declare class UserFieldsMd extends Entity implements UserFieldsMdType {
 }
 import { UserTablesMd, UserTablesMdType } from './UserTablesMd';
 export interface UserFieldsMdType {
-    name?: string;
-    size?: number;
-    description?: string;
-    linkedTable?: string;
-    defaultValue?: string;
-    tableName?: string;
-    fieldId?: number;
-    editSize?: number;
-    linkedUdo?: string;
-    validValuesMd?: ValidValueMd[];
-    userTablesMd: UserTablesMdType;
-}
-export interface UserFieldsMdTypeForceMandatory {
-    name: string;
-    size: number;
-    description: string;
-    linkedTable: string;
-    defaultValue: string;
-    tableName: string;
-    fieldId: number;
-    editSize: number;
-    linkedUdo: string;
-    validValuesMd: ValidValueMd[];
+    name?: string | null;
+    type?: BoFieldTypes | null;
+    size?: number | null;
+    description?: string | null;
+    subType?: BoFldSubTypes | null;
+    linkedTable?: string | null;
+    defaultValue?: string | null;
+    tableName?: string | null;
+    fieldId?: number | null;
+    editSize?: number | null;
+    mandatory?: BoYesNoEnum | null;
+    linkedUdo?: string | null;
+    linkedSystemObject?: UdfLinkedSystemObjectTypesEnum | null;
+    validValuesMd?: ValidValueMd[] | null;
     userTablesMd: UserTablesMdType;
 }
 export declare namespace UserFieldsMd {
@@ -129,6 +139,11 @@ export declare namespace UserFieldsMd {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const NAME: StringField<UserFieldsMd>;
+    /**
+     * Static representation of the [[type]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TYPE: EnumField<UserFieldsMd>;
     /**
      * Static representation of the [[size]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -139,6 +154,11 @@ export declare namespace UserFieldsMd {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DESCRIPTION: StringField<UserFieldsMd>;
+    /**
+     * Static representation of the [[subType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SUB_TYPE: EnumField<UserFieldsMd>;
     /**
      * Static representation of the [[linkedTable]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -165,15 +185,25 @@ export declare namespace UserFieldsMd {
      */
     const EDIT_SIZE: NumberField<UserFieldsMd>;
     /**
+     * Static representation of the [[mandatory]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const MANDATORY: EnumField<UserFieldsMd>;
+    /**
      * Static representation of the [[linkedUdo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const LINKED_UDO: StringField<UserFieldsMd>;
     /**
+     * Static representation of the [[linkedSystemObject]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const LINKED_SYSTEM_OBJECT: EnumField<UserFieldsMd>;
+    /**
      * Static representation of the [[validValuesMd]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const VALID_VALUES_MD: CollectionField<UserFieldsMd>;
+    const VALID_VALUES_MD: CollectionField<UserFieldsMd, ValidValueMd>;
     /**
      * Static representation of the one-to-one navigation property [[userTablesMd]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -182,7 +212,7 @@ export declare namespace UserFieldsMd {
     /**
      * All fields of the UserFieldsMd entity.
      */
-    const _allFields: Array<StringField<UserFieldsMd> | NumberField<UserFieldsMd> | CollectionField<UserFieldsMd> | OneToOneLink<UserFieldsMd, UserTablesMd>>;
+    const _allFields: Array<StringField<UserFieldsMd> | EnumField<UserFieldsMd> | NumberField<UserFieldsMd> | CollectionField<UserFieldsMd, ValidValueMd> | OneToOneLink<UserFieldsMd, UserTablesMd>>;
     /**
      * All fields selector.
      */

@@ -1,6 +1,8 @@
 import { Moment } from 'moment';
-import { DownPaymentToDrawDetails, DownPaymentToDrawDetailsField } from './DownPaymentToDrawDetails';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { DownPaymentToDrawDetails } from './DownPaymentToDrawDetails';
+import { DownPaymentTypeEnum } from './DownPaymentTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * DownPaymentToDraw
  */
@@ -35,6 +37,11 @@ export interface DownPaymentToDraw {
      * @nullable
      */
     amountToDraw?: number;
+    /**
+     * Down Payment Type.
+     * @nullable
+     */
+    downPaymentType?: DownPaymentTypeEnum;
     /**
      * Amount To Draw Fc.
      * @nullable
@@ -91,10 +98,15 @@ export interface DownPaymentToDraw {
      */
     grossAmountToDrawSc?: number;
     /**
+     * Is Gross Line.
+     * @nullable
+     */
+    isGrossLine?: BoYesNoEnum;
+    /**
      * Down Payments To Draw Details.
      * @nullable
      */
-    downPaymentsToDrawDetails?: DownPaymentToDrawDetails;
+    downPaymentsToDrawDetails?: DownPaymentToDrawDetails[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[DownPaymentToDraw.build]] instead.
@@ -104,7 +116,7 @@ export declare function createDownPaymentToDraw(json: any): DownPaymentToDraw;
  * DownPaymentToDrawField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class DownPaymentToDrawField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class DownPaymentToDrawField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, DownPaymentToDraw> {
     /**
      * Representation of the [[DownPaymentToDraw.docEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -135,6 +147,11 @@ export declare class DownPaymentToDrawField<EntityT extends Entity> extends Comp
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     amountToDraw: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[DownPaymentToDraw.downPaymentType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    downPaymentType: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[DownPaymentToDraw.amountToDrawFc]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -191,12 +208,31 @@ export declare class DownPaymentToDrawField<EntityT extends Entity> extends Comp
      */
     grossAmountToDrawSc: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[DownPaymentToDraw.isGrossLine]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    isGrossLine: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[DownPaymentToDraw.downPaymentsToDrawDetails]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    downPaymentsToDrawDetails: DownPaymentToDrawDetailsField<EntityT>;
+    downPaymentsToDrawDetails: CollectionField<EntityT, DownPaymentToDrawDetails>;
+    /**
+     * Creates an instance of DownPaymentToDrawField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace DownPaymentToDraw {
+    /**
+     * Metadata information on all properties of the `DownPaymentToDraw` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<DownPaymentToDraw>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | DownPaymentToDrawDetails;
     }): DownPaymentToDraw;

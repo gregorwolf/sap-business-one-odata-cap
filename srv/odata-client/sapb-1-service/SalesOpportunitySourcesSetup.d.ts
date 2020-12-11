@@ -1,18 +1,13 @@
 import { SalesOpportunitySourcesSetupRequestBuilder } from './SalesOpportunitySourcesSetupRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "SalesOpportunitySourcesSetup" of service "SAPB1".
  */
-export declare class SalesOpportunitySourcesSetup extends Entity implements SalesOpportunitySourcesSetupType {
+export declare class SalesOpportunitySourcesSetup extends EntityV4 implements SalesOpportunitySourcesSetupType {
     /**
      * Technical entity name for SalesOpportunitySourcesSetup.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for SalesOpportunitySourcesSetup.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -37,10 +32,10 @@ export declare class SalesOpportunitySourcesSetup extends Entity implements Sale
      */
     salesOpportunities: SalesOpportunities[];
     /**
-     * Returns an entity builder to construct instances `SalesOpportunitySourcesSetup`.
+     * Returns an entity builder to construct instances of `SalesOpportunitySourcesSetup`.
      * @returns A builder that constructs instances of entity type `SalesOpportunitySourcesSetup`.
      */
-    static builder(): EntityBuilderType<SalesOpportunitySourcesSetup, SalesOpportunitySourcesSetupTypeForceMandatory>;
+    static builder(): EntityBuilderType<SalesOpportunitySourcesSetup, SalesOpportunitySourcesSetupType>;
     /**
      * Returns a request builder to construct requests for operations on the `SalesOpportunitySourcesSetup` entity type.
      * @returns A `SalesOpportunitySourcesSetup` request builder.
@@ -51,7 +46,7 @@ export declare class SalesOpportunitySourcesSetup extends Entity implements Sale
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `SalesOpportunitySourcesSetup`.
      */
-    static customField(fieldName: string): CustomField<SalesOpportunitySourcesSetup>;
+    static customField(fieldName: string): CustomFieldV4<SalesOpportunitySourcesSetup>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -62,15 +57,9 @@ export declare class SalesOpportunitySourcesSetup extends Entity implements Sale
 }
 import { SalesOpportunities, SalesOpportunitiesType } from './SalesOpportunities';
 export interface SalesOpportunitySourcesSetupType {
-    sequenceNo?: number;
-    description?: string;
-    sort?: number;
-    salesOpportunities: SalesOpportunitiesType[];
-}
-export interface SalesOpportunitySourcesSetupTypeForceMandatory {
-    sequenceNo: number;
-    description: string;
-    sort: number;
+    sequenceNo?: number | null;
+    description?: string | null;
+    sort?: number | null;
     salesOpportunities: SalesOpportunitiesType[];
 }
 export declare namespace SalesOpportunitySourcesSetup {

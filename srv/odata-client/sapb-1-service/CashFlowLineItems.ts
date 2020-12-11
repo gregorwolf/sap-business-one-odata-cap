@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { CashFlowLineItemsRequestBuilder } from './CashFlowLineItemsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "CashFlowLineItems" of service "SAPB1".
  */
-export class CashFlowLineItems extends Entity implements CashFlowLineItemsType {
+export class CashFlowLineItems extends EntityV4 implements CashFlowLineItemsType {
   /**
    * Technical entity name for CashFlowLineItems.
    */
   static _entityName = 'CashFlowLineItems';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for CashFlowLineItems.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Line Item Id.
    * @nullable
@@ -33,6 +29,11 @@ export class CashFlowLineItems extends Entity implements CashFlowLineItemsType {
    * @nullable
    */
   lineItemName?: string;
+  /**
+   * Active Line Item.
+   * @nullable
+   */
+  activeLineItem?: BoYesNoEnum;
   /**
    * Parent Article.
    * @nullable
@@ -50,11 +51,11 @@ export class CashFlowLineItems extends Entity implements CashFlowLineItemsType {
   drawer?: number;
 
   /**
-   * Returns an entity builder to construct instances `CashFlowLineItems`.
+   * Returns an entity builder to construct instances of `CashFlowLineItems`.
    * @returns A builder that constructs instances of entity type `CashFlowLineItems`.
    */
-  static builder(): EntityBuilderType<CashFlowLineItems, CashFlowLineItemsTypeForceMandatory> {
-    return Entity.entityBuilder(CashFlowLineItems);
+  static builder(): EntityBuilderType<CashFlowLineItems, CashFlowLineItemsType> {
+    return EntityV4.entityBuilder(CashFlowLineItems);
   }
 
   /**
@@ -70,8 +71,8 @@ export class CashFlowLineItems extends Entity implements CashFlowLineItemsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `CashFlowLineItems`.
    */
-  static customField(fieldName: string): CustomField<CashFlowLineItems> {
-    return Entity.customFieldSelector(fieldName, CashFlowLineItems);
+  static customField(fieldName: string): CustomFieldV4<CashFlowLineItems> {
+    return EntityV4.customFieldSelector(fieldName, CashFlowLineItems);
   }
 
   /**
@@ -84,19 +85,12 @@ export class CashFlowLineItems extends Entity implements CashFlowLineItemsType {
 }
 
 export interface CashFlowLineItemsType {
-  lineItemId?: number;
-  lineItemName?: string;
-  parentArticle?: number;
-  level?: number;
-  drawer?: number;
-}
-
-export interface CashFlowLineItemsTypeForceMandatory {
-  lineItemId: number;
-  lineItemName: string;
-  parentArticle: number;
-  level: number;
-  drawer: number;
+  lineItemId?: number | null;
+  lineItemName?: string | null;
+  activeLineItem?: BoYesNoEnum | null;
+  parentArticle?: number | null;
+  level?: number | null;
+  drawer?: number | null;
 }
 
 export namespace CashFlowLineItems {
@@ -110,6 +104,11 @@ export namespace CashFlowLineItems {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const LINE_ITEM_NAME: StringField<CashFlowLineItems> = new StringField('LineItemName', CashFlowLineItems, 'Edm.String');
+  /**
+   * Static representation of the [[activeLineItem]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ACTIVE_LINE_ITEM: EnumField<CashFlowLineItems> = new EnumField('ActiveLineItem', CashFlowLineItems);
   /**
    * Static representation of the [[parentArticle]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -128,9 +127,10 @@ export namespace CashFlowLineItems {
   /**
    * All fields of the CashFlowLineItems entity.
    */
-  export const _allFields: Array<NumberField<CashFlowLineItems> | StringField<CashFlowLineItems>> = [
+  export const _allFields: Array<NumberField<CashFlowLineItems> | StringField<CashFlowLineItems> | EnumField<CashFlowLineItems>> = [
     CashFlowLineItems.LINE_ITEM_ID,
     CashFlowLineItems.LINE_ITEM_NAME,
+    CashFlowLineItems.ACTIVE_LINE_ITEM,
     CashFlowLineItems.PARENT_ARTICLE,
     CashFlowLineItems.LEVEL,
     CashFlowLineItems.DRAWER

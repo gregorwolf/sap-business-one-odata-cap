@@ -1,5 +1,10 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { EcmActionTypeEnum } from './EcmActionTypeEnum';
+import { EcmActionStatusEnum } from './EcmActionStatusEnum';
+import { EcmActionPeriodTypeEnum } from './EcmActionPeriodTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { EcmActionGenerationTypeEnum } from './EcmActionGenerationTypeEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * EcmAction
  */
@@ -15,10 +20,20 @@ export interface EcmAction {
      */
     protocol?: string;
     /**
+     * Type.
+     * @nullable
+     */
+    type?: EcmActionTypeEnum;
+    /**
      * Description.
      * @nullable
      */
     description?: string;
+    /**
+     * Status.
+     * @nullable
+     */
+    status?: EcmActionStatusEnum;
     /**
      * Message.
      * @nullable
@@ -75,6 +90,11 @@ export interface EcmAction {
      */
     documentBatchLine?: number;
     /**
+     * Period Type.
+     * @nullable
+     */
+    periodType?: EcmActionPeriodTypeEnum;
+    /**
      * Period Number.
      * @nullable
      */
@@ -94,6 +114,21 @@ export interface EcmAction {
      * @nullable
      */
     periodDateTo?: Moment;
+    /**
+     * Is Removed.
+     * @nullable
+     */
+    isRemoved?: BoYesNoEnum;
+    /**
+     * Is Canceled.
+     * @nullable
+     */
+    isCanceled?: BoYesNoEnum;
+    /**
+     * Generation Type.
+     * @nullable
+     */
+    generationType?: EcmActionGenerationTypeEnum;
 }
 /**
  * @deprecated Since v1.6.0. Use [[EcmAction.build]] instead.
@@ -103,7 +138,7 @@ export declare function createEcmAction(json: any): EcmAction;
  * EcmActionField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class EcmActionField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class EcmActionField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, EcmAction> {
     /**
      * Representation of the [[EcmAction.actionId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -115,10 +150,20 @@ export declare class EcmActionField<EntityT extends Entity> extends ComplexTypeF
      */
     protocol: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[EcmAction.type]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    type: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[EcmAction.description]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     description: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[EcmAction.status]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    status: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[EcmAction.message]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -175,6 +220,11 @@ export declare class EcmActionField<EntityT extends Entity> extends ComplexTypeF
      */
     documentBatchLine: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[EcmAction.periodType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    periodType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[EcmAction.periodNumber]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -194,8 +244,37 @@ export declare class EcmActionField<EntityT extends Entity> extends ComplexTypeF
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     periodDateTo: ComplexTypeDatePropertyField<EntityT>;
+    /**
+     * Representation of the [[EcmAction.isRemoved]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    isRemoved: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[EcmAction.isCanceled]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    isCanceled: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[EcmAction.generationType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    generationType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Creates an instance of EcmActionField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace EcmAction {
+    /**
+     * Metadata information on all properties of the `EcmAction` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<EcmAction>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): EcmAction;

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { UserDefaultGroups } from './UserDefaultGroups';
 
 /**
@@ -15,16 +15,16 @@ export class UserDefaultGroupsRequestBuilder extends RequestBuilder<UserDefaultG
    * @param code Key property. See [[UserDefaultGroups.code]].
    * @returns A request builder for creating requests to retrieve one `UserDefaultGroups` entity based on its keys.
    */
-  getByKey(code: string): GetByKeyRequestBuilder<UserDefaultGroups> {
-    return new GetByKeyRequestBuilder(UserDefaultGroups, { Code: code });
+  getByKey(code: string): GetByKeyRequestBuilderV4<UserDefaultGroups> {
+    return new GetByKeyRequestBuilderV4(UserDefaultGroups, { Code: code });
   }
 
   /**
    * Returns a request builder for querying all `UserDefaultGroups` entities.
    * @returns A request builder for creating requests to retrieve all `UserDefaultGroups` entities.
    */
-  getAll(): GetAllRequestBuilder<UserDefaultGroups> {
-    return new GetAllRequestBuilder(UserDefaultGroups);
+  getAll(): GetAllRequestBuilderV4<UserDefaultGroups> {
+    return new GetAllRequestBuilderV4(UserDefaultGroups);
   }
 
   /**
@@ -32,8 +32,8 @@ export class UserDefaultGroupsRequestBuilder extends RequestBuilder<UserDefaultG
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `UserDefaultGroups`.
    */
-  create(entity: UserDefaultGroups): CreateRequestBuilder<UserDefaultGroups> {
-    return new CreateRequestBuilder(UserDefaultGroups, entity);
+  create(entity: UserDefaultGroups): CreateRequestBuilderV4<UserDefaultGroups> {
+    return new CreateRequestBuilderV4(UserDefaultGroups, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class UserDefaultGroupsRequestBuilder extends RequestBuilder<UserDefaultG
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `UserDefaultGroups`.
    */
-  update(entity: UserDefaultGroups): UpdateRequestBuilder<UserDefaultGroups> {
-    return new UpdateRequestBuilder(UserDefaultGroups, entity);
+  update(entity: UserDefaultGroups): UpdateRequestBuilderV4<UserDefaultGroups> {
+    return new UpdateRequestBuilderV4(UserDefaultGroups, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class UserDefaultGroupsRequestBuilder extends RequestBuilder<UserDefaultG
    * @param code Key property. See [[UserDefaultGroups.code]].
    * @returns A request builder for creating requests that delete an entity of type `UserDefaultGroups`.
    */
-  delete(code: string): DeleteRequestBuilder<UserDefaultGroups>;
+  delete(code: string): DeleteRequestBuilderV4<UserDefaultGroups>;
   /**
    * Returns a request builder for deleting an entity of type `UserDefaultGroups`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `UserDefaultGroups` by taking the entity as a parameter.
    */
-  delete(entity: UserDefaultGroups): DeleteRequestBuilder<UserDefaultGroups>;
-  delete(codeOrEntity: any): DeleteRequestBuilder<UserDefaultGroups> {
-    return new DeleteRequestBuilder(UserDefaultGroups, codeOrEntity instanceof UserDefaultGroups ? codeOrEntity : { Code: codeOrEntity! });
+  delete(entity: UserDefaultGroups): DeleteRequestBuilderV4<UserDefaultGroups>;
+  delete(codeOrEntity: any): DeleteRequestBuilderV4<UserDefaultGroups> {
+    return new DeleteRequestBuilderV4(UserDefaultGroups, codeOrEntity instanceof UserDefaultGroups ? codeOrEntity : { Code: codeOrEntity! });
   }
 }

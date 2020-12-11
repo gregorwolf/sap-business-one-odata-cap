@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { TargetGroupsDetailStatusEnum } from './TargetGroupsDetailStatusEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * TargetGroupsDetail
@@ -34,6 +35,11 @@ export interface TargetGroupsDetail {
    * @nullable
    */
   industry?: string;
+  /**
+   * Active Status.
+   * @nullable
+   */
+  activeStatus?: TargetGroupsDetailStatusEnum;
   /**
    * Contact Person.
    * @nullable
@@ -127,7 +133,7 @@ export function createTargetGroupsDetail(json: any): TargetGroupsDetail {
  * TargetGroupsDetailField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class TargetGroupsDetailField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class TargetGroupsDetailField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, TargetGroupsDetail> {
   /**
    * Representation of the [[TargetGroupsDetail.targetGroupCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -153,6 +159,11 @@ export class TargetGroupsDetailField<EntityT extends Entity> extends ComplexType
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   industry: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Industry', this, 'Edm.String');
+  /**
+   * Representation of the [[TargetGroupsDetail.activeStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  activeStatus: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ActiveStatus', this);
   /**
    * Representation of the [[TargetGroupsDetail.contactPerson]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -233,32 +244,138 @@ export class TargetGroupsDetailField<EntityT extends Entity> extends ComplexType
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   building: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Building', this, 'Edm.String');
+
+  /**
+   * Creates an instance of TargetGroupsDetailField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, TargetGroupsDetail);
+  }
 }
 
 export namespace TargetGroupsDetail {
+  /**
+   * Metadata information on all properties of the `TargetGroupsDetail` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<TargetGroupsDetail>[] = [{
+    originalName: 'TargetGroupCode',
+    name: 'targetGroupCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BusinessPartnerCode',
+    name: 'businessPartnerCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BusinessPartnerName',
+    name: 'businessPartnerName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GroupCode',
+    name: 'groupCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Industry',
+    name: 'industry',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ActiveStatus',
+    name: 'activeStatus',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ContactPerson',
+    name: 'contactPerson',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Title',
+    name: 'title',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Position',
+    name: 'position',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'E_Mail',
+    name: 'eMail',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Telephone',
+    name: 'telephone',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'MobilePhone',
+    name: 'mobilePhone',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Fax',
+    name: 'fax',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Address',
+    name: 'address',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Street',
+    name: 'street',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Block',
+    name: 'block',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'City',
+    name: 'city',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ZipCode',
+    name: 'zipCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'County',
+    name: 'county',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'State',
+    name: 'state',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Country',
+    name: 'country',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Building',
+    name: 'building',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): TargetGroupsDetail {
-    return createComplexType(json, {
-      TargetGroupCode: (targetGroupCode: string) => ({ targetGroupCode: edmToTs(targetGroupCode, 'Edm.String') }),
-      BusinessPartnerCode: (businessPartnerCode: string) => ({ businessPartnerCode: edmToTs(businessPartnerCode, 'Edm.String') }),
-      BusinessPartnerName: (businessPartnerName: string) => ({ businessPartnerName: edmToTs(businessPartnerName, 'Edm.String') }),
-      GroupCode: (groupCode: string) => ({ groupCode: edmToTs(groupCode, 'Edm.String') }),
-      Industry: (industry: string) => ({ industry: edmToTs(industry, 'Edm.String') }),
-      ContactPerson: (contactPerson: string) => ({ contactPerson: edmToTs(contactPerson, 'Edm.String') }),
-      Title: (title: string) => ({ title: edmToTs(title, 'Edm.String') }),
-      Position: (position: string) => ({ position: edmToTs(position, 'Edm.String') }),
-      E_Mail: (eMail: string) => ({ eMail: edmToTs(eMail, 'Edm.String') }),
-      Telephone: (telephone: string) => ({ telephone: edmToTs(telephone, 'Edm.String') }),
-      MobilePhone: (mobilePhone: string) => ({ mobilePhone: edmToTs(mobilePhone, 'Edm.String') }),
-      Fax: (fax: string) => ({ fax: edmToTs(fax, 'Edm.String') }),
-      Address: (address: string) => ({ address: edmToTs(address, 'Edm.String') }),
-      Street: (street: string) => ({ street: edmToTs(street, 'Edm.String') }),
-      Block: (block: string) => ({ block: edmToTs(block, 'Edm.String') }),
-      City: (city: string) => ({ city: edmToTs(city, 'Edm.String') }),
-      ZipCode: (zipCode: string) => ({ zipCode: edmToTs(zipCode, 'Edm.String') }),
-      County: (county: string) => ({ county: edmToTs(county, 'Edm.String') }),
-      State: (state: string) => ({ state: edmToTs(state, 'Edm.String') }),
-      Country: (country: string) => ({ country: edmToTs(country, 'Edm.String') }),
-      Building: (building: string) => ({ building: edmToTs(building, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, TargetGroupsDetail);
   }
 }

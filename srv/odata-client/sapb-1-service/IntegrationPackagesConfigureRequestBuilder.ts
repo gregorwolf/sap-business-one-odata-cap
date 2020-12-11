@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { IntegrationPackagesConfigure } from './IntegrationPackagesConfigure';
 
 /**
@@ -15,16 +15,16 @@ export class IntegrationPackagesConfigureRequestBuilder extends RequestBuilder<I
    * @param absEntry Key property. See [[IntegrationPackagesConfigure.absEntry]].
    * @returns A request builder for creating requests to retrieve one `IntegrationPackagesConfigure` entity based on its keys.
    */
-  getByKey(absEntry: number): GetByKeyRequestBuilder<IntegrationPackagesConfigure> {
-    return new GetByKeyRequestBuilder(IntegrationPackagesConfigure, { AbsEntry: absEntry });
+  getByKey(absEntry: number): GetByKeyRequestBuilderV4<IntegrationPackagesConfigure> {
+    return new GetByKeyRequestBuilderV4(IntegrationPackagesConfigure, { AbsEntry: absEntry });
   }
 
   /**
    * Returns a request builder for querying all `IntegrationPackagesConfigure` entities.
    * @returns A request builder for creating requests to retrieve all `IntegrationPackagesConfigure` entities.
    */
-  getAll(): GetAllRequestBuilder<IntegrationPackagesConfigure> {
-    return new GetAllRequestBuilder(IntegrationPackagesConfigure);
+  getAll(): GetAllRequestBuilderV4<IntegrationPackagesConfigure> {
+    return new GetAllRequestBuilderV4(IntegrationPackagesConfigure);
   }
 
   /**
@@ -32,8 +32,8 @@ export class IntegrationPackagesConfigureRequestBuilder extends RequestBuilder<I
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `IntegrationPackagesConfigure`.
    */
-  create(entity: IntegrationPackagesConfigure): CreateRequestBuilder<IntegrationPackagesConfigure> {
-    return new CreateRequestBuilder(IntegrationPackagesConfigure, entity);
+  create(entity: IntegrationPackagesConfigure): CreateRequestBuilderV4<IntegrationPackagesConfigure> {
+    return new CreateRequestBuilderV4(IntegrationPackagesConfigure, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class IntegrationPackagesConfigureRequestBuilder extends RequestBuilder<I
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `IntegrationPackagesConfigure`.
    */
-  update(entity: IntegrationPackagesConfigure): UpdateRequestBuilder<IntegrationPackagesConfigure> {
-    return new UpdateRequestBuilder(IntegrationPackagesConfigure, entity);
+  update(entity: IntegrationPackagesConfigure): UpdateRequestBuilderV4<IntegrationPackagesConfigure> {
+    return new UpdateRequestBuilderV4(IntegrationPackagesConfigure, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class IntegrationPackagesConfigureRequestBuilder extends RequestBuilder<I
    * @param absEntry Key property. See [[IntegrationPackagesConfigure.absEntry]].
    * @returns A request builder for creating requests that delete an entity of type `IntegrationPackagesConfigure`.
    */
-  delete(absEntry: number): DeleteRequestBuilder<IntegrationPackagesConfigure>;
+  delete(absEntry: number): DeleteRequestBuilderV4<IntegrationPackagesConfigure>;
   /**
    * Returns a request builder for deleting an entity of type `IntegrationPackagesConfigure`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `IntegrationPackagesConfigure` by taking the entity as a parameter.
    */
-  delete(entity: IntegrationPackagesConfigure): DeleteRequestBuilder<IntegrationPackagesConfigure>;
-  delete(absEntryOrEntity: any): DeleteRequestBuilder<IntegrationPackagesConfigure> {
-    return new DeleteRequestBuilder(IntegrationPackagesConfigure, absEntryOrEntity instanceof IntegrationPackagesConfigure ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
+  delete(entity: IntegrationPackagesConfigure): DeleteRequestBuilderV4<IntegrationPackagesConfigure>;
+  delete(absEntryOrEntity: any): DeleteRequestBuilderV4<IntegrationPackagesConfigure> {
+    return new DeleteRequestBuilderV4(IntegrationPackagesConfigure, absEntryOrEntity instanceof IntegrationPackagesConfigure ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
   }
 }

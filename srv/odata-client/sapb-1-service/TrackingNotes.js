@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -33,7 +33,7 @@ exports.TrackingNotes = void 0;
 var TrackingNotesRequestBuilder_1 = require("./TrackingNotesRequestBuilder");
 var TrackingNoteItem_1 = require("./TrackingNoteItem");
 var TrackingNoteBroker_1 = require("./TrackingNoteBroker");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "TrackingNotes" of service "SAPB1".
  */
@@ -43,11 +43,11 @@ var TrackingNotes = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `TrackingNotes`.
+     * Returns an entity builder to construct instances of `TrackingNotes`.
      * @returns A builder that constructs instances of entity type `TrackingNotes`.
      */
     TrackingNotes.builder = function () {
-        return v4_1.Entity.entityBuilder(TrackingNotes);
+        return core_1.EntityV4.entityBuilder(TrackingNotes);
     };
     /**
      * Returns a request builder to construct requests for operations on the `TrackingNotes` entity type.
@@ -62,7 +62,7 @@ var TrackingNotes = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `TrackingNotes`.
      */
     TrackingNotes.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, TrackingNotes);
+        return core_1.EntityV4.customFieldSelector(fieldName, TrackingNotes);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -76,53 +76,53 @@ var TrackingNotes = /** @class */ (function (_super) {
      */
     TrackingNotes._entityName = 'TrackingNotes';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for TrackingNotes.
-     */
-    TrackingNotes._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    TrackingNotes._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    TrackingNotes._defaultServicePath = '/b1s/v2/';
     return TrackingNotes;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.TrackingNotes = TrackingNotes;
 (function (TrackingNotes) {
     /**
      * Static representation of the [[trackingNoteNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TrackingNotes.TRACKING_NOTE_NUMBER = new v4_1.NumberField('TrackingNoteNumber', TrackingNotes, 'Edm.Int32');
+    TrackingNotes.TRACKING_NOTE_NUMBER = new core_1.NumberField('TrackingNoteNumber', TrackingNotes, 'Edm.Int32');
     /**
      * Static representation of the [[ccdNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TrackingNotes.CCD_NUMBER = new v4_1.StringField('CCDNumber', TrackingNotes, 'Edm.String');
+    TrackingNotes.CCD_NUMBER = new core_1.StringField('CCDNumber', TrackingNotes, 'Edm.String');
     /**
      * Static representation of the [[date]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TrackingNotes.DATE = new v4_1.DateField('Date', TrackingNotes, 'Edm.DateTimeOffset');
+    TrackingNotes.DATE = new core_1.DateField('Date', TrackingNotes, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[customsTerminal]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TrackingNotes.CUSTOMS_TERMINAL = new v4_1.StringField('CustomsTerminal', TrackingNotes, 'Edm.String');
+    TrackingNotes.CUSTOMS_TERMINAL = new core_1.StringField('CustomsTerminal', TrackingNotes, 'Edm.String');
     /**
      * Static representation of the [[countryOfOrigin]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TrackingNotes.COUNTRY_OF_ORIGIN = new v4_1.StringField('CountryOfOrigin', TrackingNotes, 'Edm.String');
+    TrackingNotes.COUNTRY_OF_ORIGIN = new core_1.StringField('CountryOfOrigin', TrackingNotes, 'Edm.String');
+    /**
+     * Static representation of the [[isDirectImport]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    TrackingNotes.IS_DIRECT_IMPORT = new core_1.EnumField('IsDirectImport', TrackingNotes);
     /**
      * Static representation of the [[trackingNoteItemCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TrackingNotes.TRACKING_NOTE_ITEM_COLLECTION = new v4_1.CollectionField('TrackingNoteItemCollection', TrackingNotes, new TrackingNoteItem_1.TrackingNoteItemField('', TrackingNotes));
+    TrackingNotes.TRACKING_NOTE_ITEM_COLLECTION = new core_1.CollectionField('TrackingNoteItemCollection', TrackingNotes, TrackingNoteItem_1.TrackingNoteItem);
     /**
      * Static representation of the [[trackingNoteBrokerCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TrackingNotes.TRACKING_NOTE_BROKER_COLLECTION = new v4_1.CollectionField('TrackingNoteBrokerCollection', TrackingNotes, new TrackingNoteBroker_1.TrackingNoteBrokerField('', TrackingNotes));
+    TrackingNotes.TRACKING_NOTE_BROKER_COLLECTION = new core_1.CollectionField('TrackingNoteBrokerCollection', TrackingNotes, TrackingNoteBroker_1.TrackingNoteBroker);
     /**
      * All fields of the TrackingNotes entity.
      */
@@ -132,13 +132,14 @@ exports.TrackingNotes = TrackingNotes;
         TrackingNotes.DATE,
         TrackingNotes.CUSTOMS_TERMINAL,
         TrackingNotes.COUNTRY_OF_ORIGIN,
+        TrackingNotes.IS_DIRECT_IMPORT,
         TrackingNotes.TRACKING_NOTE_ITEM_COLLECTION,
         TrackingNotes.TRACKING_NOTE_BROKER_COLLECTION
     ];
     /**
      * All fields selector.
      */
-    TrackingNotes.ALL_FIELDS = new v4_1.AllFields('*', TrackingNotes);
+    TrackingNotes.ALL_FIELDS = new core_1.AllFields('*', TrackingNotes);
     /**
      * All key fields of the TrackingNotes entity.
      */

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { WitholdingTaxDefinition } from './WitholdingTaxDefinition';
 
 /**
@@ -15,16 +15,16 @@ export class WitholdingTaxDefinitionRequestBuilder extends RequestBuilder<Withol
    * @param absEntry Key property. See [[WitholdingTaxDefinition.absEntry]].
    * @returns A request builder for creating requests to retrieve one `WitholdingTaxDefinition` entity based on its keys.
    */
-  getByKey(absEntry: number): GetByKeyRequestBuilder<WitholdingTaxDefinition> {
-    return new GetByKeyRequestBuilder(WitholdingTaxDefinition, { AbsEntry: absEntry });
+  getByKey(absEntry: number): GetByKeyRequestBuilderV4<WitholdingTaxDefinition> {
+    return new GetByKeyRequestBuilderV4(WitholdingTaxDefinition, { AbsEntry: absEntry });
   }
 
   /**
    * Returns a request builder for querying all `WitholdingTaxDefinition` entities.
    * @returns A request builder for creating requests to retrieve all `WitholdingTaxDefinition` entities.
    */
-  getAll(): GetAllRequestBuilder<WitholdingTaxDefinition> {
-    return new GetAllRequestBuilder(WitholdingTaxDefinition);
+  getAll(): GetAllRequestBuilderV4<WitholdingTaxDefinition> {
+    return new GetAllRequestBuilderV4(WitholdingTaxDefinition);
   }
 
   /**
@@ -32,8 +32,8 @@ export class WitholdingTaxDefinitionRequestBuilder extends RequestBuilder<Withol
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `WitholdingTaxDefinition`.
    */
-  create(entity: WitholdingTaxDefinition): CreateRequestBuilder<WitholdingTaxDefinition> {
-    return new CreateRequestBuilder(WitholdingTaxDefinition, entity);
+  create(entity: WitholdingTaxDefinition): CreateRequestBuilderV4<WitholdingTaxDefinition> {
+    return new CreateRequestBuilderV4(WitholdingTaxDefinition, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class WitholdingTaxDefinitionRequestBuilder extends RequestBuilder<Withol
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `WitholdingTaxDefinition`.
    */
-  update(entity: WitholdingTaxDefinition): UpdateRequestBuilder<WitholdingTaxDefinition> {
-    return new UpdateRequestBuilder(WitholdingTaxDefinition, entity);
+  update(entity: WitholdingTaxDefinition): UpdateRequestBuilderV4<WitholdingTaxDefinition> {
+    return new UpdateRequestBuilderV4(WitholdingTaxDefinition, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class WitholdingTaxDefinitionRequestBuilder extends RequestBuilder<Withol
    * @param absEntry Key property. See [[WitholdingTaxDefinition.absEntry]].
    * @returns A request builder for creating requests that delete an entity of type `WitholdingTaxDefinition`.
    */
-  delete(absEntry: number): DeleteRequestBuilder<WitholdingTaxDefinition>;
+  delete(absEntry: number): DeleteRequestBuilderV4<WitholdingTaxDefinition>;
   /**
    * Returns a request builder for deleting an entity of type `WitholdingTaxDefinition`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `WitholdingTaxDefinition` by taking the entity as a parameter.
    */
-  delete(entity: WitholdingTaxDefinition): DeleteRequestBuilder<WitholdingTaxDefinition>;
-  delete(absEntryOrEntity: any): DeleteRequestBuilder<WitholdingTaxDefinition> {
-    return new DeleteRequestBuilder(WitholdingTaxDefinition, absEntryOrEntity instanceof WitholdingTaxDefinition ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
+  delete(entity: WitholdingTaxDefinition): DeleteRequestBuilderV4<WitholdingTaxDefinition>;
+  delete(absEntryOrEntity: any): DeleteRequestBuilderV4<WitholdingTaxDefinition> {
+    return new DeleteRequestBuilderV4(WitholdingTaxDefinition, absEntryOrEntity instanceof WitholdingTaxDefinition ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
   }
 }

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { CommissionGroups } from './CommissionGroups';
 
 /**
@@ -15,16 +15,16 @@ export class CommissionGroupsRequestBuilder extends RequestBuilder<CommissionGro
    * @param commissionGroupCode Key property. See [[CommissionGroups.commissionGroupCode]].
    * @returns A request builder for creating requests to retrieve one `CommissionGroups` entity based on its keys.
    */
-  getByKey(commissionGroupCode: number): GetByKeyRequestBuilder<CommissionGroups> {
-    return new GetByKeyRequestBuilder(CommissionGroups, { CommissionGroupCode: commissionGroupCode });
+  getByKey(commissionGroupCode: number): GetByKeyRequestBuilderV4<CommissionGroups> {
+    return new GetByKeyRequestBuilderV4(CommissionGroups, { CommissionGroupCode: commissionGroupCode });
   }
 
   /**
    * Returns a request builder for querying all `CommissionGroups` entities.
    * @returns A request builder for creating requests to retrieve all `CommissionGroups` entities.
    */
-  getAll(): GetAllRequestBuilder<CommissionGroups> {
-    return new GetAllRequestBuilder(CommissionGroups);
+  getAll(): GetAllRequestBuilderV4<CommissionGroups> {
+    return new GetAllRequestBuilderV4(CommissionGroups);
   }
 
   /**
@@ -32,8 +32,8 @@ export class CommissionGroupsRequestBuilder extends RequestBuilder<CommissionGro
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `CommissionGroups`.
    */
-  create(entity: CommissionGroups): CreateRequestBuilder<CommissionGroups> {
-    return new CreateRequestBuilder(CommissionGroups, entity);
+  create(entity: CommissionGroups): CreateRequestBuilderV4<CommissionGroups> {
+    return new CreateRequestBuilderV4(CommissionGroups, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class CommissionGroupsRequestBuilder extends RequestBuilder<CommissionGro
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `CommissionGroups`.
    */
-  update(entity: CommissionGroups): UpdateRequestBuilder<CommissionGroups> {
-    return new UpdateRequestBuilder(CommissionGroups, entity);
+  update(entity: CommissionGroups): UpdateRequestBuilderV4<CommissionGroups> {
+    return new UpdateRequestBuilderV4(CommissionGroups, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class CommissionGroupsRequestBuilder extends RequestBuilder<CommissionGro
    * @param commissionGroupCode Key property. See [[CommissionGroups.commissionGroupCode]].
    * @returns A request builder for creating requests that delete an entity of type `CommissionGroups`.
    */
-  delete(commissionGroupCode: number): DeleteRequestBuilder<CommissionGroups>;
+  delete(commissionGroupCode: number): DeleteRequestBuilderV4<CommissionGroups>;
   /**
    * Returns a request builder for deleting an entity of type `CommissionGroups`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `CommissionGroups` by taking the entity as a parameter.
    */
-  delete(entity: CommissionGroups): DeleteRequestBuilder<CommissionGroups>;
-  delete(commissionGroupCodeOrEntity: any): DeleteRequestBuilder<CommissionGroups> {
-    return new DeleteRequestBuilder(CommissionGroups, commissionGroupCodeOrEntity instanceof CommissionGroups ? commissionGroupCodeOrEntity : { CommissionGroupCode: commissionGroupCodeOrEntity! });
+  delete(entity: CommissionGroups): DeleteRequestBuilderV4<CommissionGroups>;
+  delete(commissionGroupCodeOrEntity: any): DeleteRequestBuilderV4<CommissionGroups> {
+    return new DeleteRequestBuilderV4(CommissionGroups, commissionGroupCodeOrEntity instanceof CommissionGroups ? commissionGroupCodeOrEntity : { CommissionGroupCode: commissionGroupCodeOrEntity! });
   }
 }

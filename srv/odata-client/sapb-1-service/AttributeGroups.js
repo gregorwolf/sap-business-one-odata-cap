@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.AttributeGroups = void 0;
  */
 var AttributeGroupsRequestBuilder_1 = require("./AttributeGroupsRequestBuilder");
 var AttributeGroupLine_1 = require("./AttributeGroupLine");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "AttributeGroups" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var AttributeGroups = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `AttributeGroups`.
+     * Returns an entity builder to construct instances of `AttributeGroups`.
      * @returns A builder that constructs instances of entity type `AttributeGroups`.
      */
     AttributeGroups.builder = function () {
-        return v4_1.Entity.entityBuilder(AttributeGroups);
+        return core_1.EntityV4.entityBuilder(AttributeGroups);
     };
     /**
      * Returns a request builder to construct requests for operations on the `AttributeGroups` entity type.
@@ -61,7 +61,7 @@ var AttributeGroups = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `AttributeGroups`.
      */
     AttributeGroups.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, AttributeGroups);
+        return core_1.EntityV4.customFieldSelector(fieldName, AttributeGroups);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,16 +75,11 @@ var AttributeGroups = /** @class */ (function (_super) {
      */
     AttributeGroups._entityName = 'AttributeGroups';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for AttributeGroups.
-     */
-    AttributeGroups._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    AttributeGroups._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    AttributeGroups._defaultServicePath = '/b1s/v2/';
     return AttributeGroups;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.AttributeGroups = AttributeGroups;
 var AssetClasses_1 = require("./AssetClasses");
 (function (AttributeGroups) {
@@ -92,35 +87,41 @@ var AssetClasses_1 = require("./AssetClasses");
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    AttributeGroups.CODE = new v4_1.NumberField('Code', AttributeGroups, 'Edm.Int32');
+    AttributeGroups.CODE = new core_1.NumberField('Code', AttributeGroups, 'Edm.Int32');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    AttributeGroups.NAME = new v4_1.StringField('Name', AttributeGroups, 'Edm.String');
+    AttributeGroups.NAME = new core_1.StringField('Name', AttributeGroups, 'Edm.String');
+    /**
+     * Static representation of the [[locked]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    AttributeGroups.LOCKED = new core_1.EnumField('Locked', AttributeGroups);
     /**
      * Static representation of the [[attributeGroupCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    AttributeGroups.ATTRIBUTE_GROUP_COLLECTION = new v4_1.CollectionField('AttributeGroupCollection', AttributeGroups, new AttributeGroupLine_1.AttributeGroupLineField('', AttributeGroups));
+    AttributeGroups.ATTRIBUTE_GROUP_COLLECTION = new core_1.CollectionField('AttributeGroupCollection', AttributeGroups, AttributeGroupLine_1.AttributeGroupLine);
     /**
      * Static representation of the one-to-many navigation property [[assetClasses]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    AttributeGroups.ASSET_CLASSES = new v4_1.OneToManyLink('AssetClasses', AttributeGroups, AssetClasses_1.AssetClasses);
+    AttributeGroups.ASSET_CLASSES = new core_1.OneToManyLink('AssetClasses', AttributeGroups, AssetClasses_1.AssetClasses);
     /**
      * All fields of the AttributeGroups entity.
      */
     AttributeGroups._allFields = [
         AttributeGroups.CODE,
         AttributeGroups.NAME,
+        AttributeGroups.LOCKED,
         AttributeGroups.ATTRIBUTE_GROUP_COLLECTION,
         AttributeGroups.ASSET_CLASSES
     ];
     /**
      * All fields selector.
      */
-    AttributeGroups.ALL_FIELDS = new v4_1.AllFields('*', AttributeGroups);
+    AttributeGroups.ALL_FIELDS = new core_1.AllFields('*', AttributeGroups);
     /**
      * All key fields of the AttributeGroups entity.
      */

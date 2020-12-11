@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoStatus } from './BoStatus';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * WithholdingTaxData
@@ -120,6 +121,11 @@ export interface WithholdingTaxData {
    */
   baseDocumentReference?: number;
   /**
+   * Status.
+   * @nullable
+   */
+  status?: BoStatus;
+  /**
    * Target Abs Entry.
    * @nullable
    */
@@ -142,7 +148,7 @@ export function createWithholdingTaxData(json: any): WithholdingTaxData {
  * WithholdingTaxDataField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class WithholdingTaxDataField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class WithholdingTaxDataField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, WithholdingTaxData> {
   /**
    * Representation of the [[WithholdingTaxData.wtCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -254,6 +260,11 @@ export class WithholdingTaxDataField<EntityT extends Entity> extends ComplexType
    */
   baseDocumentReference: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('BaseDocumentReference', this, 'Edm.Int32');
   /**
+   * Representation of the [[WithholdingTaxData.status]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  status: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Status', this);
+  /**
    * Representation of the [[WithholdingTaxData.targetAbsEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -263,35 +274,153 @@ export class WithholdingTaxDataField<EntityT extends Entity> extends ComplexType
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   targetDocumentType: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('TargetDocumentType', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of WithholdingTaxDataField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, WithholdingTaxData);
+  }
 }
 
 export namespace WithholdingTaxData {
+  /**
+   * Metadata information on all properties of the `WithholdingTaxData` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<WithholdingTaxData>[] = [{
+    originalName: 'WTCode',
+    name: 'wtCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WTAmountSys',
+    name: 'wtAmountSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WTAmountFC',
+    name: 'wtAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WTAmount',
+    name: 'wtAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WithholdingType',
+    name: 'withholdingType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxableAmountinSys',
+    name: 'taxableAmountinSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxableAmountFC',
+    name: 'taxableAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxableAmount',
+    name: 'taxableAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'RoundingType',
+    name: 'roundingType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Rate',
+    name: 'rate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Criteria',
+    name: 'criteria',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Category',
+    name: 'category',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BaseType',
+    name: 'baseType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AppliedWTAmountSys',
+    name: 'appliedWtAmountSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AppliedWTAmountFC',
+    name: 'appliedWtAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AppliedWTAmount',
+    name: 'appliedWtAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'GLAccount',
+    name: 'glAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseDocEntry',
+    name: 'baseDocEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseDocLine',
+    name: 'baseDocLine',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseDocType',
+    name: 'baseDocType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseDocumentReference',
+    name: 'baseDocumentReference',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Status',
+    name: 'status',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'TargetAbsEntry',
+    name: 'targetAbsEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TargetDocumentType',
+    name: 'targetDocumentType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): WithholdingTaxData {
-    return createComplexType(json, {
-      WTCode: (wtCode: string) => ({ wtCode: edmToTs(wtCode, 'Edm.String') }),
-      WTAmountSys: (wtAmountSys: number) => ({ wtAmountSys: edmToTs(wtAmountSys, 'Edm.Double') }),
-      WTAmountFC: (wtAmountFc: number) => ({ wtAmountFc: edmToTs(wtAmountFc, 'Edm.Double') }),
-      WTAmount: (wtAmount: number) => ({ wtAmount: edmToTs(wtAmount, 'Edm.Double') }),
-      WithholdingType: (withholdingType: string) => ({ withholdingType: edmToTs(withholdingType, 'Edm.String') }),
-      TaxableAmountinSys: (taxableAmountinSys: number) => ({ taxableAmountinSys: edmToTs(taxableAmountinSys, 'Edm.Double') }),
-      TaxableAmountFC: (taxableAmountFc: number) => ({ taxableAmountFc: edmToTs(taxableAmountFc, 'Edm.Double') }),
-      TaxableAmount: (taxableAmount: number) => ({ taxableAmount: edmToTs(taxableAmount, 'Edm.Double') }),
-      RoundingType: (roundingType: string) => ({ roundingType: edmToTs(roundingType, 'Edm.String') }),
-      Rate: (rate: number) => ({ rate: edmToTs(rate, 'Edm.Double') }),
-      Criteria: (criteria: string) => ({ criteria: edmToTs(criteria, 'Edm.String') }),
-      Category: (category: string) => ({ category: edmToTs(category, 'Edm.String') }),
-      BaseType: (baseType: string) => ({ baseType: edmToTs(baseType, 'Edm.String') }),
-      AppliedWTAmountSys: (appliedWtAmountSys: number) => ({ appliedWtAmountSys: edmToTs(appliedWtAmountSys, 'Edm.Double') }),
-      AppliedWTAmountFC: (appliedWtAmountFc: number) => ({ appliedWtAmountFc: edmToTs(appliedWtAmountFc, 'Edm.Double') }),
-      AppliedWTAmount: (appliedWtAmount: number) => ({ appliedWtAmount: edmToTs(appliedWtAmount, 'Edm.Double') }),
-      GLAccount: (glAccount: string) => ({ glAccount: edmToTs(glAccount, 'Edm.String') }),
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      BaseDocEntry: (baseDocEntry: number) => ({ baseDocEntry: edmToTs(baseDocEntry, 'Edm.Int32') }),
-      BaseDocLine: (baseDocLine: number) => ({ baseDocLine: edmToTs(baseDocLine, 'Edm.Int32') }),
-      BaseDocType: (baseDocType: number) => ({ baseDocType: edmToTs(baseDocType, 'Edm.Int32') }),
-      BaseDocumentReference: (baseDocumentReference: number) => ({ baseDocumentReference: edmToTs(baseDocumentReference, 'Edm.Int32') }),
-      TargetAbsEntry: (targetAbsEntry: number) => ({ targetAbsEntry: edmToTs(targetAbsEntry, 'Edm.Int32') }),
-      TargetDocumentType: (targetDocumentType: number) => ({ targetDocumentType: edmToTs(targetDocumentType, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, WithholdingTaxData);
   }
 }

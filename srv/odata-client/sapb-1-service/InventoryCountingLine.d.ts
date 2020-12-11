@@ -1,7 +1,11 @@
-import { InventoryCountingLineUoM, InventoryCountingLineUoMField } from './InventoryCountingLineUoM';
-import { InventoryCountingSerialNumber, InventoryCountingSerialNumberField } from './InventoryCountingSerialNumber';
-import { InventoryCountingBatchNumber, InventoryCountingBatchNumberField } from './InventoryCountingBatchNumber';
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { InventoryCountingLineUoM } from './InventoryCountingLineUoM';
+import { InventoryCountingSerialNumber } from './InventoryCountingSerialNumber';
+import { InventoryCountingBatchNumber } from './InventoryCountingBatchNumber';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { CountingLineStatusEnum } from './CountingLineStatusEnum';
+import { CounterTypeEnum } from './CounterTypeEnum';
+import { MultipleCounterRoleEnum } from './MultipleCounterRoleEnum';
+import { CollectionField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * InventoryCountingLine
  */
@@ -27,6 +31,11 @@ export interface InventoryCountingLine {
      */
     itemDescription?: string;
     /**
+     * Freeze.
+     * @nullable
+     */
+    freeze?: BoYesNoEnum;
+    /**
      * Warehouse Code.
      * @nullable
      */
@@ -41,6 +50,11 @@ export interface InventoryCountingLine {
      * @nullable
      */
     inWarehouseQuantity?: number;
+    /**
+     * Counted.
+     * @nullable
+     */
+    counted?: BoYesNoEnum;
     /**
      * Uo M Code.
      * @nullable
@@ -152,25 +166,40 @@ export interface InventoryCountingLine {
      */
     remarks?: string;
     /**
+     * Line Status.
+     * @nullable
+     */
+    lineStatus?: CountingLineStatusEnum;
+    /**
+     * Counter Type.
+     * @nullable
+     */
+    counterType?: CounterTypeEnum;
+    /**
      * Counter Id.
      * @nullable
      */
     counterId?: number;
     /**
+     * Multiple Counter Role.
+     * @nullable
+     */
+    multipleCounterRole?: MultipleCounterRoleEnum;
+    /**
      * Inventory Counting Line Uo Ms.
      * @nullable
      */
-    inventoryCountingLineUoMs?: InventoryCountingLineUoM;
+    inventoryCountingLineUoMs?: InventoryCountingLineUoM[];
     /**
      * Inventory Counting Serial Numbers.
      * @nullable
      */
-    inventoryCountingSerialNumbers?: InventoryCountingSerialNumber;
+    inventoryCountingSerialNumbers?: InventoryCountingSerialNumber[];
     /**
      * Inventory Counting Batch Numbers.
      * @nullable
      */
-    inventoryCountingBatchNumbers?: InventoryCountingBatchNumber;
+    inventoryCountingBatchNumbers?: InventoryCountingBatchNumber[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[InventoryCountingLine.build]] instead.
@@ -180,7 +209,7 @@ export declare function createInventoryCountingLine(json: any): InventoryCountin
  * InventoryCountingLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class InventoryCountingLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class InventoryCountingLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, InventoryCountingLine> {
     /**
      * Representation of the [[InventoryCountingLine.documentEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -202,6 +231,11 @@ export declare class InventoryCountingLineField<EntityT extends Entity> extends 
      */
     itemDescription: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[InventoryCountingLine.freeze]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    freeze: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[InventoryCountingLine.warehouseCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -216,6 +250,11 @@ export declare class InventoryCountingLineField<EntityT extends Entity> extends 
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     inWarehouseQuantity: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[InventoryCountingLine.counted]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    counted: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[InventoryCountingLine.uoMCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -327,27 +366,56 @@ export declare class InventoryCountingLineField<EntityT extends Entity> extends 
      */
     remarks: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[InventoryCountingLine.lineStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    lineStatus: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[InventoryCountingLine.counterType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    counterType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[InventoryCountingLine.counterId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     counterId: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[InventoryCountingLine.multipleCounterRole]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    multipleCounterRole: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[InventoryCountingLine.inventoryCountingLineUoMs]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    inventoryCountingLineUoMs: InventoryCountingLineUoMField<EntityT>;
+    inventoryCountingLineUoMs: CollectionField<EntityT, InventoryCountingLineUoM>;
     /**
      * Representation of the [[InventoryCountingLine.inventoryCountingSerialNumbers]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    inventoryCountingSerialNumbers: InventoryCountingSerialNumberField<EntityT>;
+    inventoryCountingSerialNumbers: CollectionField<EntityT, InventoryCountingSerialNumber>;
     /**
      * Representation of the [[InventoryCountingLine.inventoryCountingBatchNumbers]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    inventoryCountingBatchNumbers: InventoryCountingBatchNumberField<EntityT>;
+    inventoryCountingBatchNumbers: CollectionField<EntityT, InventoryCountingBatchNumber>;
+    /**
+     * Creates an instance of InventoryCountingLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace InventoryCountingLine {
+    /**
+     * Metadata information on all properties of the `InventoryCountingLine` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<InventoryCountingLine>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | InventoryCountingBatchNumber | InventoryCountingLineUoM | InventoryCountingSerialNumber;
     }): InventoryCountingLine;

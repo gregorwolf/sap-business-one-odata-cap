@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.FiscalPrinterRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var FiscalPrinter_1 = require("./FiscalPrinter");
 /**
  * Request builder class for operations supported on the [[FiscalPrinter]] entity.
@@ -35,14 +35,14 @@ var FiscalPrinterRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `FiscalPrinter` entity based on its keys.
      */
     FiscalPrinterRequestBuilder.prototype.getByKey = function (equipmentNo) {
-        return new v4_1.GetByKeyRequestBuilder(FiscalPrinter_1.FiscalPrinter, { EquipmentNo: equipmentNo });
+        return new core_1.GetByKeyRequestBuilderV4(FiscalPrinter_1.FiscalPrinter, { EquipmentNo: equipmentNo });
     };
     /**
      * Returns a request builder for querying all `FiscalPrinter` entities.
      * @returns A request builder for creating requests to retrieve all `FiscalPrinter` entities.
      */
     FiscalPrinterRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(FiscalPrinter_1.FiscalPrinter);
+        return new core_1.GetAllRequestBuilderV4(FiscalPrinter_1.FiscalPrinter);
     };
     /**
      * Returns a request builder for creating a `FiscalPrinter` entity.
@@ -50,7 +50,7 @@ var FiscalPrinterRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `FiscalPrinter`.
      */
     FiscalPrinterRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(FiscalPrinter_1.FiscalPrinter, entity);
+        return new core_1.CreateRequestBuilderV4(FiscalPrinter_1.FiscalPrinter, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `FiscalPrinter`.
@@ -58,12 +58,12 @@ var FiscalPrinterRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `FiscalPrinter`.
      */
     FiscalPrinterRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(FiscalPrinter_1.FiscalPrinter, entity);
+        return new core_1.UpdateRequestBuilderV4(FiscalPrinter_1.FiscalPrinter, entity);
     };
     FiscalPrinterRequestBuilder.prototype.delete = function (equipmentNoOrEntity) {
-        return new v4_1.DeleteRequestBuilder(FiscalPrinter_1.FiscalPrinter, equipmentNoOrEntity instanceof FiscalPrinter_1.FiscalPrinter ? equipmentNoOrEntity : { EquipmentNo: equipmentNoOrEntity });
+        return new core_1.DeleteRequestBuilderV4(FiscalPrinter_1.FiscalPrinter, equipmentNoOrEntity instanceof FiscalPrinter_1.FiscalPrinter ? equipmentNoOrEntity : { EquipmentNo: equipmentNoOrEntity });
     };
     return FiscalPrinterRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.FiscalPrinterRequestBuilder = FiscalPrinterRequestBuilder;
 //# sourceMappingURL=FiscalPrinterRequestBuilder.js.map

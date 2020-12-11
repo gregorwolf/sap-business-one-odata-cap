@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { TaxInvoiceReportLineTypeEnum } from './TaxInvoiceReportLineTypeEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * TaxInvoiceReportLine
  */
@@ -14,6 +15,11 @@ export interface TaxInvoiceReportLine {
      * @nullable
      */
     documentEntry?: number;
+    /**
+     * Line Type.
+     * @nullable
+     */
+    lineType?: TaxInvoiceReportLineTypeEnum;
     /**
      * Base Amount.
      * @nullable
@@ -98,7 +104,7 @@ export declare function createTaxInvoiceReportLine(json: any): TaxInvoiceReportL
  * TaxInvoiceReportLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class TaxInvoiceReportLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class TaxInvoiceReportLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, TaxInvoiceReportLine> {
     /**
      * Representation of the [[TaxInvoiceReportLine.documentType]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -109,6 +115,11 @@ export declare class TaxInvoiceReportLineField<EntityT extends Entity> extends C
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     documentEntry: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[TaxInvoiceReportLine.lineType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    lineType: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[TaxInvoiceReportLine.baseAmount]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -184,8 +195,22 @@ export declare class TaxInvoiceReportLineField<EntityT extends Entity> extends C
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     legacy: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Creates an instance of TaxInvoiceReportLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace TaxInvoiceReportLine {
+    /**
+     * Metadata information on all properties of the `TaxInvoiceReportLine` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<TaxInvoiceReportLine>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): TaxInvoiceReportLine;

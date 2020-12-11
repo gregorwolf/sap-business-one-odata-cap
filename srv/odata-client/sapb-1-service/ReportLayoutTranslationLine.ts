@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ReportLayoutTranslationLine
@@ -63,7 +63,7 @@ export function createReportLayoutTranslationLine(json: any): ReportLayoutTransl
  * ReportLayoutTranslationLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ReportLayoutTranslationLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ReportLayoutTranslationLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ReportLayoutTranslationLine> {
   /**
    * Representation of the [[ReportLayoutTranslationLine.docEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -104,19 +104,68 @@ export class ReportLayoutTranslationLineField<EntityT extends Entity> extends Co
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   updateTime: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('UpdateTime', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of ReportLayoutTranslationLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ReportLayoutTranslationLine);
+  }
 }
 
 export namespace ReportLayoutTranslationLine {
+  /**
+   * Metadata information on all properties of the `ReportLayoutTranslationLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ReportLayoutTranslationLine>[] = [{
+    originalName: 'DocEntry',
+    name: 'docEntry',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DocName',
+    name: 'docName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LanguageCode',
+    name: 'languageCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CreateDate',
+    name: 'createDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'UpdateDate',
+    name: 'updateDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'CreateTime',
+    name: 'createTime',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'UpdateTime',
+    name: 'updateTime',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ReportLayoutTranslationLine {
-    return createComplexType(json, {
-      DocEntry: (docEntry: string) => ({ docEntry: edmToTs(docEntry, 'Edm.String') }),
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      DocName: (docName: string) => ({ docName: edmToTs(docName, 'Edm.String') }),
-      LanguageCode: (languageCode: number) => ({ languageCode: edmToTs(languageCode, 'Edm.Int32') }),
-      CreateDate: (createDate: Moment) => ({ createDate: edmToTs(createDate, 'Edm.DateTimeOffset') }),
-      UpdateDate: (updateDate: Moment) => ({ updateDate: edmToTs(updateDate, 'Edm.DateTimeOffset') }),
-      CreateTime: (createTime: number) => ({ createTime: edmToTs(createTime, 'Edm.Int32') }),
-      UpdateTime: (updateTime: number) => ({ updateTime: edmToTs(updateTime, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, ReportLayoutTranslationLine);
   }
 }

@@ -1,6 +1,7 @@
 import { Moment } from 'moment';
-import { WipMapping, WipMappingField } from './WipMapping';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { WipMapping } from './WipMapping';
+import { BoSubPeriodTypeEnum } from './BoSubPeriodTypeEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * PeriodCategory
  */
@@ -20,6 +21,11 @@ export interface PeriodCategory {
      * @nullable
      */
     periodCategory?: string;
+    /**
+     * Sub Period Type.
+     * @nullable
+     */
+    subPeriodType?: BoSubPeriodTypeEnum;
     /**
      * Number Of Periods.
      * @nullable
@@ -624,7 +630,7 @@ export interface PeriodCategory {
      * Wip Mapping Collection.
      * @nullable
      */
-    wipMappingCollection?: WipMapping;
+    wipMappingCollection?: WipMapping[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[PeriodCategory.build]] instead.
@@ -634,7 +640,7 @@ export declare function createPeriodCategory(json: any): PeriodCategory;
  * PeriodCategoryField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class PeriodCategoryField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class PeriodCategoryField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PeriodCategory> {
     /**
      * Representation of the [[PeriodCategory.absoluteEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -650,6 +656,11 @@ export declare class PeriodCategoryField<EntityT extends Entity> extends Complex
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     periodCategory: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[PeriodCategory.subPeriodType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    subPeriodType: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[PeriodCategory.numberOfPeriods]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1254,9 +1265,23 @@ export declare class PeriodCategoryField<EntityT extends Entity> extends Complex
      * Representation of the [[PeriodCategory.wipMappingCollection]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    wipMappingCollection: WipMappingField<EntityT>;
+    wipMappingCollection: CollectionField<EntityT, WipMapping>;
+    /**
+     * Creates an instance of PeriodCategoryField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace PeriodCategory {
+    /**
+     * Metadata information on all properties of the `PeriodCategory` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<PeriodCategory>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | WipMapping;
     }): PeriodCategory;

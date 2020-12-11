@@ -5,29 +5,26 @@
  */
 import { UsersRequestBuilder } from './UsersRequestBuilder';
 import { Moment } from 'moment';
-import { UserPermissionItem, UserPermissionItemField } from './UserPermissionItem';
-import { UserActionRecordItem, UserActionRecordItemField } from './UserActionRecordItem';
-import { UserGroupByUserItem, UserGroupByUserItemField } from './UserGroupByUserItem';
-import { UserBranchAssignmentItem, UserBranchAssignmentItemField } from './UserBranchAssignmentItem';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { UserPermissionItem } from './UserPermissionItem';
+import { UserActionRecordItem } from './UserActionRecordItem';
+import { UserGroupByUserItem } from './UserGroupByUserItem';
+import { UserBranchAssignmentItem } from './UserBranchAssignmentItem';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoUserGroup } from './BoUserGroup';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "Users" of service "SAPB1".
  */
-export class Users extends Entity implements UsersType {
+export class Users extends EntityV4 implements UsersType {
   /**
    * Technical entity name for Users.
    */
   static _entityName = 'Users';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for Users.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Internal Key.
    * @nullable
@@ -48,6 +45,11 @@ export class Users extends Entity implements UsersType {
    * @nullable
    */
   userName?: string;
+  /**
+   * Superuser.
+   * @nullable
+   */
+  superuser?: BoYesNoEnum;
   /**
    * E Mail.
    * @nullable
@@ -79,6 +81,16 @@ export class Users extends Entity implements UsersType {
    */
   department?: number;
   /**
+   * Locked.
+   * @nullable
+   */
+  locked?: BoYesNoEnum;
+  /**
+   * Group.
+   * @nullable
+   */
+  group?: BoUserGroup;
+  /**
    * Max Discount General.
    * @nullable
    */
@@ -93,6 +105,11 @@ export class Users extends Entity implements UsersType {
    * @nullable
    */
   maxDiscountPurchase?: number;
+  /**
+   * Cash Limit.
+   * @nullable
+   */
+  cashLimit?: BoYesNoEnum;
   /**
    * Max Cash Amt For Incmng Payts.
    * @nullable
@@ -245,11 +262,11 @@ export class Users extends Entity implements UsersType {
   employeesInfo!: EmployeesInfo[];
 
   /**
-   * Returns an entity builder to construct instances `Users`.
+   * Returns an entity builder to construct instances of `Users`.
    * @returns A builder that constructs instances of entity type `Users`.
    */
-  static builder(): EntityBuilderType<Users, UsersTypeForceMandatory> {
-    return Entity.entityBuilder(Users);
+  static builder(): EntityBuilderType<Users, UsersType> {
+    return EntityV4.entityBuilder(Users);
   }
 
   /**
@@ -265,8 +282,8 @@ export class Users extends Entity implements UsersType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `Users`.
    */
-  static customField(fieldName: string): CustomField<Users> {
-    return Entity.customFieldSelector(fieldName, Users);
+  static customField(fieldName: string): CustomFieldV4<Users> {
+    return EntityV4.customFieldSelector(fieldName, Users);
   }
 
   /**
@@ -305,80 +322,33 @@ import { UserPermissionTree, UserPermissionTreeType } from './UserPermissionTree
 import { EmployeesInfo, EmployeesInfoType } from './EmployeesInfo';
 
 export interface UsersType {
-  internalKey?: number;
-  userPassword?: string;
-  userCode?: string;
-  userName?: string;
-  eMail?: string;
-  mobilePhoneNumber?: string;
-  defaults?: string;
-  faxNumber?: string;
-  branch?: number;
-  department?: number;
-  maxDiscountGeneral?: number;
-  maxDiscountSales?: number;
-  maxDiscountPurchase?: number;
-  maxCashAmtForIncmngPayts?: number;
-  lastLogoutDate?: Moment;
-  lastLoginTime?: Time;
-  lastLogoutTime?: Time;
-  lastPasswordChangeTime?: Time;
-  lastPasswordChangedBy?: string;
-  userPermission?: UserPermissionItem[];
-  userActionRecord?: UserActionRecordItem[];
-  userGroupByUser?: UserGroupByUserItem[];
-  userBranchAssignment?: UserBranchAssignmentItem[];
-  salesOpportunities: SalesOpportunitiesType[];
-  userDefaultGroups: UserDefaultGroupsType[];
-  workOrders: WorkOrdersType[];
-  legalData: LegalDataType[];
-  bankPages: BankPagesType[];
-  formPreferences: FormPreferencesType[];
-  contacts: ContactsType[];
-  productionOrders: ProductionOrdersType[];
-  serviceContracts: ServiceContractsType[];
-  queue: QueueType[];
-  branch2: BranchesType;
-  department2: DepartmentsType;
-  cockpits: CockpitsType[];
-  pickLists: PickListsType[];
-  activities: ActivitiesType[];
-  approvalRequests: ApprovalRequestsType[];
-  salesTaxAuthorities: SalesTaxAuthoritiesType[];
-  wizardPaymentMethods: WizardPaymentMethodsType[];
-  salesTaxAuthoritiesTypes: SalesTaxAuthoritiesTypesType[];
-  salesTaxCodes: SalesTaxCodesType[];
-  materialRevaluation: MaterialRevaluationType[];
-  knowledgeBaseSolutions: KnowledgeBaseSolutionsType[];
-  serviceCalls: ServiceCallsType[];
-  userPermissionTree: UserPermissionTreeType[];
-  employeesInfo: EmployeesInfoType[];
-}
-
-export interface UsersTypeForceMandatory {
-  internalKey: number;
-  userPassword: string;
-  userCode: string;
-  userName: string;
-  eMail: string;
-  mobilePhoneNumber: string;
-  defaults: string;
-  faxNumber: string;
-  branch: number;
-  department: number;
-  maxDiscountGeneral: number;
-  maxDiscountSales: number;
-  maxDiscountPurchase: number;
-  maxCashAmtForIncmngPayts: number;
-  lastLogoutDate: Moment;
-  lastLoginTime: Time;
-  lastLogoutTime: Time;
-  lastPasswordChangeTime: Time;
-  lastPasswordChangedBy: string;
-  userPermission: UserPermissionItem[];
-  userActionRecord: UserActionRecordItem[];
-  userGroupByUser: UserGroupByUserItem[];
-  userBranchAssignment: UserBranchAssignmentItem[];
+  internalKey?: number | null;
+  userPassword?: string | null;
+  userCode?: string | null;
+  userName?: string | null;
+  superuser?: BoYesNoEnum | null;
+  eMail?: string | null;
+  mobilePhoneNumber?: string | null;
+  defaults?: string | null;
+  faxNumber?: string | null;
+  branch?: number | null;
+  department?: number | null;
+  locked?: BoYesNoEnum | null;
+  group?: BoUserGroup | null;
+  maxDiscountGeneral?: number | null;
+  maxDiscountSales?: number | null;
+  maxDiscountPurchase?: number | null;
+  cashLimit?: BoYesNoEnum | null;
+  maxCashAmtForIncmngPayts?: number | null;
+  lastLogoutDate?: Moment | null;
+  lastLoginTime?: Time | null;
+  lastLogoutTime?: Time | null;
+  lastPasswordChangeTime?: Time | null;
+  lastPasswordChangedBy?: string | null;
+  userPermission?: UserPermissionItem[] | null;
+  userActionRecord?: UserActionRecordItem[] | null;
+  userGroupByUser?: UserGroupByUserItem[] | null;
+  userBranchAssignment?: UserBranchAssignmentItem[] | null;
   salesOpportunities: SalesOpportunitiesType[];
   userDefaultGroups: UserDefaultGroupsType[];
   workOrders: WorkOrdersType[];
@@ -428,6 +398,11 @@ export namespace Users {
    */
   export const USER_NAME: StringField<Users> = new StringField('UserName', Users, 'Edm.String');
   /**
+   * Static representation of the [[superuser]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SUPERUSER: EnumField<Users> = new EnumField('Superuser', Users);
+  /**
    * Static representation of the [[eMail]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -458,6 +433,16 @@ export namespace Users {
    */
   export const DEPARTMENT: NumberField<Users> = new NumberField('Department', Users, 'Edm.Int32');
   /**
+   * Static representation of the [[locked]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LOCKED: EnumField<Users> = new EnumField('Locked', Users);
+  /**
+   * Static representation of the [[group]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const GROUP: EnumField<Users> = new EnumField('Group', Users);
+  /**
    * Static representation of the [[maxDiscountGeneral]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -472,6 +457,11 @@ export namespace Users {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const MAX_DISCOUNT_PURCHASE: NumberField<Users> = new NumberField('MaxDiscountPurchase', Users, 'Edm.Double');
+  /**
+   * Static representation of the [[cashLimit]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CASH_LIMIT: EnumField<Users> = new EnumField('CashLimit', Users);
   /**
    * Static representation of the [[maxCashAmtForIncmngPayts]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -506,22 +496,22 @@ export namespace Users {
    * Static representation of the [[userPermission]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const USER_PERMISSION: CollectionField<Users> = new CollectionField('UserPermission', Users, new UserPermissionItemField('', Users));
+  export const USER_PERMISSION: CollectionField<Users, UserPermissionItem> = new CollectionField('UserPermission', Users, UserPermissionItem);
   /**
    * Static representation of the [[userActionRecord]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const USER_ACTION_RECORD: CollectionField<Users> = new CollectionField('UserActionRecord', Users, new UserActionRecordItemField('', Users));
+  export const USER_ACTION_RECORD: CollectionField<Users, UserActionRecordItem> = new CollectionField('UserActionRecord', Users, UserActionRecordItem);
   /**
    * Static representation of the [[userGroupByUser]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const USER_GROUP_BY_USER: CollectionField<Users> = new CollectionField('UserGroupByUser', Users, new UserGroupByUserItemField('', Users));
+  export const USER_GROUP_BY_USER: CollectionField<Users, UserGroupByUserItem> = new CollectionField('UserGroupByUser', Users, UserGroupByUserItem);
   /**
    * Static representation of the [[userBranchAssignment]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const USER_BRANCH_ASSIGNMENT: CollectionField<Users> = new CollectionField('UserBranchAssignment', Users, new UserBranchAssignmentItemField('', Users));
+  export const USER_BRANCH_ASSIGNMENT: CollectionField<Users, UserBranchAssignmentItem> = new CollectionField('UserBranchAssignment', Users, UserBranchAssignmentItem);
   /**
    * Static representation of the one-to-many navigation property [[salesOpportunities]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -650,20 +640,24 @@ export namespace Users {
   /**
    * All fields of the Users entity.
    */
-  export const _allFields: Array<NumberField<Users> | StringField<Users> | DateField<Users> | TimeField<Users> | CollectionField<Users> | OneToManyLink<Users, SalesOpportunities> | OneToManyLink<Users, UserDefaultGroups> | OneToManyLink<Users, WorkOrders> | OneToManyLink<Users, LegalData> | OneToManyLink<Users, BankPages> | OneToManyLink<Users, FormPreferences> | OneToManyLink<Users, Contacts> | OneToManyLink<Users, ProductionOrders> | OneToManyLink<Users, ServiceContracts> | OneToManyLink<Users, Queue> | OneToOneLink<Users, Branches> | OneToOneLink<Users, Departments> | OneToManyLink<Users, Cockpits> | OneToManyLink<Users, PickLists> | OneToManyLink<Users, Activities> | OneToManyLink<Users, ApprovalRequests> | OneToManyLink<Users, SalesTaxAuthorities> | OneToManyLink<Users, WizardPaymentMethods> | OneToManyLink<Users, SalesTaxAuthoritiesTypes> | OneToManyLink<Users, SalesTaxCodes> | OneToManyLink<Users, MaterialRevaluation> | OneToManyLink<Users, KnowledgeBaseSolutions> | OneToManyLink<Users, ServiceCalls> | OneToManyLink<Users, UserPermissionTree> | OneToManyLink<Users, EmployeesInfo>> = [
+  export const _allFields: Array<NumberField<Users> | StringField<Users> | EnumField<Users> | DateField<Users> | TimeField<Users> | CollectionField<Users, UserPermissionItem> | CollectionField<Users, UserActionRecordItem> | CollectionField<Users, UserGroupByUserItem> | CollectionField<Users, UserBranchAssignmentItem> | OneToManyLink<Users, SalesOpportunities> | OneToManyLink<Users, UserDefaultGroups> | OneToManyLink<Users, WorkOrders> | OneToManyLink<Users, LegalData> | OneToManyLink<Users, BankPages> | OneToManyLink<Users, FormPreferences> | OneToManyLink<Users, Contacts> | OneToManyLink<Users, ProductionOrders> | OneToManyLink<Users, ServiceContracts> | OneToManyLink<Users, Queue> | OneToOneLink<Users, Branches> | OneToOneLink<Users, Departments> | OneToManyLink<Users, Cockpits> | OneToManyLink<Users, PickLists> | OneToManyLink<Users, Activities> | OneToManyLink<Users, ApprovalRequests> | OneToManyLink<Users, SalesTaxAuthorities> | OneToManyLink<Users, WizardPaymentMethods> | OneToManyLink<Users, SalesTaxAuthoritiesTypes> | OneToManyLink<Users, SalesTaxCodes> | OneToManyLink<Users, MaterialRevaluation> | OneToManyLink<Users, KnowledgeBaseSolutions> | OneToManyLink<Users, ServiceCalls> | OneToManyLink<Users, UserPermissionTree> | OneToManyLink<Users, EmployeesInfo>> = [
     Users.INTERNAL_KEY,
     Users.USER_PASSWORD,
     Users.USER_CODE,
     Users.USER_NAME,
+    Users.SUPERUSER,
     Users.E_MAIL,
     Users.MOBILE_PHONE_NUMBER,
     Users.DEFAULTS,
     Users.FAX_NUMBER,
     Users.BRANCH,
     Users.DEPARTMENT,
+    Users.LOCKED,
+    Users.GROUP,
     Users.MAX_DISCOUNT_GENERAL,
     Users.MAX_DISCOUNT_SALES,
     Users.MAX_DISCOUNT_PURCHASE,
+    Users.CASH_LIMIT,
     Users.MAX_CASH_AMT_FOR_INCMNG_PAYTS,
     Users.LAST_LOGOUT_DATE,
     Users.LAST_LOGIN_TIME,

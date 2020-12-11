@@ -1,19 +1,16 @@
 import { IntrastatConfigurationRequestBuilder } from './IntrastatConfigurationRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { IntrastatConfigurationEnum } from './IntrastatConfigurationEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "IntrastatConfiguration" of service "SAPB1".
  */
-export declare class IntrastatConfiguration extends Entity implements IntrastatConfigurationType {
+export declare class IntrastatConfiguration extends EntityV4 implements IntrastatConfigurationType {
     /**
      * Technical entity name for IntrastatConfiguration.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for IntrastatConfiguration.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -23,6 +20,11 @@ export declare class IntrastatConfiguration extends Entity implements IntrastatC
      * @nullable
      */
     absEntry?: number;
+    /**
+     * Conf Type.
+     * @nullable
+     */
+    confType?: IntrastatConfigurationEnum;
     /**
      * Code.
      * @nullable
@@ -43,6 +45,16 @@ export declare class IntrastatConfiguration extends Entity implements IntrastatC
      * @nullable
      */
     suppUnit?: number;
+    /**
+     * Export.
+     * @nullable
+     */
+    export?: BoYesNoEnum;
+    /**
+     * Import.
+     * @nullable
+     */
+    import?: BoYesNoEnum;
     /**
      * Stat Code.
      * @nullable
@@ -69,10 +81,10 @@ export declare class IntrastatConfiguration extends Entity implements IntrastatC
      */
     confId?: string;
     /**
-     * Returns an entity builder to construct instances `IntrastatConfiguration`.
+     * Returns an entity builder to construct instances of `IntrastatConfiguration`.
      * @returns A builder that constructs instances of entity type `IntrastatConfiguration`.
      */
-    static builder(): EntityBuilderType<IntrastatConfiguration, IntrastatConfigurationTypeForceMandatory>;
+    static builder(): EntityBuilderType<IntrastatConfiguration, IntrastatConfigurationType>;
     /**
      * Returns a request builder to construct requests for operations on the `IntrastatConfiguration` entity type.
      * @returns A `IntrastatConfiguration` request builder.
@@ -83,7 +95,7 @@ export declare class IntrastatConfiguration extends Entity implements IntrastatC
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `IntrastatConfiguration`.
      */
-    static customField(fieldName: string): CustomField<IntrastatConfiguration>;
+    static customField(fieldName: string): CustomFieldV4<IntrastatConfiguration>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -93,28 +105,19 @@ export declare class IntrastatConfiguration extends Entity implements IntrastatC
     };
 }
 export interface IntrastatConfigurationType {
-    absEntry?: number;
-    code?: string;
-    descr?: string;
-    prcstVal?: number;
-    suppUnit?: number;
-    statCode?: string;
-    dateFrom?: Moment;
-    dateTo?: Moment;
-    country?: string;
-    confId?: string;
-}
-export interface IntrastatConfigurationTypeForceMandatory {
-    absEntry: number;
-    code: string;
-    descr: string;
-    prcstVal: number;
-    suppUnit: number;
-    statCode: string;
-    dateFrom: Moment;
-    dateTo: Moment;
-    country: string;
-    confId: string;
+    absEntry?: number | null;
+    confType?: IntrastatConfigurationEnum | null;
+    code?: string | null;
+    descr?: string | null;
+    prcstVal?: number | null;
+    suppUnit?: number | null;
+    export?: BoYesNoEnum | null;
+    import?: BoYesNoEnum | null;
+    statCode?: string | null;
+    dateFrom?: Moment | null;
+    dateTo?: Moment | null;
+    country?: string | null;
+    confId?: string | null;
 }
 export declare namespace IntrastatConfiguration {
     /**
@@ -122,6 +125,11 @@ export declare namespace IntrastatConfiguration {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const ABS_ENTRY: NumberField<IntrastatConfiguration>;
+    /**
+     * Static representation of the [[confType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CONF_TYPE: EnumField<IntrastatConfiguration>;
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -142,6 +150,16 @@ export declare namespace IntrastatConfiguration {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const SUPP_UNIT: NumberField<IntrastatConfiguration>;
+    /**
+     * Static representation of the [[export]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const EXPORT: EnumField<IntrastatConfiguration>;
+    /**
+     * Static representation of the [[import]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IMPORT: EnumField<IntrastatConfiguration>;
     /**
      * Static representation of the [[statCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -170,7 +188,7 @@ export declare namespace IntrastatConfiguration {
     /**
      * All fields of the IntrastatConfiguration entity.
      */
-    const _allFields: Array<NumberField<IntrastatConfiguration> | StringField<IntrastatConfiguration> | DateField<IntrastatConfiguration>>;
+    const _allFields: Array<NumberField<IntrastatConfiguration> | EnumField<IntrastatConfiguration> | StringField<IntrastatConfiguration> | DateField<IntrastatConfiguration>>;
     /**
      * All fields selector.
      */

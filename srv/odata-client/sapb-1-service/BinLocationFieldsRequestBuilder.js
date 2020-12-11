@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.BinLocationFieldsRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var BinLocationFields_1 = require("./BinLocationFields");
 /**
  * Request builder class for operations supported on the [[BinLocationFields]] entity.
@@ -35,14 +35,14 @@ var BinLocationFieldsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `BinLocationFields` entity based on its keys.
      */
     BinLocationFieldsRequestBuilder.prototype.getByKey = function (absEntry) {
-        return new v4_1.GetByKeyRequestBuilder(BinLocationFields_1.BinLocationFields, { AbsEntry: absEntry });
+        return new core_1.GetByKeyRequestBuilderV4(BinLocationFields_1.BinLocationFields, { AbsEntry: absEntry });
     };
     /**
      * Returns a request builder for querying all `BinLocationFields` entities.
      * @returns A request builder for creating requests to retrieve all `BinLocationFields` entities.
      */
     BinLocationFieldsRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(BinLocationFields_1.BinLocationFields);
+        return new core_1.GetAllRequestBuilderV4(BinLocationFields_1.BinLocationFields);
     };
     /**
      * Returns a request builder for creating a `BinLocationFields` entity.
@@ -50,7 +50,7 @@ var BinLocationFieldsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `BinLocationFields`.
      */
     BinLocationFieldsRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(BinLocationFields_1.BinLocationFields, entity);
+        return new core_1.CreateRequestBuilderV4(BinLocationFields_1.BinLocationFields, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `BinLocationFields`.
@@ -58,12 +58,12 @@ var BinLocationFieldsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `BinLocationFields`.
      */
     BinLocationFieldsRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(BinLocationFields_1.BinLocationFields, entity);
+        return new core_1.UpdateRequestBuilderV4(BinLocationFields_1.BinLocationFields, entity);
     };
     BinLocationFieldsRequestBuilder.prototype.delete = function (absEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(BinLocationFields_1.BinLocationFields, absEntryOrEntity instanceof BinLocationFields_1.BinLocationFields ? absEntryOrEntity : { AbsEntry: absEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(BinLocationFields_1.BinLocationFields, absEntryOrEntity instanceof BinLocationFields_1.BinLocationFields ? absEntryOrEntity : { AbsEntry: absEntryOrEntity });
     };
     return BinLocationFieldsRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.BinLocationFieldsRequestBuilder = BinLocationFieldsRequestBuilder;
 //# sourceMappingURL=BinLocationFieldsRequestBuilder.js.map

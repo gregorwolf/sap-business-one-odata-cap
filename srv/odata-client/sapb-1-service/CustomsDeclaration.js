@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.CustomsDeclaration = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var CustomsDeclarationRequestBuilder_1 = require("./CustomsDeclarationRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "CustomsDeclaration" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var CustomsDeclaration = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `CustomsDeclaration`.
+     * Returns an entity builder to construct instances of `CustomsDeclaration`.
      * @returns A builder that constructs instances of entity type `CustomsDeclaration`.
      */
     CustomsDeclaration.builder = function () {
-        return v4_1.Entity.entityBuilder(CustomsDeclaration);
+        return core_1.EntityV4.entityBuilder(CustomsDeclaration);
     };
     /**
      * Returns a request builder to construct requests for operations on the `CustomsDeclaration` entity type.
@@ -60,7 +60,7 @@ var CustomsDeclaration = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `CustomsDeclaration`.
      */
     CustomsDeclaration.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, CustomsDeclaration);
+        return core_1.EntityV4.customFieldSelector(fieldName, CustomsDeclaration);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,63 +74,58 @@ var CustomsDeclaration = /** @class */ (function (_super) {
      */
     CustomsDeclaration._entityName = 'CustomsDeclaration';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for CustomsDeclaration.
-     */
-    CustomsDeclaration._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    CustomsDeclaration._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    CustomsDeclaration._defaultServicePath = '/b1s/v2/';
     return CustomsDeclaration;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.CustomsDeclaration = CustomsDeclaration;
 (function (CustomsDeclaration) {
     /**
      * Static representation of the [[ccdNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsDeclaration.CCD_NUM = new v4_1.StringField('CCDNum', CustomsDeclaration, 'Edm.String');
+    CustomsDeclaration.CCD_NUM = new core_1.StringField('CCDNum', CustomsDeclaration, 'Edm.String');
     /**
      * Static representation of the [[date]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsDeclaration.DATE = new v4_1.DateField('Date', CustomsDeclaration, 'Edm.DateTimeOffset');
+    CustomsDeclaration.DATE = new core_1.DateField('Date', CustomsDeclaration, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[customsBroker]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsDeclaration.CUSTOMS_BROKER = new v4_1.StringField('CustomsBroker', CustomsDeclaration, 'Edm.String');
+    CustomsDeclaration.CUSTOMS_BROKER = new core_1.StringField('CustomsBroker', CustomsDeclaration, 'Edm.String');
     /**
      * Static representation of the [[docNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsDeclaration.DOC_NUM = new v4_1.StringField('DocNum', CustomsDeclaration, 'Edm.String');
+    CustomsDeclaration.DOC_NUM = new core_1.StringField('DocNum', CustomsDeclaration, 'Edm.String');
     /**
      * Static representation of the [[docDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsDeclaration.DOC_DATE = new v4_1.DateField('DocDate', CustomsDeclaration, 'Edm.DateTimeOffset');
+    CustomsDeclaration.DOC_DATE = new core_1.DateField('DocDate', CustomsDeclaration, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[supplyNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsDeclaration.SUPPLY_NUM = new v4_1.StringField('SupplyNum', CustomsDeclaration, 'Edm.String');
+    CustomsDeclaration.SUPPLY_NUM = new core_1.StringField('SupplyNum', CustomsDeclaration, 'Edm.String');
     /**
      * Static representation of the [[supplyDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsDeclaration.SUPPLY_DATE = new v4_1.DateField('SupplyDate', CustomsDeclaration, 'Edm.DateTimeOffset');
+    CustomsDeclaration.SUPPLY_DATE = new core_1.DateField('SupplyDate', CustomsDeclaration, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[customsTerminal]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsDeclaration.CUSTOMS_TERMINAL = new v4_1.StringField('CustomsTerminal', CustomsDeclaration, 'Edm.String');
+    CustomsDeclaration.CUSTOMS_TERMINAL = new core_1.StringField('CustomsTerminal', CustomsDeclaration, 'Edm.String');
     /**
      * Static representation of the [[paymentKey]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CustomsDeclaration.PAYMENT_KEY = new v4_1.StringField('PaymentKey', CustomsDeclaration, 'Edm.String');
+    CustomsDeclaration.PAYMENT_KEY = new core_1.StringField('PaymentKey', CustomsDeclaration, 'Edm.String');
     /**
      * All fields of the CustomsDeclaration entity.
      */
@@ -148,7 +143,7 @@ exports.CustomsDeclaration = CustomsDeclaration;
     /**
      * All fields selector.
      */
-    CustomsDeclaration.ALL_FIELDS = new v4_1.AllFields('*', CustomsDeclaration);
+    CustomsDeclaration.ALL_FIELDS = new core_1.AllFields('*', CustomsDeclaration);
     /**
      * All key fields of the CustomsDeclaration entity.
      */

@@ -4,8 +4,13 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { MultiplePayment, MultiplePaymentField } from './MultiplePayment';
-import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { MultiplePayment } from './MultiplePayment';
+import { BoBpsDocTypes } from './BoBpsDocTypes';
+import { CreateMethodEnum } from './CreateMethodEnum';
+import { BankStatementDocTypeEnum } from './BankStatementDocTypeEnum';
+import { PostingMethodEnum } from './PostingMethodEnum';
+import { BankStatementRowSourceEnum } from './BankStatementRowSourceEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * BankStatementRow
@@ -102,6 +107,11 @@ export interface BankStatementRow {
    */
   visualOrder?: number;
   /**
+   * Doc Num Type.
+   * @nullable
+   */
+  docNumType?: BoBpsDocTypes;
+  /**
    * Details 2.
    * @nullable
    */
@@ -111,6 +121,11 @@ export interface BankStatementRow {
    * @nullable
    */
   paymentReferenceNo?: string;
+  /**
+   * Create Method.
+   * @nullable
+   */
+  createMethod?: CreateMethodEnum;
   /**
    * Bank Stmt Line Date.
    * @nullable
@@ -177,6 +192,16 @@ export interface BankStatementRow {
    */
   paymentId?: number;
   /**
+   * Document Type.
+   * @nullable
+   */
+  documentType?: BankStatementDocTypeEnum;
+  /**
+   * Posting Method.
+   * @nullable
+   */
+  postingMethod?: PostingMethodEnum;
+  /**
    * Gl Accountfor Fee.
    * @nullable
    */
@@ -227,6 +252,11 @@ export interface BankStatementRow {
    */
   bpbicSwiftCode?: string;
   /**
+   * Source.
+   * @nullable
+   */
+  source?: BankStatementRowSourceEnum;
+  /**
    * Folio Prefix String.
    * @nullable
    */
@@ -240,7 +270,7 @@ export interface BankStatementRow {
    * Multiple Payments.
    * @nullable
    */
-  multiplePayments?: MultiplePayment;
+  multiplePayments?: MultiplePayment[];
 }
 
 /**
@@ -254,7 +284,7 @@ export function createBankStatementRow(json: any): BankStatementRow {
  * BankStatementRowField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class BankStatementRowField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class BankStatementRowField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BankStatementRow> {
   /**
    * Representation of the [[BankStatementRow.externalBankStatementNo]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -346,6 +376,11 @@ export class BankStatementRowField<EntityT extends Entity> extends ComplexTypeFi
    */
   visualOrder: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('VisualOrder', this, 'Edm.Int32');
   /**
+   * Representation of the [[BankStatementRow.docNumType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  docNumType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DocNumType', this);
+  /**
    * Representation of the [[BankStatementRow.details2]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -355,6 +390,11 @@ export class BankStatementRowField<EntityT extends Entity> extends ComplexTypeFi
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   paymentReferenceNo: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('PaymentReferenceNo', this, 'Edm.String');
+  /**
+   * Representation of the [[BankStatementRow.createMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  createMethod: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CreateMethod', this);
   /**
    * Representation of the [[BankStatementRow.bankStmtLineDate]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -421,6 +461,16 @@ export class BankStatementRowField<EntityT extends Entity> extends ComplexTypeFi
    */
   paymentId: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('PaymentID', this, 'Edm.Int32');
   /**
+   * Representation of the [[BankStatementRow.documentType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  documentType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DocumentType', this);
+  /**
+   * Representation of the [[BankStatementRow.postingMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  postingMethod: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('PostingMethod', this);
+  /**
    * Representation of the [[BankStatementRow.glAccountforFee]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -471,6 +521,11 @@ export class BankStatementRowField<EntityT extends Entity> extends ComplexTypeFi
    */
   bpbicSwiftCode: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('BPBICSwiftCode', this, 'Edm.String');
   /**
+   * Representation of the [[BankStatementRow.source]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  source: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Source', this);
+  /**
    * Representation of the [[BankStatementRow.folioPrefixString]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -484,58 +539,284 @@ export class BankStatementRowField<EntityT extends Entity> extends ComplexTypeFi
    * Representation of the [[BankStatementRow.multiplePayments]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  multiplePayments: MultiplePaymentField<EntityT> = new MultiplePaymentField('MultiplePayments', this);
+  multiplePayments: CollectionField<EntityT, MultiplePayment> = new CollectionField('MultiplePayments', this, MultiplePayment);
+
+  /**
+   * Creates an instance of BankStatementRowField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, BankStatementRow);
+  }
 }
 
 export namespace BankStatementRow {
+  /**
+   * Metadata information on all properties of the `BankStatementRow` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<BankStatementRow>[] = [{
+    originalName: 'ExternalBankStatementNo',
+    name: 'externalBankStatementNo',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AccountNumber',
+    name: 'accountNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SequenceNo',
+    name: 'sequenceNo',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AccountName',
+    name: 'accountName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Reference',
+    name: 'reference',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DueDate',
+    name: 'dueDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Details',
+    name: 'details',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DebitAmountFC',
+    name: 'debitAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CreditAmountFC',
+    name: 'creditAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CreditCurrency',
+    name: 'creditCurrency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Balance',
+    name: 'balance',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ReconciliationNo',
+    name: 'reconciliationNo',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ExternalCode',
+    name: 'externalCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPCode',
+    name: 'bpCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPName',
+    name: 'bpName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StatementNumber',
+    name: 'statementNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'RowStatus',
+    name: 'rowStatus',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'VisualOrder',
+    name: 'visualOrder',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DocNumType',
+    name: 'docNumType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Details2',
+    name: 'details2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PaymentReferenceNo',
+    name: 'paymentReferenceNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CreateMethod',
+    name: 'createMethod',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BankStmtLineDate',
+    name: 'bankStmtLineDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'BankStmtDueDate',
+    name: 'bankStmtDueDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'InternalBankOpCode',
+    name: 'internalBankOpCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BPBankAccount',
+    name: 'bpBankAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DebitAmountLC',
+    name: 'debitAmountLc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CreditAmountLC',
+    name: 'creditAmountLc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ExchangeRate',
+    name: 'exchangeRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'IBANofBPBankAccount',
+    name: 'ibaNofBpBankAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FeeOnTheLine',
+    name: 'feeOnTheLine',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'VATAmountLC',
+    name: 'vatAmountLc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'VATAmountFC',
+    name: 'vatAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'JournalEntryID',
+    name: 'journalEntryId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PaymentID',
+    name: 'paymentId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DocumentType',
+    name: 'documentType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'PostingMethod',
+    name: 'postingMethod',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'GLAccountforFee',
+    name: 'glAccountforFee',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FeeProfitCenter',
+    name: 'feeProfitCenter',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FeeProject',
+    name: 'feeProject',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPBankCode',
+    name: 'bpBankCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FeeDistributionRule',
+    name: 'feeDistributionRule',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FeeDistributionRule2',
+    name: 'feeDistributionRule2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FeeDistributionRule3',
+    name: 'feeDistributionRule3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FeeDistributionRule4',
+    name: 'feeDistributionRule4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FeeDistributionRule5',
+    name: 'feeDistributionRule5',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPBICSwiftCode',
+    name: 'bpbicSwiftCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Source',
+    name: 'source',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'FolioPrefixString',
+    name: 'folioPrefixString',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FolioNumber',
+    name: 'folioNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'MultiplePayments',
+    name: 'multiplePayments',
+    type: MultiplePayment,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | MultiplePayment }): BankStatementRow {
-    return createComplexType(json, {
-      ExternalBankStatementNo: (externalBankStatementNo: number) => ({ externalBankStatementNo: edmToTs(externalBankStatementNo, 'Edm.Int32') }),
-      AccountNumber: (accountNumber: string) => ({ accountNumber: edmToTs(accountNumber, 'Edm.String') }),
-      SequenceNo: (sequenceNo: number) => ({ sequenceNo: edmToTs(sequenceNo, 'Edm.Int32') }),
-      AccountName: (accountName: string) => ({ accountName: edmToTs(accountName, 'Edm.String') }),
-      Reference: (reference: string) => ({ reference: edmToTs(reference, 'Edm.String') }),
-      DueDate: (dueDate: Moment) => ({ dueDate: edmToTs(dueDate, 'Edm.DateTimeOffset') }),
-      Details: (details: string) => ({ details: edmToTs(details, 'Edm.String') }),
-      DebitAmountFC: (debitAmountFc: number) => ({ debitAmountFc: edmToTs(debitAmountFc, 'Edm.Double') }),
-      CreditAmountFC: (creditAmountFc: number) => ({ creditAmountFc: edmToTs(creditAmountFc, 'Edm.Double') }),
-      CreditCurrency: (creditCurrency: string) => ({ creditCurrency: edmToTs(creditCurrency, 'Edm.String') }),
-      Balance: (balance: number) => ({ balance: edmToTs(balance, 'Edm.Double') }),
-      ReconciliationNo: (reconciliationNo: number) => ({ reconciliationNo: edmToTs(reconciliationNo, 'Edm.Int32') }),
-      ExternalCode: (externalCode: string) => ({ externalCode: edmToTs(externalCode, 'Edm.String') }),
-      BPCode: (bpCode: string) => ({ bpCode: edmToTs(bpCode, 'Edm.String') }),
-      BPName: (bpName: string) => ({ bpName: edmToTs(bpName, 'Edm.String') }),
-      StatementNumber: (statementNumber: number) => ({ statementNumber: edmToTs(statementNumber, 'Edm.Int32') }),
-      RowStatus: (rowStatus: string) => ({ rowStatus: edmToTs(rowStatus, 'Edm.String') }),
-      VisualOrder: (visualOrder: number) => ({ visualOrder: edmToTs(visualOrder, 'Edm.Int32') }),
-      Details2: (details2: string) => ({ details2: edmToTs(details2, 'Edm.String') }),
-      PaymentReferenceNo: (paymentReferenceNo: string) => ({ paymentReferenceNo: edmToTs(paymentReferenceNo, 'Edm.String') }),
-      BankStmtLineDate: (bankStmtLineDate: Moment) => ({ bankStmtLineDate: edmToTs(bankStmtLineDate, 'Edm.DateTimeOffset') }),
-      BankStmtDueDate: (bankStmtDueDate: Moment) => ({ bankStmtDueDate: edmToTs(bankStmtDueDate, 'Edm.DateTimeOffset') }),
-      InternalBankOpCode: (internalBankOpCode: number) => ({ internalBankOpCode: edmToTs(internalBankOpCode, 'Edm.Int32') }),
-      BPBankAccount: (bpBankAccount: string) => ({ bpBankAccount: edmToTs(bpBankAccount, 'Edm.String') }),
-      DebitAmountLC: (debitAmountLc: number) => ({ debitAmountLc: edmToTs(debitAmountLc, 'Edm.Double') }),
-      CreditAmountLC: (creditAmountLc: number) => ({ creditAmountLc: edmToTs(creditAmountLc, 'Edm.Double') }),
-      ExchangeRate: (exchangeRate: number) => ({ exchangeRate: edmToTs(exchangeRate, 'Edm.Double') }),
-      IBANofBPBankAccount: (ibaNofBpBankAccount: string) => ({ ibaNofBpBankAccount: edmToTs(ibaNofBpBankAccount, 'Edm.String') }),
-      FeeOnTheLine: (feeOnTheLine: number) => ({ feeOnTheLine: edmToTs(feeOnTheLine, 'Edm.Double') }),
-      VATAmountLC: (vatAmountLc: number) => ({ vatAmountLc: edmToTs(vatAmountLc, 'Edm.Double') }),
-      VATAmountFC: (vatAmountFc: number) => ({ vatAmountFc: edmToTs(vatAmountFc, 'Edm.Double') }),
-      JournalEntryID: (journalEntryId: number) => ({ journalEntryId: edmToTs(journalEntryId, 'Edm.Int32') }),
-      PaymentID: (paymentId: number) => ({ paymentId: edmToTs(paymentId, 'Edm.Int32') }),
-      GLAccountforFee: (glAccountforFee: string) => ({ glAccountforFee: edmToTs(glAccountforFee, 'Edm.String') }),
-      FeeProfitCenter: (feeProfitCenter: string) => ({ feeProfitCenter: edmToTs(feeProfitCenter, 'Edm.String') }),
-      FeeProject: (feeProject: string) => ({ feeProject: edmToTs(feeProject, 'Edm.String') }),
-      BPBankCode: (bpBankCode: string) => ({ bpBankCode: edmToTs(bpBankCode, 'Edm.String') }),
-      FeeDistributionRule: (feeDistributionRule: string) => ({ feeDistributionRule: edmToTs(feeDistributionRule, 'Edm.String') }),
-      FeeDistributionRule2: (feeDistributionRule2: string) => ({ feeDistributionRule2: edmToTs(feeDistributionRule2, 'Edm.String') }),
-      FeeDistributionRule3: (feeDistributionRule3: string) => ({ feeDistributionRule3: edmToTs(feeDistributionRule3, 'Edm.String') }),
-      FeeDistributionRule4: (feeDistributionRule4: string) => ({ feeDistributionRule4: edmToTs(feeDistributionRule4, 'Edm.String') }),
-      FeeDistributionRule5: (feeDistributionRule5: string) => ({ feeDistributionRule5: edmToTs(feeDistributionRule5, 'Edm.String') }),
-      BPBICSwiftCode: (bpbicSwiftCode: string) => ({ bpbicSwiftCode: edmToTs(bpbicSwiftCode, 'Edm.String') }),
-      FolioPrefixString: (folioPrefixString: string) => ({ folioPrefixString: edmToTs(folioPrefixString, 'Edm.String') }),
-      FolioNumber: (folioNumber: number) => ({ folioNumber: edmToTs(folioNumber, 'Edm.Int32') }),
-      MultiplePayments: (multiplePayments: MultiplePayment) => ({ multiplePayments: MultiplePayment.build(multiplePayments) })
-    });
+    return deserializeComplexTypeV4(json, BankStatementRow);
   }
 }

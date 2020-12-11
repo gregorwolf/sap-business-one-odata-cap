@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.BrazilMultiIndexers = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var BrazilMultiIndexersRequestBuilder_1 = require("./BrazilMultiIndexersRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "BrazilMultiIndexers" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var BrazilMultiIndexers = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `BrazilMultiIndexers`.
+     * Returns an entity builder to construct instances of `BrazilMultiIndexers`.
      * @returns A builder that constructs instances of entity type `BrazilMultiIndexers`.
      */
     BrazilMultiIndexers.builder = function () {
-        return v4_1.Entity.entityBuilder(BrazilMultiIndexers);
+        return core_1.EntityV4.entityBuilder(BrazilMultiIndexers);
     };
     /**
      * Returns a request builder to construct requests for operations on the `BrazilMultiIndexers` entity type.
@@ -60,7 +60,7 @@ var BrazilMultiIndexers = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `BrazilMultiIndexers`.
      */
     BrazilMultiIndexers.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, BrazilMultiIndexers);
+        return core_1.EntityV4.customFieldSelector(fieldName, BrazilMultiIndexers);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,53 +74,54 @@ var BrazilMultiIndexers = /** @class */ (function (_super) {
      */
     BrazilMultiIndexers._entityName = 'BrazilMultiIndexers';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BrazilMultiIndexers.
-     */
-    BrazilMultiIndexers._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    BrazilMultiIndexers._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    BrazilMultiIndexers._defaultServicePath = '/b1s/v2/';
     return BrazilMultiIndexers;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.BrazilMultiIndexers = BrazilMultiIndexers;
 (function (BrazilMultiIndexers) {
     /**
      * Static representation of the [[id]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BrazilMultiIndexers.ID = new v4_1.NumberField('ID', BrazilMultiIndexers, 'Edm.Int32');
+    BrazilMultiIndexers.ID = new core_1.NumberField('ID', BrazilMultiIndexers, 'Edm.Int32');
+    /**
+     * Static representation of the [[indexerType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    BrazilMultiIndexers.INDEXER_TYPE = new core_1.EnumField('IndexerType', BrazilMultiIndexers);
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BrazilMultiIndexers.CODE = new v4_1.StringField('Code', BrazilMultiIndexers, 'Edm.String');
+    BrazilMultiIndexers.CODE = new core_1.StringField('Code', BrazilMultiIndexers, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BrazilMultiIndexers.DESCRIPTION = new v4_1.StringField('Description', BrazilMultiIndexers, 'Edm.String');
+    BrazilMultiIndexers.DESCRIPTION = new core_1.StringField('Description', BrazilMultiIndexers, 'Edm.String');
     /**
      * Static representation of the [[firstRefIndexerCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BrazilMultiIndexers.FIRST_REF_INDEXER_CODE = new v4_1.StringField('FirstRefIndexerCode', BrazilMultiIndexers, 'Edm.String');
+    BrazilMultiIndexers.FIRST_REF_INDEXER_CODE = new core_1.StringField('FirstRefIndexerCode', BrazilMultiIndexers, 'Edm.String');
     /**
      * Static representation of the [[secondRefIndexerCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BrazilMultiIndexers.SECOND_REF_INDEXER_CODE = new v4_1.StringField('SecondRefIndexerCode', BrazilMultiIndexers, 'Edm.String');
+    BrazilMultiIndexers.SECOND_REF_INDEXER_CODE = new core_1.StringField('SecondRefIndexerCode', BrazilMultiIndexers, 'Edm.String');
     /**
      * Static representation of the [[thirdRefIndexerCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BrazilMultiIndexers.THIRD_REF_INDEXER_CODE = new v4_1.StringField('ThirdRefIndexerCode', BrazilMultiIndexers, 'Edm.String');
+    BrazilMultiIndexers.THIRD_REF_INDEXER_CODE = new core_1.StringField('ThirdRefIndexerCode', BrazilMultiIndexers, 'Edm.String');
     /**
      * All fields of the BrazilMultiIndexers entity.
      */
     BrazilMultiIndexers._allFields = [
         BrazilMultiIndexers.ID,
+        BrazilMultiIndexers.INDEXER_TYPE,
         BrazilMultiIndexers.CODE,
         BrazilMultiIndexers.DESCRIPTION,
         BrazilMultiIndexers.FIRST_REF_INDEXER_CODE,
@@ -130,7 +131,7 @@ exports.BrazilMultiIndexers = BrazilMultiIndexers;
     /**
      * All fields selector.
      */
-    BrazilMultiIndexers.ALL_FIELDS = new v4_1.AllFields('*', BrazilMultiIndexers);
+    BrazilMultiIndexers.ALL_FIELDS = new core_1.AllFields('*', BrazilMultiIndexers);
     /**
      * All key fields of the BrazilMultiIndexers entity.
      */

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.LegalData = void 0;
  */
 var LegalDataRequestBuilder_1 = require("./LegalDataRequestBuilder");
 var LegalDataDetail_1 = require("./LegalDataDetail");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "LegalData" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var LegalData = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `LegalData`.
+     * Returns an entity builder to construct instances of `LegalData`.
      * @returns A builder that constructs instances of entity type `LegalData`.
      */
     LegalData.builder = function () {
-        return v4_1.Entity.entityBuilder(LegalData);
+        return core_1.EntityV4.entityBuilder(LegalData);
     };
     /**
      * Returns a request builder to construct requests for operations on the `LegalData` entity type.
@@ -61,7 +61,7 @@ var LegalData = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `LegalData`.
      */
     LegalData.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, LegalData);
+        return core_1.EntityV4.customFieldSelector(fieldName, LegalData);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,16 +75,11 @@ var LegalData = /** @class */ (function (_super) {
      */
     LegalData._entityName = 'LegalData';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for LegalData.
-     */
-    LegalData._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    LegalData._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    LegalData._defaultServicePath = '/b1s/v2/';
     return LegalData;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.LegalData = LegalData;
 var Users_1 = require("./Users");
 (function (LegalData) {
@@ -92,82 +87,88 @@ var Users_1 = require("./Users");
      * Static representation of the [[docEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LegalData.DOC_ENTRY = new v4_1.NumberField('DocEntry', LegalData, 'Edm.Int32');
+    LegalData.DOC_ENTRY = new core_1.NumberField('DocEntry', LegalData, 'Edm.Int32');
+    /**
+     * Static representation of the [[sourceObjectType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    LegalData.SOURCE_OBJECT_TYPE = new core_1.EnumField('SourceObjectType', LegalData);
     /**
      * Static representation of the [[sourceObjectEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LegalData.SOURCE_OBJECT_ENTRY = new v4_1.NumberField('SourceObjectEntry', LegalData, 'Edm.Int32');
+    LegalData.SOURCE_OBJECT_ENTRY = new core_1.NumberField('SourceObjectEntry', LegalData, 'Edm.Int32');
     /**
      * Static representation of the [[dateOfPrinting]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LegalData.DATE_OF_PRINTING = new v4_1.DateField('DateOfPrinting', LegalData, 'Edm.DateTimeOffset');
+    LegalData.DATE_OF_PRINTING = new core_1.DateField('DateOfPrinting', LegalData, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[timeOfPrinting]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LegalData.TIME_OF_PRINTING = new v4_1.TimeField('TimeOfPrinting', LegalData, 'Edm.TimeOfDay');
+    LegalData.TIME_OF_PRINTING = new core_1.TimeField('TimeOfPrinting', LegalData, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[printerBrand]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LegalData.PRINTER_BRAND = new v4_1.StringField('PrinterBrand', LegalData, 'Edm.String');
+    LegalData.PRINTER_BRAND = new core_1.StringField('PrinterBrand', LegalData, 'Edm.String');
     /**
      * Static representation of the [[printerType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LegalData.PRINTER_TYPE = new v4_1.StringField('PrinterType', LegalData, 'Edm.String');
+    LegalData.PRINTER_TYPE = new core_1.StringField('PrinterType', LegalData, 'Edm.String');
     /**
      * Static representation of the [[printerModel]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LegalData.PRINTER_MODEL = new v4_1.StringField('PrinterModel', LegalData, 'Edm.String');
+    LegalData.PRINTER_MODEL = new core_1.StringField('PrinterModel', LegalData, 'Edm.String');
     /**
      * Static representation of the [[printerFirmwareVersion]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LegalData.PRINTER_FIRMWARE_VERSION = new v4_1.StringField('PrinterFirmwareVersion', LegalData, 'Edm.String');
+    LegalData.PRINTER_FIRMWARE_VERSION = new core_1.StringField('PrinterFirmwareVersion', LegalData, 'Edm.String');
     /**
      * Static representation of the [[printerDllVersion]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LegalData.PRINTER_DLL_VERSION = new v4_1.StringField('PrinterDllVersion', LegalData, 'Edm.String');
+    LegalData.PRINTER_DLL_VERSION = new core_1.StringField('PrinterDllVersion', LegalData, 'Edm.String');
     /**
      * Static representation of the [[fiscalSeries]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LegalData.FISCAL_SERIES = new v4_1.StringField('FiscalSeries', LegalData, 'Edm.String');
+    LegalData.FISCAL_SERIES = new core_1.StringField('FiscalSeries', LegalData, 'Edm.String');
     /**
      * Static representation of the [[fiscalNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LegalData.FISCAL_NUMBER = new v4_1.StringField('FiscalNumber', LegalData, 'Edm.String');
+    LegalData.FISCAL_NUMBER = new core_1.StringField('FiscalNumber', LegalData, 'Edm.String');
     /**
      * Static representation of the [[documentNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LegalData.DOCUMENT_NUMBER = new v4_1.StringField('DocumentNumber', LegalData, 'Edm.String');
+    LegalData.DOCUMENT_NUMBER = new core_1.StringField('DocumentNumber', LegalData, 'Edm.String');
     /**
      * Static representation of the [[fiscalUserId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LegalData.FISCAL_USER_ID = new v4_1.NumberField('FiscalUserID', LegalData, 'Edm.Int32');
+    LegalData.FISCAL_USER_ID = new core_1.NumberField('FiscalUserID', LegalData, 'Edm.Int32');
     /**
      * Static representation of the [[legalDataDetailCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LegalData.LEGAL_DATA_DETAIL_COLLECTION = new v4_1.CollectionField('LegalDataDetailCollection', LegalData, new LegalDataDetail_1.LegalDataDetailField('', LegalData));
+    LegalData.LEGAL_DATA_DETAIL_COLLECTION = new core_1.CollectionField('LegalDataDetailCollection', LegalData, LegalDataDetail_1.LegalDataDetail);
     /**
      * Static representation of the one-to-one navigation property [[user]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    LegalData.USER = new v4_1.OneToOneLink('User', LegalData, Users_1.Users);
+    LegalData.USER = new core_1.OneToOneLink('User', LegalData, Users_1.Users);
     /**
      * All fields of the LegalData entity.
      */
     LegalData._allFields = [
         LegalData.DOC_ENTRY,
+        LegalData.SOURCE_OBJECT_TYPE,
         LegalData.SOURCE_OBJECT_ENTRY,
         LegalData.DATE_OF_PRINTING,
         LegalData.TIME_OF_PRINTING,
@@ -186,7 +187,7 @@ var Users_1 = require("./Users");
     /**
      * All fields selector.
      */
-    LegalData.ALL_FIELDS = new v4_1.AllFields('*', LegalData);
+    LegalData.ALL_FIELDS = new core_1.AllFields('*', LegalData);
     /**
      * All key fields of the LegalData entity.
      */

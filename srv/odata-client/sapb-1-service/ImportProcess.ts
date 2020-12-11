@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ImportProcess
@@ -63,7 +63,7 @@ export function createImportProcess(json: any): ImportProcess {
  * ImportProcessField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ImportProcessField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ImportProcessField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ImportProcess> {
   /**
    * Representation of the [[ImportProcess.lineNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -104,19 +104,68 @@ export class ImportProcessField<EntityT extends Entity> extends ComplexTypeField
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   additionalItemDiscountValue: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('AdditionalItemDiscountValue', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of ImportProcessField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ImportProcess);
+  }
 }
 
 export namespace ImportProcess {
+  /**
+   * Metadata information on all properties of the `ImportProcess` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ImportProcess>[] = [{
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ImportationDocumentTypeCode',
+    name: 'importationDocumentTypeCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ImportationDocumentNumber',
+    name: 'importationDocumentNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DateOfRegistry_DI_DSI_DA',
+    name: 'dateOfRegistryDiDsiDa',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'CustomsClearanceDate',
+    name: 'customsClearanceDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'DrawbackRegimeConcessionAccountNumber',
+    name: 'drawbackRegimeConcessionAccountNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalNumber',
+    name: 'additionalNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalItemDiscountValue',
+    name: 'additionalItemDiscountValue',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ImportProcess {
-    return createComplexType(json, {
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      ImportationDocumentTypeCode: (importationDocumentTypeCode: string) => ({ importationDocumentTypeCode: edmToTs(importationDocumentTypeCode, 'Edm.String') }),
-      ImportationDocumentNumber: (importationDocumentNumber: string) => ({ importationDocumentNumber: edmToTs(importationDocumentNumber, 'Edm.String') }),
-      DateOfRegistry_DI_DSI_DA: (dateOfRegistryDiDsiDa: Moment) => ({ dateOfRegistryDiDsiDa: edmToTs(dateOfRegistryDiDsiDa, 'Edm.DateTimeOffset') }),
-      CustomsClearanceDate: (customsClearanceDate: Moment) => ({ customsClearanceDate: edmToTs(customsClearanceDate, 'Edm.DateTimeOffset') }),
-      DrawbackRegimeConcessionAccountNumber: (drawbackRegimeConcessionAccountNumber: string) => ({ drawbackRegimeConcessionAccountNumber: edmToTs(drawbackRegimeConcessionAccountNumber, 'Edm.String') }),
-      AdditionalNumber: (additionalNumber: string) => ({ additionalNumber: edmToTs(additionalNumber, 'Edm.String') }),
-      AdditionalItemDiscountValue: (additionalItemDiscountValue: number) => ({ additionalItemDiscountValue: edmToTs(additionalItemDiscountValue, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, ImportProcess);
   }
 }

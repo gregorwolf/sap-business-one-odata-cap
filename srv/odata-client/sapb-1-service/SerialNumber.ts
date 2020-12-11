@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * SerialNumber
@@ -98,7 +98,7 @@ export function createSerialNumber(json: any): SerialNumber {
  * SerialNumberField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class SerialNumberField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class SerialNumberField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, SerialNumber> {
   /**
    * Representation of the [[SerialNumber.manufacturerSerialNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -174,26 +174,103 @@ export class SerialNumberField<EntityT extends Entity> extends ComplexTypeField<
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   trackingNoteLine: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('TrackingNoteLine', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of SerialNumberField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, SerialNumber);
+  }
 }
 
 export namespace SerialNumber {
+  /**
+   * Metadata information on all properties of the `SerialNumber` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<SerialNumber>[] = [{
+    originalName: 'ManufacturerSerialNumber',
+    name: 'manufacturerSerialNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InternalSerialNumber',
+    name: 'internalSerialNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExpiryDate',
+    name: 'expiryDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ManufactureDate',
+    name: 'manufactureDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ReceptionDate',
+    name: 'receptionDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'WarrantyStart',
+    name: 'warrantyStart',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'WarrantyEnd',
+    name: 'warrantyEnd',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Location',
+    name: 'location',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Notes',
+    name: 'notes',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BatchID',
+    name: 'batchId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SystemSerialNumber',
+    name: 'systemSerialNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseLineNumber',
+    name: 'baseLineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Quantity',
+    name: 'quantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TrackingNote',
+    name: 'trackingNote',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TrackingNoteLine',
+    name: 'trackingNoteLine',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): SerialNumber {
-    return createComplexType(json, {
-      ManufacturerSerialNumber: (manufacturerSerialNumber: string) => ({ manufacturerSerialNumber: edmToTs(manufacturerSerialNumber, 'Edm.String') }),
-      InternalSerialNumber: (internalSerialNumber: string) => ({ internalSerialNumber: edmToTs(internalSerialNumber, 'Edm.String') }),
-      ExpiryDate: (expiryDate: Moment) => ({ expiryDate: edmToTs(expiryDate, 'Edm.DateTimeOffset') }),
-      ManufactureDate: (manufactureDate: Moment) => ({ manufactureDate: edmToTs(manufactureDate, 'Edm.DateTimeOffset') }),
-      ReceptionDate: (receptionDate: Moment) => ({ receptionDate: edmToTs(receptionDate, 'Edm.DateTimeOffset') }),
-      WarrantyStart: (warrantyStart: Moment) => ({ warrantyStart: edmToTs(warrantyStart, 'Edm.DateTimeOffset') }),
-      WarrantyEnd: (warrantyEnd: Moment) => ({ warrantyEnd: edmToTs(warrantyEnd, 'Edm.DateTimeOffset') }),
-      Location: (location: string) => ({ location: edmToTs(location, 'Edm.String') }),
-      Notes: (notes: string) => ({ notes: edmToTs(notes, 'Edm.String') }),
-      BatchID: (batchId: string) => ({ batchId: edmToTs(batchId, 'Edm.String') }),
-      SystemSerialNumber: (systemSerialNumber: number) => ({ systemSerialNumber: edmToTs(systemSerialNumber, 'Edm.Int32') }),
-      BaseLineNumber: (baseLineNumber: number) => ({ baseLineNumber: edmToTs(baseLineNumber, 'Edm.Int32') }),
-      Quantity: (quantity: number) => ({ quantity: edmToTs(quantity, 'Edm.Double') }),
-      TrackingNote: (trackingNote: number) => ({ trackingNote: edmToTs(trackingNote, 'Edm.Int32') }),
-      TrackingNoteLine: (trackingNoteLine: number) => ({ trackingNoteLine: edmToTs(trackingNoteLine, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, SerialNumber);
   }
 }

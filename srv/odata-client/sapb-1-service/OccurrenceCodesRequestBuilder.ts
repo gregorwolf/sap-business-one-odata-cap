@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { OccurrenceCodes } from './OccurrenceCodes';
 
 /**
@@ -15,16 +15,16 @@ export class OccurrenceCodesRequestBuilder extends RequestBuilder<OccurrenceCode
    * @param absEntry Key property. See [[OccurrenceCodes.absEntry]].
    * @returns A request builder for creating requests to retrieve one `OccurrenceCodes` entity based on its keys.
    */
-  getByKey(absEntry: number): GetByKeyRequestBuilder<OccurrenceCodes> {
-    return new GetByKeyRequestBuilder(OccurrenceCodes, { AbsEntry: absEntry });
+  getByKey(absEntry: number): GetByKeyRequestBuilderV4<OccurrenceCodes> {
+    return new GetByKeyRequestBuilderV4(OccurrenceCodes, { AbsEntry: absEntry });
   }
 
   /**
    * Returns a request builder for querying all `OccurrenceCodes` entities.
    * @returns A request builder for creating requests to retrieve all `OccurrenceCodes` entities.
    */
-  getAll(): GetAllRequestBuilder<OccurrenceCodes> {
-    return new GetAllRequestBuilder(OccurrenceCodes);
+  getAll(): GetAllRequestBuilderV4<OccurrenceCodes> {
+    return new GetAllRequestBuilderV4(OccurrenceCodes);
   }
 
   /**
@@ -32,8 +32,8 @@ export class OccurrenceCodesRequestBuilder extends RequestBuilder<OccurrenceCode
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `OccurrenceCodes`.
    */
-  create(entity: OccurrenceCodes): CreateRequestBuilder<OccurrenceCodes> {
-    return new CreateRequestBuilder(OccurrenceCodes, entity);
+  create(entity: OccurrenceCodes): CreateRequestBuilderV4<OccurrenceCodes> {
+    return new CreateRequestBuilderV4(OccurrenceCodes, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class OccurrenceCodesRequestBuilder extends RequestBuilder<OccurrenceCode
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `OccurrenceCodes`.
    */
-  update(entity: OccurrenceCodes): UpdateRequestBuilder<OccurrenceCodes> {
-    return new UpdateRequestBuilder(OccurrenceCodes, entity);
+  update(entity: OccurrenceCodes): UpdateRequestBuilderV4<OccurrenceCodes> {
+    return new UpdateRequestBuilderV4(OccurrenceCodes, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class OccurrenceCodesRequestBuilder extends RequestBuilder<OccurrenceCode
    * @param absEntry Key property. See [[OccurrenceCodes.absEntry]].
    * @returns A request builder for creating requests that delete an entity of type `OccurrenceCodes`.
    */
-  delete(absEntry: number): DeleteRequestBuilder<OccurrenceCodes>;
+  delete(absEntry: number): DeleteRequestBuilderV4<OccurrenceCodes>;
   /**
    * Returns a request builder for deleting an entity of type `OccurrenceCodes`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `OccurrenceCodes` by taking the entity as a parameter.
    */
-  delete(entity: OccurrenceCodes): DeleteRequestBuilder<OccurrenceCodes>;
-  delete(absEntryOrEntity: any): DeleteRequestBuilder<OccurrenceCodes> {
-    return new DeleteRequestBuilder(OccurrenceCodes, absEntryOrEntity instanceof OccurrenceCodes ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
+  delete(entity: OccurrenceCodes): DeleteRequestBuilderV4<OccurrenceCodes>;
+  delete(absEntryOrEntity: any): DeleteRequestBuilderV4<OccurrenceCodes> {
+    return new DeleteRequestBuilderV4(OccurrenceCodes, absEntryOrEntity instanceof OccurrenceCodes ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
   }
 }

@@ -1,8 +1,14 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ItemUoMTypeEnum } from './ItemUoMTypeEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * ItemUoMPackage
  */
 export interface ItemUoMPackage {
+    /**
+     * Uo M Type.
+     * @nullable
+     */
+    uoMType?: ItemUoMTypeEnum;
     /**
      * Uo M Entry.
      * @nullable
@@ -117,7 +123,12 @@ export declare function createItemUoMPackage(json: any): ItemUoMPackage;
  * ItemUoMPackageField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class ItemUoMPackageField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class ItemUoMPackageField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ItemUoMPackage> {
+    /**
+     * Representation of the [[ItemUoMPackage.uoMType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    uoMType: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[ItemUoMPackage.uoMEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -223,8 +234,22 @@ export declare class ItemUoMPackageField<EntityT extends Entity> extends Complex
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     quantityPerPackage: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of ItemUoMPackageField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace ItemUoMPackage {
+    /**
+     * Metadata information on all properties of the `ItemUoMPackage` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<ItemUoMPackage>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): ItemUoMPackage;

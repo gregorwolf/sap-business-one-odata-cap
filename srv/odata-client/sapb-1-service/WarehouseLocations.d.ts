@@ -1,18 +1,14 @@
 import { WarehouseLocationsRequestBuilder } from './WarehouseLocationsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoGstRegnTypeEnum } from './BoGstRegnTypeEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "WarehouseLocations" of service "SAPB1".
  */
-export declare class WarehouseLocations extends Entity implements WarehouseLocationsType {
+export declare class WarehouseLocations extends EntityV4 implements WarehouseLocationsType {
     /**
      * Technical entity name for WarehouseLocations.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for WarehouseLocations.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -163,6 +159,11 @@ export declare class WarehouseLocations extends Entity implements WarehouseLocat
      */
     gstin?: string;
     /**
+     * Gst Type.
+     * @nullable
+     */
+    gstType?: BoGstRegnTypeEnum;
+    /**
      * Gsttds.
      * @nullable
      */
@@ -209,10 +210,10 @@ export declare class WarehouseLocations extends Entity implements WarehouseLocat
      */
     incomingPayments: IncomingPayments[];
     /**
-     * Returns an entity builder to construct instances `WarehouseLocations`.
+     * Returns an entity builder to construct instances of `WarehouseLocations`.
      * @returns A builder that constructs instances of entity type `WarehouseLocations`.
      */
-    static builder(): EntityBuilderType<WarehouseLocations, WarehouseLocationsTypeForceMandatory>;
+    static builder(): EntityBuilderType<WarehouseLocations, WarehouseLocationsType>;
     /**
      * Returns a request builder to construct requests for operations on the `WarehouseLocations` entity type.
      * @returns A `WarehouseLocations` request builder.
@@ -223,7 +224,7 @@ export declare class WarehouseLocations extends Entity implements WarehouseLocat
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `WarehouseLocations`.
      */
-    static customField(fieldName: string): CustomField<WarehouseLocations>;
+    static customField(fieldName: string): CustomFieldV4<WarehouseLocations>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -242,79 +243,38 @@ import { PaymentDrafts, PaymentDraftsType } from './PaymentDrafts';
 import { WithholdingTaxCodes, WithholdingTaxCodesType } from './WithholdingTaxCodes';
 import { IncomingPayments, IncomingPaymentsType } from './IncomingPayments';
 export interface WarehouseLocationsType {
-    code?: number;
-    name?: string;
-    lstvatNumber?: string;
-    cstNumber?: string;
-    exemptionNumber?: string;
-    tanNumber?: string;
-    serviceTaxNumber?: string;
-    assesseeType?: string;
-    companyType?: string;
-    natureOfBusiness?: string;
-    tinNumber?: string;
-    registrationType?: string;
-    eccNumber?: string;
-    ceRange?: string;
-    ceDivision?: string;
-    ceCommissionerate?: string;
-    manufacturerCode?: string;
-    jurisdiction?: string;
-    street?: string;
-    block?: string;
-    zipCode?: string;
-    city?: string;
-    county?: string;
-    country?: string;
-    state?: string;
-    panNumber?: string;
-    ceRegisterNumber?: string;
-    buildingFloorRoom?: string;
-    gstin?: string;
-    gsttds?: string;
-    gstisd?: string;
-    warehouses: WarehousesType[];
-    vendorPayments: VendorPaymentsType[];
-    items: ItemsType[];
-    journalEntries: JournalEntriesType[];
-    country2: CountriesType;
-    certificateSeries: CertificateSeriesType[];
-    paymentDrafts: PaymentDraftsType[];
-    withholdingTaxCodes: WithholdingTaxCodesType[];
-    incomingPayments: IncomingPaymentsType[];
-}
-export interface WarehouseLocationsTypeForceMandatory {
-    code: number;
-    name: string;
-    lstvatNumber: string;
-    cstNumber: string;
-    exemptionNumber: string;
-    tanNumber: string;
-    serviceTaxNumber: string;
-    assesseeType: string;
-    companyType: string;
-    natureOfBusiness: string;
-    tinNumber: string;
-    registrationType: string;
-    eccNumber: string;
-    ceRange: string;
-    ceDivision: string;
-    ceCommissionerate: string;
-    manufacturerCode: string;
-    jurisdiction: string;
-    street: string;
-    block: string;
-    zipCode: string;
-    city: string;
-    county: string;
-    country: string;
-    state: string;
-    panNumber: string;
-    ceRegisterNumber: string;
-    buildingFloorRoom: string;
-    gstin: string;
-    gsttds: string;
-    gstisd: string;
+    code?: number | null;
+    name?: string | null;
+    lstvatNumber?: string | null;
+    cstNumber?: string | null;
+    exemptionNumber?: string | null;
+    tanNumber?: string | null;
+    serviceTaxNumber?: string | null;
+    assesseeType?: string | null;
+    companyType?: string | null;
+    natureOfBusiness?: string | null;
+    tinNumber?: string | null;
+    registrationType?: string | null;
+    eccNumber?: string | null;
+    ceRange?: string | null;
+    ceDivision?: string | null;
+    ceCommissionerate?: string | null;
+    manufacturerCode?: string | null;
+    jurisdiction?: string | null;
+    street?: string | null;
+    block?: string | null;
+    zipCode?: string | null;
+    city?: string | null;
+    county?: string | null;
+    country?: string | null;
+    state?: string | null;
+    panNumber?: string | null;
+    ceRegisterNumber?: string | null;
+    buildingFloorRoom?: string | null;
+    gstin?: string | null;
+    gstType?: BoGstRegnTypeEnum | null;
+    gsttds?: string | null;
+    gstisd?: string | null;
     warehouses: WarehousesType[];
     vendorPayments: VendorPaymentsType[];
     items: ItemsType[];
@@ -472,6 +432,11 @@ export declare namespace WarehouseLocations {
      */
     const GSTIN: StringField<WarehouseLocations>;
     /**
+     * Static representation of the [[gstType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const GST_TYPE: EnumField<WarehouseLocations>;
+    /**
      * Static representation of the [[gsttds]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -529,7 +494,7 @@ export declare namespace WarehouseLocations {
     /**
      * All fields of the WarehouseLocations entity.
      */
-    const _allFields: Array<NumberField<WarehouseLocations> | StringField<WarehouseLocations> | OneToManyLink<WarehouseLocations, Warehouses> | OneToManyLink<WarehouseLocations, VendorPayments> | OneToManyLink<WarehouseLocations, Items> | OneToManyLink<WarehouseLocations, JournalEntries> | OneToOneLink<WarehouseLocations, Countries> | OneToManyLink<WarehouseLocations, CertificateSeries> | OneToManyLink<WarehouseLocations, PaymentDrafts> | OneToManyLink<WarehouseLocations, WithholdingTaxCodes> | OneToManyLink<WarehouseLocations, IncomingPayments>>;
+    const _allFields: Array<NumberField<WarehouseLocations> | StringField<WarehouseLocations> | EnumField<WarehouseLocations> | OneToManyLink<WarehouseLocations, Warehouses> | OneToManyLink<WarehouseLocations, VendorPayments> | OneToManyLink<WarehouseLocations, Items> | OneToManyLink<WarehouseLocations, JournalEntries> | OneToOneLink<WarehouseLocations, Countries> | OneToManyLink<WarehouseLocations, CertificateSeries> | OneToManyLink<WarehouseLocations, PaymentDrafts> | OneToManyLink<WarehouseLocations, WithholdingTaxCodes> | OneToManyLink<WarehouseLocations, IncomingPayments>>;
     /**
      * All fields selector.
      */

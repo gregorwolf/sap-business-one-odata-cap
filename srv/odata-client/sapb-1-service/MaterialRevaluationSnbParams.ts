@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * MaterialRevaluationSnbParams
@@ -63,7 +63,7 @@ export function createMaterialRevaluationSnbParams(json: any): MaterialRevaluati
  * MaterialRevaluationSnbParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class MaterialRevaluationSnbParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class MaterialRevaluationSnbParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, MaterialRevaluationSnbParams> {
   /**
    * Representation of the [[MaterialRevaluationSnbParams.snbAbsEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -104,19 +104,68 @@ export class MaterialRevaluationSnbParamsField<EntityT extends Entity> extends C
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   expirationDate: ComplexTypeDatePropertyField<EntityT> = new ComplexTypeDatePropertyField('ExpirationDate', this, 'Edm.DateTimeOffset');
+
+  /**
+   * Creates an instance of MaterialRevaluationSnbParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, MaterialRevaluationSnbParams);
+  }
 }
 
 export namespace MaterialRevaluationSnbParams {
+  /**
+   * Metadata information on all properties of the `MaterialRevaluationSnbParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<MaterialRevaluationSnbParams>[] = [{
+    originalName: 'SnbAbsEntry',
+    name: 'snbAbsEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'NewCost',
+    name: 'newCost',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DebitCredit',
+    name: 'debitCredit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SystemNumber',
+    name: 'systemNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LotNumber',
+    name: 'lotNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ManufactureNumber',
+    name: 'manufactureNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AdmissionDate',
+    name: 'admissionDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ExpirationDate',
+    name: 'expirationDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): MaterialRevaluationSnbParams {
-    return createComplexType(json, {
-      SnbAbsEntry: (snbAbsEntry: number) => ({ snbAbsEntry: edmToTs(snbAbsEntry, 'Edm.Int32') }),
-      NewCost: (newCost: number) => ({ newCost: edmToTs(newCost, 'Edm.Double') }),
-      DebitCredit: (debitCredit: number) => ({ debitCredit: edmToTs(debitCredit, 'Edm.Double') }),
-      SystemNumber: (systemNumber: number) => ({ systemNumber: edmToTs(systemNumber, 'Edm.Int32') }),
-      LotNumber: (lotNumber: string) => ({ lotNumber: edmToTs(lotNumber, 'Edm.String') }),
-      ManufactureNumber: (manufactureNumber: string) => ({ manufactureNumber: edmToTs(manufactureNumber, 'Edm.String') }),
-      AdmissionDate: (admissionDate: Moment) => ({ admissionDate: edmToTs(admissionDate, 'Edm.DateTimeOffset') }),
-      ExpirationDate: (expirationDate: Moment) => ({ expirationDate: edmToTs(expirationDate, 'Edm.DateTimeOffset') })
-    });
+    return deserializeComplexTypeV4(json, MaterialRevaluationSnbParams);
   }
 }

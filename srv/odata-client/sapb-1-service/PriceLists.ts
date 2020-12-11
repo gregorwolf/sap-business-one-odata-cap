@@ -5,25 +5,34 @@
  */
 import { PriceListsRequestBuilder } from './PriceListsRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoRoundingMethod } from './BoRoundingMethod';
+import { BoPriceListGroupNum } from './BoPriceListGroupNum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoRoundingRule } from './BoRoundingRule';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "PriceLists" of service "SAPB1".
  */
-export class PriceLists extends Entity implements PriceListsType {
+export class PriceLists extends EntityV4 implements PriceListsType {
   /**
    * Technical entity name for PriceLists.
    */
   static _entityName = 'PriceLists';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for PriceLists.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
+  /**
+   * Rounding Method.
+   * @nullable
+   */
+  roundingMethod?: BoRoundingMethod;
+  /**
+   * Group Num.
+   * @nullable
+   */
+  groupNum?: BoPriceListGroupNum;
   /**
    * Base Price List.
    * @nullable
@@ -44,6 +53,16 @@ export class PriceLists extends Entity implements PriceListsType {
    * @nullable
    */
   priceListName?: string;
+  /**
+   * Is Gross Price.
+   * @nullable
+   */
+  isGrossPrice?: BoYesNoEnum;
+  /**
+   * Active.
+   * @nullable
+   */
+  active?: BoYesNoEnum;
   /**
    * Valid From.
    * @nullable
@@ -69,6 +88,11 @@ export class PriceLists extends Entity implements PriceListsType {
    * @nullable
    */
   defaultAdditionalCurrency2?: string;
+  /**
+   * Rounding Rule.
+   * @nullable
+   */
+  roundingRule?: BoRoundingRule;
   /**
    * Fixed Amount.
    * @nullable
@@ -104,11 +128,11 @@ export class PriceLists extends Entity implements PriceListsType {
   stockTransfers!: StockTransfers[];
 
   /**
-   * Returns an entity builder to construct instances `PriceLists`.
+   * Returns an entity builder to construct instances of `PriceLists`.
    * @returns A builder that constructs instances of entity type `PriceLists`.
    */
-  static builder(): EntityBuilderType<PriceLists, PriceListsTypeForceMandatory> {
-    return Entity.entityBuilder(PriceLists);
+  static builder(): EntityBuilderType<PriceLists, PriceListsType> {
+    return EntityV4.entityBuilder(PriceLists);
   }
 
   /**
@@ -124,8 +148,8 @@ export class PriceLists extends Entity implements PriceListsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `PriceLists`.
    */
-  static customField(fieldName: string): CustomField<PriceLists> {
-    return Entity.customFieldSelector(fieldName, PriceLists);
+  static customField(fieldName: string): CustomFieldV4<PriceLists> {
+    return EntityV4.customFieldSelector(fieldName, PriceLists);
   }
 
   /**
@@ -146,36 +170,21 @@ import { BlanketAgreements, BlanketAgreementsType } from './BlanketAgreements';
 import { StockTransfers, StockTransfersType } from './StockTransfers';
 
 export interface PriceListsType {
-  basePriceList?: number;
-  factor?: number;
-  priceListNo?: number;
-  priceListName?: string;
-  validFrom?: Moment;
-  validTo?: Moment;
-  defaultPrimeCurrency?: string;
-  defaultAdditionalCurrency1?: string;
-  defaultAdditionalCurrency2?: string;
-  fixedAmount?: number;
-  specialPrices: SpecialPricesType[];
-  workOrders: WorkOrdersType[];
-  paymentTermsTypes: PaymentTermsTypesType[];
-  businessPartners: BusinessPartnersType[];
-  productTrees: ProductTreesType[];
-  blanketAgreements: BlanketAgreementsType[];
-  stockTransfers: StockTransfersType[];
-}
-
-export interface PriceListsTypeForceMandatory {
-  basePriceList: number;
-  factor: number;
-  priceListNo: number;
-  priceListName: string;
-  validFrom: Moment;
-  validTo: Moment;
-  defaultPrimeCurrency: string;
-  defaultAdditionalCurrency1: string;
-  defaultAdditionalCurrency2: string;
-  fixedAmount: number;
+  roundingMethod?: BoRoundingMethod | null;
+  groupNum?: BoPriceListGroupNum | null;
+  basePriceList?: number | null;
+  factor?: number | null;
+  priceListNo?: number | null;
+  priceListName?: string | null;
+  isGrossPrice?: BoYesNoEnum | null;
+  active?: BoYesNoEnum | null;
+  validFrom?: Moment | null;
+  validTo?: Moment | null;
+  defaultPrimeCurrency?: string | null;
+  defaultAdditionalCurrency1?: string | null;
+  defaultAdditionalCurrency2?: string | null;
+  roundingRule?: BoRoundingRule | null;
+  fixedAmount?: number | null;
   specialPrices: SpecialPricesType[];
   workOrders: WorkOrdersType[];
   paymentTermsTypes: PaymentTermsTypesType[];
@@ -186,6 +195,16 @@ export interface PriceListsTypeForceMandatory {
 }
 
 export namespace PriceLists {
+  /**
+   * Static representation of the [[roundingMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ROUNDING_METHOD: EnumField<PriceLists> = new EnumField('RoundingMethod', PriceLists);
+  /**
+   * Static representation of the [[groupNum]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const GROUP_NUM: EnumField<PriceLists> = new EnumField('GroupNum', PriceLists);
   /**
    * Static representation of the [[basePriceList]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -206,6 +225,16 @@ export namespace PriceLists {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const PRICE_LIST_NAME: StringField<PriceLists> = new StringField('PriceListName', PriceLists, 'Edm.String');
+  /**
+   * Static representation of the [[isGrossPrice]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_GROSS_PRICE: EnumField<PriceLists> = new EnumField('IsGrossPrice', PriceLists);
+  /**
+   * Static representation of the [[active]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ACTIVE: EnumField<PriceLists> = new EnumField('Active', PriceLists);
   /**
    * Static representation of the [[validFrom]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -231,6 +260,11 @@ export namespace PriceLists {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DEFAULT_ADDITIONAL_CURRENCY_2: StringField<PriceLists> = new StringField('DefaultAdditionalCurrency2', PriceLists, 'Edm.String');
+  /**
+   * Static representation of the [[roundingRule]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ROUNDING_RULE: EnumField<PriceLists> = new EnumField('RoundingRule', PriceLists);
   /**
    * Static representation of the [[fixedAmount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -274,16 +308,21 @@ export namespace PriceLists {
   /**
    * All fields of the PriceLists entity.
    */
-  export const _allFields: Array<NumberField<PriceLists> | StringField<PriceLists> | DateField<PriceLists> | OneToManyLink<PriceLists, SpecialPrices> | OneToManyLink<PriceLists, WorkOrders> | OneToManyLink<PriceLists, PaymentTermsTypes> | OneToManyLink<PriceLists, BusinessPartners> | OneToManyLink<PriceLists, ProductTrees> | OneToManyLink<PriceLists, BlanketAgreements> | OneToManyLink<PriceLists, StockTransfers>> = [
+  export const _allFields: Array<EnumField<PriceLists> | NumberField<PriceLists> | StringField<PriceLists> | DateField<PriceLists> | OneToManyLink<PriceLists, SpecialPrices> | OneToManyLink<PriceLists, WorkOrders> | OneToManyLink<PriceLists, PaymentTermsTypes> | OneToManyLink<PriceLists, BusinessPartners> | OneToManyLink<PriceLists, ProductTrees> | OneToManyLink<PriceLists, BlanketAgreements> | OneToManyLink<PriceLists, StockTransfers>> = [
+    PriceLists.ROUNDING_METHOD,
+    PriceLists.GROUP_NUM,
     PriceLists.BASE_PRICE_LIST,
     PriceLists.FACTOR,
     PriceLists.PRICE_LIST_NO,
     PriceLists.PRICE_LIST_NAME,
+    PriceLists.IS_GROSS_PRICE,
+    PriceLists.ACTIVE,
     PriceLists.VALID_FROM,
     PriceLists.VALID_TO,
     PriceLists.DEFAULT_PRIME_CURRENCY,
     PriceLists.DEFAULT_ADDITIONAL_CURRENCY_1,
     PriceLists.DEFAULT_ADDITIONAL_CURRENCY_2,
+    PriceLists.ROUNDING_RULE,
     PriceLists.FIXED_AMOUNT,
     PriceLists.SPECIAL_PRICES,
     PriceLists.WORK_ORDERS,

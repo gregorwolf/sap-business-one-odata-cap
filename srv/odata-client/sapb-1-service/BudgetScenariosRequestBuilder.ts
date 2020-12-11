@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { BudgetScenarios } from './BudgetScenarios';
 
 /**
@@ -15,16 +15,16 @@ export class BudgetScenariosRequestBuilder extends RequestBuilder<BudgetScenario
    * @param numerator Key property. See [[BudgetScenarios.numerator]].
    * @returns A request builder for creating requests to retrieve one `BudgetScenarios` entity based on its keys.
    */
-  getByKey(numerator: number): GetByKeyRequestBuilder<BudgetScenarios> {
-    return new GetByKeyRequestBuilder(BudgetScenarios, { Numerator: numerator });
+  getByKey(numerator: number): GetByKeyRequestBuilderV4<BudgetScenarios> {
+    return new GetByKeyRequestBuilderV4(BudgetScenarios, { Numerator: numerator });
   }
 
   /**
    * Returns a request builder for querying all `BudgetScenarios` entities.
    * @returns A request builder for creating requests to retrieve all `BudgetScenarios` entities.
    */
-  getAll(): GetAllRequestBuilder<BudgetScenarios> {
-    return new GetAllRequestBuilder(BudgetScenarios);
+  getAll(): GetAllRequestBuilderV4<BudgetScenarios> {
+    return new GetAllRequestBuilderV4(BudgetScenarios);
   }
 
   /**
@@ -32,8 +32,8 @@ export class BudgetScenariosRequestBuilder extends RequestBuilder<BudgetScenario
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `BudgetScenarios`.
    */
-  create(entity: BudgetScenarios): CreateRequestBuilder<BudgetScenarios> {
-    return new CreateRequestBuilder(BudgetScenarios, entity);
+  create(entity: BudgetScenarios): CreateRequestBuilderV4<BudgetScenarios> {
+    return new CreateRequestBuilderV4(BudgetScenarios, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class BudgetScenariosRequestBuilder extends RequestBuilder<BudgetScenario
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `BudgetScenarios`.
    */
-  update(entity: BudgetScenarios): UpdateRequestBuilder<BudgetScenarios> {
-    return new UpdateRequestBuilder(BudgetScenarios, entity);
+  update(entity: BudgetScenarios): UpdateRequestBuilderV4<BudgetScenarios> {
+    return new UpdateRequestBuilderV4(BudgetScenarios, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class BudgetScenariosRequestBuilder extends RequestBuilder<BudgetScenario
    * @param numerator Key property. See [[BudgetScenarios.numerator]].
    * @returns A request builder for creating requests that delete an entity of type `BudgetScenarios`.
    */
-  delete(numerator: number): DeleteRequestBuilder<BudgetScenarios>;
+  delete(numerator: number): DeleteRequestBuilderV4<BudgetScenarios>;
   /**
    * Returns a request builder for deleting an entity of type `BudgetScenarios`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `BudgetScenarios` by taking the entity as a parameter.
    */
-  delete(entity: BudgetScenarios): DeleteRequestBuilder<BudgetScenarios>;
-  delete(numeratorOrEntity: any): DeleteRequestBuilder<BudgetScenarios> {
-    return new DeleteRequestBuilder(BudgetScenarios, numeratorOrEntity instanceof BudgetScenarios ? numeratorOrEntity : { Numerator: numeratorOrEntity! });
+  delete(entity: BudgetScenarios): DeleteRequestBuilderV4<BudgetScenarios>;
+  delete(numeratorOrEntity: any): DeleteRequestBuilderV4<BudgetScenarios> {
+    return new DeleteRequestBuilderV4(BudgetScenarios, numeratorOrEntity instanceof BudgetScenarios ? numeratorOrEntity : { Numerator: numeratorOrEntity! });
   }
 }

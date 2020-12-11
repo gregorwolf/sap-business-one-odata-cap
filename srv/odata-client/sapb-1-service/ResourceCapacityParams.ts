@@ -4,7 +4,14 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ResourceCapacityTypeEnum } from './ResourceCapacityTypeEnum';
+import { ResourceCapacitySourceTypeEnum } from './ResourceCapacitySourceTypeEnum';
+import { ResourceCapacityBaseTypeEnum } from './ResourceCapacityBaseTypeEnum';
+import { ResourceCapacityActionEnum } from './ResourceCapacityActionEnum';
+import { ResourceCapacityOwningTypeEnum } from './ResourceCapacityOwningTypeEnum';
+import { ResourceCapacityRevertedTypeEnum } from './ResourceCapacityRevertedTypeEnum';
+import { ResourceCapacityMemoSourceEnum } from './ResourceCapacityMemoSourceEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ResourceCapacityParams
@@ -31,10 +38,20 @@ export interface ResourceCapacityParams {
    */
   date?: Moment;
   /**
+   * Type.
+   * @nullable
+   */
+  type?: ResourceCapacityTypeEnum;
+  /**
    * Capacity.
    * @nullable
    */
   capacity?: number;
+  /**
+   * Source Type.
+   * @nullable
+   */
+  sourceType?: ResourceCapacitySourceTypeEnum;
   /**
    * Source Entry.
    * @nullable
@@ -46,6 +63,11 @@ export interface ResourceCapacityParams {
    */
   sourceLineNum?: number;
   /**
+   * Base Type.
+   * @nullable
+   */
+  baseType?: ResourceCapacityBaseTypeEnum;
+  /**
    * Base Entry.
    * @nullable
    */
@@ -55,6 +77,16 @@ export interface ResourceCapacityParams {
    * @nullable
    */
   baseLineNum?: number;
+  /**
+   * Action.
+   * @nullable
+   */
+  action?: ResourceCapacityActionEnum;
+  /**
+   * Owning Type.
+   * @nullable
+   */
+  owningType?: ResourceCapacityOwningTypeEnum;
   /**
    * Owning Entry.
    * @nullable
@@ -66,6 +98,11 @@ export interface ResourceCapacityParams {
    */
   owningLineNum?: number;
   /**
+   * Reverted Type.
+   * @nullable
+   */
+  revertedType?: ResourceCapacityRevertedTypeEnum;
+  /**
    * Reverted Entry.
    * @nullable
    */
@@ -76,6 +113,11 @@ export interface ResourceCapacityParams {
    */
   revertedLineNum?: number;
   /**
+   * Memo Source.
+   * @nullable
+   */
+  memoSource?: ResourceCapacityMemoSourceEnum;
+  /**
    * Memo.
    * @nullable
    */
@@ -85,6 +127,11 @@ export interface ResourceCapacityParams {
    * @nullable
    */
   singleRunCapacity?: number;
+  /**
+   * Single Run Memo Source.
+   * @nullable
+   */
+  singleRunMemoSource?: ResourceCapacityMemoSourceEnum;
   /**
    * Single Run Memo.
    * @nullable
@@ -103,7 +150,7 @@ export function createResourceCapacityParams(json: any): ResourceCapacityParams 
  * ResourceCapacityParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ResourceCapacityParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ResourceCapacityParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ResourceCapacityParams> {
   /**
    * Representation of the [[ResourceCapacityParams.id]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -125,10 +172,20 @@ export class ResourceCapacityParamsField<EntityT extends Entity> extends Complex
    */
   date: ComplexTypeDatePropertyField<EntityT> = new ComplexTypeDatePropertyField('Date', this, 'Edm.DateTimeOffset');
   /**
+   * Representation of the [[ResourceCapacityParams.type]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  type: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Type', this);
+  /**
    * Representation of the [[ResourceCapacityParams.capacity]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   capacity: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('Capacity', this, 'Edm.Double');
+  /**
+   * Representation of the [[ResourceCapacityParams.sourceType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  sourceType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SourceType', this);
   /**
    * Representation of the [[ResourceCapacityParams.sourceEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -140,6 +197,11 @@ export class ResourceCapacityParamsField<EntityT extends Entity> extends Complex
    */
   sourceLineNum: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('SourceLineNum', this, 'Edm.Int32');
   /**
+   * Representation of the [[ResourceCapacityParams.baseType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  baseType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BaseType', this);
+  /**
    * Representation of the [[ResourceCapacityParams.baseEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -149,6 +211,16 @@ export class ResourceCapacityParamsField<EntityT extends Entity> extends Complex
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   baseLineNum: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('BaseLineNum', this, 'Edm.Int32');
+  /**
+   * Representation of the [[ResourceCapacityParams.action]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  action: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Action', this);
+  /**
+   * Representation of the [[ResourceCapacityParams.owningType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  owningType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('OwningType', this);
   /**
    * Representation of the [[ResourceCapacityParams.owningEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -160,6 +232,11 @@ export class ResourceCapacityParamsField<EntityT extends Entity> extends Complex
    */
   owningLineNum: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('OwningLineNum', this, 'Edm.Int32');
   /**
+   * Representation of the [[ResourceCapacityParams.revertedType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  revertedType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('RevertedType', this);
+  /**
    * Representation of the [[ResourceCapacityParams.revertedEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -169,6 +246,11 @@ export class ResourceCapacityParamsField<EntityT extends Entity> extends Complex
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   revertedLineNum: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('RevertedLineNum', this, 'Edm.Int32');
+  /**
+   * Representation of the [[ResourceCapacityParams.memoSource]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  memoSource: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('MemoSource', this);
   /**
    * Representation of the [[ResourceCapacityParams.memo]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -180,31 +262,157 @@ export class ResourceCapacityParamsField<EntityT extends Entity> extends Complex
    */
   singleRunCapacity: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('SingleRunCapacity', this, 'Edm.Double');
   /**
+   * Representation of the [[ResourceCapacityParams.singleRunMemoSource]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  singleRunMemoSource: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SingleRunMemoSource', this);
+  /**
    * Representation of the [[ResourceCapacityParams.singleRunMemo]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   singleRunMemo: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('SingleRunMemo', this, 'Edm.String');
+
+  /**
+   * Creates an instance of ResourceCapacityParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ResourceCapacityParams);
+  }
 }
 
 export namespace ResourceCapacityParams {
+  /**
+   * Metadata information on all properties of the `ResourceCapacityParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ResourceCapacityParams>[] = [{
+    originalName: 'Id',
+    name: 'id',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Code',
+    name: 'code',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Warehouse',
+    name: 'warehouse',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Date',
+    name: 'date',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Type',
+    name: 'type',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Capacity',
+    name: 'capacity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SourceType',
+    name: 'sourceType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SourceEntry',
+    name: 'sourceEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SourceLineNum',
+    name: 'sourceLineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseType',
+    name: 'baseType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BaseEntry',
+    name: 'baseEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseLineNum',
+    name: 'baseLineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Action',
+    name: 'action',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'OwningType',
+    name: 'owningType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'OwningEntry',
+    name: 'owningEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'OwningLineNum',
+    name: 'owningLineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'RevertedType',
+    name: 'revertedType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'RevertedEntry',
+    name: 'revertedEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'RevertedLineNum',
+    name: 'revertedLineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'MemoSource',
+    name: 'memoSource',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Memo',
+    name: 'memo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SingleRunCapacity',
+    name: 'singleRunCapacity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SingleRunMemoSource',
+    name: 'singleRunMemoSource',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SingleRunMemo',
+    name: 'singleRunMemo',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ResourceCapacityParams {
-    return createComplexType(json, {
-      Id: (id: number) => ({ id: edmToTs(id, 'Edm.Int32') }),
-      Code: (code: string) => ({ code: edmToTs(code, 'Edm.String') }),
-      Warehouse: (warehouse: string) => ({ warehouse: edmToTs(warehouse, 'Edm.String') }),
-      Date: (date: Moment) => ({ date: edmToTs(date, 'Edm.DateTimeOffset') }),
-      Capacity: (capacity: number) => ({ capacity: edmToTs(capacity, 'Edm.Double') }),
-      SourceEntry: (sourceEntry: number) => ({ sourceEntry: edmToTs(sourceEntry, 'Edm.Int32') }),
-      SourceLineNum: (sourceLineNum: number) => ({ sourceLineNum: edmToTs(sourceLineNum, 'Edm.Int32') }),
-      BaseEntry: (baseEntry: number) => ({ baseEntry: edmToTs(baseEntry, 'Edm.Int32') }),
-      BaseLineNum: (baseLineNum: number) => ({ baseLineNum: edmToTs(baseLineNum, 'Edm.Int32') }),
-      OwningEntry: (owningEntry: number) => ({ owningEntry: edmToTs(owningEntry, 'Edm.Int32') }),
-      OwningLineNum: (owningLineNum: number) => ({ owningLineNum: edmToTs(owningLineNum, 'Edm.Int32') }),
-      RevertedEntry: (revertedEntry: number) => ({ revertedEntry: edmToTs(revertedEntry, 'Edm.Int32') }),
-      RevertedLineNum: (revertedLineNum: number) => ({ revertedLineNum: edmToTs(revertedLineNum, 'Edm.Int32') }),
-      Memo: (memo: string) => ({ memo: edmToTs(memo, 'Edm.String') }),
-      SingleRunCapacity: (singleRunCapacity: number) => ({ singleRunCapacity: edmToTs(singleRunCapacity, 'Edm.Double') }),
-      SingleRunMemo: (singleRunMemo: string) => ({ singleRunMemo: edmToTs(singleRunMemo, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, ResourceCapacityParams);
   }
 }

@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { EmailGroupsRequestBuilder } from './EmailGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "EmailGroups" of service "SAPB1".
  */
-export class EmailGroups extends Entity implements EmailGroupsType {
+export class EmailGroups extends EntityV4 implements EmailGroupsType {
   /**
    * Technical entity name for EmailGroups.
    */
   static _entityName = 'EmailGroups';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for EmailGroups.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Email Group Code.
    * @nullable
@@ -35,11 +30,11 @@ export class EmailGroups extends Entity implements EmailGroupsType {
   emailGroupName?: string;
 
   /**
-   * Returns an entity builder to construct instances `EmailGroups`.
+   * Returns an entity builder to construct instances of `EmailGroups`.
    * @returns A builder that constructs instances of entity type `EmailGroups`.
    */
-  static builder(): EntityBuilderType<EmailGroups, EmailGroupsTypeForceMandatory> {
-    return Entity.entityBuilder(EmailGroups);
+  static builder(): EntityBuilderType<EmailGroups, EmailGroupsType> {
+    return EntityV4.entityBuilder(EmailGroups);
   }
 
   /**
@@ -55,8 +50,8 @@ export class EmailGroups extends Entity implements EmailGroupsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `EmailGroups`.
    */
-  static customField(fieldName: string): CustomField<EmailGroups> {
-    return Entity.customFieldSelector(fieldName, EmailGroups);
+  static customField(fieldName: string): CustomFieldV4<EmailGroups> {
+    return EntityV4.customFieldSelector(fieldName, EmailGroups);
   }
 
   /**
@@ -69,13 +64,8 @@ export class EmailGroups extends Entity implements EmailGroupsType {
 }
 
 export interface EmailGroupsType {
-  emailGroupCode?: string;
-  emailGroupName?: string;
-}
-
-export interface EmailGroupsTypeForceMandatory {
-  emailGroupCode: string;
-  emailGroupName: string;
+  emailGroupCode?: string | null;
+  emailGroupName?: string | null;
 }
 
 export namespace EmailGroups {

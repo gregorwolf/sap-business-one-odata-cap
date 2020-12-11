@@ -1,4 +1,4 @@
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { PaymentRunExport } from './PaymentRunExport';
 /**
  * Request builder class for operations supported on the [[PaymentRunExport]] entity.
@@ -9,35 +9,35 @@ export declare class PaymentRunExportRequestBuilder extends RequestBuilder<Payme
      * @param absoluteEntry Key property. See [[PaymentRunExport.absoluteEntry]].
      * @returns A request builder for creating requests to retrieve one `PaymentRunExport` entity based on its keys.
      */
-    getByKey(absoluteEntry: number): GetByKeyRequestBuilder<PaymentRunExport>;
+    getByKey(absoluteEntry: number): GetByKeyRequestBuilderV4<PaymentRunExport>;
     /**
      * Returns a request builder for querying all `PaymentRunExport` entities.
      * @returns A request builder for creating requests to retrieve all `PaymentRunExport` entities.
      */
-    getAll(): GetAllRequestBuilder<PaymentRunExport>;
+    getAll(): GetAllRequestBuilderV4<PaymentRunExport>;
     /**
      * Returns a request builder for creating a `PaymentRunExport` entity.
      * @param entity The entity to be created
      * @returns A request builder for creating requests that create an entity of type `PaymentRunExport`.
      */
-    create(entity: PaymentRunExport): CreateRequestBuilder<PaymentRunExport>;
+    create(entity: PaymentRunExport): CreateRequestBuilderV4<PaymentRunExport>;
     /**
      * Returns a request builder for updating an entity of type `PaymentRunExport`.
      * @param entity The entity to be updated
      * @returns A request builder for creating requests that update an entity of type `PaymentRunExport`.
      */
-    update(entity: PaymentRunExport): UpdateRequestBuilder<PaymentRunExport>;
+    update(entity: PaymentRunExport): UpdateRequestBuilderV4<PaymentRunExport>;
     /**
      * Returns a request builder for deleting an entity of type `PaymentRunExport`.
      * @param absoluteEntry Key property. See [[PaymentRunExport.absoluteEntry]].
      * @returns A request builder for creating requests that delete an entity of type `PaymentRunExport`.
      */
-    delete(absoluteEntry: number): DeleteRequestBuilder<PaymentRunExport>;
+    delete(absoluteEntry: number): DeleteRequestBuilderV4<PaymentRunExport>;
     /**
      * Returns a request builder for deleting an entity of type `PaymentRunExport`.
      * @param entity Pass the entity to be deleted.
      * @returns A request builder for creating requests that delete an entity of type `PaymentRunExport` by taking the entity as a parameter.
      */
-    delete(entity: PaymentRunExport): DeleteRequestBuilder<PaymentRunExport>;
+    delete(entity: PaymentRunExport): DeleteRequestBuilderV4<PaymentRunExport>;
 }
 //# sourceMappingURL=PaymentRunExportRequestBuilder.d.ts.map

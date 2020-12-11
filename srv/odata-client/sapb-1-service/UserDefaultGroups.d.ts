@@ -1,18 +1,15 @@
 import { UserDefaultGroupsRequestBuilder } from './UserDefaultGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoPrintReceiptEnum } from './BoPrintReceiptEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "UserDefaultGroups" of service "SAPB1".
  */
-export declare class UserDefaultGroups extends Entity implements UserDefaultGroupsType {
+export declare class UserDefaultGroups extends EntityV4 implements UserDefaultGroupsType {
     /**
      * Technical entity name for UserDefaultGroups.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for UserDefaultGroups.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -52,6 +49,16 @@ export declare class UserDefaultGroups extends Entity implements UserDefaultGrou
      * @nullable
      */
     checkingAcct?: string;
+    /**
+     * Print Receipt.
+     * @nullable
+     */
+    printReceipt?: BoPrintReceiptEnum;
+    /**
+     * Print Invoiceand Paymentin S.
+     * @nullable
+     */
+    printInvoiceandPaymentinS?: BoYesNoEnum;
     /**
      * Windows Color.
      * @nullable
@@ -133,10 +140,25 @@ export declare class UserDefaultGroups extends Entity implements UserDefaultGrou
      */
     userSignature?: number;
     /**
+     * Use Tax.
+     * @nullable
+     */
+    useTax?: BoYesNoEnum;
+    /**
+     * Use Warehouse Addressin Apd.
+     * @nullable
+     */
+    useWarehouseAddressinApd?: BoYesNoEnum;
+    /**
      * Bplid.
      * @nullable
      */
     bplid?: number;
+    /**
+     * Asset In Doc.
+     * @nullable
+     */
+    assetInDoc?: BoYesNoEnum;
     /**
      * One-to-one navigation property to the [[Warehouses]] entity.
      */
@@ -166,10 +188,10 @@ export declare class UserDefaultGroups extends Entity implements UserDefaultGrou
      */
     businessPlace: BusinessPlaces;
     /**
-     * Returns an entity builder to construct instances `UserDefaultGroups`.
+     * Returns an entity builder to construct instances of `UserDefaultGroups`.
      * @returns A builder that constructs instances of entity type `UserDefaultGroups`.
      */
-    static builder(): EntityBuilderType<UserDefaultGroups, UserDefaultGroupsTypeForceMandatory>;
+    static builder(): EntityBuilderType<UserDefaultGroups, UserDefaultGroupsType>;
     /**
      * Returns a request builder to construct requests for operations on the `UserDefaultGroups` entity type.
      * @returns A `UserDefaultGroups` request builder.
@@ -180,7 +202,7 @@ export declare class UserDefaultGroups extends Entity implements UserDefaultGrou
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `UserDefaultGroups`.
      */
-    static customField(fieldName: string): CustomField<UserDefaultGroups>;
+    static customField(fieldName: string): CustomFieldV4<UserDefaultGroups>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -197,63 +219,35 @@ import { SalesTaxCodes, SalesTaxCodesType } from './SalesTaxCodes';
 import { Users, UsersType } from './Users';
 import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 export interface UserDefaultGroupsType {
-    code?: string;
-    name?: string;
-    warehouse?: string;
-    salesEmployee?: number;
-    bPforInvoicePayment?: string;
-    cashAccount?: string;
-    checkingAcct?: string;
-    windowsColor?: number;
-    address?: string;
-    country?: string;
-    printingHeader?: string;
-    phoneNumber1?: string;
-    phoneNumber2?: string;
-    faxNumber?: string;
-    eMail?: string;
-    addressinForeignLanguage?: string;
-    printingHeaderInForeignLangu?: string;
-    phoneNumber1ForeignLang?: string;
-    phoneNumber2ForeignLang?: string;
-    faxNumberForeignLang?: string;
-    defaultTaxCode?: string;
-    additionalIdNumber?: string;
-    userSignature?: number;
-    bplid?: number;
-    warehouse2: WarehousesType;
-    salesPerson: SalesPersonsType;
-    businessPartner: BusinessPartnersType;
-    country2: CountriesType;
-    salesTaxCode: SalesTaxCodesType;
-    user: UsersType;
-    businessPlace: BusinessPlacesType;
-}
-export interface UserDefaultGroupsTypeForceMandatory {
-    code: string;
-    name: string;
-    warehouse: string;
-    salesEmployee: number;
-    bPforInvoicePayment: string;
-    cashAccount: string;
-    checkingAcct: string;
-    windowsColor: number;
-    address: string;
-    country: string;
-    printingHeader: string;
-    phoneNumber1: string;
-    phoneNumber2: string;
-    faxNumber: string;
-    eMail: string;
-    addressinForeignLanguage: string;
-    printingHeaderInForeignLangu: string;
-    phoneNumber1ForeignLang: string;
-    phoneNumber2ForeignLang: string;
-    faxNumberForeignLang: string;
-    defaultTaxCode: string;
-    additionalIdNumber: string;
-    userSignature: number;
-    bplid: number;
+    code?: string | null;
+    name?: string | null;
+    warehouse?: string | null;
+    salesEmployee?: number | null;
+    bPforInvoicePayment?: string | null;
+    cashAccount?: string | null;
+    checkingAcct?: string | null;
+    printReceipt?: BoPrintReceiptEnum | null;
+    printInvoiceandPaymentinS?: BoYesNoEnum | null;
+    windowsColor?: number | null;
+    address?: string | null;
+    country?: string | null;
+    printingHeader?: string | null;
+    phoneNumber1?: string | null;
+    phoneNumber2?: string | null;
+    faxNumber?: string | null;
+    eMail?: string | null;
+    addressinForeignLanguage?: string | null;
+    printingHeaderInForeignLangu?: string | null;
+    phoneNumber1ForeignLang?: string | null;
+    phoneNumber2ForeignLang?: string | null;
+    faxNumberForeignLang?: string | null;
+    defaultTaxCode?: string | null;
+    additionalIdNumber?: string | null;
+    userSignature?: number | null;
+    useTax?: BoYesNoEnum | null;
+    useWarehouseAddressinApd?: BoYesNoEnum | null;
+    bplid?: number | null;
+    assetInDoc?: BoYesNoEnum | null;
     warehouse2: WarehousesType;
     salesPerson: SalesPersonsType;
     businessPartner: BusinessPartnersType;
@@ -298,6 +292,16 @@ export declare namespace UserDefaultGroups {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const CHECKING_ACCT: StringField<UserDefaultGroups>;
+    /**
+     * Static representation of the [[printReceipt]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PRINT_RECEIPT: EnumField<UserDefaultGroups>;
+    /**
+     * Static representation of the [[printInvoiceandPaymentinS]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PRINT_INVOICEAND_PAYMENTIN_S: EnumField<UserDefaultGroups>;
     /**
      * Static representation of the [[windowsColor]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -379,10 +383,25 @@ export declare namespace UserDefaultGroups {
      */
     const USER_SIGNATURE: NumberField<UserDefaultGroups>;
     /**
+     * Static representation of the [[useTax]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const USE_TAX: EnumField<UserDefaultGroups>;
+    /**
+     * Static representation of the [[useWarehouseAddressinApd]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const USE_WAREHOUSE_ADDRESSIN_APD: EnumField<UserDefaultGroups>;
+    /**
      * Static representation of the [[bplid]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const BPLID: NumberField<UserDefaultGroups>;
+    /**
+     * Static representation of the [[assetInDoc]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ASSET_IN_DOC: EnumField<UserDefaultGroups>;
     /**
      * Static representation of the one-to-one navigation property [[warehouse2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -421,7 +440,7 @@ export declare namespace UserDefaultGroups {
     /**
      * All fields of the UserDefaultGroups entity.
      */
-    const _allFields: Array<StringField<UserDefaultGroups> | NumberField<UserDefaultGroups> | OneToOneLink<UserDefaultGroups, Warehouses> | OneToOneLink<UserDefaultGroups, SalesPersons> | OneToOneLink<UserDefaultGroups, BusinessPartners> | OneToOneLink<UserDefaultGroups, Countries> | OneToOneLink<UserDefaultGroups, SalesTaxCodes> | OneToOneLink<UserDefaultGroups, Users> | OneToOneLink<UserDefaultGroups, BusinessPlaces>>;
+    const _allFields: Array<StringField<UserDefaultGroups> | NumberField<UserDefaultGroups> | EnumField<UserDefaultGroups> | OneToOneLink<UserDefaultGroups, Warehouses> | OneToOneLink<UserDefaultGroups, SalesPersons> | OneToOneLink<UserDefaultGroups, BusinessPartners> | OneToOneLink<UserDefaultGroups, Countries> | OneToOneLink<UserDefaultGroups, SalesTaxCodes> | OneToOneLink<UserDefaultGroups, Users> | OneToOneLink<UserDefaultGroups, BusinessPlaces>>;
     /**
      * All fields selector.
      */

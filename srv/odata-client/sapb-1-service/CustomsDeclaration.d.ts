@@ -1,19 +1,14 @@
 import { CustomsDeclarationRequestBuilder } from './CustomsDeclarationRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, Field, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "CustomsDeclaration" of service "SAPB1".
  */
-export declare class CustomsDeclaration extends Entity implements CustomsDeclarationType {
+export declare class CustomsDeclaration extends EntityV4 implements CustomsDeclarationType {
     /**
      * Technical entity name for CustomsDeclaration.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for CustomsDeclaration.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -64,10 +59,10 @@ export declare class CustomsDeclaration extends Entity implements CustomsDeclara
      */
     paymentKey?: string;
     /**
-     * Returns an entity builder to construct instances `CustomsDeclaration`.
+     * Returns an entity builder to construct instances of `CustomsDeclaration`.
      * @returns A builder that constructs instances of entity type `CustomsDeclaration`.
      */
-    static builder(): EntityBuilderType<CustomsDeclaration, CustomsDeclarationTypeForceMandatory>;
+    static builder(): EntityBuilderType<CustomsDeclaration, CustomsDeclarationType>;
     /**
      * Returns a request builder to construct requests for operations on the `CustomsDeclaration` entity type.
      * @returns A `CustomsDeclaration` request builder.
@@ -78,7 +73,7 @@ export declare class CustomsDeclaration extends Entity implements CustomsDeclara
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `CustomsDeclaration`.
      */
-    static customField(fieldName: string): CustomField<CustomsDeclaration>;
+    static customField(fieldName: string): CustomFieldV4<CustomsDeclaration>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -88,26 +83,15 @@ export declare class CustomsDeclaration extends Entity implements CustomsDeclara
     };
 }
 export interface CustomsDeclarationType {
-    ccdNum?: string;
-    date?: Moment;
-    customsBroker?: string;
-    docNum?: string;
-    docDate?: Moment;
-    supplyNum?: string;
-    supplyDate?: Moment;
-    customsTerminal?: string;
-    paymentKey?: string;
-}
-export interface CustomsDeclarationTypeForceMandatory {
-    ccdNum: string;
-    date: Moment;
-    customsBroker: string;
-    docNum: string;
-    docDate: Moment;
-    supplyNum: string;
-    supplyDate: Moment;
-    customsTerminal: string;
-    paymentKey: string;
+    ccdNum?: string | null;
+    date?: Moment | null;
+    customsBroker?: string | null;
+    docNum?: string | null;
+    docDate?: Moment | null;
+    supplyNum?: string | null;
+    supplyDate?: Moment | null;
+    customsTerminal?: string | null;
+    paymentKey?: string | null;
 }
 export declare namespace CustomsDeclaration {
     /**

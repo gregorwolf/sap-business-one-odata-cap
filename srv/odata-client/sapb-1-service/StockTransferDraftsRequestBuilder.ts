@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { StockTransferDrafts } from './StockTransferDrafts';
 
 /**
@@ -15,16 +15,16 @@ export class StockTransferDraftsRequestBuilder extends RequestBuilder<StockTrans
    * @param docEntry Key property. See [[StockTransferDrafts.docEntry]].
    * @returns A request builder for creating requests to retrieve one `StockTransferDrafts` entity based on its keys.
    */
-  getByKey(docEntry: number): GetByKeyRequestBuilder<StockTransferDrafts> {
-    return new GetByKeyRequestBuilder(StockTransferDrafts, { DocEntry: docEntry });
+  getByKey(docEntry: number): GetByKeyRequestBuilderV4<StockTransferDrafts> {
+    return new GetByKeyRequestBuilderV4(StockTransferDrafts, { DocEntry: docEntry });
   }
 
   /**
    * Returns a request builder for querying all `StockTransferDrafts` entities.
    * @returns A request builder for creating requests to retrieve all `StockTransferDrafts` entities.
    */
-  getAll(): GetAllRequestBuilder<StockTransferDrafts> {
-    return new GetAllRequestBuilder(StockTransferDrafts);
+  getAll(): GetAllRequestBuilderV4<StockTransferDrafts> {
+    return new GetAllRequestBuilderV4(StockTransferDrafts);
   }
 
   /**
@@ -32,8 +32,8 @@ export class StockTransferDraftsRequestBuilder extends RequestBuilder<StockTrans
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `StockTransferDrafts`.
    */
-  create(entity: StockTransferDrafts): CreateRequestBuilder<StockTransferDrafts> {
-    return new CreateRequestBuilder(StockTransferDrafts, entity);
+  create(entity: StockTransferDrafts): CreateRequestBuilderV4<StockTransferDrafts> {
+    return new CreateRequestBuilderV4(StockTransferDrafts, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class StockTransferDraftsRequestBuilder extends RequestBuilder<StockTrans
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `StockTransferDrafts`.
    */
-  update(entity: StockTransferDrafts): UpdateRequestBuilder<StockTransferDrafts> {
-    return new UpdateRequestBuilder(StockTransferDrafts, entity);
+  update(entity: StockTransferDrafts): UpdateRequestBuilderV4<StockTransferDrafts> {
+    return new UpdateRequestBuilderV4(StockTransferDrafts, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class StockTransferDraftsRequestBuilder extends RequestBuilder<StockTrans
    * @param docEntry Key property. See [[StockTransferDrafts.docEntry]].
    * @returns A request builder for creating requests that delete an entity of type `StockTransferDrafts`.
    */
-  delete(docEntry: number): DeleteRequestBuilder<StockTransferDrafts>;
+  delete(docEntry: number): DeleteRequestBuilderV4<StockTransferDrafts>;
   /**
    * Returns a request builder for deleting an entity of type `StockTransferDrafts`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `StockTransferDrafts` by taking the entity as a parameter.
    */
-  delete(entity: StockTransferDrafts): DeleteRequestBuilder<StockTransferDrafts>;
-  delete(docEntryOrEntity: any): DeleteRequestBuilder<StockTransferDrafts> {
-    return new DeleteRequestBuilder(StockTransferDrafts, docEntryOrEntity instanceof StockTransferDrafts ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
+  delete(entity: StockTransferDrafts): DeleteRequestBuilderV4<StockTransferDrafts>;
+  delete(docEntryOrEntity: any): DeleteRequestBuilderV4<StockTransferDrafts> {
+    return new DeleteRequestBuilderV4(StockTransferDrafts, docEntryOrEntity instanceof StockTransferDrafts ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
   }
 }

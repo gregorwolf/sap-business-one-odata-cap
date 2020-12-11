@@ -1,19 +1,14 @@
 import { ValueMappingRequestBuilder } from './ValueMappingRequestBuilder';
 import { VmThirdPartyValuesData } from './VmThirdPartyValuesData';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ValueMapping" of service "SAPB1".
  */
-export declare class ValueMapping extends Entity implements ValueMappingType {
+export declare class ValueMapping extends EntityV4 implements ValueMappingType {
     /**
      * Technical entity name for ValueMapping.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ValueMapping.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -39,10 +34,10 @@ export declare class ValueMapping extends Entity implements ValueMappingType {
      */
     vmThirdPartyValuesCollection?: VmThirdPartyValuesData[];
     /**
-     * Returns an entity builder to construct instances `ValueMapping`.
+     * Returns an entity builder to construct instances of `ValueMapping`.
      * @returns A builder that constructs instances of entity type `ValueMapping`.
      */
-    static builder(): EntityBuilderType<ValueMapping, ValueMappingTypeForceMandatory>;
+    static builder(): EntityBuilderType<ValueMapping, ValueMappingType>;
     /**
      * Returns a request builder to construct requests for operations on the `ValueMapping` entity type.
      * @returns A `ValueMapping` request builder.
@@ -53,7 +48,7 @@ export declare class ValueMapping extends Entity implements ValueMappingType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ValueMapping`.
      */
-    static customField(fieldName: string): CustomField<ValueMapping>;
+    static customField(fieldName: string): CustomFieldV4<ValueMapping>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -63,16 +58,10 @@ export declare class ValueMapping extends Entity implements ValueMappingType {
     };
 }
 export interface ValueMappingType {
-    absEntry?: number;
-    objectId?: number;
-    objectAbsEntry?: string;
-    vmThirdPartyValuesCollection?: VmThirdPartyValuesData[];
-}
-export interface ValueMappingTypeForceMandatory {
-    absEntry: number;
-    objectId: number;
-    objectAbsEntry: string;
-    vmThirdPartyValuesCollection: VmThirdPartyValuesData[];
+    absEntry?: number | null;
+    objectId?: number | null;
+    objectAbsEntry?: string | null;
+    vmThirdPartyValuesCollection?: VmThirdPartyValuesData[] | null;
 }
 export declare namespace ValueMapping {
     /**
@@ -94,11 +83,11 @@ export declare namespace ValueMapping {
      * Static representation of the [[vmThirdPartyValuesCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const VM_THIRD_PARTY_VALUES_COLLECTION: CollectionField<ValueMapping>;
+    const VM_THIRD_PARTY_VALUES_COLLECTION: CollectionField<ValueMapping, VmThirdPartyValuesData>;
     /**
      * All fields of the ValueMapping entity.
      */
-    const _allFields: Array<NumberField<ValueMapping> | StringField<ValueMapping> | CollectionField<ValueMapping>>;
+    const _allFields: Array<NumberField<ValueMapping> | StringField<ValueMapping> | CollectionField<ValueMapping, VmThirdPartyValuesData>>;
     /**
      * All fields selector.
      */

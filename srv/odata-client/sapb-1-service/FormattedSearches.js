@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.FormattedSearches = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var FormattedSearchesRequestBuilder_1 = require("./FormattedSearchesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "FormattedSearches" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var FormattedSearches = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `FormattedSearches`.
+     * Returns an entity builder to construct instances of `FormattedSearches`.
      * @returns A builder that constructs instances of entity type `FormattedSearches`.
      */
     FormattedSearches.builder = function () {
-        return v4_1.Entity.entityBuilder(FormattedSearches);
+        return core_1.EntityV4.entityBuilder(FormattedSearches);
     };
     /**
      * Returns a request builder to construct requests for operations on the `FormattedSearches` entity type.
@@ -60,7 +60,7 @@ var FormattedSearches = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `FormattedSearches`.
      */
     FormattedSearches.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, FormattedSearches);
+        return core_1.EntityV4.customFieldSelector(fieldName, FormattedSearches);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,48 +74,63 @@ var FormattedSearches = /** @class */ (function (_super) {
      */
     FormattedSearches._entityName = 'FormattedSearches';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for FormattedSearches.
-     */
-    FormattedSearches._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    FormattedSearches._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    FormattedSearches._defaultServicePath = '/b1s/v2/';
     return FormattedSearches;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.FormattedSearches = FormattedSearches;
 (function (FormattedSearches) {
     /**
      * Static representation of the [[formId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FormattedSearches.FORM_ID = new v4_1.StringField('FormID', FormattedSearches, 'Edm.String');
+    FormattedSearches.FORM_ID = new core_1.StringField('FormID', FormattedSearches, 'Edm.String');
     /**
      * Static representation of the [[itemId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FormattedSearches.ITEM_ID = new v4_1.StringField('ItemID', FormattedSearches, 'Edm.String');
+    FormattedSearches.ITEM_ID = new core_1.StringField('ItemID', FormattedSearches, 'Edm.String');
     /**
      * Static representation of the [[columnId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FormattedSearches.COLUMN_ID = new v4_1.StringField('ColumnID', FormattedSearches, 'Edm.String');
+    FormattedSearches.COLUMN_ID = new core_1.StringField('ColumnID', FormattedSearches, 'Edm.String');
+    /**
+     * Static representation of the [[action]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    FormattedSearches.ACTION = new core_1.EnumField('Action', FormattedSearches);
     /**
      * Static representation of the [[queryId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FormattedSearches.QUERY_ID = new v4_1.NumberField('QueryID', FormattedSearches, 'Edm.Int32');
+    FormattedSearches.QUERY_ID = new core_1.NumberField('QueryID', FormattedSearches, 'Edm.Int32');
     /**
      * Static representation of the [[index]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FormattedSearches.INDEX = new v4_1.NumberField('Index', FormattedSearches, 'Edm.Int32');
+    FormattedSearches.INDEX = new core_1.NumberField('Index', FormattedSearches, 'Edm.Int32');
+    /**
+     * Static representation of the [[refresh]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    FormattedSearches.REFRESH = new core_1.EnumField('Refresh', FormattedSearches);
     /**
      * Static representation of the [[fieldId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FormattedSearches.FIELD_ID = new v4_1.StringField('FieldID', FormattedSearches, 'Edm.String');
+    FormattedSearches.FIELD_ID = new core_1.StringField('FieldID', FormattedSearches, 'Edm.String');
+    /**
+     * Static representation of the [[forceRefresh]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    FormattedSearches.FORCE_REFRESH = new core_1.EnumField('ForceRefresh', FormattedSearches);
+    /**
+     * Static representation of the [[byField]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    FormattedSearches.BY_FIELD = new core_1.EnumField('ByField', FormattedSearches);
     /**
      * All fields of the FormattedSearches entity.
      */
@@ -123,14 +138,18 @@ exports.FormattedSearches = FormattedSearches;
         FormattedSearches.FORM_ID,
         FormattedSearches.ITEM_ID,
         FormattedSearches.COLUMN_ID,
+        FormattedSearches.ACTION,
         FormattedSearches.QUERY_ID,
         FormattedSearches.INDEX,
-        FormattedSearches.FIELD_ID
+        FormattedSearches.REFRESH,
+        FormattedSearches.FIELD_ID,
+        FormattedSearches.FORCE_REFRESH,
+        FormattedSearches.BY_FIELD
     ];
     /**
      * All fields selector.
      */
-    FormattedSearches.ALL_FIELDS = new v4_1.AllFields('*', FormattedSearches);
+    FormattedSearches.ALL_FIELDS = new core_1.AllFields('*', FormattedSearches);
     /**
      * All key fields of the FormattedSearches entity.
      */

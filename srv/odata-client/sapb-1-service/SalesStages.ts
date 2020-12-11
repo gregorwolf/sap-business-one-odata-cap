@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { SalesStagesRequestBuilder } from './SalesStagesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "SalesStages" of service "SAPB1".
  */
-export class SalesStages extends Entity implements SalesStagesType {
+export class SalesStages extends EntityV4 implements SalesStagesType {
   /**
    * Technical entity name for SalesStages.
    */
   static _entityName = 'SalesStages';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for SalesStages.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Sequence No.
    * @nullable
@@ -44,16 +40,31 @@ export class SalesStages extends Entity implements SalesStagesType {
    */
   closingPercentage?: number;
   /**
+   * Cancelled.
+   * @nullable
+   */
+  cancelled?: BoYesNoEnum;
+  /**
+   * Is Sales.
+   * @nullable
+   */
+  isSales?: BoYesNoEnum;
+  /**
+   * Is Purchasing.
+   * @nullable
+   */
+  isPurchasing?: BoYesNoEnum;
+  /**
    * One-to-many navigation property to the [[SalesOpportunities]] entity.
    */
   salesOpportunities!: SalesOpportunities[];
 
   /**
-   * Returns an entity builder to construct instances `SalesStages`.
+   * Returns an entity builder to construct instances of `SalesStages`.
    * @returns A builder that constructs instances of entity type `SalesStages`.
    */
-  static builder(): EntityBuilderType<SalesStages, SalesStagesTypeForceMandatory> {
-    return Entity.entityBuilder(SalesStages);
+  static builder(): EntityBuilderType<SalesStages, SalesStagesType> {
+    return EntityV4.entityBuilder(SalesStages);
   }
 
   /**
@@ -69,8 +80,8 @@ export class SalesStages extends Entity implements SalesStagesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `SalesStages`.
    */
-  static customField(fieldName: string): CustomField<SalesStages> {
-    return Entity.customFieldSelector(fieldName, SalesStages);
+  static customField(fieldName: string): CustomFieldV4<SalesStages> {
+    return EntityV4.customFieldSelector(fieldName, SalesStages);
   }
 
   /**
@@ -85,18 +96,13 @@ export class SalesStages extends Entity implements SalesStagesType {
 import { SalesOpportunities, SalesOpportunitiesType } from './SalesOpportunities';
 
 export interface SalesStagesType {
-  sequenceNo?: number;
-  name?: string;
-  stageno?: number;
-  closingPercentage?: number;
-  salesOpportunities: SalesOpportunitiesType[];
-}
-
-export interface SalesStagesTypeForceMandatory {
-  sequenceNo: number;
-  name: string;
-  stageno: number;
-  closingPercentage: number;
+  sequenceNo?: number | null;
+  name?: string | null;
+  stageno?: number | null;
+  closingPercentage?: number | null;
+  cancelled?: BoYesNoEnum | null;
+  isSales?: BoYesNoEnum | null;
+  isPurchasing?: BoYesNoEnum | null;
   salesOpportunities: SalesOpportunitiesType[];
 }
 
@@ -122,6 +128,21 @@ export namespace SalesStages {
    */
   export const CLOSING_PERCENTAGE: NumberField<SalesStages> = new NumberField('ClosingPercentage', SalesStages, 'Edm.Double');
   /**
+   * Static representation of the [[cancelled]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CANCELLED: EnumField<SalesStages> = new EnumField('Cancelled', SalesStages);
+  /**
+   * Static representation of the [[isSales]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_SALES: EnumField<SalesStages> = new EnumField('IsSales', SalesStages);
+  /**
+   * Static representation of the [[isPurchasing]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_PURCHASING: EnumField<SalesStages> = new EnumField('IsPurchasing', SalesStages);
+  /**
    * Static representation of the one-to-many navigation property [[salesOpportunities]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -129,11 +150,14 @@ export namespace SalesStages {
   /**
    * All fields of the SalesStages entity.
    */
-  export const _allFields: Array<NumberField<SalesStages> | StringField<SalesStages> | OneToManyLink<SalesStages, SalesOpportunities>> = [
+  export const _allFields: Array<NumberField<SalesStages> | StringField<SalesStages> | EnumField<SalesStages> | OneToManyLink<SalesStages, SalesOpportunities>> = [
     SalesStages.SEQUENCE_NO,
     SalesStages.NAME,
     SalesStages.STAGENO,
     SalesStages.CLOSING_PERCENTAGE,
+    SalesStages.CANCELLED,
+    SalesStages.IS_SALES,
+    SalesStages.IS_PURCHASING,
     SalesStages.SALES_OPPORTUNITIES
   ];
   /**

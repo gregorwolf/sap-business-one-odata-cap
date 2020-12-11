@@ -1,4 +1,4 @@
-import { ComplexTypeField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * AddressExtension
  */
@@ -147,7 +147,7 @@ export declare function createAddressExtension(json: any): AddressExtension;
  * AddressExtensionField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class AddressExtensionField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class AddressExtensionField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, AddressExtension> {
     /**
      * Representation of the [[AddressExtension.shipToStreet]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -283,8 +283,22 @@ export declare class AddressExtensionField<EntityT extends Entity> extends Compl
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     placeOfSupply: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Creates an instance of AddressExtensionField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace AddressExtension {
+    /**
+     * Metadata information on all properties of the `AddressExtension` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<AddressExtension>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): AddressExtension;

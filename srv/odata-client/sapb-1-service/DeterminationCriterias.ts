@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { DeterminationCriteriasRequestBuilder } from './DeterminationCriteriasRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "DeterminationCriterias" of service "SAPB1".
  */
-export class DeterminationCriterias extends Entity implements DeterminationCriteriasType {
+export class DeterminationCriterias extends EntityV4 implements DeterminationCriteriasType {
   /**
    * Technical entity name for DeterminationCriterias.
    */
   static _entityName = 'DeterminationCriterias';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for DeterminationCriterias.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Dmc Id.
    * @nullable
@@ -34,17 +30,22 @@ export class DeterminationCriterias extends Entity implements DeterminationCrite
    */
   determinationCriteria?: string;
   /**
+   * Is Active.
+   * @nullable
+   */
+  isActive?: BoYesNoEnum;
+  /**
    * Priority.
    * @nullable
    */
   priority?: number;
 
   /**
-   * Returns an entity builder to construct instances `DeterminationCriterias`.
+   * Returns an entity builder to construct instances of `DeterminationCriterias`.
    * @returns A builder that constructs instances of entity type `DeterminationCriterias`.
    */
-  static builder(): EntityBuilderType<DeterminationCriterias, DeterminationCriteriasTypeForceMandatory> {
-    return Entity.entityBuilder(DeterminationCriterias);
+  static builder(): EntityBuilderType<DeterminationCriterias, DeterminationCriteriasType> {
+    return EntityV4.entityBuilder(DeterminationCriterias);
   }
 
   /**
@@ -60,8 +61,8 @@ export class DeterminationCriterias extends Entity implements DeterminationCrite
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `DeterminationCriterias`.
    */
-  static customField(fieldName: string): CustomField<DeterminationCriterias> {
-    return Entity.customFieldSelector(fieldName, DeterminationCriterias);
+  static customField(fieldName: string): CustomFieldV4<DeterminationCriterias> {
+    return EntityV4.customFieldSelector(fieldName, DeterminationCriterias);
   }
 
   /**
@@ -74,15 +75,10 @@ export class DeterminationCriterias extends Entity implements DeterminationCrite
 }
 
 export interface DeterminationCriteriasType {
-  dmcId?: number;
-  determinationCriteria?: string;
-  priority?: number;
-}
-
-export interface DeterminationCriteriasTypeForceMandatory {
-  dmcId: number;
-  determinationCriteria: string;
-  priority: number;
+  dmcId?: number | null;
+  determinationCriteria?: string | null;
+  isActive?: BoYesNoEnum | null;
+  priority?: number | null;
 }
 
 export namespace DeterminationCriterias {
@@ -97,6 +93,11 @@ export namespace DeterminationCriterias {
    */
   export const DETERMINATION_CRITERIA: StringField<DeterminationCriterias> = new StringField('DeterminationCriteria', DeterminationCriterias, 'Edm.String');
   /**
+   * Static representation of the [[isActive]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_ACTIVE: EnumField<DeterminationCriterias> = new EnumField('IsActive', DeterminationCriterias);
+  /**
    * Static representation of the [[priority]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -104,9 +105,10 @@ export namespace DeterminationCriterias {
   /**
    * All fields of the DeterminationCriterias entity.
    */
-  export const _allFields: Array<NumberField<DeterminationCriterias> | StringField<DeterminationCriterias>> = [
+  export const _allFields: Array<NumberField<DeterminationCriterias> | StringField<DeterminationCriterias> | EnumField<DeterminationCriterias>> = [
     DeterminationCriterias.DMC_ID,
     DeterminationCriterias.DETERMINATION_CRITERIA,
+    DeterminationCriterias.IS_ACTIVE,
     DeterminationCriterias.PRIORITY
   ];
   /**

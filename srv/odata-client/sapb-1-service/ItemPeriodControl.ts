@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ItemPeriodControl
@@ -24,6 +25,11 @@ export interface ItemPeriodControl {
    * @nullable
    */
   subPeriod?: number;
+  /**
+   * Depreciation Status.
+   * @nullable
+   */
+  depreciationStatus?: BoYesNoEnum;
   /**
    * Factor.
    * @nullable
@@ -47,7 +53,7 @@ export function createItemPeriodControl(json: any): ItemPeriodControl {
  * ItemPeriodControlField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ItemPeriodControlField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ItemPeriodControlField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ItemPeriodControl> {
   /**
    * Representation of the [[ItemPeriodControl.fiscalYear]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -64,6 +70,11 @@ export class ItemPeriodControlField<EntityT extends Entity> extends ComplexTypeF
    */
   subPeriod: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('SubPeriod', this, 'Edm.Int32');
   /**
+   * Representation of the [[ItemPeriodControl.depreciationStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  depreciationStatus: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DepreciationStatus', this);
+  /**
    * Representation of the [[ItemPeriodControl.factor]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -73,16 +84,58 @@ export class ItemPeriodControlField<EntityT extends Entity> extends ComplexTypeF
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   actualUnits: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('ActualUnits', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of ItemPeriodControlField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ItemPeriodControl);
+  }
 }
 
 export namespace ItemPeriodControl {
+  /**
+   * Metadata information on all properties of the `ItemPeriodControl` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ItemPeriodControl>[] = [{
+    originalName: 'FiscalYear',
+    name: 'fiscalYear',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DepreciationArea',
+    name: 'depreciationArea',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SubPeriod',
+    name: 'subPeriod',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DepreciationStatus',
+    name: 'depreciationStatus',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Factor',
+    name: 'factor',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ActualUnits',
+    name: 'actualUnits',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ItemPeriodControl {
-    return createComplexType(json, {
-      FiscalYear: (fiscalYear: string) => ({ fiscalYear: edmToTs(fiscalYear, 'Edm.String') }),
-      DepreciationArea: (depreciationArea: string) => ({ depreciationArea: edmToTs(depreciationArea, 'Edm.String') }),
-      SubPeriod: (subPeriod: number) => ({ subPeriod: edmToTs(subPeriod, 'Edm.Int32') }),
-      Factor: (factor: number) => ({ factor: edmToTs(factor, 'Edm.Double') }),
-      ActualUnits: (actualUnits: number) => ({ actualUnits: edmToTs(actualUnits, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, ItemPeriodControl);
   }
 }

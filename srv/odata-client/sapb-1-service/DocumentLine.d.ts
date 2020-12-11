@@ -1,14 +1,24 @@
 import { Moment } from 'moment';
-import { LineTaxJurisdiction, LineTaxJurisdictionField } from './LineTaxJurisdiction';
-import { GeneratedAsset, GeneratedAssetField } from './GeneratedAsset';
-import { DocumentLineAdditionalExpense, DocumentLineAdditionalExpenseField } from './DocumentLineAdditionalExpense';
-import { WithholdingTaxLine, WithholdingTaxLineField } from './WithholdingTaxLine';
-import { SerialNumber, SerialNumberField } from './SerialNumber';
-import { BatchNumber, BatchNumberField } from './BatchNumber';
-import { DocumentLinesBinAllocation, DocumentLinesBinAllocationField } from './DocumentLinesBinAllocation';
-import { ExportProcess, ExportProcessField } from './ExportProcess';
-import { ImportProcess, ImportProcessField } from './ImportProcess';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { LineTaxJurisdiction } from './LineTaxJurisdiction';
+import { GeneratedAsset } from './GeneratedAsset';
+import { DocumentLineAdditionalExpense } from './DocumentLineAdditionalExpense';
+import { WithholdingTaxLine } from './WithholdingTaxLine';
+import { SerialNumber } from './SerialNumber';
+import { BatchNumber } from './BatchNumber';
+import { DocumentLinesBinAllocation } from './DocumentLinesBinAllocation';
+import { ExportProcess } from './ExportProcess';
+import { ImportProcess } from './ImportProcess';
+import { BoItemTreeTypes } from './BoItemTreeTypes';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoTaxTypes } from './BoTaxTypes';
+import { BoCorInvItemStatus } from './BoCorInvItemStatus';
+import { BoTransactionTypeEnum } from './BoTransactionTypeEnum';
+import { BoDocumentLinePickStatus } from './BoDocumentLinePickStatus';
+import { BoStatus } from './BoStatus';
+import { BoDocLineType } from './BoDocLineType';
+import { BoExpenseOperationTypeEnum } from './BoExpenseOperationTypeEnum';
+import { BoDocItemType } from './BoDocItemType';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * DocumentLine
  */
@@ -89,10 +99,20 @@ export interface DocumentLine {
      */
     commisionPercent?: number;
     /**
+     * Tree Type.
+     * @nullable
+     */
+    treeType?: BoItemTreeTypes;
+    /**
      * Account Code.
      * @nullable
      */
     accountCode?: string;
+    /**
+     * Use Base Units.
+     * @nullable
+     */
+    useBaseUnits?: BoYesNoEnum;
     /**
      * Supplier Cat Num.
      * @nullable
@@ -254,6 +274,21 @@ export interface DocumentLine {
      */
     taxCode?: string;
     /**
+     * Tax Type.
+     * @nullable
+     */
+    taxType?: BoTaxTypes;
+    /**
+     * Tax Liable.
+     * @nullable
+     */
+    taxLiable?: BoYesNoEnum;
+    /**
+     * Pick Status.
+     * @nullable
+     */
+    pickStatus?: BoYesNoEnum;
+    /**
      * Pick Quantity.
      * @nullable
      */
@@ -268,6 +303,11 @@ export interface DocumentLine {
      * @nullable
      */
     originalItem?: string;
+    /**
+     * Back Order.
+     * @nullable
+     */
+    backOrder?: BoYesNoEnum;
     /**
      * Free Text.
      * @nullable
@@ -294,6 +334,11 @@ export interface DocumentLine {
      */
     poTargetRowNum?: number;
     /**
+     * Correction Invoice Item.
+     * @nullable
+     */
+    correctionInvoiceItem?: BoCorInvItemStatus;
+    /**
      * Corr Inv Amount To Stock.
      * @nullable
      */
@@ -318,6 +363,16 @@ export interface DocumentLine {
      * @nullable
      */
     appliedTaxSc?: number;
+    /**
+     * Wt Liable.
+     * @nullable
+     */
+    wtLiable?: BoYesNoEnum;
+    /**
+     * Deferred Tax.
+     * @nullable
+     */
+    deferredTax?: BoYesNoEnum;
     /**
      * Equalization Tax Percent.
      * @nullable
@@ -379,6 +434,11 @@ export interface DocumentLine {
      */
     taxTotal?: number;
     /**
+     * Consumer Sales Forecast.
+     * @nullable
+     */
+    consumerSalesForecast?: BoYesNoEnum;
+    /**
      * Excise Amount.
      * @nullable
      */
@@ -403,6 +463,16 @@ export interface DocumentLine {
      * @nullable
      */
     sww?: string;
+    /**
+     * Transaction Type.
+     * @nullable
+     */
+    transactionType?: BoTransactionTypeEnum;
+    /**
+     * Distribute Expense.
+     * @nullable
+     */
+    distributeExpense?: BoYesNoEnum;
     /**
      * Ship To Code.
      * @nullable
@@ -459,6 +529,11 @@ export interface DocumentLine {
      */
     stockInmPrice?: number;
     /**
+     * Pick Status Ex.
+     * @nullable
+     */
+    pickStatusEx?: BoDocumentLinePickStatus;
+    /**
      * Tax Before Dpm.
      * @nullable
      */
@@ -489,6 +564,11 @@ export interface DocumentLine {
      */
     usage?: number;
     /**
+     * Tax Only.
+     * @nullable
+     */
+    taxOnly?: BoYesNoEnum;
+    /**
      * Visual Order.
      * @nullable
      */
@@ -504,6 +584,11 @@ export interface DocumentLine {
      */
     unitPrice?: number;
     /**
+     * Line Status.
+     * @nullable
+     */
+    lineStatus?: BoStatus;
+    /**
      * Package Quantity.
      * @nullable
      */
@@ -513,6 +598,11 @@ export interface DocumentLine {
      * @nullable
      */
     text?: string;
+    /**
+     * Line Type.
+     * @nullable
+     */
+    lineType?: BoDocLineType;
     /**
      * Cogs Costing Code.
      * @nullable
@@ -654,6 +744,11 @@ export interface DocumentLine {
      */
     creditOriginCode?: string;
     /**
+     * Without Inventory Movement.
+     * @nullable
+     */
+    withoutInventoryMovement?: BoYesNoEnum;
+    /**
      * Agreement No.
      * @nullable
      */
@@ -699,6 +794,16 @@ export interface DocumentLine {
      */
     shortages?: number;
     /**
+     * Consider Quantity.
+     * @nullable
+     */
+    considerQuantity?: BoYesNoEnum;
+    /**
+     * Partial Retirement.
+     * @nullable
+     */
+    partialRetirement?: BoYesNoEnum;
+    /**
      * Retirement Quantity.
      * @nullable
      */
@@ -708,6 +813,11 @@ export interface DocumentLine {
      * @nullable
      */
     retirementApc?: number;
+    /**
+     * Third Party.
+     * @nullable
+     */
+    thirdParty?: BoYesNoEnum;
     /**
      * Expense Type.
      * @nullable
@@ -719,10 +829,20 @@ export interface DocumentLine {
      */
     receiptNumber?: string;
     /**
+     * Expense Operation Type.
+     * @nullable
+     */
+    expenseOperationType?: BoExpenseOperationTypeEnum;
+    /**
      * Federal Tax Id.
      * @nullable
      */
     federalTaxId?: string;
+    /**
+     * Enable Return Cost.
+     * @nullable
+     */
+    enableReturnCost?: BoYesNoEnum;
     /**
      * Return Cost.
      * @nullable
@@ -784,6 +904,21 @@ export interface DocumentLine {
      */
     transportMode?: number;
     /**
+     * Item Type.
+     * @nullable
+     */
+    itemType?: BoDocItemType;
+    /**
+     * Change Inventory Quantity Independently.
+     * @nullable
+     */
+    changeInventoryQuantityIndependently?: BoYesNoEnum;
+    /**
+     * Free Of Charge Bp.
+     * @nullable
+     */
+    freeOfChargeBp?: BoYesNoEnum;
+    /**
      * Sac Entry.
      * @nullable
      */
@@ -822,42 +957,42 @@ export interface DocumentLine {
      * Line Tax Jurisdictions.
      * @nullable
      */
-    lineTaxJurisdictions?: LineTaxJurisdiction;
+    lineTaxJurisdictions?: LineTaxJurisdiction[];
     /**
      * Generated Assets.
      * @nullable
      */
-    generatedAssets?: GeneratedAsset;
+    generatedAssets?: GeneratedAsset[];
     /**
      * Document Line Additional Expenses.
      * @nullable
      */
-    documentLineAdditionalExpenses?: DocumentLineAdditionalExpense;
+    documentLineAdditionalExpenses?: DocumentLineAdditionalExpense[];
     /**
      * Withholding Tax Lines.
      * @nullable
      */
-    withholdingTaxLines?: WithholdingTaxLine;
+    withholdingTaxLines?: WithholdingTaxLine[];
     /**
      * Serial Numbers.
      * @nullable
      */
-    serialNumbers?: SerialNumber;
+    serialNumbers?: SerialNumber[];
     /**
      * Batch Numbers.
      * @nullable
      */
-    batchNumbers?: BatchNumber;
+    batchNumbers?: BatchNumber[];
     /**
      * Document Lines Bin Allocations.
      * @nullable
      */
-    documentLinesBinAllocations?: DocumentLinesBinAllocation;
+    documentLinesBinAllocations?: DocumentLinesBinAllocation[];
     /**
      * Export Processes.
      * @nullable
      */
-    exportProcesses?: ExportProcess;
+    exportProcesses?: ExportProcess[];
     /**
      * Return Action.
      * @nullable
@@ -872,7 +1007,7 @@ export interface DocumentLine {
      * Import Processes.
      * @nullable
      */
-    importProcesses?: ImportProcess;
+    importProcesses?: ImportProcess[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[DocumentLine.build]] instead.
@@ -882,7 +1017,7 @@ export declare function createDocumentLine(json: any): DocumentLine;
  * DocumentLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class DocumentLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class DocumentLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, DocumentLine> {
     /**
      * Representation of the [[DocumentLine.lineNum]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -959,10 +1094,20 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      */
     commisionPercent: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[DocumentLine.treeType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    treeType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[DocumentLine.accountCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     accountCode: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[DocumentLine.useBaseUnits]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    useBaseUnits: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[DocumentLine.supplierCatNum]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1124,6 +1269,21 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      */
     taxCode: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[DocumentLine.taxType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    taxType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[DocumentLine.taxLiable]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    taxLiable: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[DocumentLine.pickStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    pickStatus: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[DocumentLine.pickQuantity]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -1138,6 +1298,11 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     originalItem: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[DocumentLine.backOrder]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    backOrder: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[DocumentLine.freeText]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1164,6 +1329,11 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      */
     poTargetRowNum: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[DocumentLine.correctionInvoiceItem]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    correctionInvoiceItem: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[DocumentLine.corrInvAmountToStock]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -1188,6 +1358,16 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     appliedTaxSc: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[DocumentLine.wtLiable]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    wtLiable: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[DocumentLine.deferredTax]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    deferredTax: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[DocumentLine.equalizationTaxPercent]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1249,6 +1429,11 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      */
     taxTotal: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[DocumentLine.consumerSalesForecast]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    consumerSalesForecast: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[DocumentLine.exciseAmount]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -1273,6 +1458,16 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     sww: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[DocumentLine.transactionType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    transactionType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[DocumentLine.distributeExpense]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    distributeExpense: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[DocumentLine.shipToCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1329,6 +1524,11 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      */
     stockInmPrice: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[DocumentLine.pickStatusEx]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    pickStatusEx: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[DocumentLine.taxBeforeDpm]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -1359,6 +1559,11 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      */
     usage: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[DocumentLine.taxOnly]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    taxOnly: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[DocumentLine.visualOrder]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -1374,6 +1579,11 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      */
     unitPrice: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[DocumentLine.lineStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    lineStatus: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[DocumentLine.packageQuantity]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -1383,6 +1593,11 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     text: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[DocumentLine.lineType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    lineType: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[DocumentLine.cogsCostingCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1524,6 +1739,11 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      */
     creditOriginCode: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[DocumentLine.withoutInventoryMovement]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    withoutInventoryMovement: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[DocumentLine.agreementNo]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -1569,6 +1789,16 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      */
     shortages: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[DocumentLine.considerQuantity]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    considerQuantity: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[DocumentLine.partialRetirement]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    partialRetirement: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[DocumentLine.retirementQuantity]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -1578,6 +1808,11 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     retirementApc: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[DocumentLine.thirdParty]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    thirdParty: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[DocumentLine.expenseType]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1589,10 +1824,20 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      */
     receiptNumber: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[DocumentLine.expenseOperationType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    expenseOperationType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[DocumentLine.federalTaxId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     federalTaxId: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[DocumentLine.enableReturnCost]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    enableReturnCost: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[DocumentLine.returnCost]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1654,6 +1899,21 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      */
     transportMode: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[DocumentLine.itemType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    itemType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[DocumentLine.changeInventoryQuantityIndependently]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    changeInventoryQuantityIndependently: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[DocumentLine.freeOfChargeBp]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    freeOfChargeBp: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[DocumentLine.sacEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -1692,42 +1952,42 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      * Representation of the [[DocumentLine.lineTaxJurisdictions]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    lineTaxJurisdictions: LineTaxJurisdictionField<EntityT>;
+    lineTaxJurisdictions: CollectionField<EntityT, LineTaxJurisdiction>;
     /**
      * Representation of the [[DocumentLine.generatedAssets]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    generatedAssets: GeneratedAssetField<EntityT>;
+    generatedAssets: CollectionField<EntityT, GeneratedAsset>;
     /**
      * Representation of the [[DocumentLine.documentLineAdditionalExpenses]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    documentLineAdditionalExpenses: DocumentLineAdditionalExpenseField<EntityT>;
+    documentLineAdditionalExpenses: CollectionField<EntityT, DocumentLineAdditionalExpense>;
     /**
      * Representation of the [[DocumentLine.withholdingTaxLines]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    withholdingTaxLines: WithholdingTaxLineField<EntityT>;
+    withholdingTaxLines: CollectionField<EntityT, WithholdingTaxLine>;
     /**
      * Representation of the [[DocumentLine.serialNumbers]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    serialNumbers: SerialNumberField<EntityT>;
+    serialNumbers: CollectionField<EntityT, SerialNumber>;
     /**
      * Representation of the [[DocumentLine.batchNumbers]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    batchNumbers: BatchNumberField<EntityT>;
+    batchNumbers: CollectionField<EntityT, BatchNumber>;
     /**
      * Representation of the [[DocumentLine.documentLinesBinAllocations]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    documentLinesBinAllocations: DocumentLinesBinAllocationField<EntityT>;
+    documentLinesBinAllocations: CollectionField<EntityT, DocumentLinesBinAllocation>;
     /**
      * Representation of the [[DocumentLine.exportProcesses]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    exportProcesses: ExportProcessField<EntityT>;
+    exportProcesses: CollectionField<EntityT, ExportProcess>;
     /**
      * Representation of the [[DocumentLine.returnAction]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1742,9 +2002,23 @@ export declare class DocumentLineField<EntityT extends Entity> extends ComplexTy
      * Representation of the [[DocumentLine.importProcesses]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    importProcesses: ImportProcessField<EntityT>;
+    importProcesses: CollectionField<EntityT, ImportProcess>;
+    /**
+     * Creates an instance of DocumentLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace DocumentLine {
+    /**
+     * Metadata information on all properties of the `DocumentLine` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<DocumentLine>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | BatchNumber | DocumentLineAdditionalExpense | DocumentLinesBinAllocation | ExportProcess | GeneratedAsset | ImportProcess | LineTaxJurisdiction | SerialNumber | WithholdingTaxLine;
     }): DocumentLine;

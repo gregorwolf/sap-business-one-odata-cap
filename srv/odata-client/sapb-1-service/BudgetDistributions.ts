@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { BudgetDistributionsRequestBuilder } from './BudgetDistributionsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "BudgetDistributions" of service "SAPB1".
  */
-export class BudgetDistributions extends Entity implements BudgetDistributionsType {
+export class BudgetDistributions extends EntityV4 implements BudgetDistributionsType {
   /**
    * Technical entity name for BudgetDistributions.
    */
   static _entityName = 'BudgetDistributions';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for BudgetDistributions.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * September.
    * @nullable
@@ -104,11 +99,11 @@ export class BudgetDistributions extends Entity implements BudgetDistributionsTy
   budgets!: Budgets[];
 
   /**
-   * Returns an entity builder to construct instances `BudgetDistributions`.
+   * Returns an entity builder to construct instances of `BudgetDistributions`.
    * @returns A builder that constructs instances of entity type `BudgetDistributions`.
    */
-  static builder(): EntityBuilderType<BudgetDistributions, BudgetDistributionsTypeForceMandatory> {
-    return Entity.entityBuilder(BudgetDistributions);
+  static builder(): EntityBuilderType<BudgetDistributions, BudgetDistributionsType> {
+    return EntityV4.entityBuilder(BudgetDistributions);
   }
 
   /**
@@ -124,8 +119,8 @@ export class BudgetDistributions extends Entity implements BudgetDistributionsTy
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `BudgetDistributions`.
    */
-  static customField(fieldName: string): CustomField<BudgetDistributions> {
-    return Entity.customFieldSelector(fieldName, BudgetDistributions);
+  static customField(fieldName: string): CustomFieldV4<BudgetDistributions> {
+    return EntityV4.customFieldSelector(fieldName, BudgetDistributions);
   }
 
   /**
@@ -140,40 +135,21 @@ export class BudgetDistributions extends Entity implements BudgetDistributionsTy
 import { Budgets, BudgetsType } from './Budgets';
 
 export interface BudgetDistributionsType {
-  september?: number;
-  august?: number;
-  july?: number;
-  june?: number;
-  may?: number;
-  april?: number;
-  march?: number;
-  february?: number;
-  december?: number;
-  november?: number;
-  october?: number;
-  january?: number;
-  budgetAmount?: number;
-  description?: string;
-  divisionCode?: number;
-  budgets: BudgetsType[];
-}
-
-export interface BudgetDistributionsTypeForceMandatory {
-  september: number;
-  august: number;
-  july: number;
-  june: number;
-  may: number;
-  april: number;
-  march: number;
-  february: number;
-  december: number;
-  november: number;
-  october: number;
-  january: number;
-  budgetAmount: number;
-  description: string;
-  divisionCode: number;
+  september?: number | null;
+  august?: number | null;
+  july?: number | null;
+  june?: number | null;
+  may?: number | null;
+  april?: number | null;
+  march?: number | null;
+  february?: number | null;
+  december?: number | null;
+  november?: number | null;
+  october?: number | null;
+  january?: number | null;
+  budgetAmount?: number | null;
+  description?: string | null;
+  divisionCode?: number | null;
   budgets: BudgetsType[];
 }
 

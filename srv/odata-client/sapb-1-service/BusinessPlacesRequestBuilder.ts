@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { BusinessPlaces } from './BusinessPlaces';
 
 /**
@@ -15,16 +15,16 @@ export class BusinessPlacesRequestBuilder extends RequestBuilder<BusinessPlaces>
    * @param bplid Key property. See [[BusinessPlaces.bplid]].
    * @returns A request builder for creating requests to retrieve one `BusinessPlaces` entity based on its keys.
    */
-  getByKey(bplid: number): GetByKeyRequestBuilder<BusinessPlaces> {
-    return new GetByKeyRequestBuilder(BusinessPlaces, { BPLID: bplid });
+  getByKey(bplid: number): GetByKeyRequestBuilderV4<BusinessPlaces> {
+    return new GetByKeyRequestBuilderV4(BusinessPlaces, { BPLID: bplid });
   }
 
   /**
    * Returns a request builder for querying all `BusinessPlaces` entities.
    * @returns A request builder for creating requests to retrieve all `BusinessPlaces` entities.
    */
-  getAll(): GetAllRequestBuilder<BusinessPlaces> {
-    return new GetAllRequestBuilder(BusinessPlaces);
+  getAll(): GetAllRequestBuilderV4<BusinessPlaces> {
+    return new GetAllRequestBuilderV4(BusinessPlaces);
   }
 
   /**
@@ -32,8 +32,8 @@ export class BusinessPlacesRequestBuilder extends RequestBuilder<BusinessPlaces>
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `BusinessPlaces`.
    */
-  create(entity: BusinessPlaces): CreateRequestBuilder<BusinessPlaces> {
-    return new CreateRequestBuilder(BusinessPlaces, entity);
+  create(entity: BusinessPlaces): CreateRequestBuilderV4<BusinessPlaces> {
+    return new CreateRequestBuilderV4(BusinessPlaces, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class BusinessPlacesRequestBuilder extends RequestBuilder<BusinessPlaces>
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `BusinessPlaces`.
    */
-  update(entity: BusinessPlaces): UpdateRequestBuilder<BusinessPlaces> {
-    return new UpdateRequestBuilder(BusinessPlaces, entity);
+  update(entity: BusinessPlaces): UpdateRequestBuilderV4<BusinessPlaces> {
+    return new UpdateRequestBuilderV4(BusinessPlaces, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class BusinessPlacesRequestBuilder extends RequestBuilder<BusinessPlaces>
    * @param bplid Key property. See [[BusinessPlaces.bplid]].
    * @returns A request builder for creating requests that delete an entity of type `BusinessPlaces`.
    */
-  delete(bplid: number): DeleteRequestBuilder<BusinessPlaces>;
+  delete(bplid: number): DeleteRequestBuilderV4<BusinessPlaces>;
   /**
    * Returns a request builder for deleting an entity of type `BusinessPlaces`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `BusinessPlaces` by taking the entity as a parameter.
    */
-  delete(entity: BusinessPlaces): DeleteRequestBuilder<BusinessPlaces>;
-  delete(bplidOrEntity: any): DeleteRequestBuilder<BusinessPlaces> {
-    return new DeleteRequestBuilder(BusinessPlaces, bplidOrEntity instanceof BusinessPlaces ? bplidOrEntity : { BPLID: bplidOrEntity! });
+  delete(entity: BusinessPlaces): DeleteRequestBuilderV4<BusinessPlaces>;
+  delete(bplidOrEntity: any): DeleteRequestBuilderV4<BusinessPlaces> {
+    return new DeleteRequestBuilderV4(BusinessPlaces, bplidOrEntity instanceof BusinessPlaces ? bplidOrEntity : { BPLID: bplidOrEntity! });
   }
 }

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { BoeInstructions } from './BoeInstructions';
 
 /**
@@ -15,16 +15,16 @@ export class BoeInstructionsRequestBuilder extends RequestBuilder<BoeInstruction
    * @param instructionEntry Key property. See [[BoeInstructions.instructionEntry]].
    * @returns A request builder for creating requests to retrieve one `BoeInstructions` entity based on its keys.
    */
-  getByKey(instructionEntry: number): GetByKeyRequestBuilder<BoeInstructions> {
-    return new GetByKeyRequestBuilder(BoeInstructions, { InstructionEntry: instructionEntry });
+  getByKey(instructionEntry: number): GetByKeyRequestBuilderV4<BoeInstructions> {
+    return new GetByKeyRequestBuilderV4(BoeInstructions, { InstructionEntry: instructionEntry });
   }
 
   /**
    * Returns a request builder for querying all `BoeInstructions` entities.
    * @returns A request builder for creating requests to retrieve all `BoeInstructions` entities.
    */
-  getAll(): GetAllRequestBuilder<BoeInstructions> {
-    return new GetAllRequestBuilder(BoeInstructions);
+  getAll(): GetAllRequestBuilderV4<BoeInstructions> {
+    return new GetAllRequestBuilderV4(BoeInstructions);
   }
 
   /**
@@ -32,8 +32,8 @@ export class BoeInstructionsRequestBuilder extends RequestBuilder<BoeInstruction
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `BoeInstructions`.
    */
-  create(entity: BoeInstructions): CreateRequestBuilder<BoeInstructions> {
-    return new CreateRequestBuilder(BoeInstructions, entity);
+  create(entity: BoeInstructions): CreateRequestBuilderV4<BoeInstructions> {
+    return new CreateRequestBuilderV4(BoeInstructions, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class BoeInstructionsRequestBuilder extends RequestBuilder<BoeInstruction
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `BoeInstructions`.
    */
-  update(entity: BoeInstructions): UpdateRequestBuilder<BoeInstructions> {
-    return new UpdateRequestBuilder(BoeInstructions, entity);
+  update(entity: BoeInstructions): UpdateRequestBuilderV4<BoeInstructions> {
+    return new UpdateRequestBuilderV4(BoeInstructions, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class BoeInstructionsRequestBuilder extends RequestBuilder<BoeInstruction
    * @param instructionEntry Key property. See [[BoeInstructions.instructionEntry]].
    * @returns A request builder for creating requests that delete an entity of type `BoeInstructions`.
    */
-  delete(instructionEntry: number): DeleteRequestBuilder<BoeInstructions>;
+  delete(instructionEntry: number): DeleteRequestBuilderV4<BoeInstructions>;
   /**
    * Returns a request builder for deleting an entity of type `BoeInstructions`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `BoeInstructions` by taking the entity as a parameter.
    */
-  delete(entity: BoeInstructions): DeleteRequestBuilder<BoeInstructions>;
-  delete(instructionEntryOrEntity: any): DeleteRequestBuilder<BoeInstructions> {
-    return new DeleteRequestBuilder(BoeInstructions, instructionEntryOrEntity instanceof BoeInstructions ? instructionEntryOrEntity : { InstructionEntry: instructionEntryOrEntity! });
+  delete(entity: BoeInstructions): DeleteRequestBuilderV4<BoeInstructions>;
+  delete(instructionEntryOrEntity: any): DeleteRequestBuilderV4<BoeInstructions> {
+    return new DeleteRequestBuilderV4(BoeInstructions, instructionEntryOrEntity instanceof BoeInstructions ? instructionEntryOrEntity : { InstructionEntry: instructionEntryOrEntity! });
   }
 }

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.SerialNumberDetailsRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var SerialNumberDetails_1 = require("./SerialNumberDetails");
 /**
  * Request builder class for operations supported on the [[SerialNumberDetails]] entity.
@@ -35,14 +35,14 @@ var SerialNumberDetailsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `SerialNumberDetails` entity based on its keys.
      */
     SerialNumberDetailsRequestBuilder.prototype.getByKey = function (docEntry) {
-        return new v4_1.GetByKeyRequestBuilder(SerialNumberDetails_1.SerialNumberDetails, { DocEntry: docEntry });
+        return new core_1.GetByKeyRequestBuilderV4(SerialNumberDetails_1.SerialNumberDetails, { DocEntry: docEntry });
     };
     /**
      * Returns a request builder for querying all `SerialNumberDetails` entities.
      * @returns A request builder for creating requests to retrieve all `SerialNumberDetails` entities.
      */
     SerialNumberDetailsRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(SerialNumberDetails_1.SerialNumberDetails);
+        return new core_1.GetAllRequestBuilderV4(SerialNumberDetails_1.SerialNumberDetails);
     };
     /**
      * Returns a request builder for creating a `SerialNumberDetails` entity.
@@ -50,7 +50,7 @@ var SerialNumberDetailsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `SerialNumberDetails`.
      */
     SerialNumberDetailsRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(SerialNumberDetails_1.SerialNumberDetails, entity);
+        return new core_1.CreateRequestBuilderV4(SerialNumberDetails_1.SerialNumberDetails, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `SerialNumberDetails`.
@@ -58,12 +58,12 @@ var SerialNumberDetailsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `SerialNumberDetails`.
      */
     SerialNumberDetailsRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(SerialNumberDetails_1.SerialNumberDetails, entity);
+        return new core_1.UpdateRequestBuilderV4(SerialNumberDetails_1.SerialNumberDetails, entity);
     };
     SerialNumberDetailsRequestBuilder.prototype.delete = function (docEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(SerialNumberDetails_1.SerialNumberDetails, docEntryOrEntity instanceof SerialNumberDetails_1.SerialNumberDetails ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(SerialNumberDetails_1.SerialNumberDetails, docEntryOrEntity instanceof SerialNumberDetails_1.SerialNumberDetails ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
     };
     return SerialNumberDetailsRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.SerialNumberDetailsRequestBuilder = SerialNumberDetailsRequestBuilder;
 //# sourceMappingURL=SerialNumberDetailsRequestBuilder.js.map

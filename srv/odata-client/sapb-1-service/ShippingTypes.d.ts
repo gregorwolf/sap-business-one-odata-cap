@@ -1,18 +1,13 @@
 import { ShippingTypesRequestBuilder } from './ShippingTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ShippingTypes" of service "SAPB1".
  */
-export declare class ShippingTypes extends Entity implements ShippingTypesType {
+export declare class ShippingTypes extends EntityV4 implements ShippingTypesType {
     /**
      * Technical entity name for ShippingTypes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ShippingTypes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -145,10 +140,10 @@ export declare class ShippingTypes extends Entity implements ShippingTypesType {
      */
     goodsReturnRequest: GoodsReturnRequest[];
     /**
-     * Returns an entity builder to construct instances `ShippingTypes`.
+     * Returns an entity builder to construct instances of `ShippingTypes`.
      * @returns A builder that constructs instances of entity type `ShippingTypes`.
      */
-    static builder(): EntityBuilderType<ShippingTypes, ShippingTypesTypeForceMandatory>;
+    static builder(): EntityBuilderType<ShippingTypes, ShippingTypesType>;
     /**
      * Returns a request builder to construct requests for operations on the `ShippingTypes` entity type.
      * @returns A `ShippingTypes` request builder.
@@ -159,7 +154,7 @@ export declare class ShippingTypes extends Entity implements ShippingTypesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ShippingTypes`.
      */
-    static customField(fieldName: string): CustomField<ShippingTypes>;
+    static customField(fieldName: string): CustomFieldV4<ShippingTypes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -197,42 +192,9 @@ import { PurchaseDownPayments, PurchaseDownPaymentsType } from './PurchaseDownPa
 import { PurchaseOrders, PurchaseOrdersType } from './PurchaseOrders';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 export interface ShippingTypesType {
-    code?: number;
-    name?: string;
-    website?: string;
-    landedCosts: LandedCostsType[];
-    inventoryGenEntries: InventoryGenEntriesType[];
-    purchaseQuotations: PurchaseQuotationsType[];
-    items: ItemsType[];
-    deliveryNotes: DeliveryNotesType[];
-    businessPartners: BusinessPartnersType[];
-    quotations: QuotationsType[];
-    inventoryGenExits: InventoryGenExitsType[];
-    purchaseRequests: PurchaseRequestsType[];
-    returnRequest: ReturnRequestType[];
-    blanketAgreements: BlanketAgreementsType[];
-    purchaseReturns: PurchaseReturnsType[];
-    invoices: InvoicesType[];
-    creditNotes: CreditNotesType[];
-    orders: OrdersType[];
-    downPayments: DownPaymentsType[];
-    drafts: DraftsType[];
-    returns: ReturnsType[];
-    correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-    correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-    correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-    purchaseInvoices: PurchaseInvoicesType[];
-    purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-    correctionInvoice: CorrectionInvoiceType[];
-    purchaseCreditNotes: PurchaseCreditNotesType[];
-    purchaseDownPayments: PurchaseDownPaymentsType[];
-    purchaseOrders: PurchaseOrdersType[];
-    goodsReturnRequest: GoodsReturnRequestType[];
-}
-export interface ShippingTypesTypeForceMandatory {
-    code: number;
-    name: string;
-    website: string;
+    code?: number | null;
+    name?: string | null;
+    website?: string | null;
     landedCosts: LandedCostsType[];
     inventoryGenEntries: InventoryGenEntriesType[];
     purchaseQuotations: PurchaseQuotationsType[];

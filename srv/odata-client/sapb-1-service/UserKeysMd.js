@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.UserKeysMd = void 0;
  */
 var UserKeysMdRequestBuilder_1 = require("./UserKeysMdRequestBuilder");
 var UserKeysMdElement_1 = require("./UserKeysMdElement");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "UserKeysMD" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var UserKeysMd = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `UserKeysMd`.
+     * Returns an entity builder to construct instances of `UserKeysMd`.
      * @returns A builder that constructs instances of entity type `UserKeysMd`.
      */
     UserKeysMd.builder = function () {
-        return v4_1.Entity.entityBuilder(UserKeysMd);
+        return core_1.EntityV4.entityBuilder(UserKeysMd);
     };
     /**
      * Returns a request builder to construct requests for operations on the `UserKeysMd` entity type.
@@ -61,7 +61,7 @@ var UserKeysMd = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `UserKeysMd`.
      */
     UserKeysMd.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, UserKeysMd);
+        return core_1.EntityV4.customFieldSelector(fieldName, UserKeysMd);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,38 +75,38 @@ var UserKeysMd = /** @class */ (function (_super) {
      */
     UserKeysMd._entityName = 'UserKeysMD';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for UserKeysMd.
-     */
-    UserKeysMd._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    UserKeysMd._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    UserKeysMd._defaultServicePath = '/b1s/v2/';
     return UserKeysMd;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.UserKeysMd = UserKeysMd;
 (function (UserKeysMd) {
     /**
      * Static representation of the [[tableName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserKeysMd.TABLE_NAME = new v4_1.StringField('TableName', UserKeysMd, 'Edm.String');
+    UserKeysMd.TABLE_NAME = new core_1.StringField('TableName', UserKeysMd, 'Edm.String');
     /**
      * Static representation of the [[keyIndex]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserKeysMd.KEY_INDEX = new v4_1.NumberField('KeyIndex', UserKeysMd, 'Edm.Int32');
+    UserKeysMd.KEY_INDEX = new core_1.NumberField('KeyIndex', UserKeysMd, 'Edm.Int32');
     /**
      * Static representation of the [[keyName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserKeysMd.KEY_NAME = new v4_1.StringField('KeyName', UserKeysMd, 'Edm.String');
+    UserKeysMd.KEY_NAME = new core_1.StringField('KeyName', UserKeysMd, 'Edm.String');
+    /**
+     * Static representation of the [[unique]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    UserKeysMd.UNIQUE = new core_1.EnumField('Unique', UserKeysMd);
     /**
      * Static representation of the [[userKeysMdElements]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    UserKeysMd.USER_KEYS_MD_ELEMENTS = new v4_1.CollectionField('UserKeysMD_Elements', UserKeysMd, new UserKeysMdElement_1.UserKeysMdElementField('', UserKeysMd));
+    UserKeysMd.USER_KEYS_MD_ELEMENTS = new core_1.CollectionField('UserKeysMD_Elements', UserKeysMd, UserKeysMdElement_1.UserKeysMdElement);
     /**
      * All fields of the UserKeysMd entity.
      */
@@ -114,12 +114,13 @@ exports.UserKeysMd = UserKeysMd;
         UserKeysMd.TABLE_NAME,
         UserKeysMd.KEY_INDEX,
         UserKeysMd.KEY_NAME,
+        UserKeysMd.UNIQUE,
         UserKeysMd.USER_KEYS_MD_ELEMENTS
     ];
     /**
      * All fields selector.
      */
-    UserKeysMd.ALL_FIELDS = new v4_1.AllFields('*', UserKeysMd);
+    UserKeysMd.ALL_FIELDS = new core_1.AllFields('*', UserKeysMd);
     /**
      * All key fields of the UserKeysMd entity.
      */

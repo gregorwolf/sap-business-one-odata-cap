@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.OccurrenceCodes = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var OccurrenceCodesRequestBuilder_1 = require("./OccurrenceCodesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "OccurrenceCodes" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var OccurrenceCodes = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `OccurrenceCodes`.
+     * Returns an entity builder to construct instances of `OccurrenceCodes`.
      * @returns A builder that constructs instances of entity type `OccurrenceCodes`.
      */
     OccurrenceCodes.builder = function () {
-        return v4_1.Entity.entityBuilder(OccurrenceCodes);
+        return core_1.EntityV4.entityBuilder(OccurrenceCodes);
     };
     /**
      * Returns a request builder to construct requests for operations on the `OccurrenceCodes` entity type.
@@ -60,7 +60,7 @@ var OccurrenceCodes = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `OccurrenceCodes`.
      */
     OccurrenceCodes.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, OccurrenceCodes);
+        return core_1.EntityV4.customFieldSelector(fieldName, OccurrenceCodes);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,38 +74,43 @@ var OccurrenceCodes = /** @class */ (function (_super) {
      */
     OccurrenceCodes._entityName = 'OccurrenceCodes';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for OccurrenceCodes.
-     */
-    OccurrenceCodes._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    OccurrenceCodes._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    OccurrenceCodes._defaultServicePath = '/b1s/v2/';
     return OccurrenceCodes;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.OccurrenceCodes = OccurrenceCodes;
 (function (OccurrenceCodes) {
     /**
      * Static representation of the [[absEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    OccurrenceCodes.ABS_ENTRY = new v4_1.NumberField('AbsEntry', OccurrenceCodes, 'Edm.Int32');
+    OccurrenceCodes.ABS_ENTRY = new core_1.NumberField('AbsEntry', OccurrenceCodes, 'Edm.Int32');
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    OccurrenceCodes.CODE = new v4_1.StringField('Code', OccurrenceCodes, 'Edm.String');
+    OccurrenceCodes.CODE = new core_1.StringField('Code', OccurrenceCodes, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    OccurrenceCodes.DESCRIPTION = new v4_1.StringField('Description', OccurrenceCodes, 'Edm.String');
+    OccurrenceCodes.DESCRIPTION = new core_1.StringField('Description', OccurrenceCodes, 'Edm.String');
     /**
      * Static representation of the [[note]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    OccurrenceCodes.NOTE = new v4_1.StringField('Note', OccurrenceCodes, 'Edm.String');
+    OccurrenceCodes.NOTE = new core_1.StringField('Note', OccurrenceCodes, 'Edm.String');
+    /**
+     * Static representation of the [[requestedBoeStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    OccurrenceCodes.REQUESTED_BOE_STATUS = new core_1.EnumField('RequestedBoeStatus', OccurrenceCodes);
+    /**
+     * Static representation of the [[isMovement]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    OccurrenceCodes.IS_MOVEMENT = new core_1.EnumField('IsMovement', OccurrenceCodes);
     /**
      * All fields of the OccurrenceCodes entity.
      */
@@ -113,12 +118,14 @@ exports.OccurrenceCodes = OccurrenceCodes;
         OccurrenceCodes.ABS_ENTRY,
         OccurrenceCodes.CODE,
         OccurrenceCodes.DESCRIPTION,
-        OccurrenceCodes.NOTE
+        OccurrenceCodes.NOTE,
+        OccurrenceCodes.REQUESTED_BOE_STATUS,
+        OccurrenceCodes.IS_MOVEMENT
     ];
     /**
      * All fields selector.
      */
-    OccurrenceCodes.ALL_FIELDS = new v4_1.AllFields('*', OccurrenceCodes);
+    OccurrenceCodes.ALL_FIELDS = new core_1.AllFields('*', OccurrenceCodes);
     /**
      * All key fields of the OccurrenceCodes entity.
      */

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { UserTablesMd } from './UserTablesMd';
 
 /**
@@ -15,16 +15,16 @@ export class UserTablesMdRequestBuilder extends RequestBuilder<UserTablesMd> {
    * @param tableName Key property. See [[UserTablesMd.tableName]].
    * @returns A request builder for creating requests to retrieve one `UserTablesMd` entity based on its keys.
    */
-  getByKey(tableName: string): GetByKeyRequestBuilder<UserTablesMd> {
-    return new GetByKeyRequestBuilder(UserTablesMd, { TableName: tableName });
+  getByKey(tableName: string): GetByKeyRequestBuilderV4<UserTablesMd> {
+    return new GetByKeyRequestBuilderV4(UserTablesMd, { TableName: tableName });
   }
 
   /**
    * Returns a request builder for querying all `UserTablesMd` entities.
    * @returns A request builder for creating requests to retrieve all `UserTablesMd` entities.
    */
-  getAll(): GetAllRequestBuilder<UserTablesMd> {
-    return new GetAllRequestBuilder(UserTablesMd);
+  getAll(): GetAllRequestBuilderV4<UserTablesMd> {
+    return new GetAllRequestBuilderV4(UserTablesMd);
   }
 
   /**
@@ -32,8 +32,8 @@ export class UserTablesMdRequestBuilder extends RequestBuilder<UserTablesMd> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `UserTablesMd`.
    */
-  create(entity: UserTablesMd): CreateRequestBuilder<UserTablesMd> {
-    return new CreateRequestBuilder(UserTablesMd, entity);
+  create(entity: UserTablesMd): CreateRequestBuilderV4<UserTablesMd> {
+    return new CreateRequestBuilderV4(UserTablesMd, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class UserTablesMdRequestBuilder extends RequestBuilder<UserTablesMd> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `UserTablesMd`.
    */
-  update(entity: UserTablesMd): UpdateRequestBuilder<UserTablesMd> {
-    return new UpdateRequestBuilder(UserTablesMd, entity);
+  update(entity: UserTablesMd): UpdateRequestBuilderV4<UserTablesMd> {
+    return new UpdateRequestBuilderV4(UserTablesMd, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class UserTablesMdRequestBuilder extends RequestBuilder<UserTablesMd> {
    * @param tableName Key property. See [[UserTablesMd.tableName]].
    * @returns A request builder for creating requests that delete an entity of type `UserTablesMd`.
    */
-  delete(tableName: string): DeleteRequestBuilder<UserTablesMd>;
+  delete(tableName: string): DeleteRequestBuilderV4<UserTablesMd>;
   /**
    * Returns a request builder for deleting an entity of type `UserTablesMd`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `UserTablesMd` by taking the entity as a parameter.
    */
-  delete(entity: UserTablesMd): DeleteRequestBuilder<UserTablesMd>;
-  delete(tableNameOrEntity: any): DeleteRequestBuilder<UserTablesMd> {
-    return new DeleteRequestBuilder(UserTablesMd, tableNameOrEntity instanceof UserTablesMd ? tableNameOrEntity : { TableName: tableNameOrEntity! });
+  delete(entity: UserTablesMd): DeleteRequestBuilderV4<UserTablesMd>;
+  delete(tableNameOrEntity: any): DeleteRequestBuilderV4<UserTablesMd> {
+    return new DeleteRequestBuilderV4(UserTablesMd, tableNameOrEntity instanceof UserTablesMd ? tableNameOrEntity : { TableName: tableNameOrEntity! });
   }
 }

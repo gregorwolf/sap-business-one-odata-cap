@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { UserGroups } from './UserGroups';
 
 /**
@@ -15,16 +15,16 @@ export class UserGroupsRequestBuilder extends RequestBuilder<UserGroups> {
    * @param userGroupId Key property. See [[UserGroups.userGroupId]].
    * @returns A request builder for creating requests to retrieve one `UserGroups` entity based on its keys.
    */
-  getByKey(userGroupId: number): GetByKeyRequestBuilder<UserGroups> {
-    return new GetByKeyRequestBuilder(UserGroups, { UserGroupId: userGroupId });
+  getByKey(userGroupId: number): GetByKeyRequestBuilderV4<UserGroups> {
+    return new GetByKeyRequestBuilderV4(UserGroups, { UserGroupId: userGroupId });
   }
 
   /**
    * Returns a request builder for querying all `UserGroups` entities.
    * @returns A request builder for creating requests to retrieve all `UserGroups` entities.
    */
-  getAll(): GetAllRequestBuilder<UserGroups> {
-    return new GetAllRequestBuilder(UserGroups);
+  getAll(): GetAllRequestBuilderV4<UserGroups> {
+    return new GetAllRequestBuilderV4(UserGroups);
   }
 
   /**
@@ -32,8 +32,8 @@ export class UserGroupsRequestBuilder extends RequestBuilder<UserGroups> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `UserGroups`.
    */
-  create(entity: UserGroups): CreateRequestBuilder<UserGroups> {
-    return new CreateRequestBuilder(UserGroups, entity);
+  create(entity: UserGroups): CreateRequestBuilderV4<UserGroups> {
+    return new CreateRequestBuilderV4(UserGroups, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class UserGroupsRequestBuilder extends RequestBuilder<UserGroups> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `UserGroups`.
    */
-  update(entity: UserGroups): UpdateRequestBuilder<UserGroups> {
-    return new UpdateRequestBuilder(UserGroups, entity);
+  update(entity: UserGroups): UpdateRequestBuilderV4<UserGroups> {
+    return new UpdateRequestBuilderV4(UserGroups, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class UserGroupsRequestBuilder extends RequestBuilder<UserGroups> {
    * @param userGroupId Key property. See [[UserGroups.userGroupId]].
    * @returns A request builder for creating requests that delete an entity of type `UserGroups`.
    */
-  delete(userGroupId: number): DeleteRequestBuilder<UserGroups>;
+  delete(userGroupId: number): DeleteRequestBuilderV4<UserGroups>;
   /**
    * Returns a request builder for deleting an entity of type `UserGroups`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `UserGroups` by taking the entity as a parameter.
    */
-  delete(entity: UserGroups): DeleteRequestBuilder<UserGroups>;
-  delete(userGroupIdOrEntity: any): DeleteRequestBuilder<UserGroups> {
-    return new DeleteRequestBuilder(UserGroups, userGroupIdOrEntity instanceof UserGroups ? userGroupIdOrEntity : { UserGroupId: userGroupIdOrEntity! });
+  delete(entity: UserGroups): DeleteRequestBuilderV4<UserGroups>;
+  delete(userGroupIdOrEntity: any): DeleteRequestBuilderV4<UserGroups> {
+    return new DeleteRequestBuilderV4(UserGroups, userGroupIdOrEntity instanceof UserGroups ? userGroupIdOrEntity : { UserGroupId: userGroupIdOrEntity! });
   }
 }

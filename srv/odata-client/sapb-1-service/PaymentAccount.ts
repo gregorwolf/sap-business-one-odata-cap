@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * PaymentAccount
@@ -107,7 +107,7 @@ export function createPaymentAccount(json: any): PaymentAccount {
  * PaymentAccountField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class PaymentAccountField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class PaymentAccountField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PaymentAccount> {
   /**
    * Representation of the [[PaymentAccount.lineNum]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -193,28 +193,113 @@ export class PaymentAccountField<EntityT extends Entity> extends ComplexTypeFiel
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   equalizationVatAmount: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('EqualizationVatAmount', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of PaymentAccountField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, PaymentAccount);
+  }
 }
 
 export namespace PaymentAccount {
+  /**
+   * Metadata information on all properties of the `PaymentAccount` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<PaymentAccount>[] = [{
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AccountCode',
+    name: 'accountCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SumPaid',
+    name: 'sumPaid',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SumPaidFC',
+    name: 'sumPaidFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Decription',
+    name: 'decription',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'VatGroup',
+    name: 'vatGroup',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AccountName',
+    name: 'accountName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GrossAmount',
+    name: 'grossAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ProfitCenter',
+    name: 'profitCenter',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ProjectCode',
+    name: 'projectCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'VatAmount',
+    name: 'vatAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ProfitCenter2',
+    name: 'profitCenter2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ProfitCenter3',
+    name: 'profitCenter3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ProfitCenter4',
+    name: 'profitCenter4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ProfitCenter5',
+    name: 'profitCenter5',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LocationCode',
+    name: 'locationCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'EqualizationVatAmount',
+    name: 'equalizationVatAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): PaymentAccount {
-    return createComplexType(json, {
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      AccountCode: (accountCode: string) => ({ accountCode: edmToTs(accountCode, 'Edm.String') }),
-      SumPaid: (sumPaid: number) => ({ sumPaid: edmToTs(sumPaid, 'Edm.Double') }),
-      SumPaidFC: (sumPaidFc: number) => ({ sumPaidFc: edmToTs(sumPaidFc, 'Edm.Double') }),
-      Decription: (decription: string) => ({ decription: edmToTs(decription, 'Edm.String') }),
-      VatGroup: (vatGroup: string) => ({ vatGroup: edmToTs(vatGroup, 'Edm.String') }),
-      AccountName: (accountName: string) => ({ accountName: edmToTs(accountName, 'Edm.String') }),
-      GrossAmount: (grossAmount: number) => ({ grossAmount: edmToTs(grossAmount, 'Edm.Double') }),
-      ProfitCenter: (profitCenter: string) => ({ profitCenter: edmToTs(profitCenter, 'Edm.String') }),
-      ProjectCode: (projectCode: string) => ({ projectCode: edmToTs(projectCode, 'Edm.String') }),
-      VatAmount: (vatAmount: number) => ({ vatAmount: edmToTs(vatAmount, 'Edm.Double') }),
-      ProfitCenter2: (profitCenter2: string) => ({ profitCenter2: edmToTs(profitCenter2, 'Edm.String') }),
-      ProfitCenter3: (profitCenter3: string) => ({ profitCenter3: edmToTs(profitCenter3, 'Edm.String') }),
-      ProfitCenter4: (profitCenter4: string) => ({ profitCenter4: edmToTs(profitCenter4, 'Edm.String') }),
-      ProfitCenter5: (profitCenter5: string) => ({ profitCenter5: edmToTs(profitCenter5, 'Edm.String') }),
-      LocationCode: (locationCode: number) => ({ locationCode: edmToTs(locationCode, 'Edm.Int32') }),
-      EqualizationVatAmount: (equalizationVatAmount: number) => ({ equalizationVatAmount: edmToTs(equalizationVatAmount, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, PaymentAccount);
   }
 }

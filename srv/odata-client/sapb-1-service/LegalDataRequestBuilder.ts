@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { LegalData } from './LegalData';
 
 /**
@@ -15,16 +15,16 @@ export class LegalDataRequestBuilder extends RequestBuilder<LegalData> {
    * @param docEntry Key property. See [[LegalData.docEntry]].
    * @returns A request builder for creating requests to retrieve one `LegalData` entity based on its keys.
    */
-  getByKey(docEntry: number): GetByKeyRequestBuilder<LegalData> {
-    return new GetByKeyRequestBuilder(LegalData, { DocEntry: docEntry });
+  getByKey(docEntry: number): GetByKeyRequestBuilderV4<LegalData> {
+    return new GetByKeyRequestBuilderV4(LegalData, { DocEntry: docEntry });
   }
 
   /**
    * Returns a request builder for querying all `LegalData` entities.
    * @returns A request builder for creating requests to retrieve all `LegalData` entities.
    */
-  getAll(): GetAllRequestBuilder<LegalData> {
-    return new GetAllRequestBuilder(LegalData);
+  getAll(): GetAllRequestBuilderV4<LegalData> {
+    return new GetAllRequestBuilderV4(LegalData);
   }
 
   /**
@@ -32,8 +32,8 @@ export class LegalDataRequestBuilder extends RequestBuilder<LegalData> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `LegalData`.
    */
-  create(entity: LegalData): CreateRequestBuilder<LegalData> {
-    return new CreateRequestBuilder(LegalData, entity);
+  create(entity: LegalData): CreateRequestBuilderV4<LegalData> {
+    return new CreateRequestBuilderV4(LegalData, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class LegalDataRequestBuilder extends RequestBuilder<LegalData> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `LegalData`.
    */
-  update(entity: LegalData): UpdateRequestBuilder<LegalData> {
-    return new UpdateRequestBuilder(LegalData, entity);
+  update(entity: LegalData): UpdateRequestBuilderV4<LegalData> {
+    return new UpdateRequestBuilderV4(LegalData, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class LegalDataRequestBuilder extends RequestBuilder<LegalData> {
    * @param docEntry Key property. See [[LegalData.docEntry]].
    * @returns A request builder for creating requests that delete an entity of type `LegalData`.
    */
-  delete(docEntry: number): DeleteRequestBuilder<LegalData>;
+  delete(docEntry: number): DeleteRequestBuilderV4<LegalData>;
   /**
    * Returns a request builder for deleting an entity of type `LegalData`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `LegalData` by taking the entity as a parameter.
    */
-  delete(entity: LegalData): DeleteRequestBuilder<LegalData>;
-  delete(docEntryOrEntity: any): DeleteRequestBuilder<LegalData> {
-    return new DeleteRequestBuilder(LegalData, docEntryOrEntity instanceof LegalData ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
+  delete(entity: LegalData): DeleteRequestBuilderV4<LegalData>;
+  delete(docEntryOrEntity: any): DeleteRequestBuilderV4<LegalData> {
+    return new DeleteRequestBuilderV4(LegalData, docEntryOrEntity instanceof LegalData ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
   }
 }

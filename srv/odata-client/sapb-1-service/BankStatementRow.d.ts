@@ -1,6 +1,11 @@
 import { Moment } from 'moment';
-import { MultiplePayment, MultiplePaymentField } from './MultiplePayment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { MultiplePayment } from './MultiplePayment';
+import { BoBpsDocTypes } from './BoBpsDocTypes';
+import { CreateMethodEnum } from './CreateMethodEnum';
+import { BankStatementDocTypeEnum } from './BankStatementDocTypeEnum';
+import { PostingMethodEnum } from './PostingMethodEnum';
+import { BankStatementRowSourceEnum } from './BankStatementRowSourceEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * BankStatementRow
  */
@@ -96,6 +101,11 @@ export interface BankStatementRow {
      */
     visualOrder?: number;
     /**
+     * Doc Num Type.
+     * @nullable
+     */
+    docNumType?: BoBpsDocTypes;
+    /**
      * Details 2.
      * @nullable
      */
@@ -105,6 +115,11 @@ export interface BankStatementRow {
      * @nullable
      */
     paymentReferenceNo?: string;
+    /**
+     * Create Method.
+     * @nullable
+     */
+    createMethod?: CreateMethodEnum;
     /**
      * Bank Stmt Line Date.
      * @nullable
@@ -171,6 +186,16 @@ export interface BankStatementRow {
      */
     paymentId?: number;
     /**
+     * Document Type.
+     * @nullable
+     */
+    documentType?: BankStatementDocTypeEnum;
+    /**
+     * Posting Method.
+     * @nullable
+     */
+    postingMethod?: PostingMethodEnum;
+    /**
      * Gl Accountfor Fee.
      * @nullable
      */
@@ -221,6 +246,11 @@ export interface BankStatementRow {
      */
     bpbicSwiftCode?: string;
     /**
+     * Source.
+     * @nullable
+     */
+    source?: BankStatementRowSourceEnum;
+    /**
      * Folio Prefix String.
      * @nullable
      */
@@ -234,7 +264,7 @@ export interface BankStatementRow {
      * Multiple Payments.
      * @nullable
      */
-    multiplePayments?: MultiplePayment;
+    multiplePayments?: MultiplePayment[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[BankStatementRow.build]] instead.
@@ -244,7 +274,7 @@ export declare function createBankStatementRow(json: any): BankStatementRow;
  * BankStatementRowField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class BankStatementRowField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class BankStatementRowField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BankStatementRow> {
     /**
      * Representation of the [[BankStatementRow.externalBankStatementNo]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -336,6 +366,11 @@ export declare class BankStatementRowField<EntityT extends Entity> extends Compl
      */
     visualOrder: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[BankStatementRow.docNumType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    docNumType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[BankStatementRow.details2]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -345,6 +380,11 @@ export declare class BankStatementRowField<EntityT extends Entity> extends Compl
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     paymentReferenceNo: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[BankStatementRow.createMethod]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    createMethod: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[BankStatementRow.bankStmtLineDate]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -411,6 +451,16 @@ export declare class BankStatementRowField<EntityT extends Entity> extends Compl
      */
     paymentId: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[BankStatementRow.documentType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    documentType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[BankStatementRow.postingMethod]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    postingMethod: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[BankStatementRow.glAccountforFee]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -461,6 +511,11 @@ export declare class BankStatementRowField<EntityT extends Entity> extends Compl
      */
     bpbicSwiftCode: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[BankStatementRow.source]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    source: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[BankStatementRow.folioPrefixString]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -474,9 +529,23 @@ export declare class BankStatementRowField<EntityT extends Entity> extends Compl
      * Representation of the [[BankStatementRow.multiplePayments]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    multiplePayments: MultiplePaymentField<EntityT>;
+    multiplePayments: CollectionField<EntityT, MultiplePayment>;
+    /**
+     * Creates an instance of BankStatementRowField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace BankStatementRow {
+    /**
+     * Metadata information on all properties of the `BankStatementRow` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<BankStatementRow>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | MultiplePayment;
     }): BankStatementRow;

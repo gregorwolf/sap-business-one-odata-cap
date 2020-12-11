@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.PaymentTermsTypes = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var PaymentTermsTypesRequestBuilder_1 = require("./PaymentTermsTypesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "PaymentTermsTypes" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var PaymentTermsTypes = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `PaymentTermsTypes`.
+     * Returns an entity builder to construct instances of `PaymentTermsTypes`.
      * @returns A builder that constructs instances of entity type `PaymentTermsTypes`.
      */
     PaymentTermsTypes.builder = function () {
-        return v4_1.Entity.entityBuilder(PaymentTermsTypes);
+        return core_1.EntityV4.entityBuilder(PaymentTermsTypes);
     };
     /**
      * Returns a request builder to construct requests for operations on the `PaymentTermsTypes` entity type.
@@ -60,7 +60,7 @@ var PaymentTermsTypes = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `PaymentTermsTypes`.
      */
     PaymentTermsTypes.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, PaymentTermsTypes);
+        return core_1.EntityV4.customFieldSelector(fieldName, PaymentTermsTypes);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var PaymentTermsTypes = /** @class */ (function (_super) {
      */
     PaymentTermsTypes._entityName = 'PaymentTermsTypes';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for PaymentTermsTypes.
-     */
-    PaymentTermsTypes._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    PaymentTermsTypes._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    PaymentTermsTypes._defaultServicePath = '/b1s/v2/';
     return PaymentTermsTypes;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.PaymentTermsTypes = PaymentTermsTypes;
 var InventoryGenEntries_1 = require("./InventoryGenEntries");
 var PurchaseQuotations_1 = require("./PurchaseQuotations");
@@ -121,228 +116,244 @@ var GoodsReturnRequest_1 = require("./GoodsReturnRequest");
      * Static representation of the [[groupNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.GROUP_NUMBER = new v4_1.NumberField('GroupNumber', PaymentTermsTypes, 'Edm.Int32');
+    PaymentTermsTypes.GROUP_NUMBER = new core_1.NumberField('GroupNumber', PaymentTermsTypes, 'Edm.Int32');
     /**
      * Static representation of the [[paymentTermsGroupName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.PAYMENT_TERMS_GROUP_NAME = new v4_1.StringField('PaymentTermsGroupName', PaymentTermsTypes, 'Edm.String');
+    PaymentTermsTypes.PAYMENT_TERMS_GROUP_NAME = new core_1.StringField('PaymentTermsGroupName', PaymentTermsTypes, 'Edm.String');
+    /**
+     * Static representation of the [[startFrom]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    PaymentTermsTypes.START_FROM = new core_1.EnumField('StartFrom', PaymentTermsTypes);
     /**
      * Static representation of the [[numberOfAdditionalMonths]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.NUMBER_OF_ADDITIONAL_MONTHS = new v4_1.NumberField('NumberOfAdditionalMonths', PaymentTermsTypes, 'Edm.Int32');
+    PaymentTermsTypes.NUMBER_OF_ADDITIONAL_MONTHS = new core_1.NumberField('NumberOfAdditionalMonths', PaymentTermsTypes, 'Edm.Int32');
     /**
      * Static representation of the [[numberOfAdditionalDays]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.NUMBER_OF_ADDITIONAL_DAYS = new v4_1.NumberField('NumberOfAdditionalDays', PaymentTermsTypes, 'Edm.Int32');
+    PaymentTermsTypes.NUMBER_OF_ADDITIONAL_DAYS = new core_1.NumberField('NumberOfAdditionalDays', PaymentTermsTypes, 'Edm.Int32');
     /**
      * Static representation of the [[creditLimit]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.CREDIT_LIMIT = new v4_1.NumberField('CreditLimit', PaymentTermsTypes, 'Edm.Double');
+    PaymentTermsTypes.CREDIT_LIMIT = new core_1.NumberField('CreditLimit', PaymentTermsTypes, 'Edm.Double');
     /**
      * Static representation of the [[generalDiscount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.GENERAL_DISCOUNT = new v4_1.NumberField('GeneralDiscount', PaymentTermsTypes, 'Edm.Double');
+    PaymentTermsTypes.GENERAL_DISCOUNT = new core_1.NumberField('GeneralDiscount', PaymentTermsTypes, 'Edm.Double');
     /**
      * Static representation of the [[interestOnArrears]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.INTEREST_ON_ARREARS = new v4_1.NumberField('InterestOnArrears', PaymentTermsTypes, 'Edm.Double');
+    PaymentTermsTypes.INTEREST_ON_ARREARS = new core_1.NumberField('InterestOnArrears', PaymentTermsTypes, 'Edm.Double');
     /**
      * Static representation of the [[priceListNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.PRICE_LIST_NO = new v4_1.NumberField('PriceListNo', PaymentTermsTypes, 'Edm.Int32');
+    PaymentTermsTypes.PRICE_LIST_NO = new core_1.NumberField('PriceListNo', PaymentTermsTypes, 'Edm.Int32');
     /**
      * Static representation of the [[loadLimit]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.LOAD_LIMIT = new v4_1.NumberField('LoadLimit', PaymentTermsTypes, 'Edm.Double');
+    PaymentTermsTypes.LOAD_LIMIT = new core_1.NumberField('LoadLimit', PaymentTermsTypes, 'Edm.Double');
+    /**
+     * Static representation of the [[openReceipt]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    PaymentTermsTypes.OPEN_RECEIPT = new core_1.EnumField('OpenReceipt', PaymentTermsTypes);
     /**
      * Static representation of the [[discountCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.DISCOUNT_CODE = new v4_1.StringField('DiscountCode', PaymentTermsTypes, 'Edm.String');
+    PaymentTermsTypes.DISCOUNT_CODE = new core_1.StringField('DiscountCode', PaymentTermsTypes, 'Edm.String');
     /**
      * Static representation of the [[dunningCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.DUNNING_CODE = new v4_1.StringField('DunningCode', PaymentTermsTypes, 'Edm.String');
+    PaymentTermsTypes.DUNNING_CODE = new core_1.StringField('DunningCode', PaymentTermsTypes, 'Edm.String');
+    /**
+     * Static representation of the [[baselineDate]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    PaymentTermsTypes.BASELINE_DATE = new core_1.EnumField('BaselineDate', PaymentTermsTypes);
     /**
      * Static representation of the [[numberOfInstallments]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.NUMBER_OF_INSTALLMENTS = new v4_1.NumberField('NumberOfInstallments', PaymentTermsTypes, 'Edm.Int32');
+    PaymentTermsTypes.NUMBER_OF_INSTALLMENTS = new core_1.NumberField('NumberOfInstallments', PaymentTermsTypes, 'Edm.Int32');
     /**
      * Static representation of the [[numberOfToleranceDays]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.NUMBER_OF_TOLERANCE_DAYS = new v4_1.NumberField('NumberOfToleranceDays', PaymentTermsTypes, 'Edm.Int32');
+    PaymentTermsTypes.NUMBER_OF_TOLERANCE_DAYS = new core_1.NumberField('NumberOfToleranceDays', PaymentTermsTypes, 'Edm.Int32');
     /**
      * Static representation of the one-to-many navigation property [[inventoryGenEntries]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.INVENTORY_GEN_ENTRIES = new v4_1.OneToManyLink('InventoryGenEntries', PaymentTermsTypes, InventoryGenEntries_1.InventoryGenEntries);
+    PaymentTermsTypes.INVENTORY_GEN_ENTRIES = new core_1.OneToManyLink('InventoryGenEntries', PaymentTermsTypes, InventoryGenEntries_1.InventoryGenEntries);
     /**
      * Static representation of the one-to-many navigation property [[purchaseQuotations]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.PURCHASE_QUOTATIONS = new v4_1.OneToManyLink('PurchaseQuotations', PaymentTermsTypes, PurchaseQuotations_1.PurchaseQuotations);
+    PaymentTermsTypes.PURCHASE_QUOTATIONS = new core_1.OneToManyLink('PurchaseQuotations', PaymentTermsTypes, PurchaseQuotations_1.PurchaseQuotations);
     /**
      * Static representation of the one-to-one navigation property [[priceList]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.PRICE_LIST = new v4_1.OneToOneLink('PriceList', PaymentTermsTypes, PriceLists_1.PriceLists);
+    PaymentTermsTypes.PRICE_LIST = new core_1.OneToOneLink('PriceList', PaymentTermsTypes, PriceLists_1.PriceLists);
     /**
      * Static representation of the one-to-one navigation property [[cashDiscount]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.CASH_DISCOUNT = new v4_1.OneToOneLink('CashDiscount', PaymentTermsTypes, CashDiscounts_1.CashDiscounts);
+    PaymentTermsTypes.CASH_DISCOUNT = new core_1.OneToOneLink('CashDiscount', PaymentTermsTypes, CashDiscounts_1.CashDiscounts);
     /**
      * Static representation of the one-to-many navigation property [[deliveryNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.DELIVERY_NOTES = new v4_1.OneToManyLink('DeliveryNotes', PaymentTermsTypes, DeliveryNotes_1.DeliveryNotes);
+    PaymentTermsTypes.DELIVERY_NOTES = new core_1.OneToManyLink('DeliveryNotes', PaymentTermsTypes, DeliveryNotes_1.DeliveryNotes);
     /**
      * Static representation of the one-to-many navigation property [[businessPartners]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.BUSINESS_PARTNERS = new v4_1.OneToManyLink('BusinessPartners', PaymentTermsTypes, BusinessPartners_1.BusinessPartners);
+    PaymentTermsTypes.BUSINESS_PARTNERS = new core_1.OneToManyLink('BusinessPartners', PaymentTermsTypes, BusinessPartners_1.BusinessPartners);
     /**
      * Static representation of the one-to-many navigation property [[quotations]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.QUOTATIONS = new v4_1.OneToManyLink('Quotations', PaymentTermsTypes, Quotations_1.Quotations);
+    PaymentTermsTypes.QUOTATIONS = new core_1.OneToManyLink('Quotations', PaymentTermsTypes, Quotations_1.Quotations);
     /**
      * Static representation of the one-to-many navigation property [[inventoryGenExits]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.INVENTORY_GEN_EXITS = new v4_1.OneToManyLink('InventoryGenExits', PaymentTermsTypes, InventoryGenExits_1.InventoryGenExits);
+    PaymentTermsTypes.INVENTORY_GEN_EXITS = new core_1.OneToManyLink('InventoryGenExits', PaymentTermsTypes, InventoryGenExits_1.InventoryGenExits);
     /**
      * Static representation of the one-to-many navigation property [[purchaseRequests]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.PURCHASE_REQUESTS = new v4_1.OneToManyLink('PurchaseRequests', PaymentTermsTypes, PurchaseRequests_1.PurchaseRequests);
+    PaymentTermsTypes.PURCHASE_REQUESTS = new core_1.OneToManyLink('PurchaseRequests', PaymentTermsTypes, PurchaseRequests_1.PurchaseRequests);
     /**
      * Static representation of the one-to-many navigation property [[returnRequest]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.RETURN_REQUEST = new v4_1.OneToManyLink('ReturnRequest', PaymentTermsTypes, ReturnRequest_1.ReturnRequest);
+    PaymentTermsTypes.RETURN_REQUEST = new core_1.OneToManyLink('ReturnRequest', PaymentTermsTypes, ReturnRequest_1.ReturnRequest);
     /**
      * Static representation of the one-to-many navigation property [[blanketAgreements]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.BLANKET_AGREEMENTS = new v4_1.OneToManyLink('BlanketAgreements', PaymentTermsTypes, BlanketAgreements_1.BlanketAgreements);
+    PaymentTermsTypes.BLANKET_AGREEMENTS = new core_1.OneToManyLink('BlanketAgreements', PaymentTermsTypes, BlanketAgreements_1.BlanketAgreements);
     /**
      * Static representation of the one-to-many navigation property [[purchaseReturns]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.PURCHASE_RETURNS = new v4_1.OneToManyLink('PurchaseReturns', PaymentTermsTypes, PurchaseReturns_1.PurchaseReturns);
+    PaymentTermsTypes.PURCHASE_RETURNS = new core_1.OneToManyLink('PurchaseReturns', PaymentTermsTypes, PurchaseReturns_1.PurchaseReturns);
     /**
      * Static representation of the one-to-many navigation property [[invoices]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.INVOICES = new v4_1.OneToManyLink('Invoices', PaymentTermsTypes, Invoices_1.Invoices);
+    PaymentTermsTypes.INVOICES = new core_1.OneToManyLink('Invoices', PaymentTermsTypes, Invoices_1.Invoices);
     /**
      * Static representation of the one-to-many navigation property [[creditNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.CREDIT_NOTES = new v4_1.OneToManyLink('CreditNotes', PaymentTermsTypes, CreditNotes_1.CreditNotes);
+    PaymentTermsTypes.CREDIT_NOTES = new core_1.OneToManyLink('CreditNotes', PaymentTermsTypes, CreditNotes_1.CreditNotes);
     /**
      * Static representation of the one-to-many navigation property [[orders]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.ORDERS = new v4_1.OneToManyLink('Orders', PaymentTermsTypes, Orders_1.Orders);
+    PaymentTermsTypes.ORDERS = new core_1.OneToManyLink('Orders', PaymentTermsTypes, Orders_1.Orders);
     /**
      * Static representation of the one-to-many navigation property [[inventoryTransferRequests]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.INVENTORY_TRANSFER_REQUESTS = new v4_1.OneToManyLink('InventoryTransferRequests', PaymentTermsTypes, InventoryTransferRequests_1.InventoryTransferRequests);
+    PaymentTermsTypes.INVENTORY_TRANSFER_REQUESTS = new core_1.OneToManyLink('InventoryTransferRequests', PaymentTermsTypes, InventoryTransferRequests_1.InventoryTransferRequests);
     /**
      * Static representation of the one-to-many navigation property [[downPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.DOWN_PAYMENTS = new v4_1.OneToManyLink('DownPayments', PaymentTermsTypes, DownPayments_1.DownPayments);
+    PaymentTermsTypes.DOWN_PAYMENTS = new core_1.OneToManyLink('DownPayments', PaymentTermsTypes, DownPayments_1.DownPayments);
     /**
      * Static representation of the one-to-many navigation property [[drafts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.DRAFTS = new v4_1.OneToManyLink('Drafts', PaymentTermsTypes, Drafts_1.Drafts);
+    PaymentTermsTypes.DRAFTS = new core_1.OneToManyLink('Drafts', PaymentTermsTypes, Drafts_1.Drafts);
     /**
      * Static representation of the one-to-many navigation property [[wizardPaymentMethods]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.WIZARD_PAYMENT_METHODS = new v4_1.OneToManyLink('WizardPaymentMethods', PaymentTermsTypes, WizardPaymentMethods_1.WizardPaymentMethods);
+    PaymentTermsTypes.WIZARD_PAYMENT_METHODS = new core_1.OneToManyLink('WizardPaymentMethods', PaymentTermsTypes, WizardPaymentMethods_1.WizardPaymentMethods);
     /**
      * Static representation of the one-to-many navigation property [[stockTransferDrafts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.STOCK_TRANSFER_DRAFTS = new v4_1.OneToManyLink('StockTransferDrafts', PaymentTermsTypes, StockTransferDrafts_1.StockTransferDrafts);
+    PaymentTermsTypes.STOCK_TRANSFER_DRAFTS = new core_1.OneToManyLink('StockTransferDrafts', PaymentTermsTypes, StockTransferDrafts_1.StockTransferDrafts);
     /**
      * Static representation of the one-to-many navigation property [[returns]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.RETURNS = new v4_1.OneToManyLink('Returns', PaymentTermsTypes, Returns_1.Returns);
+    PaymentTermsTypes.RETURNS = new core_1.OneToManyLink('Returns', PaymentTermsTypes, Returns_1.Returns);
     /**
      * Static representation of the one-to-many navigation property [[correctionInvoiceReversal]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.CORRECTION_INVOICE_REVERSAL = new v4_1.OneToManyLink('CorrectionInvoiceReversal', PaymentTermsTypes, CorrectionInvoiceReversal_1.CorrectionInvoiceReversal);
+    PaymentTermsTypes.CORRECTION_INVOICE_REVERSAL = new core_1.OneToManyLink('CorrectionInvoiceReversal', PaymentTermsTypes, CorrectionInvoiceReversal_1.CorrectionInvoiceReversal);
     /**
      * Static representation of the one-to-many navigation property [[correctionPurchaseInvoice]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.CORRECTION_PURCHASE_INVOICE = new v4_1.OneToManyLink('CorrectionPurchaseInvoice', PaymentTermsTypes, CorrectionPurchaseInvoice_1.CorrectionPurchaseInvoice);
+    PaymentTermsTypes.CORRECTION_PURCHASE_INVOICE = new core_1.OneToManyLink('CorrectionPurchaseInvoice', PaymentTermsTypes, CorrectionPurchaseInvoice_1.CorrectionPurchaseInvoice);
     /**
      * Static representation of the one-to-many navigation property [[correctionPurchaseInvoiceReversal]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.CORRECTION_PURCHASE_INVOICE_REVERSAL = new v4_1.OneToManyLink('CorrectionPurchaseInvoiceReversal', PaymentTermsTypes, CorrectionPurchaseInvoiceReversal_1.CorrectionPurchaseInvoiceReversal);
+    PaymentTermsTypes.CORRECTION_PURCHASE_INVOICE_REVERSAL = new core_1.OneToManyLink('CorrectionPurchaseInvoiceReversal', PaymentTermsTypes, CorrectionPurchaseInvoiceReversal_1.CorrectionPurchaseInvoiceReversal);
     /**
      * Static representation of the one-to-many navigation property [[purchaseInvoices]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.PURCHASE_INVOICES = new v4_1.OneToManyLink('PurchaseInvoices', PaymentTermsTypes, PurchaseInvoices_1.PurchaseInvoices);
+    PaymentTermsTypes.PURCHASE_INVOICES = new core_1.OneToManyLink('PurchaseInvoices', PaymentTermsTypes, PurchaseInvoices_1.PurchaseInvoices);
     /**
      * Static representation of the one-to-many navigation property [[purchaseDeliveryNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.PURCHASE_DELIVERY_NOTES = new v4_1.OneToManyLink('PurchaseDeliveryNotes', PaymentTermsTypes, PurchaseDeliveryNotes_1.PurchaseDeliveryNotes);
+    PaymentTermsTypes.PURCHASE_DELIVERY_NOTES = new core_1.OneToManyLink('PurchaseDeliveryNotes', PaymentTermsTypes, PurchaseDeliveryNotes_1.PurchaseDeliveryNotes);
     /**
      * Static representation of the one-to-many navigation property [[correctionInvoice]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.CORRECTION_INVOICE = new v4_1.OneToManyLink('CorrectionInvoice', PaymentTermsTypes, CorrectionInvoice_1.CorrectionInvoice);
+    PaymentTermsTypes.CORRECTION_INVOICE = new core_1.OneToManyLink('CorrectionInvoice', PaymentTermsTypes, CorrectionInvoice_1.CorrectionInvoice);
     /**
      * Static representation of the one-to-many navigation property [[purchaseCreditNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.PURCHASE_CREDIT_NOTES = new v4_1.OneToManyLink('PurchaseCreditNotes', PaymentTermsTypes, PurchaseCreditNotes_1.PurchaseCreditNotes);
+    PaymentTermsTypes.PURCHASE_CREDIT_NOTES = new core_1.OneToManyLink('PurchaseCreditNotes', PaymentTermsTypes, PurchaseCreditNotes_1.PurchaseCreditNotes);
     /**
      * Static representation of the one-to-many navigation property [[purchaseDownPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.PURCHASE_DOWN_PAYMENTS = new v4_1.OneToManyLink('PurchaseDownPayments', PaymentTermsTypes, PurchaseDownPayments_1.PurchaseDownPayments);
+    PaymentTermsTypes.PURCHASE_DOWN_PAYMENTS = new core_1.OneToManyLink('PurchaseDownPayments', PaymentTermsTypes, PurchaseDownPayments_1.PurchaseDownPayments);
     /**
      * Static representation of the one-to-many navigation property [[purchaseOrders]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.PURCHASE_ORDERS = new v4_1.OneToManyLink('PurchaseOrders', PaymentTermsTypes, PurchaseOrders_1.PurchaseOrders);
+    PaymentTermsTypes.PURCHASE_ORDERS = new core_1.OneToManyLink('PurchaseOrders', PaymentTermsTypes, PurchaseOrders_1.PurchaseOrders);
     /**
      * Static representation of the one-to-many navigation property [[goodsReturnRequest]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PaymentTermsTypes.GOODS_RETURN_REQUEST = new v4_1.OneToManyLink('GoodsReturnRequest', PaymentTermsTypes, GoodsReturnRequest_1.GoodsReturnRequest);
+    PaymentTermsTypes.GOODS_RETURN_REQUEST = new core_1.OneToManyLink('GoodsReturnRequest', PaymentTermsTypes, GoodsReturnRequest_1.GoodsReturnRequest);
     /**
      * All fields of the PaymentTermsTypes entity.
      */
     PaymentTermsTypes._allFields = [
         PaymentTermsTypes.GROUP_NUMBER,
         PaymentTermsTypes.PAYMENT_TERMS_GROUP_NAME,
+        PaymentTermsTypes.START_FROM,
         PaymentTermsTypes.NUMBER_OF_ADDITIONAL_MONTHS,
         PaymentTermsTypes.NUMBER_OF_ADDITIONAL_DAYS,
         PaymentTermsTypes.CREDIT_LIMIT,
@@ -350,8 +361,10 @@ var GoodsReturnRequest_1 = require("./GoodsReturnRequest");
         PaymentTermsTypes.INTEREST_ON_ARREARS,
         PaymentTermsTypes.PRICE_LIST_NO,
         PaymentTermsTypes.LOAD_LIMIT,
+        PaymentTermsTypes.OPEN_RECEIPT,
         PaymentTermsTypes.DISCOUNT_CODE,
         PaymentTermsTypes.DUNNING_CODE,
+        PaymentTermsTypes.BASELINE_DATE,
         PaymentTermsTypes.NUMBER_OF_INSTALLMENTS,
         PaymentTermsTypes.NUMBER_OF_TOLERANCE_DAYS,
         PaymentTermsTypes.INVENTORY_GEN_ENTRIES,
@@ -389,7 +402,7 @@ var GoodsReturnRequest_1 = require("./GoodsReturnRequest");
     /**
      * All fields selector.
      */
-    PaymentTermsTypes.ALL_FIELDS = new v4_1.AllFields('*', PaymentTermsTypes);
+    PaymentTermsTypes.ALL_FIELDS = new core_1.AllFields('*', PaymentTermsTypes);
     /**
      * All key fields of the PaymentTermsTypes entity.
      */

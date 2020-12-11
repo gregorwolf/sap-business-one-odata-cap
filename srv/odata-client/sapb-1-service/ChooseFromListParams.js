@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.ChooseFromListParams = exports.ChooseFromListParamsField = exports.creat
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[ChooseFromListParams.build]] instead.
  */
@@ -33,30 +33,50 @@ exports.createChooseFromListParams = createChooseFromListParams;
  */
 var ChooseFromListParamsField = /** @class */ (function (_super) {
     __extends(ChooseFromListParamsField, _super);
-    function ChooseFromListParamsField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of ChooseFromListParamsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function ChooseFromListParamsField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, ChooseFromListParams) || this;
         /**
          * Representation of the [[ChooseFromListParams.objectName]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.objectName = new v4_1.ComplexTypeStringPropertyField('ObjectName', _this, 'Edm.String');
+        _this.objectName = new core_1.ComplexTypeStringPropertyField('ObjectName', _this, 'Edm.String');
         /**
          * Representation of the [[ChooseFromListParams.fieldIndex]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.fieldIndex = new v4_1.ComplexTypeNumberPropertyField('FieldIndex', _this, 'Edm.Int32');
+        _this.fieldIndex = new core_1.ComplexTypeNumberPropertyField('FieldIndex', _this, 'Edm.Int32');
         return _this;
     }
     return ChooseFromListParamsField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.ChooseFromListParamsField = ChooseFromListParamsField;
 var ChooseFromListParams;
 (function (ChooseFromListParams) {
+    /**
+     * Metadata information on all properties of the `ChooseFromListParams` complex type.
+     */
+    ChooseFromListParams._propertyMetadata = [{
+            originalName: 'ObjectName',
+            name: 'objectName',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'FieldIndex',
+            name: 'fieldIndex',
+            type: 'Edm.Int32',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            ObjectName: function (objectName) { return ({ objectName: v4_1.edmToTs(objectName, 'Edm.String') }); },
-            FieldIndex: function (fieldIndex) { return ({ fieldIndex: v4_1.edmToTs(fieldIndex, 'Edm.Int32') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, ChooseFromListParams);
     }
     ChooseFromListParams.build = build;
 })(ChooseFromListParams = exports.ChooseFromListParams || (exports.ChooseFromListParams = {}));

@@ -1,4 +1,8 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoDocumentTypes } from './BoDocumentTypes';
+import { BoServiceSupplyMethods } from './BoServiceSupplyMethods';
+import { BoServicePaymentMethods } from './BoServicePaymentMethods';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * ItemIntrastatExtension
  */
@@ -64,6 +68,21 @@ export interface ItemIntrastatExtension {
      */
     serviceCode?: number;
     /**
+     * Type.
+     * @nullable
+     */
+    type?: BoDocumentTypes;
+    /**
+     * Service Supply Method.
+     * @nullable
+     */
+    serviceSupplyMethod?: BoServiceSupplyMethods;
+    /**
+     * Service Payment Method.
+     * @nullable
+     */
+    servicePaymentMethod?: BoServicePaymentMethods;
+    /**
      * Import Region Country.
      * @nullable
      */
@@ -73,6 +92,16 @@ export interface ItemIntrastatExtension {
      * @nullable
      */
     exportRegionCountry?: string;
+    /**
+     * Use Weight In Calculation.
+     * @nullable
+     */
+    useWeightInCalculation?: BoYesNoEnum;
+    /**
+     * Intrastat Relevant.
+     * @nullable
+     */
+    intrastatRelevant?: BoYesNoEnum;
     /**
      * Statistical Code.
      * @nullable
@@ -87,7 +116,7 @@ export declare function createItemIntrastatExtension(json: any): ItemIntrastatEx
  * ItemIntrastatExtensionField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class ItemIntrastatExtensionField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class ItemIntrastatExtensionField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ItemIntrastatExtension> {
     /**
      * Representation of the [[ItemIntrastatExtension.itemCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -149,6 +178,21 @@ export declare class ItemIntrastatExtensionField<EntityT extends Entity> extends
      */
     serviceCode: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[ItemIntrastatExtension.type]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    type: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ItemIntrastatExtension.serviceSupplyMethod]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    serviceSupplyMethod: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ItemIntrastatExtension.servicePaymentMethod]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    servicePaymentMethod: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ItemIntrastatExtension.importRegionCountry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -159,12 +203,36 @@ export declare class ItemIntrastatExtensionField<EntityT extends Entity> extends
      */
     exportRegionCountry: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[ItemIntrastatExtension.useWeightInCalculation]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    useWeightInCalculation: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ItemIntrastatExtension.intrastatRelevant]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    intrastatRelevant: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ItemIntrastatExtension.statisticalCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     statisticalCode: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Creates an instance of ItemIntrastatExtensionField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace ItemIntrastatExtension {
+    /**
+     * Metadata information on all properties of the `ItemIntrastatExtension` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<ItemIntrastatExtension>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): ItemIntrastatExtension;

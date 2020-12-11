@@ -5,39 +5,56 @@
  */
 import { IncomingPaymentsRequestBuilder } from './IncomingPaymentsRequestBuilder';
 import { Moment } from 'moment';
-import { PaymentCheck, PaymentCheckField } from './PaymentCheck';
-import { PaymentInvoice, PaymentInvoiceField } from './PaymentInvoice';
-import { PaymentCreditCard, PaymentCreditCardField } from './PaymentCreditCard';
-import { PaymentAccount, PaymentAccountField } from './PaymentAccount';
+import { PaymentCheck } from './PaymentCheck';
+import { PaymentInvoice } from './PaymentInvoice';
+import { PaymentCreditCard } from './PaymentCreditCard';
+import { PaymentAccount } from './PaymentAccount';
 import { BillOfExchange, BillOfExchangeField } from './BillOfExchange';
-import { WithholdingTaxCertificatesData, WithholdingTaxCertificatesDataField } from './WithholdingTaxCertificatesData';
-import { CashFlowAssignment, CashFlowAssignmentField } from './CashFlowAssignment';
-import { PaymentsApprovalRequest, PaymentsApprovalRequestField } from './PaymentsApprovalRequest';
-import { WithholdingTaxDataWtx, WithholdingTaxDataWtxField } from './WithholdingTaxDataWtx';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { WithholdingTaxCertificatesData } from './WithholdingTaxCertificatesData';
+import { CashFlowAssignment } from './CashFlowAssignment';
+import { PaymentsApprovalRequest } from './PaymentsApprovalRequest';
+import { WithholdingTaxDataWtx } from './WithholdingTaxDataWtx';
+import { BoRcptTypes } from './BoRcptTypes';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoBoeStatus } from './BoBoeStatus';
+import { BoPaymentPriorities } from './BoPaymentPriorities';
+import { BoOrctPaymentTypeEnum } from './BoOrctPaymentTypeEnum';
+import { BoPaymentsObjectType } from './BoPaymentsObjectType';
+import { PaymentsAuthorizationStatusEnum } from './PaymentsAuthorizationStatusEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "IncomingPayments" of service "SAPB1".
  */
-export class IncomingPayments extends Entity implements IncomingPaymentsType {
+export class IncomingPayments extends EntityV4 implements IncomingPaymentsType {
   /**
    * Technical entity name for IncomingPayments.
    */
   static _entityName = 'IncomingPayments';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for IncomingPayments.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Doc Num.
    * @nullable
    */
   docNum?: number;
+  /**
+   * Doc Type.
+   * @nullable
+   */
+  docType?: BoRcptTypes;
+  /**
+   * Hand Written.
+   * @nullable
+   */
+  handWritten?: BoYesNoEnum;
+  /**
+   * Printed.
+   * @nullable
+   */
+  printed?: BoYesNoEnum;
   /**
    * Doc Date.
    * @nullable
@@ -99,6 +116,11 @@ export class IncomingPayments extends Entity implements IncomingPaymentsType {
    */
   transferReference?: string;
   /**
+   * Local Currency.
+   * @nullable
+   */
+  localCurrency?: BoYesNoEnum;
+  /**
    * Doc Rate.
    * @nullable
    */
@@ -129,10 +151,20 @@ export class IncomingPayments extends Entity implements IncomingPaymentsType {
    */
   journalRemarks?: string;
   /**
+   * Split Transaction.
+   * @nullable
+   */
+  splitTransaction?: BoYesNoEnum;
+  /**
    * Contact Person Code.
    * @nullable
    */
   contactPersonCode?: number;
+  /**
+   * Apply Vat.
+   * @nullable
+   */
+  applyVat?: BoYesNoEnum;
   /**
    * Tax Date.
    * @nullable
@@ -164,6 +196,11 @@ export class IncomingPayments extends Entity implements IncomingPaymentsType {
    */
   projectCode?: string;
   /**
+   * Currency Is Local.
+   * @nullable
+   */
+  currencyIsLocal?: BoYesNoEnum;
+  /**
    * Deduction Percent.
    * @nullable
    */
@@ -193,6 +230,11 @@ export class IncomingPayments extends Entity implements IncomingPaymentsType {
    * @nullable
    */
   billOfExchangeAmount?: number;
+  /**
+   * Billof Exchange Status.
+   * @nullable
+   */
+  billofExchangeStatus?: BoBoeStatus;
   /**
    * Bill Of Exchange Amount Fc.
    * @nullable
@@ -239,6 +281,11 @@ export class IncomingPayments extends Entity implements IncomingPaymentsType {
    */
   wtTaxableAmount?: number;
   /**
+   * Proforma.
+   * @nullable
+   */
+  proforma?: BoYesNoEnum;
+  /**
    * Pay To Bank Code.
    * @nullable
    */
@@ -264,10 +311,20 @@ export class IncomingPayments extends Entity implements IncomingPaymentsType {
    */
   payToBankCountry?: string;
   /**
+   * Is Pay To Bank.
+   * @nullable
+   */
+  isPayToBank?: BoYesNoEnum;
+  /**
    * Doc Entry.
    * @nullable
    */
   docEntry?: number;
+  /**
+   * Payment Priority.
+   * @nullable
+   */
+  paymentPriority?: BoPaymentPriorities;
   /**
    * Tax Group.
    * @nullable
@@ -324,10 +381,25 @@ export class IncomingPayments extends Entity implements IncomingPaymentsType {
    */
   transactionCode?: string;
   /**
+   * Payment Type.
+   * @nullable
+   */
+  paymentType?: BoOrctPaymentTypeEnum;
+  /**
    * Transfer Real Amount.
    * @nullable
    */
   transferRealAmount?: number;
+  /**
+   * Doc Object Code.
+   * @nullable
+   */
+  docObjectCode?: BoPaymentsObjectType;
+  /**
+   * Doc Typte.
+   * @nullable
+   */
+  docTypte?: BoRcptTypes;
   /**
    * Due Date.
    * @nullable
@@ -339,6 +411,11 @@ export class IncomingPayments extends Entity implements IncomingPaymentsType {
    */
   locationCode?: number;
   /**
+   * Cancelled.
+   * @nullable
+   */
+  cancelled?: BoYesNoEnum;
+  /**
    * Control Account.
    * @nullable
    */
@@ -348,6 +425,11 @@ export class IncomingPayments extends Entity implements IncomingPaymentsType {
    * @nullable
    */
   underOverpaymentdiffFc?: number;
+  /**
+   * Authorization Status.
+   * @nullable
+   */
+  authorizationStatus?: PaymentsAuthorizationStatusEnum;
   /**
    * Bplid.
    * @nullable
@@ -455,11 +537,11 @@ export class IncomingPayments extends Entity implements IncomingPaymentsType {
   blanketAgreement2!: BlanketAgreements;
 
   /**
-   * Returns an entity builder to construct instances `IncomingPayments`.
+   * Returns an entity builder to construct instances of `IncomingPayments`.
    * @returns A builder that constructs instances of entity type `IncomingPayments`.
    */
-  static builder(): EntityBuilderType<IncomingPayments, IncomingPaymentsTypeForceMandatory> {
-    return Entity.entityBuilder(IncomingPayments);
+  static builder(): EntityBuilderType<IncomingPayments, IncomingPaymentsType> {
+    return EntityV4.entityBuilder(IncomingPayments);
   }
 
   /**
@@ -475,8 +557,8 @@ export class IncomingPayments extends Entity implements IncomingPaymentsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `IncomingPayments`.
    */
-  static customField(fieldName: string): CustomField<IncomingPayments> {
-    return Entity.customFieldSelector(fieldName, IncomingPayments);
+  static customField(fieldName: string): CustomFieldV4<IncomingPayments> {
+    return EntityV4.customFieldSelector(fieldName, IncomingPayments);
   }
 
   /**
@@ -500,171 +582,98 @@ import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 import { BlanketAgreements, BlanketAgreementsType } from './BlanketAgreements';
 
 export interface IncomingPaymentsType {
-  docNum?: number;
-  docDate?: Moment;
-  cardCode?: string;
-  cardName?: string;
-  address?: string;
-  cashAccount?: string;
-  docCurrency?: string;
-  cashSum?: number;
-  checkAccount?: string;
-  transferAccount?: string;
-  transferSum?: number;
-  transferDate?: Moment;
-  transferReference?: string;
-  docRate?: number;
-  reference1?: string;
-  reference2?: string;
-  counterReference?: string;
-  remarks?: string;
-  journalRemarks?: string;
-  contactPersonCode?: number;
-  taxDate?: Moment;
-  series?: number;
-  bankCode?: string;
-  bankAccount?: string;
-  discountPercent?: number;
-  projectCode?: string;
-  deductionPercent?: number;
-  deductionSum?: number;
-  cashSumFc?: number;
-  cashSumSys?: number;
-  boeAccount?: string;
-  billOfExchangeAmount?: number;
-  billOfExchangeAmountFc?: number;
-  billOfExchangeAmountSc?: number;
-  billOfExchangeAgent?: string;
-  wtCode?: string;
-  wtAmount?: number;
-  wtAmountFc?: number;
-  wtAmountSc?: number;
-  wtAccount?: string;
-  wtTaxableAmount?: number;
-  payToBankCode?: string;
-  payToBankBranch?: string;
-  payToBankAccountNo?: string;
-  payToCode?: string;
-  payToBankCountry?: string;
-  docEntry?: number;
-  taxGroup?: string;
-  bankChargeAmount?: number;
-  bankChargeAmountInFc?: number;
-  bankChargeAmountInSc?: number;
-  underOverpaymentdifference?: number;
-  underOverpaymentdiffSc?: number;
-  wtBaseSum?: number;
-  wtBaseSumFc?: number;
-  wtBaseSumSc?: number;
-  vatDate?: Moment;
-  transactionCode?: string;
-  transferRealAmount?: number;
-  dueDate?: Moment;
-  locationCode?: number;
-  controlAccount?: string;
-  underOverpaymentdiffFc?: number;
-  bplid?: number;
-  bplName?: string;
-  vatRegNum?: string;
-  blanketAgreement?: number;
-  paymentChecks?: PaymentCheck[];
-  paymentInvoices?: PaymentInvoice[];
-  paymentCreditCards?: PaymentCreditCard[];
-  paymentAccounts?: PaymentAccount[];
-  billOfExchange?: BillOfExchange;
-  withholdingTaxCertificatesCollection?: WithholdingTaxCertificatesData[];
-  cashFlowAssignments?: CashFlowAssignment[];
-  paymentsApprovalRequests?: PaymentsApprovalRequest[];
-  withholdingTaxDataWtxCollection?: WithholdingTaxDataWtx[];
-  chartOfAccount: ChartOfAccountsType;
-  currency: CurrenciesType;
-  project: ProjectsType;
-  withholdingTaxCode: WithholdingTaxCodesType;
-  country: CountriesType;
-  vatGroup: VatGroupsType;
-  transactionCode2: TransactionCodesType;
-  warehouseLocation: WarehouseLocationsType;
-  businessPlace: BusinessPlacesType;
-  blanketAgreement2: BlanketAgreementsType;
-}
-
-export interface IncomingPaymentsTypeForceMandatory {
-  docNum: number;
-  docDate: Moment;
-  cardCode: string;
-  cardName: string;
-  address: string;
-  cashAccount: string;
-  docCurrency: string;
-  cashSum: number;
-  checkAccount: string;
-  transferAccount: string;
-  transferSum: number;
-  transferDate: Moment;
-  transferReference: string;
-  docRate: number;
-  reference1: string;
-  reference2: string;
-  counterReference: string;
-  remarks: string;
-  journalRemarks: string;
-  contactPersonCode: number;
-  taxDate: Moment;
-  series: number;
-  bankCode: string;
-  bankAccount: string;
-  discountPercent: number;
-  projectCode: string;
-  deductionPercent: number;
-  deductionSum: number;
-  cashSumFc: number;
-  cashSumSys: number;
-  boeAccount: string;
-  billOfExchangeAmount: number;
-  billOfExchangeAmountFc: number;
-  billOfExchangeAmountSc: number;
-  billOfExchangeAgent: string;
-  wtCode: string;
-  wtAmount: number;
-  wtAmountFc: number;
-  wtAmountSc: number;
-  wtAccount: string;
-  wtTaxableAmount: number;
-  payToBankCode: string;
-  payToBankBranch: string;
-  payToBankAccountNo: string;
-  payToCode: string;
-  payToBankCountry: string;
-  docEntry: number;
-  taxGroup: string;
-  bankChargeAmount: number;
-  bankChargeAmountInFc: number;
-  bankChargeAmountInSc: number;
-  underOverpaymentdifference: number;
-  underOverpaymentdiffSc: number;
-  wtBaseSum: number;
-  wtBaseSumFc: number;
-  wtBaseSumSc: number;
-  vatDate: Moment;
-  transactionCode: string;
-  transferRealAmount: number;
-  dueDate: Moment;
-  locationCode: number;
-  controlAccount: string;
-  underOverpaymentdiffFc: number;
-  bplid: number;
-  bplName: string;
-  vatRegNum: string;
-  blanketAgreement: number;
-  paymentChecks: PaymentCheck[];
-  paymentInvoices: PaymentInvoice[];
-  paymentCreditCards: PaymentCreditCard[];
-  paymentAccounts: PaymentAccount[];
-  billOfExchange: BillOfExchange;
-  withholdingTaxCertificatesCollection: WithholdingTaxCertificatesData[];
-  cashFlowAssignments: CashFlowAssignment[];
-  paymentsApprovalRequests: PaymentsApprovalRequest[];
-  withholdingTaxDataWtxCollection: WithholdingTaxDataWtx[];
+  docNum?: number | null;
+  docType?: BoRcptTypes | null;
+  handWritten?: BoYesNoEnum | null;
+  printed?: BoYesNoEnum | null;
+  docDate?: Moment | null;
+  cardCode?: string | null;
+  cardName?: string | null;
+  address?: string | null;
+  cashAccount?: string | null;
+  docCurrency?: string | null;
+  cashSum?: number | null;
+  checkAccount?: string | null;
+  transferAccount?: string | null;
+  transferSum?: number | null;
+  transferDate?: Moment | null;
+  transferReference?: string | null;
+  localCurrency?: BoYesNoEnum | null;
+  docRate?: number | null;
+  reference1?: string | null;
+  reference2?: string | null;
+  counterReference?: string | null;
+  remarks?: string | null;
+  journalRemarks?: string | null;
+  splitTransaction?: BoYesNoEnum | null;
+  contactPersonCode?: number | null;
+  applyVat?: BoYesNoEnum | null;
+  taxDate?: Moment | null;
+  series?: number | null;
+  bankCode?: string | null;
+  bankAccount?: string | null;
+  discountPercent?: number | null;
+  projectCode?: string | null;
+  currencyIsLocal?: BoYesNoEnum | null;
+  deductionPercent?: number | null;
+  deductionSum?: number | null;
+  cashSumFc?: number | null;
+  cashSumSys?: number | null;
+  boeAccount?: string | null;
+  billOfExchangeAmount?: number | null;
+  billofExchangeStatus?: BoBoeStatus | null;
+  billOfExchangeAmountFc?: number | null;
+  billOfExchangeAmountSc?: number | null;
+  billOfExchangeAgent?: string | null;
+  wtCode?: string | null;
+  wtAmount?: number | null;
+  wtAmountFc?: number | null;
+  wtAmountSc?: number | null;
+  wtAccount?: string | null;
+  wtTaxableAmount?: number | null;
+  proforma?: BoYesNoEnum | null;
+  payToBankCode?: string | null;
+  payToBankBranch?: string | null;
+  payToBankAccountNo?: string | null;
+  payToCode?: string | null;
+  payToBankCountry?: string | null;
+  isPayToBank?: BoYesNoEnum | null;
+  docEntry?: number | null;
+  paymentPriority?: BoPaymentPriorities | null;
+  taxGroup?: string | null;
+  bankChargeAmount?: number | null;
+  bankChargeAmountInFc?: number | null;
+  bankChargeAmountInSc?: number | null;
+  underOverpaymentdifference?: number | null;
+  underOverpaymentdiffSc?: number | null;
+  wtBaseSum?: number | null;
+  wtBaseSumFc?: number | null;
+  wtBaseSumSc?: number | null;
+  vatDate?: Moment | null;
+  transactionCode?: string | null;
+  paymentType?: BoOrctPaymentTypeEnum | null;
+  transferRealAmount?: number | null;
+  docObjectCode?: BoPaymentsObjectType | null;
+  docTypte?: BoRcptTypes | null;
+  dueDate?: Moment | null;
+  locationCode?: number | null;
+  cancelled?: BoYesNoEnum | null;
+  controlAccount?: string | null;
+  underOverpaymentdiffFc?: number | null;
+  authorizationStatus?: PaymentsAuthorizationStatusEnum | null;
+  bplid?: number | null;
+  bplName?: string | null;
+  vatRegNum?: string | null;
+  blanketAgreement?: number | null;
+  paymentChecks?: PaymentCheck[] | null;
+  paymentInvoices?: PaymentInvoice[] | null;
+  paymentCreditCards?: PaymentCreditCard[] | null;
+  paymentAccounts?: PaymentAccount[] | null;
+  billOfExchange?: BillOfExchange | null;
+  withholdingTaxCertificatesCollection?: WithholdingTaxCertificatesData[] | null;
+  cashFlowAssignments?: CashFlowAssignment[] | null;
+  paymentsApprovalRequests?: PaymentsApprovalRequest[] | null;
+  withholdingTaxDataWtxCollection?: WithholdingTaxDataWtx[] | null;
   chartOfAccount: ChartOfAccountsType;
   currency: CurrenciesType;
   project: ProjectsType;
@@ -683,6 +692,21 @@ export namespace IncomingPayments {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOC_NUM: NumberField<IncomingPayments> = new NumberField('DocNum', IncomingPayments, 'Edm.Int32');
+  /**
+   * Static representation of the [[docType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOC_TYPE: EnumField<IncomingPayments> = new EnumField('DocType', IncomingPayments);
+  /**
+   * Static representation of the [[handWritten]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const HAND_WRITTEN: EnumField<IncomingPayments> = new EnumField('HandWritten', IncomingPayments);
+  /**
+   * Static representation of the [[printed]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRINTED: EnumField<IncomingPayments> = new EnumField('Printed', IncomingPayments);
   /**
    * Static representation of the [[docDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -744,6 +768,11 @@ export namespace IncomingPayments {
    */
   export const TRANSFER_REFERENCE: StringField<IncomingPayments> = new StringField('TransferReference', IncomingPayments, 'Edm.String');
   /**
+   * Static representation of the [[localCurrency]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LOCAL_CURRENCY: EnumField<IncomingPayments> = new EnumField('LocalCurrency', IncomingPayments);
+  /**
    * Static representation of the [[docRate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -774,10 +803,20 @@ export namespace IncomingPayments {
    */
   export const JOURNAL_REMARKS: StringField<IncomingPayments> = new StringField('JournalRemarks', IncomingPayments, 'Edm.String');
   /**
+   * Static representation of the [[splitTransaction]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SPLIT_TRANSACTION: EnumField<IncomingPayments> = new EnumField('SplitTransaction', IncomingPayments);
+  /**
    * Static representation of the [[contactPersonCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CONTACT_PERSON_CODE: NumberField<IncomingPayments> = new NumberField('ContactPersonCode', IncomingPayments, 'Edm.Int32');
+  /**
+   * Static representation of the [[applyVat]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const APPLY_VAT: EnumField<IncomingPayments> = new EnumField('ApplyVAT', IncomingPayments);
   /**
    * Static representation of the [[taxDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -809,6 +848,11 @@ export namespace IncomingPayments {
    */
   export const PROJECT_CODE: StringField<IncomingPayments> = new StringField('ProjectCode', IncomingPayments, 'Edm.String');
   /**
+   * Static representation of the [[currencyIsLocal]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CURRENCY_IS_LOCAL: EnumField<IncomingPayments> = new EnumField('CurrencyIsLocal', IncomingPayments);
+  /**
    * Static representation of the [[deductionPercent]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -838,6 +882,11 @@ export namespace IncomingPayments {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const BILL_OF_EXCHANGE_AMOUNT: NumberField<IncomingPayments> = new NumberField('BillOfExchangeAmount', IncomingPayments, 'Edm.Double');
+  /**
+   * Static representation of the [[billofExchangeStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BILLOF_EXCHANGE_STATUS: EnumField<IncomingPayments> = new EnumField('BillofExchangeStatus', IncomingPayments);
   /**
    * Static representation of the [[billOfExchangeAmountFc]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -884,6 +933,11 @@ export namespace IncomingPayments {
    */
   export const WT_TAXABLE_AMOUNT: NumberField<IncomingPayments> = new NumberField('WTTaxableAmount', IncomingPayments, 'Edm.Double');
   /**
+   * Static representation of the [[proforma]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROFORMA: EnumField<IncomingPayments> = new EnumField('Proforma', IncomingPayments);
+  /**
    * Static representation of the [[payToBankCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -909,10 +963,20 @@ export namespace IncomingPayments {
    */
   export const PAY_TO_BANK_COUNTRY: StringField<IncomingPayments> = new StringField('PayToBankCountry', IncomingPayments, 'Edm.String');
   /**
+   * Static representation of the [[isPayToBank]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_PAY_TO_BANK: EnumField<IncomingPayments> = new EnumField('IsPayToBank', IncomingPayments);
+  /**
    * Static representation of the [[docEntry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOC_ENTRY: NumberField<IncomingPayments> = new NumberField('DocEntry', IncomingPayments, 'Edm.Int32');
+  /**
+   * Static representation of the [[paymentPriority]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PAYMENT_PRIORITY: EnumField<IncomingPayments> = new EnumField('PaymentPriority', IncomingPayments);
   /**
    * Static representation of the [[taxGroup]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -969,10 +1033,25 @@ export namespace IncomingPayments {
    */
   export const TRANSACTION_CODE: StringField<IncomingPayments> = new StringField('TransactionCode', IncomingPayments, 'Edm.String');
   /**
+   * Static representation of the [[paymentType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PAYMENT_TYPE: EnumField<IncomingPayments> = new EnumField('PaymentType', IncomingPayments);
+  /**
    * Static representation of the [[transferRealAmount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const TRANSFER_REAL_AMOUNT: NumberField<IncomingPayments> = new NumberField('TransferRealAmount', IncomingPayments, 'Edm.Double');
+  /**
+   * Static representation of the [[docObjectCode]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOC_OBJECT_CODE: EnumField<IncomingPayments> = new EnumField('DocObjectCode', IncomingPayments);
+  /**
+   * Static representation of the [[docTypte]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOC_TYPTE: EnumField<IncomingPayments> = new EnumField('DocTypte', IncomingPayments);
   /**
    * Static representation of the [[dueDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -984,6 +1063,11 @@ export namespace IncomingPayments {
    */
   export const LOCATION_CODE: NumberField<IncomingPayments> = new NumberField('LocationCode', IncomingPayments, 'Edm.Int32');
   /**
+   * Static representation of the [[cancelled]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CANCELLED: EnumField<IncomingPayments> = new EnumField('Cancelled', IncomingPayments);
+  /**
    * Static representation of the [[controlAccount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -993,6 +1077,11 @@ export namespace IncomingPayments {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const UNDER_OVERPAYMENTDIFF_FC: NumberField<IncomingPayments> = new NumberField('UnderOverpaymentdiffFC', IncomingPayments, 'Edm.Double');
+  /**
+   * Static representation of the [[authorizationStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const AUTHORIZATION_STATUS: EnumField<IncomingPayments> = new EnumField('AuthorizationStatus', IncomingPayments);
   /**
    * Static representation of the [[bplid]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1017,22 +1106,22 @@ export namespace IncomingPayments {
    * Static representation of the [[paymentChecks]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const PAYMENT_CHECKS: CollectionField<IncomingPayments> = new CollectionField('PaymentChecks', IncomingPayments, new PaymentCheckField('', IncomingPayments));
+  export const PAYMENT_CHECKS: CollectionField<IncomingPayments, PaymentCheck> = new CollectionField('PaymentChecks', IncomingPayments, PaymentCheck);
   /**
    * Static representation of the [[paymentInvoices]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const PAYMENT_INVOICES: CollectionField<IncomingPayments> = new CollectionField('PaymentInvoices', IncomingPayments, new PaymentInvoiceField('', IncomingPayments));
+  export const PAYMENT_INVOICES: CollectionField<IncomingPayments, PaymentInvoice> = new CollectionField('PaymentInvoices', IncomingPayments, PaymentInvoice);
   /**
    * Static representation of the [[paymentCreditCards]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const PAYMENT_CREDIT_CARDS: CollectionField<IncomingPayments> = new CollectionField('PaymentCreditCards', IncomingPayments, new PaymentCreditCardField('', IncomingPayments));
+  export const PAYMENT_CREDIT_CARDS: CollectionField<IncomingPayments, PaymentCreditCard> = new CollectionField('PaymentCreditCards', IncomingPayments, PaymentCreditCard);
   /**
    * Static representation of the [[paymentAccounts]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const PAYMENT_ACCOUNTS: CollectionField<IncomingPayments> = new CollectionField('PaymentAccounts', IncomingPayments, new PaymentAccountField('', IncomingPayments));
+  export const PAYMENT_ACCOUNTS: CollectionField<IncomingPayments, PaymentAccount> = new CollectionField('PaymentAccounts', IncomingPayments, PaymentAccount);
   /**
    * Static representation of the [[billOfExchange]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1042,22 +1131,22 @@ export namespace IncomingPayments {
    * Static representation of the [[withholdingTaxCertificatesCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const WITHHOLDING_TAX_CERTIFICATES_COLLECTION: CollectionField<IncomingPayments> = new CollectionField('WithholdingTaxCertificatesCollection', IncomingPayments, new WithholdingTaxCertificatesDataField('', IncomingPayments));
+  export const WITHHOLDING_TAX_CERTIFICATES_COLLECTION: CollectionField<IncomingPayments, WithholdingTaxCertificatesData> = new CollectionField('WithholdingTaxCertificatesCollection', IncomingPayments, WithholdingTaxCertificatesData);
   /**
    * Static representation of the [[cashFlowAssignments]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const CASH_FLOW_ASSIGNMENTS: CollectionField<IncomingPayments> = new CollectionField('CashFlowAssignments', IncomingPayments, new CashFlowAssignmentField('', IncomingPayments));
+  export const CASH_FLOW_ASSIGNMENTS: CollectionField<IncomingPayments, CashFlowAssignment> = new CollectionField('CashFlowAssignments', IncomingPayments, CashFlowAssignment);
   /**
    * Static representation of the [[paymentsApprovalRequests]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const PAYMENTS_APPROVAL_REQUESTS: CollectionField<IncomingPayments> = new CollectionField('Payments_ApprovalRequests', IncomingPayments, new PaymentsApprovalRequestField('', IncomingPayments));
+  export const PAYMENTS_APPROVAL_REQUESTS: CollectionField<IncomingPayments, PaymentsApprovalRequest> = new CollectionField('Payments_ApprovalRequests', IncomingPayments, PaymentsApprovalRequest);
   /**
    * Static representation of the [[withholdingTaxDataWtxCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const WITHHOLDING_TAX_DATA_WTX_COLLECTION: CollectionField<IncomingPayments> = new CollectionField('WithholdingTaxDataWTXCollection', IncomingPayments, new WithholdingTaxDataWtxField('', IncomingPayments));
+  export const WITHHOLDING_TAX_DATA_WTX_COLLECTION: CollectionField<IncomingPayments, WithholdingTaxDataWtx> = new CollectionField('WithholdingTaxDataWTXCollection', IncomingPayments, WithholdingTaxDataWtx);
   /**
    * Static representation of the one-to-one navigation property [[chartOfAccount]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1111,8 +1200,11 @@ export namespace IncomingPayments {
   /**
    * All fields of the IncomingPayments entity.
    */
-  export const _allFields: Array<NumberField<IncomingPayments> | DateField<IncomingPayments> | StringField<IncomingPayments> | CollectionField<IncomingPayments> | BillOfExchangeField<IncomingPayments> | OneToOneLink<IncomingPayments, ChartOfAccounts> | OneToOneLink<IncomingPayments, Currencies> | OneToOneLink<IncomingPayments, Projects> | OneToOneLink<IncomingPayments, WithholdingTaxCodes> | OneToOneLink<IncomingPayments, Countries> | OneToOneLink<IncomingPayments, VatGroups> | OneToOneLink<IncomingPayments, TransactionCodes> | OneToOneLink<IncomingPayments, WarehouseLocations> | OneToOneLink<IncomingPayments, BusinessPlaces> | OneToOneLink<IncomingPayments, BlanketAgreements>> = [
+  export const _allFields: Array<NumberField<IncomingPayments> | EnumField<IncomingPayments> | DateField<IncomingPayments> | StringField<IncomingPayments> | CollectionField<IncomingPayments, PaymentCheck> | CollectionField<IncomingPayments, PaymentInvoice> | CollectionField<IncomingPayments, PaymentCreditCard> | CollectionField<IncomingPayments, PaymentAccount> | BillOfExchangeField<IncomingPayments> | CollectionField<IncomingPayments, WithholdingTaxCertificatesData> | CollectionField<IncomingPayments, CashFlowAssignment> | CollectionField<IncomingPayments, PaymentsApprovalRequest> | CollectionField<IncomingPayments, WithholdingTaxDataWtx> | OneToOneLink<IncomingPayments, ChartOfAccounts> | OneToOneLink<IncomingPayments, Currencies> | OneToOneLink<IncomingPayments, Projects> | OneToOneLink<IncomingPayments, WithholdingTaxCodes> | OneToOneLink<IncomingPayments, Countries> | OneToOneLink<IncomingPayments, VatGroups> | OneToOneLink<IncomingPayments, TransactionCodes> | OneToOneLink<IncomingPayments, WarehouseLocations> | OneToOneLink<IncomingPayments, BusinessPlaces> | OneToOneLink<IncomingPayments, BlanketAgreements>> = [
     IncomingPayments.DOC_NUM,
+    IncomingPayments.DOC_TYPE,
+    IncomingPayments.HAND_WRITTEN,
+    IncomingPayments.PRINTED,
     IncomingPayments.DOC_DATE,
     IncomingPayments.CARD_CODE,
     IncomingPayments.CARD_NAME,
@@ -1125,25 +1217,30 @@ export namespace IncomingPayments {
     IncomingPayments.TRANSFER_SUM,
     IncomingPayments.TRANSFER_DATE,
     IncomingPayments.TRANSFER_REFERENCE,
+    IncomingPayments.LOCAL_CURRENCY,
     IncomingPayments.DOC_RATE,
     IncomingPayments.REFERENCE_1,
     IncomingPayments.REFERENCE_2,
     IncomingPayments.COUNTER_REFERENCE,
     IncomingPayments.REMARKS,
     IncomingPayments.JOURNAL_REMARKS,
+    IncomingPayments.SPLIT_TRANSACTION,
     IncomingPayments.CONTACT_PERSON_CODE,
+    IncomingPayments.APPLY_VAT,
     IncomingPayments.TAX_DATE,
     IncomingPayments.SERIES,
     IncomingPayments.BANK_CODE,
     IncomingPayments.BANK_ACCOUNT,
     IncomingPayments.DISCOUNT_PERCENT,
     IncomingPayments.PROJECT_CODE,
+    IncomingPayments.CURRENCY_IS_LOCAL,
     IncomingPayments.DEDUCTION_PERCENT,
     IncomingPayments.DEDUCTION_SUM,
     IncomingPayments.CASH_SUM_FC,
     IncomingPayments.CASH_SUM_SYS,
     IncomingPayments.BOE_ACCOUNT,
     IncomingPayments.BILL_OF_EXCHANGE_AMOUNT,
+    IncomingPayments.BILLOF_EXCHANGE_STATUS,
     IncomingPayments.BILL_OF_EXCHANGE_AMOUNT_FC,
     IncomingPayments.BILL_OF_EXCHANGE_AMOUNT_SC,
     IncomingPayments.BILL_OF_EXCHANGE_AGENT,
@@ -1153,12 +1250,15 @@ export namespace IncomingPayments {
     IncomingPayments.WT_AMOUNT_SC,
     IncomingPayments.WT_ACCOUNT,
     IncomingPayments.WT_TAXABLE_AMOUNT,
+    IncomingPayments.PROFORMA,
     IncomingPayments.PAY_TO_BANK_CODE,
     IncomingPayments.PAY_TO_BANK_BRANCH,
     IncomingPayments.PAY_TO_BANK_ACCOUNT_NO,
     IncomingPayments.PAY_TO_CODE,
     IncomingPayments.PAY_TO_BANK_COUNTRY,
+    IncomingPayments.IS_PAY_TO_BANK,
     IncomingPayments.DOC_ENTRY,
+    IncomingPayments.PAYMENT_PRIORITY,
     IncomingPayments.TAX_GROUP,
     IncomingPayments.BANK_CHARGE_AMOUNT,
     IncomingPayments.BANK_CHARGE_AMOUNT_IN_FC,
@@ -1170,11 +1270,16 @@ export namespace IncomingPayments {
     IncomingPayments.WT_BASE_SUM_SC,
     IncomingPayments.VAT_DATE,
     IncomingPayments.TRANSACTION_CODE,
+    IncomingPayments.PAYMENT_TYPE,
     IncomingPayments.TRANSFER_REAL_AMOUNT,
+    IncomingPayments.DOC_OBJECT_CODE,
+    IncomingPayments.DOC_TYPTE,
     IncomingPayments.DUE_DATE,
     IncomingPayments.LOCATION_CODE,
+    IncomingPayments.CANCELLED,
     IncomingPayments.CONTROL_ACCOUNT,
     IncomingPayments.UNDER_OVERPAYMENTDIFF_FC,
+    IncomingPayments.AUTHORIZATION_STATUS,
     IncomingPayments.BPLID,
     IncomingPayments.BPL_NAME,
     IncomingPayments.VAT_REG_NUM,

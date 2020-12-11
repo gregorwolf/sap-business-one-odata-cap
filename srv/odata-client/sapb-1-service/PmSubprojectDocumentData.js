@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -22,7 +22,7 @@ var PmsWorkOrderData_1 = require("./PmsWorkOrderData");
 var PmsSummaryData_1 = require("./PmsSummaryData");
 var PmsDocAttachement_1 = require("./PmsDocAttachement");
 var PmsStageAttachement_1 = require("./PmsStageAttachement");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[PmSubprojectDocumentData.build]] instead.
  */
@@ -36,108 +36,119 @@ exports.createPmSubprojectDocumentData = createPmSubprojectDocumentData;
  */
 var PmSubprojectDocumentDataField = /** @class */ (function (_super) {
     __extends(PmSubprojectDocumentDataField, _super);
-    function PmSubprojectDocumentDataField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of PmSubprojectDocumentDataField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function PmSubprojectDocumentDataField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, PmSubprojectDocumentData) || this;
         /**
          * Representation of the [[PmSubprojectDocumentData.absEntry]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.absEntry = new v4_1.ComplexTypeNumberPropertyField('AbsEntry', _this, 'Edm.Int32');
+        _this.absEntry = new core_1.ComplexTypeNumberPropertyField('AbsEntry', _this, 'Edm.Int32');
         /**
          * Representation of the [[PmSubprojectDocumentData.owner]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.owner = new v4_1.ComplexTypeNumberPropertyField('Owner', _this, 'Edm.Int32');
+        _this.owner = new core_1.ComplexTypeNumberPropertyField('Owner', _this, 'Edm.Int32');
         /**
          * Representation of the [[PmSubprojectDocumentData.subprojectName]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.subprojectName = new v4_1.ComplexTypeStringPropertyField('SubprojectName', _this, 'Edm.String');
+        _this.subprojectName = new core_1.ComplexTypeStringPropertyField('SubprojectName', _this, 'Edm.String');
         /**
          * Representation of the [[PmSubprojectDocumentData.startDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.startDate = new v4_1.ComplexTypeDatePropertyField('StartDate', _this, 'Edm.DateTimeOffset');
+        _this.startDate = new core_1.ComplexTypeDatePropertyField('StartDate', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[PmSubprojectDocumentData.finishedPercent]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.finishedPercent = new v4_1.ComplexTypeNumberPropertyField('FinishedPercent', _this, 'Edm.Double');
+        _this.finishedPercent = new core_1.ComplexTypeNumberPropertyField('FinishedPercent', _this, 'Edm.Double');
         /**
          * Representation of the [[PmSubprojectDocumentData.parentId]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.parentId = new v4_1.ComplexTypeNumberPropertyField('ParentID', _this, 'Edm.Int32');
+        _this.parentId = new core_1.ComplexTypeNumberPropertyField('ParentID', _this, 'Edm.Int32');
         /**
          * Representation of the [[PmSubprojectDocumentData.projectId]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.projectId = new v4_1.ComplexTypeNumberPropertyField('ProjectID', _this, 'Edm.Int32');
+        _this.projectId = new core_1.ComplexTypeNumberPropertyField('ProjectID', _this, 'Edm.Int32');
         /**
          * Representation of the [[PmSubprojectDocumentData.order]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.order = new v4_1.ComplexTypeNumberPropertyField('Order', _this, 'Edm.Int32');
+        _this.order = new core_1.ComplexTypeNumberPropertyField('Order', _this, 'Edm.Int32');
         /**
          * Representation of the [[PmSubprojectDocumentData.subprojectType]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.subprojectType = new v4_1.ComplexTypeNumberPropertyField('SubprojectType', _this, 'Edm.Int32');
+        _this.subprojectType = new core_1.ComplexTypeNumberPropertyField('SubprojectType', _this, 'Edm.Int32');
         /**
          * Representation of the [[PmSubprojectDocumentData.subprojectContribution]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.subprojectContribution = new v4_1.ComplexTypeNumberPropertyField('SubprojectContribution', _this, 'Edm.Double');
+        _this.subprojectContribution = new core_1.ComplexTypeNumberPropertyField('SubprojectContribution', _this, 'Edm.Double');
+        /**
+         * Representation of the [[PmSubprojectDocumentData.subprojectStatus]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.subprojectStatus = new core_1.ComplexTypeEnumPropertyField('SubprojectStatus', _this);
         /**
          * Representation of the [[PmSubprojectDocumentData.subprojectEndDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.subprojectEndDate = new v4_1.ComplexTypeDatePropertyField('SubprojectEndDate', _this, 'Edm.DateTimeOffset');
+        _this.subprojectEndDate = new core_1.ComplexTypeDatePropertyField('SubprojectEndDate', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[PmSubprojectDocumentData.actualCost]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.actualCost = new v4_1.ComplexTypeNumberPropertyField('ActualCost', _this, 'Edm.Double');
+        _this.actualCost = new core_1.ComplexTypeNumberPropertyField('ActualCost', _this, 'Edm.Double');
         /**
          * Representation of the [[PmSubprojectDocumentData.plannedCost]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.plannedCost = new v4_1.ComplexTypeNumberPropertyField('PlannedCost', _this, 'Edm.Double');
+        _this.plannedCost = new core_1.ComplexTypeNumberPropertyField('PlannedCost', _this, 'Edm.Double');
         /**
          * Representation of the [[PmSubprojectDocumentData.subprojectDepth]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.subprojectDepth = new v4_1.ComplexTypeNumberPropertyField('SubprojectDepth', _this, 'Edm.Int32');
+        _this.subprojectDepth = new core_1.ComplexTypeNumberPropertyField('SubprojectDepth', _this, 'Edm.Int32');
         /**
          * Representation of the [[PmSubprojectDocumentData.dueDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.dueDate = new v4_1.ComplexTypeDatePropertyField('DueDate', _this, 'Edm.DateTimeOffset');
+        _this.dueDate = new core_1.ComplexTypeDatePropertyField('DueDate', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[PmSubprojectDocumentData.pmsStagesCollection]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.pmsStagesCollection = new PmsStageData_1.PmsStageDataField('PMS_StagesCollection', _this);
+        _this.pmsStagesCollection = new core_1.CollectionField('PMS_StagesCollection', _this, PmsStageData_1.PmsStageData);
         /**
          * Representation of the [[PmSubprojectDocumentData.pmsOpenIssuesCollection]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.pmsOpenIssuesCollection = new PmsOpenIssueData_1.PmsOpenIssueDataField('PMS_OpenIssuesCollection', _this);
+        _this.pmsOpenIssuesCollection = new core_1.CollectionField('PMS_OpenIssuesCollection', _this, PmsOpenIssueData_1.PmsOpenIssueData);
         /**
          * Representation of the [[PmSubprojectDocumentData.pmsDocumentsCollection]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.pmsDocumentsCollection = new PmsDocumentData_1.PmsDocumentDataField('PMS_DocumentsCollection', _this);
+        _this.pmsDocumentsCollection = new core_1.CollectionField('PMS_DocumentsCollection', _this, PmsDocumentData_1.PmsDocumentData);
         /**
          * Representation of the [[PmSubprojectDocumentData.pmsActivitiesCollection]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.pmsActivitiesCollection = new PmsActivityData_1.PmsActivityDataField('PMS_ActivitiesCollection', _this);
+        _this.pmsActivitiesCollection = new core_1.CollectionField('PMS_ActivitiesCollection', _this, PmsActivityData_1.PmsActivityData);
         /**
          * Representation of the [[PmSubprojectDocumentData.pmsWorkOrdersCollection]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.pmsWorkOrdersCollection = new PmsWorkOrderData_1.PmsWorkOrderDataField('PMS_WorkOrdersCollection', _this);
+        _this.pmsWorkOrdersCollection = new core_1.CollectionField('PMS_WorkOrdersCollection', _this, PmsWorkOrderData_1.PmsWorkOrderData);
         /**
          * Representation of the [[PmSubprojectDocumentData.pmsSummaryData]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -147,45 +158,148 @@ var PmSubprojectDocumentDataField = /** @class */ (function (_super) {
          * Representation of the [[PmSubprojectDocumentData.pmsDocAttachements]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.pmsDocAttachements = new PmsDocAttachement_1.PmsDocAttachementField('PMS_DocAttachements', _this);
+        _this.pmsDocAttachements = new core_1.CollectionField('PMS_DocAttachements', _this, PmsDocAttachement_1.PmsDocAttachement);
         /**
          * Representation of the [[PmSubprojectDocumentData.pmsStageAttachements]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.pmsStageAttachements = new PmsStageAttachement_1.PmsStageAttachementField('PMS_StageAttachements', _this);
+        _this.pmsStageAttachements = new core_1.CollectionField('PMS_StageAttachements', _this, PmsStageAttachement_1.PmsStageAttachement);
         return _this;
     }
     return PmSubprojectDocumentDataField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.PmSubprojectDocumentDataField = PmSubprojectDocumentDataField;
 var PmSubprojectDocumentData;
 (function (PmSubprojectDocumentData) {
+    /**
+     * Metadata information on all properties of the `PmSubprojectDocumentData` complex type.
+     */
+    PmSubprojectDocumentData._propertyMetadata = [{
+            originalName: 'AbsEntry',
+            name: 'absEntry',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Owner',
+            name: 'owner',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'SubprojectName',
+            name: 'subprojectName',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'StartDate',
+            name: 'startDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'FinishedPercent',
+            name: 'finishedPercent',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'ParentID',
+            name: 'parentId',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'ProjectID',
+            name: 'projectId',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Order',
+            name: 'order',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'SubprojectType',
+            name: 'subprojectType',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'SubprojectContribution',
+            name: 'subprojectContribution',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'SubprojectStatus',
+            name: 'subprojectStatus',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'SubprojectEndDate',
+            name: 'subprojectEndDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'ActualCost',
+            name: 'actualCost',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'PlannedCost',
+            name: 'plannedCost',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'SubprojectDepth',
+            name: 'subprojectDepth',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'DueDate',
+            name: 'dueDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'PMS_StagesCollection',
+            name: 'pmsStagesCollection',
+            type: PmsStageData_1.PmsStageData,
+            isCollection: true
+        }, {
+            originalName: 'PMS_OpenIssuesCollection',
+            name: 'pmsOpenIssuesCollection',
+            type: PmsOpenIssueData_1.PmsOpenIssueData,
+            isCollection: true
+        }, {
+            originalName: 'PMS_DocumentsCollection',
+            name: 'pmsDocumentsCollection',
+            type: PmsDocumentData_1.PmsDocumentData,
+            isCollection: true
+        }, {
+            originalName: 'PMS_ActivitiesCollection',
+            name: 'pmsActivitiesCollection',
+            type: PmsActivityData_1.PmsActivityData,
+            isCollection: true
+        }, {
+            originalName: 'PMS_WorkOrdersCollection',
+            name: 'pmsWorkOrdersCollection',
+            type: PmsWorkOrderData_1.PmsWorkOrderData,
+            isCollection: true
+        }, {
+            originalName: 'PMS_SummaryData',
+            name: 'pmsSummaryData',
+            type: PmsSummaryData_1.PmsSummaryData,
+            isCollection: false
+        }, {
+            originalName: 'PMS_DocAttachements',
+            name: 'pmsDocAttachements',
+            type: PmsDocAttachement_1.PmsDocAttachement,
+            isCollection: true
+        }, {
+            originalName: 'PMS_StageAttachements',
+            name: 'pmsStageAttachements',
+            type: PmsStageAttachement_1.PmsStageAttachement,
+            isCollection: true
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            AbsEntry: function (absEntry) { return ({ absEntry: v4_1.edmToTs(absEntry, 'Edm.Int32') }); },
-            Owner: function (owner) { return ({ owner: v4_1.edmToTs(owner, 'Edm.Int32') }); },
-            SubprojectName: function (subprojectName) { return ({ subprojectName: v4_1.edmToTs(subprojectName, 'Edm.String') }); },
-            StartDate: function (startDate) { return ({ startDate: v4_1.edmToTs(startDate, 'Edm.DateTimeOffset') }); },
-            FinishedPercent: function (finishedPercent) { return ({ finishedPercent: v4_1.edmToTs(finishedPercent, 'Edm.Double') }); },
-            ParentID: function (parentId) { return ({ parentId: v4_1.edmToTs(parentId, 'Edm.Int32') }); },
-            ProjectID: function (projectId) { return ({ projectId: v4_1.edmToTs(projectId, 'Edm.Int32') }); },
-            Order: function (order) { return ({ order: v4_1.edmToTs(order, 'Edm.Int32') }); },
-            SubprojectType: function (subprojectType) { return ({ subprojectType: v4_1.edmToTs(subprojectType, 'Edm.Int32') }); },
-            SubprojectContribution: function (subprojectContribution) { return ({ subprojectContribution: v4_1.edmToTs(subprojectContribution, 'Edm.Double') }); },
-            SubprojectEndDate: function (subprojectEndDate) { return ({ subprojectEndDate: v4_1.edmToTs(subprojectEndDate, 'Edm.DateTimeOffset') }); },
-            ActualCost: function (actualCost) { return ({ actualCost: v4_1.edmToTs(actualCost, 'Edm.Double') }); },
-            PlannedCost: function (plannedCost) { return ({ plannedCost: v4_1.edmToTs(plannedCost, 'Edm.Double') }); },
-            SubprojectDepth: function (subprojectDepth) { return ({ subprojectDepth: v4_1.edmToTs(subprojectDepth, 'Edm.Int32') }); },
-            DueDate: function (dueDate) { return ({ dueDate: v4_1.edmToTs(dueDate, 'Edm.DateTimeOffset') }); },
-            PMS_StagesCollection: function (pmsStagesCollection) { return ({ pmsStagesCollection: PmsStageData_1.PmsStageData.build(pmsStagesCollection) }); },
-            PMS_OpenIssuesCollection: function (pmsOpenIssuesCollection) { return ({ pmsOpenIssuesCollection: PmsOpenIssueData_1.PmsOpenIssueData.build(pmsOpenIssuesCollection) }); },
-            PMS_DocumentsCollection: function (pmsDocumentsCollection) { return ({ pmsDocumentsCollection: PmsDocumentData_1.PmsDocumentData.build(pmsDocumentsCollection) }); },
-            PMS_ActivitiesCollection: function (pmsActivitiesCollection) { return ({ pmsActivitiesCollection: PmsActivityData_1.PmsActivityData.build(pmsActivitiesCollection) }); },
-            PMS_WorkOrdersCollection: function (pmsWorkOrdersCollection) { return ({ pmsWorkOrdersCollection: PmsWorkOrderData_1.PmsWorkOrderData.build(pmsWorkOrdersCollection) }); },
-            PMS_SummaryData: function (pmsSummaryData) { return ({ pmsSummaryData: PmsSummaryData_1.PmsSummaryData.build(pmsSummaryData) }); },
-            PMS_DocAttachements: function (pmsDocAttachements) { return ({ pmsDocAttachements: PmsDocAttachement_1.PmsDocAttachement.build(pmsDocAttachements) }); },
-            PMS_StageAttachements: function (pmsStageAttachements) { return ({ pmsStageAttachements: PmsStageAttachement_1.PmsStageAttachement.build(pmsStageAttachements) }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, PmSubprojectDocumentData);
     }
     PmSubprojectDocumentData.build = build;
 })(PmSubprojectDocumentData = exports.PmSubprojectDocumentData || (exports.PmSubprojectDocumentData = {}));

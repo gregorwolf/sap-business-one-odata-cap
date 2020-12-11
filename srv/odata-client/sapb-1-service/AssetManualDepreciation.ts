@@ -5,27 +5,27 @@
  */
 import { AssetManualDepreciationRequestBuilder } from './AssetManualDepreciationRequestBuilder';
 import { Moment } from 'moment';
-import { AssetDocumentLine, AssetDocumentLineField } from './AssetDocumentLine';
-import { AssetDocumentAreaJournal, AssetDocumentAreaJournalField } from './AssetDocumentAreaJournal';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AssetDocumentLine } from './AssetDocumentLine';
+import { AssetDocumentAreaJournal } from './AssetDocumentAreaJournal';
+import { AssetDocumentStatusEnum } from './AssetDocumentStatusEnum';
+import { AssetDocumentTypeEnum } from './AssetDocumentTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ClosingOptionEnum } from './ClosingOptionEnum';
+import { AssetOriginalTypeEnum } from './AssetOriginalTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "AssetManualDepreciation" of service "SAPB1".
  */
-export class AssetManualDepreciation extends Entity implements AssetManualDepreciationType {
+export class AssetManualDepreciation extends EntityV4 implements AssetManualDepreciationType {
   /**
    * Technical entity name for AssetManualDepreciation.
    */
   static _entityName = 'AssetManualDepreciation';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for AssetManualDepreciation.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Doc Entry.
    * @nullable
@@ -51,6 +51,11 @@ export class AssetManualDepreciation extends Entity implements AssetManualDeprec
    * @nullable
    */
   documentDate?: Moment;
+  /**
+   * Status.
+   * @nullable
+   */
+  status?: AssetDocumentStatusEnum;
   /**
    * Remarks.
    * @nullable
@@ -92,10 +97,30 @@ export class AssetManualDepreciation extends Entity implements AssetManualDeprec
    */
   assetValueDate?: Moment;
   /**
+   * Document Type.
+   * @nullable
+   */
+  documentType?: AssetDocumentTypeEnum;
+  /**
+   * Summerize By Projects.
+   * @nullable
+   */
+  summerizeByProjects?: BoYesNoEnum;
+  /**
+   * Summerize By Distribution Rules.
+   * @nullable
+   */
+  summerizeByDistributionRules?: BoYesNoEnum;
+  /**
    * Manual Depreciation Type.
    * @nullable
    */
   manualDepreciationType?: string;
+  /**
+   * Hand Written.
+   * @nullable
+   */
+  handWritten?: BoYesNoEnum;
   /**
    * Cancellation Date.
    * @nullable
@@ -116,6 +141,21 @@ export class AssetManualDepreciation extends Entity implements AssetManualDeprec
    * @nullable
    */
   origin?: number;
+  /**
+   * Low Value Asset Retirement.
+   * @nullable
+   */
+  lowValueAssetRetirement?: BoYesNoEnum;
+  /**
+   * Cancellation Option.
+   * @nullable
+   */
+  cancellationOption?: ClosingOptionEnum;
+  /**
+   * Original Type.
+   * @nullable
+   */
+  originalType?: AssetOriginalTypeEnum;
   /**
    * Base Reference.
    * @nullable
@@ -159,11 +199,11 @@ export class AssetManualDepreciation extends Entity implements AssetManualDeprec
   businessPlace!: BusinessPlaces;
 
   /**
-   * Returns an entity builder to construct instances `AssetManualDepreciation`.
+   * Returns an entity builder to construct instances of `AssetManualDepreciation`.
    * @returns A builder that constructs instances of entity type `AssetManualDepreciation`.
    */
-  static builder(): EntityBuilderType<AssetManualDepreciation, AssetManualDepreciationTypeForceMandatory> {
-    return Entity.entityBuilder(AssetManualDepreciation);
+  static builder(): EntityBuilderType<AssetManualDepreciation, AssetManualDepreciationType> {
+    return EntityV4.entityBuilder(AssetManualDepreciation);
   }
 
   /**
@@ -179,8 +219,8 @@ export class AssetManualDepreciation extends Entity implements AssetManualDeprec
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `AssetManualDepreciation`.
    */
-  static customField(fieldName: string): CustomField<AssetManualDepreciation> {
-    return Entity.customFieldSelector(fieldName, AssetManualDepreciation);
+  static customField(fieldName: string): CustomFieldV4<AssetManualDepreciation> {
+    return EntityV4.customFieldSelector(fieldName, AssetManualDepreciation);
   }
 
   /**
@@ -198,59 +238,37 @@ import { DepreciationAreas, DepreciationAreasType } from './DepreciationAreas';
 import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 
 export interface AssetManualDepreciationType {
-  docEntry?: number;
-  docNum?: number;
-  series?: number;
-  postingDate?: Moment;
-  documentDate?: Moment;
-  remarks?: string;
-  reference?: string;
-  currency?: string;
-  documentRate?: number;
-  documentTotal?: number;
-  documentTotalFc?: number;
-  documentTotalSc?: number;
-  assetValueDate?: Moment;
-  manualDepreciationType?: string;
-  cancellationDate?: Moment;
-  depreciationArea?: string;
-  bplId?: number;
-  origin?: number;
-  baseReference?: string;
-  bplName?: string;
-  vatRegNum?: string;
-  assetDocumentLineCollection?: AssetDocumentLine[];
-  assetDocumentAreaJournalCollection?: AssetDocumentAreaJournal[];
-  currency2: CurrenciesType;
-  depreciationType: DepreciationTypesType;
-  depreciationArea2: DepreciationAreasType;
-  businessPlace: BusinessPlacesType;
-}
-
-export interface AssetManualDepreciationTypeForceMandatory {
-  docEntry: number;
-  docNum: number;
-  series: number;
-  postingDate: Moment;
-  documentDate: Moment;
-  remarks: string;
-  reference: string;
-  currency: string;
-  documentRate: number;
-  documentTotal: number;
-  documentTotalFc: number;
-  documentTotalSc: number;
-  assetValueDate: Moment;
-  manualDepreciationType: string;
-  cancellationDate: Moment;
-  depreciationArea: string;
-  bplId: number;
-  origin: number;
-  baseReference: string;
-  bplName: string;
-  vatRegNum: string;
-  assetDocumentLineCollection: AssetDocumentLine[];
-  assetDocumentAreaJournalCollection: AssetDocumentAreaJournal[];
+  docEntry?: number | null;
+  docNum?: number | null;
+  series?: number | null;
+  postingDate?: Moment | null;
+  documentDate?: Moment | null;
+  status?: AssetDocumentStatusEnum | null;
+  remarks?: string | null;
+  reference?: string | null;
+  currency?: string | null;
+  documentRate?: number | null;
+  documentTotal?: number | null;
+  documentTotalFc?: number | null;
+  documentTotalSc?: number | null;
+  assetValueDate?: Moment | null;
+  documentType?: AssetDocumentTypeEnum | null;
+  summerizeByProjects?: BoYesNoEnum | null;
+  summerizeByDistributionRules?: BoYesNoEnum | null;
+  manualDepreciationType?: string | null;
+  handWritten?: BoYesNoEnum | null;
+  cancellationDate?: Moment | null;
+  depreciationArea?: string | null;
+  bplId?: number | null;
+  origin?: number | null;
+  lowValueAssetRetirement?: BoYesNoEnum | null;
+  cancellationOption?: ClosingOptionEnum | null;
+  originalType?: AssetOriginalTypeEnum | null;
+  baseReference?: string | null;
+  bplName?: string | null;
+  vatRegNum?: string | null;
+  assetDocumentLineCollection?: AssetDocumentLine[] | null;
+  assetDocumentAreaJournalCollection?: AssetDocumentAreaJournal[] | null;
   currency2: CurrenciesType;
   depreciationType: DepreciationTypesType;
   depreciationArea2: DepreciationAreasType;
@@ -283,6 +301,11 @@ export namespace AssetManualDepreciation {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOCUMENT_DATE: DateField<AssetManualDepreciation> = new DateField('DocumentDate', AssetManualDepreciation, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[status]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const STATUS: EnumField<AssetManualDepreciation> = new EnumField('Status', AssetManualDepreciation);
   /**
    * Static representation of the [[remarks]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -324,10 +347,30 @@ export namespace AssetManualDepreciation {
    */
   export const ASSET_VALUE_DATE: DateField<AssetManualDepreciation> = new DateField('AssetValueDate', AssetManualDepreciation, 'Edm.DateTimeOffset');
   /**
+   * Static representation of the [[documentType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_TYPE: EnumField<AssetManualDepreciation> = new EnumField('DocumentType', AssetManualDepreciation);
+  /**
+   * Static representation of the [[summerizeByProjects]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SUMMERIZE_BY_PROJECTS: EnumField<AssetManualDepreciation> = new EnumField('SummerizeByProjects', AssetManualDepreciation);
+  /**
+   * Static representation of the [[summerizeByDistributionRules]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SUMMERIZE_BY_DISTRIBUTION_RULES: EnumField<AssetManualDepreciation> = new EnumField('SummerizeByDistributionRules', AssetManualDepreciation);
+  /**
    * Static representation of the [[manualDepreciationType]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const MANUAL_DEPRECIATION_TYPE: StringField<AssetManualDepreciation> = new StringField('ManualDepreciationType', AssetManualDepreciation, 'Edm.String');
+  /**
+   * Static representation of the [[handWritten]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const HAND_WRITTEN: EnumField<AssetManualDepreciation> = new EnumField('HandWritten', AssetManualDepreciation);
   /**
    * Static representation of the [[cancellationDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -349,6 +392,21 @@ export namespace AssetManualDepreciation {
    */
   export const ORIGIN: NumberField<AssetManualDepreciation> = new NumberField('Origin', AssetManualDepreciation, 'Edm.Int32');
   /**
+   * Static representation of the [[lowValueAssetRetirement]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LOW_VALUE_ASSET_RETIREMENT: EnumField<AssetManualDepreciation> = new EnumField('LowValueAssetRetirement', AssetManualDepreciation);
+  /**
+   * Static representation of the [[cancellationOption]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CANCELLATION_OPTION: EnumField<AssetManualDepreciation> = new EnumField('CancellationOption', AssetManualDepreciation);
+  /**
+   * Static representation of the [[originalType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ORIGINAL_TYPE: EnumField<AssetManualDepreciation> = new EnumField('OriginalType', AssetManualDepreciation);
+  /**
    * Static representation of the [[baseReference]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -367,12 +425,12 @@ export namespace AssetManualDepreciation {
    * Static representation of the [[assetDocumentLineCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ASSET_DOCUMENT_LINE_COLLECTION: CollectionField<AssetManualDepreciation> = new CollectionField('AssetDocumentLineCollection', AssetManualDepreciation, new AssetDocumentLineField('', AssetManualDepreciation));
+  export const ASSET_DOCUMENT_LINE_COLLECTION: CollectionField<AssetManualDepreciation, AssetDocumentLine> = new CollectionField('AssetDocumentLineCollection', AssetManualDepreciation, AssetDocumentLine);
   /**
    * Static representation of the [[assetDocumentAreaJournalCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ASSET_DOCUMENT_AREA_JOURNAL_COLLECTION: CollectionField<AssetManualDepreciation> = new CollectionField('AssetDocumentAreaJournalCollection', AssetManualDepreciation, new AssetDocumentAreaJournalField('', AssetManualDepreciation));
+  export const ASSET_DOCUMENT_AREA_JOURNAL_COLLECTION: CollectionField<AssetManualDepreciation, AssetDocumentAreaJournal> = new CollectionField('AssetDocumentAreaJournalCollection', AssetManualDepreciation, AssetDocumentAreaJournal);
   /**
    * Static representation of the one-to-one navigation property [[currency2]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -396,12 +454,13 @@ export namespace AssetManualDepreciation {
   /**
    * All fields of the AssetManualDepreciation entity.
    */
-  export const _allFields: Array<NumberField<AssetManualDepreciation> | DateField<AssetManualDepreciation> | StringField<AssetManualDepreciation> | CollectionField<AssetManualDepreciation> | OneToOneLink<AssetManualDepreciation, Currencies> | OneToOneLink<AssetManualDepreciation, DepreciationTypes> | OneToOneLink<AssetManualDepreciation, DepreciationAreas> | OneToOneLink<AssetManualDepreciation, BusinessPlaces>> = [
+  export const _allFields: Array<NumberField<AssetManualDepreciation> | DateField<AssetManualDepreciation> | EnumField<AssetManualDepreciation> | StringField<AssetManualDepreciation> | CollectionField<AssetManualDepreciation, AssetDocumentLine> | CollectionField<AssetManualDepreciation, AssetDocumentAreaJournal> | OneToOneLink<AssetManualDepreciation, Currencies> | OneToOneLink<AssetManualDepreciation, DepreciationTypes> | OneToOneLink<AssetManualDepreciation, DepreciationAreas> | OneToOneLink<AssetManualDepreciation, BusinessPlaces>> = [
     AssetManualDepreciation.DOC_ENTRY,
     AssetManualDepreciation.DOC_NUM,
     AssetManualDepreciation.SERIES,
     AssetManualDepreciation.POSTING_DATE,
     AssetManualDepreciation.DOCUMENT_DATE,
+    AssetManualDepreciation.STATUS,
     AssetManualDepreciation.REMARKS,
     AssetManualDepreciation.REFERENCE,
     AssetManualDepreciation.CURRENCY,
@@ -410,11 +469,18 @@ export namespace AssetManualDepreciation {
     AssetManualDepreciation.DOCUMENT_TOTAL_FC,
     AssetManualDepreciation.DOCUMENT_TOTAL_SC,
     AssetManualDepreciation.ASSET_VALUE_DATE,
+    AssetManualDepreciation.DOCUMENT_TYPE,
+    AssetManualDepreciation.SUMMERIZE_BY_PROJECTS,
+    AssetManualDepreciation.SUMMERIZE_BY_DISTRIBUTION_RULES,
     AssetManualDepreciation.MANUAL_DEPRECIATION_TYPE,
+    AssetManualDepreciation.HAND_WRITTEN,
     AssetManualDepreciation.CANCELLATION_DATE,
     AssetManualDepreciation.DEPRECIATION_AREA,
     AssetManualDepreciation.BPL_ID,
     AssetManualDepreciation.ORIGIN,
+    AssetManualDepreciation.LOW_VALUE_ASSET_RETIREMENT,
+    AssetManualDepreciation.CANCELLATION_OPTION,
+    AssetManualDepreciation.ORIGINAL_TYPE,
     AssetManualDepreciation.BASE_REFERENCE,
     AssetManualDepreciation.BPL_NAME,
     AssetManualDepreciation.VAT_REG_NUM,

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.EcmActionDocParams = exports.EcmActionDocParamsField = exports.createEcm
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[EcmActionDocParams.build]] instead.
  */
@@ -33,36 +33,60 @@ exports.createEcmActionDocParams = createEcmActionDocParams;
  */
 var EcmActionDocParamsField = /** @class */ (function (_super) {
     __extends(EcmActionDocParamsField, _super);
-    function EcmActionDocParamsField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of EcmActionDocParamsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function EcmActionDocParamsField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, EcmActionDocParams) || this;
         /**
          * Representation of the [[EcmActionDocParams.protocol]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.protocol = new v4_1.ComplexTypeStringPropertyField('Protocol', _this, 'Edm.String');
+        _this.protocol = new core_1.ComplexTypeStringPropertyField('Protocol', _this, 'Edm.String');
         /**
          * Representation of the [[EcmActionDocParams.sourceType]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.sourceType = new v4_1.ComplexTypeStringPropertyField('SourceType', _this, 'Edm.String');
+        _this.sourceType = new core_1.ComplexTypeStringPropertyField('SourceType', _this, 'Edm.String');
         /**
          * Representation of the [[EcmActionDocParams.sourceObject]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.sourceObject = new v4_1.ComplexTypeNumberPropertyField('SourceObject', _this, 'Edm.Int32');
+        _this.sourceObject = new core_1.ComplexTypeNumberPropertyField('SourceObject', _this, 'Edm.Int32');
         return _this;
     }
     return EcmActionDocParamsField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.EcmActionDocParamsField = EcmActionDocParamsField;
 var EcmActionDocParams;
 (function (EcmActionDocParams) {
+    /**
+     * Metadata information on all properties of the `EcmActionDocParams` complex type.
+     */
+    EcmActionDocParams._propertyMetadata = [{
+            originalName: 'Protocol',
+            name: 'protocol',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'SourceType',
+            name: 'sourceType',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'SourceObject',
+            name: 'sourceObject',
+            type: 'Edm.Int32',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            Protocol: function (protocol) { return ({ protocol: v4_1.edmToTs(protocol, 'Edm.String') }); },
-            SourceType: function (sourceType) { return ({ sourceType: v4_1.edmToTs(sourceType, 'Edm.String') }); },
-            SourceObject: function (sourceObject) { return ({ sourceObject: v4_1.edmToTs(sourceObject, 'Edm.Int32') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, EcmActionDocParams);
     }
     EcmActionDocParams.build = build;
 })(EcmActionDocParams = exports.EcmActionDocParams || (exports.EcmActionDocParams = {}));

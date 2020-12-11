@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { MobileAddOnSetting } from './MobileAddOnSetting';
 
 /**
@@ -15,16 +15,16 @@ export class MobileAddOnSettingRequestBuilder extends RequestBuilder<MobileAddOn
    * @param code Key property. See [[MobileAddOnSetting.code]].
    * @returns A request builder for creating requests to retrieve one `MobileAddOnSetting` entity based on its keys.
    */
-  getByKey(code: string): GetByKeyRequestBuilder<MobileAddOnSetting> {
-    return new GetByKeyRequestBuilder(MobileAddOnSetting, { Code: code });
+  getByKey(code: string): GetByKeyRequestBuilderV4<MobileAddOnSetting> {
+    return new GetByKeyRequestBuilderV4(MobileAddOnSetting, { Code: code });
   }
 
   /**
    * Returns a request builder for querying all `MobileAddOnSetting` entities.
    * @returns A request builder for creating requests to retrieve all `MobileAddOnSetting` entities.
    */
-  getAll(): GetAllRequestBuilder<MobileAddOnSetting> {
-    return new GetAllRequestBuilder(MobileAddOnSetting);
+  getAll(): GetAllRequestBuilderV4<MobileAddOnSetting> {
+    return new GetAllRequestBuilderV4(MobileAddOnSetting);
   }
 
   /**
@@ -32,8 +32,8 @@ export class MobileAddOnSettingRequestBuilder extends RequestBuilder<MobileAddOn
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `MobileAddOnSetting`.
    */
-  create(entity: MobileAddOnSetting): CreateRequestBuilder<MobileAddOnSetting> {
-    return new CreateRequestBuilder(MobileAddOnSetting, entity);
+  create(entity: MobileAddOnSetting): CreateRequestBuilderV4<MobileAddOnSetting> {
+    return new CreateRequestBuilderV4(MobileAddOnSetting, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class MobileAddOnSettingRequestBuilder extends RequestBuilder<MobileAddOn
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `MobileAddOnSetting`.
    */
-  update(entity: MobileAddOnSetting): UpdateRequestBuilder<MobileAddOnSetting> {
-    return new UpdateRequestBuilder(MobileAddOnSetting, entity);
+  update(entity: MobileAddOnSetting): UpdateRequestBuilderV4<MobileAddOnSetting> {
+    return new UpdateRequestBuilderV4(MobileAddOnSetting, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class MobileAddOnSettingRequestBuilder extends RequestBuilder<MobileAddOn
    * @param code Key property. See [[MobileAddOnSetting.code]].
    * @returns A request builder for creating requests that delete an entity of type `MobileAddOnSetting`.
    */
-  delete(code: string): DeleteRequestBuilder<MobileAddOnSetting>;
+  delete(code: string): DeleteRequestBuilderV4<MobileAddOnSetting>;
   /**
    * Returns a request builder for deleting an entity of type `MobileAddOnSetting`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `MobileAddOnSetting` by taking the entity as a parameter.
    */
-  delete(entity: MobileAddOnSetting): DeleteRequestBuilder<MobileAddOnSetting>;
-  delete(codeOrEntity: any): DeleteRequestBuilder<MobileAddOnSetting> {
-    return new DeleteRequestBuilder(MobileAddOnSetting, codeOrEntity instanceof MobileAddOnSetting ? codeOrEntity : { Code: codeOrEntity! });
+  delete(entity: MobileAddOnSetting): DeleteRequestBuilderV4<MobileAddOnSetting>;
+  delete(codeOrEntity: any): DeleteRequestBuilderV4<MobileAddOnSetting> {
+    return new DeleteRequestBuilderV4(MobileAddOnSetting, codeOrEntity instanceof MobileAddOnSetting ? codeOrEntity : { Code: codeOrEntity! });
   }
 }

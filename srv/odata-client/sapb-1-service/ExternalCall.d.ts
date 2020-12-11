@@ -1,7 +1,8 @@
 import { Moment } from 'moment';
-import { CallArgument, CallArgumentField } from './CallArgument';
-import { CallMessage, CallMessageField } from './CallMessage';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { CallArgument } from './CallArgument';
+import { CallMessage } from './CallMessage';
+import { ExternalCallStatusEnum } from './ExternalCallStatusEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * ExternalCall
  */
@@ -16,6 +17,11 @@ export interface ExternalCall {
      * @nullable
      */
     category?: number;
+    /**
+     * Status.
+     * @nullable
+     */
+    status?: ExternalCallStatusEnum;
     /**
      * Creation Date.
      * @nullable
@@ -45,12 +51,12 @@ export interface ExternalCall {
      * Call Arguments.
      * @nullable
      */
-    callArguments?: CallArgument;
+    callArguments?: CallArgument[];
     /**
      * Call Messages.
      * @nullable
      */
-    callMessages?: CallMessage;
+    callMessages?: CallMessage[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[ExternalCall.build]] instead.
@@ -60,7 +66,7 @@ export declare function createExternalCall(json: any): ExternalCall;
  * ExternalCallField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class ExternalCallField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class ExternalCallField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ExternalCall> {
     /**
      * Representation of the [[ExternalCall.id]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -71,6 +77,11 @@ export declare class ExternalCallField<EntityT extends Entity> extends ComplexTy
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     category: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[ExternalCall.status]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    status: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[ExternalCall.creationDate]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -100,14 +111,28 @@ export declare class ExternalCallField<EntityT extends Entity> extends ComplexTy
      * Representation of the [[ExternalCall.callArguments]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    callArguments: CallArgumentField<EntityT>;
+    callArguments: CollectionField<EntityT, CallArgument>;
     /**
      * Representation of the [[ExternalCall.callMessages]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    callMessages: CallMessageField<EntityT>;
+    callMessages: CollectionField<EntityT, CallMessage>;
+    /**
+     * Creates an instance of ExternalCallField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace ExternalCall {
+    /**
+     * Metadata information on all properties of the `ExternalCall` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<ExternalCall>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | CallArgument | CallMessage;
     }): ExternalCall;

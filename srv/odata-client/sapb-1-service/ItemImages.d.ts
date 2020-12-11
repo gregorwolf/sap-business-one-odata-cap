@@ -1,18 +1,13 @@
 import { ItemImagesRequestBuilder } from './ItemImagesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ItemImages" of service "SAPB1".
  */
-export declare class ItemImages extends Entity implements ItemImagesType {
+export declare class ItemImages extends EntityV4 implements ItemImagesType {
     /**
      * Technical entity name for ItemImages.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ItemImages.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -26,10 +21,10 @@ export declare class ItemImages extends Entity implements ItemImagesType {
      */
     picture: string;
     /**
-     * Returns an entity builder to construct instances `ItemImages`.
+     * Returns an entity builder to construct instances of `ItemImages`.
      * @returns A builder that constructs instances of entity type `ItemImages`.
      */
-    static builder(): EntityBuilderType<ItemImages, ItemImagesTypeForceMandatory>;
+    static builder(): EntityBuilderType<ItemImages, ItemImagesType>;
     /**
      * Returns a request builder to construct requests for operations on the `ItemImages` entity type.
      * @returns A `ItemImages` request builder.
@@ -40,7 +35,7 @@ export declare class ItemImages extends Entity implements ItemImagesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ItemImages`.
      */
-    static customField(fieldName: string): CustomField<ItemImages>;
+    static customField(fieldName: string): CustomFieldV4<ItemImages>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -50,10 +45,6 @@ export declare class ItemImages extends Entity implements ItemImagesType {
     };
 }
 export interface ItemImagesType {
-    itemCode: string;
-    picture: string;
-}
-export interface ItemImagesTypeForceMandatory {
     itemCode: string;
     picture: string;
 }

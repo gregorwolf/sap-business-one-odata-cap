@@ -1,19 +1,15 @@
 import { ActivityRecipientListsRequestBuilder } from './ActivityRecipientListsRequestBuilder';
 import { ActivityRecipient } from './ActivityRecipient';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ActivityRecipientLists" of service "SAPB1".
  */
-export declare class ActivityRecipientLists extends Entity implements ActivityRecipientListsType {
+export declare class ActivityRecipientLists extends EntityV4 implements ActivityRecipientListsType {
     /**
      * Technical entity name for ActivityRecipientLists.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ActivityRecipientLists.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -29,6 +25,16 @@ export declare class ActivityRecipientLists extends Entity implements ActivityRe
      */
     name?: string;
     /**
+     * Active.
+     * @nullable
+     */
+    active?: BoYesNoEnum;
+    /**
+     * Is Multiple.
+     * @nullable
+     */
+    isMultiple?: BoYesNoEnum;
+    /**
      * Activity Recipient Collection.
      * @nullable
      */
@@ -38,10 +44,10 @@ export declare class ActivityRecipientLists extends Entity implements ActivityRe
      */
     activities: Activities[];
     /**
-     * Returns an entity builder to construct instances `ActivityRecipientLists`.
+     * Returns an entity builder to construct instances of `ActivityRecipientLists`.
      * @returns A builder that constructs instances of entity type `ActivityRecipientLists`.
      */
-    static builder(): EntityBuilderType<ActivityRecipientLists, ActivityRecipientListsTypeForceMandatory>;
+    static builder(): EntityBuilderType<ActivityRecipientLists, ActivityRecipientListsType>;
     /**
      * Returns a request builder to construct requests for operations on the `ActivityRecipientLists` entity type.
      * @returns A `ActivityRecipientLists` request builder.
@@ -52,7 +58,7 @@ export declare class ActivityRecipientLists extends Entity implements ActivityRe
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ActivityRecipientLists`.
      */
-    static customField(fieldName: string): CustomField<ActivityRecipientLists>;
+    static customField(fieldName: string): CustomFieldV4<ActivityRecipientLists>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -63,15 +69,11 @@ export declare class ActivityRecipientLists extends Entity implements ActivityRe
 }
 import { Activities, ActivitiesType } from './Activities';
 export interface ActivityRecipientListsType {
-    code?: number;
-    name?: string;
-    activityRecipientCollection?: ActivityRecipient[];
-    activities: ActivitiesType[];
-}
-export interface ActivityRecipientListsTypeForceMandatory {
-    code: number;
-    name: string;
-    activityRecipientCollection: ActivityRecipient[];
+    code?: number | null;
+    name?: string | null;
+    active?: BoYesNoEnum | null;
+    isMultiple?: BoYesNoEnum | null;
+    activityRecipientCollection?: ActivityRecipient[] | null;
     activities: ActivitiesType[];
 }
 export declare namespace ActivityRecipientLists {
@@ -86,10 +88,20 @@ export declare namespace ActivityRecipientLists {
      */
     const NAME: StringField<ActivityRecipientLists>;
     /**
+     * Static representation of the [[active]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ACTIVE: EnumField<ActivityRecipientLists>;
+    /**
+     * Static representation of the [[isMultiple]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IS_MULTIPLE: EnumField<ActivityRecipientLists>;
+    /**
      * Static representation of the [[activityRecipientCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const ACTIVITY_RECIPIENT_COLLECTION: CollectionField<ActivityRecipientLists>;
+    const ACTIVITY_RECIPIENT_COLLECTION: CollectionField<ActivityRecipientLists, ActivityRecipient>;
     /**
      * Static representation of the one-to-many navigation property [[activities]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -98,7 +110,7 @@ export declare namespace ActivityRecipientLists {
     /**
      * All fields of the ActivityRecipientLists entity.
      */
-    const _allFields: Array<NumberField<ActivityRecipientLists> | StringField<ActivityRecipientLists> | CollectionField<ActivityRecipientLists> | OneToManyLink<ActivityRecipientLists, Activities>>;
+    const _allFields: Array<NumberField<ActivityRecipientLists> | StringField<ActivityRecipientLists> | EnumField<ActivityRecipientLists> | CollectionField<ActivityRecipientLists, ActivityRecipient> | OneToManyLink<ActivityRecipientLists, Activities>>;
     /**
      * All fields selector.
      */

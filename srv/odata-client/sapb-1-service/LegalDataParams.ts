@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * LegalDataParams
@@ -37,7 +37,7 @@ export function createLegalDataParams(json: any): LegalDataParams {
  * LegalDataParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class LegalDataParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class LegalDataParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, LegalDataParams> {
   /**
    * Representation of the [[LegalDataParams.docEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -53,14 +53,43 @@ export class LegalDataParamsField<EntityT extends Entity> extends ComplexTypeFie
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   sourceObjectEntry: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('SourceObjectEntry', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of LegalDataParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, LegalDataParams);
+  }
 }
 
 export namespace LegalDataParams {
+  /**
+   * Metadata information on all properties of the `LegalDataParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<LegalDataParams>[] = [{
+    originalName: 'DocEntry',
+    name: 'docEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SourceObjectType',
+    name: 'sourceObjectType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SourceObjectEntry',
+    name: 'sourceObjectEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): LegalDataParams {
-    return createComplexType(json, {
-      DocEntry: (docEntry: number) => ({ docEntry: edmToTs(docEntry, 'Edm.Int32') }),
-      SourceObjectType: (sourceObjectType: string) => ({ sourceObjectType: edmToTs(sourceObjectType, 'Edm.String') }),
-      SourceObjectEntry: (sourceObjectEntry: number) => ({ sourceObjectEntry: edmToTs(sourceObjectEntry, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, LegalDataParams);
   }
 }

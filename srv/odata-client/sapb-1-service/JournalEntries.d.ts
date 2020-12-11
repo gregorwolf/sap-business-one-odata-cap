@@ -2,20 +2,22 @@ import { JournalEntriesRequestBuilder } from './JournalEntriesRequestBuilder';
 import { Moment } from 'moment';
 import { JournalEntryLine } from './JournalEntryLine';
 import { WithholdingTaxData } from './WithholdingTaxData';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { PrintStatusEnum } from './PrintStatusEnum';
+import { TransTypesEnum } from './TransTypesEnum';
+import { OperationCodeTypeEnum } from './OperationCodeTypeEnum';
+import { ResidenceNumberTypeEnum } from './ResidenceNumberTypeEnum';
+import { EcdPostingTypeEnum } from './EcdPostingTypeEnum';
+import { FolioLetterEnum } from './FolioLetterEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "JournalEntries" of service "SAPB1".
  */
-export declare class JournalEntries extends Entity implements JournalEntriesType {
+export declare class JournalEntries extends EntityV4 implements JournalEntriesType {
     /**
      * Technical entity name for JournalEntries.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for JournalEntries.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -66,6 +68,11 @@ export declare class JournalEntries extends Entity implements JournalEntriesType
      */
     indicator?: string;
     /**
+     * Use Auto Storno.
+     * @nullable
+     */
+    useAutoStorno?: BoYesNoEnum;
+    /**
      * Storno Date.
      * @nullable
      */
@@ -81,10 +88,20 @@ export declare class JournalEntries extends Entity implements JournalEntriesType
      */
     series?: number;
     /**
+     * Stamp Tax.
+     * @nullable
+     */
+    stampTax?: BoYesNoEnum;
+    /**
      * Due Date.
      * @nullable
      */
     dueDate?: Moment;
+    /**
+     * Auto Vat.
+     * @nullable
+     */
+    autoVat?: BoYesNoEnum;
     /**
      * Number.
      * @nullable
@@ -101,10 +118,30 @@ export declare class JournalEntries extends Entity implements JournalEntriesType
      */
     folioPrefixString?: string;
     /**
+     * Report Eu.
+     * @nullable
+     */
+    reportEu?: BoYesNoEnum;
+    /**
+     * Report 347.
+     * @nullable
+     */
+    report347?: BoYesNoEnum;
+    /**
+     * Printed.
+     * @nullable
+     */
+    printed?: PrintStatusEnum;
+    /**
      * Location Code.
      * @nullable
      */
     locationCode?: number;
+    /**
+     * Original Journal.
+     * @nullable
+     */
+    originalJournal?: TransTypesEnum;
     /**
      * Original.
      * @nullable
@@ -115,6 +152,16 @@ export declare class JournalEntries extends Entity implements JournalEntriesType
      * @nullable
      */
     baseReference?: string;
+    /**
+     * Block Dunning Letter.
+     * @nullable
+     */
+    blockDunningLetter?: BoYesNoEnum;
+    /**
+     * Automatic Wt.
+     * @nullable
+     */
+    automaticWt?: BoYesNoEnum;
     /**
      * Wt Sum.
      * @nullable
@@ -151,6 +198,11 @@ export declare class JournalEntries extends Entity implements JournalEntriesType
      */
     privateKeyVersion?: number;
     /**
+     * Corisptivi.
+     * @nullable
+     */
+    corisptivi?: BoYesNoEnum;
+    /**
      * Reference 3.
      * @nullable
      */
@@ -161,10 +213,30 @@ export declare class JournalEntries extends Entity implements JournalEntriesType
      */
     documentType?: string;
     /**
+     * Deferred Tax.
+     * @nullable
+     */
+    deferredTax?: BoYesNoEnum;
+    /**
      * Blanket Agreement Number.
      * @nullable
      */
     blanketAgreementNumber?: number;
+    /**
+     * Operation Code.
+     * @nullable
+     */
+    operationCode?: OperationCodeTypeEnum;
+    /**
+     * Residence Number Type.
+     * @nullable
+     */
+    residenceNumberType?: ResidenceNumberTypeEnum;
+    /**
+     * Ecd Posting Type.
+     * @nullable
+     */
+    ecdPostingType?: EcdPostingTypeEnum;
     /**
      * Exposed Trans Number.
      * @nullable
@@ -176,6 +248,11 @@ export declare class JournalEntries extends Entity implements JournalEntriesType
      */
     pointOfIssueCode?: string;
     /**
+     * Letter.
+     * @nullable
+     */
+    letter?: FolioLetterEnum;
+    /**
      * Folio Number From.
      * @nullable
      */
@@ -186,10 +263,20 @@ export declare class JournalEntries extends Entity implements JournalEntriesType
      */
     folioNumberTo?: number;
     /**
+     * Is Cost Center Transfer.
+     * @nullable
+     */
+    isCostCenterTransfer?: BoYesNoEnum;
+    /**
      * Reporting Section Control Statement Vat.
      * @nullable
      */
     reportingSectionControlStatementVat?: string;
+    /**
+     * Exclude From Tax Report Control Statement Vat.
+     * @nullable
+     */
+    excludeFromTaxReportControlStatementVat?: BoYesNoEnum;
     /**
      * Journal Entry Lines.
      * @nullable
@@ -329,10 +416,10 @@ export declare class JournalEntries extends Entity implements JournalEntriesType
      */
     goodsReturnRequest: GoodsReturnRequest[];
     /**
-     * Returns an entity builder to construct instances `JournalEntries`.
+     * Returns an entity builder to construct instances of `JournalEntries`.
      * @returns A builder that constructs instances of entity type `JournalEntries`.
      */
-    static builder(): EntityBuilderType<JournalEntries, JournalEntriesTypeForceMandatory>;
+    static builder(): EntityBuilderType<JournalEntries, JournalEntriesType>;
     /**
      * Returns a request builder to construct requests for operations on the `JournalEntries` entity type.
      * @returns A `JournalEntries` request builder.
@@ -343,7 +430,7 @@ export declare class JournalEntries extends Entity implements JournalEntriesType
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `JournalEntries`.
      */
-    static customField(fieldName: string): CustomField<JournalEntries>;
+    static customField(fieldName: string): CustomFieldV4<JournalEntries>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -385,112 +472,59 @@ import { PurchaseCreditNotes, PurchaseCreditNotesType } from './PurchaseCreditNo
 import { PurchaseDownPayments, PurchaseDownPaymentsType } from './PurchaseDownPayments';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 export interface JournalEntriesType {
-    referenceDate?: Moment;
-    memo?: string;
-    reference?: string;
-    reference2?: string;
-    transactionCode?: string;
-    projectCode?: string;
-    taxDate?: Moment;
-    jdtNum?: number;
-    indicator?: string;
-    stornoDate?: Moment;
-    vatDate?: Moment;
-    series?: number;
-    dueDate?: Moment;
-    number?: number;
-    folioNumber?: number;
-    folioPrefixString?: string;
-    locationCode?: number;
-    original?: number;
-    baseReference?: string;
-    wtSum?: number;
-    wtSumSc?: number;
-    wtSumFc?: number;
-    signatureInputMessage?: string;
-    signatureDigest?: string;
-    certificationNumber?: string;
-    privateKeyVersion?: number;
-    reference3?: string;
-    documentType?: string;
-    blanketAgreementNumber?: number;
-    exposedTransNumber?: number;
-    pointOfIssueCode?: string;
-    folioNumberFrom?: number;
-    folioNumberTo?: number;
-    reportingSectionControlStatementVat?: string;
-    journalEntryLines?: JournalEntryLine[];
-    withholdingTaxDataCollection?: WithholdingTaxData[];
-    landedCosts: LandedCostsType[];
-    inventoryGenEntries: InventoryGenEntriesType[];
-    checksforPayment: ChecksforPaymentType[];
-    transactionCode2: TransactionCodesType;
-    project: ProjectsType;
-    factoringIndicator: FactoringIndicatorsType;
-    warehouseLocation: WarehouseLocationsType;
-    journalEntryDocumentType: JournalEntryDocumentTypesType;
-    blanketAgreement: BlanketAgreementsType;
-    productionOrders: ProductionOrdersType[];
-    deliveryNotes: DeliveryNotesType[];
-    inventoryGenExits: InventoryGenExitsType[];
-    returnRequest: ReturnRequestType[];
-    purchaseReturns: PurchaseReturnsType[];
-    invoices: InvoicesType[];
-    creditNotes: CreditNotesType[];
-    stockTransfers: StockTransfersType[];
-    downPayments: DownPaymentsType[];
-    drafts: DraftsType[];
-    stockTransferDrafts: StockTransferDraftsType[];
-    returns: ReturnsType[];
-    materialRevaluation: MaterialRevaluationType[];
-    correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-    correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-    correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-    purchaseInvoices: PurchaseInvoicesType[];
-    purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-    billOfExchangeTransactions: BillOfExchangeTransactionsType[];
-    correctionInvoice: CorrectionInvoiceType[];
-    purchaseCreditNotes: PurchaseCreditNotesType[];
-    purchaseDownPayments: PurchaseDownPaymentsType[];
-    goodsReturnRequest: GoodsReturnRequestType[];
-}
-export interface JournalEntriesTypeForceMandatory {
-    referenceDate: Moment;
-    memo: string;
-    reference: string;
-    reference2: string;
-    transactionCode: string;
-    projectCode: string;
-    taxDate: Moment;
-    jdtNum: number;
-    indicator: string;
-    stornoDate: Moment;
-    vatDate: Moment;
-    series: number;
-    dueDate: Moment;
-    number: number;
-    folioNumber: number;
-    folioPrefixString: string;
-    locationCode: number;
-    original: number;
-    baseReference: string;
-    wtSum: number;
-    wtSumSc: number;
-    wtSumFc: number;
-    signatureInputMessage: string;
-    signatureDigest: string;
-    certificationNumber: string;
-    privateKeyVersion: number;
-    reference3: string;
-    documentType: string;
-    blanketAgreementNumber: number;
-    exposedTransNumber: number;
-    pointOfIssueCode: string;
-    folioNumberFrom: number;
-    folioNumberTo: number;
-    reportingSectionControlStatementVat: string;
-    journalEntryLines: JournalEntryLine[];
-    withholdingTaxDataCollection: WithholdingTaxData[];
+    referenceDate?: Moment | null;
+    memo?: string | null;
+    reference?: string | null;
+    reference2?: string | null;
+    transactionCode?: string | null;
+    projectCode?: string | null;
+    taxDate?: Moment | null;
+    jdtNum?: number | null;
+    indicator?: string | null;
+    useAutoStorno?: BoYesNoEnum | null;
+    stornoDate?: Moment | null;
+    vatDate?: Moment | null;
+    series?: number | null;
+    stampTax?: BoYesNoEnum | null;
+    dueDate?: Moment | null;
+    autoVat?: BoYesNoEnum | null;
+    number?: number | null;
+    folioNumber?: number | null;
+    folioPrefixString?: string | null;
+    reportEu?: BoYesNoEnum | null;
+    report347?: BoYesNoEnum | null;
+    printed?: PrintStatusEnum | null;
+    locationCode?: number | null;
+    originalJournal?: TransTypesEnum | null;
+    original?: number | null;
+    baseReference?: string | null;
+    blockDunningLetter?: BoYesNoEnum | null;
+    automaticWt?: BoYesNoEnum | null;
+    wtSum?: number | null;
+    wtSumSc?: number | null;
+    wtSumFc?: number | null;
+    signatureInputMessage?: string | null;
+    signatureDigest?: string | null;
+    certificationNumber?: string | null;
+    privateKeyVersion?: number | null;
+    corisptivi?: BoYesNoEnum | null;
+    reference3?: string | null;
+    documentType?: string | null;
+    deferredTax?: BoYesNoEnum | null;
+    blanketAgreementNumber?: number | null;
+    operationCode?: OperationCodeTypeEnum | null;
+    residenceNumberType?: ResidenceNumberTypeEnum | null;
+    ecdPostingType?: EcdPostingTypeEnum | null;
+    exposedTransNumber?: number | null;
+    pointOfIssueCode?: string | null;
+    letter?: FolioLetterEnum | null;
+    folioNumberFrom?: number | null;
+    folioNumberTo?: number | null;
+    isCostCenterTransfer?: BoYesNoEnum | null;
+    reportingSectionControlStatementVat?: string | null;
+    excludeFromTaxReportControlStatementVat?: BoYesNoEnum | null;
+    journalEntryLines?: JournalEntryLine[] | null;
+    withholdingTaxDataCollection?: WithholdingTaxData[] | null;
     landedCosts: LandedCostsType[];
     inventoryGenEntries: InventoryGenEntriesType[];
     checksforPayment: ChecksforPaymentType[];
@@ -571,6 +605,11 @@ export declare namespace JournalEntries {
      */
     const INDICATOR: StringField<JournalEntries>;
     /**
+     * Static representation of the [[useAutoStorno]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const USE_AUTO_STORNO: EnumField<JournalEntries>;
+    /**
      * Static representation of the [[stornoDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -586,10 +625,20 @@ export declare namespace JournalEntries {
      */
     const SERIES: NumberField<JournalEntries>;
     /**
+     * Static representation of the [[stampTax]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const STAMP_TAX: EnumField<JournalEntries>;
+    /**
      * Static representation of the [[dueDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DUE_DATE: DateField<JournalEntries>;
+    /**
+     * Static representation of the [[autoVat]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const AUTO_VAT: EnumField<JournalEntries>;
     /**
      * Static representation of the [[number]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -606,10 +655,30 @@ export declare namespace JournalEntries {
      */
     const FOLIO_PREFIX_STRING: StringField<JournalEntries>;
     /**
+     * Static representation of the [[reportEu]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REPORT_EU: EnumField<JournalEntries>;
+    /**
+     * Static representation of the [[report347]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REPORT_347: EnumField<JournalEntries>;
+    /**
+     * Static representation of the [[printed]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PRINTED: EnumField<JournalEntries>;
+    /**
      * Static representation of the [[locationCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const LOCATION_CODE: NumberField<JournalEntries>;
+    /**
+     * Static representation of the [[originalJournal]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ORIGINAL_JOURNAL: EnumField<JournalEntries>;
     /**
      * Static representation of the [[original]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -620,6 +689,16 @@ export declare namespace JournalEntries {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const BASE_REFERENCE: StringField<JournalEntries>;
+    /**
+     * Static representation of the [[blockDunningLetter]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BLOCK_DUNNING_LETTER: EnumField<JournalEntries>;
+    /**
+     * Static representation of the [[automaticWt]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const AUTOMATIC_WT: EnumField<JournalEntries>;
     /**
      * Static representation of the [[wtSum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -656,6 +735,11 @@ export declare namespace JournalEntries {
      */
     const PRIVATE_KEY_VERSION: NumberField<JournalEntries>;
     /**
+     * Static representation of the [[corisptivi]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CORISPTIVI: EnumField<JournalEntries>;
+    /**
      * Static representation of the [[reference3]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -666,10 +750,30 @@ export declare namespace JournalEntries {
      */
     const DOCUMENT_TYPE: StringField<JournalEntries>;
     /**
+     * Static representation of the [[deferredTax]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DEFERRED_TAX: EnumField<JournalEntries>;
+    /**
      * Static representation of the [[blanketAgreementNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const BLANKET_AGREEMENT_NUMBER: NumberField<JournalEntries>;
+    /**
+     * Static representation of the [[operationCode]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const OPERATION_CODE: EnumField<JournalEntries>;
+    /**
+     * Static representation of the [[residenceNumberType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RESIDENCE_NUMBER_TYPE: EnumField<JournalEntries>;
+    /**
+     * Static representation of the [[ecdPostingType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ECD_POSTING_TYPE: EnumField<JournalEntries>;
     /**
      * Static representation of the [[exposedTransNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -681,6 +785,11 @@ export declare namespace JournalEntries {
      */
     const POINT_OF_ISSUE_CODE: StringField<JournalEntries>;
     /**
+     * Static representation of the [[letter]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const LETTER: EnumField<JournalEntries>;
+    /**
      * Static representation of the [[folioNumberFrom]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -691,20 +800,30 @@ export declare namespace JournalEntries {
      */
     const FOLIO_NUMBER_TO: NumberField<JournalEntries>;
     /**
+     * Static representation of the [[isCostCenterTransfer]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IS_COST_CENTER_TRANSFER: EnumField<JournalEntries>;
+    /**
      * Static representation of the [[reportingSectionControlStatementVat]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const REPORTING_SECTION_CONTROL_STATEMENT_VAT: StringField<JournalEntries>;
     /**
+     * Static representation of the [[excludeFromTaxReportControlStatementVat]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const EXCLUDE_FROM_TAX_REPORT_CONTROL_STATEMENT_VAT: EnumField<JournalEntries>;
+    /**
      * Static representation of the [[journalEntryLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const JOURNAL_ENTRY_LINES: CollectionField<JournalEntries>;
+    const JOURNAL_ENTRY_LINES: CollectionField<JournalEntries, JournalEntryLine>;
     /**
      * Static representation of the [[withholdingTaxDataCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const WITHHOLDING_TAX_DATA_COLLECTION: CollectionField<JournalEntries>;
+    const WITHHOLDING_TAX_DATA_COLLECTION: CollectionField<JournalEntries, WithholdingTaxData>;
     /**
      * Static representation of the one-to-many navigation property [[landedCosts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -868,7 +987,7 @@ export declare namespace JournalEntries {
     /**
      * All fields of the JournalEntries entity.
      */
-    const _allFields: Array<DateField<JournalEntries> | StringField<JournalEntries> | NumberField<JournalEntries> | CollectionField<JournalEntries> | OneToManyLink<JournalEntries, LandedCosts> | OneToManyLink<JournalEntries, InventoryGenEntries> | OneToManyLink<JournalEntries, ChecksforPayment> | OneToOneLink<JournalEntries, TransactionCodes> | OneToOneLink<JournalEntries, Projects> | OneToOneLink<JournalEntries, FactoringIndicators> | OneToOneLink<JournalEntries, WarehouseLocations> | OneToOneLink<JournalEntries, JournalEntryDocumentTypes> | OneToOneLink<JournalEntries, BlanketAgreements> | OneToManyLink<JournalEntries, ProductionOrders> | OneToManyLink<JournalEntries, DeliveryNotes> | OneToManyLink<JournalEntries, InventoryGenExits> | OneToManyLink<JournalEntries, ReturnRequest> | OneToManyLink<JournalEntries, PurchaseReturns> | OneToManyLink<JournalEntries, Invoices> | OneToManyLink<JournalEntries, CreditNotes> | OneToManyLink<JournalEntries, StockTransfers> | OneToManyLink<JournalEntries, DownPayments> | OneToManyLink<JournalEntries, Drafts> | OneToManyLink<JournalEntries, StockTransferDrafts> | OneToManyLink<JournalEntries, Returns> | OneToManyLink<JournalEntries, MaterialRevaluation> | OneToManyLink<JournalEntries, CorrectionInvoiceReversal> | OneToManyLink<JournalEntries, CorrectionPurchaseInvoice> | OneToManyLink<JournalEntries, CorrectionPurchaseInvoiceReversal> | OneToManyLink<JournalEntries, PurchaseInvoices> | OneToManyLink<JournalEntries, PurchaseDeliveryNotes> | OneToManyLink<JournalEntries, BillOfExchangeTransactions> | OneToManyLink<JournalEntries, CorrectionInvoice> | OneToManyLink<JournalEntries, PurchaseCreditNotes> | OneToManyLink<JournalEntries, PurchaseDownPayments> | OneToManyLink<JournalEntries, GoodsReturnRequest>>;
+    const _allFields: Array<DateField<JournalEntries> | StringField<JournalEntries> | NumberField<JournalEntries> | EnumField<JournalEntries> | CollectionField<JournalEntries, JournalEntryLine> | CollectionField<JournalEntries, WithholdingTaxData> | OneToManyLink<JournalEntries, LandedCosts> | OneToManyLink<JournalEntries, InventoryGenEntries> | OneToManyLink<JournalEntries, ChecksforPayment> | OneToOneLink<JournalEntries, TransactionCodes> | OneToOneLink<JournalEntries, Projects> | OneToOneLink<JournalEntries, FactoringIndicators> | OneToOneLink<JournalEntries, WarehouseLocations> | OneToOneLink<JournalEntries, JournalEntryDocumentTypes> | OneToOneLink<JournalEntries, BlanketAgreements> | OneToManyLink<JournalEntries, ProductionOrders> | OneToManyLink<JournalEntries, DeliveryNotes> | OneToManyLink<JournalEntries, InventoryGenExits> | OneToManyLink<JournalEntries, ReturnRequest> | OneToManyLink<JournalEntries, PurchaseReturns> | OneToManyLink<JournalEntries, Invoices> | OneToManyLink<JournalEntries, CreditNotes> | OneToManyLink<JournalEntries, StockTransfers> | OneToManyLink<JournalEntries, DownPayments> | OneToManyLink<JournalEntries, Drafts> | OneToManyLink<JournalEntries, StockTransferDrafts> | OneToManyLink<JournalEntries, Returns> | OneToManyLink<JournalEntries, MaterialRevaluation> | OneToManyLink<JournalEntries, CorrectionInvoiceReversal> | OneToManyLink<JournalEntries, CorrectionPurchaseInvoice> | OneToManyLink<JournalEntries, CorrectionPurchaseInvoiceReversal> | OneToManyLink<JournalEntries, PurchaseInvoices> | OneToManyLink<JournalEntries, PurchaseDeliveryNotes> | OneToManyLink<JournalEntries, BillOfExchangeTransactions> | OneToManyLink<JournalEntries, CorrectionInvoice> | OneToManyLink<JournalEntries, PurchaseCreditNotes> | OneToManyLink<JournalEntries, PurchaseDownPayments> | OneToManyLink<JournalEntries, GoodsReturnRequest>>;
     /**
      * All fields selector.
      */

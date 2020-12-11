@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { TransactionCodes } from './TransactionCodes';
 
 /**
@@ -15,16 +15,16 @@ export class TransactionCodesRequestBuilder extends RequestBuilder<TransactionCo
    * @param code Key property. See [[TransactionCodes.code]].
    * @returns A request builder for creating requests to retrieve one `TransactionCodes` entity based on its keys.
    */
-  getByKey(code: string): GetByKeyRequestBuilder<TransactionCodes> {
-    return new GetByKeyRequestBuilder(TransactionCodes, { Code: code });
+  getByKey(code: string): GetByKeyRequestBuilderV4<TransactionCodes> {
+    return new GetByKeyRequestBuilderV4(TransactionCodes, { Code: code });
   }
 
   /**
    * Returns a request builder for querying all `TransactionCodes` entities.
    * @returns A request builder for creating requests to retrieve all `TransactionCodes` entities.
    */
-  getAll(): GetAllRequestBuilder<TransactionCodes> {
-    return new GetAllRequestBuilder(TransactionCodes);
+  getAll(): GetAllRequestBuilderV4<TransactionCodes> {
+    return new GetAllRequestBuilderV4(TransactionCodes);
   }
 
   /**
@@ -32,8 +32,8 @@ export class TransactionCodesRequestBuilder extends RequestBuilder<TransactionCo
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `TransactionCodes`.
    */
-  create(entity: TransactionCodes): CreateRequestBuilder<TransactionCodes> {
-    return new CreateRequestBuilder(TransactionCodes, entity);
+  create(entity: TransactionCodes): CreateRequestBuilderV4<TransactionCodes> {
+    return new CreateRequestBuilderV4(TransactionCodes, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class TransactionCodesRequestBuilder extends RequestBuilder<TransactionCo
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `TransactionCodes`.
    */
-  update(entity: TransactionCodes): UpdateRequestBuilder<TransactionCodes> {
-    return new UpdateRequestBuilder(TransactionCodes, entity);
+  update(entity: TransactionCodes): UpdateRequestBuilderV4<TransactionCodes> {
+    return new UpdateRequestBuilderV4(TransactionCodes, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class TransactionCodesRequestBuilder extends RequestBuilder<TransactionCo
    * @param code Key property. See [[TransactionCodes.code]].
    * @returns A request builder for creating requests that delete an entity of type `TransactionCodes`.
    */
-  delete(code: string): DeleteRequestBuilder<TransactionCodes>;
+  delete(code: string): DeleteRequestBuilderV4<TransactionCodes>;
   /**
    * Returns a request builder for deleting an entity of type `TransactionCodes`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `TransactionCodes` by taking the entity as a parameter.
    */
-  delete(entity: TransactionCodes): DeleteRequestBuilder<TransactionCodes>;
-  delete(codeOrEntity: any): DeleteRequestBuilder<TransactionCodes> {
-    return new DeleteRequestBuilder(TransactionCodes, codeOrEntity instanceof TransactionCodes ? codeOrEntity : { Code: codeOrEntity! });
+  delete(entity: TransactionCodes): DeleteRequestBuilderV4<TransactionCodes>;
+  delete(codeOrEntity: any): DeleteRequestBuilderV4<TransactionCodes> {
+    return new DeleteRequestBuilderV4(TransactionCodes, codeOrEntity instanceof TransactionCodes ? codeOrEntity : { Code: codeOrEntity! });
   }
 }

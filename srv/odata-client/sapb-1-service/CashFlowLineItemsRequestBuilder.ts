@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { CashFlowLineItems } from './CashFlowLineItems';
 
 /**
@@ -15,16 +15,16 @@ export class CashFlowLineItemsRequestBuilder extends RequestBuilder<CashFlowLine
    * @param lineItemId Key property. See [[CashFlowLineItems.lineItemId]].
    * @returns A request builder for creating requests to retrieve one `CashFlowLineItems` entity based on its keys.
    */
-  getByKey(lineItemId: number): GetByKeyRequestBuilder<CashFlowLineItems> {
-    return new GetByKeyRequestBuilder(CashFlowLineItems, { LineItemID: lineItemId });
+  getByKey(lineItemId: number): GetByKeyRequestBuilderV4<CashFlowLineItems> {
+    return new GetByKeyRequestBuilderV4(CashFlowLineItems, { LineItemID: lineItemId });
   }
 
   /**
    * Returns a request builder for querying all `CashFlowLineItems` entities.
    * @returns A request builder for creating requests to retrieve all `CashFlowLineItems` entities.
    */
-  getAll(): GetAllRequestBuilder<CashFlowLineItems> {
-    return new GetAllRequestBuilder(CashFlowLineItems);
+  getAll(): GetAllRequestBuilderV4<CashFlowLineItems> {
+    return new GetAllRequestBuilderV4(CashFlowLineItems);
   }
 
   /**
@@ -32,8 +32,8 @@ export class CashFlowLineItemsRequestBuilder extends RequestBuilder<CashFlowLine
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `CashFlowLineItems`.
    */
-  create(entity: CashFlowLineItems): CreateRequestBuilder<CashFlowLineItems> {
-    return new CreateRequestBuilder(CashFlowLineItems, entity);
+  create(entity: CashFlowLineItems): CreateRequestBuilderV4<CashFlowLineItems> {
+    return new CreateRequestBuilderV4(CashFlowLineItems, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class CashFlowLineItemsRequestBuilder extends RequestBuilder<CashFlowLine
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `CashFlowLineItems`.
    */
-  update(entity: CashFlowLineItems): UpdateRequestBuilder<CashFlowLineItems> {
-    return new UpdateRequestBuilder(CashFlowLineItems, entity);
+  update(entity: CashFlowLineItems): UpdateRequestBuilderV4<CashFlowLineItems> {
+    return new UpdateRequestBuilderV4(CashFlowLineItems, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class CashFlowLineItemsRequestBuilder extends RequestBuilder<CashFlowLine
    * @param lineItemId Key property. See [[CashFlowLineItems.lineItemId]].
    * @returns A request builder for creating requests that delete an entity of type `CashFlowLineItems`.
    */
-  delete(lineItemId: number): DeleteRequestBuilder<CashFlowLineItems>;
+  delete(lineItemId: number): DeleteRequestBuilderV4<CashFlowLineItems>;
   /**
    * Returns a request builder for deleting an entity of type `CashFlowLineItems`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `CashFlowLineItems` by taking the entity as a parameter.
    */
-  delete(entity: CashFlowLineItems): DeleteRequestBuilder<CashFlowLineItems>;
-  delete(lineItemIdOrEntity: any): DeleteRequestBuilder<CashFlowLineItems> {
-    return new DeleteRequestBuilder(CashFlowLineItems, lineItemIdOrEntity instanceof CashFlowLineItems ? lineItemIdOrEntity : { LineItemID: lineItemIdOrEntity! });
+  delete(entity: CashFlowLineItems): DeleteRequestBuilderV4<CashFlowLineItems>;
+  delete(lineItemIdOrEntity: any): DeleteRequestBuilderV4<CashFlowLineItems> {
+    return new DeleteRequestBuilderV4(CashFlowLineItems, lineItemIdOrEntity instanceof CashFlowLineItems ? lineItemIdOrEntity : { LineItemID: lineItemIdOrEntity! });
   }
 }

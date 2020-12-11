@@ -4,7 +4,8 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { WtdDetailType } from './WtdDetailType';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * Wtdbp
@@ -40,6 +41,11 @@ export interface Wtdbp {
    * @nullable
    */
   rate?: number;
+  /**
+   * Detail Type.
+   * @nullable
+   */
+  detailType?: WtdDetailType;
 }
 
 /**
@@ -53,7 +59,7 @@ export function createWtdbp(json: any): Wtdbp {
  * WtdbpField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class WtdbpField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class WtdbpField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, Wtdbp> {
   /**
    * Representation of the [[Wtdbp.bpKeyPart1]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -84,17 +90,68 @@ export class WtdbpField<EntityT extends Entity> extends ComplexTypeField<EntityT
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   rate: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('Rate', this, 'Edm.Double');
+  /**
+   * Representation of the [[Wtdbp.detailType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  detailType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DetailType', this);
+
+  /**
+   * Creates an instance of WtdbpField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, Wtdbp);
+  }
 }
 
 export namespace Wtdbp {
+  /**
+   * Metadata information on all properties of the `Wtdbp` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<Wtdbp>[] = [{
+    originalName: 'BPKeyPart1',
+    name: 'bpKeyPart1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPKeyPart2',
+    name: 'bpKeyPart2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WTaxCode',
+    name: 'wTaxCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'EffectiveDateFrom',
+    name: 'effectiveDateFrom',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'EffectiveDateTo',
+    name: 'effectiveDateTo',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Rate',
+    name: 'rate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DetailType',
+    name: 'detailType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): Wtdbp {
-    return createComplexType(json, {
-      BPKeyPart1: (bpKeyPart1: string) => ({ bpKeyPart1: edmToTs(bpKeyPart1, 'Edm.String') }),
-      BPKeyPart2: (bpKeyPart2: string) => ({ bpKeyPart2: edmToTs(bpKeyPart2, 'Edm.String') }),
-      WTaxCode: (wTaxCode: string) => ({ wTaxCode: edmToTs(wTaxCode, 'Edm.String') }),
-      EffectiveDateFrom: (effectiveDateFrom: Moment) => ({ effectiveDateFrom: edmToTs(effectiveDateFrom, 'Edm.DateTimeOffset') }),
-      EffectiveDateTo: (effectiveDateTo: Moment) => ({ effectiveDateTo: edmToTs(effectiveDateTo, 'Edm.DateTimeOffset') }),
-      Rate: (rate: number) => ({ rate: edmToTs(rate, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, Wtdbp);
   }
 }

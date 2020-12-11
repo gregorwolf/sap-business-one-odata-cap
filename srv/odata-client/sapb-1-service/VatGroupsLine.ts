@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * VatGroupsLine
@@ -43,7 +43,7 @@ export function createVatGroupsLine(json: any): VatGroupsLine {
  * VatGroupsLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class VatGroupsLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class VatGroupsLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, VatGroupsLine> {
   /**
    * Representation of the [[VatGroupsLine.effectivefrom]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -64,15 +64,48 @@ export class VatGroupsLineField<EntityT extends Entity> extends ComplexTypeField
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   datevCode: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DatevCode', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of VatGroupsLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, VatGroupsLine);
+  }
 }
 
 export namespace VatGroupsLine {
+  /**
+   * Metadata information on all properties of the `VatGroupsLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<VatGroupsLine>[] = [{
+    originalName: 'Effectivefrom',
+    name: 'effectivefrom',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Rate',
+    name: 'rate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'EqualizationTax',
+    name: 'equalizationTax',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DatevCode',
+    name: 'datevCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): VatGroupsLine {
-    return createComplexType(json, {
-      Effectivefrom: (effectivefrom: Moment) => ({ effectivefrom: edmToTs(effectivefrom, 'Edm.DateTimeOffset') }),
-      Rate: (rate: number) => ({ rate: edmToTs(rate, 'Edm.Double') }),
-      EqualizationTax: (equalizationTax: number) => ({ equalizationTax: edmToTs(equalizationTax, 'Edm.Double') }),
-      DatevCode: (datevCode: number) => ({ datevCode: edmToTs(datevCode, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, VatGroupsLine);
   }
 }

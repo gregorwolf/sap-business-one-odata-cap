@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.IntegrationPackagesConfigure = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var IntegrationPackagesConfigureRequestBuilder_1 = require("./IntegrationPackagesConfigureRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "IntegrationPackagesConfigure" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var IntegrationPackagesConfigure = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `IntegrationPackagesConfigure`.
+     * Returns an entity builder to construct instances of `IntegrationPackagesConfigure`.
      * @returns A builder that constructs instances of entity type `IntegrationPackagesConfigure`.
      */
     IntegrationPackagesConfigure.builder = function () {
-        return v4_1.Entity.entityBuilder(IntegrationPackagesConfigure);
+        return core_1.EntityV4.entityBuilder(IntegrationPackagesConfigure);
     };
     /**
      * Returns a request builder to construct requests for operations on the `IntegrationPackagesConfigure` entity type.
@@ -60,7 +60,7 @@ var IntegrationPackagesConfigure = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `IntegrationPackagesConfigure`.
      */
     IntegrationPackagesConfigure.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, IntegrationPackagesConfigure);
+        return core_1.EntityV4.customFieldSelector(fieldName, IntegrationPackagesConfigure);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,45 +74,46 @@ var IntegrationPackagesConfigure = /** @class */ (function (_super) {
      */
     IntegrationPackagesConfigure._entityName = 'IntegrationPackagesConfigure';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for IntegrationPackagesConfigure.
-     */
-    IntegrationPackagesConfigure._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    IntegrationPackagesConfigure._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    IntegrationPackagesConfigure._defaultServicePath = '/b1s/v2/';
     return IntegrationPackagesConfigure;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.IntegrationPackagesConfigure = IntegrationPackagesConfigure;
 (function (IntegrationPackagesConfigure) {
     /**
      * Static representation of the [[absEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    IntegrationPackagesConfigure.ABS_ENTRY = new v4_1.NumberField('AbsEntry', IntegrationPackagesConfigure, 'Edm.Int32');
+    IntegrationPackagesConfigure.ABS_ENTRY = new core_1.NumberField('AbsEntry', IntegrationPackagesConfigure, 'Edm.Int32');
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    IntegrationPackagesConfigure.CODE = new v4_1.StringField('Code', IntegrationPackagesConfigure, 'Edm.String');
+    IntegrationPackagesConfigure.CODE = new core_1.StringField('Code', IntegrationPackagesConfigure, 'Edm.String');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    IntegrationPackagesConfigure.NAME = new v4_1.StringField('Name', IntegrationPackagesConfigure, 'Edm.String');
+    IntegrationPackagesConfigure.NAME = new core_1.StringField('Name', IntegrationPackagesConfigure, 'Edm.String');
+    /**
+     * Static representation of the [[isEnable]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    IntegrationPackagesConfigure.IS_ENABLE = new core_1.EnumField('IsEnable', IntegrationPackagesConfigure);
     /**
      * All fields of the IntegrationPackagesConfigure entity.
      */
     IntegrationPackagesConfigure._allFields = [
         IntegrationPackagesConfigure.ABS_ENTRY,
         IntegrationPackagesConfigure.CODE,
-        IntegrationPackagesConfigure.NAME
+        IntegrationPackagesConfigure.NAME,
+        IntegrationPackagesConfigure.IS_ENABLE
     ];
     /**
      * All fields selector.
      */
-    IntegrationPackagesConfigure.ALL_FIELDS = new v4_1.AllFields('*', IntegrationPackagesConfigure);
+    IntegrationPackagesConfigure.ALL_FIELDS = new core_1.AllFields('*', IntegrationPackagesConfigure);
     /**
      * All key fields of the IntegrationPackagesConfigure entity.
      */

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { Resources } from './Resources';
 
 /**
@@ -15,16 +15,16 @@ export class ResourcesRequestBuilder extends RequestBuilder<Resources> {
    * @param code Key property. See [[Resources.code]].
    * @returns A request builder for creating requests to retrieve one `Resources` entity based on its keys.
    */
-  getByKey(code: string): GetByKeyRequestBuilder<Resources> {
-    return new GetByKeyRequestBuilder(Resources, { Code: code });
+  getByKey(code: string): GetByKeyRequestBuilderV4<Resources> {
+    return new GetByKeyRequestBuilderV4(Resources, { Code: code });
   }
 
   /**
    * Returns a request builder for querying all `Resources` entities.
    * @returns A request builder for creating requests to retrieve all `Resources` entities.
    */
-  getAll(): GetAllRequestBuilder<Resources> {
-    return new GetAllRequestBuilder(Resources);
+  getAll(): GetAllRequestBuilderV4<Resources> {
+    return new GetAllRequestBuilderV4(Resources);
   }
 
   /**
@@ -32,8 +32,8 @@ export class ResourcesRequestBuilder extends RequestBuilder<Resources> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `Resources`.
    */
-  create(entity: Resources): CreateRequestBuilder<Resources> {
-    return new CreateRequestBuilder(Resources, entity);
+  create(entity: Resources): CreateRequestBuilderV4<Resources> {
+    return new CreateRequestBuilderV4(Resources, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class ResourcesRequestBuilder extends RequestBuilder<Resources> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `Resources`.
    */
-  update(entity: Resources): UpdateRequestBuilder<Resources> {
-    return new UpdateRequestBuilder(Resources, entity);
+  update(entity: Resources): UpdateRequestBuilderV4<Resources> {
+    return new UpdateRequestBuilderV4(Resources, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class ResourcesRequestBuilder extends RequestBuilder<Resources> {
    * @param code Key property. See [[Resources.code]].
    * @returns A request builder for creating requests that delete an entity of type `Resources`.
    */
-  delete(code: string): DeleteRequestBuilder<Resources>;
+  delete(code: string): DeleteRequestBuilderV4<Resources>;
   /**
    * Returns a request builder for deleting an entity of type `Resources`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `Resources` by taking the entity as a parameter.
    */
-  delete(entity: Resources): DeleteRequestBuilder<Resources>;
-  delete(codeOrEntity: any): DeleteRequestBuilder<Resources> {
-    return new DeleteRequestBuilder(Resources, codeOrEntity instanceof Resources ? codeOrEntity : { Code: codeOrEntity! });
+  delete(entity: Resources): DeleteRequestBuilderV4<Resources>;
+  delete(codeOrEntity: any): DeleteRequestBuilderV4<Resources> {
+    return new DeleteRequestBuilderV4(Resources, codeOrEntity instanceof Resources ? codeOrEntity : { Code: codeOrEntity! });
   }
 }

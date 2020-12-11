@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { KpIs } from './KpIs';
 
 /**
@@ -15,16 +15,16 @@ export class KpIsRequestBuilder extends RequestBuilder<KpIs> {
    * @param kpiCode Key property. See [[KpIs.kpiCode]].
    * @returns A request builder for creating requests to retrieve one `KpIs` entity based on its keys.
    */
-  getByKey(kpiCode: string): GetByKeyRequestBuilder<KpIs> {
-    return new GetByKeyRequestBuilder(KpIs, { KPICode: kpiCode });
+  getByKey(kpiCode: string): GetByKeyRequestBuilderV4<KpIs> {
+    return new GetByKeyRequestBuilderV4(KpIs, { KPICode: kpiCode });
   }
 
   /**
    * Returns a request builder for querying all `KpIs` entities.
    * @returns A request builder for creating requests to retrieve all `KpIs` entities.
    */
-  getAll(): GetAllRequestBuilder<KpIs> {
-    return new GetAllRequestBuilder(KpIs);
+  getAll(): GetAllRequestBuilderV4<KpIs> {
+    return new GetAllRequestBuilderV4(KpIs);
   }
 
   /**
@@ -32,8 +32,8 @@ export class KpIsRequestBuilder extends RequestBuilder<KpIs> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `KpIs`.
    */
-  create(entity: KpIs): CreateRequestBuilder<KpIs> {
-    return new CreateRequestBuilder(KpIs, entity);
+  create(entity: KpIs): CreateRequestBuilderV4<KpIs> {
+    return new CreateRequestBuilderV4(KpIs, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class KpIsRequestBuilder extends RequestBuilder<KpIs> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `KpIs`.
    */
-  update(entity: KpIs): UpdateRequestBuilder<KpIs> {
-    return new UpdateRequestBuilder(KpIs, entity);
+  update(entity: KpIs): UpdateRequestBuilderV4<KpIs> {
+    return new UpdateRequestBuilderV4(KpIs, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class KpIsRequestBuilder extends RequestBuilder<KpIs> {
    * @param kpiCode Key property. See [[KpIs.kpiCode]].
    * @returns A request builder for creating requests that delete an entity of type `KpIs`.
    */
-  delete(kpiCode: string): DeleteRequestBuilder<KpIs>;
+  delete(kpiCode: string): DeleteRequestBuilderV4<KpIs>;
   /**
    * Returns a request builder for deleting an entity of type `KpIs`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `KpIs` by taking the entity as a parameter.
    */
-  delete(entity: KpIs): DeleteRequestBuilder<KpIs>;
-  delete(kpiCodeOrEntity: any): DeleteRequestBuilder<KpIs> {
-    return new DeleteRequestBuilder(KpIs, kpiCodeOrEntity instanceof KpIs ? kpiCodeOrEntity : { KPICode: kpiCodeOrEntity! });
+  delete(entity: KpIs): DeleteRequestBuilderV4<KpIs>;
+  delete(kpiCodeOrEntity: any): DeleteRequestBuilderV4<KpIs> {
+    return new DeleteRequestBuilderV4(KpIs, kpiCodeOrEntity instanceof KpIs ? kpiCodeOrEntity : { KPICode: kpiCodeOrEntity! });
   }
 }

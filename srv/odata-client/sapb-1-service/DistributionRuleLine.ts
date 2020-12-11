@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * DistributionRuleLine
@@ -43,7 +43,7 @@ export function createDistributionRuleLine(json: any): DistributionRuleLine {
  * DistributionRuleLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class DistributionRuleLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class DistributionRuleLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, DistributionRuleLine> {
   /**
    * Representation of the [[DistributionRuleLine.centerCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -64,15 +64,48 @@ export class DistributionRuleLineField<EntityT extends Entity> extends ComplexTy
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   effectiveTo: ComplexTypeDatePropertyField<EntityT> = new ComplexTypeDatePropertyField('EffectiveTo', this, 'Edm.DateTimeOffset');
+
+  /**
+   * Creates an instance of DistributionRuleLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, DistributionRuleLine);
+  }
 }
 
 export namespace DistributionRuleLine {
+  /**
+   * Metadata information on all properties of the `DistributionRuleLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<DistributionRuleLine>[] = [{
+    originalName: 'CenterCode',
+    name: 'centerCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TotalInCenter',
+    name: 'totalInCenter',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'EffectiveFrom',
+    name: 'effectiveFrom',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'EffectiveTo',
+    name: 'effectiveTo',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): DistributionRuleLine {
-    return createComplexType(json, {
-      CenterCode: (centerCode: string) => ({ centerCode: edmToTs(centerCode, 'Edm.String') }),
-      TotalInCenter: (totalInCenter: number) => ({ totalInCenter: edmToTs(totalInCenter, 'Edm.Double') }),
-      EffectiveFrom: (effectiveFrom: Moment) => ({ effectiveFrom: edmToTs(effectiveFrom, 'Edm.DateTimeOffset') }),
-      EffectiveTo: (effectiveTo: Moment) => ({ effectiveTo: edmToTs(effectiveTo, 'Edm.DateTimeOffset') })
-    });
+    return deserializeComplexTypeV4(json, DistributionRuleLine);
   }
 }

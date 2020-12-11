@@ -1,19 +1,15 @@
 import { SalesTaxAuthoritiesRequestBuilder } from './SalesTaxAuthoritiesRequestBuilder';
 import { TaxDefinition } from './TaxDefinition';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "SalesTaxAuthorities" of service "SAPB1".
  */
-export declare class SalesTaxAuthorities extends Entity implements SalesTaxAuthoritiesType {
+export declare class SalesTaxAuthorities extends EntityV4 implements SalesTaxAuthoritiesType {
     /**
      * Technical entity name for SalesTaxAuthorities.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for SalesTaxAuthorities.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -89,6 +85,16 @@ export declare class SalesTaxAuthorities extends Entity implements SalesTaxAutho
      */
     flatTaxAmount?: number;
     /**
+     * Incl In Price.
+     * @nullable
+     */
+    inclInPrice?: BoYesNoEnum;
+    /**
+     * Exempt.
+     * @nullable
+     */
+    exempt?: BoYesNoEnum;
+    /**
      * Ap Exp Account.
      * @nullable
      */
@@ -98,6 +104,11 @@ export declare class SalesTaxAuthorities extends Entity implements SalesTaxAutho
      * @nullable
      */
     arExpAccount?: string;
+    /**
+     * Incl In Gross Revenue.
+     * @nullable
+     */
+    inclInGrossRevenue?: BoYesNoEnum;
     /**
      * Text Code.
      * @nullable
@@ -121,10 +132,10 @@ export declare class SalesTaxAuthorities extends Entity implements SalesTaxAutho
      */
     salesTaxAuthoritiesType: SalesTaxAuthoritiesTypes;
     /**
-     * Returns an entity builder to construct instances `SalesTaxAuthorities`.
+     * Returns an entity builder to construct instances of `SalesTaxAuthorities`.
      * @returns A builder that constructs instances of entity type `SalesTaxAuthorities`.
      */
-    static builder(): EntityBuilderType<SalesTaxAuthorities, SalesTaxAuthoritiesTypeForceMandatory>;
+    static builder(): EntityBuilderType<SalesTaxAuthorities, SalesTaxAuthoritiesType>;
     /**
      * Returns a request builder to construct requests for operations on the `SalesTaxAuthorities` entity type.
      * @returns A `SalesTaxAuthorities` request builder.
@@ -135,7 +146,7 @@ export declare class SalesTaxAuthorities extends Entity implements SalesTaxAutho
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `SalesTaxAuthorities`.
      */
-    static customField(fieldName: string): CustomField<SalesTaxAuthorities>;
+    static customField(fieldName: string): CustomFieldV4<SalesTaxAuthorities>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -148,47 +159,27 @@ import { ChartOfAccounts, ChartOfAccountsType } from './ChartOfAccounts';
 import { Users, UsersType } from './Users';
 import { SalesTaxAuthoritiesTypes, SalesTaxAuthoritiesTypesType } from './SalesTaxAuthoritiesTypes';
 export interface SalesTaxAuthoritiesType {
-    useTaxAccount?: string;
-    userSignature?: number;
-    type?: number;
-    aOrRTaxAccount?: string;
-    rate?: number;
-    aOrPTaxAccount?: string;
-    nonDeductiblePrecent?: number;
-    nonDeductibleAccount?: string;
-    name?: string;
-    deferredTaxAccount?: string;
-    code?: string;
-    minTaxableAmount?: number;
-    maxTaxableAmount?: number;
-    flatTaxAmount?: number;
-    apExpAccount?: string;
-    arExpAccount?: string;
-    textCode?: number;
-    taxDefinitions?: TaxDefinition[];
-    chartOfAccount: ChartOfAccountsType;
-    user: UsersType;
-    salesTaxAuthoritiesType: SalesTaxAuthoritiesTypesType;
-}
-export interface SalesTaxAuthoritiesTypeForceMandatory {
-    useTaxAccount: string;
-    userSignature: number;
-    type: number;
-    aOrRTaxAccount: string;
-    rate: number;
-    aOrPTaxAccount: string;
-    nonDeductiblePrecent: number;
-    nonDeductibleAccount: string;
-    name: string;
-    deferredTaxAccount: string;
-    code: string;
-    minTaxableAmount: number;
-    maxTaxableAmount: number;
-    flatTaxAmount: number;
-    apExpAccount: string;
-    arExpAccount: string;
-    textCode: number;
-    taxDefinitions: TaxDefinition[];
+    useTaxAccount?: string | null;
+    userSignature?: number | null;
+    type?: number | null;
+    aOrRTaxAccount?: string | null;
+    rate?: number | null;
+    aOrPTaxAccount?: string | null;
+    nonDeductiblePrecent?: number | null;
+    nonDeductibleAccount?: string | null;
+    name?: string | null;
+    deferredTaxAccount?: string | null;
+    code?: string | null;
+    minTaxableAmount?: number | null;
+    maxTaxableAmount?: number | null;
+    flatTaxAmount?: number | null;
+    inclInPrice?: BoYesNoEnum | null;
+    exempt?: BoYesNoEnum | null;
+    apExpAccount?: string | null;
+    arExpAccount?: string | null;
+    inclInGrossRevenue?: BoYesNoEnum | null;
+    textCode?: number | null;
+    taxDefinitions?: TaxDefinition[] | null;
     chartOfAccount: ChartOfAccountsType;
     user: UsersType;
     salesTaxAuthoritiesType: SalesTaxAuthoritiesTypesType;
@@ -265,6 +256,16 @@ export declare namespace SalesTaxAuthorities {
      */
     const FLAT_TAX_AMOUNT: NumberField<SalesTaxAuthorities>;
     /**
+     * Static representation of the [[inclInPrice]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const INCL_IN_PRICE: EnumField<SalesTaxAuthorities>;
+    /**
+     * Static representation of the [[exempt]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const EXEMPT: EnumField<SalesTaxAuthorities>;
+    /**
      * Static representation of the [[apExpAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -275,6 +276,11 @@ export declare namespace SalesTaxAuthorities {
      */
     const AR_EXP_ACCOUNT: StringField<SalesTaxAuthorities>;
     /**
+     * Static representation of the [[inclInGrossRevenue]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const INCL_IN_GROSS_REVENUE: EnumField<SalesTaxAuthorities>;
+    /**
      * Static representation of the [[textCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -283,7 +289,7 @@ export declare namespace SalesTaxAuthorities {
      * Static representation of the [[taxDefinitions]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const TAX_DEFINITIONS: CollectionField<SalesTaxAuthorities>;
+    const TAX_DEFINITIONS: CollectionField<SalesTaxAuthorities, TaxDefinition>;
     /**
      * Static representation of the one-to-one navigation property [[chartOfAccount]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -302,7 +308,7 @@ export declare namespace SalesTaxAuthorities {
     /**
      * All fields of the SalesTaxAuthorities entity.
      */
-    const _allFields: Array<StringField<SalesTaxAuthorities> | NumberField<SalesTaxAuthorities> | CollectionField<SalesTaxAuthorities> | OneToOneLink<SalesTaxAuthorities, ChartOfAccounts> | OneToOneLink<SalesTaxAuthorities, Users> | OneToOneLink<SalesTaxAuthorities, SalesTaxAuthoritiesTypes>>;
+    const _allFields: Array<StringField<SalesTaxAuthorities> | NumberField<SalesTaxAuthorities> | EnumField<SalesTaxAuthorities> | CollectionField<SalesTaxAuthorities, TaxDefinition> | OneToOneLink<SalesTaxAuthorities, ChartOfAccounts> | OneToOneLink<SalesTaxAuthorities, Users> | OneToOneLink<SalesTaxAuthorities, SalesTaxAuthoritiesTypes>>;
     /**
      * All fields selector.
      */

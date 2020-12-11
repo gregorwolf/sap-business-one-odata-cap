@@ -1,18 +1,13 @@
 import { TerminationReasonRequestBuilder } from './TerminationReasonRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "TerminationReason" of service "SAPB1".
  */
-export declare class TerminationReason extends Entity implements TerminationReasonType {
+export declare class TerminationReason extends EntityV4 implements TerminationReasonType {
     /**
      * Technical entity name for TerminationReason.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for TerminationReason.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -37,10 +32,10 @@ export declare class TerminationReason extends Entity implements TerminationReas
      */
     employeesInfo: EmployeesInfo[];
     /**
-     * Returns an entity builder to construct instances `TerminationReason`.
+     * Returns an entity builder to construct instances of `TerminationReason`.
      * @returns A builder that constructs instances of entity type `TerminationReason`.
      */
-    static builder(): EntityBuilderType<TerminationReason, TerminationReasonTypeForceMandatory>;
+    static builder(): EntityBuilderType<TerminationReason, TerminationReasonType>;
     /**
      * Returns a request builder to construct requests for operations on the `TerminationReason` entity type.
      * @returns A `TerminationReason` request builder.
@@ -51,7 +46,7 @@ export declare class TerminationReason extends Entity implements TerminationReas
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `TerminationReason`.
      */
-    static customField(fieldName: string): CustomField<TerminationReason>;
+    static customField(fieldName: string): CustomFieldV4<TerminationReason>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -62,15 +57,9 @@ export declare class TerminationReason extends Entity implements TerminationReas
 }
 import { EmployeesInfo, EmployeesInfoType } from './EmployeesInfo';
 export interface TerminationReasonType {
-    reasonId?: number;
-    name?: string;
-    description?: string;
-    employeesInfo: EmployeesInfoType[];
-}
-export interface TerminationReasonTypeForceMandatory {
-    reasonId: number;
-    name: string;
-    description: string;
+    reasonId?: number | null;
+    name?: string | null;
+    description?: string | null;
     employeesInfo: EmployeesInfoType[];
 }
 export declare namespace TerminationReason {

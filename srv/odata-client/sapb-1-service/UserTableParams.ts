@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * UserTableParams
@@ -47,7 +47,7 @@ export function createUserTableParams(json: any): UserTableParams {
  * UserTableParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class UserTableParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class UserTableParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, UserTableParams> {
   /**
    * Representation of the [[UserTableParams.tableType]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -73,16 +73,53 @@ export class UserTableParamsField<EntityT extends Entity> extends ComplexTypeFie
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   archivable: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Archivable', this, 'Edm.String');
+
+  /**
+   * Creates an instance of UserTableParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, UserTableParams);
+  }
 }
 
 export namespace UserTableParams {
+  /**
+   * Metadata information on all properties of the `UserTableParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<UserTableParams>[] = [{
+    originalName: 'TableType',
+    name: 'tableType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TableName',
+    name: 'tableName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TableDescription',
+    name: 'tableDescription',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ArchiveDateField',
+    name: 'archiveDateField',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Archivable',
+    name: 'archivable',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): UserTableParams {
-    return createComplexType(json, {
-      TableType: (tableType: string) => ({ tableType: edmToTs(tableType, 'Edm.String') }),
-      TableName: (tableName: string) => ({ tableName: edmToTs(tableName, 'Edm.String') }),
-      TableDescription: (tableDescription: string) => ({ tableDescription: edmToTs(tableDescription, 'Edm.String') }),
-      ArchiveDateField: (archiveDateField: string) => ({ archiveDateField: edmToTs(archiveDateField, 'Edm.String') }),
-      Archivable: (archivable: string) => ({ archivable: edmToTs(archivable, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, UserTableParams);
   }
 }

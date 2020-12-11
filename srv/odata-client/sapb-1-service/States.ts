@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { StatesRequestBuilder } from './StatesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "States" of service "SAPB1".
  */
-export class States extends Entity implements StatesType {
+export class States extends EntityV4 implements StatesType {
   /**
    * Technical entity name for States.
    */
   static _entityName = 'States';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for States.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -44,11 +39,11 @@ export class States extends Entity implements StatesType {
   country2!: Countries;
 
   /**
-   * Returns an entity builder to construct instances `States`.
+   * Returns an entity builder to construct instances of `States`.
    * @returns A builder that constructs instances of entity type `States`.
    */
-  static builder(): EntityBuilderType<States, StatesTypeForceMandatory> {
-    return Entity.entityBuilder(States);
+  static builder(): EntityBuilderType<States, StatesType> {
+    return EntityV4.entityBuilder(States);
   }
 
   /**
@@ -64,8 +59,8 @@ export class States extends Entity implements StatesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `States`.
    */
-  static customField(fieldName: string): CustomField<States> {
-    return Entity.customFieldSelector(fieldName, States);
+  static customField(fieldName: string): CustomFieldV4<States> {
+    return EntityV4.customFieldSelector(fieldName, States);
   }
 
   /**
@@ -80,16 +75,9 @@ export class States extends Entity implements StatesType {
 import { Countries, CountriesType } from './Countries';
 
 export interface StatesType {
-  code?: string;
-  country?: string;
-  name?: string;
-  country2: CountriesType;
-}
-
-export interface StatesTypeForceMandatory {
-  code: string;
-  country: string;
-  name: string;
+  code?: string | null;
+  country?: string | null;
+  name?: string | null;
   country2: CountriesType;
 }
 

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.InventoryPostingsRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var InventoryPostings_1 = require("./InventoryPostings");
 /**
  * Request builder class for operations supported on the [[InventoryPostings]] entity.
@@ -35,14 +35,14 @@ var InventoryPostingsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `InventoryPostings` entity based on its keys.
      */
     InventoryPostingsRequestBuilder.prototype.getByKey = function (documentEntry) {
-        return new v4_1.GetByKeyRequestBuilder(InventoryPostings_1.InventoryPostings, { DocumentEntry: documentEntry });
+        return new core_1.GetByKeyRequestBuilderV4(InventoryPostings_1.InventoryPostings, { DocumentEntry: documentEntry });
     };
     /**
      * Returns a request builder for querying all `InventoryPostings` entities.
      * @returns A request builder for creating requests to retrieve all `InventoryPostings` entities.
      */
     InventoryPostingsRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(InventoryPostings_1.InventoryPostings);
+        return new core_1.GetAllRequestBuilderV4(InventoryPostings_1.InventoryPostings);
     };
     /**
      * Returns a request builder for creating a `InventoryPostings` entity.
@@ -50,7 +50,7 @@ var InventoryPostingsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `InventoryPostings`.
      */
     InventoryPostingsRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(InventoryPostings_1.InventoryPostings, entity);
+        return new core_1.CreateRequestBuilderV4(InventoryPostings_1.InventoryPostings, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `InventoryPostings`.
@@ -58,12 +58,12 @@ var InventoryPostingsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `InventoryPostings`.
      */
     InventoryPostingsRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(InventoryPostings_1.InventoryPostings, entity);
+        return new core_1.UpdateRequestBuilderV4(InventoryPostings_1.InventoryPostings, entity);
     };
     InventoryPostingsRequestBuilder.prototype.delete = function (documentEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(InventoryPostings_1.InventoryPostings, documentEntryOrEntity instanceof InventoryPostings_1.InventoryPostings ? documentEntryOrEntity : { DocumentEntry: documentEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(InventoryPostings_1.InventoryPostings, documentEntryOrEntity instanceof InventoryPostings_1.InventoryPostings ? documentEntryOrEntity : { DocumentEntry: documentEntryOrEntity });
     };
     return InventoryPostingsRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.InventoryPostingsRequestBuilder = InventoryPostingsRequestBuilder;
 //# sourceMappingURL=InventoryPostingsRequestBuilder.js.map

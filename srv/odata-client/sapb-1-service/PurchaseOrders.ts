@@ -5,36 +5,54 @@
  */
 import { PurchaseOrdersRequestBuilder } from './PurchaseOrdersRequestBuilder';
 import { Moment } from 'moment';
-import { DocumentApprovalRequest, DocumentApprovalRequestField } from './DocumentApprovalRequest';
-import { DocumentLine, DocumentLineField } from './DocumentLine';
-import { DocumentAdditionalExpense, DocumentAdditionalExpenseField } from './DocumentAdditionalExpense';
-import { WithholdingTaxDataWtx, WithholdingTaxDataWtxField } from './WithholdingTaxDataWtx';
-import { WithholdingTaxData, WithholdingTaxDataField } from './WithholdingTaxData';
-import { DocumentPackage, DocumentPackageField } from './DocumentPackage';
-import { DocumentSpecialLine, DocumentSpecialLineField } from './DocumentSpecialLine';
-import { DocumentInstallment, DocumentInstallmentField } from './DocumentInstallment';
-import { DownPaymentToDraw, DownPaymentToDrawField } from './DownPaymentToDraw';
+import { DocumentApprovalRequest } from './DocumentApprovalRequest';
+import { DocumentLine } from './DocumentLine';
+import { DocumentAdditionalExpense } from './DocumentAdditionalExpense';
+import { WithholdingTaxDataWtx } from './WithholdingTaxDataWtx';
+import { WithholdingTaxData } from './WithholdingTaxData';
+import { DocumentPackage } from './DocumentPackage';
+import { DocumentSpecialLine } from './DocumentSpecialLine';
+import { DocumentInstallment } from './DocumentInstallment';
+import { DownPaymentToDraw } from './DownPaymentToDraw';
 import { TaxExtension, TaxExtensionField } from './TaxExtension';
 import { AddressExtension, AddressExtensionField } from './AddressExtension';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoDocumentTypes } from './BoDocumentTypes';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { PrintStatusEnum } from './PrintStatusEnum';
+import { BoDocSummaryTypes } from './BoDocSummaryTypes';
+import { BoObjectTypes } from './BoObjectTypes';
+import { BoDocWhsUpdateTypes } from './BoDocWhsUpdateTypes';
+import { BoDocumentSubType } from './BoDocumentSubType';
+import { BoStatus } from './BoStatus';
+import { DownPaymentTypeEnum } from './DownPaymentTypeEnum';
+import { BoPayTermDueTypes } from './BoPayTermDueTypes';
+import { EDocGenerationTypeEnum } from './EDocGenerationTypeEnum';
+import { EDocStatusEnum } from './EDocStatusEnum';
+import { BoSoStatus } from './BoSoStatus';
+import { ClosingOptionEnum } from './ClosingOptionEnum';
+import { DocumentAuthorizationStatusEnum } from './DocumentAuthorizationStatusEnum';
+import { CancelStatusEnum } from './CancelStatusEnum';
+import { DocumentDeliveryTypeEnum } from './DocumentDeliveryTypeEnum';
+import { ElecCommStatusEnum } from './ElecCommStatusEnum';
+import { FolioLetterEnum } from './FolioLetterEnum';
+import { BoInterimDocTypes } from './BoInterimDocTypes';
+import { PriceModeDocumentEnum } from './PriceModeDocumentEnum';
+import { GstTransactionTypeEnum } from './GstTransactionTypeEnum';
+import { CommissionTradeTypeEnum } from './CommissionTradeTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "PurchaseOrders" of service "SAPB1".
  */
-export class PurchaseOrders extends Entity implements PurchaseOrdersType {
+export class PurchaseOrders extends EntityV4 implements PurchaseOrdersType {
   /**
    * Technical entity name for PurchaseOrders.
    */
   static _entityName = 'PurchaseOrders';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for PurchaseOrders.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Doc Entry.
    * @nullable
@@ -45,6 +63,21 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    * @nullable
    */
   docNum?: number;
+  /**
+   * Doc Type.
+   * @nullable
+   */
+  docType?: BoDocumentTypes;
+  /**
+   * Hand Written.
+   * @nullable
+   */
+  handWritten?: BoYesNoEnum;
+  /**
+   * Printed.
+   * @nullable
+   */
+  printed?: PrintStatusEnum;
   /**
    * Doc Date.
    * @nullable
@@ -136,15 +169,30 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   transportationCode?: number;
   /**
+   * Confirmed.
+   * @nullable
+   */
+  confirmed?: BoYesNoEnum;
+  /**
    * Import File Num.
    * @nullable
    */
   importFileNum?: number;
   /**
+   * Summery Type.
+   * @nullable
+   */
+  summeryType?: BoDocSummaryTypes;
+  /**
    * Contact Person Code.
    * @nullable
    */
   contactPersonCode?: number;
+  /**
+   * Show Scn.
+   * @nullable
+   */
+  showScn?: BoYesNoEnum;
   /**
    * Series.
    * @nullable
@@ -155,6 +203,16 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    * @nullable
    */
   taxDate?: Moment;
+  /**
+   * Partial Supply.
+   * @nullable
+   */
+  partialSupply?: BoYesNoEnum;
+  /**
+   * Doc Object Code.
+   * @nullable
+   */
+  docObjectCode?: BoObjectTypes;
   /**
    * Ship To Code.
    * @nullable
@@ -216,6 +274,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   vatSumFc?: number;
   /**
+   * Net Procedure.
+   * @nullable
+   */
+  netProcedure?: BoYesNoEnum;
+  /**
    * Doc Total Fc.
    * @nullable
    */
@@ -236,6 +299,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   box1099?: string;
   /**
+   * Revision Po.
+   * @nullable
+   */
+  revisionPo?: BoYesNoEnum;
+  /**
    * Requried Date.
    * @nullable
    */
@@ -246,15 +314,40 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   cancelDate?: Moment;
   /**
+   * Block Dunning.
+   * @nullable
+   */
+  blockDunning?: BoYesNoEnum;
+  /**
+   * Submitted.
+   * @nullable
+   */
+  submitted?: BoYesNoEnum;
+  /**
    * Segment.
    * @nullable
    */
   segment?: number;
   /**
+   * Pick Status.
+   * @nullable
+   */
+  pickStatus?: BoYesNoEnum;
+  /**
+   * Pick.
+   * @nullable
+   */
+  pick?: BoYesNoEnum;
+  /**
    * Payment Method.
    * @nullable
    */
   paymentMethod?: string;
+  /**
+   * Payment Block.
+   * @nullable
+   */
+  paymentBlock?: BoYesNoEnum;
   /**
    * Payment Block Entry.
    * @nullable
@@ -265,6 +358,16 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    * @nullable
    */
   centralBankIndicator?: string;
+  /**
+   * Maximum Cash Discount.
+   * @nullable
+   */
+  maximumCashDiscount?: BoYesNoEnum;
+  /**
+   * Reserve.
+   * @nullable
+   */
+  reserve?: BoYesNoEnum;
   /**
    * Project.
    * @nullable
@@ -281,6 +384,16 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   exemptionValidityDateTo?: Moment;
   /**
+   * Ware House Update Type.
+   * @nullable
+   */
+  wareHouseUpdateType?: BoDocWhsUpdateTypes;
+  /**
+   * Rounding.
+   * @nullable
+   */
+  rounding?: BoYesNoEnum;
+  /**
    * External Corrected Doc Num.
    * @nullable
    */
@@ -296,6 +409,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   nextCorrectingDocument?: number;
   /**
+   * Deferred Tax.
+   * @nullable
+   */
+  deferredTax?: BoYesNoEnum;
+  /**
    * Tax Exemption Letter Num.
    * @nullable
    */
@@ -310,6 +428,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    * @nullable
    */
   wtAppliedFc?: number;
+  /**
+   * Bill Of Exchange Reserved.
+   * @nullable
+   */
+  billOfExchangeReserved?: BoYesNoEnum;
   /**
    * Agent Code.
    * @nullable
@@ -340,6 +463,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    * @nullable
    */
   numberOfInstallments?: number;
+  /**
+   * Apply Tax On First Installment.
+   * @nullable
+   */
+  applyTaxOnFirstInstallment?: BoYesNoEnum;
   /**
    * Wt Non Subject Amount.
    * @nullable
@@ -421,6 +549,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   folioNumber?: number;
   /**
+   * Document Sub Type.
+   * @nullable
+   */
+  documentSubType?: BoDocumentSubType;
+  /**
    * Bp Channel Code.
    * @nullable
    */
@@ -436,6 +569,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   address2?: string;
   /**
+   * Document Status.
+   * @nullable
+   */
+  documentStatus?: BoStatus;
+  /**
    * Period Indicator.
    * @nullable
    */
@@ -450,6 +588,16 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    * @nullable
    */
   manualNumber?: string;
+  /**
+   * Use Shpd Goods Act.
+   * @nullable
+   */
+  useShpdGoodsAct?: BoYesNoEnum;
+  /**
+   * Is Pay To Bank.
+   * @nullable
+   */
+  isPayToBank?: BoYesNoEnum;
   /**
    * Pay To Bank Country.
    * @nullable
@@ -480,6 +628,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    * @nullable
    */
   downPayment?: number;
+  /**
+   * Reserve Invoice.
+   * @nullable
+   */
+  reserveInvoice?: BoYesNoEnum;
   /**
    * Language Code.
    * @nullable
@@ -526,6 +679,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   sequenceModel?: string;
   /**
+   * Use Correction Vat Group.
+   * @nullable
+   */
+  useCorrectionVatGroup?: BoYesNoEnum;
+  /**
    * Total Discount.
    * @nullable
    */
@@ -540,6 +698,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    * @nullable
    */
   downPaymentPercentage?: number;
+  /**
+   * Down Payment Type.
+   * @nullable
+   */
+  downPaymentType?: DownPaymentTypeEnum;
   /**
    * Down Payment Amount Sc.
    * @nullable
@@ -586,6 +749,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   roundingDiffAmountSc?: number;
   /**
+   * Cancelled.
+   * @nullable
+   */
+  cancelled?: BoYesNoEnum;
+  /**
    * Signature Input Message.
    * @nullable
    */
@@ -610,6 +778,16 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    * @nullable
    */
   controlAccount?: string;
+  /**
+   * Insurance Operation 347.
+   * @nullable
+   */
+  insuranceOperation347?: BoYesNoEnum;
+  /**
+   * Archive Nonremovable Sales Quotation.
+   * @nullable
+   */
+  archiveNonremovableSalesQuotation?: BoYesNoEnum;
   /**
    * Gts Checker.
    * @nullable
@@ -636,6 +814,16 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   cashDiscountDateOffset?: number;
   /**
+   * Start From.
+   * @nullable
+   */
+  startFrom?: BoPayTermDueTypes;
+  /**
+   * Nts Approved.
+   * @nullable
+   */
+  ntsApproved?: BoYesNoEnum;
+  /**
    * E Tax Web Site.
    * @nullable
    */
@@ -650,6 +838,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    * @nullable
    */
   ntsApprovedNumber?: string;
+  /**
+   * E Doc Generation Type.
+   * @nullable
+   */
+  eDocGenerationType?: EDocGenerationTypeEnum;
   /**
    * E Doc Series.
    * @nullable
@@ -666,6 +859,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   eDocExportFormat?: number;
   /**
+   * E Doc Status.
+   * @nullable
+   */
+  eDocStatus?: EDocStatusEnum;
+  /**
    * E Doc Error Code.
    * @nullable
    */
@@ -676,6 +874,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   eDocErrorMessage?: string;
   /**
+   * Down Payment Status.
+   * @nullable
+   */
+  downPaymentStatus?: BoSoStatus;
+  /**
    * Group Series.
    * @nullable
    */
@@ -685,6 +888,26 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    * @nullable
    */
   groupNumber?: number;
+  /**
+   * Group Hand Written.
+   * @nullable
+   */
+  groupHandWritten?: BoYesNoEnum;
+  /**
+   * Reopen Original Document.
+   * @nullable
+   */
+  reopenOriginalDocument?: BoYesNoEnum;
+  /**
+   * Reopen Manually Closed Or Canceled Document.
+   * @nullable
+   */
+  reopenManuallyClosedOrCanceledDocument?: BoYesNoEnum;
+  /**
+   * Create Online Quotation.
+   * @nullable
+   */
+  createOnlineQuotation?: BoYesNoEnum;
   /**
    * Pos Equipment Number.
    * @nullable
@@ -701,10 +924,30 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   posCashierNumber?: number;
   /**
+   * Apply Current Vat Rates For Down Payments To Draw.
+   * @nullable
+   */
+  applyCurrentVatRatesForDownPaymentsToDraw?: BoYesNoEnum;
+  /**
+   * Closing Option.
+   * @nullable
+   */
+  closingOption?: ClosingOptionEnum;
+  /**
    * Specified Closing Date.
    * @nullable
    */
   specifiedClosingDate?: Moment;
+  /**
+   * Open For Landed Costs.
+   * @nullable
+   */
+  openForLandedCosts?: BoYesNoEnum;
+  /**
+   * Authorization Status.
+   * @nullable
+   */
+  authorizationStatus?: DocumentAuthorizationStatusEnum;
   /**
    * Total Discount Fc.
    * @nullable
@@ -715,6 +958,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    * @nullable
    */
   totalDiscountSc?: number;
+  /**
+   * Relevant To Gts.
+   * @nullable
+   */
+  relevantToGts?: BoYesNoEnum;
   /**
    * Bpl Name.
    * @nullable
@@ -751,6 +999,16 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   blanketAgreementNumber?: number;
   /**
+   * Is Alteration.
+   * @nullable
+   */
+  isAlteration?: BoYesNoEnum;
+  /**
+   * Cancel Status.
+   * @nullable
+   */
+  cancelStatus?: CancelStatusEnum;
+  /**
    * Asset Value Date.
    * @nullable
    */
@@ -781,10 +1039,20 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   requesterEmail?: string;
   /**
+   * Send Notification.
+   * @nullable
+   */
+  sendNotification?: BoYesNoEnum;
+  /**
    * Req Type.
    * @nullable
    */
   reqType?: number;
+  /**
+   * Document Delivery.
+   * @nullable
+   */
+  documentDelivery?: DocumentDeliveryTypeEnum;
   /**
    * Authorization Code.
    * @nullable
@@ -821,10 +1089,30 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   atDocumentType?: string;
   /**
+   * Elec Comm Status.
+   * @nullable
+   */
+  elecCommStatus?: ElecCommStatusEnum;
+  /**
    * Elec Comm Message.
    * @nullable
    */
   elecCommMessage?: string;
+  /**
+   * Reuse Document Num.
+   * @nullable
+   */
+  reuseDocumentNum?: BoYesNoEnum;
+  /**
+   * Reuse Nota Fiscal Num.
+   * @nullable
+   */
+  reuseNotaFiscalNum?: BoYesNoEnum;
+  /**
+   * Print Sepa Direct.
+   * @nullable
+   */
+  printSepaDirect?: BoYesNoEnum;
   /**
    * Fiscal Doc Num.
    * @nullable
@@ -846,6 +1134,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   pointOfIssueCode?: string;
   /**
+   * Letter.
+   * @nullable
+   */
+  letter?: FolioLetterEnum;
+  /**
    * Folio Number From.
    * @nullable
    */
@@ -855,6 +1148,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    * @nullable
    */
   folioNumberTo?: number;
+  /**
+   * Interim Type.
+   * @nullable
+   */
+  interimType?: BoInterimDocTypes;
   /**
    * Related Type.
    * @nullable
@@ -881,6 +1179,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   reportingSectionControlStatementVat?: string;
   /**
+   * Exclude From Tax Report Control Statement Vat.
+   * @nullable
+   */
+  excludeFromTaxReportControlStatementVat?: BoYesNoEnum;
+  /**
    * Pos Cash Register.
    * @nullable
    */
@@ -891,10 +1194,20 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    */
   updateTime?: Time;
   /**
+   * Price Mode.
+   * @nullable
+   */
+  priceMode?: PriceModeDocumentEnum;
+  /**
    * Down Payment Trasaction Id.
    * @nullable
    */
   downPaymentTrasactionId?: string;
+  /**
+   * Revision.
+   * @nullable
+   */
+  revision?: BoYesNoEnum;
   /**
    * Original Ref No.
    * @nullable
@@ -905,6 +1218,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    * @nullable
    */
   originalRefDate?: Moment;
+  /**
+   * Gst Transaction Type.
+   * @nullable
+   */
+  gstTransactionType?: GstTransactionTypeEnum;
   /**
    * Original Credit Or Debit No.
    * @nullable
@@ -940,6 +1258,21 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    * @nullable
    */
   shipFrom?: string;
+  /**
+   * Commission Trade.
+   * @nullable
+   */
+  commissionTrade?: CommissionTradeTypeEnum;
+  /**
+   * Commission Trade Return.
+   * @nullable
+   */
+  commissionTradeReturn?: BoYesNoEnum;
+  /**
+   * Use Bill To Addr To Determine Tax.
+   * @nullable
+   */
+  useBillToAddrToDetermineTax?: BoYesNoEnum;
   /**
    * Issuing Reason.
    * @nullable
@@ -1087,11 +1420,11 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
   posDailySummary!: PosDailySummary;
 
   /**
-   * Returns an entity builder to construct instances `PurchaseOrders`.
+   * Returns an entity builder to construct instances of `PurchaseOrders`.
    * @returns A builder that constructs instances of entity type `PurchaseOrders`.
    */
-  static builder(): EntityBuilderType<PurchaseOrders, PurchaseOrdersTypeForceMandatory> {
-    return Entity.entityBuilder(PurchaseOrders);
+  static builder(): EntityBuilderType<PurchaseOrders, PurchaseOrdersType> {
+    return EntityV4.entityBuilder(PurchaseOrders);
   }
 
   /**
@@ -1107,8 +1440,8 @@ export class PurchaseOrders extends Entity implements PurchaseOrdersType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `PurchaseOrders`.
    */
-  static customField(fieldName: string): CustomField<PurchaseOrders> {
-    return Entity.customFieldSelector(fieldName, PurchaseOrders);
+  static customField(fieldName: string): CustomFieldV4<PurchaseOrders> {
+    return EntityV4.customFieldSelector(fieldName, PurchaseOrders);
   }
 
   /**
@@ -1142,417 +1475,263 @@ import { Departments, DepartmentsType } from './Departments';
 import { PosDailySummary, PosDailySummaryType } from './PosDailySummary';
 
 export interface PurchaseOrdersType {
-  docEntry?: number;
-  docNum?: number;
-  docDate?: Moment;
-  docDueDate?: Moment;
-  cardCode?: string;
-  cardName?: string;
-  address?: string;
-  numAtCard?: string;
-  docTotal?: number;
-  attachmentEntry?: number;
-  docCurrency?: string;
-  docRate?: number;
-  reference1?: string;
-  reference2?: string;
-  comments?: string;
-  journalMemo?: string;
-  paymentGroupCode?: number;
-  docTime?: Time;
-  salesPersonCode?: number;
-  transportationCode?: number;
-  importFileNum?: number;
-  contactPersonCode?: number;
-  series?: number;
-  taxDate?: Moment;
-  shipToCode?: string;
-  indicator?: string;
-  federalTaxId?: string;
-  discountPercent?: number;
-  paymentReference?: string;
-  creationDate?: Moment;
-  updateDate?: Moment;
-  financialPeriod?: number;
-  transNum?: number;
-  vatSum?: number;
-  vatSumSys?: number;
-  vatSumFc?: number;
-  docTotalFc?: number;
-  docTotalSys?: number;
-  form1099?: number;
-  box1099?: string;
-  requriedDate?: Moment;
-  cancelDate?: Moment;
-  segment?: number;
-  paymentMethod?: string;
-  paymentBlockEntry?: number;
-  centralBankIndicator?: string;
-  project?: string;
-  exemptionValidityDateFrom?: Moment;
-  exemptionValidityDateTo?: Moment;
-  externalCorrectedDocNum?: string;
-  internalCorrectedDocNum?: number;
-  nextCorrectingDocument?: number;
-  taxExemptionLetterNum?: string;
-  wtApplied?: number;
-  wtAppliedFc?: number;
-  agentCode?: string;
-  wtAppliedSc?: number;
-  totalEqualizationTax?: number;
-  totalEqualizationTaxFc?: number;
-  totalEqualizationTaxSc?: number;
-  numberOfInstallments?: number;
-  wtNonSubjectAmount?: number;
-  wtNonSubjectAmountSc?: number;
-  wtNonSubjectAmountFc?: number;
-  wtExemptedAmount?: number;
-  wtExemptedAmountSc?: number;
-  wtExemptedAmountFc?: number;
-  baseAmount?: number;
-  baseAmountSc?: number;
-  baseAmountFc?: number;
-  wtAmount?: number;
-  wtAmountSc?: number;
-  wtAmountFc?: number;
-  vatDate?: Moment;
-  documentsOwner?: number;
-  folioPrefixString?: string;
-  folioNumber?: number;
-  bpChannelCode?: string;
-  bpChannelContact?: number;
-  address2?: string;
-  periodIndicator?: string;
-  payToCode?: string;
-  manualNumber?: string;
-  payToBankCountry?: string;
-  payToBankCode?: string;
-  payToBankAccountNo?: string;
-  payToBankBranch?: string;
-  bplIdAssignedToInvoice?: number;
-  downPayment?: number;
-  languageCode?: number;
-  trackingNumber?: string;
-  pickRemark?: string;
-  closingDate?: Moment;
-  sequenceCode?: number;
-  sequenceSerial?: number;
-  seriesString?: string;
-  subSeriesString?: string;
-  sequenceModel?: string;
-  totalDiscount?: number;
-  downPaymentAmount?: number;
-  downPaymentPercentage?: number;
-  downPaymentAmountSc?: number;
-  downPaymentAmountFc?: number;
-  vatPercent?: number;
-  serviceGrossProfitPercent?: number;
-  openingRemarks?: string;
-  closingRemarks?: string;
-  roundingDiffAmount?: number;
-  roundingDiffAmountFc?: number;
-  roundingDiffAmountSc?: number;
-  signatureInputMessage?: string;
-  signatureDigest?: string;
-  certificationNumber?: string;
-  privateKeyVersion?: number;
-  controlAccount?: string;
-  gtsChecker?: number;
-  gtsPayee?: number;
-  extraMonth?: number;
-  extraDays?: number;
-  cashDiscountDateOffset?: number;
-  eTaxWebSite?: number;
-  eTaxNumber?: string;
-  ntsApprovedNumber?: string;
-  eDocSeries?: number;
-  eDocNum?: string;
-  eDocExportFormat?: number;
-  eDocErrorCode?: string;
-  eDocErrorMessage?: string;
-  groupSeries?: number;
-  groupNumber?: number;
-  posEquipmentNumber?: string;
-  posManufacturerSerialNumber?: string;
-  posCashierNumber?: number;
-  specifiedClosingDate?: Moment;
-  totalDiscountFc?: number;
-  totalDiscountSc?: number;
-  bplName?: string;
-  vatRegNum?: string;
-  annualInvoiceDeclarationReference?: number;
-  supplier?: string;
-  releaser?: number;
-  receiver?: number;
-  blanketAgreementNumber?: number;
-  assetValueDate?: Moment;
-  requester?: string;
-  requesterName?: string;
-  requesterBranch?: number;
-  requesterDepartment?: number;
-  requesterEmail?: string;
-  reqType?: number;
-  authorizationCode?: string;
-  startDeliveryDate?: Moment;
-  startDeliveryTime?: Time;
-  endDeliveryDate?: Moment;
-  endDeliveryTime?: Time;
-  vehiclePlate?: string;
-  atDocumentType?: string;
-  elecCommMessage?: string;
-  fiscalDocNum?: string;
-  posDailySummaryNo?: number;
-  posReceiptNo?: number;
-  pointOfIssueCode?: string;
-  folioNumberFrom?: number;
-  folioNumberTo?: number;
-  relatedType?: number;
-  relatedEntry?: number;
-  documentTaxId?: string;
-  dateOfReportingControlStatementVat?: Moment;
-  reportingSectionControlStatementVat?: string;
-  posCashRegister?: number;
-  updateTime?: Time;
-  downPaymentTrasactionId?: string;
-  originalRefNo?: string;
-  originalRefDate?: Moment;
-  originalCreditOrDebitNo?: string;
-  originalCreditOrDebitDate?: Moment;
-  eCommerceOperator?: string;
-  eCommerceGstin?: string;
-  taxInvoiceNo?: string;
-  taxInvoiceDate?: Moment;
-  shipFrom?: string;
-  issuingReason?: number;
-  documentApprovalRequests?: DocumentApprovalRequest[];
-  documentLines?: DocumentLine[];
-  documentAdditionalExpenses?: DocumentAdditionalExpense[];
-  withholdingTaxDataWtxCollection?: WithholdingTaxDataWtx[];
-  withholdingTaxDataCollection?: WithholdingTaxData[];
-  documentPackages?: DocumentPackage[];
-  documentSpecialLines?: DocumentSpecialLine[];
-  documentInstallments?: DocumentInstallment[];
-  downPaymentsToDraw?: DownPaymentToDraw[];
-  taxExtension?: TaxExtension;
-  addressExtension?: AddressExtension;
-  soiWizardId?: number;
-  businessPartner: BusinessPartnersType;
-  currency: CurrenciesType;
-  paymentTermsType: PaymentTermsTypesType;
-  salesPerson: SalesPersonsType;
-  shippingType: ShippingTypesType;
-  factoringIndicator: FactoringIndicatorsType;
-  forms1099: Forms1099Type;
-  wizardPaymentMethod: WizardPaymentMethodsType;
-  paymentBlock2: PaymentBlocksType;
-  project2: ProjectsType;
-  employeeInfo: EmployeesInfoType;
-  country: CountriesType;
-  businessPlace: BusinessPlacesType;
-  userLanguage: UserLanguagesType;
-  nfModel: NfModelsType;
-  chartOfAccount: ChartOfAccountsType;
-  taxWebSite: TaxWebSitesType;
-  branch: BranchesType;
-  department: DepartmentsType;
-  posDailySummary: PosDailySummaryType;
-}
-
-export interface PurchaseOrdersTypeForceMandatory {
-  docEntry: number;
-  docNum: number;
-  docDate: Moment;
-  docDueDate: Moment;
-  cardCode: string;
-  cardName: string;
-  address: string;
-  numAtCard: string;
-  docTotal: number;
-  attachmentEntry: number;
-  docCurrency: string;
-  docRate: number;
-  reference1: string;
-  reference2: string;
-  comments: string;
-  journalMemo: string;
-  paymentGroupCode: number;
-  docTime: Time;
-  salesPersonCode: number;
-  transportationCode: number;
-  importFileNum: number;
-  contactPersonCode: number;
-  series: number;
-  taxDate: Moment;
-  shipToCode: string;
-  indicator: string;
-  federalTaxId: string;
-  discountPercent: number;
-  paymentReference: string;
-  creationDate: Moment;
-  updateDate: Moment;
-  financialPeriod: number;
-  transNum: number;
-  vatSum: number;
-  vatSumSys: number;
-  vatSumFc: number;
-  docTotalFc: number;
-  docTotalSys: number;
-  form1099: number;
-  box1099: string;
-  requriedDate: Moment;
-  cancelDate: Moment;
-  segment: number;
-  paymentMethod: string;
-  paymentBlockEntry: number;
-  centralBankIndicator: string;
-  project: string;
-  exemptionValidityDateFrom: Moment;
-  exemptionValidityDateTo: Moment;
-  externalCorrectedDocNum: string;
-  internalCorrectedDocNum: number;
-  nextCorrectingDocument: number;
-  taxExemptionLetterNum: string;
-  wtApplied: number;
-  wtAppliedFc: number;
-  agentCode: string;
-  wtAppliedSc: number;
-  totalEqualizationTax: number;
-  totalEqualizationTaxFc: number;
-  totalEqualizationTaxSc: number;
-  numberOfInstallments: number;
-  wtNonSubjectAmount: number;
-  wtNonSubjectAmountSc: number;
-  wtNonSubjectAmountFc: number;
-  wtExemptedAmount: number;
-  wtExemptedAmountSc: number;
-  wtExemptedAmountFc: number;
-  baseAmount: number;
-  baseAmountSc: number;
-  baseAmountFc: number;
-  wtAmount: number;
-  wtAmountSc: number;
-  wtAmountFc: number;
-  vatDate: Moment;
-  documentsOwner: number;
-  folioPrefixString: string;
-  folioNumber: number;
-  bpChannelCode: string;
-  bpChannelContact: number;
-  address2: string;
-  periodIndicator: string;
-  payToCode: string;
-  manualNumber: string;
-  payToBankCountry: string;
-  payToBankCode: string;
-  payToBankAccountNo: string;
-  payToBankBranch: string;
-  bplIdAssignedToInvoice: number;
-  downPayment: number;
-  languageCode: number;
-  trackingNumber: string;
-  pickRemark: string;
-  closingDate: Moment;
-  sequenceCode: number;
-  sequenceSerial: number;
-  seriesString: string;
-  subSeriesString: string;
-  sequenceModel: string;
-  totalDiscount: number;
-  downPaymentAmount: number;
-  downPaymentPercentage: number;
-  downPaymentAmountSc: number;
-  downPaymentAmountFc: number;
-  vatPercent: number;
-  serviceGrossProfitPercent: number;
-  openingRemarks: string;
-  closingRemarks: string;
-  roundingDiffAmount: number;
-  roundingDiffAmountFc: number;
-  roundingDiffAmountSc: number;
-  signatureInputMessage: string;
-  signatureDigest: string;
-  certificationNumber: string;
-  privateKeyVersion: number;
-  controlAccount: string;
-  gtsChecker: number;
-  gtsPayee: number;
-  extraMonth: number;
-  extraDays: number;
-  cashDiscountDateOffset: number;
-  eTaxWebSite: number;
-  eTaxNumber: string;
-  ntsApprovedNumber: string;
-  eDocSeries: number;
-  eDocNum: string;
-  eDocExportFormat: number;
-  eDocErrorCode: string;
-  eDocErrorMessage: string;
-  groupSeries: number;
-  groupNumber: number;
-  posEquipmentNumber: string;
-  posManufacturerSerialNumber: string;
-  posCashierNumber: number;
-  specifiedClosingDate: Moment;
-  totalDiscountFc: number;
-  totalDiscountSc: number;
-  bplName: string;
-  vatRegNum: string;
-  annualInvoiceDeclarationReference: number;
-  supplier: string;
-  releaser: number;
-  receiver: number;
-  blanketAgreementNumber: number;
-  assetValueDate: Moment;
-  requester: string;
-  requesterName: string;
-  requesterBranch: number;
-  requesterDepartment: number;
-  requesterEmail: string;
-  reqType: number;
-  authorizationCode: string;
-  startDeliveryDate: Moment;
-  startDeliveryTime: Time;
-  endDeliveryDate: Moment;
-  endDeliveryTime: Time;
-  vehiclePlate: string;
-  atDocumentType: string;
-  elecCommMessage: string;
-  fiscalDocNum: string;
-  posDailySummaryNo: number;
-  posReceiptNo: number;
-  pointOfIssueCode: string;
-  folioNumberFrom: number;
-  folioNumberTo: number;
-  relatedType: number;
-  relatedEntry: number;
-  documentTaxId: string;
-  dateOfReportingControlStatementVat: Moment;
-  reportingSectionControlStatementVat: string;
-  posCashRegister: number;
-  updateTime: Time;
-  downPaymentTrasactionId: string;
-  originalRefNo: string;
-  originalRefDate: Moment;
-  originalCreditOrDebitNo: string;
-  originalCreditOrDebitDate: Moment;
-  eCommerceOperator: string;
-  eCommerceGstin: string;
-  taxInvoiceNo: string;
-  taxInvoiceDate: Moment;
-  shipFrom: string;
-  issuingReason: number;
-  documentApprovalRequests: DocumentApprovalRequest[];
-  documentLines: DocumentLine[];
-  documentAdditionalExpenses: DocumentAdditionalExpense[];
-  withholdingTaxDataWtxCollection: WithholdingTaxDataWtx[];
-  withholdingTaxDataCollection: WithholdingTaxData[];
-  documentPackages: DocumentPackage[];
-  documentSpecialLines: DocumentSpecialLine[];
-  documentInstallments: DocumentInstallment[];
-  downPaymentsToDraw: DownPaymentToDraw[];
-  taxExtension: TaxExtension;
-  addressExtension: AddressExtension;
-  soiWizardId: number;
+  docEntry?: number | null;
+  docNum?: number | null;
+  docType?: BoDocumentTypes | null;
+  handWritten?: BoYesNoEnum | null;
+  printed?: PrintStatusEnum | null;
+  docDate?: Moment | null;
+  docDueDate?: Moment | null;
+  cardCode?: string | null;
+  cardName?: string | null;
+  address?: string | null;
+  numAtCard?: string | null;
+  docTotal?: number | null;
+  attachmentEntry?: number | null;
+  docCurrency?: string | null;
+  docRate?: number | null;
+  reference1?: string | null;
+  reference2?: string | null;
+  comments?: string | null;
+  journalMemo?: string | null;
+  paymentGroupCode?: number | null;
+  docTime?: Time | null;
+  salesPersonCode?: number | null;
+  transportationCode?: number | null;
+  confirmed?: BoYesNoEnum | null;
+  importFileNum?: number | null;
+  summeryType?: BoDocSummaryTypes | null;
+  contactPersonCode?: number | null;
+  showScn?: BoYesNoEnum | null;
+  series?: number | null;
+  taxDate?: Moment | null;
+  partialSupply?: BoYesNoEnum | null;
+  docObjectCode?: BoObjectTypes | null;
+  shipToCode?: string | null;
+  indicator?: string | null;
+  federalTaxId?: string | null;
+  discountPercent?: number | null;
+  paymentReference?: string | null;
+  creationDate?: Moment | null;
+  updateDate?: Moment | null;
+  financialPeriod?: number | null;
+  transNum?: number | null;
+  vatSum?: number | null;
+  vatSumSys?: number | null;
+  vatSumFc?: number | null;
+  netProcedure?: BoYesNoEnum | null;
+  docTotalFc?: number | null;
+  docTotalSys?: number | null;
+  form1099?: number | null;
+  box1099?: string | null;
+  revisionPo?: BoYesNoEnum | null;
+  requriedDate?: Moment | null;
+  cancelDate?: Moment | null;
+  blockDunning?: BoYesNoEnum | null;
+  submitted?: BoYesNoEnum | null;
+  segment?: number | null;
+  pickStatus?: BoYesNoEnum | null;
+  pick?: BoYesNoEnum | null;
+  paymentMethod?: string | null;
+  paymentBlock?: BoYesNoEnum | null;
+  paymentBlockEntry?: number | null;
+  centralBankIndicator?: string | null;
+  maximumCashDiscount?: BoYesNoEnum | null;
+  reserve?: BoYesNoEnum | null;
+  project?: string | null;
+  exemptionValidityDateFrom?: Moment | null;
+  exemptionValidityDateTo?: Moment | null;
+  wareHouseUpdateType?: BoDocWhsUpdateTypes | null;
+  rounding?: BoYesNoEnum | null;
+  externalCorrectedDocNum?: string | null;
+  internalCorrectedDocNum?: number | null;
+  nextCorrectingDocument?: number | null;
+  deferredTax?: BoYesNoEnum | null;
+  taxExemptionLetterNum?: string | null;
+  wtApplied?: number | null;
+  wtAppliedFc?: number | null;
+  billOfExchangeReserved?: BoYesNoEnum | null;
+  agentCode?: string | null;
+  wtAppliedSc?: number | null;
+  totalEqualizationTax?: number | null;
+  totalEqualizationTaxFc?: number | null;
+  totalEqualizationTaxSc?: number | null;
+  numberOfInstallments?: number | null;
+  applyTaxOnFirstInstallment?: BoYesNoEnum | null;
+  wtNonSubjectAmount?: number | null;
+  wtNonSubjectAmountSc?: number | null;
+  wtNonSubjectAmountFc?: number | null;
+  wtExemptedAmount?: number | null;
+  wtExemptedAmountSc?: number | null;
+  wtExemptedAmountFc?: number | null;
+  baseAmount?: number | null;
+  baseAmountSc?: number | null;
+  baseAmountFc?: number | null;
+  wtAmount?: number | null;
+  wtAmountSc?: number | null;
+  wtAmountFc?: number | null;
+  vatDate?: Moment | null;
+  documentsOwner?: number | null;
+  folioPrefixString?: string | null;
+  folioNumber?: number | null;
+  documentSubType?: BoDocumentSubType | null;
+  bpChannelCode?: string | null;
+  bpChannelContact?: number | null;
+  address2?: string | null;
+  documentStatus?: BoStatus | null;
+  periodIndicator?: string | null;
+  payToCode?: string | null;
+  manualNumber?: string | null;
+  useShpdGoodsAct?: BoYesNoEnum | null;
+  isPayToBank?: BoYesNoEnum | null;
+  payToBankCountry?: string | null;
+  payToBankCode?: string | null;
+  payToBankAccountNo?: string | null;
+  payToBankBranch?: string | null;
+  bplIdAssignedToInvoice?: number | null;
+  downPayment?: number | null;
+  reserveInvoice?: BoYesNoEnum | null;
+  languageCode?: number | null;
+  trackingNumber?: string | null;
+  pickRemark?: string | null;
+  closingDate?: Moment | null;
+  sequenceCode?: number | null;
+  sequenceSerial?: number | null;
+  seriesString?: string | null;
+  subSeriesString?: string | null;
+  sequenceModel?: string | null;
+  useCorrectionVatGroup?: BoYesNoEnum | null;
+  totalDiscount?: number | null;
+  downPaymentAmount?: number | null;
+  downPaymentPercentage?: number | null;
+  downPaymentType?: DownPaymentTypeEnum | null;
+  downPaymentAmountSc?: number | null;
+  downPaymentAmountFc?: number | null;
+  vatPercent?: number | null;
+  serviceGrossProfitPercent?: number | null;
+  openingRemarks?: string | null;
+  closingRemarks?: string | null;
+  roundingDiffAmount?: number | null;
+  roundingDiffAmountFc?: number | null;
+  roundingDiffAmountSc?: number | null;
+  cancelled?: BoYesNoEnum | null;
+  signatureInputMessage?: string | null;
+  signatureDigest?: string | null;
+  certificationNumber?: string | null;
+  privateKeyVersion?: number | null;
+  controlAccount?: string | null;
+  insuranceOperation347?: BoYesNoEnum | null;
+  archiveNonremovableSalesQuotation?: BoYesNoEnum | null;
+  gtsChecker?: number | null;
+  gtsPayee?: number | null;
+  extraMonth?: number | null;
+  extraDays?: number | null;
+  cashDiscountDateOffset?: number | null;
+  startFrom?: BoPayTermDueTypes | null;
+  ntsApproved?: BoYesNoEnum | null;
+  eTaxWebSite?: number | null;
+  eTaxNumber?: string | null;
+  ntsApprovedNumber?: string | null;
+  eDocGenerationType?: EDocGenerationTypeEnum | null;
+  eDocSeries?: number | null;
+  eDocNum?: string | null;
+  eDocExportFormat?: number | null;
+  eDocStatus?: EDocStatusEnum | null;
+  eDocErrorCode?: string | null;
+  eDocErrorMessage?: string | null;
+  downPaymentStatus?: BoSoStatus | null;
+  groupSeries?: number | null;
+  groupNumber?: number | null;
+  groupHandWritten?: BoYesNoEnum | null;
+  reopenOriginalDocument?: BoYesNoEnum | null;
+  reopenManuallyClosedOrCanceledDocument?: BoYesNoEnum | null;
+  createOnlineQuotation?: BoYesNoEnum | null;
+  posEquipmentNumber?: string | null;
+  posManufacturerSerialNumber?: string | null;
+  posCashierNumber?: number | null;
+  applyCurrentVatRatesForDownPaymentsToDraw?: BoYesNoEnum | null;
+  closingOption?: ClosingOptionEnum | null;
+  specifiedClosingDate?: Moment | null;
+  openForLandedCosts?: BoYesNoEnum | null;
+  authorizationStatus?: DocumentAuthorizationStatusEnum | null;
+  totalDiscountFc?: number | null;
+  totalDiscountSc?: number | null;
+  relevantToGts?: BoYesNoEnum | null;
+  bplName?: string | null;
+  vatRegNum?: string | null;
+  annualInvoiceDeclarationReference?: number | null;
+  supplier?: string | null;
+  releaser?: number | null;
+  receiver?: number | null;
+  blanketAgreementNumber?: number | null;
+  isAlteration?: BoYesNoEnum | null;
+  cancelStatus?: CancelStatusEnum | null;
+  assetValueDate?: Moment | null;
+  requester?: string | null;
+  requesterName?: string | null;
+  requesterBranch?: number | null;
+  requesterDepartment?: number | null;
+  requesterEmail?: string | null;
+  sendNotification?: BoYesNoEnum | null;
+  reqType?: number | null;
+  documentDelivery?: DocumentDeliveryTypeEnum | null;
+  authorizationCode?: string | null;
+  startDeliveryDate?: Moment | null;
+  startDeliveryTime?: Time | null;
+  endDeliveryDate?: Moment | null;
+  endDeliveryTime?: Time | null;
+  vehiclePlate?: string | null;
+  atDocumentType?: string | null;
+  elecCommStatus?: ElecCommStatusEnum | null;
+  elecCommMessage?: string | null;
+  reuseDocumentNum?: BoYesNoEnum | null;
+  reuseNotaFiscalNum?: BoYesNoEnum | null;
+  printSepaDirect?: BoYesNoEnum | null;
+  fiscalDocNum?: string | null;
+  posDailySummaryNo?: number | null;
+  posReceiptNo?: number | null;
+  pointOfIssueCode?: string | null;
+  letter?: FolioLetterEnum | null;
+  folioNumberFrom?: number | null;
+  folioNumberTo?: number | null;
+  interimType?: BoInterimDocTypes | null;
+  relatedType?: number | null;
+  relatedEntry?: number | null;
+  documentTaxId?: string | null;
+  dateOfReportingControlStatementVat?: Moment | null;
+  reportingSectionControlStatementVat?: string | null;
+  excludeFromTaxReportControlStatementVat?: BoYesNoEnum | null;
+  posCashRegister?: number | null;
+  updateTime?: Time | null;
+  priceMode?: PriceModeDocumentEnum | null;
+  downPaymentTrasactionId?: string | null;
+  revision?: BoYesNoEnum | null;
+  originalRefNo?: string | null;
+  originalRefDate?: Moment | null;
+  gstTransactionType?: GstTransactionTypeEnum | null;
+  originalCreditOrDebitNo?: string | null;
+  originalCreditOrDebitDate?: Moment | null;
+  eCommerceOperator?: string | null;
+  eCommerceGstin?: string | null;
+  taxInvoiceNo?: string | null;
+  taxInvoiceDate?: Moment | null;
+  shipFrom?: string | null;
+  commissionTrade?: CommissionTradeTypeEnum | null;
+  commissionTradeReturn?: BoYesNoEnum | null;
+  useBillToAddrToDetermineTax?: BoYesNoEnum | null;
+  issuingReason?: number | null;
+  documentApprovalRequests?: DocumentApprovalRequest[] | null;
+  documentLines?: DocumentLine[] | null;
+  documentAdditionalExpenses?: DocumentAdditionalExpense[] | null;
+  withholdingTaxDataWtxCollection?: WithholdingTaxDataWtx[] | null;
+  withholdingTaxDataCollection?: WithholdingTaxData[] | null;
+  documentPackages?: DocumentPackage[] | null;
+  documentSpecialLines?: DocumentSpecialLine[] | null;
+  documentInstallments?: DocumentInstallment[] | null;
+  downPaymentsToDraw?: DownPaymentToDraw[] | null;
+  taxExtension?: TaxExtension | null;
+  addressExtension?: AddressExtension | null;
+  soiWizardId?: number | null;
   businessPartner: BusinessPartnersType;
   currency: CurrenciesType;
   paymentTermsType: PaymentTermsTypesType;
@@ -1586,6 +1765,21 @@ export namespace PurchaseOrders {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOC_NUM: NumberField<PurchaseOrders> = new NumberField('DocNum', PurchaseOrders, 'Edm.Int32');
+  /**
+   * Static representation of the [[docType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOC_TYPE: EnumField<PurchaseOrders> = new EnumField('DocType', PurchaseOrders);
+  /**
+   * Static representation of the [[handWritten]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const HAND_WRITTEN: EnumField<PurchaseOrders> = new EnumField('HandWritten', PurchaseOrders);
+  /**
+   * Static representation of the [[printed]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRINTED: EnumField<PurchaseOrders> = new EnumField('Printed', PurchaseOrders);
   /**
    * Static representation of the [[docDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1677,15 +1871,30 @@ export namespace PurchaseOrders {
    */
   export const TRANSPORTATION_CODE: NumberField<PurchaseOrders> = new NumberField('TransportationCode', PurchaseOrders, 'Edm.Int32');
   /**
+   * Static representation of the [[confirmed]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CONFIRMED: EnumField<PurchaseOrders> = new EnumField('Confirmed', PurchaseOrders);
+  /**
    * Static representation of the [[importFileNum]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const IMPORT_FILE_NUM: NumberField<PurchaseOrders> = new NumberField('ImportFileNum', PurchaseOrders, 'Edm.Int32');
   /**
+   * Static representation of the [[summeryType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SUMMERY_TYPE: EnumField<PurchaseOrders> = new EnumField('SummeryType', PurchaseOrders);
+  /**
    * Static representation of the [[contactPersonCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CONTACT_PERSON_CODE: NumberField<PurchaseOrders> = new NumberField('ContactPersonCode', PurchaseOrders, 'Edm.Int32');
+  /**
+   * Static representation of the [[showScn]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SHOW_SCN: EnumField<PurchaseOrders> = new EnumField('ShowSCN', PurchaseOrders);
   /**
    * Static representation of the [[series]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1696,6 +1905,16 @@ export namespace PurchaseOrders {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const TAX_DATE: DateField<PurchaseOrders> = new DateField('TaxDate', PurchaseOrders, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[partialSupply]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PARTIAL_SUPPLY: EnumField<PurchaseOrders> = new EnumField('PartialSupply', PurchaseOrders);
+  /**
+   * Static representation of the [[docObjectCode]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOC_OBJECT_CODE: EnumField<PurchaseOrders> = new EnumField('DocObjectCode', PurchaseOrders);
   /**
    * Static representation of the [[shipToCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1757,6 +1976,11 @@ export namespace PurchaseOrders {
    */
   export const VAT_SUM_FC: NumberField<PurchaseOrders> = new NumberField('VatSumFc', PurchaseOrders, 'Edm.Double');
   /**
+   * Static representation of the [[netProcedure]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const NET_PROCEDURE: EnumField<PurchaseOrders> = new EnumField('NetProcedure', PurchaseOrders);
+  /**
    * Static representation of the [[docTotalFc]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1777,6 +2001,11 @@ export namespace PurchaseOrders {
    */
   export const BOX_1099: StringField<PurchaseOrders> = new StringField('Box1099', PurchaseOrders, 'Edm.String');
   /**
+   * Static representation of the [[revisionPo]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REVISION_PO: EnumField<PurchaseOrders> = new EnumField('RevisionPo', PurchaseOrders);
+  /**
    * Static representation of the [[requriedDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1787,15 +2016,40 @@ export namespace PurchaseOrders {
    */
   export const CANCEL_DATE: DateField<PurchaseOrders> = new DateField('CancelDate', PurchaseOrders, 'Edm.DateTimeOffset');
   /**
+   * Static representation of the [[blockDunning]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BLOCK_DUNNING: EnumField<PurchaseOrders> = new EnumField('BlockDunning', PurchaseOrders);
+  /**
+   * Static representation of the [[submitted]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SUBMITTED: EnumField<PurchaseOrders> = new EnumField('Submitted', PurchaseOrders);
+  /**
    * Static representation of the [[segment]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const SEGMENT: NumberField<PurchaseOrders> = new NumberField('Segment', PurchaseOrders, 'Edm.Int32');
   /**
+   * Static representation of the [[pickStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PICK_STATUS: EnumField<PurchaseOrders> = new EnumField('PickStatus', PurchaseOrders);
+  /**
+   * Static representation of the [[pick]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PICK: EnumField<PurchaseOrders> = new EnumField('Pick', PurchaseOrders);
+  /**
    * Static representation of the [[paymentMethod]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const PAYMENT_METHOD: StringField<PurchaseOrders> = new StringField('PaymentMethod', PurchaseOrders, 'Edm.String');
+  /**
+   * Static representation of the [[paymentBlock]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PAYMENT_BLOCK: EnumField<PurchaseOrders> = new EnumField('PaymentBlock', PurchaseOrders);
   /**
    * Static representation of the [[paymentBlockEntry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1806,6 +2060,16 @@ export namespace PurchaseOrders {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CENTRAL_BANK_INDICATOR: StringField<PurchaseOrders> = new StringField('CentralBankIndicator', PurchaseOrders, 'Edm.String');
+  /**
+   * Static representation of the [[maximumCashDiscount]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const MAXIMUM_CASH_DISCOUNT: EnumField<PurchaseOrders> = new EnumField('MaximumCashDiscount', PurchaseOrders);
+  /**
+   * Static representation of the [[reserve]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RESERVE: EnumField<PurchaseOrders> = new EnumField('Reserve', PurchaseOrders);
   /**
    * Static representation of the [[project]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1822,6 +2086,16 @@ export namespace PurchaseOrders {
    */
   export const EXEMPTION_VALIDITY_DATE_TO: DateField<PurchaseOrders> = new DateField('ExemptionValidityDateTo', PurchaseOrders, 'Edm.DateTimeOffset');
   /**
+   * Static representation of the [[wareHouseUpdateType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const WARE_HOUSE_UPDATE_TYPE: EnumField<PurchaseOrders> = new EnumField('WareHouseUpdateType', PurchaseOrders);
+  /**
+   * Static representation of the [[rounding]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ROUNDING: EnumField<PurchaseOrders> = new EnumField('Rounding', PurchaseOrders);
+  /**
    * Static representation of the [[externalCorrectedDocNum]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1837,6 +2111,11 @@ export namespace PurchaseOrders {
    */
   export const NEXT_CORRECTING_DOCUMENT: NumberField<PurchaseOrders> = new NumberField('NextCorrectingDocument', PurchaseOrders, 'Edm.Int32');
   /**
+   * Static representation of the [[deferredTax]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DEFERRED_TAX: EnumField<PurchaseOrders> = new EnumField('DeferredTax', PurchaseOrders);
+  /**
    * Static representation of the [[taxExemptionLetterNum]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1851,6 +2130,11 @@ export namespace PurchaseOrders {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const WT_APPLIED_FC: NumberField<PurchaseOrders> = new NumberField('WTAppliedFC', PurchaseOrders, 'Edm.Double');
+  /**
+   * Static representation of the [[billOfExchangeReserved]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BILL_OF_EXCHANGE_RESERVED: EnumField<PurchaseOrders> = new EnumField('BillOfExchangeReserved', PurchaseOrders);
   /**
    * Static representation of the [[agentCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1881,6 +2165,11 @@ export namespace PurchaseOrders {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const NUMBER_OF_INSTALLMENTS: NumberField<PurchaseOrders> = new NumberField('NumberOfInstallments', PurchaseOrders, 'Edm.Int32');
+  /**
+   * Static representation of the [[applyTaxOnFirstInstallment]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const APPLY_TAX_ON_FIRST_INSTALLMENT: EnumField<PurchaseOrders> = new EnumField('ApplyTaxOnFirstInstallment', PurchaseOrders);
   /**
    * Static representation of the [[wtNonSubjectAmount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1962,6 +2251,11 @@ export namespace PurchaseOrders {
    */
   export const FOLIO_NUMBER: NumberField<PurchaseOrders> = new NumberField('FolioNumber', PurchaseOrders, 'Edm.Int32');
   /**
+   * Static representation of the [[documentSubType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_SUB_TYPE: EnumField<PurchaseOrders> = new EnumField('DocumentSubType', PurchaseOrders);
+  /**
    * Static representation of the [[bpChannelCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1977,6 +2271,11 @@ export namespace PurchaseOrders {
    */
   export const ADDRESS_2: StringField<PurchaseOrders> = new StringField('Address2', PurchaseOrders, 'Edm.String');
   /**
+   * Static representation of the [[documentStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_STATUS: EnumField<PurchaseOrders> = new EnumField('DocumentStatus', PurchaseOrders);
+  /**
    * Static representation of the [[periodIndicator]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1991,6 +2290,16 @@ export namespace PurchaseOrders {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const MANUAL_NUMBER: StringField<PurchaseOrders> = new StringField('ManualNumber', PurchaseOrders, 'Edm.String');
+  /**
+   * Static representation of the [[useShpdGoodsAct]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const USE_SHPD_GOODS_ACT: EnumField<PurchaseOrders> = new EnumField('UseShpdGoodsAct', PurchaseOrders);
+  /**
+   * Static representation of the [[isPayToBank]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_PAY_TO_BANK: EnumField<PurchaseOrders> = new EnumField('IsPayToBank', PurchaseOrders);
   /**
    * Static representation of the [[payToBankCountry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2021,6 +2330,11 @@ export namespace PurchaseOrders {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOWN_PAYMENT: NumberField<PurchaseOrders> = new NumberField('DownPayment', PurchaseOrders, 'Edm.Double');
+  /**
+   * Static representation of the [[reserveInvoice]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RESERVE_INVOICE: EnumField<PurchaseOrders> = new EnumField('ReserveInvoice', PurchaseOrders);
   /**
    * Static representation of the [[languageCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2067,6 +2381,11 @@ export namespace PurchaseOrders {
    */
   export const SEQUENCE_MODEL: StringField<PurchaseOrders> = new StringField('SequenceModel', PurchaseOrders, 'Edm.String');
   /**
+   * Static representation of the [[useCorrectionVatGroup]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const USE_CORRECTION_VAT_GROUP: EnumField<PurchaseOrders> = new EnumField('UseCorrectionVATGroup', PurchaseOrders);
+  /**
    * Static representation of the [[totalDiscount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2081,6 +2400,11 @@ export namespace PurchaseOrders {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOWN_PAYMENT_PERCENTAGE: NumberField<PurchaseOrders> = new NumberField('DownPaymentPercentage', PurchaseOrders, 'Edm.Double');
+  /**
+   * Static representation of the [[downPaymentType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOWN_PAYMENT_TYPE: EnumField<PurchaseOrders> = new EnumField('DownPaymentType', PurchaseOrders);
   /**
    * Static representation of the [[downPaymentAmountSc]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2127,6 +2451,11 @@ export namespace PurchaseOrders {
    */
   export const ROUNDING_DIFF_AMOUNT_SC: NumberField<PurchaseOrders> = new NumberField('RoundingDiffAmountSC', PurchaseOrders, 'Edm.Double');
   /**
+   * Static representation of the [[cancelled]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CANCELLED: EnumField<PurchaseOrders> = new EnumField('Cancelled', PurchaseOrders);
+  /**
    * Static representation of the [[signatureInputMessage]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2151,6 +2480,16 @@ export namespace PurchaseOrders {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CONTROL_ACCOUNT: StringField<PurchaseOrders> = new StringField('ControlAccount', PurchaseOrders, 'Edm.String');
+  /**
+   * Static representation of the [[insuranceOperation347]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INSURANCE_OPERATION_347: EnumField<PurchaseOrders> = new EnumField('InsuranceOperation347', PurchaseOrders);
+  /**
+   * Static representation of the [[archiveNonremovableSalesQuotation]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ARCHIVE_NONREMOVABLE_SALES_QUOTATION: EnumField<PurchaseOrders> = new EnumField('ArchiveNonremovableSalesQuotation', PurchaseOrders);
   /**
    * Static representation of the [[gtsChecker]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2177,6 +2516,16 @@ export namespace PurchaseOrders {
    */
   export const CASH_DISCOUNT_DATE_OFFSET: NumberField<PurchaseOrders> = new NumberField('CashDiscountDateOffset', PurchaseOrders, 'Edm.Int32');
   /**
+   * Static representation of the [[startFrom]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const START_FROM: EnumField<PurchaseOrders> = new EnumField('StartFrom', PurchaseOrders);
+  /**
+   * Static representation of the [[ntsApproved]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const NTS_APPROVED: EnumField<PurchaseOrders> = new EnumField('NTSApproved', PurchaseOrders);
+  /**
    * Static representation of the [[eTaxWebSite]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2191,6 +2540,11 @@ export namespace PurchaseOrders {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const NTS_APPROVED_NUMBER: StringField<PurchaseOrders> = new StringField('NTSApprovedNumber', PurchaseOrders, 'Edm.String');
+  /**
+   * Static representation of the [[eDocGenerationType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const E_DOC_GENERATION_TYPE: EnumField<PurchaseOrders> = new EnumField('EDocGenerationType', PurchaseOrders);
   /**
    * Static representation of the [[eDocSeries]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2207,6 +2561,11 @@ export namespace PurchaseOrders {
    */
   export const E_DOC_EXPORT_FORMAT: NumberField<PurchaseOrders> = new NumberField('EDocExportFormat', PurchaseOrders, 'Edm.Int32');
   /**
+   * Static representation of the [[eDocStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const E_DOC_STATUS: EnumField<PurchaseOrders> = new EnumField('EDocStatus', PurchaseOrders);
+  /**
    * Static representation of the [[eDocErrorCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2217,6 +2576,11 @@ export namespace PurchaseOrders {
    */
   export const E_DOC_ERROR_MESSAGE: StringField<PurchaseOrders> = new StringField('EDocErrorMessage', PurchaseOrders, 'Edm.String');
   /**
+   * Static representation of the [[downPaymentStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOWN_PAYMENT_STATUS: EnumField<PurchaseOrders> = new EnumField('DownPaymentStatus', PurchaseOrders);
+  /**
    * Static representation of the [[groupSeries]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2226,6 +2590,26 @@ export namespace PurchaseOrders {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const GROUP_NUMBER: NumberField<PurchaseOrders> = new NumberField('GroupNumber', PurchaseOrders, 'Edm.Int32');
+  /**
+   * Static representation of the [[groupHandWritten]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const GROUP_HAND_WRITTEN: EnumField<PurchaseOrders> = new EnumField('GroupHandWritten', PurchaseOrders);
+  /**
+   * Static representation of the [[reopenOriginalDocument]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REOPEN_ORIGINAL_DOCUMENT: EnumField<PurchaseOrders> = new EnumField('ReopenOriginalDocument', PurchaseOrders);
+  /**
+   * Static representation of the [[reopenManuallyClosedOrCanceledDocument]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REOPEN_MANUALLY_CLOSED_OR_CANCELED_DOCUMENT: EnumField<PurchaseOrders> = new EnumField('ReopenManuallyClosedOrCanceledDocument', PurchaseOrders);
+  /**
+   * Static representation of the [[createOnlineQuotation]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CREATE_ONLINE_QUOTATION: EnumField<PurchaseOrders> = new EnumField('CreateOnlineQuotation', PurchaseOrders);
   /**
    * Static representation of the [[posEquipmentNumber]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2242,10 +2626,30 @@ export namespace PurchaseOrders {
    */
   export const POS_CASHIER_NUMBER: NumberField<PurchaseOrders> = new NumberField('POSCashierNumber', PurchaseOrders, 'Edm.Int32');
   /**
+   * Static representation of the [[applyCurrentVatRatesForDownPaymentsToDraw]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const APPLY_CURRENT_VAT_RATES_FOR_DOWN_PAYMENTS_TO_DRAW: EnumField<PurchaseOrders> = new EnumField('ApplyCurrentVATRatesForDownPaymentsToDraw', PurchaseOrders);
+  /**
+   * Static representation of the [[closingOption]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CLOSING_OPTION: EnumField<PurchaseOrders> = new EnumField('ClosingOption', PurchaseOrders);
+  /**
    * Static representation of the [[specifiedClosingDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const SPECIFIED_CLOSING_DATE: DateField<PurchaseOrders> = new DateField('SpecifiedClosingDate', PurchaseOrders, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[openForLandedCosts]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const OPEN_FOR_LANDED_COSTS: EnumField<PurchaseOrders> = new EnumField('OpenForLandedCosts', PurchaseOrders);
+  /**
+   * Static representation of the [[authorizationStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const AUTHORIZATION_STATUS: EnumField<PurchaseOrders> = new EnumField('AuthorizationStatus', PurchaseOrders);
   /**
    * Static representation of the [[totalDiscountFc]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2256,6 +2660,11 @@ export namespace PurchaseOrders {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const TOTAL_DISCOUNT_SC: NumberField<PurchaseOrders> = new NumberField('TotalDiscountSC', PurchaseOrders, 'Edm.Double');
+  /**
+   * Static representation of the [[relevantToGts]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RELEVANT_TO_GTS: EnumField<PurchaseOrders> = new EnumField('RelevantToGTS', PurchaseOrders);
   /**
    * Static representation of the [[bplName]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2292,6 +2701,16 @@ export namespace PurchaseOrders {
    */
   export const BLANKET_AGREEMENT_NUMBER: NumberField<PurchaseOrders> = new NumberField('BlanketAgreementNumber', PurchaseOrders, 'Edm.Int32');
   /**
+   * Static representation of the [[isAlteration]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_ALTERATION: EnumField<PurchaseOrders> = new EnumField('IsAlteration', PurchaseOrders);
+  /**
+   * Static representation of the [[cancelStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CANCEL_STATUS: EnumField<PurchaseOrders> = new EnumField('CancelStatus', PurchaseOrders);
+  /**
    * Static representation of the [[assetValueDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2322,10 +2741,20 @@ export namespace PurchaseOrders {
    */
   export const REQUESTER_EMAIL: StringField<PurchaseOrders> = new StringField('RequesterEmail', PurchaseOrders, 'Edm.String');
   /**
+   * Static representation of the [[sendNotification]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SEND_NOTIFICATION: EnumField<PurchaseOrders> = new EnumField('SendNotification', PurchaseOrders);
+  /**
    * Static representation of the [[reqType]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const REQ_TYPE: NumberField<PurchaseOrders> = new NumberField('ReqType', PurchaseOrders, 'Edm.Int32');
+  /**
+   * Static representation of the [[documentDelivery]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_DELIVERY: EnumField<PurchaseOrders> = new EnumField('DocumentDelivery', PurchaseOrders);
   /**
    * Static representation of the [[authorizationCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2362,10 +2791,30 @@ export namespace PurchaseOrders {
    */
   export const AT_DOCUMENT_TYPE: StringField<PurchaseOrders> = new StringField('ATDocumentType', PurchaseOrders, 'Edm.String');
   /**
+   * Static representation of the [[elecCommStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ELEC_COMM_STATUS: EnumField<PurchaseOrders> = new EnumField('ElecCommStatus', PurchaseOrders);
+  /**
    * Static representation of the [[elecCommMessage]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const ELEC_COMM_MESSAGE: StringField<PurchaseOrders> = new StringField('ElecCommMessage', PurchaseOrders, 'Edm.String');
+  /**
+   * Static representation of the [[reuseDocumentNum]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REUSE_DOCUMENT_NUM: EnumField<PurchaseOrders> = new EnumField('ReuseDocumentNum', PurchaseOrders);
+  /**
+   * Static representation of the [[reuseNotaFiscalNum]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REUSE_NOTA_FISCAL_NUM: EnumField<PurchaseOrders> = new EnumField('ReuseNotaFiscalNum', PurchaseOrders);
+  /**
+   * Static representation of the [[printSepaDirect]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRINT_SEPA_DIRECT: EnumField<PurchaseOrders> = new EnumField('PrintSEPADirect', PurchaseOrders);
   /**
    * Static representation of the [[fiscalDocNum]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2387,6 +2836,11 @@ export namespace PurchaseOrders {
    */
   export const POINT_OF_ISSUE_CODE: StringField<PurchaseOrders> = new StringField('PointOfIssueCode', PurchaseOrders, 'Edm.String');
   /**
+   * Static representation of the [[letter]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LETTER: EnumField<PurchaseOrders> = new EnumField('Letter', PurchaseOrders);
+  /**
    * Static representation of the [[folioNumberFrom]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2396,6 +2850,11 @@ export namespace PurchaseOrders {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const FOLIO_NUMBER_TO: NumberField<PurchaseOrders> = new NumberField('FolioNumberTo', PurchaseOrders, 'Edm.Int32');
+  /**
+   * Static representation of the [[interimType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INTERIM_TYPE: EnumField<PurchaseOrders> = new EnumField('InterimType', PurchaseOrders);
   /**
    * Static representation of the [[relatedType]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2422,6 +2881,11 @@ export namespace PurchaseOrders {
    */
   export const REPORTING_SECTION_CONTROL_STATEMENT_VAT: StringField<PurchaseOrders> = new StringField('ReportingSectionControlStatementVAT', PurchaseOrders, 'Edm.String');
   /**
+   * Static representation of the [[excludeFromTaxReportControlStatementVat]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const EXCLUDE_FROM_TAX_REPORT_CONTROL_STATEMENT_VAT: EnumField<PurchaseOrders> = new EnumField('ExcludeFromTaxReportControlStatementVAT', PurchaseOrders);
+  /**
    * Static representation of the [[posCashRegister]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2432,10 +2896,20 @@ export namespace PurchaseOrders {
    */
   export const UPDATE_TIME: TimeField<PurchaseOrders> = new TimeField('UpdateTime', PurchaseOrders, 'Edm.TimeOfDay');
   /**
+   * Static representation of the [[priceMode]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRICE_MODE: EnumField<PurchaseOrders> = new EnumField('PriceMode', PurchaseOrders);
+  /**
    * Static representation of the [[downPaymentTrasactionId]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOWN_PAYMENT_TRASACTION_ID: StringField<PurchaseOrders> = new StringField('DownPaymentTrasactionID', PurchaseOrders, 'Edm.String');
+  /**
+   * Static representation of the [[revision]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REVISION: EnumField<PurchaseOrders> = new EnumField('Revision', PurchaseOrders);
   /**
    * Static representation of the [[originalRefNo]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2446,6 +2920,11 @@ export namespace PurchaseOrders {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const ORIGINAL_REF_DATE: DateField<PurchaseOrders> = new DateField('OriginalRefDate', PurchaseOrders, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[gstTransactionType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const GST_TRANSACTION_TYPE: EnumField<PurchaseOrders> = new EnumField('GSTTransactionType', PurchaseOrders);
   /**
    * Static representation of the [[originalCreditOrDebitNo]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2482,6 +2961,21 @@ export namespace PurchaseOrders {
    */
   export const SHIP_FROM: StringField<PurchaseOrders> = new StringField('ShipFrom', PurchaseOrders, 'Edm.String');
   /**
+   * Static representation of the [[commissionTrade]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const COMMISSION_TRADE: EnumField<PurchaseOrders> = new EnumField('CommissionTrade', PurchaseOrders);
+  /**
+   * Static representation of the [[commissionTradeReturn]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const COMMISSION_TRADE_RETURN: EnumField<PurchaseOrders> = new EnumField('CommissionTradeReturn', PurchaseOrders);
+  /**
+   * Static representation of the [[useBillToAddrToDetermineTax]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const USE_BILL_TO_ADDR_TO_DETERMINE_TAX: EnumField<PurchaseOrders> = new EnumField('UseBillToAddrToDetermineTax', PurchaseOrders);
+  /**
    * Static representation of the [[issuingReason]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2490,47 +2984,47 @@ export namespace PurchaseOrders {
    * Static representation of the [[documentApprovalRequests]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_APPROVAL_REQUESTS: CollectionField<PurchaseOrders> = new CollectionField('Document_ApprovalRequests', PurchaseOrders, new DocumentApprovalRequestField('', PurchaseOrders));
+  export const DOCUMENT_APPROVAL_REQUESTS: CollectionField<PurchaseOrders, DocumentApprovalRequest> = new CollectionField('Document_ApprovalRequests', PurchaseOrders, DocumentApprovalRequest);
   /**
    * Static representation of the [[documentLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_LINES: CollectionField<PurchaseOrders> = new CollectionField('DocumentLines', PurchaseOrders, new DocumentLineField('', PurchaseOrders));
+  export const DOCUMENT_LINES: CollectionField<PurchaseOrders, DocumentLine> = new CollectionField('DocumentLines', PurchaseOrders, DocumentLine);
   /**
    * Static representation of the [[documentAdditionalExpenses]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_ADDITIONAL_EXPENSES: CollectionField<PurchaseOrders> = new CollectionField('DocumentAdditionalExpenses', PurchaseOrders, new DocumentAdditionalExpenseField('', PurchaseOrders));
+  export const DOCUMENT_ADDITIONAL_EXPENSES: CollectionField<PurchaseOrders, DocumentAdditionalExpense> = new CollectionField('DocumentAdditionalExpenses', PurchaseOrders, DocumentAdditionalExpense);
   /**
    * Static representation of the [[withholdingTaxDataWtxCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const WITHHOLDING_TAX_DATA_WTX_COLLECTION: CollectionField<PurchaseOrders> = new CollectionField('WithholdingTaxDataWTXCollection', PurchaseOrders, new WithholdingTaxDataWtxField('', PurchaseOrders));
+  export const WITHHOLDING_TAX_DATA_WTX_COLLECTION: CollectionField<PurchaseOrders, WithholdingTaxDataWtx> = new CollectionField('WithholdingTaxDataWTXCollection', PurchaseOrders, WithholdingTaxDataWtx);
   /**
    * Static representation of the [[withholdingTaxDataCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const WITHHOLDING_TAX_DATA_COLLECTION: CollectionField<PurchaseOrders> = new CollectionField('WithholdingTaxDataCollection', PurchaseOrders, new WithholdingTaxDataField('', PurchaseOrders));
+  export const WITHHOLDING_TAX_DATA_COLLECTION: CollectionField<PurchaseOrders, WithholdingTaxData> = new CollectionField('WithholdingTaxDataCollection', PurchaseOrders, WithholdingTaxData);
   /**
    * Static representation of the [[documentPackages]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_PACKAGES: CollectionField<PurchaseOrders> = new CollectionField('DocumentPackages', PurchaseOrders, new DocumentPackageField('', PurchaseOrders));
+  export const DOCUMENT_PACKAGES: CollectionField<PurchaseOrders, DocumentPackage> = new CollectionField('DocumentPackages', PurchaseOrders, DocumentPackage);
   /**
    * Static representation of the [[documentSpecialLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_SPECIAL_LINES: CollectionField<PurchaseOrders> = new CollectionField('DocumentSpecialLines', PurchaseOrders, new DocumentSpecialLineField('', PurchaseOrders));
+  export const DOCUMENT_SPECIAL_LINES: CollectionField<PurchaseOrders, DocumentSpecialLine> = new CollectionField('DocumentSpecialLines', PurchaseOrders, DocumentSpecialLine);
   /**
    * Static representation of the [[documentInstallments]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_INSTALLMENTS: CollectionField<PurchaseOrders> = new CollectionField('DocumentInstallments', PurchaseOrders, new DocumentInstallmentField('', PurchaseOrders));
+  export const DOCUMENT_INSTALLMENTS: CollectionField<PurchaseOrders, DocumentInstallment> = new CollectionField('DocumentInstallments', PurchaseOrders, DocumentInstallment);
   /**
    * Static representation of the [[downPaymentsToDraw]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOWN_PAYMENTS_TO_DRAW: CollectionField<PurchaseOrders> = new CollectionField('DownPaymentsToDraw', PurchaseOrders, new DownPaymentToDrawField('', PurchaseOrders));
+  export const DOWN_PAYMENTS_TO_DRAW: CollectionField<PurchaseOrders, DownPaymentToDraw> = new CollectionField('DownPaymentsToDraw', PurchaseOrders, DownPaymentToDraw);
   /**
    * Static representation of the [[taxExtension]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2649,9 +3143,12 @@ export namespace PurchaseOrders {
   /**
    * All fields of the PurchaseOrders entity.
    */
-  export const _allFields: Array<NumberField<PurchaseOrders> | DateField<PurchaseOrders> | StringField<PurchaseOrders> | TimeField<PurchaseOrders> | CollectionField<PurchaseOrders> | TaxExtensionField<PurchaseOrders> | AddressExtensionField<PurchaseOrders> | OneToOneLink<PurchaseOrders, BusinessPartners> | OneToOneLink<PurchaseOrders, Currencies> | OneToOneLink<PurchaseOrders, PaymentTermsTypes> | OneToOneLink<PurchaseOrders, SalesPersons> | OneToOneLink<PurchaseOrders, ShippingTypes> | OneToOneLink<PurchaseOrders, FactoringIndicators> | OneToOneLink<PurchaseOrders, Forms1099> | OneToOneLink<PurchaseOrders, WizardPaymentMethods> | OneToOneLink<PurchaseOrders, PaymentBlocks> | OneToOneLink<PurchaseOrders, Projects> | OneToOneLink<PurchaseOrders, EmployeesInfo> | OneToOneLink<PurchaseOrders, Countries> | OneToOneLink<PurchaseOrders, BusinessPlaces> | OneToOneLink<PurchaseOrders, UserLanguages> | OneToOneLink<PurchaseOrders, NfModels> | OneToOneLink<PurchaseOrders, ChartOfAccounts> | OneToOneLink<PurchaseOrders, TaxWebSites> | OneToOneLink<PurchaseOrders, Branches> | OneToOneLink<PurchaseOrders, Departments> | OneToOneLink<PurchaseOrders, PosDailySummary>> = [
+  export const _allFields: Array<NumberField<PurchaseOrders> | EnumField<PurchaseOrders> | DateField<PurchaseOrders> | StringField<PurchaseOrders> | TimeField<PurchaseOrders> | CollectionField<PurchaseOrders, DocumentApprovalRequest> | CollectionField<PurchaseOrders, DocumentLine> | CollectionField<PurchaseOrders, DocumentAdditionalExpense> | CollectionField<PurchaseOrders, WithholdingTaxDataWtx> | CollectionField<PurchaseOrders, WithholdingTaxData> | CollectionField<PurchaseOrders, DocumentPackage> | CollectionField<PurchaseOrders, DocumentSpecialLine> | CollectionField<PurchaseOrders, DocumentInstallment> | CollectionField<PurchaseOrders, DownPaymentToDraw> | TaxExtensionField<PurchaseOrders> | AddressExtensionField<PurchaseOrders> | OneToOneLink<PurchaseOrders, BusinessPartners> | OneToOneLink<PurchaseOrders, Currencies> | OneToOneLink<PurchaseOrders, PaymentTermsTypes> | OneToOneLink<PurchaseOrders, SalesPersons> | OneToOneLink<PurchaseOrders, ShippingTypes> | OneToOneLink<PurchaseOrders, FactoringIndicators> | OneToOneLink<PurchaseOrders, Forms1099> | OneToOneLink<PurchaseOrders, WizardPaymentMethods> | OneToOneLink<PurchaseOrders, PaymentBlocks> | OneToOneLink<PurchaseOrders, Projects> | OneToOneLink<PurchaseOrders, EmployeesInfo> | OneToOneLink<PurchaseOrders, Countries> | OneToOneLink<PurchaseOrders, BusinessPlaces> | OneToOneLink<PurchaseOrders, UserLanguages> | OneToOneLink<PurchaseOrders, NfModels> | OneToOneLink<PurchaseOrders, ChartOfAccounts> | OneToOneLink<PurchaseOrders, TaxWebSites> | OneToOneLink<PurchaseOrders, Branches> | OneToOneLink<PurchaseOrders, Departments> | OneToOneLink<PurchaseOrders, PosDailySummary>> = [
     PurchaseOrders.DOC_ENTRY,
     PurchaseOrders.DOC_NUM,
+    PurchaseOrders.DOC_TYPE,
+    PurchaseOrders.HAND_WRITTEN,
+    PurchaseOrders.PRINTED,
     PurchaseOrders.DOC_DATE,
     PurchaseOrders.DOC_DUE_DATE,
     PurchaseOrders.CARD_CODE,
@@ -2670,10 +3167,15 @@ export namespace PurchaseOrders {
     PurchaseOrders.DOC_TIME,
     PurchaseOrders.SALES_PERSON_CODE,
     PurchaseOrders.TRANSPORTATION_CODE,
+    PurchaseOrders.CONFIRMED,
     PurchaseOrders.IMPORT_FILE_NUM,
+    PurchaseOrders.SUMMERY_TYPE,
     PurchaseOrders.CONTACT_PERSON_CODE,
+    PurchaseOrders.SHOW_SCN,
     PurchaseOrders.SERIES,
     PurchaseOrders.TAX_DATE,
+    PurchaseOrders.PARTIAL_SUPPLY,
+    PurchaseOrders.DOC_OBJECT_CODE,
     PurchaseOrders.SHIP_TO_CODE,
     PurchaseOrders.INDICATOR,
     PurchaseOrders.FEDERAL_TAX_ID,
@@ -2686,31 +3188,45 @@ export namespace PurchaseOrders {
     PurchaseOrders.VAT_SUM,
     PurchaseOrders.VAT_SUM_SYS,
     PurchaseOrders.VAT_SUM_FC,
+    PurchaseOrders.NET_PROCEDURE,
     PurchaseOrders.DOC_TOTAL_FC,
     PurchaseOrders.DOC_TOTAL_SYS,
     PurchaseOrders.FORM_1099,
     PurchaseOrders.BOX_1099,
+    PurchaseOrders.REVISION_PO,
     PurchaseOrders.REQURIED_DATE,
     PurchaseOrders.CANCEL_DATE,
+    PurchaseOrders.BLOCK_DUNNING,
+    PurchaseOrders.SUBMITTED,
     PurchaseOrders.SEGMENT,
+    PurchaseOrders.PICK_STATUS,
+    PurchaseOrders.PICK,
     PurchaseOrders.PAYMENT_METHOD,
+    PurchaseOrders.PAYMENT_BLOCK,
     PurchaseOrders.PAYMENT_BLOCK_ENTRY,
     PurchaseOrders.CENTRAL_BANK_INDICATOR,
+    PurchaseOrders.MAXIMUM_CASH_DISCOUNT,
+    PurchaseOrders.RESERVE,
     PurchaseOrders.PROJECT,
     PurchaseOrders.EXEMPTION_VALIDITY_DATE_FROM,
     PurchaseOrders.EXEMPTION_VALIDITY_DATE_TO,
+    PurchaseOrders.WARE_HOUSE_UPDATE_TYPE,
+    PurchaseOrders.ROUNDING,
     PurchaseOrders.EXTERNAL_CORRECTED_DOC_NUM,
     PurchaseOrders.INTERNAL_CORRECTED_DOC_NUM,
     PurchaseOrders.NEXT_CORRECTING_DOCUMENT,
+    PurchaseOrders.DEFERRED_TAX,
     PurchaseOrders.TAX_EXEMPTION_LETTER_NUM,
     PurchaseOrders.WT_APPLIED,
     PurchaseOrders.WT_APPLIED_FC,
+    PurchaseOrders.BILL_OF_EXCHANGE_RESERVED,
     PurchaseOrders.AGENT_CODE,
     PurchaseOrders.WT_APPLIED_SC,
     PurchaseOrders.TOTAL_EQUALIZATION_TAX,
     PurchaseOrders.TOTAL_EQUALIZATION_TAX_FC,
     PurchaseOrders.TOTAL_EQUALIZATION_TAX_SC,
     PurchaseOrders.NUMBER_OF_INSTALLMENTS,
+    PurchaseOrders.APPLY_TAX_ON_FIRST_INSTALLMENT,
     PurchaseOrders.WT_NON_SUBJECT_AMOUNT,
     PurchaseOrders.WT_NON_SUBJECT_AMOUNT_SC,
     PurchaseOrders.WT_NON_SUBJECT_AMOUNT_FC,
@@ -2727,18 +3243,23 @@ export namespace PurchaseOrders {
     PurchaseOrders.DOCUMENTS_OWNER,
     PurchaseOrders.FOLIO_PREFIX_STRING,
     PurchaseOrders.FOLIO_NUMBER,
+    PurchaseOrders.DOCUMENT_SUB_TYPE,
     PurchaseOrders.BP_CHANNEL_CODE,
     PurchaseOrders.BP_CHANNEL_CONTACT,
     PurchaseOrders.ADDRESS_2,
+    PurchaseOrders.DOCUMENT_STATUS,
     PurchaseOrders.PERIOD_INDICATOR,
     PurchaseOrders.PAY_TO_CODE,
     PurchaseOrders.MANUAL_NUMBER,
+    PurchaseOrders.USE_SHPD_GOODS_ACT,
+    PurchaseOrders.IS_PAY_TO_BANK,
     PurchaseOrders.PAY_TO_BANK_COUNTRY,
     PurchaseOrders.PAY_TO_BANK_CODE,
     PurchaseOrders.PAY_TO_BANK_ACCOUNT_NO,
     PurchaseOrders.PAY_TO_BANK_BRANCH,
     PurchaseOrders.BPL_ID_ASSIGNED_TO_INVOICE,
     PurchaseOrders.DOWN_PAYMENT,
+    PurchaseOrders.RESERVE_INVOICE,
     PurchaseOrders.LANGUAGE_CODE,
     PurchaseOrders.TRACKING_NUMBER,
     PurchaseOrders.PICK_REMARK,
@@ -2748,9 +3269,11 @@ export namespace PurchaseOrders {
     PurchaseOrders.SERIES_STRING,
     PurchaseOrders.SUB_SERIES_STRING,
     PurchaseOrders.SEQUENCE_MODEL,
+    PurchaseOrders.USE_CORRECTION_VAT_GROUP,
     PurchaseOrders.TOTAL_DISCOUNT,
     PurchaseOrders.DOWN_PAYMENT_AMOUNT,
     PurchaseOrders.DOWN_PAYMENT_PERCENTAGE,
+    PurchaseOrders.DOWN_PAYMENT_TYPE,
     PurchaseOrders.DOWN_PAYMENT_AMOUNT_SC,
     PurchaseOrders.DOWN_PAYMENT_AMOUNT_FC,
     PurchaseOrders.VAT_PERCENT,
@@ -2760,32 +3283,49 @@ export namespace PurchaseOrders {
     PurchaseOrders.ROUNDING_DIFF_AMOUNT,
     PurchaseOrders.ROUNDING_DIFF_AMOUNT_FC,
     PurchaseOrders.ROUNDING_DIFF_AMOUNT_SC,
+    PurchaseOrders.CANCELLED,
     PurchaseOrders.SIGNATURE_INPUT_MESSAGE,
     PurchaseOrders.SIGNATURE_DIGEST,
     PurchaseOrders.CERTIFICATION_NUMBER,
     PurchaseOrders.PRIVATE_KEY_VERSION,
     PurchaseOrders.CONTROL_ACCOUNT,
+    PurchaseOrders.INSURANCE_OPERATION_347,
+    PurchaseOrders.ARCHIVE_NONREMOVABLE_SALES_QUOTATION,
     PurchaseOrders.GTS_CHECKER,
     PurchaseOrders.GTS_PAYEE,
     PurchaseOrders.EXTRA_MONTH,
     PurchaseOrders.EXTRA_DAYS,
     PurchaseOrders.CASH_DISCOUNT_DATE_OFFSET,
+    PurchaseOrders.START_FROM,
+    PurchaseOrders.NTS_APPROVED,
     PurchaseOrders.E_TAX_WEB_SITE,
     PurchaseOrders.E_TAX_NUMBER,
     PurchaseOrders.NTS_APPROVED_NUMBER,
+    PurchaseOrders.E_DOC_GENERATION_TYPE,
     PurchaseOrders.E_DOC_SERIES,
     PurchaseOrders.E_DOC_NUM,
     PurchaseOrders.E_DOC_EXPORT_FORMAT,
+    PurchaseOrders.E_DOC_STATUS,
     PurchaseOrders.E_DOC_ERROR_CODE,
     PurchaseOrders.E_DOC_ERROR_MESSAGE,
+    PurchaseOrders.DOWN_PAYMENT_STATUS,
     PurchaseOrders.GROUP_SERIES,
     PurchaseOrders.GROUP_NUMBER,
+    PurchaseOrders.GROUP_HAND_WRITTEN,
+    PurchaseOrders.REOPEN_ORIGINAL_DOCUMENT,
+    PurchaseOrders.REOPEN_MANUALLY_CLOSED_OR_CANCELED_DOCUMENT,
+    PurchaseOrders.CREATE_ONLINE_QUOTATION,
     PurchaseOrders.POS_EQUIPMENT_NUMBER,
     PurchaseOrders.POS_MANUFACTURER_SERIAL_NUMBER,
     PurchaseOrders.POS_CASHIER_NUMBER,
+    PurchaseOrders.APPLY_CURRENT_VAT_RATES_FOR_DOWN_PAYMENTS_TO_DRAW,
+    PurchaseOrders.CLOSING_OPTION,
     PurchaseOrders.SPECIFIED_CLOSING_DATE,
+    PurchaseOrders.OPEN_FOR_LANDED_COSTS,
+    PurchaseOrders.AUTHORIZATION_STATUS,
     PurchaseOrders.TOTAL_DISCOUNT_FC,
     PurchaseOrders.TOTAL_DISCOUNT_SC,
+    PurchaseOrders.RELEVANT_TO_GTS,
     PurchaseOrders.BPL_NAME,
     PurchaseOrders.VAT_REG_NUM,
     PurchaseOrders.ANNUAL_INVOICE_DECLARATION_REFERENCE,
@@ -2793,13 +3333,17 @@ export namespace PurchaseOrders {
     PurchaseOrders.RELEASER,
     PurchaseOrders.RECEIVER,
     PurchaseOrders.BLANKET_AGREEMENT_NUMBER,
+    PurchaseOrders.IS_ALTERATION,
+    PurchaseOrders.CANCEL_STATUS,
     PurchaseOrders.ASSET_VALUE_DATE,
     PurchaseOrders.REQUESTER,
     PurchaseOrders.REQUESTER_NAME,
     PurchaseOrders.REQUESTER_BRANCH,
     PurchaseOrders.REQUESTER_DEPARTMENT,
     PurchaseOrders.REQUESTER_EMAIL,
+    PurchaseOrders.SEND_NOTIFICATION,
     PurchaseOrders.REQ_TYPE,
+    PurchaseOrders.DOCUMENT_DELIVERY,
     PurchaseOrders.AUTHORIZATION_CODE,
     PurchaseOrders.START_DELIVERY_DATE,
     PurchaseOrders.START_DELIVERY_TIME,
@@ -2807,23 +3351,33 @@ export namespace PurchaseOrders {
     PurchaseOrders.END_DELIVERY_TIME,
     PurchaseOrders.VEHICLE_PLATE,
     PurchaseOrders.AT_DOCUMENT_TYPE,
+    PurchaseOrders.ELEC_COMM_STATUS,
     PurchaseOrders.ELEC_COMM_MESSAGE,
+    PurchaseOrders.REUSE_DOCUMENT_NUM,
+    PurchaseOrders.REUSE_NOTA_FISCAL_NUM,
+    PurchaseOrders.PRINT_SEPA_DIRECT,
     PurchaseOrders.FISCAL_DOC_NUM,
     PurchaseOrders.POS_DAILY_SUMMARY_NO,
     PurchaseOrders.POS_RECEIPT_NO,
     PurchaseOrders.POINT_OF_ISSUE_CODE,
+    PurchaseOrders.LETTER,
     PurchaseOrders.FOLIO_NUMBER_FROM,
     PurchaseOrders.FOLIO_NUMBER_TO,
+    PurchaseOrders.INTERIM_TYPE,
     PurchaseOrders.RELATED_TYPE,
     PurchaseOrders.RELATED_ENTRY,
     PurchaseOrders.DOCUMENT_TAX_ID,
     PurchaseOrders.DATE_OF_REPORTING_CONTROL_STATEMENT_VAT,
     PurchaseOrders.REPORTING_SECTION_CONTROL_STATEMENT_VAT,
+    PurchaseOrders.EXCLUDE_FROM_TAX_REPORT_CONTROL_STATEMENT_VAT,
     PurchaseOrders.POS_CASH_REGISTER,
     PurchaseOrders.UPDATE_TIME,
+    PurchaseOrders.PRICE_MODE,
     PurchaseOrders.DOWN_PAYMENT_TRASACTION_ID,
+    PurchaseOrders.REVISION,
     PurchaseOrders.ORIGINAL_REF_NO,
     PurchaseOrders.ORIGINAL_REF_DATE,
+    PurchaseOrders.GST_TRANSACTION_TYPE,
     PurchaseOrders.ORIGINAL_CREDIT_OR_DEBIT_NO,
     PurchaseOrders.ORIGINAL_CREDIT_OR_DEBIT_DATE,
     PurchaseOrders.E_COMMERCE_OPERATOR,
@@ -2831,6 +3385,9 @@ export namespace PurchaseOrders {
     PurchaseOrders.TAX_INVOICE_NO,
     PurchaseOrders.TAX_INVOICE_DATE,
     PurchaseOrders.SHIP_FROM,
+    PurchaseOrders.COMMISSION_TRADE,
+    PurchaseOrders.COMMISSION_TRADE_RETURN,
+    PurchaseOrders.USE_BILL_TO_ADDR_TO_DETERMINE_TAX,
     PurchaseOrders.ISSUING_REASON,
     PurchaseOrders.DOCUMENT_APPROVAL_REQUESTS,
     PurchaseOrders.DOCUMENT_LINES,

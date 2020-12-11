@@ -3,9 +3,10 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { InventoryOpeningBalanceSerialNumber, InventoryOpeningBalanceSerialNumberField } from './InventoryOpeningBalanceSerialNumber';
-import { InventoryOpeningBalanceBatchNumber, InventoryOpeningBalanceBatchNumberField } from './InventoryOpeningBalanceBatchNumber';
-import { CollectionField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { InventoryOpeningBalanceSerialNumber } from './InventoryOpeningBalanceSerialNumber';
+import { InventoryOpeningBalanceBatchNumber } from './InventoryOpeningBalanceBatchNumber';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { CollectionField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * InventoryOpeningBalanceLine
@@ -132,6 +133,11 @@ export interface InventoryOpeningBalanceLine {
    */
   currency?: string;
   /**
+   * Allow Bin Negative Quantity.
+   * @nullable
+   */
+  allowBinNegativeQuantity?: BoYesNoEnum;
+  /**
    * Actual Price.
    * @nullable
    */
@@ -150,12 +156,12 @@ export interface InventoryOpeningBalanceLine {
    * Inventory Opening Balance Serial Numbers.
    * @nullable
    */
-  inventoryOpeningBalanceSerialNumbers?: InventoryOpeningBalanceSerialNumber;
+  inventoryOpeningBalanceSerialNumbers?: InventoryOpeningBalanceSerialNumber[];
   /**
    * Inventory Opening Balance Batch Numbers.
    * @nullable
    */
-  inventoryOpeningBalanceBatchNumbers?: InventoryOpeningBalanceBatchNumber;
+  inventoryOpeningBalanceBatchNumbers?: InventoryOpeningBalanceBatchNumber[];
 }
 
 /**
@@ -169,7 +175,7 @@ export function createInventoryOpeningBalanceLine(json: any): InventoryOpeningBa
  * InventoryOpeningBalanceLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class InventoryOpeningBalanceLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class InventoryOpeningBalanceLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, InventoryOpeningBalanceLine> {
   /**
    * Representation of the [[InventoryOpeningBalanceLine.documentEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -291,6 +297,11 @@ export class InventoryOpeningBalanceLineField<EntityT extends Entity> extends Co
    */
   currency: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Currency', this, 'Edm.String');
   /**
+   * Representation of the [[InventoryOpeningBalanceLine.allowBinNegativeQuantity]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  allowBinNegativeQuantity: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AllowBinNegativeQuantity', this);
+  /**
    * Representation of the [[InventoryOpeningBalanceLine.actualPrice]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -309,46 +320,184 @@ export class InventoryOpeningBalanceLineField<EntityT extends Entity> extends Co
    * Representation of the [[InventoryOpeningBalanceLine.inventoryOpeningBalanceSerialNumbers]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  inventoryOpeningBalanceSerialNumbers: InventoryOpeningBalanceSerialNumberField<EntityT> = new InventoryOpeningBalanceSerialNumberField('InventoryOpeningBalanceSerialNumbers', this);
+  inventoryOpeningBalanceSerialNumbers: CollectionField<EntityT, InventoryOpeningBalanceSerialNumber> = new CollectionField('InventoryOpeningBalanceSerialNumbers', this, InventoryOpeningBalanceSerialNumber);
   /**
    * Representation of the [[InventoryOpeningBalanceLine.inventoryOpeningBalanceBatchNumbers]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  inventoryOpeningBalanceBatchNumbers: InventoryOpeningBalanceBatchNumberField<EntityT> = new InventoryOpeningBalanceBatchNumberField('InventoryOpeningBalanceBatchNumbers', this);
+  inventoryOpeningBalanceBatchNumbers: CollectionField<EntityT, InventoryOpeningBalanceBatchNumber> = new CollectionField('InventoryOpeningBalanceBatchNumbers', this, InventoryOpeningBalanceBatchNumber);
+
+  /**
+   * Creates an instance of InventoryOpeningBalanceLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, InventoryOpeningBalanceLine);
+  }
 }
 
 export namespace InventoryOpeningBalanceLine {
+  /**
+   * Metadata information on all properties of the `InventoryOpeningBalanceLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<InventoryOpeningBalanceLine>[] = [{
+    originalName: 'DocumentEntry',
+    name: 'documentEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ItemCode',
+    name: 'itemCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemDescription',
+    name: 'itemDescription',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WarehouseCode',
+    name: 'warehouseCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BinEntry',
+    name: 'binEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'InWarehouseQuantity',
+    name: 'inWarehouseQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'OpeningBalance',
+    name: 'openingBalance',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Remarks',
+    name: 'remarks',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BarCode',
+    name: 'barCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'VisualOrder',
+    name: 'visualOrder',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Price',
+    name: 'price',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Total',
+    name: 'total',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'OpenInventoryAccount',
+    name: 'openInventoryAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ProjectCode',
+    name: 'projectCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Manufacturer',
+    name: 'manufacturer',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SupplierCatalogNo',
+    name: 'supplierCatalogNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode',
+    name: 'costingCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode2',
+    name: 'costingCode2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode3',
+    name: 'costingCode3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode4',
+    name: 'costingCode4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode5',
+    name: 'costingCode5',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PreferredVendor',
+    name: 'preferredVendor',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Currency',
+    name: 'currency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AllowBinNegativeQuantity',
+    name: 'allowBinNegativeQuantity',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ActualPrice',
+    name: 'actualPrice',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PostedValueLC',
+    name: 'postedValueLc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PostedValueSC',
+    name: 'postedValueSc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'InventoryOpeningBalanceSerialNumbers',
+    name: 'inventoryOpeningBalanceSerialNumbers',
+    type: InventoryOpeningBalanceSerialNumber,
+    isCollection: true
+  }, {
+    originalName: 'InventoryOpeningBalanceBatchNumbers',
+    name: 'inventoryOpeningBalanceBatchNumbers',
+    type: InventoryOpeningBalanceBatchNumber,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | InventoryOpeningBalanceBatchNumber | InventoryOpeningBalanceSerialNumber }): InventoryOpeningBalanceLine {
-    return createComplexType(json, {
-      DocumentEntry: (documentEntry: number) => ({ documentEntry: edmToTs(documentEntry, 'Edm.Int32') }),
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      ItemCode: (itemCode: string) => ({ itemCode: edmToTs(itemCode, 'Edm.String') }),
-      ItemDescription: (itemDescription: string) => ({ itemDescription: edmToTs(itemDescription, 'Edm.String') }),
-      WarehouseCode: (warehouseCode: string) => ({ warehouseCode: edmToTs(warehouseCode, 'Edm.String') }),
-      BinEntry: (binEntry: number) => ({ binEntry: edmToTs(binEntry, 'Edm.Int32') }),
-      InWarehouseQuantity: (inWarehouseQuantity: number) => ({ inWarehouseQuantity: edmToTs(inWarehouseQuantity, 'Edm.Double') }),
-      OpeningBalance: (openingBalance: number) => ({ openingBalance: edmToTs(openingBalance, 'Edm.Double') }),
-      Remarks: (remarks: string) => ({ remarks: edmToTs(remarks, 'Edm.String') }),
-      BarCode: (barCode: string) => ({ barCode: edmToTs(barCode, 'Edm.String') }),
-      VisualOrder: (visualOrder: number) => ({ visualOrder: edmToTs(visualOrder, 'Edm.Int32') }),
-      Price: (price: number) => ({ price: edmToTs(price, 'Edm.Double') }),
-      Total: (total: number) => ({ total: edmToTs(total, 'Edm.Double') }),
-      OpenInventoryAccount: (openInventoryAccount: string) => ({ openInventoryAccount: edmToTs(openInventoryAccount, 'Edm.String') }),
-      ProjectCode: (projectCode: string) => ({ projectCode: edmToTs(projectCode, 'Edm.String') }),
-      Manufacturer: (manufacturer: number) => ({ manufacturer: edmToTs(manufacturer, 'Edm.Int32') }),
-      SupplierCatalogNo: (supplierCatalogNo: string) => ({ supplierCatalogNo: edmToTs(supplierCatalogNo, 'Edm.String') }),
-      CostingCode: (costingCode: string) => ({ costingCode: edmToTs(costingCode, 'Edm.String') }),
-      CostingCode2: (costingCode2: string) => ({ costingCode2: edmToTs(costingCode2, 'Edm.String') }),
-      CostingCode3: (costingCode3: string) => ({ costingCode3: edmToTs(costingCode3, 'Edm.String') }),
-      CostingCode4: (costingCode4: string) => ({ costingCode4: edmToTs(costingCode4, 'Edm.String') }),
-      CostingCode5: (costingCode5: string) => ({ costingCode5: edmToTs(costingCode5, 'Edm.String') }),
-      PreferredVendor: (preferredVendor: string) => ({ preferredVendor: edmToTs(preferredVendor, 'Edm.String') }),
-      Currency: (currency: string) => ({ currency: edmToTs(currency, 'Edm.String') }),
-      ActualPrice: (actualPrice: number) => ({ actualPrice: edmToTs(actualPrice, 'Edm.Double') }),
-      PostedValueLC: (postedValueLc: number) => ({ postedValueLc: edmToTs(postedValueLc, 'Edm.Double') }),
-      PostedValueSC: (postedValueSc: number) => ({ postedValueSc: edmToTs(postedValueSc, 'Edm.Double') }),
-      InventoryOpeningBalanceSerialNumbers: (inventoryOpeningBalanceSerialNumbers: InventoryOpeningBalanceSerialNumber) => ({ inventoryOpeningBalanceSerialNumbers: InventoryOpeningBalanceSerialNumber.build(inventoryOpeningBalanceSerialNumbers) }),
-      InventoryOpeningBalanceBatchNumbers: (inventoryOpeningBalanceBatchNumbers: InventoryOpeningBalanceBatchNumber) => ({ inventoryOpeningBalanceBatchNumbers: InventoryOpeningBalanceBatchNumber.build(inventoryOpeningBalanceBatchNumbers) })
-    });
+    return deserializeComplexTypeV4(json, InventoryOpeningBalanceLine);
   }
 }

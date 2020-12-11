@@ -1,18 +1,13 @@
 import { BrazilBeverageIndexersRequestBuilder } from './BrazilBeverageIndexersRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "BrazilBeverageIndexers" of service "SAPB1".
  */
-export declare class BrazilBeverageIndexers extends Entity implements BrazilBeverageIndexersType {
+export declare class BrazilBeverageIndexers extends EntityV4 implements BrazilBeverageIndexersType {
     /**
      * Technical entity name for BrazilBeverageIndexers.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BrazilBeverageIndexers.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -46,10 +41,10 @@ export declare class BrazilBeverageIndexers extends Entity implements BrazilBeve
      */
     brazilNumericIndexer: BrazilNumericIndexers;
     /**
-     * Returns an entity builder to construct instances `BrazilBeverageIndexers`.
+     * Returns an entity builder to construct instances of `BrazilBeverageIndexers`.
      * @returns A builder that constructs instances of entity type `BrazilBeverageIndexers`.
      */
-    static builder(): EntityBuilderType<BrazilBeverageIndexers, BrazilBeverageIndexersTypeForceMandatory>;
+    static builder(): EntityBuilderType<BrazilBeverageIndexers, BrazilBeverageIndexersType>;
     /**
      * Returns a request builder to construct requests for operations on the `BrazilBeverageIndexers` entity type.
      * @returns A `BrazilBeverageIndexers` request builder.
@@ -60,7 +55,7 @@ export declare class BrazilBeverageIndexers extends Entity implements BrazilBeve
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `BrazilBeverageIndexers`.
      */
-    static customField(fieldName: string): CustomField<BrazilBeverageIndexers>;
+    static customField(fieldName: string): CustomFieldV4<BrazilBeverageIndexers>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -72,18 +67,10 @@ export declare class BrazilBeverageIndexers extends Entity implements BrazilBeve
 import { BrazilStringIndexers, BrazilStringIndexersType } from './BrazilStringIndexers';
 import { BrazilNumericIndexers, BrazilNumericIndexersType } from './BrazilNumericIndexers';
 export interface BrazilBeverageIndexersType {
-    beverageGroupCode?: string;
-    beverageTableCode?: string;
-    beverageCommercialBrandCode?: number;
-    beverageId?: number;
-    brazilStringIndexer: BrazilStringIndexersType;
-    brazilNumericIndexer: BrazilNumericIndexersType;
-}
-export interface BrazilBeverageIndexersTypeForceMandatory {
-    beverageGroupCode: string;
-    beverageTableCode: string;
-    beverageCommercialBrandCode: number;
-    beverageId: number;
+    beverageGroupCode?: string | null;
+    beverageTableCode?: string | null;
+    beverageCommercialBrandCode?: number | null;
+    beverageId?: number | null;
     brazilStringIndexer: BrazilStringIndexersType;
     brazilNumericIndexer: BrazilNumericIndexersType;
 }

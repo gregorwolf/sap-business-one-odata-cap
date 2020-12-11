@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * WithholdingTaxDataWtx
@@ -182,7 +182,7 @@ export function createWithholdingTaxDataWtx(json: any): WithholdingTaxDataWtx {
  * WithholdingTaxDataWtxField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class WithholdingTaxDataWtxField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class WithholdingTaxDataWtxField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, WithholdingTaxDataWtx> {
   /**
    * Representation of the [[WithholdingTaxDataWtx.wtAmountSys]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -343,43 +343,188 @@ export class WithholdingTaxDataWtxField<EntityT extends Entity> extends ComplexT
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   accumWTaxAmount: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('AccumWTaxAmount', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of WithholdingTaxDataWtxField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, WithholdingTaxDataWtx);
+  }
 }
 
 export namespace WithholdingTaxDataWtx {
+  /**
+   * Metadata information on all properties of the `WithholdingTaxDataWtx` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<WithholdingTaxDataWtx>[] = [{
+    originalName: 'WTAmountSys',
+    name: 'wtAmountSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WTAmountFC',
+    name: 'wtAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WTAmount',
+    name: 'wtAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WithholdingType',
+    name: 'withholdingType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxableAmountinSys',
+    name: 'taxableAmountinSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxableAmountFC',
+    name: 'taxableAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxableAmount',
+    name: 'taxableAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Rate',
+    name: 'rate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Category',
+    name: 'category',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BaseType',
+    name: 'baseType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AppliedWTAmountSys',
+    name: 'appliedWtAmountSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AppliedWTAmountFC',
+    name: 'appliedWtAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AppliedWTAmount',
+    name: 'appliedWtAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'GLAccount',
+    name: 'glAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseDocEntry',
+    name: 'baseDocEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseDocLine',
+    name: 'baseDocLine',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseDocType',
+    name: 'baseDocType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WTAbsId',
+    name: 'wtAbsId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExemptRate',
+    name: 'exemptRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BaseNetAmountSys',
+    name: 'baseNetAmountSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BaseNetAmountFC',
+    name: 'baseNetAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BaseNetAmount',
+    name: 'baseNetAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BaseVatmountSys',
+    name: 'baseVatmountSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BaseVatmountFC',
+    name: 'baseVatmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BaseVatmount',
+    name: 'baseVatmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumBaseAmountSys',
+    name: 'accumBaseAmountSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumBaseAmountFC',
+    name: 'accumBaseAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumBaseAmount',
+    name: 'accumBaseAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumWTaxAmountSys',
+    name: 'accumWTaxAmountSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumWTaxAmountFC',
+    name: 'accumWTaxAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumWTaxAmount',
+    name: 'accumWTaxAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): WithholdingTaxDataWtx {
-    return createComplexType(json, {
-      WTAmountSys: (wtAmountSys: number) => ({ wtAmountSys: edmToTs(wtAmountSys, 'Edm.Double') }),
-      WTAmountFC: (wtAmountFc: number) => ({ wtAmountFc: edmToTs(wtAmountFc, 'Edm.Double') }),
-      WTAmount: (wtAmount: number) => ({ wtAmount: edmToTs(wtAmount, 'Edm.Double') }),
-      WithholdingType: (withholdingType: string) => ({ withholdingType: edmToTs(withholdingType, 'Edm.String') }),
-      TaxableAmountinSys: (taxableAmountinSys: number) => ({ taxableAmountinSys: edmToTs(taxableAmountinSys, 'Edm.Double') }),
-      TaxableAmountFC: (taxableAmountFc: number) => ({ taxableAmountFc: edmToTs(taxableAmountFc, 'Edm.Double') }),
-      TaxableAmount: (taxableAmount: number) => ({ taxableAmount: edmToTs(taxableAmount, 'Edm.Double') }),
-      Rate: (rate: number) => ({ rate: edmToTs(rate, 'Edm.Double') }),
-      Category: (category: string) => ({ category: edmToTs(category, 'Edm.String') }),
-      BaseType: (baseType: string) => ({ baseType: edmToTs(baseType, 'Edm.String') }),
-      AppliedWTAmountSys: (appliedWtAmountSys: number) => ({ appliedWtAmountSys: edmToTs(appliedWtAmountSys, 'Edm.Double') }),
-      AppliedWTAmountFC: (appliedWtAmountFc: number) => ({ appliedWtAmountFc: edmToTs(appliedWtAmountFc, 'Edm.Double') }),
-      AppliedWTAmount: (appliedWtAmount: number) => ({ appliedWtAmount: edmToTs(appliedWtAmount, 'Edm.Double') }),
-      GLAccount: (glAccount: string) => ({ glAccount: edmToTs(glAccount, 'Edm.String') }),
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      BaseDocEntry: (baseDocEntry: number) => ({ baseDocEntry: edmToTs(baseDocEntry, 'Edm.Int32') }),
-      BaseDocLine: (baseDocLine: number) => ({ baseDocLine: edmToTs(baseDocLine, 'Edm.Int32') }),
-      BaseDocType: (baseDocType: string) => ({ baseDocType: edmToTs(baseDocType, 'Edm.String') }),
-      WTAbsId: (wtAbsId: string) => ({ wtAbsId: edmToTs(wtAbsId, 'Edm.String') }),
-      ExemptRate: (exemptRate: number) => ({ exemptRate: edmToTs(exemptRate, 'Edm.Double') }),
-      BaseNetAmountSys: (baseNetAmountSys: number) => ({ baseNetAmountSys: edmToTs(baseNetAmountSys, 'Edm.Double') }),
-      BaseNetAmountFC: (baseNetAmountFc: number) => ({ baseNetAmountFc: edmToTs(baseNetAmountFc, 'Edm.Double') }),
-      BaseNetAmount: (baseNetAmount: number) => ({ baseNetAmount: edmToTs(baseNetAmount, 'Edm.Double') }),
-      BaseVatmountSys: (baseVatmountSys: number) => ({ baseVatmountSys: edmToTs(baseVatmountSys, 'Edm.Double') }),
-      BaseVatmountFC: (baseVatmountFc: number) => ({ baseVatmountFc: edmToTs(baseVatmountFc, 'Edm.Double') }),
-      BaseVatmount: (baseVatmount: number) => ({ baseVatmount: edmToTs(baseVatmount, 'Edm.Double') }),
-      AccumBaseAmountSys: (accumBaseAmountSys: number) => ({ accumBaseAmountSys: edmToTs(accumBaseAmountSys, 'Edm.Double') }),
-      AccumBaseAmountFC: (accumBaseAmountFc: number) => ({ accumBaseAmountFc: edmToTs(accumBaseAmountFc, 'Edm.Double') }),
-      AccumBaseAmount: (accumBaseAmount: number) => ({ accumBaseAmount: edmToTs(accumBaseAmount, 'Edm.Double') }),
-      AccumWTaxAmountSys: (accumWTaxAmountSys: number) => ({ accumWTaxAmountSys: edmToTs(accumWTaxAmountSys, 'Edm.Double') }),
-      AccumWTaxAmountFC: (accumWTaxAmountFc: number) => ({ accumWTaxAmountFc: edmToTs(accumWTaxAmountFc, 'Edm.Double') }),
-      AccumWTaxAmount: (accumWTaxAmount: number) => ({ accumWTaxAmount: edmToTs(accumWTaxAmount, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, WithholdingTaxDataWtx);
   }
 }

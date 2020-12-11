@@ -1,4 +1,4 @@
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { AccountSegmentations } from './AccountSegmentations';
 /**
  * Request builder class for operations supported on the [[AccountSegmentations]] entity.
@@ -9,35 +9,35 @@ export declare class AccountSegmentationsRequestBuilder extends RequestBuilder<A
      * @param numerator Key property. See [[AccountSegmentations.numerator]].
      * @returns A request builder for creating requests to retrieve one `AccountSegmentations` entity based on its keys.
      */
-    getByKey(numerator: number): GetByKeyRequestBuilder<AccountSegmentations>;
+    getByKey(numerator: number): GetByKeyRequestBuilderV4<AccountSegmentations>;
     /**
      * Returns a request builder for querying all `AccountSegmentations` entities.
      * @returns A request builder for creating requests to retrieve all `AccountSegmentations` entities.
      */
-    getAll(): GetAllRequestBuilder<AccountSegmentations>;
+    getAll(): GetAllRequestBuilderV4<AccountSegmentations>;
     /**
      * Returns a request builder for creating a `AccountSegmentations` entity.
      * @param entity The entity to be created
      * @returns A request builder for creating requests that create an entity of type `AccountSegmentations`.
      */
-    create(entity: AccountSegmentations): CreateRequestBuilder<AccountSegmentations>;
+    create(entity: AccountSegmentations): CreateRequestBuilderV4<AccountSegmentations>;
     /**
      * Returns a request builder for updating an entity of type `AccountSegmentations`.
      * @param entity The entity to be updated
      * @returns A request builder for creating requests that update an entity of type `AccountSegmentations`.
      */
-    update(entity: AccountSegmentations): UpdateRequestBuilder<AccountSegmentations>;
+    update(entity: AccountSegmentations): UpdateRequestBuilderV4<AccountSegmentations>;
     /**
      * Returns a request builder for deleting an entity of type `AccountSegmentations`.
      * @param numerator Key property. See [[AccountSegmentations.numerator]].
      * @returns A request builder for creating requests that delete an entity of type `AccountSegmentations`.
      */
-    delete(numerator: number): DeleteRequestBuilder<AccountSegmentations>;
+    delete(numerator: number): DeleteRequestBuilderV4<AccountSegmentations>;
     /**
      * Returns a request builder for deleting an entity of type `AccountSegmentations`.
      * @param entity Pass the entity to be deleted.
      * @returns A request builder for creating requests that delete an entity of type `AccountSegmentations` by taking the entity as a parameter.
      */
-    delete(entity: AccountSegmentations): DeleteRequestBuilder<AccountSegmentations>;
+    delete(entity: AccountSegmentations): DeleteRequestBuilderV4<AccountSegmentations>;
 }
 //# sourceMappingURL=AccountSegmentationsRequestBuilder.d.ts.map

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.Boxes1099 = exports.Boxes1099Field = exports.createBoxes1099 = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[Boxes1099.build]] instead.
  */
@@ -33,42 +33,70 @@ exports.createBoxes1099 = createBoxes1099;
  */
 var Boxes1099Field = /** @class */ (function (_super) {
     __extends(Boxes1099Field, _super);
-    function Boxes1099Field() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of Boxes1099Field.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function Boxes1099Field(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, Boxes1099) || this;
         /**
          * Representation of the [[Boxes1099.formCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.formCode = new v4_1.ComplexTypeNumberPropertyField('FormCode', _this, 'Edm.Int32');
+        _this.formCode = new core_1.ComplexTypeNumberPropertyField('FormCode', _this, 'Edm.Int32');
         /**
          * Representation of the [[Boxes1099.box1099]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.box1099 = new v4_1.ComplexTypeStringPropertyField('Box1099', _this, 'Edm.String');
+        _this.box1099 = new core_1.ComplexTypeStringPropertyField('Box1099', _this, 'Edm.String');
         /**
          * Representation of the [[Boxes1099.boxDescription]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.boxDescription = new v4_1.ComplexTypeStringPropertyField('BoxDescription', _this, 'Edm.String');
+        _this.boxDescription = new core_1.ComplexTypeStringPropertyField('BoxDescription', _this, 'Edm.String');
         /**
          * Representation of the [[Boxes1099.minimum1099Amount]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.minimum1099Amount = new v4_1.ComplexTypeNumberPropertyField('Minimum1099Amount', _this, 'Edm.Double');
+        _this.minimum1099Amount = new core_1.ComplexTypeNumberPropertyField('Minimum1099Amount', _this, 'Edm.Double');
         return _this;
     }
     return Boxes1099Field;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.Boxes1099Field = Boxes1099Field;
 var Boxes1099;
 (function (Boxes1099) {
+    /**
+     * Metadata information on all properties of the `Boxes1099` complex type.
+     */
+    Boxes1099._propertyMetadata = [{
+            originalName: 'FormCode',
+            name: 'formCode',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Box1099',
+            name: 'box1099',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'BoxDescription',
+            name: 'boxDescription',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Minimum1099Amount',
+            name: 'minimum1099Amount',
+            type: 'Edm.Double',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            FormCode: function (formCode) { return ({ formCode: v4_1.edmToTs(formCode, 'Edm.Int32') }); },
-            Box1099: function (box1099) { return ({ box1099: v4_1.edmToTs(box1099, 'Edm.String') }); },
-            BoxDescription: function (boxDescription) { return ({ boxDescription: v4_1.edmToTs(boxDescription, 'Edm.String') }); },
-            Minimum1099Amount: function (minimum1099Amount) { return ({ minimum1099Amount: v4_1.edmToTs(minimum1099Amount, 'Edm.Double') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, Boxes1099);
     }
     Boxes1099.build = build;
 })(Boxes1099 = exports.Boxes1099 || (exports.Boxes1099 = {}));

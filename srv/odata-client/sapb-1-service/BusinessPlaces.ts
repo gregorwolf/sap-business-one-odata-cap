@@ -5,27 +5,23 @@
  */
 import { BusinessPlacesRequestBuilder } from './BusinessPlacesRequestBuilder';
 import { Moment } from 'moment';
-import { BusinessPlaceIeNumber, BusinessPlaceIeNumberField } from './BusinessPlaceIeNumber';
-import { BusinessPlaceTributaryInfo, BusinessPlaceTributaryInfoField } from './BusinessPlaceTributaryInfo';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BusinessPlaceIeNumber } from './BusinessPlaceIeNumber';
+import { BusinessPlaceTributaryInfo } from './BusinessPlaceTributaryInfo';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "BusinessPlaces" of service "SAPB1".
  */
-export class BusinessPlaces extends Entity implements BusinessPlacesType {
+export class BusinessPlaces extends EntityV4 implements BusinessPlacesType {
   /**
    * Technical entity name for BusinessPlaces.
    */
   static _entityName = 'BusinessPlaces';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for BusinessPlaces.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Bplid.
    * @nullable
@@ -72,10 +68,20 @@ export class BusinessPlaces extends Entity implements BusinessPlacesType {
    */
   addressforeign?: string;
   /**
+   * Main Bpl.
+   * @nullable
+   */
+  mainBpl?: BoYesNoEnum;
+  /**
    * Tax Office No.
    * @nullable
    */
   taxOfficeNo?: string;
+  /**
+   * Disabled.
+   * @nullable
+   */
+  disabled?: BoYesNoEnum;
   /**
    * Default Customer Id.
    * @nullable
@@ -241,6 +247,11 @@ export class BusinessPlaces extends Entity implements BusinessPlacesType {
    * @nullable
    */
   environmentType?: number;
+  /**
+   * Opting 4 Icms.
+   * @nullable
+   */
+  opting4Icms?: BoYesNoEnum;
   /**
    * Payment Clearing Account.
    * @nullable
@@ -460,11 +471,11 @@ export class BusinessPlaces extends Entity implements BusinessPlacesType {
   incomingPayments!: IncomingPayments[];
 
   /**
-   * Returns an entity builder to construct instances `BusinessPlaces`.
+   * Returns an entity builder to construct instances of `BusinessPlaces`.
    * @returns A builder that constructs instances of entity type `BusinessPlaces`.
    */
-  static builder(): EntityBuilderType<BusinessPlaces, BusinessPlacesTypeForceMandatory> {
-    return Entity.entityBuilder(BusinessPlaces);
+  static builder(): EntityBuilderType<BusinessPlaces, BusinessPlacesType> {
+    return EntityV4.entityBuilder(BusinessPlaces);
   }
 
   /**
@@ -480,8 +491,8 @@ export class BusinessPlaces extends Entity implements BusinessPlacesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `BusinessPlaces`.
    */
-  static customField(fieldName: string): CustomField<BusinessPlaces> {
-    return Entity.customFieldSelector(fieldName, BusinessPlaces);
+  static customField(fieldName: string): CustomFieldV4<BusinessPlaces> {
+    return EntityV4.customFieldSelector(fieldName, BusinessPlaces);
   }
 
   /**
@@ -543,153 +554,57 @@ import { Deposits, DepositsType } from './Deposits';
 import { IncomingPayments, IncomingPaymentsType } from './IncomingPayments';
 
 export interface BusinessPlacesType {
-  bplid?: number;
-  bplName?: string;
-  bplNameForeign?: string;
-  vatRegNum?: string;
-  repName?: string;
-  industry?: string;
-  business?: string;
-  address?: string;
-  addressforeign?: string;
-  taxOfficeNo?: string;
-  defaultCustomerId?: string;
-  defaultVendorId?: string;
-  defaultWarehouseId?: string;
-  defaultTaxCode?: string;
-  taxOffice?: string;
-  federalTaxId?: string;
-  federalTaxId2?: string;
-  federalTaxId3?: string;
-  additionalIdNumber?: string;
-  natureOfCompanyCode?: number;
-  economicActivityTypeCode?: number;
-  creditContributionOriginCode?: string;
-  ipiPeriodCode?: string;
-  cooperativeAssociationTypeCode?: number;
-  profitTaxationCode?: number;
-  companyQualificationCode?: number;
-  declarerTypeCode?: number;
-  preferredStateCode?: string;
-  addressType?: string;
-  street?: string;
-  streetNo?: string;
-  building?: string;
-  zipCode?: string;
-  block?: string;
-  city?: string;
-  state?: string;
-  county?: string;
-  country?: string;
-  aliasName?: string;
-  commercialRegister?: string;
-  dateOfIncorporation?: Moment;
-  spedProfile?: string;
-  environmentType?: number;
-  paymentClearingAccount?: string;
-  globalLocationNumber?: string;
-  defaultResourceWarehouseId?: string;
-  businessPlaceIeNumbers?: BusinessPlaceIeNumber[];
-  businessPlaceTributaryInfos?: BusinessPlaceTributaryInfo[];
-  userDefaultGroups: UserDefaultGroupsType[];
-  inventoryGenEntries: InventoryGenEntriesType[];
-  purchaseQuotations: PurchaseQuotationsType[];
-  vendorPayments: VendorPaymentsType[];
-  assetTransfer: AssetTransferType[];
-  assetRetirement: AssetRetirementType[];
-  assetCapitalizationCreditMemo: AssetCapitalizationCreditMemoType[];
-  assetClasses: AssetClassesType[];
-  inventoryPostings: InventoryPostingsType[];
-  deliveryNotes: DeliveryNotesType[];
-  quotations: QuotationsType[];
-  inventoryGenExits: InventoryGenExitsType[];
-  purchaseRequests: PurchaseRequestsType[];
-  returnRequest: ReturnRequestType[];
-  purchaseReturns: PurchaseReturnsType[];
-  invoices: InvoicesType[];
-  assetCapitalization: AssetCapitalizationType[];
-  creditNotes: CreditNotesType[];
-  stockTransfers: StockTransfersType[];
-  businessPartner: BusinessPartnersType;
-  warehouse: WarehousesType;
-  brazilNumericIndexer: BrazilNumericIndexersType;
-  brazilStringIndexer: BrazilStringIndexersType;
-  country2: CountriesType;
-  chartOfAccount: ChartOfAccountsType;
-  orders: OrdersType[];
-  inventoryCountings: InventoryCountingsType[];
-  inventoryTransferRequests: InventoryTransferRequestsType[];
-  assetManualDepreciation: AssetManualDepreciationType[];
-  downPayments: DownPaymentsType[];
-  drafts: DraftsType[];
-  paymentDrafts: PaymentDraftsType[];
-  stockTransferDrafts: StockTransferDraftsType[];
-  returns: ReturnsType[];
-  correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-  correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-  correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-  purchaseInvoices: PurchaseInvoicesType[];
-  purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-  correctionInvoice: CorrectionInvoiceType[];
-  purchaseCreditNotes: PurchaseCreditNotesType[];
-  inventoryOpeningBalances: InventoryOpeningBalancesType[];
-  purchaseDownPayments: PurchaseDownPaymentsType[];
-  employeesInfo: EmployeesInfoType[];
-  purchaseOrders: PurchaseOrdersType[];
-  goodsReturnRequest: GoodsReturnRequestType[];
-  deposits: DepositsType[];
-  incomingPayments: IncomingPaymentsType[];
-}
-
-export interface BusinessPlacesTypeForceMandatory {
-  bplid: number;
-  bplName: string;
-  bplNameForeign: string;
-  vatRegNum: string;
-  repName: string;
-  industry: string;
-  business: string;
-  address: string;
-  addressforeign: string;
-  taxOfficeNo: string;
-  defaultCustomerId: string;
-  defaultVendorId: string;
-  defaultWarehouseId: string;
-  defaultTaxCode: string;
-  taxOffice: string;
-  federalTaxId: string;
-  federalTaxId2: string;
-  federalTaxId3: string;
-  additionalIdNumber: string;
-  natureOfCompanyCode: number;
-  economicActivityTypeCode: number;
-  creditContributionOriginCode: string;
-  ipiPeriodCode: string;
-  cooperativeAssociationTypeCode: number;
-  profitTaxationCode: number;
-  companyQualificationCode: number;
-  declarerTypeCode: number;
-  preferredStateCode: string;
-  addressType: string;
-  street: string;
-  streetNo: string;
-  building: string;
-  zipCode: string;
-  block: string;
-  city: string;
-  state: string;
-  county: string;
-  country: string;
-  aliasName: string;
-  commercialRegister: string;
-  dateOfIncorporation: Moment;
-  spedProfile: string;
-  environmentType: number;
-  paymentClearingAccount: string;
-  globalLocationNumber: string;
-  defaultResourceWarehouseId: string;
-  businessPlaceIeNumbers: BusinessPlaceIeNumber[];
-  businessPlaceTributaryInfos: BusinessPlaceTributaryInfo[];
+  bplid?: number | null;
+  bplName?: string | null;
+  bplNameForeign?: string | null;
+  vatRegNum?: string | null;
+  repName?: string | null;
+  industry?: string | null;
+  business?: string | null;
+  address?: string | null;
+  addressforeign?: string | null;
+  mainBpl?: BoYesNoEnum | null;
+  taxOfficeNo?: string | null;
+  disabled?: BoYesNoEnum | null;
+  defaultCustomerId?: string | null;
+  defaultVendorId?: string | null;
+  defaultWarehouseId?: string | null;
+  defaultTaxCode?: string | null;
+  taxOffice?: string | null;
+  federalTaxId?: string | null;
+  federalTaxId2?: string | null;
+  federalTaxId3?: string | null;
+  additionalIdNumber?: string | null;
+  natureOfCompanyCode?: number | null;
+  economicActivityTypeCode?: number | null;
+  creditContributionOriginCode?: string | null;
+  ipiPeriodCode?: string | null;
+  cooperativeAssociationTypeCode?: number | null;
+  profitTaxationCode?: number | null;
+  companyQualificationCode?: number | null;
+  declarerTypeCode?: number | null;
+  preferredStateCode?: string | null;
+  addressType?: string | null;
+  street?: string | null;
+  streetNo?: string | null;
+  building?: string | null;
+  zipCode?: string | null;
+  block?: string | null;
+  city?: string | null;
+  state?: string | null;
+  county?: string | null;
+  country?: string | null;
+  aliasName?: string | null;
+  commercialRegister?: string | null;
+  dateOfIncorporation?: Moment | null;
+  spedProfile?: string | null;
+  environmentType?: number | null;
+  opting4Icms?: BoYesNoEnum | null;
+  paymentClearingAccount?: string | null;
+  globalLocationNumber?: string | null;
+  defaultResourceWarehouseId?: string | null;
+  businessPlaceIeNumbers?: BusinessPlaceIeNumber[] | null;
+  businessPlaceTributaryInfos?: BusinessPlaceTributaryInfo[] | null;
   userDefaultGroups: UserDefaultGroupsType[];
   inventoryGenEntries: InventoryGenEntriesType[];
   purchaseQuotations: PurchaseQuotationsType[];
@@ -787,10 +702,20 @@ export namespace BusinessPlaces {
    */
   export const ADDRESSFOREIGN: StringField<BusinessPlaces> = new StringField('Addressforeign', BusinessPlaces, 'Edm.String');
   /**
+   * Static representation of the [[mainBpl]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const MAIN_BPL: EnumField<BusinessPlaces> = new EnumField('MainBPL', BusinessPlaces);
+  /**
    * Static representation of the [[taxOfficeNo]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const TAX_OFFICE_NO: StringField<BusinessPlaces> = new StringField('TaxOfficeNo', BusinessPlaces, 'Edm.String');
+  /**
+   * Static representation of the [[disabled]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DISABLED: EnumField<BusinessPlaces> = new EnumField('Disabled', BusinessPlaces);
   /**
    * Static representation of the [[defaultCustomerId]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -957,6 +882,11 @@ export namespace BusinessPlaces {
    */
   export const ENVIRONMENT_TYPE: NumberField<BusinessPlaces> = new NumberField('EnvironmentType', BusinessPlaces, 'Edm.Int32');
   /**
+   * Static representation of the [[opting4Icms]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const OPTING_4_ICMS: EnumField<BusinessPlaces> = new EnumField('Opting4ICMS', BusinessPlaces);
+  /**
    * Static representation of the [[paymentClearingAccount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -975,12 +905,12 @@ export namespace BusinessPlaces {
    * Static representation of the [[businessPlaceIeNumbers]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const BUSINESS_PLACE_IE_NUMBERS: CollectionField<BusinessPlaces> = new CollectionField('BusinessPlaceIENumbers', BusinessPlaces, new BusinessPlaceIeNumberField('', BusinessPlaces));
+  export const BUSINESS_PLACE_IE_NUMBERS: CollectionField<BusinessPlaces, BusinessPlaceIeNumber> = new CollectionField('BusinessPlaceIENumbers', BusinessPlaces, BusinessPlaceIeNumber);
   /**
    * Static representation of the [[businessPlaceTributaryInfos]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const BUSINESS_PLACE_TRIBUTARY_INFOS: CollectionField<BusinessPlaces> = new CollectionField('BusinessPlaceTributaryInfos', BusinessPlaces, new BusinessPlaceTributaryInfoField('', BusinessPlaces));
+  export const BUSINESS_PLACE_TRIBUTARY_INFOS: CollectionField<BusinessPlaces, BusinessPlaceTributaryInfo> = new CollectionField('BusinessPlaceTributaryInfos', BusinessPlaces, BusinessPlaceTributaryInfo);
   /**
    * Static representation of the one-to-many navigation property [[userDefaultGroups]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1224,7 +1154,7 @@ export namespace BusinessPlaces {
   /**
    * All fields of the BusinessPlaces entity.
    */
-  export const _allFields: Array<NumberField<BusinessPlaces> | StringField<BusinessPlaces> | DateField<BusinessPlaces> | CollectionField<BusinessPlaces> | OneToManyLink<BusinessPlaces, UserDefaultGroups> | OneToManyLink<BusinessPlaces, InventoryGenEntries> | OneToManyLink<BusinessPlaces, PurchaseQuotations> | OneToManyLink<BusinessPlaces, VendorPayments> | OneToManyLink<BusinessPlaces, AssetTransfer> | OneToManyLink<BusinessPlaces, AssetRetirement> | OneToManyLink<BusinessPlaces, AssetCapitalizationCreditMemo> | OneToManyLink<BusinessPlaces, AssetClasses> | OneToManyLink<BusinessPlaces, InventoryPostings> | OneToManyLink<BusinessPlaces, DeliveryNotes> | OneToManyLink<BusinessPlaces, Quotations> | OneToManyLink<BusinessPlaces, InventoryGenExits> | OneToManyLink<BusinessPlaces, PurchaseRequests> | OneToManyLink<BusinessPlaces, ReturnRequest> | OneToManyLink<BusinessPlaces, PurchaseReturns> | OneToManyLink<BusinessPlaces, Invoices> | OneToManyLink<BusinessPlaces, AssetCapitalization> | OneToManyLink<BusinessPlaces, CreditNotes> | OneToManyLink<BusinessPlaces, StockTransfers> | OneToOneLink<BusinessPlaces, BusinessPartners> | OneToOneLink<BusinessPlaces, Warehouses> | OneToOneLink<BusinessPlaces, BrazilNumericIndexers> | OneToOneLink<BusinessPlaces, BrazilStringIndexers> | OneToOneLink<BusinessPlaces, Countries> | OneToOneLink<BusinessPlaces, ChartOfAccounts> | OneToManyLink<BusinessPlaces, Orders> | OneToManyLink<BusinessPlaces, InventoryCountings> | OneToManyLink<BusinessPlaces, InventoryTransferRequests> | OneToManyLink<BusinessPlaces, AssetManualDepreciation> | OneToManyLink<BusinessPlaces, DownPayments> | OneToManyLink<BusinessPlaces, Drafts> | OneToManyLink<BusinessPlaces, PaymentDrafts> | OneToManyLink<BusinessPlaces, StockTransferDrafts> | OneToManyLink<BusinessPlaces, Returns> | OneToManyLink<BusinessPlaces, CorrectionInvoiceReversal> | OneToManyLink<BusinessPlaces, CorrectionPurchaseInvoice> | OneToManyLink<BusinessPlaces, CorrectionPurchaseInvoiceReversal> | OneToManyLink<BusinessPlaces, PurchaseInvoices> | OneToManyLink<BusinessPlaces, PurchaseDeliveryNotes> | OneToManyLink<BusinessPlaces, CorrectionInvoice> | OneToManyLink<BusinessPlaces, PurchaseCreditNotes> | OneToManyLink<BusinessPlaces, InventoryOpeningBalances> | OneToManyLink<BusinessPlaces, PurchaseDownPayments> | OneToManyLink<BusinessPlaces, EmployeesInfo> | OneToManyLink<BusinessPlaces, PurchaseOrders> | OneToManyLink<BusinessPlaces, GoodsReturnRequest> | OneToManyLink<BusinessPlaces, Deposits> | OneToManyLink<BusinessPlaces, IncomingPayments>> = [
+  export const _allFields: Array<NumberField<BusinessPlaces> | StringField<BusinessPlaces> | EnumField<BusinessPlaces> | DateField<BusinessPlaces> | CollectionField<BusinessPlaces, BusinessPlaceIeNumber> | CollectionField<BusinessPlaces, BusinessPlaceTributaryInfo> | OneToManyLink<BusinessPlaces, UserDefaultGroups> | OneToManyLink<BusinessPlaces, InventoryGenEntries> | OneToManyLink<BusinessPlaces, PurchaseQuotations> | OneToManyLink<BusinessPlaces, VendorPayments> | OneToManyLink<BusinessPlaces, AssetTransfer> | OneToManyLink<BusinessPlaces, AssetRetirement> | OneToManyLink<BusinessPlaces, AssetCapitalizationCreditMemo> | OneToManyLink<BusinessPlaces, AssetClasses> | OneToManyLink<BusinessPlaces, InventoryPostings> | OneToManyLink<BusinessPlaces, DeliveryNotes> | OneToManyLink<BusinessPlaces, Quotations> | OneToManyLink<BusinessPlaces, InventoryGenExits> | OneToManyLink<BusinessPlaces, PurchaseRequests> | OneToManyLink<BusinessPlaces, ReturnRequest> | OneToManyLink<BusinessPlaces, PurchaseReturns> | OneToManyLink<BusinessPlaces, Invoices> | OneToManyLink<BusinessPlaces, AssetCapitalization> | OneToManyLink<BusinessPlaces, CreditNotes> | OneToManyLink<BusinessPlaces, StockTransfers> | OneToOneLink<BusinessPlaces, BusinessPartners> | OneToOneLink<BusinessPlaces, Warehouses> | OneToOneLink<BusinessPlaces, BrazilNumericIndexers> | OneToOneLink<BusinessPlaces, BrazilStringIndexers> | OneToOneLink<BusinessPlaces, Countries> | OneToOneLink<BusinessPlaces, ChartOfAccounts> | OneToManyLink<BusinessPlaces, Orders> | OneToManyLink<BusinessPlaces, InventoryCountings> | OneToManyLink<BusinessPlaces, InventoryTransferRequests> | OneToManyLink<BusinessPlaces, AssetManualDepreciation> | OneToManyLink<BusinessPlaces, DownPayments> | OneToManyLink<BusinessPlaces, Drafts> | OneToManyLink<BusinessPlaces, PaymentDrafts> | OneToManyLink<BusinessPlaces, StockTransferDrafts> | OneToManyLink<BusinessPlaces, Returns> | OneToManyLink<BusinessPlaces, CorrectionInvoiceReversal> | OneToManyLink<BusinessPlaces, CorrectionPurchaseInvoice> | OneToManyLink<BusinessPlaces, CorrectionPurchaseInvoiceReversal> | OneToManyLink<BusinessPlaces, PurchaseInvoices> | OneToManyLink<BusinessPlaces, PurchaseDeliveryNotes> | OneToManyLink<BusinessPlaces, CorrectionInvoice> | OneToManyLink<BusinessPlaces, PurchaseCreditNotes> | OneToManyLink<BusinessPlaces, InventoryOpeningBalances> | OneToManyLink<BusinessPlaces, PurchaseDownPayments> | OneToManyLink<BusinessPlaces, EmployeesInfo> | OneToManyLink<BusinessPlaces, PurchaseOrders> | OneToManyLink<BusinessPlaces, GoodsReturnRequest> | OneToManyLink<BusinessPlaces, Deposits> | OneToManyLink<BusinessPlaces, IncomingPayments>> = [
     BusinessPlaces.BPLID,
     BusinessPlaces.BPL_NAME,
     BusinessPlaces.BPL_NAME_FOREIGN,
@@ -1234,7 +1164,9 @@ export namespace BusinessPlaces {
     BusinessPlaces.BUSINESS,
     BusinessPlaces.ADDRESS,
     BusinessPlaces.ADDRESSFOREIGN,
+    BusinessPlaces.MAIN_BPL,
     BusinessPlaces.TAX_OFFICE_NO,
+    BusinessPlaces.DISABLED,
     BusinessPlaces.DEFAULT_CUSTOMER_ID,
     BusinessPlaces.DEFAULT_VENDOR_ID,
     BusinessPlaces.DEFAULT_WAREHOUSE_ID,
@@ -1268,6 +1200,7 @@ export namespace BusinessPlaces {
     BusinessPlaces.DATE_OF_INCORPORATION,
     BusinessPlaces.SPED_PROFILE,
     BusinessPlaces.ENVIRONMENT_TYPE,
+    BusinessPlaces.OPTING_4_ICMS,
     BusinessPlaces.PAYMENT_CLEARING_ACCOUNT,
     BusinessPlaces.GLOBAL_LOCATION_NUMBER,
     BusinessPlaces.DEFAULT_RESOURCE_WAREHOUSE_ID,

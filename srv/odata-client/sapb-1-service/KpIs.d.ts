@@ -1,19 +1,15 @@
 import { KpIsRequestBuilder } from './KpIsRequestBuilder';
 import { KpiItemLine } from './KpiItemLine';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { KpiTypeEnum } from './KpiTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "KPIs" of service "SAPB1".
  */
-export declare class KpIs extends Entity implements KpIsType {
+export declare class KpIs extends EntityV4 implements KpIsType {
     /**
      * Technical entity name for KpIs.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for KpIs.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -29,6 +25,11 @@ export declare class KpIs extends Entity implements KpIsType {
      */
     kpiName?: string;
     /**
+     * Kpi Type.
+     * @nullable
+     */
+    kpiType?: KpiTypeEnum;
+    /**
      * Number Of Columns.
      * @nullable
      */
@@ -39,10 +40,10 @@ export declare class KpIs extends Entity implements KpIsType {
      */
     kpiItemLines?: KpiItemLine[];
     /**
-     * Returns an entity builder to construct instances `KpIs`.
+     * Returns an entity builder to construct instances of `KpIs`.
      * @returns A builder that constructs instances of entity type `KpIs`.
      */
-    static builder(): EntityBuilderType<KpIs, KpIsTypeForceMandatory>;
+    static builder(): EntityBuilderType<KpIs, KpIsType>;
     /**
      * Returns a request builder to construct requests for operations on the `KpIs` entity type.
      * @returns A `KpIs` request builder.
@@ -53,7 +54,7 @@ export declare class KpIs extends Entity implements KpIsType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `KpIs`.
      */
-    static customField(fieldName: string): CustomField<KpIs>;
+    static customField(fieldName: string): CustomFieldV4<KpIs>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -63,16 +64,11 @@ export declare class KpIs extends Entity implements KpIsType {
     };
 }
 export interface KpIsType {
-    kpiCode?: string;
-    kpiName?: string;
-    numberOfColumns?: number;
-    kpiItemLines?: KpiItemLine[];
-}
-export interface KpIsTypeForceMandatory {
-    kpiCode: string;
-    kpiName: string;
-    numberOfColumns: number;
-    kpiItemLines: KpiItemLine[];
+    kpiCode?: string | null;
+    kpiName?: string | null;
+    kpiType?: KpiTypeEnum | null;
+    numberOfColumns?: number | null;
+    kpiItemLines?: KpiItemLine[] | null;
 }
 export declare namespace KpIs {
     /**
@@ -86,6 +82,11 @@ export declare namespace KpIs {
      */
     const KPI_NAME: StringField<KpIs>;
     /**
+     * Static representation of the [[kpiType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const KPI_TYPE: EnumField<KpIs>;
+    /**
      * Static representation of the [[numberOfColumns]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -94,11 +95,11 @@ export declare namespace KpIs {
      * Static representation of the [[kpiItemLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const KPI_ITEM_LINES: CollectionField<KpIs>;
+    const KPI_ITEM_LINES: CollectionField<KpIs, KpiItemLine>;
     /**
      * All fields of the KpIs entity.
      */
-    const _allFields: Array<StringField<KpIs> | NumberField<KpIs> | CollectionField<KpIs>>;
+    const _allFields: Array<StringField<KpIs> | EnumField<KpIs> | NumberField<KpIs> | CollectionField<KpIs, KpiItemLine>>;
     /**
      * All fields selector.
      */

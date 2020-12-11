@@ -1,18 +1,13 @@
 import { ElectronicFileFormatsRequestBuilder } from './ElectronicFileFormatsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ElectronicFileFormats" of service "SAPB1".
  */
-export declare class ElectronicFileFormats extends Entity implements ElectronicFileFormatsType {
+export declare class ElectronicFileFormats extends EntityV4 implements ElectronicFileFormatsType {
     /**
      * Technical entity name for ElectronicFileFormats.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ElectronicFileFormats.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -58,10 +53,10 @@ export declare class ElectronicFileFormats extends Entity implements ElectronicF
      */
     menuPath?: string;
     /**
-     * Returns an entity builder to construct instances `ElectronicFileFormats`.
+     * Returns an entity builder to construct instances of `ElectronicFileFormats`.
      * @returns A builder that constructs instances of entity type `ElectronicFileFormats`.
      */
-    static builder(): EntityBuilderType<ElectronicFileFormats, ElectronicFileFormatsTypeForceMandatory>;
+    static builder(): EntityBuilderType<ElectronicFileFormats, ElectronicFileFormatsType>;
     /**
      * Returns a request builder to construct requests for operations on the `ElectronicFileFormats` entity type.
      * @returns A `ElectronicFileFormats` request builder.
@@ -72,7 +67,7 @@ export declare class ElectronicFileFormats extends Entity implements ElectronicF
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ElectronicFileFormats`.
      */
-    static customField(fieldName: string): CustomField<ElectronicFileFormats>;
+    static customField(fieldName: string): CustomFieldV4<ElectronicFileFormats>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -82,24 +77,14 @@ export declare class ElectronicFileFormats extends Entity implements ElectronicF
     };
 }
 export interface ElectronicFileFormatsType {
-    formatId?: number;
-    name?: string;
-    description?: string;
-    version?: string;
-    schemaVersion?: string;
-    outputFilePath?: string;
-    menuName?: string;
-    menuPath?: string;
-}
-export interface ElectronicFileFormatsTypeForceMandatory {
-    formatId: number;
-    name: string;
-    description: string;
-    version: string;
-    schemaVersion: string;
-    outputFilePath: string;
-    menuName: string;
-    menuPath: string;
+    formatId?: number | null;
+    name?: string | null;
+    description?: string | null;
+    version?: string | null;
+    schemaVersion?: string | null;
+    outputFilePath?: string | null;
+    menuName?: string | null;
+    menuPath?: string | null;
 }
 export declare namespace ElectronicFileFormats {
     /**

@@ -1,18 +1,14 @@
 import { SalesOpportunityCompetitorsSetupRequestBuilder } from './SalesOpportunityCompetitorsSetupRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { ThreatLevelEnum } from './ThreatLevelEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "SalesOpportunityCompetitorsSetup" of service "SAPB1".
  */
-export declare class SalesOpportunityCompetitorsSetup extends Entity implements SalesOpportunityCompetitorsSetupType {
+export declare class SalesOpportunityCompetitorsSetup extends EntityV4 implements SalesOpportunityCompetitorsSetupType {
     /**
      * Technical entity name for SalesOpportunityCompetitorsSetup.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for SalesOpportunityCompetitorsSetup.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -28,15 +24,20 @@ export declare class SalesOpportunityCompetitorsSetup extends Entity implements 
      */
     name?: string;
     /**
+     * Threat Level.
+     * @nullable
+     */
+    threatLevel?: ThreatLevelEnum;
+    /**
      * Details.
      * @nullable
      */
     details?: string;
     /**
-     * Returns an entity builder to construct instances `SalesOpportunityCompetitorsSetup`.
+     * Returns an entity builder to construct instances of `SalesOpportunityCompetitorsSetup`.
      * @returns A builder that constructs instances of entity type `SalesOpportunityCompetitorsSetup`.
      */
-    static builder(): EntityBuilderType<SalesOpportunityCompetitorsSetup, SalesOpportunityCompetitorsSetupTypeForceMandatory>;
+    static builder(): EntityBuilderType<SalesOpportunityCompetitorsSetup, SalesOpportunityCompetitorsSetupType>;
     /**
      * Returns a request builder to construct requests for operations on the `SalesOpportunityCompetitorsSetup` entity type.
      * @returns A `SalesOpportunityCompetitorsSetup` request builder.
@@ -47,7 +48,7 @@ export declare class SalesOpportunityCompetitorsSetup extends Entity implements 
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `SalesOpportunityCompetitorsSetup`.
      */
-    static customField(fieldName: string): CustomField<SalesOpportunityCompetitorsSetup>;
+    static customField(fieldName: string): CustomFieldV4<SalesOpportunityCompetitorsSetup>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -57,14 +58,10 @@ export declare class SalesOpportunityCompetitorsSetup extends Entity implements 
     };
 }
 export interface SalesOpportunityCompetitorsSetupType {
-    sequenceNo?: number;
-    name?: string;
-    details?: string;
-}
-export interface SalesOpportunityCompetitorsSetupTypeForceMandatory {
-    sequenceNo: number;
-    name: string;
-    details: string;
+    sequenceNo?: number | null;
+    name?: string | null;
+    threatLevel?: ThreatLevelEnum | null;
+    details?: string | null;
 }
 export declare namespace SalesOpportunityCompetitorsSetup {
     /**
@@ -78,6 +75,11 @@ export declare namespace SalesOpportunityCompetitorsSetup {
      */
     const NAME: StringField<SalesOpportunityCompetitorsSetup>;
     /**
+     * Static representation of the [[threatLevel]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const THREAT_LEVEL: EnumField<SalesOpportunityCompetitorsSetup>;
+    /**
      * Static representation of the [[details]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -85,7 +87,7 @@ export declare namespace SalesOpportunityCompetitorsSetup {
     /**
      * All fields of the SalesOpportunityCompetitorsSetup entity.
      */
-    const _allFields: Array<NumberField<SalesOpportunityCompetitorsSetup> | StringField<SalesOpportunityCompetitorsSetup>>;
+    const _allFields: Array<NumberField<SalesOpportunityCompetitorsSetup> | StringField<SalesOpportunityCompetitorsSetup> | EnumField<SalesOpportunityCompetitorsSetup>>;
     /**
      * All fields selector.
      */

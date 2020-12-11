@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ItemPropertiesRequestBuilder } from './ItemPropertiesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ItemProperties" of service "SAPB1".
  */
-export class ItemProperties extends Entity implements ItemPropertiesType {
+export class ItemProperties extends EntityV4 implements ItemPropertiesType {
   /**
    * Technical entity name for ItemProperties.
    */
   static _entityName = 'ItemProperties';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ItemProperties.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Number.
    * @nullable
@@ -35,11 +30,11 @@ export class ItemProperties extends Entity implements ItemPropertiesType {
   propertyName?: string;
 
   /**
-   * Returns an entity builder to construct instances `ItemProperties`.
+   * Returns an entity builder to construct instances of `ItemProperties`.
    * @returns A builder that constructs instances of entity type `ItemProperties`.
    */
-  static builder(): EntityBuilderType<ItemProperties, ItemPropertiesTypeForceMandatory> {
-    return Entity.entityBuilder(ItemProperties);
+  static builder(): EntityBuilderType<ItemProperties, ItemPropertiesType> {
+    return EntityV4.entityBuilder(ItemProperties);
   }
 
   /**
@@ -55,8 +50,8 @@ export class ItemProperties extends Entity implements ItemPropertiesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ItemProperties`.
    */
-  static customField(fieldName: string): CustomField<ItemProperties> {
-    return Entity.customFieldSelector(fieldName, ItemProperties);
+  static customField(fieldName: string): CustomFieldV4<ItemProperties> {
+    return EntityV4.customFieldSelector(fieldName, ItemProperties);
   }
 
   /**
@@ -69,13 +64,8 @@ export class ItemProperties extends Entity implements ItemPropertiesType {
 }
 
 export interface ItemPropertiesType {
-  number?: number;
-  propertyName?: string;
-}
-
-export interface ItemPropertiesTypeForceMandatory {
-  number: number;
-  propertyName: string;
+  number?: number | null;
+  propertyName?: string | null;
 }
 
 export namespace ItemProperties {

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.AccountCategory = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var AccountCategoryRequestBuilder_1 = require("./AccountCategoryRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "AccountCategory" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var AccountCategory = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `AccountCategory`.
+     * Returns an entity builder to construct instances of `AccountCategory`.
      * @returns A builder that constructs instances of entity type `AccountCategory`.
      */
     AccountCategory.builder = function () {
-        return v4_1.Entity.entityBuilder(AccountCategory);
+        return core_1.EntityV4.entityBuilder(AccountCategory);
     };
     /**
      * Returns a request builder to construct requests for operations on the `AccountCategory` entity type.
@@ -60,7 +60,7 @@ var AccountCategory = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `AccountCategory`.
      */
     AccountCategory.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, AccountCategory);
+        return core_1.EntityV4.customFieldSelector(fieldName, AccountCategory);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var AccountCategory = /** @class */ (function (_super) {
      */
     AccountCategory._entityName = 'AccountCategory';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for AccountCategory.
-     */
-    AccountCategory._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    AccountCategory._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    AccountCategory._defaultServicePath = '/b1s/v2/';
     return AccountCategory;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.AccountCategory = AccountCategory;
 var ChartOfAccounts_1 = require("./ChartOfAccounts");
 (function (AccountCategory) {
@@ -91,29 +86,35 @@ var ChartOfAccounts_1 = require("./ChartOfAccounts");
      * Static representation of the [[categoryCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    AccountCategory.CATEGORY_CODE = new v4_1.NumberField('CategoryCode', AccountCategory, 'Edm.Int32');
+    AccountCategory.CATEGORY_CODE = new core_1.NumberField('CategoryCode', AccountCategory, 'Edm.Int32');
     /**
      * Static representation of the [[categoryName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    AccountCategory.CATEGORY_NAME = new v4_1.StringField('CategoryName', AccountCategory, 'Edm.String');
+    AccountCategory.CATEGORY_NAME = new core_1.StringField('CategoryName', AccountCategory, 'Edm.String');
+    /**
+     * Static representation of the [[categorySource]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    AccountCategory.CATEGORY_SOURCE = new core_1.EnumField('CategorySource', AccountCategory);
     /**
      * Static representation of the one-to-many navigation property [[chartOfAccounts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    AccountCategory.CHART_OF_ACCOUNTS = new v4_1.OneToManyLink('ChartOfAccounts', AccountCategory, ChartOfAccounts_1.ChartOfAccounts);
+    AccountCategory.CHART_OF_ACCOUNTS = new core_1.OneToManyLink('ChartOfAccounts', AccountCategory, ChartOfAccounts_1.ChartOfAccounts);
     /**
      * All fields of the AccountCategory entity.
      */
     AccountCategory._allFields = [
         AccountCategory.CATEGORY_CODE,
         AccountCategory.CATEGORY_NAME,
+        AccountCategory.CATEGORY_SOURCE,
         AccountCategory.CHART_OF_ACCOUNTS
     ];
     /**
      * All fields selector.
      */
-    AccountCategory.ALL_FIELDS = new v4_1.AllFields('*', AccountCategory);
+    AccountCategory.ALL_FIELDS = new core_1.AllFields('*', AccountCategory);
     /**
      * All key fields of the AccountCategory entity.
      */

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.ProfitCentersRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var ProfitCenters_1 = require("./ProfitCenters");
 /**
  * Request builder class for operations supported on the [[ProfitCenters]] entity.
@@ -35,14 +35,14 @@ var ProfitCentersRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `ProfitCenters` entity based on its keys.
      */
     ProfitCentersRequestBuilder.prototype.getByKey = function (centerCode) {
-        return new v4_1.GetByKeyRequestBuilder(ProfitCenters_1.ProfitCenters, { CenterCode: centerCode });
+        return new core_1.GetByKeyRequestBuilderV4(ProfitCenters_1.ProfitCenters, { CenterCode: centerCode });
     };
     /**
      * Returns a request builder for querying all `ProfitCenters` entities.
      * @returns A request builder for creating requests to retrieve all `ProfitCenters` entities.
      */
     ProfitCentersRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(ProfitCenters_1.ProfitCenters);
+        return new core_1.GetAllRequestBuilderV4(ProfitCenters_1.ProfitCenters);
     };
     /**
      * Returns a request builder for creating a `ProfitCenters` entity.
@@ -50,7 +50,7 @@ var ProfitCentersRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `ProfitCenters`.
      */
     ProfitCentersRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(ProfitCenters_1.ProfitCenters, entity);
+        return new core_1.CreateRequestBuilderV4(ProfitCenters_1.ProfitCenters, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `ProfitCenters`.
@@ -58,12 +58,12 @@ var ProfitCentersRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `ProfitCenters`.
      */
     ProfitCentersRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(ProfitCenters_1.ProfitCenters, entity);
+        return new core_1.UpdateRequestBuilderV4(ProfitCenters_1.ProfitCenters, entity);
     };
     ProfitCentersRequestBuilder.prototype.delete = function (centerCodeOrEntity) {
-        return new v4_1.DeleteRequestBuilder(ProfitCenters_1.ProfitCenters, centerCodeOrEntity instanceof ProfitCenters_1.ProfitCenters ? centerCodeOrEntity : { CenterCode: centerCodeOrEntity });
+        return new core_1.DeleteRequestBuilderV4(ProfitCenters_1.ProfitCenters, centerCodeOrEntity instanceof ProfitCenters_1.ProfitCenters ? centerCodeOrEntity : { CenterCode: centerCodeOrEntity });
     };
     return ProfitCentersRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.ProfitCentersRequestBuilder = ProfitCentersRequestBuilder;
 //# sourceMappingURL=ProfitCentersRequestBuilder.js.map

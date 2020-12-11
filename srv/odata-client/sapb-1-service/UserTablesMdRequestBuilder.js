@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.UserTablesMdRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var UserTablesMd_1 = require("./UserTablesMd");
 /**
  * Request builder class for operations supported on the [[UserTablesMd]] entity.
@@ -35,14 +35,14 @@ var UserTablesMdRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `UserTablesMd` entity based on its keys.
      */
     UserTablesMdRequestBuilder.prototype.getByKey = function (tableName) {
-        return new v4_1.GetByKeyRequestBuilder(UserTablesMd_1.UserTablesMd, { TableName: tableName });
+        return new core_1.GetByKeyRequestBuilderV4(UserTablesMd_1.UserTablesMd, { TableName: tableName });
     };
     /**
      * Returns a request builder for querying all `UserTablesMd` entities.
      * @returns A request builder for creating requests to retrieve all `UserTablesMd` entities.
      */
     UserTablesMdRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(UserTablesMd_1.UserTablesMd);
+        return new core_1.GetAllRequestBuilderV4(UserTablesMd_1.UserTablesMd);
     };
     /**
      * Returns a request builder for creating a `UserTablesMd` entity.
@@ -50,7 +50,7 @@ var UserTablesMdRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `UserTablesMd`.
      */
     UserTablesMdRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(UserTablesMd_1.UserTablesMd, entity);
+        return new core_1.CreateRequestBuilderV4(UserTablesMd_1.UserTablesMd, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `UserTablesMd`.
@@ -58,12 +58,12 @@ var UserTablesMdRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `UserTablesMd`.
      */
     UserTablesMdRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(UserTablesMd_1.UserTablesMd, entity);
+        return new core_1.UpdateRequestBuilderV4(UserTablesMd_1.UserTablesMd, entity);
     };
     UserTablesMdRequestBuilder.prototype.delete = function (tableNameOrEntity) {
-        return new v4_1.DeleteRequestBuilder(UserTablesMd_1.UserTablesMd, tableNameOrEntity instanceof UserTablesMd_1.UserTablesMd ? tableNameOrEntity : { TableName: tableNameOrEntity });
+        return new core_1.DeleteRequestBuilderV4(UserTablesMd_1.UserTablesMd, tableNameOrEntity instanceof UserTablesMd_1.UserTablesMd ? tableNameOrEntity : { TableName: tableNameOrEntity });
     };
     return UserTablesMdRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.UserTablesMdRequestBuilder = UserTablesMdRequestBuilder;
 //# sourceMappingURL=UserTablesMdRequestBuilder.js.map

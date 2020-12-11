@@ -4,7 +4,9 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BankStatementStatusEnum } from './BankStatementStatusEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * BankStatementParams
@@ -30,6 +32,16 @@ export interface BankStatementParams {
    * @nullable
    */
   statementDate?: Moment;
+  /**
+   * Status.
+   * @nullable
+   */
+  status?: BankStatementStatusEnum;
+  /**
+   * Imported.
+   * @nullable
+   */
+  imported?: BoYesNoEnum;
   /**
    * Starting Balance F.
    * @nullable
@@ -68,7 +80,7 @@ export function createBankStatementParams(json: any): BankStatementParams {
  * BankStatementParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class BankStatementParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class BankStatementParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BankStatementParams> {
   /**
    * Representation of the [[BankStatementParams.internalNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -89,6 +101,16 @@ export class BankStatementParamsField<EntityT extends Entity> extends ComplexTyp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   statementDate: ComplexTypeDatePropertyField<EntityT> = new ComplexTypeDatePropertyField('StatementDate', this, 'Edm.DateTimeOffset');
+  /**
+   * Representation of the [[BankStatementParams.status]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  status: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Status', this);
+  /**
+   * Representation of the [[BankStatementParams.imported]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  imported: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Imported', this);
   /**
    * Representation of the [[BankStatementParams.startingBalanceF]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -114,20 +136,83 @@ export class BankStatementParamsField<EntityT extends Entity> extends ComplexTyp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   endingBalanceL: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('EndingBalanceL', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of BankStatementParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, BankStatementParams);
+  }
 }
 
 export namespace BankStatementParams {
+  /**
+   * Metadata information on all properties of the `BankStatementParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<BankStatementParams>[] = [{
+    originalName: 'InternalNumber',
+    name: 'internalNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BankAccountKey',
+    name: 'bankAccountKey',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'StatementNumber',
+    name: 'statementNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StatementDate',
+    name: 'statementDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Status',
+    name: 'status',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Imported',
+    name: 'imported',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'StartingBalanceF',
+    name: 'startingBalanceF',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'EndingBalanceF',
+    name: 'endingBalanceF',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Currency',
+    name: 'currency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StartingBalanceL',
+    name: 'startingBalanceL',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'EndingBalanceL',
+    name: 'endingBalanceL',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): BankStatementParams {
-    return createComplexType(json, {
-      InternalNumber: (internalNumber: number) => ({ internalNumber: edmToTs(internalNumber, 'Edm.Int32') }),
-      BankAccountKey: (bankAccountKey: number) => ({ bankAccountKey: edmToTs(bankAccountKey, 'Edm.Int32') }),
-      StatementNumber: (statementNumber: string) => ({ statementNumber: edmToTs(statementNumber, 'Edm.String') }),
-      StatementDate: (statementDate: Moment) => ({ statementDate: edmToTs(statementDate, 'Edm.DateTimeOffset') }),
-      StartingBalanceF: (startingBalanceF: number) => ({ startingBalanceF: edmToTs(startingBalanceF, 'Edm.Double') }),
-      EndingBalanceF: (endingBalanceF: number) => ({ endingBalanceF: edmToTs(endingBalanceF, 'Edm.Double') }),
-      Currency: (currency: string) => ({ currency: edmToTs(currency, 'Edm.String') }),
-      StartingBalanceL: (startingBalanceL: number) => ({ startingBalanceL: edmToTs(startingBalanceL, 'Edm.Double') }),
-      EndingBalanceL: (endingBalanceL: number) => ({ endingBalanceL: edmToTs(endingBalanceL, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, BankStatementParams);
   }
 }

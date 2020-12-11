@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.GlAccountAdvancedRules = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var GlAccountAdvancedRulesRequestBuilder_1 = require("./GlAccountAdvancedRulesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "GLAccountAdvancedRules" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var GlAccountAdvancedRules = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `GlAccountAdvancedRules`.
+     * Returns an entity builder to construct instances of `GlAccountAdvancedRules`.
      * @returns A builder that constructs instances of entity type `GlAccountAdvancedRules`.
      */
     GlAccountAdvancedRules.builder = function () {
-        return v4_1.Entity.entityBuilder(GlAccountAdvancedRules);
+        return core_1.EntityV4.entityBuilder(GlAccountAdvancedRules);
     };
     /**
      * Returns a request builder to construct requests for operations on the `GlAccountAdvancedRules` entity type.
@@ -60,7 +60,7 @@ var GlAccountAdvancedRules = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `GlAccountAdvancedRules`.
      */
     GlAccountAdvancedRules.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, GlAccountAdvancedRules);
+        return core_1.EntityV4.customFieldSelector(fieldName, GlAccountAdvancedRules);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var GlAccountAdvancedRules = /** @class */ (function (_super) {
      */
     GlAccountAdvancedRules._entityName = 'GLAccountAdvancedRules';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for GlAccountAdvancedRules.
-     */
-    GlAccountAdvancedRules._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    GlAccountAdvancedRules._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    GlAccountAdvancedRules._defaultServicePath = '/b1s/v2/';
     return GlAccountAdvancedRules;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.GlAccountAdvancedRules = GlAccountAdvancedRules;
 var Items_1 = require("./Items");
 var ItemGroups_1 = require("./ItemGroups");
@@ -98,427 +93,447 @@ var BusinessPartners_1 = require("./BusinessPartners");
      * Static representation of the [[absoluteEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.ABSOLUTE_ENTRY = new v4_1.NumberField('AbsoluteEntry', GlAccountAdvancedRules, 'Edm.Int32');
+    GlAccountAdvancedRules.ABSOLUTE_ENTRY = new core_1.NumberField('AbsoluteEntry', GlAccountAdvancedRules, 'Edm.Int32');
     /**
      * Static representation of the [[period]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.PERIOD = new v4_1.StringField('Period', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.PERIOD = new core_1.StringField('Period', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[beginningofFinancialYear]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.BEGINNINGOF_FINANCIAL_YEAR = new v4_1.DateField('BeginningofFinancialYear', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
+    GlAccountAdvancedRules.BEGINNINGOF_FINANCIAL_YEAR = new core_1.DateField('BeginningofFinancialYear', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[financialYear]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.FINANCIAL_YEAR = new v4_1.NumberField('FinancialYear', GlAccountAdvancedRules, 'Edm.Int32');
+    GlAccountAdvancedRules.FINANCIAL_YEAR = new core_1.NumberField('FinancialYear', GlAccountAdvancedRules, 'Edm.Int32');
     /**
      * Static representation of the [[periodName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.PERIOD_NAME = new v4_1.StringField('PeriodName', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.PERIOD_NAME = new core_1.StringField('PeriodName', GlAccountAdvancedRules, 'Edm.String');
+    /**
+     * Static representation of the [[subPeriodType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    GlAccountAdvancedRules.SUB_PERIOD_TYPE = new core_1.EnumField('SubPeriodType', GlAccountAdvancedRules);
     /**
      * Static representation of the [[numberOfPeriods]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.NUMBER_OF_PERIODS = new v4_1.NumberField('NumberOfPeriods', GlAccountAdvancedRules, 'Edm.Int32');
+    GlAccountAdvancedRules.NUMBER_OF_PERIODS = new core_1.NumberField('NumberOfPeriods', GlAccountAdvancedRules, 'Edm.Int32');
     /**
      * Static representation of the [[fromPostingDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.FROM_POSTING_DATE = new v4_1.DateField('FromPostingDate', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
+    GlAccountAdvancedRules.FROM_POSTING_DATE = new core_1.DateField('FromPostingDate', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[toPostingDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.TO_POSTING_DATE = new v4_1.DateField('ToPostingDate', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
+    GlAccountAdvancedRules.TO_POSTING_DATE = new core_1.DateField('ToPostingDate', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[fromDueDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.FROM_DUE_DATE = new v4_1.DateField('FromDueDate', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
+    GlAccountAdvancedRules.FROM_DUE_DATE = new core_1.DateField('FromDueDate', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[toDueDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.TO_DUE_DATE = new v4_1.DateField('ToDueDate', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
+    GlAccountAdvancedRules.TO_DUE_DATE = new core_1.DateField('ToDueDate', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[fromDocumentDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.FROM_DOCUMENT_DATE = new v4_1.DateField('FromDocumentDate', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
+    GlAccountAdvancedRules.FROM_DOCUMENT_DATE = new core_1.DateField('FromDocumentDate', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[toDocumentDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.TO_DOCUMENT_DATE = new v4_1.DateField('ToDocumentDate', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
+    GlAccountAdvancedRules.TO_DOCUMENT_DATE = new core_1.DateField('ToDocumentDate', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[itemCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.ITEM_CODE = new v4_1.StringField('ItemCode', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.ITEM_CODE = new core_1.StringField('ItemCode', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[itemGroup]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.ITEM_GROUP = new v4_1.NumberField('ItemGroup', GlAccountAdvancedRules, 'Edm.Int32');
+    GlAccountAdvancedRules.ITEM_GROUP = new core_1.NumberField('ItemGroup', GlAccountAdvancedRules, 'Edm.Int32');
     /**
      * Static representation of the [[warehouse]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.WAREHOUSE = new v4_1.StringField('Warehouse', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.WAREHOUSE = new core_1.StringField('Warehouse', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[bpGroup]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.BP_GROUP = new v4_1.NumberField('BPGroup', GlAccountAdvancedRules, 'Edm.Int32');
+    GlAccountAdvancedRules.BP_GROUP = new core_1.NumberField('BPGroup', GlAccountAdvancedRules, 'Edm.Int32');
     /**
      * Static representation of the [[federalTaxId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.FEDERAL_TAX_ID = new v4_1.StringField('FederalTaxID', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.FEDERAL_TAX_ID = new core_1.StringField('FederalTaxID', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[shipToCountry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.SHIP_TO_COUNTRY = new v4_1.StringField('ShipToCountry', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.SHIP_TO_COUNTRY = new core_1.StringField('ShipToCountry', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[shipToState]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.SHIP_TO_STATE = new v4_1.StringField('ShipToState', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.SHIP_TO_STATE = new core_1.StringField('ShipToState', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.DESCRIPTION = new v4_1.StringField('Description', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.DESCRIPTION = new core_1.StringField('Description', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.CODE = new v4_1.StringField('Code', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.CODE = new core_1.StringField('Code', GlAccountAdvancedRules, 'Edm.String');
+    /**
+     * Static representation of the [[getGlAccountBy]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    GlAccountAdvancedRules.GET_GL_ACCOUNT_BY = new core_1.EnumField('GetGLAccountBy', GlAccountAdvancedRules);
     /**
      * Static representation of the [[fromDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.FROM_DATE = new v4_1.DateField('FromDate', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
+    GlAccountAdvancedRules.FROM_DATE = new core_1.DateField('FromDate', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[toDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.TO_DATE = new v4_1.DateField('ToDate', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
+    GlAccountAdvancedRules.TO_DATE = new core_1.DateField('ToDate', GlAccountAdvancedRules, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[expensesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.EXPENSES_ACCOUNT = new v4_1.StringField('ExpensesAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.EXPENSES_ACCOUNT = new core_1.StringField('ExpensesAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[revenuesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.REVENUES_ACCOUNT = new v4_1.StringField('RevenuesAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.REVENUES_ACCOUNT = new core_1.StringField('RevenuesAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[exemptIncomeAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.EXEMPT_INCOME_ACC = new v4_1.StringField('ExemptIncomeAcc', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.EXEMPT_INCOME_ACC = new core_1.StringField('ExemptIncomeAcc', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[inventoryAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.INVENTORY_ACCOUNT = new v4_1.StringField('InventoryAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.INVENTORY_ACCOUNT = new core_1.StringField('InventoryAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[costAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.COST_ACCOUNT = new v4_1.StringField('CostAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.COST_ACCOUNT = new core_1.StringField('CostAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[transferAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.TRANSFER_ACCOUNT = new v4_1.StringField('TransferAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.TRANSFER_ACCOUNT = new core_1.StringField('TransferAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[varienceAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.VARIENCE_ACCOUNT = new v4_1.StringField('VarienceAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.VARIENCE_ACCOUNT = new core_1.StringField('VarienceAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[priceDifferenceAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.PRICE_DIFFERENCE_ACC = new v4_1.StringField('PriceDifferenceAcc', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.PRICE_DIFFERENCE_ACC = new core_1.StringField('PriceDifferenceAcc', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[negativeInventoryAdjustmentAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.NEGATIVE_INVENTORY_ADJUSTMENT_ACCOUNT = new v4_1.StringField('NegativeInventoryAdjustmentAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.NEGATIVE_INVENTORY_ADJUSTMENT_ACCOUNT = new core_1.StringField('NegativeInventoryAdjustmentAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[decreasingAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.DECREASING_ACCOUNT = new v4_1.StringField('DecreasingAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.DECREASING_ACCOUNT = new core_1.StringField('DecreasingAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[increasingAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.INCREASING_ACCOUNT = new v4_1.StringField('IncreasingAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.INCREASING_ACCOUNT = new core_1.StringField('IncreasingAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[returningAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.RETURNING_ACCOUNT = new v4_1.StringField('ReturningAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.RETURNING_ACCOUNT = new core_1.StringField('ReturningAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[euRevenuesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.EU_REVENUES_ACCOUNT = new v4_1.StringField('EURevenuesAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.EU_REVENUES_ACCOUNT = new core_1.StringField('EURevenuesAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[euExpensesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.EU_EXPENSES_ACCOUNT = new v4_1.StringField('EUExpensesAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.EU_EXPENSES_ACCOUNT = new core_1.StringField('EUExpensesAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[foreignRevenueAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.FOREIGN_REVENUE_ACC = new v4_1.StringField('ForeignRevenueAcc', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.FOREIGN_REVENUE_ACC = new core_1.StringField('ForeignRevenueAcc', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[foreignExpensAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.FOREIGN_EXPENS_ACC = new v4_1.StringField('ForeignExpensAcc', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.FOREIGN_EXPENS_ACC = new core_1.StringField('ForeignExpensAcc', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[purchaseAcct]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.PURCHASE_ACCT = new v4_1.StringField('PurchaseAcct', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.PURCHASE_ACCT = new core_1.StringField('PurchaseAcct', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[paReturnAcct]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.PA_RETURN_ACCT = new v4_1.StringField('PAReturnAcct', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.PA_RETURN_ACCT = new core_1.StringField('PAReturnAcct', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[purchaseOffsetAcct]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.PURCHASE_OFFSET_ACCT = new v4_1.StringField('PurchaseOffsetAcct', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.PURCHASE_OFFSET_ACCT = new core_1.StringField('PurchaseOffsetAcct', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[exchangeRateDifferencesAcct]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.EXCHANGE_RATE_DIFFERENCES_ACCT = new v4_1.StringField('ExchangeRateDifferencesAcct', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.EXCHANGE_RATE_DIFFERENCES_ACCT = new core_1.StringField('ExchangeRateDifferencesAcct', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[goodsClearingAcct]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.GOODS_CLEARING_ACCT = new v4_1.StringField('GoodsClearingAcct', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.GOODS_CLEARING_ACCT = new core_1.StringField('GoodsClearingAcct', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[glDecreaseAcct]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.GL_DECREASE_ACCT = new v4_1.StringField('GLDecreaseAcct', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.GL_DECREASE_ACCT = new core_1.StringField('GLDecreaseAcct', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[glIncreaseAcct]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.GL_INCREASE_ACCT = new v4_1.StringField('GLIncreaseAcct', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.GL_INCREASE_ACCT = new core_1.StringField('GLIncreaseAcct', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[wipAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.WIP_ACCOUNT = new v4_1.StringField('WipAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.WIP_ACCOUNT = new core_1.StringField('WipAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[wipVarianceAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.WIP_VARIANCE_ACCOUNT = new v4_1.StringField('WipVarianceAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.WIP_VARIANCE_ACCOUNT = new core_1.StringField('WipVarianceAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[wipOffsetProfitAndLossAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.WIP_OFFSET_PROFIT_AND_LOSS_ACCOUNT = new v4_1.StringField('WipOffsetProfitAndLossAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.WIP_OFFSET_PROFIT_AND_LOSS_ACCOUNT = new core_1.StringField('WipOffsetProfitAndLossAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[inventoryOffsetProfitAndLossAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.INVENTORY_OFFSET_PROFIT_AND_LOSS_ACCOUNT = new v4_1.StringField('InventoryOffsetProfitAndLossAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.INVENTORY_OFFSET_PROFIT_AND_LOSS_ACCOUNT = new core_1.StringField('InventoryOffsetProfitAndLossAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[stockInflationAdjustAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.STOCK_INFLATION_ADJUST_ACCOUNT = new v4_1.StringField('StockInflationAdjustAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.STOCK_INFLATION_ADJUST_ACCOUNT = new core_1.StringField('StockInflationAdjustAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[stockInflationOffsetAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.STOCK_INFLATION_OFFSET_ACCOUNT = new v4_1.StringField('StockInflationOffsetAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.STOCK_INFLATION_OFFSET_ACCOUNT = new core_1.StringField('StockInflationOffsetAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[costInflationAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.COST_INFLATION_ACCOUNT = new v4_1.StringField('CostInflationAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.COST_INFLATION_ACCOUNT = new core_1.StringField('CostInflationAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[costInflationOffsetAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.COST_INFLATION_OFFSET_ACCOUNT = new v4_1.StringField('CostInflationOffsetAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.COST_INFLATION_OFFSET_ACCOUNT = new core_1.StringField('CostInflationOffsetAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[expenseClearingAct]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.EXPENSE_CLEARING_ACT = new v4_1.StringField('ExpenseClearingAct', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.EXPENSE_CLEARING_ACT = new core_1.StringField('ExpenseClearingAct', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[expenseOffsettingAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.EXPENSE_OFFSETTING_ACCOUNT = new v4_1.StringField('ExpenseOffsettingAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.EXPENSE_OFFSETTING_ACCOUNT = new core_1.StringField('ExpenseOffsettingAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[stockInTransitAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.STOCK_IN_TRANSIT_ACCOUNT = new v4_1.StringField('StockInTransitAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.STOCK_IN_TRANSIT_ACCOUNT = new core_1.StringField('StockInTransitAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[shippedGoodsAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.SHIPPED_GOODS_ACCOUNT = new v4_1.StringField('ShippedGoodsAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.SHIPPED_GOODS_ACCOUNT = new core_1.StringField('ShippedGoodsAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[vatInRevenueAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.VAT_IN_REVENUE_ACCOUNT = new v4_1.StringField('VATInRevenueAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.VAT_IN_REVENUE_ACCOUNT = new core_1.StringField('VATInRevenueAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[salesCreditAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.SALES_CREDIT_ACC = new v4_1.StringField('SalesCreditAcc', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.SALES_CREDIT_ACC = new core_1.StringField('SalesCreditAcc', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[purchaseCreditAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.PURCHASE_CREDIT_ACC = new v4_1.StringField('PurchaseCreditAcc', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.PURCHASE_CREDIT_ACC = new core_1.StringField('PurchaseCreditAcc', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[exemptedCredits]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.EXEMPTED_CREDITS = new v4_1.StringField('ExemptedCredits', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.EXEMPTED_CREDITS = new core_1.StringField('ExemptedCredits', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[salesCreditForeignAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.SALES_CREDIT_FOREIGN_ACC = new v4_1.StringField('SalesCreditForeignAcc', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.SALES_CREDIT_FOREIGN_ACC = new core_1.StringField('SalesCreditForeignAcc', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[foreignPurchaseCreditAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.FOREIGN_PURCHASE_CREDIT_ACC = new v4_1.StringField('ForeignPurchaseCreditAcc', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.FOREIGN_PURCHASE_CREDIT_ACC = new core_1.StringField('ForeignPurchaseCreditAcc', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[salesCreditEuAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.SALES_CREDIT_EU_ACC = new v4_1.StringField('SalesCreditEUAcc', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.SALES_CREDIT_EU_ACC = new core_1.StringField('SalesCreditEUAcc', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[euPurchaseCreditAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.EU_PURCHASE_CREDIT_ACC = new v4_1.StringField('EUPurchaseCreditAcc', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.EU_PURCHASE_CREDIT_ACC = new core_1.StringField('EUPurchaseCreditAcc', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[purchaseBalanceAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.PURCHASE_BALANCE_ACCOUNT = new v4_1.StringField('PurchaseBalanceAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.PURCHASE_BALANCE_ACCOUNT = new core_1.StringField('PurchaseBalanceAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[whIncomingCenvatAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.WH_INCOMING_CENVAT_ACCOUNT = new v4_1.StringField('WHIncomingCenvatAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.WH_INCOMING_CENVAT_ACCOUNT = new core_1.StringField('WHIncomingCenvatAccount', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[whOutgoingCenvatAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.WH_OUTGOING_CENVAT_ACCOUNT = new v4_1.StringField('WHOutgoingCenvatAccount', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.WH_OUTGOING_CENVAT_ACCOUNT = new core_1.StringField('WHOutgoingCenvatAccount', GlAccountAdvancedRules, 'Edm.String');
+    /**
+     * Static representation of the [[isActive]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    GlAccountAdvancedRules.IS_ACTIVE = new core_1.EnumField('IsActive', GlAccountAdvancedRules);
+    /**
+     * Static representation of the [[businessPartnerType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    GlAccountAdvancedRules.BUSINESS_PARTNER_TYPE = new core_1.EnumField('BusinessPartnerType', GlAccountAdvancedRules);
     /**
      * Static representation of the [[vatGroup]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.VAT_GROUP = new v4_1.StringField('VATGroup', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.VAT_GROUP = new core_1.StringField('VATGroup', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[bpCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.BP_CODE = new v4_1.StringField('BPCode', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.BP_CODE = new core_1.StringField('BPCode', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[usage]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.USAGE = new v4_1.NumberField('Usage', GlAccountAdvancedRules, 'Edm.Int32');
+    GlAccountAdvancedRules.USAGE = new core_1.NumberField('Usage', GlAccountAdvancedRules, 'Edm.Int32');
     /**
      * Static representation of the [[udf1]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.UDF_1 = new v4_1.StringField('UDF1', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.UDF_1 = new core_1.StringField('UDF1', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[udf2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.UDF_2 = new v4_1.StringField('UDF2', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.UDF_2 = new core_1.StringField('UDF2', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[udf3]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.UDF_3 = new v4_1.StringField('UDF3', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.UDF_3 = new core_1.StringField('UDF3', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[udf4]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.UDF_4 = new v4_1.StringField('UDF4', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.UDF_4 = new core_1.StringField('UDF4', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the [[udf5]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.UDF_5 = new v4_1.StringField('UDF5', GlAccountAdvancedRules, 'Edm.String');
+    GlAccountAdvancedRules.UDF_5 = new core_1.StringField('UDF5', GlAccountAdvancedRules, 'Edm.String');
     /**
      * Static representation of the one-to-one navigation property [[item]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.ITEM = new v4_1.OneToOneLink('Item', GlAccountAdvancedRules, Items_1.Items);
+    GlAccountAdvancedRules.ITEM = new core_1.OneToOneLink('Item', GlAccountAdvancedRules, Items_1.Items);
     /**
      * Static representation of the one-to-one navigation property [[itemGroups]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.ITEM_GROUPS = new v4_1.OneToOneLink('ItemGroups', GlAccountAdvancedRules, ItemGroups_1.ItemGroups);
+    GlAccountAdvancedRules.ITEM_GROUPS = new core_1.OneToOneLink('ItemGroups', GlAccountAdvancedRules, ItemGroups_1.ItemGroups);
     /**
      * Static representation of the one-to-one navigation property [[warehouse2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.WAREHOUSE_2 = new v4_1.OneToOneLink('Warehouse2', GlAccountAdvancedRules, Warehouses_1.Warehouses);
+    GlAccountAdvancedRules.WAREHOUSE_2 = new core_1.OneToOneLink('Warehouse2', GlAccountAdvancedRules, Warehouses_1.Warehouses);
     /**
      * Static representation of the one-to-one navigation property [[businessPartnerGroup]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.BUSINESS_PARTNER_GROUP = new v4_1.OneToOneLink('BusinessPartnerGroup', GlAccountAdvancedRules, BusinessPartnerGroups_1.BusinessPartnerGroups);
+    GlAccountAdvancedRules.BUSINESS_PARTNER_GROUP = new core_1.OneToOneLink('BusinessPartnerGroup', GlAccountAdvancedRules, BusinessPartnerGroups_1.BusinessPartnerGroups);
     /**
      * Static representation of the one-to-one navigation property [[country]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.COUNTRY = new v4_1.OneToOneLink('Country', GlAccountAdvancedRules, Countries_1.Countries);
+    GlAccountAdvancedRules.COUNTRY = new core_1.OneToOneLink('Country', GlAccountAdvancedRules, Countries_1.Countries);
     /**
      * Static representation of the one-to-one navigation property [[chartOfAccount]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.CHART_OF_ACCOUNT = new v4_1.OneToOneLink('ChartOfAccount', GlAccountAdvancedRules, ChartOfAccounts_1.ChartOfAccounts);
+    GlAccountAdvancedRules.CHART_OF_ACCOUNT = new core_1.OneToOneLink('ChartOfAccount', GlAccountAdvancedRules, ChartOfAccounts_1.ChartOfAccounts);
     /**
      * Static representation of the one-to-one navigation property [[vatGroup_1]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.VAT_GROUP_1 = new v4_1.OneToOneLink('VatGroup', GlAccountAdvancedRules, VatGroups_1.VatGroups);
+    GlAccountAdvancedRules.VAT_GROUP_1 = new core_1.OneToOneLink('VatGroup', GlAccountAdvancedRules, VatGroups_1.VatGroups);
     /**
      * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    GlAccountAdvancedRules.BUSINESS_PARTNER = new v4_1.OneToOneLink('BusinessPartner', GlAccountAdvancedRules, BusinessPartners_1.BusinessPartners);
+    GlAccountAdvancedRules.BUSINESS_PARTNER = new core_1.OneToOneLink('BusinessPartner', GlAccountAdvancedRules, BusinessPartners_1.BusinessPartners);
     /**
      * All fields of the GlAccountAdvancedRules entity.
      */
@@ -528,6 +543,7 @@ var BusinessPartners_1 = require("./BusinessPartners");
         GlAccountAdvancedRules.BEGINNINGOF_FINANCIAL_YEAR,
         GlAccountAdvancedRules.FINANCIAL_YEAR,
         GlAccountAdvancedRules.PERIOD_NAME,
+        GlAccountAdvancedRules.SUB_PERIOD_TYPE,
         GlAccountAdvancedRules.NUMBER_OF_PERIODS,
         GlAccountAdvancedRules.FROM_POSTING_DATE,
         GlAccountAdvancedRules.TO_POSTING_DATE,
@@ -544,6 +560,7 @@ var BusinessPartners_1 = require("./BusinessPartners");
         GlAccountAdvancedRules.SHIP_TO_STATE,
         GlAccountAdvancedRules.DESCRIPTION,
         GlAccountAdvancedRules.CODE,
+        GlAccountAdvancedRules.GET_GL_ACCOUNT_BY,
         GlAccountAdvancedRules.FROM_DATE,
         GlAccountAdvancedRules.TO_DATE,
         GlAccountAdvancedRules.EXPENSES_ACCOUNT,
@@ -592,6 +609,8 @@ var BusinessPartners_1 = require("./BusinessPartners");
         GlAccountAdvancedRules.PURCHASE_BALANCE_ACCOUNT,
         GlAccountAdvancedRules.WH_INCOMING_CENVAT_ACCOUNT,
         GlAccountAdvancedRules.WH_OUTGOING_CENVAT_ACCOUNT,
+        GlAccountAdvancedRules.IS_ACTIVE,
+        GlAccountAdvancedRules.BUSINESS_PARTNER_TYPE,
         GlAccountAdvancedRules.VAT_GROUP,
         GlAccountAdvancedRules.BP_CODE,
         GlAccountAdvancedRules.USAGE,
@@ -612,7 +631,7 @@ var BusinessPartners_1 = require("./BusinessPartners");
     /**
      * All fields selector.
      */
-    GlAccountAdvancedRules.ALL_FIELDS = new v4_1.AllFields('*', GlAccountAdvancedRules);
+    GlAccountAdvancedRules.ALL_FIELDS = new core_1.AllFields('*', GlAccountAdvancedRules);
     /**
      * All key fields of the GlAccountAdvancedRules entity.
      */

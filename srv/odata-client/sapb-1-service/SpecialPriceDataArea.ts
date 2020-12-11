@@ -4,8 +4,9 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { SpecialPriceQuantityArea, SpecialPriceQuantityAreaField } from './SpecialPriceQuantityArea';
-import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { SpecialPriceQuantityArea } from './SpecialPriceQuantityArea';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * SpecialPriceDataArea
@@ -16,6 +17,11 @@ export interface SpecialPriceDataArea {
    * @nullable
    */
   priceCurrency?: string;
+  /**
+   * Auto Update.
+   * @nullable
+   */
+  autoUpdate?: BoYesNoEnum;
   /**
    * Dateto.
    * @nullable
@@ -60,7 +66,7 @@ export interface SpecialPriceDataArea {
    * Special Price Quantity Areas.
    * @nullable
    */
-  specialPriceQuantityAreas?: SpecialPriceQuantityArea;
+  specialPriceQuantityAreas?: SpecialPriceQuantityArea[];
 }
 
 /**
@@ -74,12 +80,17 @@ export function createSpecialPriceDataArea(json: any): SpecialPriceDataArea {
  * SpecialPriceDataAreaField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class SpecialPriceDataAreaField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class SpecialPriceDataAreaField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, SpecialPriceDataArea> {
   /**
    * Representation of the [[SpecialPriceDataArea.priceCurrency]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   priceCurrency: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('PriceCurrency', this, 'Edm.String');
+  /**
+   * Representation of the [[SpecialPriceDataArea.autoUpdate]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  autoUpdate: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AutoUpdate', this);
   /**
    * Representation of the [[SpecialPriceDataArea.dateto]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -124,22 +135,84 @@ export class SpecialPriceDataAreaField<EntityT extends Entity> extends ComplexTy
    * Representation of the [[SpecialPriceDataArea.specialPriceQuantityAreas]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  specialPriceQuantityAreas: SpecialPriceQuantityAreaField<EntityT> = new SpecialPriceQuantityAreaField('SpecialPriceQuantityAreas', this);
+  specialPriceQuantityAreas: CollectionField<EntityT, SpecialPriceQuantityArea> = new CollectionField('SpecialPriceQuantityAreas', this, SpecialPriceQuantityArea);
+
+  /**
+   * Creates an instance of SpecialPriceDataAreaField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, SpecialPriceDataArea);
+  }
 }
 
 export namespace SpecialPriceDataArea {
+  /**
+   * Metadata information on all properties of the `SpecialPriceDataArea` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<SpecialPriceDataArea>[] = [{
+    originalName: 'PriceCurrency',
+    name: 'priceCurrency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AutoUpdate',
+    name: 'autoUpdate',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Dateto',
+    name: 'dateto',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Discount',
+    name: 'discount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SpecialPrice',
+    name: 'specialPrice',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DateFrom',
+    name: 'dateFrom',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'BPCode',
+    name: 'bpCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PriceListNo',
+    name: 'priceListNo',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ItemNo',
+    name: 'itemNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RowNumber',
+    name: 'rowNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SpecialPriceQuantityAreas',
+    name: 'specialPriceQuantityAreas',
+    type: SpecialPriceQuantityArea,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | SpecialPriceQuantityArea }): SpecialPriceDataArea {
-    return createComplexType(json, {
-      PriceCurrency: (priceCurrency: string) => ({ priceCurrency: edmToTs(priceCurrency, 'Edm.String') }),
-      Dateto: (dateto: Moment) => ({ dateto: edmToTs(dateto, 'Edm.DateTimeOffset') }),
-      Discount: (discount: number) => ({ discount: edmToTs(discount, 'Edm.Double') }),
-      SpecialPrice: (specialPrice: number) => ({ specialPrice: edmToTs(specialPrice, 'Edm.Double') }),
-      DateFrom: (dateFrom: Moment) => ({ dateFrom: edmToTs(dateFrom, 'Edm.DateTimeOffset') }),
-      BPCode: (bpCode: string) => ({ bpCode: edmToTs(bpCode, 'Edm.String') }),
-      PriceListNo: (priceListNo: number) => ({ priceListNo: edmToTs(priceListNo, 'Edm.Int32') }),
-      ItemNo: (itemNo: string) => ({ itemNo: edmToTs(itemNo, 'Edm.String') }),
-      RowNumber: (rowNumber: number) => ({ rowNumber: edmToTs(rowNumber, 'Edm.Int32') }),
-      SpecialPriceQuantityAreas: (specialPriceQuantityAreas: SpecialPriceQuantityArea) => ({ specialPriceQuantityAreas: SpecialPriceQuantityArea.build(specialPriceQuantityAreas) })
-    });
+    return deserializeComplexTypeV4(json, SpecialPriceDataArea);
   }
 }

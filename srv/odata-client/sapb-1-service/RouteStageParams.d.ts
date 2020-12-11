@@ -1,5 +1,5 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, Entity, FieldType, Time } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, Time } from '@sap-cloud-sdk/core';
 /**
  * RouteStageParams
  */
@@ -43,7 +43,7 @@ export declare function createRouteStageParams(json: any): RouteStageParams;
  * RouteStageParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class RouteStageParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class RouteStageParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, RouteStageParams> {
     /**
      * Representation of the [[RouteStageParams.internalNumber]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -74,8 +74,22 @@ export declare class RouteStageParamsField<EntityT extends Entity> extends Compl
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     dateOfUpdate: ComplexTypeDatePropertyField<EntityT>;
+    /**
+     * Creates an instance of RouteStageParamsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace RouteStageParams {
+    /**
+     * Metadata information on all properties of the `RouteStageParams` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<RouteStageParams>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): RouteStageParams;

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ResourceEmployee
@@ -32,7 +32,7 @@ export function createResourceEmployee(json: any): ResourceEmployee {
  * ResourceEmployeeField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ResourceEmployeeField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ResourceEmployeeField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ResourceEmployee> {
   /**
    * Representation of the [[ResourceEmployee.code]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -43,13 +43,38 @@ export class ResourceEmployeeField<EntityT extends Entity> extends ComplexTypeFi
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   employee: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Employee', this, 'Edm.String');
+
+  /**
+   * Creates an instance of ResourceEmployeeField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ResourceEmployee);
+  }
 }
 
 export namespace ResourceEmployee {
+  /**
+   * Metadata information on all properties of the `ResourceEmployee` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ResourceEmployee>[] = [{
+    originalName: 'Code',
+    name: 'code',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Employee',
+    name: 'employee',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ResourceEmployee {
-    return createComplexType(json, {
-      Code: (code: string) => ({ code: edmToTs(code, 'Edm.String') }),
-      Employee: (employee: string) => ({ employee: edmToTs(employee, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, ResourceEmployee);
   }
 }

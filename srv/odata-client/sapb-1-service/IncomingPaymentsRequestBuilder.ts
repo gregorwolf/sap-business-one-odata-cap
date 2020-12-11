@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { IncomingPayments } from './IncomingPayments';
 
 /**
@@ -15,16 +15,16 @@ export class IncomingPaymentsRequestBuilder extends RequestBuilder<IncomingPayme
    * @param docEntry Key property. See [[IncomingPayments.docEntry]].
    * @returns A request builder for creating requests to retrieve one `IncomingPayments` entity based on its keys.
    */
-  getByKey(docEntry: number): GetByKeyRequestBuilder<IncomingPayments> {
-    return new GetByKeyRequestBuilder(IncomingPayments, { DocEntry: docEntry });
+  getByKey(docEntry: number): GetByKeyRequestBuilderV4<IncomingPayments> {
+    return new GetByKeyRequestBuilderV4(IncomingPayments, { DocEntry: docEntry });
   }
 
   /**
    * Returns a request builder for querying all `IncomingPayments` entities.
    * @returns A request builder for creating requests to retrieve all `IncomingPayments` entities.
    */
-  getAll(): GetAllRequestBuilder<IncomingPayments> {
-    return new GetAllRequestBuilder(IncomingPayments);
+  getAll(): GetAllRequestBuilderV4<IncomingPayments> {
+    return new GetAllRequestBuilderV4(IncomingPayments);
   }
 
   /**
@@ -32,8 +32,8 @@ export class IncomingPaymentsRequestBuilder extends RequestBuilder<IncomingPayme
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `IncomingPayments`.
    */
-  create(entity: IncomingPayments): CreateRequestBuilder<IncomingPayments> {
-    return new CreateRequestBuilder(IncomingPayments, entity);
+  create(entity: IncomingPayments): CreateRequestBuilderV4<IncomingPayments> {
+    return new CreateRequestBuilderV4(IncomingPayments, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class IncomingPaymentsRequestBuilder extends RequestBuilder<IncomingPayme
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `IncomingPayments`.
    */
-  update(entity: IncomingPayments): UpdateRequestBuilder<IncomingPayments> {
-    return new UpdateRequestBuilder(IncomingPayments, entity);
+  update(entity: IncomingPayments): UpdateRequestBuilderV4<IncomingPayments> {
+    return new UpdateRequestBuilderV4(IncomingPayments, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class IncomingPaymentsRequestBuilder extends RequestBuilder<IncomingPayme
    * @param docEntry Key property. See [[IncomingPayments.docEntry]].
    * @returns A request builder for creating requests that delete an entity of type `IncomingPayments`.
    */
-  delete(docEntry: number): DeleteRequestBuilder<IncomingPayments>;
+  delete(docEntry: number): DeleteRequestBuilderV4<IncomingPayments>;
   /**
    * Returns a request builder for deleting an entity of type `IncomingPayments`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `IncomingPayments` by taking the entity as a parameter.
    */
-  delete(entity: IncomingPayments): DeleteRequestBuilder<IncomingPayments>;
-  delete(docEntryOrEntity: any): DeleteRequestBuilder<IncomingPayments> {
-    return new DeleteRequestBuilder(IncomingPayments, docEntryOrEntity instanceof IncomingPayments ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
+  delete(entity: IncomingPayments): DeleteRequestBuilderV4<IncomingPayments>;
+  delete(docEntryOrEntity: any): DeleteRequestBuilderV4<IncomingPayments> {
+    return new DeleteRequestBuilderV4(IncomingPayments, docEntryOrEntity instanceof IncomingPayments ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
   }
 }

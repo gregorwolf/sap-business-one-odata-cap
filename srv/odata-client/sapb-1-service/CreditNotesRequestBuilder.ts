@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { CreditNotes } from './CreditNotes';
 
 /**
@@ -15,16 +15,16 @@ export class CreditNotesRequestBuilder extends RequestBuilder<CreditNotes> {
    * @param docEntry Key property. See [[CreditNotes.docEntry]].
    * @returns A request builder for creating requests to retrieve one `CreditNotes` entity based on its keys.
    */
-  getByKey(docEntry: number): GetByKeyRequestBuilder<CreditNotes> {
-    return new GetByKeyRequestBuilder(CreditNotes, { DocEntry: docEntry });
+  getByKey(docEntry: number): GetByKeyRequestBuilderV4<CreditNotes> {
+    return new GetByKeyRequestBuilderV4(CreditNotes, { DocEntry: docEntry });
   }
 
   /**
    * Returns a request builder for querying all `CreditNotes` entities.
    * @returns A request builder for creating requests to retrieve all `CreditNotes` entities.
    */
-  getAll(): GetAllRequestBuilder<CreditNotes> {
-    return new GetAllRequestBuilder(CreditNotes);
+  getAll(): GetAllRequestBuilderV4<CreditNotes> {
+    return new GetAllRequestBuilderV4(CreditNotes);
   }
 
   /**
@@ -32,8 +32,8 @@ export class CreditNotesRequestBuilder extends RequestBuilder<CreditNotes> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `CreditNotes`.
    */
-  create(entity: CreditNotes): CreateRequestBuilder<CreditNotes> {
-    return new CreateRequestBuilder(CreditNotes, entity);
+  create(entity: CreditNotes): CreateRequestBuilderV4<CreditNotes> {
+    return new CreateRequestBuilderV4(CreditNotes, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class CreditNotesRequestBuilder extends RequestBuilder<CreditNotes> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `CreditNotes`.
    */
-  update(entity: CreditNotes): UpdateRequestBuilder<CreditNotes> {
-    return new UpdateRequestBuilder(CreditNotes, entity);
+  update(entity: CreditNotes): UpdateRequestBuilderV4<CreditNotes> {
+    return new UpdateRequestBuilderV4(CreditNotes, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class CreditNotesRequestBuilder extends RequestBuilder<CreditNotes> {
    * @param docEntry Key property. See [[CreditNotes.docEntry]].
    * @returns A request builder for creating requests that delete an entity of type `CreditNotes`.
    */
-  delete(docEntry: number): DeleteRequestBuilder<CreditNotes>;
+  delete(docEntry: number): DeleteRequestBuilderV4<CreditNotes>;
   /**
    * Returns a request builder for deleting an entity of type `CreditNotes`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `CreditNotes` by taking the entity as a parameter.
    */
-  delete(entity: CreditNotes): DeleteRequestBuilder<CreditNotes>;
-  delete(docEntryOrEntity: any): DeleteRequestBuilder<CreditNotes> {
-    return new DeleteRequestBuilder(CreditNotes, docEntryOrEntity instanceof CreditNotes ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
+  delete(entity: CreditNotes): DeleteRequestBuilderV4<CreditNotes>;
+  delete(docEntryOrEntity: any): DeleteRequestBuilderV4<CreditNotes> {
+    return new DeleteRequestBuilderV4(CreditNotes, docEntryOrEntity instanceof CreditNotes ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
   }
 }

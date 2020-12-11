@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.ItemImagesRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var ItemImages_1 = require("./ItemImages");
 /**
  * Request builder class for operations supported on the [[ItemImages]] entity.
@@ -35,14 +35,14 @@ var ItemImagesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `ItemImages` entity based on its keys.
      */
     ItemImagesRequestBuilder.prototype.getByKey = function (itemCode) {
-        return new v4_1.GetByKeyRequestBuilder(ItemImages_1.ItemImages, { ItemCode: itemCode });
+        return new core_1.GetByKeyRequestBuilderV4(ItemImages_1.ItemImages, { ItemCode: itemCode });
     };
     /**
      * Returns a request builder for querying all `ItemImages` entities.
      * @returns A request builder for creating requests to retrieve all `ItemImages` entities.
      */
     ItemImagesRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(ItemImages_1.ItemImages);
+        return new core_1.GetAllRequestBuilderV4(ItemImages_1.ItemImages);
     };
     /**
      * Returns a request builder for creating a `ItemImages` entity.
@@ -50,7 +50,7 @@ var ItemImagesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `ItemImages`.
      */
     ItemImagesRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(ItemImages_1.ItemImages, entity);
+        return new core_1.CreateRequestBuilderV4(ItemImages_1.ItemImages, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `ItemImages`.
@@ -58,12 +58,12 @@ var ItemImagesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `ItemImages`.
      */
     ItemImagesRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(ItemImages_1.ItemImages, entity);
+        return new core_1.UpdateRequestBuilderV4(ItemImages_1.ItemImages, entity);
     };
     ItemImagesRequestBuilder.prototype.delete = function (itemCodeOrEntity) {
-        return new v4_1.DeleteRequestBuilder(ItemImages_1.ItemImages, itemCodeOrEntity instanceof ItemImages_1.ItemImages ? itemCodeOrEntity : { ItemCode: itemCodeOrEntity });
+        return new core_1.DeleteRequestBuilderV4(ItemImages_1.ItemImages, itemCodeOrEntity instanceof ItemImages_1.ItemImages ? itemCodeOrEntity : { ItemCode: itemCodeOrEntity });
     };
     return ItemImagesRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.ItemImagesRequestBuilder = ItemImagesRequestBuilder;
 //# sourceMappingURL=ItemImagesRequestBuilder.js.map

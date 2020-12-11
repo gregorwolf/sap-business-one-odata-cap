@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { TaxCodeDeterminationsTcd } from './TaxCodeDeterminationsTcd';
 
 /**
@@ -15,16 +15,16 @@ export class TaxCodeDeterminationsTcdRequestBuilder extends RequestBuilder<TaxCo
    * @param absId Key property. See [[TaxCodeDeterminationsTcd.absId]].
    * @returns A request builder for creating requests to retrieve one `TaxCodeDeterminationsTcd` entity based on its keys.
    */
-  getByKey(absId: number): GetByKeyRequestBuilder<TaxCodeDeterminationsTcd> {
-    return new GetByKeyRequestBuilder(TaxCodeDeterminationsTcd, { AbsId: absId });
+  getByKey(absId: number): GetByKeyRequestBuilderV4<TaxCodeDeterminationsTcd> {
+    return new GetByKeyRequestBuilderV4(TaxCodeDeterminationsTcd, { AbsId: absId });
   }
 
   /**
    * Returns a request builder for querying all `TaxCodeDeterminationsTcd` entities.
    * @returns A request builder for creating requests to retrieve all `TaxCodeDeterminationsTcd` entities.
    */
-  getAll(): GetAllRequestBuilder<TaxCodeDeterminationsTcd> {
-    return new GetAllRequestBuilder(TaxCodeDeterminationsTcd);
+  getAll(): GetAllRequestBuilderV4<TaxCodeDeterminationsTcd> {
+    return new GetAllRequestBuilderV4(TaxCodeDeterminationsTcd);
   }
 
   /**
@@ -32,8 +32,8 @@ export class TaxCodeDeterminationsTcdRequestBuilder extends RequestBuilder<TaxCo
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `TaxCodeDeterminationsTcd`.
    */
-  create(entity: TaxCodeDeterminationsTcd): CreateRequestBuilder<TaxCodeDeterminationsTcd> {
-    return new CreateRequestBuilder(TaxCodeDeterminationsTcd, entity);
+  create(entity: TaxCodeDeterminationsTcd): CreateRequestBuilderV4<TaxCodeDeterminationsTcd> {
+    return new CreateRequestBuilderV4(TaxCodeDeterminationsTcd, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class TaxCodeDeterminationsTcdRequestBuilder extends RequestBuilder<TaxCo
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `TaxCodeDeterminationsTcd`.
    */
-  update(entity: TaxCodeDeterminationsTcd): UpdateRequestBuilder<TaxCodeDeterminationsTcd> {
-    return new UpdateRequestBuilder(TaxCodeDeterminationsTcd, entity);
+  update(entity: TaxCodeDeterminationsTcd): UpdateRequestBuilderV4<TaxCodeDeterminationsTcd> {
+    return new UpdateRequestBuilderV4(TaxCodeDeterminationsTcd, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class TaxCodeDeterminationsTcdRequestBuilder extends RequestBuilder<TaxCo
    * @param absId Key property. See [[TaxCodeDeterminationsTcd.absId]].
    * @returns A request builder for creating requests that delete an entity of type `TaxCodeDeterminationsTcd`.
    */
-  delete(absId: number): DeleteRequestBuilder<TaxCodeDeterminationsTcd>;
+  delete(absId: number): DeleteRequestBuilderV4<TaxCodeDeterminationsTcd>;
   /**
    * Returns a request builder for deleting an entity of type `TaxCodeDeterminationsTcd`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `TaxCodeDeterminationsTcd` by taking the entity as a parameter.
    */
-  delete(entity: TaxCodeDeterminationsTcd): DeleteRequestBuilder<TaxCodeDeterminationsTcd>;
-  delete(absIdOrEntity: any): DeleteRequestBuilder<TaxCodeDeterminationsTcd> {
-    return new DeleteRequestBuilder(TaxCodeDeterminationsTcd, absIdOrEntity instanceof TaxCodeDeterminationsTcd ? absIdOrEntity : { AbsId: absIdOrEntity! });
+  delete(entity: TaxCodeDeterminationsTcd): DeleteRequestBuilderV4<TaxCodeDeterminationsTcd>;
+  delete(absIdOrEntity: any): DeleteRequestBuilderV4<TaxCodeDeterminationsTcd> {
+    return new DeleteRequestBuilderV4(TaxCodeDeterminationsTcd, absIdOrEntity instanceof TaxCodeDeterminationsTcd ? absIdOrEntity : { AbsId: absIdOrEntity! });
   }
 }

@@ -1,18 +1,13 @@
 import { CostCenterTypesRequestBuilder } from './CostCenterTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "CostCenterTypes" of service "SAPB1".
  */
-export declare class CostCenterTypes extends Entity implements CostCenterTypesType {
+export declare class CostCenterTypes extends EntityV4 implements CostCenterTypesType {
     /**
      * Technical entity name for CostCenterTypes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for CostCenterTypes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -32,10 +27,10 @@ export declare class CostCenterTypes extends Entity implements CostCenterTypesTy
      */
     profitCenters: ProfitCenters[];
     /**
-     * Returns an entity builder to construct instances `CostCenterTypes`.
+     * Returns an entity builder to construct instances of `CostCenterTypes`.
      * @returns A builder that constructs instances of entity type `CostCenterTypes`.
      */
-    static builder(): EntityBuilderType<CostCenterTypes, CostCenterTypesTypeForceMandatory>;
+    static builder(): EntityBuilderType<CostCenterTypes, CostCenterTypesType>;
     /**
      * Returns a request builder to construct requests for operations on the `CostCenterTypes` entity type.
      * @returns A `CostCenterTypes` request builder.
@@ -46,7 +41,7 @@ export declare class CostCenterTypes extends Entity implements CostCenterTypesTy
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `CostCenterTypes`.
      */
-    static customField(fieldName: string): CustomField<CostCenterTypes>;
+    static customField(fieldName: string): CustomFieldV4<CostCenterTypes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -57,13 +52,8 @@ export declare class CostCenterTypes extends Entity implements CostCenterTypesTy
 }
 import { ProfitCenters, ProfitCentersType } from './ProfitCenters';
 export interface CostCenterTypesType {
-    costCenterTypeCode?: string;
-    costCenterTypeName?: string;
-    profitCenters: ProfitCentersType[];
-}
-export interface CostCenterTypesTypeForceMandatory {
-    costCenterTypeCode: string;
-    costCenterTypeName: string;
+    costCenterTypeCode?: string | null;
+    costCenterTypeName?: string | null;
     profitCenters: ProfitCentersType[];
 }
 export declare namespace CostCenterTypes {

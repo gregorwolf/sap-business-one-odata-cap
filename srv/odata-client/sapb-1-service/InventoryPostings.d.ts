@@ -1,20 +1,16 @@
 import { InventoryPostingsRequestBuilder } from './InventoryPostingsRequestBuilder';
 import { Moment } from 'moment';
 import { InventoryPostingLine } from './InventoryPostingLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { InventoryPostingPriceSourceEnum } from './InventoryPostingPriceSourceEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "InventoryPostings" of service "SAPB1".
  */
-export declare class InventoryPostings extends Entity implements InventoryPostingsType {
+export declare class InventoryPostings extends EntityV4 implements InventoryPostingsType {
     /**
      * Technical entity name for InventoryPostings.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for InventoryPostings.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -65,6 +61,11 @@ export declare class InventoryPostings extends Entity implements InventoryPostin
      */
     branchId?: number;
     /**
+     * Price Source.
+     * @nullable
+     */
+    priceSource?: InventoryPostingPriceSourceEnum;
+    /**
      * Price List.
      * @nullable
      */
@@ -99,10 +100,10 @@ export declare class InventoryPostings extends Entity implements InventoryPostin
      */
     businessPlace: BusinessPlaces;
     /**
-     * Returns an entity builder to construct instances `InventoryPostings`.
+     * Returns an entity builder to construct instances of `InventoryPostings`.
      * @returns A builder that constructs instances of entity type `InventoryPostings`.
      */
-    static builder(): EntityBuilderType<InventoryPostings, InventoryPostingsTypeForceMandatory>;
+    static builder(): EntityBuilderType<InventoryPostings, InventoryPostingsType>;
     /**
      * Returns a request builder to construct requests for operations on the `InventoryPostings` entity type.
      * @returns A `InventoryPostings` request builder.
@@ -113,7 +114,7 @@ export declare class InventoryPostings extends Entity implements InventoryPostin
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `InventoryPostings`.
      */
-    static customField(fieldName: string): CustomField<InventoryPostings>;
+    static customField(fieldName: string): CustomFieldV4<InventoryPostings>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -124,39 +125,22 @@ export declare class InventoryPostings extends Entity implements InventoryPostin
 }
 import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 export interface InventoryPostingsType {
-    documentEntry?: number;
-    documentNumber?: number;
-    series?: number;
-    postingDate?: Moment;
-    countDate?: Moment;
-    countTime?: Time;
-    remarks?: string;
-    reference2?: string;
-    branchId?: number;
-    priceList?: number;
-    journalRemark?: string;
-    docObjectCodeEx?: string;
-    financialPeriod?: number;
-    periodIndicator?: string;
-    inventoryPostingLines?: InventoryPostingLine[];
-    businessPlace: BusinessPlacesType;
-}
-export interface InventoryPostingsTypeForceMandatory {
-    documentEntry: number;
-    documentNumber: number;
-    series: number;
-    postingDate: Moment;
-    countDate: Moment;
-    countTime: Time;
-    remarks: string;
-    reference2: string;
-    branchId: number;
-    priceList: number;
-    journalRemark: string;
-    docObjectCodeEx: string;
-    financialPeriod: number;
-    periodIndicator: string;
-    inventoryPostingLines: InventoryPostingLine[];
+    documentEntry?: number | null;
+    documentNumber?: number | null;
+    series?: number | null;
+    postingDate?: Moment | null;
+    countDate?: Moment | null;
+    countTime?: Time | null;
+    remarks?: string | null;
+    reference2?: string | null;
+    branchId?: number | null;
+    priceSource?: InventoryPostingPriceSourceEnum | null;
+    priceList?: number | null;
+    journalRemark?: string | null;
+    docObjectCodeEx?: string | null;
+    financialPeriod?: number | null;
+    periodIndicator?: string | null;
+    inventoryPostingLines?: InventoryPostingLine[] | null;
     businessPlace: BusinessPlacesType;
 }
 export declare namespace InventoryPostings {
@@ -206,6 +190,11 @@ export declare namespace InventoryPostings {
      */
     const BRANCH_ID: NumberField<InventoryPostings>;
     /**
+     * Static representation of the [[priceSource]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PRICE_SOURCE: EnumField<InventoryPostings>;
+    /**
      * Static representation of the [[priceList]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -234,7 +223,7 @@ export declare namespace InventoryPostings {
      * Static representation of the [[inventoryPostingLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const INVENTORY_POSTING_LINES: CollectionField<InventoryPostings>;
+    const INVENTORY_POSTING_LINES: CollectionField<InventoryPostings, InventoryPostingLine>;
     /**
      * Static representation of the one-to-one navigation property [[businessPlace]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -243,7 +232,7 @@ export declare namespace InventoryPostings {
     /**
      * All fields of the InventoryPostings entity.
      */
-    const _allFields: Array<NumberField<InventoryPostings> | DateField<InventoryPostings> | TimeField<InventoryPostings> | StringField<InventoryPostings> | CollectionField<InventoryPostings> | OneToOneLink<InventoryPostings, BusinessPlaces>>;
+    const _allFields: Array<NumberField<InventoryPostings> | DateField<InventoryPostings> | TimeField<InventoryPostings> | StringField<InventoryPostings> | EnumField<InventoryPostings> | CollectionField<InventoryPostings, InventoryPostingLine> | OneToOneLink<InventoryPostings, BusinessPlaces>>;
     /**
      * All fields selector.
      */

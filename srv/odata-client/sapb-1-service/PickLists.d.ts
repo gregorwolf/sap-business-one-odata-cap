@@ -1,20 +1,17 @@
 import { PickListsRequestBuilder } from './PickListsRequestBuilder';
 import { Moment } from 'moment';
 import { PickListsLine } from './PickListsLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoPickStatus } from './BoPickStatus';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "PickLists" of service "SAPB1".
  */
-export declare class PickLists extends Entity implements PickListsType {
+export declare class PickLists extends EntityV4 implements PickListsType {
     /**
      * Technical entity name for PickLists.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for PickLists.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -50,10 +47,20 @@ export declare class PickLists extends Entity implements PickListsType {
      */
     remarks?: string;
     /**
+     * Status.
+     * @nullable
+     */
+    status?: BoPickStatus;
+    /**
      * Object Type.
      * @nullable
      */
     objectType?: string;
+    /**
+     * Use Base Units.
+     * @nullable
+     */
+    useBaseUnits?: BoYesNoEnum;
     /**
      * Pick Lists Lines.
      * @nullable
@@ -64,10 +71,10 @@ export declare class PickLists extends Entity implements PickListsType {
      */
     user: Users;
     /**
-     * Returns an entity builder to construct instances `PickLists`.
+     * Returns an entity builder to construct instances of `PickLists`.
      * @returns A builder that constructs instances of entity type `PickLists`.
      */
-    static builder(): EntityBuilderType<PickLists, PickListsTypeForceMandatory>;
+    static builder(): EntityBuilderType<PickLists, PickListsType>;
     /**
      * Returns a request builder to construct requests for operations on the `PickLists` entity type.
      * @returns A `PickLists` request builder.
@@ -78,7 +85,7 @@ export declare class PickLists extends Entity implements PickListsType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `PickLists`.
      */
-    static customField(fieldName: string): CustomField<PickLists>;
+    static customField(fieldName: string): CustomFieldV4<PickLists>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -89,25 +96,16 @@ export declare class PickLists extends Entity implements PickListsType {
 }
 import { Users, UsersType } from './Users';
 export interface PickListsType {
-    absoluteentry?: number;
-    name?: string;
-    ownerCode?: number;
-    ownerName?: string;
-    pickDate?: Moment;
-    remarks?: string;
-    objectType?: string;
-    pickListsLines?: PickListsLine[];
-    user: UsersType;
-}
-export interface PickListsTypeForceMandatory {
-    absoluteentry: number;
-    name: string;
-    ownerCode: number;
-    ownerName: string;
-    pickDate: Moment;
-    remarks: string;
-    objectType: string;
-    pickListsLines: PickListsLine[];
+    absoluteentry?: number | null;
+    name?: string | null;
+    ownerCode?: number | null;
+    ownerName?: string | null;
+    pickDate?: Moment | null;
+    remarks?: string | null;
+    status?: BoPickStatus | null;
+    objectType?: string | null;
+    useBaseUnits?: BoYesNoEnum | null;
+    pickListsLines?: PickListsLine[] | null;
     user: UsersType;
 }
 export declare namespace PickLists {
@@ -142,15 +140,25 @@ export declare namespace PickLists {
      */
     const REMARKS: StringField<PickLists>;
     /**
+     * Static representation of the [[status]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const STATUS: EnumField<PickLists>;
+    /**
      * Static representation of the [[objectType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const OBJECT_TYPE: StringField<PickLists>;
     /**
+     * Static representation of the [[useBaseUnits]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const USE_BASE_UNITS: EnumField<PickLists>;
+    /**
      * Static representation of the [[pickListsLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const PICK_LISTS_LINES: CollectionField<PickLists>;
+    const PICK_LISTS_LINES: CollectionField<PickLists, PickListsLine>;
     /**
      * Static representation of the one-to-one navigation property [[user]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -159,7 +167,7 @@ export declare namespace PickLists {
     /**
      * All fields of the PickLists entity.
      */
-    const _allFields: Array<NumberField<PickLists> | StringField<PickLists> | DateField<PickLists> | CollectionField<PickLists> | OneToOneLink<PickLists, Users>>;
+    const _allFields: Array<NumberField<PickLists> | StringField<PickLists> | DateField<PickLists> | EnumField<PickLists> | CollectionField<PickLists, PickListsLine> | OneToOneLink<PickLists, Users>>;
     /**
      * All fields selector.
      */

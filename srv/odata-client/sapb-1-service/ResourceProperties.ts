@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ResourcePropertiesRequestBuilder } from './ResourcePropertiesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ResourceProperties" of service "SAPB1".
  */
-export class ResourceProperties extends Entity implements ResourcePropertiesType {
+export class ResourceProperties extends EntityV4 implements ResourcePropertiesType {
   /**
    * Technical entity name for ResourceProperties.
    */
   static _entityName = 'ResourceProperties';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ResourceProperties.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -35,11 +30,11 @@ export class ResourceProperties extends Entity implements ResourcePropertiesType
   name?: string;
 
   /**
-   * Returns an entity builder to construct instances `ResourceProperties`.
+   * Returns an entity builder to construct instances of `ResourceProperties`.
    * @returns A builder that constructs instances of entity type `ResourceProperties`.
    */
-  static builder(): EntityBuilderType<ResourceProperties, ResourcePropertiesTypeForceMandatory> {
-    return Entity.entityBuilder(ResourceProperties);
+  static builder(): EntityBuilderType<ResourceProperties, ResourcePropertiesType> {
+    return EntityV4.entityBuilder(ResourceProperties);
   }
 
   /**
@@ -55,8 +50,8 @@ export class ResourceProperties extends Entity implements ResourcePropertiesType
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ResourceProperties`.
    */
-  static customField(fieldName: string): CustomField<ResourceProperties> {
-    return Entity.customFieldSelector(fieldName, ResourceProperties);
+  static customField(fieldName: string): CustomFieldV4<ResourceProperties> {
+    return EntityV4.customFieldSelector(fieldName, ResourceProperties);
   }
 
   /**
@@ -69,13 +64,8 @@ export class ResourceProperties extends Entity implements ResourcePropertiesType
 }
 
 export interface ResourcePropertiesType {
-  code?: number;
-  name?: string;
-}
-
-export interface ResourcePropertiesTypeForceMandatory {
-  code: number;
-  name: string;
+  code?: number | null;
+  name?: string | null;
 }
 
 export namespace ResourceProperties {

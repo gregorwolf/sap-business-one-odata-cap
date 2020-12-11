@@ -1,20 +1,25 @@
 import { ActivitiesRequestBuilder } from './ActivitiesRequestBuilder';
 import { Moment } from 'moment';
 import { CheckInParams } from './CheckInParams';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoMsgPriorities } from './BoMsgPriorities';
+import { BoActivities } from './BoActivities';
+import { BoDurations } from './BoDurations';
+import { RecurrencePatternEnum } from './RecurrencePatternEnum';
+import { EndTypeEnum } from './EndTypeEnum';
+import { RepeatOptionEnum } from './RepeatOptionEnum';
+import { BoAddressType } from './BoAddressType';
+import { RecurrenceSequenceEnum } from './RecurrenceSequenceEnum';
+import { RecurrenceDayOfWeekEnum } from './RecurrenceDayOfWeekEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "Activities" of service "SAPB1".
  */
-export declare class Activities extends Entity implements ActivitiesType {
+export declare class Activities extends EntityV4 implements ActivitiesType {
     /**
      * Technical entity name for Activities.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Activities.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -49,6 +54,11 @@ export declare class Activities extends Entity implements ActivitiesType {
      * @nullable
      */
     startDate?: Moment;
+    /**
+     * Closed.
+     * @nullable
+     */
+    closed?: BoYesNoEnum;
     /**
      * Close Date.
      * @nullable
@@ -85,10 +95,20 @@ export declare class Activities extends Entity implements ActivitiesType {
      */
     docEntry?: string;
     /**
+     * Priority.
+     * @nullable
+     */
+    priority?: BoMsgPriorities;
+    /**
      * Details.
      * @nullable
      */
     details?: string;
+    /**
+     * Activity.
+     * @nullable
+     */
+    activity?: BoActivities;
     /**
      * Activity Type.
      * @nullable
@@ -115,6 +135,11 @@ export declare class Activities extends Entity implements ActivitiesType {
      */
     duration?: number;
     /**
+     * Duration Type.
+     * @nullable
+     */
+    durationType?: BoDurations;
+    /**
      * Sales Employee.
      * @nullable
      */
@@ -130,15 +155,30 @@ export declare class Activities extends Entity implements ActivitiesType {
      */
     handledBy?: number;
     /**
+     * Reminder.
+     * @nullable
+     */
+    reminder?: BoYesNoEnum;
+    /**
      * Reminder Period.
      * @nullable
      */
     reminderPeriod?: number;
     /**
+     * Reminder Type.
+     * @nullable
+     */
+    reminderType?: BoDurations;
+    /**
      * City.
      * @nullable
      */
     city?: string;
+    /**
+     * Personal Flag.
+     * @nullable
+     */
+    personalFlag?: BoYesNoEnum;
     /**
      * Street.
      * @nullable
@@ -160,6 +200,11 @@ export declare class Activities extends Entity implements ActivitiesType {
      */
     room?: string;
     /**
+     * Inactive Flag.
+     * @nullable
+     */
+    inactiveFlag?: BoYesNoEnum;
+    /**
      * State.
      * @nullable
      */
@@ -180,6 +225,11 @@ export declare class Activities extends Entity implements ActivitiesType {
      */
     status?: number;
     /**
+     * Tentative Flag.
+     * @nullable
+     */
+    tentativeFlag?: BoYesNoEnum;
+    /**
      * End Due Date.
      * @nullable
      */
@@ -194,6 +244,16 @@ export declare class Activities extends Entity implements ActivitiesType {
      * @nullable
      */
     attachmentEntry?: number;
+    /**
+     * Recurrence Pattern.
+     * @nullable
+     */
+    recurrencePattern?: RecurrencePatternEnum;
+    /**
+     * End Type.
+     * @nullable
+     */
+    endType?: EndTypeEnum;
     /**
      * Series Start Date.
      * @nullable
@@ -215,20 +275,75 @@ export declare class Activities extends Entity implements ActivitiesType {
      */
     interval?: number;
     /**
+     * Sunday.
+     * @nullable
+     */
+    sunday?: BoYesNoEnum;
+    /**
+     * Monday.
+     * @nullable
+     */
+    monday?: BoYesNoEnum;
+    /**
+     * Tuesday.
+     * @nullable
+     */
+    tuesday?: BoYesNoEnum;
+    /**
+     * Wednesday.
+     * @nullable
+     */
+    wednesday?: BoYesNoEnum;
+    /**
+     * Thursday.
+     * @nullable
+     */
+    thursday?: BoYesNoEnum;
+    /**
+     * Friday.
+     * @nullable
+     */
+    friday?: BoYesNoEnum;
+    /**
+     * Saturday.
+     * @nullable
+     */
+    saturday?: BoYesNoEnum;
+    /**
+     * Repeat Option.
+     * @nullable
+     */
+    repeatOption?: RepeatOptionEnum;
+    /**
      * Belonged Series Num.
      * @nullable
      */
     belongedSeriesNum?: number;
+    /**
+     * Is Removed.
+     * @nullable
+     */
+    isRemoved?: BoYesNoEnum;
     /**
      * Address Name.
      * @nullable
      */
     addressName?: string;
     /**
+     * Address Type.
+     * @nullable
+     */
+    addressType?: BoAddressType;
+    /**
      * Handled By Employee.
      * @nullable
      */
     handledByEmployee?: number;
+    /**
+     * Recurrence Sequence Specifier.
+     * @nullable
+     */
+    recurrenceSequenceSpecifier?: RecurrenceSequenceEnum;
     /**
      * Recurrence Day In Month.
      * @nullable
@@ -239,6 +354,11 @@ export declare class Activities extends Entity implements ActivitiesType {
      * @nullable
      */
     recurrenceMonth?: number;
+    /**
+     * Recurrence Day Of Week.
+     * @nullable
+     */
+    recurrenceDayOfWeek?: RecurrenceDayOfWeekEnum;
     /**
      * Sales Opportunity Id.
      * @nullable
@@ -301,10 +421,10 @@ export declare class Activities extends Entity implements ActivitiesType {
      */
     activityRecipientList: ActivityRecipientLists;
     /**
-     * Returns an entity builder to construct instances `Activities`.
+     * Returns an entity builder to construct instances of `Activities`.
      * @returns A builder that constructs instances of entity type `Activities`.
      */
-    static builder(): EntityBuilderType<Activities, ActivitiesTypeForceMandatory>;
+    static builder(): EntityBuilderType<Activities, ActivitiesType>;
     /**
      * Returns a request builder to construct requests for operations on the `Activities` entity type.
      * @returns A `Activities` request builder.
@@ -315,7 +435,7 @@ export declare class Activities extends Entity implements ActivitiesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `Activities`.
      */
-    static customField(fieldName: string): CustomField<Activities>;
+    static customField(fieldName: string): CustomFieldV4<Activities>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -334,115 +454,78 @@ import { ActivityStatuses, ActivityStatusesType } from './ActivityStatuses';
 import { EmployeesInfo, EmployeesInfoType } from './EmployeesInfo';
 import { ActivityRecipientLists, ActivityRecipientListsType } from './ActivityRecipientLists';
 export interface ActivitiesType {
-    activityCode?: number;
-    cardCode?: string;
-    notes?: string;
-    activityDate?: Moment;
-    activityTime?: Time;
-    startDate?: Moment;
-    closeDate?: Moment;
-    phone?: string;
-    fax?: string;
-    subject?: number;
-    docType?: string;
-    docNum?: string;
-    docEntry?: string;
-    details?: string;
-    activityType?: number;
-    location?: number;
-    startTime?: Time;
-    endTime?: Time;
-    duration?: number;
-    salesEmployee?: number;
-    contactPersonCode?: number;
-    handledBy?: number;
-    reminderPeriod?: number;
-    city?: string;
-    street?: string;
-    parentObjectId?: number;
-    parentObjectType?: string;
-    room?: string;
-    state?: string;
-    previousActivity?: number;
-    country?: string;
-    status?: number;
-    endDueDate?: Moment;
-    docTypeEx?: string;
-    attachmentEntry?: number;
-    seriesStartDate?: Moment;
-    seriesEndDate?: Moment;
-    maxOccurrence?: number;
-    interval?: number;
-    belongedSeriesNum?: number;
-    addressName?: string;
-    handledByEmployee?: number;
-    recurrenceDayInMonth?: number;
-    recurrenceMonth?: number;
-    salesOpportunityId?: number;
-    salesOpportunityLine?: number;
-    handledByRecipientList?: number;
-    uOwner?: string;
-    checkInListParams?: CheckInParams[];
-    businessPartner: BusinessPartnersType;
-    activityType2: ActivityTypesType;
-    activityLocation: ActivityLocationsType;
-    salesPerson: SalesPersonsType;
-    user: UsersType;
-    country2: CountriesType;
-    activityStatus: ActivityStatusesType;
-    employeeInfo: EmployeesInfoType;
-    activityRecipientList: ActivityRecipientListsType;
-}
-export interface ActivitiesTypeForceMandatory {
-    activityCode: number;
-    cardCode: string;
-    notes: string;
-    activityDate: Moment;
-    activityTime: Time;
-    startDate: Moment;
-    closeDate: Moment;
-    phone: string;
-    fax: string;
-    subject: number;
-    docType: string;
-    docNum: string;
-    docEntry: string;
-    details: string;
-    activityType: number;
-    location: number;
-    startTime: Time;
-    endTime: Time;
-    duration: number;
-    salesEmployee: number;
-    contactPersonCode: number;
-    handledBy: number;
-    reminderPeriod: number;
-    city: string;
-    street: string;
-    parentObjectId: number;
-    parentObjectType: string;
-    room: string;
-    state: string;
-    previousActivity: number;
-    country: string;
-    status: number;
-    endDueDate: Moment;
-    docTypeEx: string;
-    attachmentEntry: number;
-    seriesStartDate: Moment;
-    seriesEndDate: Moment;
-    maxOccurrence: number;
-    interval: number;
-    belongedSeriesNum: number;
-    addressName: string;
-    handledByEmployee: number;
-    recurrenceDayInMonth: number;
-    recurrenceMonth: number;
-    salesOpportunityId: number;
-    salesOpportunityLine: number;
-    handledByRecipientList: number;
-    uOwner: string;
-    checkInListParams: CheckInParams[];
+    activityCode?: number | null;
+    cardCode?: string | null;
+    notes?: string | null;
+    activityDate?: Moment | null;
+    activityTime?: Time | null;
+    startDate?: Moment | null;
+    closed?: BoYesNoEnum | null;
+    closeDate?: Moment | null;
+    phone?: string | null;
+    fax?: string | null;
+    subject?: number | null;
+    docType?: string | null;
+    docNum?: string | null;
+    docEntry?: string | null;
+    priority?: BoMsgPriorities | null;
+    details?: string | null;
+    activity?: BoActivities | null;
+    activityType?: number | null;
+    location?: number | null;
+    startTime?: Time | null;
+    endTime?: Time | null;
+    duration?: number | null;
+    durationType?: BoDurations | null;
+    salesEmployee?: number | null;
+    contactPersonCode?: number | null;
+    handledBy?: number | null;
+    reminder?: BoYesNoEnum | null;
+    reminderPeriod?: number | null;
+    reminderType?: BoDurations | null;
+    city?: string | null;
+    personalFlag?: BoYesNoEnum | null;
+    street?: string | null;
+    parentObjectId?: number | null;
+    parentObjectType?: string | null;
+    room?: string | null;
+    inactiveFlag?: BoYesNoEnum | null;
+    state?: string | null;
+    previousActivity?: number | null;
+    country?: string | null;
+    status?: number | null;
+    tentativeFlag?: BoYesNoEnum | null;
+    endDueDate?: Moment | null;
+    docTypeEx?: string | null;
+    attachmentEntry?: number | null;
+    recurrencePattern?: RecurrencePatternEnum | null;
+    endType?: EndTypeEnum | null;
+    seriesStartDate?: Moment | null;
+    seriesEndDate?: Moment | null;
+    maxOccurrence?: number | null;
+    interval?: number | null;
+    sunday?: BoYesNoEnum | null;
+    monday?: BoYesNoEnum | null;
+    tuesday?: BoYesNoEnum | null;
+    wednesday?: BoYesNoEnum | null;
+    thursday?: BoYesNoEnum | null;
+    friday?: BoYesNoEnum | null;
+    saturday?: BoYesNoEnum | null;
+    repeatOption?: RepeatOptionEnum | null;
+    belongedSeriesNum?: number | null;
+    isRemoved?: BoYesNoEnum | null;
+    addressName?: string | null;
+    addressType?: BoAddressType | null;
+    handledByEmployee?: number | null;
+    recurrenceSequenceSpecifier?: RecurrenceSequenceEnum | null;
+    recurrenceDayInMonth?: number | null;
+    recurrenceMonth?: number | null;
+    recurrenceDayOfWeek?: RecurrenceDayOfWeekEnum | null;
+    salesOpportunityId?: number | null;
+    salesOpportunityLine?: number | null;
+    handledByRecipientList?: number | null;
+    uOwner?: string | null;
+    checkInListParams?: CheckInParams[] | null;
     businessPartner: BusinessPartnersType;
     activityType2: ActivityTypesType;
     activityLocation: ActivityLocationsType;
@@ -485,6 +568,11 @@ export declare namespace Activities {
      */
     const START_DATE: DateField<Activities>;
     /**
+     * Static representation of the [[closed]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CLOSED: EnumField<Activities>;
+    /**
      * Static representation of the [[closeDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -520,10 +608,20 @@ export declare namespace Activities {
      */
     const DOC_ENTRY: StringField<Activities>;
     /**
+     * Static representation of the [[priority]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PRIORITY: EnumField<Activities>;
+    /**
      * Static representation of the [[details]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DETAILS: StringField<Activities>;
+    /**
+     * Static representation of the [[activity]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ACTIVITY: EnumField<Activities>;
     /**
      * Static representation of the [[activityType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -550,6 +648,11 @@ export declare namespace Activities {
      */
     const DURATION: NumberField<Activities>;
     /**
+     * Static representation of the [[durationType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DURATION_TYPE: EnumField<Activities>;
+    /**
      * Static representation of the [[salesEmployee]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -565,15 +668,30 @@ export declare namespace Activities {
      */
     const HANDLED_BY: NumberField<Activities>;
     /**
+     * Static representation of the [[reminder]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REMINDER: EnumField<Activities>;
+    /**
      * Static representation of the [[reminderPeriod]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const REMINDER_PERIOD: NumberField<Activities>;
     /**
+     * Static representation of the [[reminderType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REMINDER_TYPE: EnumField<Activities>;
+    /**
      * Static representation of the [[city]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const CITY: StringField<Activities>;
+    /**
+     * Static representation of the [[personalFlag]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PERSONAL_FLAG: EnumField<Activities>;
     /**
      * Static representation of the [[street]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -595,6 +713,11 @@ export declare namespace Activities {
      */
     const ROOM: StringField<Activities>;
     /**
+     * Static representation of the [[inactiveFlag]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const INACTIVE_FLAG: EnumField<Activities>;
+    /**
      * Static representation of the [[state]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -615,6 +738,11 @@ export declare namespace Activities {
      */
     const STATUS: NumberField<Activities>;
     /**
+     * Static representation of the [[tentativeFlag]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TENTATIVE_FLAG: EnumField<Activities>;
+    /**
      * Static representation of the [[endDueDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -629,6 +757,16 @@ export declare namespace Activities {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const ATTACHMENT_ENTRY: NumberField<Activities>;
+    /**
+     * Static representation of the [[recurrencePattern]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RECURRENCE_PATTERN: EnumField<Activities>;
+    /**
+     * Static representation of the [[endType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const END_TYPE: EnumField<Activities>;
     /**
      * Static representation of the [[seriesStartDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -650,20 +788,75 @@ export declare namespace Activities {
      */
     const INTERVAL: NumberField<Activities>;
     /**
+     * Static representation of the [[sunday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SUNDAY: EnumField<Activities>;
+    /**
+     * Static representation of the [[monday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const MONDAY: EnumField<Activities>;
+    /**
+     * Static representation of the [[tuesday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TUESDAY: EnumField<Activities>;
+    /**
+     * Static representation of the [[wednesday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const WEDNESDAY: EnumField<Activities>;
+    /**
+     * Static representation of the [[thursday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const THURSDAY: EnumField<Activities>;
+    /**
+     * Static representation of the [[friday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const FRIDAY: EnumField<Activities>;
+    /**
+     * Static representation of the [[saturday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SATURDAY: EnumField<Activities>;
+    /**
+     * Static representation of the [[repeatOption]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REPEAT_OPTION: EnumField<Activities>;
+    /**
      * Static representation of the [[belongedSeriesNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const BELONGED_SERIES_NUM: NumberField<Activities>;
+    /**
+     * Static representation of the [[isRemoved]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IS_REMOVED: EnumField<Activities>;
     /**
      * Static representation of the [[addressName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const ADDRESS_NAME: StringField<Activities>;
     /**
+     * Static representation of the [[addressType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ADDRESS_TYPE: EnumField<Activities>;
+    /**
      * Static representation of the [[handledByEmployee]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const HANDLED_BY_EMPLOYEE: NumberField<Activities>;
+    /**
+     * Static representation of the [[recurrenceSequenceSpecifier]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RECURRENCE_SEQUENCE_SPECIFIER: EnumField<Activities>;
     /**
      * Static representation of the [[recurrenceDayInMonth]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -674,6 +867,11 @@ export declare namespace Activities {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const RECURRENCE_MONTH: NumberField<Activities>;
+    /**
+     * Static representation of the [[recurrenceDayOfWeek]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RECURRENCE_DAY_OF_WEEK: EnumField<Activities>;
     /**
      * Static representation of the [[salesOpportunityId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -698,7 +896,7 @@ export declare namespace Activities {
      * Static representation of the [[checkInListParams]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const CHECK_IN_LIST_PARAMS: CollectionField<Activities>;
+    const CHECK_IN_LIST_PARAMS: CollectionField<Activities, CheckInParams>;
     /**
      * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -747,7 +945,7 @@ export declare namespace Activities {
     /**
      * All fields of the Activities entity.
      */
-    const _allFields: Array<NumberField<Activities> | StringField<Activities> | DateField<Activities> | TimeField<Activities> | CollectionField<Activities> | OneToOneLink<Activities, BusinessPartners> | OneToOneLink<Activities, ActivityTypes> | OneToOneLink<Activities, ActivityLocations> | OneToOneLink<Activities, SalesPersons> | OneToOneLink<Activities, Users> | OneToOneLink<Activities, Countries> | OneToOneLink<Activities, ActivityStatuses> | OneToOneLink<Activities, EmployeesInfo> | OneToOneLink<Activities, ActivityRecipientLists>>;
+    const _allFields: Array<NumberField<Activities> | StringField<Activities> | DateField<Activities> | TimeField<Activities> | EnumField<Activities> | CollectionField<Activities, CheckInParams> | OneToOneLink<Activities, BusinessPartners> | OneToOneLink<Activities, ActivityTypes> | OneToOneLink<Activities, ActivityLocations> | OneToOneLink<Activities, SalesPersons> | OneToOneLink<Activities, Users> | OneToOneLink<Activities, Countries> | OneToOneLink<Activities, ActivityStatuses> | OneToOneLink<Activities, EmployeesInfo> | OneToOneLink<Activities, ActivityRecipientLists>>;
     /**
      * All fields selector.
      */

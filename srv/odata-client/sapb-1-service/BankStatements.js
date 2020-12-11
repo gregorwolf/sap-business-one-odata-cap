@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.BankStatements = void 0;
  */
 var BankStatementsRequestBuilder_1 = require("./BankStatementsRequestBuilder");
 var BankStatementRow_1 = require("./BankStatementRow");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "BankStatements" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var BankStatements = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `BankStatements`.
+     * Returns an entity builder to construct instances of `BankStatements`.
      * @returns A builder that constructs instances of entity type `BankStatements`.
      */
     BankStatements.builder = function () {
-        return v4_1.Entity.entityBuilder(BankStatements);
+        return core_1.EntityV4.entityBuilder(BankStatements);
     };
     /**
      * Returns a request builder to construct requests for operations on the `BankStatements` entity type.
@@ -61,7 +61,7 @@ var BankStatements = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `BankStatements`.
      */
     BankStatements.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, BankStatements);
+        return core_1.EntityV4.customFieldSelector(fieldName, BankStatements);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,16 +75,11 @@ var BankStatements = /** @class */ (function (_super) {
      */
     BankStatements._entityName = 'BankStatements';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BankStatements.
-     */
-    BankStatements._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    BankStatements._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    BankStatements._defaultServicePath = '/b1s/v2/';
     return BankStatements;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.BankStatements = BankStatements;
 var HouseBankAccounts_1 = require("./HouseBankAccounts");
 var Currencies_1 = require("./Currencies");
@@ -93,72 +88,82 @@ var Currencies_1 = require("./Currencies");
      * Static representation of the [[internalNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankStatements.INTERNAL_NUMBER = new v4_1.NumberField('InternalNumber', BankStatements, 'Edm.Int32');
+    BankStatements.INTERNAL_NUMBER = new core_1.NumberField('InternalNumber', BankStatements, 'Edm.Int32');
     /**
      * Static representation of the [[bankAccountKey]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankStatements.BANK_ACCOUNT_KEY = new v4_1.NumberField('BankAccountKey', BankStatements, 'Edm.Int32');
+    BankStatements.BANK_ACCOUNT_KEY = new core_1.NumberField('BankAccountKey', BankStatements, 'Edm.Int32');
     /**
      * Static representation of the [[statementNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankStatements.STATEMENT_NUMBER = new v4_1.StringField('StatementNumber', BankStatements, 'Edm.String');
+    BankStatements.STATEMENT_NUMBER = new core_1.StringField('StatementNumber', BankStatements, 'Edm.String');
     /**
      * Static representation of the [[statementDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankStatements.STATEMENT_DATE = new v4_1.DateField('StatementDate', BankStatements, 'Edm.DateTimeOffset');
+    BankStatements.STATEMENT_DATE = new core_1.DateField('StatementDate', BankStatements, 'Edm.DateTimeOffset');
+    /**
+     * Static representation of the [[status]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    BankStatements.STATUS = new core_1.EnumField('Status', BankStatements);
+    /**
+     * Static representation of the [[imported]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    BankStatements.IMPORTED = new core_1.EnumField('Imported', BankStatements);
     /**
      * Static representation of the [[startingBalanceF]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankStatements.STARTING_BALANCE_F = new v4_1.NumberField('StartingBalanceF', BankStatements, 'Edm.Double');
+    BankStatements.STARTING_BALANCE_F = new core_1.NumberField('StartingBalanceF', BankStatements, 'Edm.Double');
     /**
      * Static representation of the [[endingBalanceF]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankStatements.ENDING_BALANCE_F = new v4_1.NumberField('EndingBalanceF', BankStatements, 'Edm.Double');
+    BankStatements.ENDING_BALANCE_F = new core_1.NumberField('EndingBalanceF', BankStatements, 'Edm.Double');
     /**
      * Static representation of the [[currency]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankStatements.CURRENCY = new v4_1.StringField('Currency', BankStatements, 'Edm.String');
+    BankStatements.CURRENCY = new core_1.StringField('Currency', BankStatements, 'Edm.String');
     /**
      * Static representation of the [[startingBalanceL]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankStatements.STARTING_BALANCE_L = new v4_1.NumberField('StartingBalanceL', BankStatements, 'Edm.Double');
+    BankStatements.STARTING_BALANCE_L = new core_1.NumberField('StartingBalanceL', BankStatements, 'Edm.Double');
     /**
      * Static representation of the [[endingBalanceL]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankStatements.ENDING_BALANCE_L = new v4_1.NumberField('EndingBalanceL', BankStatements, 'Edm.Double');
+    BankStatements.ENDING_BALANCE_L = new core_1.NumberField('EndingBalanceL', BankStatements, 'Edm.Double');
     /**
      * Static representation of the [[bankStatementFileHash]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankStatements.BANK_STATEMENT_FILE_HASH = new v4_1.StringField('BankStatementFileHash', BankStatements, 'Edm.String');
+    BankStatements.BANK_STATEMENT_FILE_HASH = new core_1.StringField('BankStatementFileHash', BankStatements, 'Edm.String');
     /**
      * Static representation of the [[bankStatementGuid]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankStatements.BANK_STATEMENT_GUID = new v4_1.StringField('BankStatementGUID', BankStatements, 'Edm.String');
+    BankStatements.BANK_STATEMENT_GUID = new core_1.StringField('BankStatementGUID', BankStatements, 'Edm.String');
     /**
      * Static representation of the [[bankStatementRows]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankStatements.BANK_STATEMENT_ROWS = new v4_1.CollectionField('BankStatementRows', BankStatements, new BankStatementRow_1.BankStatementRowField('', BankStatements));
+    BankStatements.BANK_STATEMENT_ROWS = new core_1.CollectionField('BankStatementRows', BankStatements, BankStatementRow_1.BankStatementRow);
     /**
      * Static representation of the one-to-one navigation property [[houseBankAccount]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankStatements.HOUSE_BANK_ACCOUNT = new v4_1.OneToOneLink('HouseBankAccount', BankStatements, HouseBankAccounts_1.HouseBankAccounts);
+    BankStatements.HOUSE_BANK_ACCOUNT = new core_1.OneToOneLink('HouseBankAccount', BankStatements, HouseBankAccounts_1.HouseBankAccounts);
     /**
      * Static representation of the one-to-one navigation property [[currency2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BankStatements.CURRENCY_2 = new v4_1.OneToOneLink('Currency2', BankStatements, Currencies_1.Currencies);
+    BankStatements.CURRENCY_2 = new core_1.OneToOneLink('Currency2', BankStatements, Currencies_1.Currencies);
     /**
      * All fields of the BankStatements entity.
      */
@@ -167,6 +172,8 @@ var Currencies_1 = require("./Currencies");
         BankStatements.BANK_ACCOUNT_KEY,
         BankStatements.STATEMENT_NUMBER,
         BankStatements.STATEMENT_DATE,
+        BankStatements.STATUS,
+        BankStatements.IMPORTED,
         BankStatements.STARTING_BALANCE_F,
         BankStatements.ENDING_BALANCE_F,
         BankStatements.CURRENCY,
@@ -181,7 +188,7 @@ var Currencies_1 = require("./Currencies");
     /**
      * All fields selector.
      */
-    BankStatements.ALL_FIELDS = new v4_1.AllFields('*', BankStatements);
+    BankStatements.ALL_FIELDS = new core_1.AllFields('*', BankStatements);
     /**
      * All key fields of the BankStatements entity.
      */

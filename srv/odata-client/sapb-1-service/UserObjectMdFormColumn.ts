@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * UserObjectMdFormColumn
@@ -34,6 +35,11 @@ export interface UserObjectMdFormColumn {
    * @nullable
    */
   code?: string;
+  /**
+   * Editable.
+   * @nullable
+   */
+  editable?: BoYesNoEnum;
 }
 
 /**
@@ -47,7 +53,7 @@ export function createUserObjectMdFormColumn(json: any): UserObjectMdFormColumn 
  * UserObjectMdFormColumnField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class UserObjectMdFormColumnField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class UserObjectMdFormColumnField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, UserObjectMdFormColumn> {
   /**
    * Representation of the [[UserObjectMdFormColumn.formColumnAlias]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -73,16 +79,63 @@ export class UserObjectMdFormColumnField<EntityT extends Entity> extends Complex
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   code: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Code', this, 'Edm.String');
+  /**
+   * Representation of the [[UserObjectMdFormColumn.editable]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  editable: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Editable', this);
+
+  /**
+   * Creates an instance of UserObjectMdFormColumnField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, UserObjectMdFormColumn);
+  }
 }
 
 export namespace UserObjectMdFormColumn {
+  /**
+   * Metadata information on all properties of the `UserObjectMdFormColumn` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<UserObjectMdFormColumn>[] = [{
+    originalName: 'FormColumnAlias',
+    name: 'formColumnAlias',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FormColumnDescription',
+    name: 'formColumnDescription',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FormColumnNumber',
+    name: 'formColumnNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SonNumber',
+    name: 'sonNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Code',
+    name: 'code',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Editable',
+    name: 'editable',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): UserObjectMdFormColumn {
-    return createComplexType(json, {
-      FormColumnAlias: (formColumnAlias: string) => ({ formColumnAlias: edmToTs(formColumnAlias, 'Edm.String') }),
-      FormColumnDescription: (formColumnDescription: string) => ({ formColumnDescription: edmToTs(formColumnDescription, 'Edm.String') }),
-      FormColumnNumber: (formColumnNumber: number) => ({ formColumnNumber: edmToTs(formColumnNumber, 'Edm.Int32') }),
-      SonNumber: (sonNumber: number) => ({ sonNumber: edmToTs(sonNumber, 'Edm.Int32') }),
-      Code: (code: string) => ({ code: edmToTs(code, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, UserObjectMdFormColumn);
   }
 }

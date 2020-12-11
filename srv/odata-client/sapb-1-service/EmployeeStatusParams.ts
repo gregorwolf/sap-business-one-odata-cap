@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * EmployeeStatusParams
@@ -37,7 +37,7 @@ export function createEmployeeStatusParams(json: any): EmployeeStatusParams {
  * EmployeeStatusParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class EmployeeStatusParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class EmployeeStatusParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, EmployeeStatusParams> {
   /**
    * Representation of the [[EmployeeStatusParams.statusId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -53,14 +53,43 @@ export class EmployeeStatusParamsField<EntityT extends Entity> extends ComplexTy
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   description: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Description', this, 'Edm.String');
+
+  /**
+   * Creates an instance of EmployeeStatusParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, EmployeeStatusParams);
+  }
 }
 
 export namespace EmployeeStatusParams {
+  /**
+   * Metadata information on all properties of the `EmployeeStatusParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<EmployeeStatusParams>[] = [{
+    originalName: 'StatusId',
+    name: 'statusId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Name',
+    name: 'name',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Description',
+    name: 'description',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): EmployeeStatusParams {
-    return createComplexType(json, {
-      StatusId: (statusId: number) => ({ statusId: edmToTs(statusId, 'Edm.Int32') }),
-      Name: (name: string) => ({ name: edmToTs(name, 'Edm.String') }),
-      Description: (description: string) => ({ description: edmToTs(description, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, EmployeeStatusParams);
   }
 }

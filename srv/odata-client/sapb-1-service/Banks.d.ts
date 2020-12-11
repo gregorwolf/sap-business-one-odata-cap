@@ -1,18 +1,14 @@
 import { BanksRequestBuilder } from './BanksRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "Banks" of service "SAPB1".
  */
-export declare class Banks extends Entity implements BanksType {
+export declare class Banks extends EntityV4 implements BanksType {
     /**
      * Technical entity name for Banks.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Banks.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -58,6 +54,11 @@ export declare class Banks extends Entity implements BanksType {
      */
     countryCode?: string;
     /**
+     * Post Office.
+     * @nullable
+     */
+    postOffice?: BoYesNoEnum;
+    /**
      * Absolute Entry.
      * @nullable
      */
@@ -80,10 +81,10 @@ export declare class Banks extends Entity implements BanksType {
      */
     houseBankAccounts: HouseBankAccounts[];
     /**
-     * Returns an entity builder to construct instances `Banks`.
+     * Returns an entity builder to construct instances of `Banks`.
      * @returns A builder that constructs instances of entity type `Banks`.
      */
-    static builder(): EntityBuilderType<Banks, BanksTypeForceMandatory>;
+    static builder(): EntityBuilderType<Banks, BanksType>;
     /**
      * Returns a request builder to construct requests for operations on the `Banks` entity type.
      * @returns A `Banks` request builder.
@@ -94,7 +95,7 @@ export declare class Banks extends Entity implements BanksType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `Banks`.
      */
-    static customField(fieldName: string): CustomField<Banks>;
+    static customField(fieldName: string): CustomFieldV4<Banks>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -107,31 +108,17 @@ import { EmployeesInfo, EmployeesInfoType } from './EmployeesInfo';
 import { Countries, CountriesType } from './Countries';
 import { HouseBankAccounts, HouseBankAccountsType } from './HouseBankAccounts';
 export interface BanksType {
-    bankCode?: string;
-    bankName?: string;
-    accountforOutgoingChecks?: string;
-    branchforOutgoingChecks?: string;
-    nextCheckNumber?: number;
-    swiftNo?: string;
-    iban?: string;
-    countryCode?: string;
-    absoluteEntry?: number;
-    defaultBankAccountKey?: number;
-    employeesInfo: EmployeesInfoType[];
-    country: CountriesType;
-    houseBankAccounts: HouseBankAccountsType[];
-}
-export interface BanksTypeForceMandatory {
-    bankCode: string;
-    bankName: string;
-    accountforOutgoingChecks: string;
-    branchforOutgoingChecks: string;
-    nextCheckNumber: number;
-    swiftNo: string;
-    iban: string;
-    countryCode: string;
-    absoluteEntry: number;
-    defaultBankAccountKey: number;
+    bankCode?: string | null;
+    bankName?: string | null;
+    accountforOutgoingChecks?: string | null;
+    branchforOutgoingChecks?: string | null;
+    nextCheckNumber?: number | null;
+    swiftNo?: string | null;
+    iban?: string | null;
+    countryCode?: string | null;
+    postOffice?: BoYesNoEnum | null;
+    absoluteEntry?: number | null;
+    defaultBankAccountKey?: number | null;
     employeesInfo: EmployeesInfoType[];
     country: CountriesType;
     houseBankAccounts: HouseBankAccountsType[];
@@ -178,6 +165,11 @@ export declare namespace Banks {
      */
     const COUNTRY_CODE: StringField<Banks>;
     /**
+     * Static representation of the [[postOffice]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const POST_OFFICE: EnumField<Banks>;
+    /**
      * Static representation of the [[absoluteEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -205,7 +197,7 @@ export declare namespace Banks {
     /**
      * All fields of the Banks entity.
      */
-    const _allFields: Array<StringField<Banks> | NumberField<Banks> | OneToManyLink<Banks, EmployeesInfo> | OneToOneLink<Banks, Countries> | OneToManyLink<Banks, HouseBankAccounts>>;
+    const _allFields: Array<StringField<Banks> | NumberField<Banks> | EnumField<Banks> | OneToManyLink<Banks, EmployeesInfo> | OneToOneLink<Banks, Countries> | OneToManyLink<Banks, HouseBankAccounts>>;
     /**
      * All fields selector.
      */

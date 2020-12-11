@@ -1,19 +1,15 @@
 import { AssetClassesRequestBuilder } from './AssetClassesRequestBuilder';
 import { AssetClassLine } from './AssetClassLine';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AssetTypeEnum } from './AssetTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "AssetClasses" of service "SAPB1".
  */
-export declare class AssetClasses extends Entity implements AssetClassesType {
+export declare class AssetClasses extends EntityV4 implements AssetClassesType {
     /**
      * Technical entity name for AssetClasses.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for AssetClasses.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -28,6 +24,11 @@ export declare class AssetClasses extends Entity implements AssetClassesType {
      * @nullable
      */
     description?: string;
+    /**
+     * Asset Type.
+     * @nullable
+     */
+    assetType?: AssetTypeEnum;
     /**
      * Value Limit From.
      * @nullable
@@ -66,10 +67,10 @@ export declare class AssetClasses extends Entity implements AssetClassesType {
      */
     attributeGroup2: AttributeGroups;
     /**
-     * Returns an entity builder to construct instances `AssetClasses`.
+     * Returns an entity builder to construct instances of `AssetClasses`.
      * @returns A builder that constructs instances of entity type `AssetClasses`.
      */
-    static builder(): EntityBuilderType<AssetClasses, AssetClassesTypeForceMandatory>;
+    static builder(): EntityBuilderType<AssetClasses, AssetClassesType>;
     /**
      * Returns a request builder to construct requests for operations on the `AssetClasses` entity type.
      * @returns A `AssetClasses` request builder.
@@ -80,7 +81,7 @@ export declare class AssetClasses extends Entity implements AssetClassesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `AssetClasses`.
      */
-    static customField(fieldName: string): CustomField<AssetClasses>;
+    static customField(fieldName: string): CustomFieldV4<AssetClasses>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -93,25 +94,14 @@ import { Items, ItemsType } from './Items';
 import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 import { AttributeGroups, AttributeGroupsType } from './AttributeGroups';
 export interface AssetClassesType {
-    code?: string;
-    description?: string;
-    valueLimitFrom?: number;
-    valueLimitTo?: number;
-    bplid?: number;
-    attributeGroup?: number;
-    assetClassCollection?: AssetClassLine[];
-    items: ItemsType[];
-    businessPlace: BusinessPlacesType;
-    attributeGroup2: AttributeGroupsType;
-}
-export interface AssetClassesTypeForceMandatory {
-    code: string;
-    description: string;
-    valueLimitFrom: number;
-    valueLimitTo: number;
-    bplid: number;
-    attributeGroup: number;
-    assetClassCollection: AssetClassLine[];
+    code?: string | null;
+    description?: string | null;
+    assetType?: AssetTypeEnum | null;
+    valueLimitFrom?: number | null;
+    valueLimitTo?: number | null;
+    bplid?: number | null;
+    attributeGroup?: number | null;
+    assetClassCollection?: AssetClassLine[] | null;
     items: ItemsType[];
     businessPlace: BusinessPlacesType;
     attributeGroup2: AttributeGroupsType;
@@ -127,6 +117,11 @@ export declare namespace AssetClasses {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DESCRIPTION: StringField<AssetClasses>;
+    /**
+     * Static representation of the [[assetType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ASSET_TYPE: EnumField<AssetClasses>;
     /**
      * Static representation of the [[valueLimitFrom]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -151,7 +146,7 @@ export declare namespace AssetClasses {
      * Static representation of the [[assetClassCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const ASSET_CLASS_COLLECTION: CollectionField<AssetClasses>;
+    const ASSET_CLASS_COLLECTION: CollectionField<AssetClasses, AssetClassLine>;
     /**
      * Static representation of the one-to-many navigation property [[items]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -170,7 +165,7 @@ export declare namespace AssetClasses {
     /**
      * All fields of the AssetClasses entity.
      */
-    const _allFields: Array<StringField<AssetClasses> | NumberField<AssetClasses> | CollectionField<AssetClasses> | OneToManyLink<AssetClasses, Items> | OneToOneLink<AssetClasses, BusinessPlaces> | OneToOneLink<AssetClasses, AttributeGroups>>;
+    const _allFields: Array<StringField<AssetClasses> | EnumField<AssetClasses> | NumberField<AssetClasses> | CollectionField<AssetClasses, AssetClassLine> | OneToManyLink<AssetClasses, Items> | OneToOneLink<AssetClasses, BusinessPlaces> | OneToOneLink<AssetClasses, AttributeGroups>>;
     /**
      * All fields selector.
      */

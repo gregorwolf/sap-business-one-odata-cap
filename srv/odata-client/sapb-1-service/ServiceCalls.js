@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -36,7 +36,7 @@ var ServiceCallInventoryExpense_1 = require("./ServiceCallInventoryExpense");
 var ServiceCallSolution_1 = require("./ServiceCallSolution");
 var ServiceCallScheduling_1 = require("./ServiceCallScheduling");
 var ServiceCallBpAddressComponent_1 = require("./ServiceCallBpAddressComponent");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "ServiceCalls" of service "SAPB1".
  */
@@ -46,11 +46,11 @@ var ServiceCalls = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `ServiceCalls`.
+     * Returns an entity builder to construct instances of `ServiceCalls`.
      * @returns A builder that constructs instances of entity type `ServiceCalls`.
      */
     ServiceCalls.builder = function () {
-        return v4_1.Entity.entityBuilder(ServiceCalls);
+        return core_1.EntityV4.entityBuilder(ServiceCalls);
     };
     /**
      * Returns a request builder to construct requests for operations on the `ServiceCalls` entity type.
@@ -65,7 +65,7 @@ var ServiceCalls = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `ServiceCalls`.
      */
     ServiceCalls.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, ServiceCalls);
+        return core_1.EntityV4.customFieldSelector(fieldName, ServiceCalls);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -79,16 +79,11 @@ var ServiceCalls = /** @class */ (function (_super) {
      */
     ServiceCalls._entityName = 'ServiceCalls';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ServiceCalls.
-     */
-    ServiceCalls._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    ServiceCalls._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    ServiceCalls._defaultServicePath = '/b1s/v2/';
     return ServiceCalls;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.ServiceCalls = ServiceCalls;
 var BusinessPartners_1 = require("./BusinessPartners");
 var ServiceContracts_1 = require("./ServiceContracts");
@@ -109,452 +104,502 @@ var ServiceCallProblemSubTypes_1 = require("./ServiceCallProblemSubTypes");
      * Static representation of the [[serviceCallId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.SERVICE_CALL_ID = new v4_1.NumberField('ServiceCallID', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.SERVICE_CALL_ID = new core_1.NumberField('ServiceCallID', ServiceCalls, 'Edm.Int32');
     /**
      * Static representation of the [[subject]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.SUBJECT = new v4_1.StringField('Subject', ServiceCalls, 'Edm.String');
+    ServiceCalls.SUBJECT = new core_1.StringField('Subject', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[customerCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.CUSTOMER_CODE = new v4_1.StringField('CustomerCode', ServiceCalls, 'Edm.String');
+    ServiceCalls.CUSTOMER_CODE = new core_1.StringField('CustomerCode', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[customerName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.CUSTOMER_NAME = new v4_1.StringField('CustomerName', ServiceCalls, 'Edm.String');
+    ServiceCalls.CUSTOMER_NAME = new core_1.StringField('CustomerName', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[contactCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.CONTACT_CODE = new v4_1.NumberField('ContactCode', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.CONTACT_CODE = new core_1.NumberField('ContactCode', ServiceCalls, 'Edm.Int32');
     /**
      * Static representation of the [[manufacturerSerialNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.MANUFACTURER_SERIAL_NUM = new v4_1.StringField('ManufacturerSerialNum', ServiceCalls, 'Edm.String');
+    ServiceCalls.MANUFACTURER_SERIAL_NUM = new core_1.StringField('ManufacturerSerialNum', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[internalSerialNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.INTERNAL_SERIAL_NUM = new v4_1.StringField('InternalSerialNum', ServiceCalls, 'Edm.String');
+    ServiceCalls.INTERNAL_SERIAL_NUM = new core_1.StringField('InternalSerialNum', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[contractId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.CONTRACT_ID = new v4_1.NumberField('ContractID', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.CONTRACT_ID = new core_1.NumberField('ContractID', ServiceCalls, 'Edm.Int32');
     /**
      * Static representation of the [[contractEndDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.CONTRACT_END_DATE = new v4_1.DateField('ContractEndDate', ServiceCalls, 'Edm.DateTimeOffset');
+    ServiceCalls.CONTRACT_END_DATE = new core_1.DateField('ContractEndDate', ServiceCalls, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[resolutionDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.RESOLUTION_DATE = new v4_1.DateField('ResolutionDate', ServiceCalls, 'Edm.DateTimeOffset');
+    ServiceCalls.RESOLUTION_DATE = new core_1.DateField('ResolutionDate', ServiceCalls, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[resolutionTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.RESOLUTION_TIME = new v4_1.TimeField('ResolutionTime', ServiceCalls, 'Edm.TimeOfDay');
+    ServiceCalls.RESOLUTION_TIME = new core_1.TimeField('ResolutionTime', ServiceCalls, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[origin]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.ORIGIN = new v4_1.NumberField('Origin', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.ORIGIN = new core_1.NumberField('Origin', ServiceCalls, 'Edm.Int32');
     /**
      * Static representation of the [[itemCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.ITEM_CODE = new v4_1.StringField('ItemCode', ServiceCalls, 'Edm.String');
+    ServiceCalls.ITEM_CODE = new core_1.StringField('ItemCode', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[itemDescription]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.ITEM_DESCRIPTION = new v4_1.StringField('ItemDescription', ServiceCalls, 'Edm.String');
+    ServiceCalls.ITEM_DESCRIPTION = new core_1.StringField('ItemDescription', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[itemGroupCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.ITEM_GROUP_CODE = new v4_1.NumberField('ItemGroupCode', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.ITEM_GROUP_CODE = new core_1.NumberField('ItemGroupCode', ServiceCalls, 'Edm.Int32');
     /**
      * Static representation of the [[status]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.STATUS = new v4_1.NumberField('Status', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.STATUS = new core_1.NumberField('Status', ServiceCalls, 'Edm.Int32');
+    /**
+     * Static representation of the [[priority]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ServiceCalls.PRIORITY = new core_1.EnumField('Priority', ServiceCalls);
     /**
      * Static representation of the [[callType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.CALL_TYPE = new v4_1.NumberField('CallType', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.CALL_TYPE = new core_1.NumberField('CallType', ServiceCalls, 'Edm.Int32');
     /**
      * Static representation of the [[problemType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.PROBLEM_TYPE = new v4_1.NumberField('ProblemType', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.PROBLEM_TYPE = new core_1.NumberField('ProblemType', ServiceCalls, 'Edm.Int32');
     /**
      * Static representation of the [[assigneeCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.ASSIGNEE_CODE = new v4_1.NumberField('AssigneeCode', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.ASSIGNEE_CODE = new core_1.NumberField('AssigneeCode', ServiceCalls, 'Edm.Int32');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.DESCRIPTION = new v4_1.StringField('Description', ServiceCalls, 'Edm.String');
+    ServiceCalls.DESCRIPTION = new core_1.StringField('Description', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[technicianCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.TECHNICIAN_CODE = new v4_1.NumberField('TechnicianCode', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.TECHNICIAN_CODE = new core_1.NumberField('TechnicianCode', ServiceCalls, 'Edm.Int32');
     /**
      * Static representation of the [[resolution]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.RESOLUTION = new v4_1.StringField('Resolution', ServiceCalls, 'Edm.String');
+    ServiceCalls.RESOLUTION = new core_1.StringField('Resolution', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[creationDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.CREATION_DATE = new v4_1.DateField('CreationDate', ServiceCalls, 'Edm.DateTimeOffset');
+    ServiceCalls.CREATION_DATE = new core_1.DateField('CreationDate', ServiceCalls, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[creationTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.CREATION_TIME = new v4_1.TimeField('CreationTime', ServiceCalls, 'Edm.TimeOfDay');
+    ServiceCalls.CREATION_TIME = new core_1.TimeField('CreationTime', ServiceCalls, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[responder]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.RESPONDER = new v4_1.NumberField('Responder', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.RESPONDER = new core_1.NumberField('Responder', ServiceCalls, 'Edm.Int32');
     /**
      * Static representation of the [[updatedTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.UPDATED_TIME = new v4_1.TimeField('UpdatedTime', ServiceCalls, 'Edm.TimeOfDay');
+    ServiceCalls.UPDATED_TIME = new core_1.TimeField('UpdatedTime', ServiceCalls, 'Edm.TimeOfDay');
+    /**
+     * Static representation of the [[belongsToAQueue]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ServiceCalls.BELONGS_TO_A_QUEUE = new core_1.EnumField('BelongsToAQueue', ServiceCalls);
     /**
      * Static representation of the [[responseByTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.RESPONSE_BY_TIME = new v4_1.TimeField('ResponseByTime', ServiceCalls, 'Edm.TimeOfDay');
+    ServiceCalls.RESPONSE_BY_TIME = new core_1.TimeField('ResponseByTime', ServiceCalls, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[responseByDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.RESPONSE_BY_DATE = new v4_1.DateField('ResponseByDate', ServiceCalls, 'Edm.DateTimeOffset');
+    ServiceCalls.RESPONSE_BY_DATE = new core_1.DateField('ResponseByDate', ServiceCalls, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[resolutionOnDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.RESOLUTION_ON_DATE = new v4_1.DateField('ResolutionOnDate', ServiceCalls, 'Edm.DateTimeOffset');
+    ServiceCalls.RESOLUTION_ON_DATE = new core_1.DateField('ResolutionOnDate', ServiceCalls, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[responseOnTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.RESPONSE_ON_TIME = new v4_1.TimeField('ResponseOnTime', ServiceCalls, 'Edm.TimeOfDay');
+    ServiceCalls.RESPONSE_ON_TIME = new core_1.TimeField('ResponseOnTime', ServiceCalls, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[responseOnDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.RESPONSE_ON_DATE = new v4_1.DateField('ResponseOnDate', ServiceCalls, 'Edm.DateTimeOffset');
+    ServiceCalls.RESPONSE_ON_DATE = new core_1.DateField('ResponseOnDate', ServiceCalls, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[closingTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.CLOSING_TIME = new v4_1.TimeField('ClosingTime', ServiceCalls, 'Edm.TimeOfDay');
+    ServiceCalls.CLOSING_TIME = new core_1.TimeField('ClosingTime', ServiceCalls, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[assignedDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.ASSIGNED_DATE = new v4_1.DateField('AssignedDate', ServiceCalls, 'Edm.DateTimeOffset');
+    ServiceCalls.ASSIGNED_DATE = new core_1.DateField('AssignedDate', ServiceCalls, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[queue]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.QUEUE = new v4_1.StringField('Queue', ServiceCalls, 'Edm.String');
+    ServiceCalls.QUEUE = new core_1.StringField('Queue', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[responseAssignee]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.RESPONSE_ASSIGNEE = new v4_1.NumberField('ResponseAssignee', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.RESPONSE_ASSIGNEE = new core_1.NumberField('ResponseAssignee', ServiceCalls, 'Edm.Int32');
+    /**
+     * Static representation of the [[entitledforService]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ServiceCalls.ENTITLEDFOR_SERVICE = new core_1.EnumField('EntitledforService', ServiceCalls);
     /**
      * Static representation of the [[resolutionOnTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.RESOLUTION_ON_TIME = new v4_1.TimeField('ResolutionOnTime', ServiceCalls, 'Edm.TimeOfDay');
+    ServiceCalls.RESOLUTION_ON_TIME = new core_1.TimeField('ResolutionOnTime', ServiceCalls, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[assignedTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.ASSIGNED_TIME = new v4_1.TimeField('AssignedTime', ServiceCalls, 'Edm.TimeOfDay');
+    ServiceCalls.ASSIGNED_TIME = new core_1.TimeField('AssignedTime', ServiceCalls, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[closingDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.CLOSING_DATE = new v4_1.DateField('ClosingDate', ServiceCalls, 'Edm.DateTimeOffset');
+    ServiceCalls.CLOSING_DATE = new core_1.DateField('ClosingDate', ServiceCalls, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[series]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.SERIES = new v4_1.NumberField('Series', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.SERIES = new core_1.NumberField('Series', ServiceCalls, 'Edm.Int32');
     /**
      * Static representation of the [[docNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.DOC_NUM = new v4_1.NumberField('DocNum', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.DOC_NUM = new core_1.NumberField('DocNum', ServiceCalls, 'Edm.Int32');
+    /**
+     * Static representation of the [[handWritten]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ServiceCalls.HAND_WRITTEN = new core_1.EnumField('HandWritten', ServiceCalls);
     /**
      * Static representation of the [[periodIndicator]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.PERIOD_INDICATOR = new v4_1.StringField('PeriodIndicator', ServiceCalls, 'Edm.String');
+    ServiceCalls.PERIOD_INDICATOR = new core_1.StringField('PeriodIndicator', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[startDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.START_DATE = new v4_1.DateField('StartDate', ServiceCalls, 'Edm.DateTimeOffset');
+    ServiceCalls.START_DATE = new core_1.DateField('StartDate', ServiceCalls, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[startTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.START_TIME = new v4_1.TimeField('StartTime', ServiceCalls, 'Edm.TimeOfDay');
+    ServiceCalls.START_TIME = new core_1.TimeField('StartTime', ServiceCalls, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[endDueDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.END_DUE_DATE = new v4_1.DateField('EndDueDate', ServiceCalls, 'Edm.DateTimeOffset');
+    ServiceCalls.END_DUE_DATE = new core_1.DateField('EndDueDate', ServiceCalls, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[endTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.END_TIME = new v4_1.TimeField('EndTime', ServiceCalls, 'Edm.TimeOfDay');
+    ServiceCalls.END_TIME = new core_1.TimeField('EndTime', ServiceCalls, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[duration]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.DURATION = new v4_1.NumberField('Duration', ServiceCalls, 'Edm.Double');
+    ServiceCalls.DURATION = new core_1.NumberField('Duration', ServiceCalls, 'Edm.Double');
+    /**
+     * Static representation of the [[durationType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ServiceCalls.DURATION_TYPE = new core_1.EnumField('DurationType', ServiceCalls);
+    /**
+     * Static representation of the [[reminder]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ServiceCalls.REMINDER = new core_1.EnumField('Reminder', ServiceCalls);
     /**
      * Static representation of the [[reminderPeriod]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.REMINDER_PERIOD = new v4_1.NumberField('ReminderPeriod', ServiceCalls, 'Edm.Double');
+    ServiceCalls.REMINDER_PERIOD = new core_1.NumberField('ReminderPeriod', ServiceCalls, 'Edm.Double');
+    /**
+     * Static representation of the [[reminderType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ServiceCalls.REMINDER_TYPE = new core_1.EnumField('ReminderType', ServiceCalls);
     /**
      * Static representation of the [[location]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.LOCATION = new v4_1.NumberField('Location', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.LOCATION = new core_1.NumberField('Location', ServiceCalls, 'Edm.Int32');
     /**
      * Static representation of the [[addressName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.ADDRESS_NAME = new v4_1.StringField('AddressName', ServiceCalls, 'Edm.String');
+    ServiceCalls.ADDRESS_NAME = new core_1.StringField('AddressName', ServiceCalls, 'Edm.String');
+    /**
+     * Static representation of the [[addressType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ServiceCalls.ADDRESS_TYPE = new core_1.EnumField('AddressType', ServiceCalls);
     /**
      * Static representation of the [[street]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.STREET = new v4_1.StringField('Street', ServiceCalls, 'Edm.String');
+    ServiceCalls.STREET = new core_1.StringField('Street', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[city]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.CITY = new v4_1.StringField('City', ServiceCalls, 'Edm.String');
+    ServiceCalls.CITY = new core_1.StringField('City', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[room]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.ROOM = new v4_1.StringField('Room', ServiceCalls, 'Edm.String');
+    ServiceCalls.ROOM = new core_1.StringField('Room', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[state]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.STATE = new v4_1.StringField('State', ServiceCalls, 'Edm.String');
+    ServiceCalls.STATE = new core_1.StringField('State', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[country]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.COUNTRY = new v4_1.StringField('Country', ServiceCalls, 'Edm.String');
+    ServiceCalls.COUNTRY = new core_1.StringField('Country', ServiceCalls, 'Edm.String');
+    /**
+     * Static representation of the [[displayInCalendar]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ServiceCalls.DISPLAY_IN_CALENDAR = new core_1.EnumField('DisplayInCalendar', ServiceCalls);
     /**
      * Static representation of the [[customerRefNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.CUSTOMER_REF_NO = new v4_1.StringField('CustomerRefNo', ServiceCalls, 'Edm.String');
+    ServiceCalls.CUSTOMER_REF_NO = new core_1.StringField('CustomerRefNo', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[problemSubType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.PROBLEM_SUB_TYPE = new v4_1.NumberField('ProblemSubType', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.PROBLEM_SUB_TYPE = new core_1.NumberField('ProblemSubType', ServiceCalls, 'Edm.Int32');
     /**
      * Static representation of the [[attachmentEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.ATTACHMENT_ENTRY = new v4_1.NumberField('AttachmentEntry', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.ATTACHMENT_ENTRY = new core_1.NumberField('AttachmentEntry', ServiceCalls, 'Edm.Int32');
+    /**
+     * Static representation of the [[serviceBpType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ServiceCalls.SERVICE_BP_TYPE = new core_1.EnumField('ServiceBPType', ServiceCalls);
     /**
      * Static representation of the [[bpContactPerson]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.BP_CONTACT_PERSON = new v4_1.StringField('BPContactPerson', ServiceCalls, 'Edm.String');
+    ServiceCalls.BP_CONTACT_PERSON = new core_1.StringField('BPContactPerson', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[bpPhone1]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.BP_PHONE_1 = new v4_1.StringField('BPPhone1', ServiceCalls, 'Edm.String');
+    ServiceCalls.BP_PHONE_1 = new core_1.StringField('BPPhone1', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[bpPhone2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.BP_PHONE_2 = new v4_1.StringField('BPPhone2', ServiceCalls, 'Edm.String');
+    ServiceCalls.BP_PHONE_2 = new core_1.StringField('BPPhone2', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[bpCellular]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.BP_CELLULAR = new v4_1.StringField('BPCellular', ServiceCalls, 'Edm.String');
+    ServiceCalls.BP_CELLULAR = new core_1.StringField('BPCellular', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[bpFax]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.BP_FAX = new v4_1.StringField('BPFax', ServiceCalls, 'Edm.String');
+    ServiceCalls.BP_FAX = new core_1.StringField('BPFax', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[bPeMail]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.B_PE_MAIL = new v4_1.StringField('BPeMail', ServiceCalls, 'Edm.String');
+    ServiceCalls.B_PE_MAIL = new core_1.StringField('BPeMail', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[bpProjectCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.BP_PROJECT_CODE = new v4_1.StringField('BPProjectCode', ServiceCalls, 'Edm.String');
+    ServiceCalls.BP_PROJECT_CODE = new core_1.StringField('BPProjectCode', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[bpTerritory]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.BP_TERRITORY = new v4_1.NumberField('BPTerritory', ServiceCalls, 'Edm.Int32');
+    ServiceCalls.BP_TERRITORY = new core_1.NumberField('BPTerritory', ServiceCalls, 'Edm.Int32');
     /**
      * Static representation of the [[bpShipToCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.BP_SHIP_TO_CODE = new v4_1.StringField('BPShipToCode', ServiceCalls, 'Edm.String');
+    ServiceCalls.BP_SHIP_TO_CODE = new core_1.StringField('BPShipToCode', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[bpShipToAddress]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.BP_SHIP_TO_ADDRESS = new v4_1.StringField('BPShipToAddress', ServiceCalls, 'Edm.String');
+    ServiceCalls.BP_SHIP_TO_ADDRESS = new core_1.StringField('BPShipToAddress', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[bpBillToCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.BP_BILL_TO_CODE = new v4_1.StringField('BPBillToCode', ServiceCalls, 'Edm.String');
+    ServiceCalls.BP_BILL_TO_CODE = new core_1.StringField('BPBillToCode', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[bpBillToAddress]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.BP_BILL_TO_ADDRESS = new v4_1.StringField('BPBillToAddress', ServiceCalls, 'Edm.String');
+    ServiceCalls.BP_BILL_TO_ADDRESS = new core_1.StringField('BPBillToAddress', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[telephone]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.TELEPHONE = new v4_1.StringField('Telephone', ServiceCalls, 'Edm.String');
+    ServiceCalls.TELEPHONE = new core_1.StringField('Telephone', ServiceCalls, 'Edm.String');
     /**
      * Static representation of the [[updateDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.UPDATE_DATE = new v4_1.DateField('UpdateDate', ServiceCalls, 'Edm.DateTimeOffset');
+    ServiceCalls.UPDATE_DATE = new core_1.DateField('UpdateDate', ServiceCalls, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[serviceCallActivities]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.SERVICE_CALL_ACTIVITIES = new v4_1.CollectionField('ServiceCallActivities', ServiceCalls, new ServiceCallActivity_1.ServiceCallActivityField('', ServiceCalls));
+    ServiceCalls.SERVICE_CALL_ACTIVITIES = new core_1.CollectionField('ServiceCallActivities', ServiceCalls, ServiceCallActivity_1.ServiceCallActivity);
     /**
      * Static representation of the [[serviceCallInventoryExpenses]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.SERVICE_CALL_INVENTORY_EXPENSES = new v4_1.CollectionField('ServiceCallInventoryExpenses', ServiceCalls, new ServiceCallInventoryExpense_1.ServiceCallInventoryExpenseField('', ServiceCalls));
+    ServiceCalls.SERVICE_CALL_INVENTORY_EXPENSES = new core_1.CollectionField('ServiceCallInventoryExpenses', ServiceCalls, ServiceCallInventoryExpense_1.ServiceCallInventoryExpense);
     /**
      * Static representation of the [[serviceCallSolutions]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.SERVICE_CALL_SOLUTIONS = new v4_1.CollectionField('ServiceCallSolutions', ServiceCalls, new ServiceCallSolution_1.ServiceCallSolutionField('', ServiceCalls));
+    ServiceCalls.SERVICE_CALL_SOLUTIONS = new core_1.CollectionField('ServiceCallSolutions', ServiceCalls, ServiceCallSolution_1.ServiceCallSolution);
     /**
      * Static representation of the [[serviceCallSchedulings]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.SERVICE_CALL_SCHEDULINGS = new v4_1.CollectionField('ServiceCallSchedulings', ServiceCalls, new ServiceCallScheduling_1.ServiceCallSchedulingField('', ServiceCalls));
+    ServiceCalls.SERVICE_CALL_SCHEDULINGS = new core_1.CollectionField('ServiceCallSchedulings', ServiceCalls, ServiceCallScheduling_1.ServiceCallScheduling);
     /**
      * Static representation of the [[serviceCallBpAddressComponents]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.SERVICE_CALL_BP_ADDRESS_COMPONENTS = new v4_1.CollectionField('ServiceCallBPAddressComponents', ServiceCalls, new ServiceCallBpAddressComponent_1.ServiceCallBpAddressComponentField('', ServiceCalls));
+    ServiceCalls.SERVICE_CALL_BP_ADDRESS_COMPONENTS = new core_1.CollectionField('ServiceCallBPAddressComponents', ServiceCalls, ServiceCallBpAddressComponent_1.ServiceCallBpAddressComponent);
     /**
      * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.BUSINESS_PARTNER = new v4_1.OneToOneLink('BusinessPartner', ServiceCalls, BusinessPartners_1.BusinessPartners);
+    ServiceCalls.BUSINESS_PARTNER = new core_1.OneToOneLink('BusinessPartner', ServiceCalls, BusinessPartners_1.BusinessPartners);
     /**
      * Static representation of the one-to-one navigation property [[serviceContract]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.SERVICE_CONTRACT = new v4_1.OneToOneLink('ServiceContract', ServiceCalls, ServiceContracts_1.ServiceContracts);
+    ServiceCalls.SERVICE_CONTRACT = new core_1.OneToOneLink('ServiceContract', ServiceCalls, ServiceContracts_1.ServiceContracts);
     /**
      * Static representation of the one-to-one navigation property [[serviceCallOrigin]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.SERVICE_CALL_ORIGIN = new v4_1.OneToOneLink('ServiceCallOrigin', ServiceCalls, ServiceCallOrigins_1.ServiceCallOrigins);
+    ServiceCalls.SERVICE_CALL_ORIGIN = new core_1.OneToOneLink('ServiceCallOrigin', ServiceCalls, ServiceCallOrigins_1.ServiceCallOrigins);
     /**
      * Static representation of the one-to-one navigation property [[item]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.ITEM = new v4_1.OneToOneLink('Item', ServiceCalls, Items_1.Items);
+    ServiceCalls.ITEM = new core_1.OneToOneLink('Item', ServiceCalls, Items_1.Items);
     /**
      * Static representation of the one-to-one navigation property [[itemGroups]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.ITEM_GROUPS = new v4_1.OneToOneLink('ItemGroups', ServiceCalls, ItemGroups_1.ItemGroups);
+    ServiceCalls.ITEM_GROUPS = new core_1.OneToOneLink('ItemGroups', ServiceCalls, ItemGroups_1.ItemGroups);
     /**
      * Static representation of the one-to-one navigation property [[serviceCallStatus]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.SERVICE_CALL_STATUS = new v4_1.OneToOneLink('ServiceCallStatus', ServiceCalls, ServiceCallStatus_1.ServiceCallStatus);
+    ServiceCalls.SERVICE_CALL_STATUS = new core_1.OneToOneLink('ServiceCallStatus', ServiceCalls, ServiceCallStatus_1.ServiceCallStatus);
     /**
      * Static representation of the one-to-one navigation property [[serviceCallType]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.SERVICE_CALL_TYPE = new v4_1.OneToOneLink('ServiceCallType', ServiceCalls, ServiceCallTypes_1.ServiceCallTypes);
+    ServiceCalls.SERVICE_CALL_TYPE = new core_1.OneToOneLink('ServiceCallType', ServiceCalls, ServiceCallTypes_1.ServiceCallTypes);
     /**
      * Static representation of the one-to-one navigation property [[serviceCallProblemType]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.SERVICE_CALL_PROBLEM_TYPE = new v4_1.OneToOneLink('ServiceCallProblemType', ServiceCalls, ServiceCallProblemTypes_1.ServiceCallProblemTypes);
+    ServiceCalls.SERVICE_CALL_PROBLEM_TYPE = new core_1.OneToOneLink('ServiceCallProblemType', ServiceCalls, ServiceCallProblemTypes_1.ServiceCallProblemTypes);
     /**
      * Static representation of the one-to-one navigation property [[user]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.USER = new v4_1.OneToOneLink('User', ServiceCalls, Users_1.Users);
+    ServiceCalls.USER = new core_1.OneToOneLink('User', ServiceCalls, Users_1.Users);
     /**
      * Static representation of the one-to-one navigation property [[employeeInfo]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.EMPLOYEE_INFO = new v4_1.OneToOneLink('EmployeeInfo', ServiceCalls, EmployeesInfo_1.EmployeesInfo);
+    ServiceCalls.EMPLOYEE_INFO = new core_1.OneToOneLink('EmployeeInfo', ServiceCalls, EmployeesInfo_1.EmployeesInfo);
     /**
      * Static representation of the one-to-one navigation property [[queue2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.QUEUE_2 = new v4_1.OneToOneLink('Queue2', ServiceCalls, Queue_1.Queue);
+    ServiceCalls.QUEUE_2 = new core_1.OneToOneLink('Queue2', ServiceCalls, Queue_1.Queue);
     /**
      * Static representation of the one-to-one navigation property [[activityLocation]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.ACTIVITY_LOCATION = new v4_1.OneToOneLink('ActivityLocation', ServiceCalls, ActivityLocations_1.ActivityLocations);
+    ServiceCalls.ACTIVITY_LOCATION = new core_1.OneToOneLink('ActivityLocation', ServiceCalls, ActivityLocations_1.ActivityLocations);
     /**
      * Static representation of the one-to-one navigation property [[country2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.COUNTRY_2 = new v4_1.OneToOneLink('Country2', ServiceCalls, Countries_1.Countries);
+    ServiceCalls.COUNTRY_2 = new core_1.OneToOneLink('Country2', ServiceCalls, Countries_1.Countries);
     /**
      * Static representation of the one-to-one navigation property [[serviceCallProblemSubType]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ServiceCalls.SERVICE_CALL_PROBLEM_SUB_TYPE = new v4_1.OneToOneLink('ServiceCallProblemSubType', ServiceCalls, ServiceCallProblemSubTypes_1.ServiceCallProblemSubTypes);
+    ServiceCalls.SERVICE_CALL_PROBLEM_SUB_TYPE = new core_1.OneToOneLink('ServiceCallProblemSubType', ServiceCalls, ServiceCallProblemSubTypes_1.ServiceCallProblemSubTypes);
     /**
      * All fields of the ServiceCalls entity.
      */
@@ -575,6 +620,7 @@ var ServiceCallProblemSubTypes_1 = require("./ServiceCallProblemSubTypes");
         ServiceCalls.ITEM_DESCRIPTION,
         ServiceCalls.ITEM_GROUP_CODE,
         ServiceCalls.STATUS,
+        ServiceCalls.PRIORITY,
         ServiceCalls.CALL_TYPE,
         ServiceCalls.PROBLEM_TYPE,
         ServiceCalls.ASSIGNEE_CODE,
@@ -585,6 +631,7 @@ var ServiceCallProblemSubTypes_1 = require("./ServiceCallProblemSubTypes");
         ServiceCalls.CREATION_TIME,
         ServiceCalls.RESPONDER,
         ServiceCalls.UPDATED_TIME,
+        ServiceCalls.BELONGS_TO_A_QUEUE,
         ServiceCalls.RESPONSE_BY_TIME,
         ServiceCalls.RESPONSE_BY_DATE,
         ServiceCalls.RESOLUTION_ON_DATE,
@@ -594,28 +641,36 @@ var ServiceCallProblemSubTypes_1 = require("./ServiceCallProblemSubTypes");
         ServiceCalls.ASSIGNED_DATE,
         ServiceCalls.QUEUE,
         ServiceCalls.RESPONSE_ASSIGNEE,
+        ServiceCalls.ENTITLEDFOR_SERVICE,
         ServiceCalls.RESOLUTION_ON_TIME,
         ServiceCalls.ASSIGNED_TIME,
         ServiceCalls.CLOSING_DATE,
         ServiceCalls.SERIES,
         ServiceCalls.DOC_NUM,
+        ServiceCalls.HAND_WRITTEN,
         ServiceCalls.PERIOD_INDICATOR,
         ServiceCalls.START_DATE,
         ServiceCalls.START_TIME,
         ServiceCalls.END_DUE_DATE,
         ServiceCalls.END_TIME,
         ServiceCalls.DURATION,
+        ServiceCalls.DURATION_TYPE,
+        ServiceCalls.REMINDER,
         ServiceCalls.REMINDER_PERIOD,
+        ServiceCalls.REMINDER_TYPE,
         ServiceCalls.LOCATION,
         ServiceCalls.ADDRESS_NAME,
+        ServiceCalls.ADDRESS_TYPE,
         ServiceCalls.STREET,
         ServiceCalls.CITY,
         ServiceCalls.ROOM,
         ServiceCalls.STATE,
         ServiceCalls.COUNTRY,
+        ServiceCalls.DISPLAY_IN_CALENDAR,
         ServiceCalls.CUSTOMER_REF_NO,
         ServiceCalls.PROBLEM_SUB_TYPE,
         ServiceCalls.ATTACHMENT_ENTRY,
+        ServiceCalls.SERVICE_BP_TYPE,
         ServiceCalls.BP_CONTACT_PERSON,
         ServiceCalls.BP_PHONE_1,
         ServiceCalls.BP_PHONE_2,
@@ -653,7 +708,7 @@ var ServiceCallProblemSubTypes_1 = require("./ServiceCallProblemSubTypes");
     /**
      * All fields selector.
      */
-    ServiceCalls.ALL_FIELDS = new v4_1.AllFields('*', ServiceCalls);
+    ServiceCalls.ALL_FIELDS = new core_1.AllFields('*', ServiceCalls);
     /**
      * All key fields of the ServiceCalls entity.
      */

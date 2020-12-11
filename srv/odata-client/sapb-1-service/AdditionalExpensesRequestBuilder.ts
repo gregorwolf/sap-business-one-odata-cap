@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { AdditionalExpenses } from './AdditionalExpenses';
 
 /**
@@ -15,16 +15,16 @@ export class AdditionalExpensesRequestBuilder extends RequestBuilder<AdditionalE
    * @param expensCode Key property. See [[AdditionalExpenses.expensCode]].
    * @returns A request builder for creating requests to retrieve one `AdditionalExpenses` entity based on its keys.
    */
-  getByKey(expensCode: number): GetByKeyRequestBuilder<AdditionalExpenses> {
-    return new GetByKeyRequestBuilder(AdditionalExpenses, { ExpensCode: expensCode });
+  getByKey(expensCode: number): GetByKeyRequestBuilderV4<AdditionalExpenses> {
+    return new GetByKeyRequestBuilderV4(AdditionalExpenses, { ExpensCode: expensCode });
   }
 
   /**
    * Returns a request builder for querying all `AdditionalExpenses` entities.
    * @returns A request builder for creating requests to retrieve all `AdditionalExpenses` entities.
    */
-  getAll(): GetAllRequestBuilder<AdditionalExpenses> {
-    return new GetAllRequestBuilder(AdditionalExpenses);
+  getAll(): GetAllRequestBuilderV4<AdditionalExpenses> {
+    return new GetAllRequestBuilderV4(AdditionalExpenses);
   }
 
   /**
@@ -32,8 +32,8 @@ export class AdditionalExpensesRequestBuilder extends RequestBuilder<AdditionalE
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `AdditionalExpenses`.
    */
-  create(entity: AdditionalExpenses): CreateRequestBuilder<AdditionalExpenses> {
-    return new CreateRequestBuilder(AdditionalExpenses, entity);
+  create(entity: AdditionalExpenses): CreateRequestBuilderV4<AdditionalExpenses> {
+    return new CreateRequestBuilderV4(AdditionalExpenses, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class AdditionalExpensesRequestBuilder extends RequestBuilder<AdditionalE
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `AdditionalExpenses`.
    */
-  update(entity: AdditionalExpenses): UpdateRequestBuilder<AdditionalExpenses> {
-    return new UpdateRequestBuilder(AdditionalExpenses, entity);
+  update(entity: AdditionalExpenses): UpdateRequestBuilderV4<AdditionalExpenses> {
+    return new UpdateRequestBuilderV4(AdditionalExpenses, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class AdditionalExpensesRequestBuilder extends RequestBuilder<AdditionalE
    * @param expensCode Key property. See [[AdditionalExpenses.expensCode]].
    * @returns A request builder for creating requests that delete an entity of type `AdditionalExpenses`.
    */
-  delete(expensCode: number): DeleteRequestBuilder<AdditionalExpenses>;
+  delete(expensCode: number): DeleteRequestBuilderV4<AdditionalExpenses>;
   /**
    * Returns a request builder for deleting an entity of type `AdditionalExpenses`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `AdditionalExpenses` by taking the entity as a parameter.
    */
-  delete(entity: AdditionalExpenses): DeleteRequestBuilder<AdditionalExpenses>;
-  delete(expensCodeOrEntity: any): DeleteRequestBuilder<AdditionalExpenses> {
-    return new DeleteRequestBuilder(AdditionalExpenses, expensCodeOrEntity instanceof AdditionalExpenses ? expensCodeOrEntity : { ExpensCode: expensCodeOrEntity! });
+  delete(entity: AdditionalExpenses): DeleteRequestBuilderV4<AdditionalExpenses>;
+  delete(expensCodeOrEntity: any): DeleteRequestBuilderV4<AdditionalExpenses> {
+    return new DeleteRequestBuilderV4(AdditionalExpenses, expensCodeOrEntity instanceof AdditionalExpenses ? expensCodeOrEntity : { ExpensCode: expensCodeOrEntity! });
   }
 }

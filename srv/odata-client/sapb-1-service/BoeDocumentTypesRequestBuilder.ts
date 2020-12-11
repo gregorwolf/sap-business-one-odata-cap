@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { BoeDocumentTypes } from './BoeDocumentTypes';
 
 /**
@@ -15,16 +15,16 @@ export class BoeDocumentTypesRequestBuilder extends RequestBuilder<BoeDocumentTy
    * @param docEntry Key property. See [[BoeDocumentTypes.docEntry]].
    * @returns A request builder for creating requests to retrieve one `BoeDocumentTypes` entity based on its keys.
    */
-  getByKey(docEntry: number): GetByKeyRequestBuilder<BoeDocumentTypes> {
-    return new GetByKeyRequestBuilder(BoeDocumentTypes, { DocEntry: docEntry });
+  getByKey(docEntry: number): GetByKeyRequestBuilderV4<BoeDocumentTypes> {
+    return new GetByKeyRequestBuilderV4(BoeDocumentTypes, { DocEntry: docEntry });
   }
 
   /**
    * Returns a request builder for querying all `BoeDocumentTypes` entities.
    * @returns A request builder for creating requests to retrieve all `BoeDocumentTypes` entities.
    */
-  getAll(): GetAllRequestBuilder<BoeDocumentTypes> {
-    return new GetAllRequestBuilder(BoeDocumentTypes);
+  getAll(): GetAllRequestBuilderV4<BoeDocumentTypes> {
+    return new GetAllRequestBuilderV4(BoeDocumentTypes);
   }
 
   /**
@@ -32,8 +32,8 @@ export class BoeDocumentTypesRequestBuilder extends RequestBuilder<BoeDocumentTy
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `BoeDocumentTypes`.
    */
-  create(entity: BoeDocumentTypes): CreateRequestBuilder<BoeDocumentTypes> {
-    return new CreateRequestBuilder(BoeDocumentTypes, entity);
+  create(entity: BoeDocumentTypes): CreateRequestBuilderV4<BoeDocumentTypes> {
+    return new CreateRequestBuilderV4(BoeDocumentTypes, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class BoeDocumentTypesRequestBuilder extends RequestBuilder<BoeDocumentTy
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `BoeDocumentTypes`.
    */
-  update(entity: BoeDocumentTypes): UpdateRequestBuilder<BoeDocumentTypes> {
-    return new UpdateRequestBuilder(BoeDocumentTypes, entity);
+  update(entity: BoeDocumentTypes): UpdateRequestBuilderV4<BoeDocumentTypes> {
+    return new UpdateRequestBuilderV4(BoeDocumentTypes, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class BoeDocumentTypesRequestBuilder extends RequestBuilder<BoeDocumentTy
    * @param docEntry Key property. See [[BoeDocumentTypes.docEntry]].
    * @returns A request builder for creating requests that delete an entity of type `BoeDocumentTypes`.
    */
-  delete(docEntry: number): DeleteRequestBuilder<BoeDocumentTypes>;
+  delete(docEntry: number): DeleteRequestBuilderV4<BoeDocumentTypes>;
   /**
    * Returns a request builder for deleting an entity of type `BoeDocumentTypes`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `BoeDocumentTypes` by taking the entity as a parameter.
    */
-  delete(entity: BoeDocumentTypes): DeleteRequestBuilder<BoeDocumentTypes>;
-  delete(docEntryOrEntity: any): DeleteRequestBuilder<BoeDocumentTypes> {
-    return new DeleteRequestBuilder(BoeDocumentTypes, docEntryOrEntity instanceof BoeDocumentTypes ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
+  delete(entity: BoeDocumentTypes): DeleteRequestBuilderV4<BoeDocumentTypes>;
+  delete(docEntryOrEntity: any): DeleteRequestBuilderV4<BoeDocumentTypes> {
+    return new DeleteRequestBuilderV4(BoeDocumentTypes, docEntryOrEntity instanceof BoeDocumentTypes ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
   }
 }

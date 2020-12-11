@@ -1,18 +1,13 @@
 import { PackagesTypesRequestBuilder } from './PackagesTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "PackagesTypes" of service "SAPB1".
  */
-export declare class PackagesTypes extends Entity implements PackagesTypesType {
+export declare class PackagesTypes extends EntityV4 implements PackagesTypesType {
     /**
      * Technical entity name for PackagesTypes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for PackagesTypes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -118,10 +113,10 @@ export declare class PackagesTypes extends Entity implements PackagesTypesType {
      */
     weight2Unit?: number;
     /**
-     * Returns an entity builder to construct instances `PackagesTypes`.
+     * Returns an entity builder to construct instances of `PackagesTypes`.
      * @returns A builder that constructs instances of entity type `PackagesTypes`.
      */
-    static builder(): EntityBuilderType<PackagesTypes, PackagesTypesTypeForceMandatory>;
+    static builder(): EntityBuilderType<PackagesTypes, PackagesTypesType>;
     /**
      * Returns a request builder to construct requests for operations on the `PackagesTypes` entity type.
      * @returns A `PackagesTypes` request builder.
@@ -132,7 +127,7 @@ export declare class PackagesTypes extends Entity implements PackagesTypesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `PackagesTypes`.
      */
-    static customField(fieldName: string): CustomField<PackagesTypes>;
+    static customField(fieldName: string): CustomFieldV4<PackagesTypes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -142,48 +137,26 @@ export declare class PackagesTypes extends Entity implements PackagesTypesType {
     };
 }
 export interface PackagesTypesType {
-    type?: string;
-    code?: number;
-    length1?: number;
-    length1Unit?: number;
-    length2?: number;
-    length2Unit?: number;
-    width1?: number;
-    width1Unit?: number;
-    width2?: number;
-    width2Unit?: number;
-    height1?: number;
-    height1Unit?: number;
-    height2?: number;
-    height2Unit?: number;
-    volume?: number;
-    volumeUnit?: number;
-    weight1?: number;
-    weight1Unit?: number;
-    weight2?: number;
-    weight2Unit?: number;
-}
-export interface PackagesTypesTypeForceMandatory {
-    type: string;
-    code: number;
-    length1: number;
-    length1Unit: number;
-    length2: number;
-    length2Unit: number;
-    width1: number;
-    width1Unit: number;
-    width2: number;
-    width2Unit: number;
-    height1: number;
-    height1Unit: number;
-    height2: number;
-    height2Unit: number;
-    volume: number;
-    volumeUnit: number;
-    weight1: number;
-    weight1Unit: number;
-    weight2: number;
-    weight2Unit: number;
+    type?: string | null;
+    code?: number | null;
+    length1?: number | null;
+    length1Unit?: number | null;
+    length2?: number | null;
+    length2Unit?: number | null;
+    width1?: number | null;
+    width1Unit?: number | null;
+    width2?: number | null;
+    width2Unit?: number | null;
+    height1?: number | null;
+    height1Unit?: number | null;
+    height2?: number | null;
+    height2Unit?: number | null;
+    volume?: number | null;
+    volumeUnit?: number | null;
+    weight1?: number | null;
+    weight1Unit?: number | null;
+    weight2?: number | null;
+    weight2Unit?: number | null;
 }
 export declare namespace PackagesTypes {
     /**

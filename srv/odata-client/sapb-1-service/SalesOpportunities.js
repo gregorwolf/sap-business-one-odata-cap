@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -36,7 +36,7 @@ var SalesOpportunitiesCompetitionItem_1 = require("./SalesOpportunitiesCompetiti
 var SalesOpportunitiesPartner_1 = require("./SalesOpportunitiesPartner");
 var SalesOpportunitiesInterest_1 = require("./SalesOpportunitiesInterest");
 var SalesOpportunitiesReason_1 = require("./SalesOpportunitiesReason");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "SalesOpportunities" of service "SAPB1".
  */
@@ -46,11 +46,11 @@ var SalesOpportunities = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `SalesOpportunities`.
+     * Returns an entity builder to construct instances of `SalesOpportunities`.
      * @returns A builder that constructs instances of entity type `SalesOpportunities`.
      */
     SalesOpportunities.builder = function () {
-        return v4_1.Entity.entityBuilder(SalesOpportunities);
+        return core_1.EntityV4.entityBuilder(SalesOpportunities);
     };
     /**
      * Returns a request builder to construct requests for operations on the `SalesOpportunities` entity type.
@@ -65,7 +65,7 @@ var SalesOpportunities = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `SalesOpportunities`.
      */
     SalesOpportunities.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, SalesOpportunities);
+        return core_1.EntityV4.customFieldSelector(fieldName, SalesOpportunities);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -79,16 +79,11 @@ var SalesOpportunities = /** @class */ (function (_super) {
      */
     SalesOpportunities._entityName = 'SalesOpportunities';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for SalesOpportunities.
-     */
-    SalesOpportunities._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    SalesOpportunities._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    SalesOpportunities._defaultServicePath = '/b1s/v2/';
     return SalesOpportunities;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.SalesOpportunities = SalesOpportunities;
 var BusinessPartners_1 = require("./BusinessPartners");
 var SalesPersons_1 = require("./SalesPersons");
@@ -106,307 +101,322 @@ var Territories_1 = require("./Territories");
      * Static representation of the [[sequentialNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.SEQUENTIAL_NO = new v4_1.NumberField('SequentialNo', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.SEQUENTIAL_NO = new core_1.NumberField('SequentialNo', SalesOpportunities, 'Edm.Int32');
     /**
      * Static representation of the [[cardCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.CARD_CODE = new v4_1.StringField('CardCode', SalesOpportunities, 'Edm.String');
+    SalesOpportunities.CARD_CODE = new core_1.StringField('CardCode', SalesOpportunities, 'Edm.String');
     /**
      * Static representation of the [[salesPerson]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.SALES_PERSON = new v4_1.NumberField('SalesPerson', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.SALES_PERSON = new core_1.NumberField('SalesPerson', SalesOpportunities, 'Edm.Int32');
     /**
      * Static representation of the [[contactPerson]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.CONTACT_PERSON = new v4_1.NumberField('ContactPerson', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.CONTACT_PERSON = new core_1.NumberField('ContactPerson', SalesOpportunities, 'Edm.Int32');
     /**
      * Static representation of the [[source]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.SOURCE = new v4_1.NumberField('Source', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.SOURCE = new core_1.NumberField('Source', SalesOpportunities, 'Edm.Int32');
     /**
      * Static representation of the [[interestField1]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.INTEREST_FIELD_1 = new v4_1.NumberField('InterestField1', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.INTEREST_FIELD_1 = new core_1.NumberField('InterestField1', SalesOpportunities, 'Edm.Int32');
     /**
      * Static representation of the [[interestField2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.INTEREST_FIELD_2 = new v4_1.NumberField('InterestField2', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.INTEREST_FIELD_2 = new core_1.NumberField('InterestField2', SalesOpportunities, 'Edm.Int32');
     /**
      * Static representation of the [[interestField3]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.INTEREST_FIELD_3 = new v4_1.NumberField('InterestField3', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.INTEREST_FIELD_3 = new core_1.NumberField('InterestField3', SalesOpportunities, 'Edm.Int32');
     /**
      * Static representation of the [[interestLevel]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.INTEREST_LEVEL = new v4_1.NumberField('InterestLevel', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.INTEREST_LEVEL = new core_1.NumberField('InterestLevel', SalesOpportunities, 'Edm.Int32');
     /**
      * Static representation of the [[startDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.START_DATE = new v4_1.DateField('StartDate', SalesOpportunities, 'Edm.DateTimeOffset');
+    SalesOpportunities.START_DATE = new core_1.DateField('StartDate', SalesOpportunities, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[predictedClosingDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.PREDICTED_CLOSING_DATE = new v4_1.DateField('PredictedClosingDate', SalesOpportunities, 'Edm.DateTimeOffset');
+    SalesOpportunities.PREDICTED_CLOSING_DATE = new core_1.DateField('PredictedClosingDate', SalesOpportunities, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[maxLocalTotal]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.MAX_LOCAL_TOTAL = new v4_1.NumberField('MaxLocalTotal', SalesOpportunities, 'Edm.Double');
+    SalesOpportunities.MAX_LOCAL_TOTAL = new core_1.NumberField('MaxLocalTotal', SalesOpportunities, 'Edm.Double');
     /**
      * Static representation of the [[maxSystemTotal]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.MAX_SYSTEM_TOTAL = new v4_1.NumberField('MaxSystemTotal', SalesOpportunities, 'Edm.Double');
+    SalesOpportunities.MAX_SYSTEM_TOTAL = new core_1.NumberField('MaxSystemTotal', SalesOpportunities, 'Edm.Double');
     /**
      * Static representation of the [[weightedSumLc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.WEIGHTED_SUM_LC = new v4_1.NumberField('WeightedSumLC', SalesOpportunities, 'Edm.Double');
+    SalesOpportunities.WEIGHTED_SUM_LC = new core_1.NumberField('WeightedSumLC', SalesOpportunities, 'Edm.Double');
     /**
      * Static representation of the [[weightedSumSc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.WEIGHTED_SUM_SC = new v4_1.NumberField('WeightedSumSC', SalesOpportunities, 'Edm.Double');
+    SalesOpportunities.WEIGHTED_SUM_SC = new core_1.NumberField('WeightedSumSC', SalesOpportunities, 'Edm.Double');
     /**
      * Static representation of the [[grossProfit]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.GROSS_PROFIT = new v4_1.NumberField('GrossProfit', SalesOpportunities, 'Edm.Double');
+    SalesOpportunities.GROSS_PROFIT = new core_1.NumberField('GrossProfit', SalesOpportunities, 'Edm.Double');
     /**
      * Static representation of the [[grossProfitTotalLocal]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.GROSS_PROFIT_TOTAL_LOCAL = new v4_1.NumberField('GrossProfitTotalLocal', SalesOpportunities, 'Edm.Double');
+    SalesOpportunities.GROSS_PROFIT_TOTAL_LOCAL = new core_1.NumberField('GrossProfitTotalLocal', SalesOpportunities, 'Edm.Double');
     /**
      * Static representation of the [[grossProfitTotalSystem]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.GROSS_PROFIT_TOTAL_SYSTEM = new v4_1.NumberField('GrossProfitTotalSystem', SalesOpportunities, 'Edm.Double');
+    SalesOpportunities.GROSS_PROFIT_TOTAL_SYSTEM = new core_1.NumberField('GrossProfitTotalSystem', SalesOpportunities, 'Edm.Double');
     /**
      * Static representation of the [[remarks]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.REMARKS = new v4_1.StringField('Remarks', SalesOpportunities, 'Edm.String');
+    SalesOpportunities.REMARKS = new core_1.StringField('Remarks', SalesOpportunities, 'Edm.String');
+    /**
+     * Static representation of the [[status]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    SalesOpportunities.STATUS = new core_1.EnumField('Status', SalesOpportunities);
     /**
      * Static representation of the [[reasonForClosing]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.REASON_FOR_CLOSING = new v4_1.NumberField('ReasonForClosing', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.REASON_FOR_CLOSING = new core_1.NumberField('ReasonForClosing', SalesOpportunities, 'Edm.Int32');
     /**
      * Static representation of the [[totalAmountLocal]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.TOTAL_AMOUNT_LOCAL = new v4_1.NumberField('TotalAmountLocal', SalesOpportunities, 'Edm.Double');
+    SalesOpportunities.TOTAL_AMOUNT_LOCAL = new core_1.NumberField('TotalAmountLocal', SalesOpportunities, 'Edm.Double');
     /**
      * Static representation of the [[totalAmounSystem]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.TOTAL_AMOUN_SYSTEM = new v4_1.NumberField('TotalAmounSystem', SalesOpportunities, 'Edm.Double');
+    SalesOpportunities.TOTAL_AMOUN_SYSTEM = new core_1.NumberField('TotalAmounSystem', SalesOpportunities, 'Edm.Double');
     /**
      * Static representation of the [[closingGrossProfitLocal]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.CLOSING_GROSS_PROFIT_LOCAL = new v4_1.NumberField('ClosingGrossProfitLocal', SalesOpportunities, 'Edm.Double');
+    SalesOpportunities.CLOSING_GROSS_PROFIT_LOCAL = new core_1.NumberField('ClosingGrossProfitLocal', SalesOpportunities, 'Edm.Double');
     /**
      * Static representation of the [[closingGrossProfitSystem]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.CLOSING_GROSS_PROFIT_SYSTEM = new v4_1.NumberField('ClosingGrossProfitSystem', SalesOpportunities, 'Edm.Double');
+    SalesOpportunities.CLOSING_GROSS_PROFIT_SYSTEM = new core_1.NumberField('ClosingGrossProfitSystem', SalesOpportunities, 'Edm.Double');
     /**
      * Static representation of the [[closingPercentage]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.CLOSING_PERCENTAGE = new v4_1.NumberField('ClosingPercentage', SalesOpportunities, 'Edm.Double');
+    SalesOpportunities.CLOSING_PERCENTAGE = new core_1.NumberField('ClosingPercentage', SalesOpportunities, 'Edm.Double');
     /**
      * Static representation of the [[currentStageNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.CURRENT_STAGE_NO = new v4_1.NumberField('CurrentStageNo', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.CURRENT_STAGE_NO = new core_1.NumberField('CurrentStageNo', SalesOpportunities, 'Edm.Int32');
     /**
      * Static representation of the [[currentStageNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.CURRENT_STAGE_NUMBER = new v4_1.NumberField('CurrentStageNumber', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.CURRENT_STAGE_NUMBER = new core_1.NumberField('CurrentStageNumber', SalesOpportunities, 'Edm.Int32');
     /**
      * Static representation of the [[opportunityName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.OPPORTUNITY_NAME = new v4_1.StringField('OpportunityName', SalesOpportunities, 'Edm.String');
+    SalesOpportunities.OPPORTUNITY_NAME = new core_1.StringField('OpportunityName', SalesOpportunities, 'Edm.String');
     /**
      * Static representation of the [[industry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.INDUSTRY = new v4_1.NumberField('Industry', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.INDUSTRY = new core_1.NumberField('Industry', SalesOpportunities, 'Edm.Int32');
     /**
      * Static representation of the [[linkedDocumentType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.LINKED_DOCUMENT_TYPE = new v4_1.StringField('LinkedDocumentType', SalesOpportunities, 'Edm.String');
+    SalesOpportunities.LINKED_DOCUMENT_TYPE = new core_1.StringField('LinkedDocumentType', SalesOpportunities, 'Edm.String');
     /**
      * Static representation of the [[dataOwnershipfield]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.DATA_OWNERSHIPFIELD = new v4_1.NumberField('DataOwnershipfield', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.DATA_OWNERSHIPFIELD = new core_1.NumberField('DataOwnershipfield', SalesOpportunities, 'Edm.Int32');
     /**
      * Static representation of the [[statusRemarks]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.STATUS_REMARKS = new v4_1.StringField('StatusRemarks', SalesOpportunities, 'Edm.String');
+    SalesOpportunities.STATUS_REMARKS = new core_1.StringField('StatusRemarks', SalesOpportunities, 'Edm.String');
     /**
      * Static representation of the [[projectCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.PROJECT_CODE = new v4_1.StringField('ProjectCode', SalesOpportunities, 'Edm.String');
+    SalesOpportunities.PROJECT_CODE = new core_1.StringField('ProjectCode', SalesOpportunities, 'Edm.String');
     /**
      * Static representation of the [[bpChanelName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.BP_CHANEL_NAME = new v4_1.StringField('BPChanelName', SalesOpportunities, 'Edm.String');
+    SalesOpportunities.BP_CHANEL_NAME = new core_1.StringField('BPChanelName', SalesOpportunities, 'Edm.String');
     /**
      * Static representation of the [[userSignature]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.USER_SIGNATURE = new v4_1.NumberField('UserSignature', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.USER_SIGNATURE = new core_1.NumberField('UserSignature', SalesOpportunities, 'Edm.Int32');
     /**
      * Static representation of the [[customerName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.CUSTOMER_NAME = new v4_1.StringField('CustomerName', SalesOpportunities, 'Edm.String');
+    SalesOpportunities.CUSTOMER_NAME = new core_1.StringField('CustomerName', SalesOpportunities, 'Edm.String');
     /**
      * Static representation of the [[documentCheckbox]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.DOCUMENT_CHECKBOX = new v4_1.StringField('DocumentCheckbox', SalesOpportunities, 'Edm.String');
+    SalesOpportunities.DOCUMENT_CHECKBOX = new core_1.StringField('DocumentCheckbox', SalesOpportunities, 'Edm.String');
     /**
      * Static representation of the [[linkedDocumentNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.LINKED_DOCUMENT_NUMBER = new v4_1.NumberField('LinkedDocumentNumber', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.LINKED_DOCUMENT_NUMBER = new core_1.NumberField('LinkedDocumentNumber', SalesOpportunities, 'Edm.Int32');
     /**
      * Static representation of the [[territory]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.TERRITORY = new v4_1.NumberField('Territory', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.TERRITORY = new core_1.NumberField('Territory', SalesOpportunities, 'Edm.Int32');
     /**
      * Static representation of the [[closingDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.CLOSING_DATE = new v4_1.DateField('ClosingDate', SalesOpportunities, 'Edm.DateTimeOffset');
+    SalesOpportunities.CLOSING_DATE = new core_1.DateField('ClosingDate', SalesOpportunities, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[bpChannelContact]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.BP_CHANNEL_CONTACT = new v4_1.NumberField('BPChannelContact', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.BP_CHANNEL_CONTACT = new core_1.NumberField('BPChannelContact', SalesOpportunities, 'Edm.Int32');
     /**
      * Static representation of the [[bpChanelCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.BP_CHANEL_CODE = new v4_1.StringField('BPChanelCode', SalesOpportunities, 'Edm.String');
+    SalesOpportunities.BP_CHANEL_CODE = new core_1.StringField('BPChanelCode', SalesOpportunities, 'Edm.String');
+    /**
+     * Static representation of the [[closingType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    SalesOpportunities.CLOSING_TYPE = new core_1.EnumField('ClosingType', SalesOpportunities);
     /**
      * Static representation of the [[attachmentEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.ATTACHMENT_ENTRY = new v4_1.NumberField('AttachmentEntry', SalesOpportunities, 'Edm.Int32');
+    SalesOpportunities.ATTACHMENT_ENTRY = new core_1.NumberField('AttachmentEntry', SalesOpportunities, 'Edm.Int32');
+    /**
+     * Static representation of the [[opportunityType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    SalesOpportunities.OPPORTUNITY_TYPE = new core_1.EnumField('OpportunityType', SalesOpportunities);
     /**
      * Static representation of the [[updateDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.UPDATE_DATE = new v4_1.DateField('UpdateDate', SalesOpportunities, 'Edm.DateTimeOffset');
+    SalesOpportunities.UPDATE_DATE = new core_1.DateField('UpdateDate', SalesOpportunities, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[updateTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.UPDATE_TIME = new v4_1.TimeField('UpdateTime', SalesOpportunities, 'Edm.TimeOfDay');
+    SalesOpportunities.UPDATE_TIME = new core_1.TimeField('UpdateTime', SalesOpportunities, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[salesOpportunitiesLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.SALES_OPPORTUNITIES_LINES = new v4_1.CollectionField('SalesOpportunitiesLines', SalesOpportunities, new SalesOpportunitiesLine_1.SalesOpportunitiesLineField('', SalesOpportunities));
+    SalesOpportunities.SALES_OPPORTUNITIES_LINES = new core_1.CollectionField('SalesOpportunitiesLines', SalesOpportunities, SalesOpportunitiesLine_1.SalesOpportunitiesLine);
     /**
      * Static representation of the [[salesOpportunitiesCompetition]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.SALES_OPPORTUNITIES_COMPETITION = new v4_1.CollectionField('SalesOpportunitiesCompetition', SalesOpportunities, new SalesOpportunitiesCompetitionItem_1.SalesOpportunitiesCompetitionItemField('', SalesOpportunities));
+    SalesOpportunities.SALES_OPPORTUNITIES_COMPETITION = new core_1.CollectionField('SalesOpportunitiesCompetition', SalesOpportunities, SalesOpportunitiesCompetitionItem_1.SalesOpportunitiesCompetitionItem);
     /**
      * Static representation of the [[salesOpportunitiesPartners]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.SALES_OPPORTUNITIES_PARTNERS = new v4_1.CollectionField('SalesOpportunitiesPartners', SalesOpportunities, new SalesOpportunitiesPartner_1.SalesOpportunitiesPartnerField('', SalesOpportunities));
+    SalesOpportunities.SALES_OPPORTUNITIES_PARTNERS = new core_1.CollectionField('SalesOpportunitiesPartners', SalesOpportunities, SalesOpportunitiesPartner_1.SalesOpportunitiesPartner);
     /**
      * Static representation of the [[salesOpportunitiesInterests]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.SALES_OPPORTUNITIES_INTERESTS = new v4_1.CollectionField('SalesOpportunitiesInterests', SalesOpportunities, new SalesOpportunitiesInterest_1.SalesOpportunitiesInterestField('', SalesOpportunities));
+    SalesOpportunities.SALES_OPPORTUNITIES_INTERESTS = new core_1.CollectionField('SalesOpportunitiesInterests', SalesOpportunities, SalesOpportunitiesInterest_1.SalesOpportunitiesInterest);
     /**
      * Static representation of the [[salesOpportunitiesReasons]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.SALES_OPPORTUNITIES_REASONS = new v4_1.CollectionField('SalesOpportunitiesReasons', SalesOpportunities, new SalesOpportunitiesReason_1.SalesOpportunitiesReasonField('', SalesOpportunities));
+    SalesOpportunities.SALES_OPPORTUNITIES_REASONS = new core_1.CollectionField('SalesOpportunitiesReasons', SalesOpportunities, SalesOpportunitiesReason_1.SalesOpportunitiesReason);
     /**
      * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.BUSINESS_PARTNER = new v4_1.OneToOneLink('BusinessPartner', SalesOpportunities, BusinessPartners_1.BusinessPartners);
+    SalesOpportunities.BUSINESS_PARTNER = new core_1.OneToOneLink('BusinessPartner', SalesOpportunities, BusinessPartners_1.BusinessPartners);
     /**
      * Static representation of the one-to-one navigation property [[salesPerson2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.SALES_PERSON_2 = new v4_1.OneToOneLink('SalesPerson2', SalesOpportunities, SalesPersons_1.SalesPersons);
+    SalesOpportunities.SALES_PERSON_2 = new core_1.OneToOneLink('SalesPerson2', SalesOpportunities, SalesPersons_1.SalesPersons);
     /**
      * Static representation of the one-to-one navigation property [[salesOpportunitySourceSetup]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.SALES_OPPORTUNITY_SOURCE_SETUP = new v4_1.OneToOneLink('SalesOpportunitySourceSetup', SalesOpportunities, SalesOpportunitySourcesSetup_1.SalesOpportunitySourcesSetup);
+    SalesOpportunities.SALES_OPPORTUNITY_SOURCE_SETUP = new core_1.OneToOneLink('SalesOpportunitySourceSetup', SalesOpportunities, SalesOpportunitySourcesSetup_1.SalesOpportunitySourcesSetup);
     /**
      * Static representation of the one-to-one navigation property [[salesOpportunityInterestSetup]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.SALES_OPPORTUNITY_INTEREST_SETUP = new v4_1.OneToOneLink('SalesOpportunityInterestSetup', SalesOpportunities, SalesOpportunityInterestsSetup_1.SalesOpportunityInterestsSetup);
+    SalesOpportunities.SALES_OPPORTUNITY_INTEREST_SETUP = new core_1.OneToOneLink('SalesOpportunityInterestSetup', SalesOpportunities, SalesOpportunityInterestsSetup_1.SalesOpportunityInterestsSetup);
     /**
      * Static representation of the one-to-one navigation property [[salesOpportunityReasonSetup]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.SALES_OPPORTUNITY_REASON_SETUP = new v4_1.OneToOneLink('SalesOpportunityReasonSetup', SalesOpportunities, SalesOpportunityReasonsSetup_1.SalesOpportunityReasonsSetup);
+    SalesOpportunities.SALES_OPPORTUNITY_REASON_SETUP = new core_1.OneToOneLink('SalesOpportunityReasonSetup', SalesOpportunities, SalesOpportunityReasonsSetup_1.SalesOpportunityReasonsSetup);
     /**
      * Static representation of the one-to-one navigation property [[salesStage]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.SALES_STAGE = new v4_1.OneToOneLink('SalesStage', SalesOpportunities, SalesStages_1.SalesStages);
+    SalesOpportunities.SALES_STAGE = new core_1.OneToOneLink('SalesStage', SalesOpportunities, SalesStages_1.SalesStages);
     /**
      * Static representation of the one-to-one navigation property [[industry2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.INDUSTRY_2 = new v4_1.OneToOneLink('Industry2', SalesOpportunities, Industries_1.Industries);
+    SalesOpportunities.INDUSTRY_2 = new core_1.OneToOneLink('Industry2', SalesOpportunities, Industries_1.Industries);
     /**
      * Static representation of the one-to-one navigation property [[employeeInfo]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.EMPLOYEE_INFO = new v4_1.OneToOneLink('EmployeeInfo', SalesOpportunities, EmployeesInfo_1.EmployeesInfo);
+    SalesOpportunities.EMPLOYEE_INFO = new core_1.OneToOneLink('EmployeeInfo', SalesOpportunities, EmployeesInfo_1.EmployeesInfo);
     /**
      * Static representation of the one-to-one navigation property [[project]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.PROJECT = new v4_1.OneToOneLink('Project', SalesOpportunities, Projects_1.Projects);
+    SalesOpportunities.PROJECT = new core_1.OneToOneLink('Project', SalesOpportunities, Projects_1.Projects);
     /**
      * Static representation of the one-to-one navigation property [[user]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.USER = new v4_1.OneToOneLink('User', SalesOpportunities, Users_1.Users);
+    SalesOpportunities.USER = new core_1.OneToOneLink('User', SalesOpportunities, Users_1.Users);
     /**
      * Static representation of the one-to-one navigation property [[territory2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesOpportunities.TERRITORY_2 = new v4_1.OneToOneLink('Territory2', SalesOpportunities, Territories_1.Territories);
+    SalesOpportunities.TERRITORY_2 = new core_1.OneToOneLink('Territory2', SalesOpportunities, Territories_1.Territories);
     /**
      * All fields of the SalesOpportunities entity.
      */
@@ -430,6 +440,7 @@ var Territories_1 = require("./Territories");
         SalesOpportunities.GROSS_PROFIT_TOTAL_LOCAL,
         SalesOpportunities.GROSS_PROFIT_TOTAL_SYSTEM,
         SalesOpportunities.REMARKS,
+        SalesOpportunities.STATUS,
         SalesOpportunities.REASON_FOR_CLOSING,
         SalesOpportunities.TOTAL_AMOUNT_LOCAL,
         SalesOpportunities.TOTAL_AMOUN_SYSTEM,
@@ -453,7 +464,9 @@ var Territories_1 = require("./Territories");
         SalesOpportunities.CLOSING_DATE,
         SalesOpportunities.BP_CHANNEL_CONTACT,
         SalesOpportunities.BP_CHANEL_CODE,
+        SalesOpportunities.CLOSING_TYPE,
         SalesOpportunities.ATTACHMENT_ENTRY,
+        SalesOpportunities.OPPORTUNITY_TYPE,
         SalesOpportunities.UPDATE_DATE,
         SalesOpportunities.UPDATE_TIME,
         SalesOpportunities.SALES_OPPORTUNITIES_LINES,
@@ -476,7 +489,7 @@ var Territories_1 = require("./Territories");
     /**
      * All fields selector.
      */
-    SalesOpportunities.ALL_FIELDS = new v4_1.AllFields('*', SalesOpportunities);
+    SalesOpportunities.ALL_FIELDS = new core_1.AllFields('*', SalesOpportunities);
     /**
      * All key fields of the SalesOpportunities entity.
      */

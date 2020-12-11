@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * PmsSummaryData
@@ -193,7 +193,7 @@ export function createPmsSummaryData(json: any): PmsSummaryData {
  * PmsSummaryDataField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class PmsSummaryDataField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class PmsSummaryDataField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PmsSummaryData> {
   /**
    * Representation of the [[PmsSummaryData.lineId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -364,45 +364,198 @@ export class PmsSummaryDataField<EntityT extends Entity> extends ComplexTypeFiel
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   overdue: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('Overdue', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of PmsSummaryDataField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, PmsSummaryData);
+  }
 }
 
 export namespace PmsSummaryData {
+  /**
+   * Metadata information on all properties of the `PmsSummaryData` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<PmsSummaryData>[] = [{
+    originalName: 'LineID',
+    name: 'lineId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SubprojectBudget',
+    name: 'subprojectBudget',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SumOpenAmountPurchase',
+    name: 'sumOpenAmountPurchase',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SumInvoicedAmountPurchase',
+    name: 'sumInvoicedAmountPurchase',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TotalAmountPurchase',
+    name: 'totalAmountPurchase',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TotalVariancePurchase',
+    name: 'totalVariancePurchase',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'VariancePerceptionPurchase',
+    name: 'variancePerceptionPurchase',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumSubprojectBudget',
+    name: 'accumSubprojectBudget',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumOpenAmountPurchase',
+    name: 'accumOpenAmountPurchase',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumInvoicedAmountPurchase',
+    name: 'accumInvoicedAmountPurchase',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumTotalPurchase',
+    name: 'accumTotalPurchase',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumTotalVariancePurchase',
+    name: 'accumTotalVariancePurchase',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumVariancePerceptionPurchase',
+    name: 'accumVariancePerceptionPurchase',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PotentialSubprojectAmount',
+    name: 'potentialSubprojectAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SumOpenAmountSales',
+    name: 'sumOpenAmountSales',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SumInvoicedAmountSales',
+    name: 'sumInvoicedAmountSales',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TotalAmountSales',
+    name: 'totalAmountSales',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TotalVarianceSales',
+    name: 'totalVarianceSales',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'VariancePerceptionSales',
+    name: 'variancePerceptionSales',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumPotentialSubprojectAmount',
+    name: 'accumPotentialSubprojectAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumOpenAmountSales',
+    name: 'accumOpenAmountSales',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumInvoicedAmountSales',
+    name: 'accumInvoicedAmountSales',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumTotalSales',
+    name: 'accumTotalSales',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumTotalVarianceSales',
+    name: 'accumTotalVarianceSales',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumVariancePerceptionSales',
+    name: 'accumVariancePerceptionSales',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ActualItemComponentCost',
+    name: 'actualItemComponentCost',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ActualResourceComponentCost',
+    name: 'actualResourceComponentCost',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ActualAdditionalCost',
+    name: 'actualAdditionalCost',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ActualProductCost',
+    name: 'actualProductCost',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ActualByProductCost',
+    name: 'actualByProductCost',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TotalVariance',
+    name: 'totalVariance',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DueDate',
+    name: 'dueDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ActualClosingDate',
+    name: 'actualClosingDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Overdue',
+    name: 'overdue',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): PmsSummaryData {
-    return createComplexType(json, {
-      LineID: (lineId: number) => ({ lineId: edmToTs(lineId, 'Edm.Int32') }),
-      SubprojectBudget: (subprojectBudget: number) => ({ subprojectBudget: edmToTs(subprojectBudget, 'Edm.Double') }),
-      SumOpenAmountPurchase: (sumOpenAmountPurchase: number) => ({ sumOpenAmountPurchase: edmToTs(sumOpenAmountPurchase, 'Edm.Double') }),
-      SumInvoicedAmountPurchase: (sumInvoicedAmountPurchase: number) => ({ sumInvoicedAmountPurchase: edmToTs(sumInvoicedAmountPurchase, 'Edm.Double') }),
-      TotalAmountPurchase: (totalAmountPurchase: number) => ({ totalAmountPurchase: edmToTs(totalAmountPurchase, 'Edm.Double') }),
-      TotalVariancePurchase: (totalVariancePurchase: number) => ({ totalVariancePurchase: edmToTs(totalVariancePurchase, 'Edm.Double') }),
-      VariancePerceptionPurchase: (variancePerceptionPurchase: number) => ({ variancePerceptionPurchase: edmToTs(variancePerceptionPurchase, 'Edm.Double') }),
-      AccumSubprojectBudget: (accumSubprojectBudget: number) => ({ accumSubprojectBudget: edmToTs(accumSubprojectBudget, 'Edm.Double') }),
-      AccumOpenAmountPurchase: (accumOpenAmountPurchase: number) => ({ accumOpenAmountPurchase: edmToTs(accumOpenAmountPurchase, 'Edm.Double') }),
-      AccumInvoicedAmountPurchase: (accumInvoicedAmountPurchase: number) => ({ accumInvoicedAmountPurchase: edmToTs(accumInvoicedAmountPurchase, 'Edm.Double') }),
-      AccumTotalPurchase: (accumTotalPurchase: number) => ({ accumTotalPurchase: edmToTs(accumTotalPurchase, 'Edm.Double') }),
-      AccumTotalVariancePurchase: (accumTotalVariancePurchase: number) => ({ accumTotalVariancePurchase: edmToTs(accumTotalVariancePurchase, 'Edm.Double') }),
-      AccumVariancePerceptionPurchase: (accumVariancePerceptionPurchase: number) => ({ accumVariancePerceptionPurchase: edmToTs(accumVariancePerceptionPurchase, 'Edm.Double') }),
-      PotentialSubprojectAmount: (potentialSubprojectAmount: number) => ({ potentialSubprojectAmount: edmToTs(potentialSubprojectAmount, 'Edm.Double') }),
-      SumOpenAmountSales: (sumOpenAmountSales: number) => ({ sumOpenAmountSales: edmToTs(sumOpenAmountSales, 'Edm.Double') }),
-      SumInvoicedAmountSales: (sumInvoicedAmountSales: number) => ({ sumInvoicedAmountSales: edmToTs(sumInvoicedAmountSales, 'Edm.Double') }),
-      TotalAmountSales: (totalAmountSales: number) => ({ totalAmountSales: edmToTs(totalAmountSales, 'Edm.Double') }),
-      TotalVarianceSales: (totalVarianceSales: number) => ({ totalVarianceSales: edmToTs(totalVarianceSales, 'Edm.Double') }),
-      VariancePerceptionSales: (variancePerceptionSales: number) => ({ variancePerceptionSales: edmToTs(variancePerceptionSales, 'Edm.Double') }),
-      AccumPotentialSubprojectAmount: (accumPotentialSubprojectAmount: number) => ({ accumPotentialSubprojectAmount: edmToTs(accumPotentialSubprojectAmount, 'Edm.Double') }),
-      AccumOpenAmountSales: (accumOpenAmountSales: number) => ({ accumOpenAmountSales: edmToTs(accumOpenAmountSales, 'Edm.Double') }),
-      AccumInvoicedAmountSales: (accumInvoicedAmountSales: number) => ({ accumInvoicedAmountSales: edmToTs(accumInvoicedAmountSales, 'Edm.Double') }),
-      AccumTotalSales: (accumTotalSales: number) => ({ accumTotalSales: edmToTs(accumTotalSales, 'Edm.Double') }),
-      AccumTotalVarianceSales: (accumTotalVarianceSales: number) => ({ accumTotalVarianceSales: edmToTs(accumTotalVarianceSales, 'Edm.Double') }),
-      AccumVariancePerceptionSales: (accumVariancePerceptionSales: number) => ({ accumVariancePerceptionSales: edmToTs(accumVariancePerceptionSales, 'Edm.Double') }),
-      ActualItemComponentCost: (actualItemComponentCost: number) => ({ actualItemComponentCost: edmToTs(actualItemComponentCost, 'Edm.Double') }),
-      ActualResourceComponentCost: (actualResourceComponentCost: number) => ({ actualResourceComponentCost: edmToTs(actualResourceComponentCost, 'Edm.Double') }),
-      ActualAdditionalCost: (actualAdditionalCost: number) => ({ actualAdditionalCost: edmToTs(actualAdditionalCost, 'Edm.Double') }),
-      ActualProductCost: (actualProductCost: number) => ({ actualProductCost: edmToTs(actualProductCost, 'Edm.Double') }),
-      ActualByProductCost: (actualByProductCost: number) => ({ actualByProductCost: edmToTs(actualByProductCost, 'Edm.Double') }),
-      TotalVariance: (totalVariance: number) => ({ totalVariance: edmToTs(totalVariance, 'Edm.Double') }),
-      DueDate: (dueDate: Moment) => ({ dueDate: edmToTs(dueDate, 'Edm.DateTimeOffset') }),
-      ActualClosingDate: (actualClosingDate: Moment) => ({ actualClosingDate: edmToTs(actualClosingDate, 'Edm.DateTimeOffset') }),
-      Overdue: (overdue: number) => ({ overdue: edmToTs(overdue, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, PmsSummaryData);
   }
 }

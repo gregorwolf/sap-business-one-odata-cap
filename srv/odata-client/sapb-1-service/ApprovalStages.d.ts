@@ -1,19 +1,14 @@
 import { ApprovalStagesRequestBuilder } from './ApprovalStagesRequestBuilder';
 import { ApprovalStageApprover } from './ApprovalStageApprover';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ApprovalStages" of service "SAPB1".
  */
-export declare class ApprovalStages extends Entity implements ApprovalStagesType {
+export declare class ApprovalStages extends EntityV4 implements ApprovalStagesType {
     /**
      * Technical entity name for ApprovalStages.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ApprovalStages.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -48,10 +43,10 @@ export declare class ApprovalStages extends Entity implements ApprovalStagesType
      */
     approvalRequests: ApprovalRequests[];
     /**
-     * Returns an entity builder to construct instances `ApprovalStages`.
+     * Returns an entity builder to construct instances of `ApprovalStages`.
      * @returns A builder that constructs instances of entity type `ApprovalStages`.
      */
-    static builder(): EntityBuilderType<ApprovalStages, ApprovalStagesTypeForceMandatory>;
+    static builder(): EntityBuilderType<ApprovalStages, ApprovalStagesType>;
     /**
      * Returns a request builder to construct requests for operations on the `ApprovalStages` entity type.
      * @returns A `ApprovalStages` request builder.
@@ -62,7 +57,7 @@ export declare class ApprovalStages extends Entity implements ApprovalStagesType
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ApprovalStages`.
      */
-    static customField(fieldName: string): CustomField<ApprovalStages>;
+    static customField(fieldName: string): CustomFieldV4<ApprovalStages>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -73,19 +68,11 @@ export declare class ApprovalStages extends Entity implements ApprovalStagesType
 }
 import { ApprovalRequests, ApprovalRequestsType } from './ApprovalRequests';
 export interface ApprovalStagesType {
-    code?: number;
-    name?: string;
-    noOfApproversRequired?: number;
-    remarks?: string;
-    approvalStageApprovers?: ApprovalStageApprover[];
-    approvalRequests: ApprovalRequestsType[];
-}
-export interface ApprovalStagesTypeForceMandatory {
-    code: number;
-    name: string;
-    noOfApproversRequired: number;
-    remarks: string;
-    approvalStageApprovers: ApprovalStageApprover[];
+    code?: number | null;
+    name?: string | null;
+    noOfApproversRequired?: number | null;
+    remarks?: string | null;
+    approvalStageApprovers?: ApprovalStageApprover[] | null;
     approvalRequests: ApprovalRequestsType[];
 }
 export declare namespace ApprovalStages {
@@ -113,7 +100,7 @@ export declare namespace ApprovalStages {
      * Static representation of the [[approvalStageApprovers]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const APPROVAL_STAGE_APPROVERS: CollectionField<ApprovalStages>;
+    const APPROVAL_STAGE_APPROVERS: CollectionField<ApprovalStages, ApprovalStageApprover>;
     /**
      * Static representation of the one-to-many navigation property [[approvalRequests]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -122,7 +109,7 @@ export declare namespace ApprovalStages {
     /**
      * All fields of the ApprovalStages entity.
      */
-    const _allFields: Array<NumberField<ApprovalStages> | StringField<ApprovalStages> | CollectionField<ApprovalStages> | OneToManyLink<ApprovalStages, ApprovalRequests>>;
+    const _allFields: Array<NumberField<ApprovalStages> | StringField<ApprovalStages> | CollectionField<ApprovalStages, ApprovalStageApprover> | OneToManyLink<ApprovalStages, ApprovalRequests>>;
     /**
      * All fields selector.
      */

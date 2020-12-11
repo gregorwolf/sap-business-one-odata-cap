@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { DepreciationTypes } from './DepreciationTypes';
 
 /**
@@ -15,16 +15,16 @@ export class DepreciationTypesRequestBuilder extends RequestBuilder<Depreciation
    * @param code Key property. See [[DepreciationTypes.code]].
    * @returns A request builder for creating requests to retrieve one `DepreciationTypes` entity based on its keys.
    */
-  getByKey(code: string): GetByKeyRequestBuilder<DepreciationTypes> {
-    return new GetByKeyRequestBuilder(DepreciationTypes, { Code: code });
+  getByKey(code: string): GetByKeyRequestBuilderV4<DepreciationTypes> {
+    return new GetByKeyRequestBuilderV4(DepreciationTypes, { Code: code });
   }
 
   /**
    * Returns a request builder for querying all `DepreciationTypes` entities.
    * @returns A request builder for creating requests to retrieve all `DepreciationTypes` entities.
    */
-  getAll(): GetAllRequestBuilder<DepreciationTypes> {
-    return new GetAllRequestBuilder(DepreciationTypes);
+  getAll(): GetAllRequestBuilderV4<DepreciationTypes> {
+    return new GetAllRequestBuilderV4(DepreciationTypes);
   }
 
   /**
@@ -32,8 +32,8 @@ export class DepreciationTypesRequestBuilder extends RequestBuilder<Depreciation
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `DepreciationTypes`.
    */
-  create(entity: DepreciationTypes): CreateRequestBuilder<DepreciationTypes> {
-    return new CreateRequestBuilder(DepreciationTypes, entity);
+  create(entity: DepreciationTypes): CreateRequestBuilderV4<DepreciationTypes> {
+    return new CreateRequestBuilderV4(DepreciationTypes, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class DepreciationTypesRequestBuilder extends RequestBuilder<Depreciation
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `DepreciationTypes`.
    */
-  update(entity: DepreciationTypes): UpdateRequestBuilder<DepreciationTypes> {
-    return new UpdateRequestBuilder(DepreciationTypes, entity);
+  update(entity: DepreciationTypes): UpdateRequestBuilderV4<DepreciationTypes> {
+    return new UpdateRequestBuilderV4(DepreciationTypes, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class DepreciationTypesRequestBuilder extends RequestBuilder<Depreciation
    * @param code Key property. See [[DepreciationTypes.code]].
    * @returns A request builder for creating requests that delete an entity of type `DepreciationTypes`.
    */
-  delete(code: string): DeleteRequestBuilder<DepreciationTypes>;
+  delete(code: string): DeleteRequestBuilderV4<DepreciationTypes>;
   /**
    * Returns a request builder for deleting an entity of type `DepreciationTypes`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `DepreciationTypes` by taking the entity as a parameter.
    */
-  delete(entity: DepreciationTypes): DeleteRequestBuilder<DepreciationTypes>;
-  delete(codeOrEntity: any): DeleteRequestBuilder<DepreciationTypes> {
-    return new DeleteRequestBuilder(DepreciationTypes, codeOrEntity instanceof DepreciationTypes ? codeOrEntity : { Code: codeOrEntity! });
+  delete(entity: DepreciationTypes): DeleteRequestBuilderV4<DepreciationTypes>;
+  delete(codeOrEntity: any): DeleteRequestBuilderV4<DepreciationTypes> {
+    return new DeleteRequestBuilderV4(DepreciationTypes, codeOrEntity instanceof DepreciationTypes ? codeOrEntity : { Code: codeOrEntity! });
   }
 }

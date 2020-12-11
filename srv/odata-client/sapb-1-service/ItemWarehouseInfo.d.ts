@@ -1,5 +1,6 @@
-import { ItemCycleCount, ItemCycleCountField } from './ItemCycleCount';
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ItemCycleCount } from './ItemCycleCount';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { CollectionField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * ItemWarehouseInfo
  */
@@ -24,6 +25,11 @@ export interface ItemWarehouseInfo {
      * @nullable
      */
     standardAveragePrice?: number;
+    /**
+     * Locked.
+     * @nullable
+     */
+    locked?: BoYesNoEnum;
     /**
      * Inventory Account.
      * @nullable
@@ -124,6 +130,11 @@ export interface ItemWarehouseInfo {
      * @nullable
      */
     countedQuantity?: number;
+    /**
+     * Was Counted.
+     * @nullable
+     */
+    wasCounted?: BoYesNoEnum;
     /**
      * User Signature.
      * @nullable
@@ -290,6 +301,11 @@ export interface ItemWarehouseInfo {
      */
     defaultBin?: number;
     /**
+     * Default Bin Enforced.
+     * @nullable
+     */
+    defaultBinEnforced?: BoYesNoEnum;
+    /**
      * Purchase Balance Account.
      * @nullable
      */
@@ -298,7 +314,7 @@ export interface ItemWarehouseInfo {
      * Item Cycle Counts.
      * @nullable
      */
-    itemCycleCounts?: ItemCycleCount;
+    itemCycleCounts?: ItemCycleCount[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[ItemWarehouseInfo.build]] instead.
@@ -308,7 +324,7 @@ export declare function createItemWarehouseInfo(json: any): ItemWarehouseInfo;
  * ItemWarehouseInfoField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class ItemWarehouseInfoField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class ItemWarehouseInfoField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ItemWarehouseInfo> {
     /**
      * Representation of the [[ItemWarehouseInfo.minimalStock]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -329,6 +345,11 @@ export declare class ItemWarehouseInfoField<EntityT extends Entity> extends Comp
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     standardAveragePrice: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[ItemWarehouseInfo.locked]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    locked: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[ItemWarehouseInfo.inventoryAccount]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -429,6 +450,11 @@ export declare class ItemWarehouseInfoField<EntityT extends Entity> extends Comp
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     countedQuantity: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[ItemWarehouseInfo.wasCounted]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    wasCounted: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[ItemWarehouseInfo.userSignature]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -595,6 +621,11 @@ export declare class ItemWarehouseInfoField<EntityT extends Entity> extends Comp
      */
     defaultBin: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[ItemWarehouseInfo.defaultBinEnforced]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    defaultBinEnforced: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ItemWarehouseInfo.purchaseBalanceAccount]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -603,9 +634,23 @@ export declare class ItemWarehouseInfoField<EntityT extends Entity> extends Comp
      * Representation of the [[ItemWarehouseInfo.itemCycleCounts]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    itemCycleCounts: ItemCycleCountField<EntityT>;
+    itemCycleCounts: CollectionField<EntityT, ItemCycleCount>;
+    /**
+     * Creates an instance of ItemWarehouseInfoField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace ItemWarehouseInfo {
+    /**
+     * Metadata information on all properties of the `ItemWarehouseInfo` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<ItemWarehouseInfo>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | ItemCycleCount;
     }): ItemWarehouseInfo;

@@ -1,19 +1,15 @@
 import { CashDiscountsRequestBuilder } from './CashDiscountsRequestBuilder';
 import { DiscountLine } from './DiscountLine';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "CashDiscounts" of service "SAPB1".
  */
-export declare class CashDiscounts extends Entity implements CashDiscountsType {
+export declare class CashDiscounts extends EntityV4 implements CashDiscountsType {
     /**
      * Technical entity name for CashDiscounts.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for CashDiscounts.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -29,6 +25,21 @@ export declare class CashDiscounts extends Entity implements CashDiscountsType {
      */
     name?: string;
     /**
+     * By Date.
+     * @nullable
+     */
+    byDate?: BoYesNoEnum;
+    /**
+     * Freight.
+     * @nullable
+     */
+    freight?: BoYesNoEnum;
+    /**
+     * Tax.
+     * @nullable
+     */
+    tax?: BoYesNoEnum;
+    /**
      * Discount Lines.
      * @nullable
      */
@@ -38,10 +49,10 @@ export declare class CashDiscounts extends Entity implements CashDiscountsType {
      */
     paymentTermsTypes: PaymentTermsTypes[];
     /**
-     * Returns an entity builder to construct instances `CashDiscounts`.
+     * Returns an entity builder to construct instances of `CashDiscounts`.
      * @returns A builder that constructs instances of entity type `CashDiscounts`.
      */
-    static builder(): EntityBuilderType<CashDiscounts, CashDiscountsTypeForceMandatory>;
+    static builder(): EntityBuilderType<CashDiscounts, CashDiscountsType>;
     /**
      * Returns a request builder to construct requests for operations on the `CashDiscounts` entity type.
      * @returns A `CashDiscounts` request builder.
@@ -52,7 +63,7 @@ export declare class CashDiscounts extends Entity implements CashDiscountsType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `CashDiscounts`.
      */
-    static customField(fieldName: string): CustomField<CashDiscounts>;
+    static customField(fieldName: string): CustomFieldV4<CashDiscounts>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -63,15 +74,12 @@ export declare class CashDiscounts extends Entity implements CashDiscountsType {
 }
 import { PaymentTermsTypes, PaymentTermsTypesType } from './PaymentTermsTypes';
 export interface CashDiscountsType {
-    code?: string;
-    name?: string;
-    discountLines?: DiscountLine[];
-    paymentTermsTypes: PaymentTermsTypesType[];
-}
-export interface CashDiscountsTypeForceMandatory {
-    code: string;
-    name: string;
-    discountLines: DiscountLine[];
+    code?: string | null;
+    name?: string | null;
+    byDate?: BoYesNoEnum | null;
+    freight?: BoYesNoEnum | null;
+    tax?: BoYesNoEnum | null;
+    discountLines?: DiscountLine[] | null;
     paymentTermsTypes: PaymentTermsTypesType[];
 }
 export declare namespace CashDiscounts {
@@ -86,10 +94,25 @@ export declare namespace CashDiscounts {
      */
     const NAME: StringField<CashDiscounts>;
     /**
+     * Static representation of the [[byDate]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BY_DATE: EnumField<CashDiscounts>;
+    /**
+     * Static representation of the [[freight]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const FREIGHT: EnumField<CashDiscounts>;
+    /**
+     * Static representation of the [[tax]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TAX: EnumField<CashDiscounts>;
+    /**
      * Static representation of the [[discountLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const DISCOUNT_LINES: CollectionField<CashDiscounts>;
+    const DISCOUNT_LINES: CollectionField<CashDiscounts, DiscountLine>;
     /**
      * Static representation of the one-to-many navigation property [[paymentTermsTypes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -98,7 +121,7 @@ export declare namespace CashDiscounts {
     /**
      * All fields of the CashDiscounts entity.
      */
-    const _allFields: Array<StringField<CashDiscounts> | CollectionField<CashDiscounts> | OneToManyLink<CashDiscounts, PaymentTermsTypes>>;
+    const _allFields: Array<StringField<CashDiscounts> | EnumField<CashDiscounts> | CollectionField<CashDiscounts, DiscountLine> | OneToManyLink<CashDiscounts, PaymentTermsTypes>>;
     /**
      * All fields selector.
      */

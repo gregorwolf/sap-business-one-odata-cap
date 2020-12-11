@@ -1,18 +1,13 @@
 import { ServiceCallProblemSubTypesRequestBuilder } from './ServiceCallProblemSubTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ServiceCallProblemSubTypes" of service "SAPB1".
  */
-export declare class ServiceCallProblemSubTypes extends Entity implements ServiceCallProblemSubTypesType {
+export declare class ServiceCallProblemSubTypes extends EntityV4 implements ServiceCallProblemSubTypesType {
     /**
      * Technical entity name for ServiceCallProblemSubTypes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ServiceCallProblemSubTypes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -37,10 +32,10 @@ export declare class ServiceCallProblemSubTypes extends Entity implements Servic
      */
     serviceCalls: ServiceCalls[];
     /**
-     * Returns an entity builder to construct instances `ServiceCallProblemSubTypes`.
+     * Returns an entity builder to construct instances of `ServiceCallProblemSubTypes`.
      * @returns A builder that constructs instances of entity type `ServiceCallProblemSubTypes`.
      */
-    static builder(): EntityBuilderType<ServiceCallProblemSubTypes, ServiceCallProblemSubTypesTypeForceMandatory>;
+    static builder(): EntityBuilderType<ServiceCallProblemSubTypes, ServiceCallProblemSubTypesType>;
     /**
      * Returns a request builder to construct requests for operations on the `ServiceCallProblemSubTypes` entity type.
      * @returns A `ServiceCallProblemSubTypes` request builder.
@@ -51,7 +46,7 @@ export declare class ServiceCallProblemSubTypes extends Entity implements Servic
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ServiceCallProblemSubTypes`.
      */
-    static customField(fieldName: string): CustomField<ServiceCallProblemSubTypes>;
+    static customField(fieldName: string): CustomFieldV4<ServiceCallProblemSubTypes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -62,15 +57,9 @@ export declare class ServiceCallProblemSubTypes extends Entity implements Servic
 }
 import { ServiceCalls, ServiceCallsType } from './ServiceCalls';
 export interface ServiceCallProblemSubTypesType {
-    problemSubTypeId?: number;
-    name?: string;
-    description?: string;
-    serviceCalls: ServiceCallsType[];
-}
-export interface ServiceCallProblemSubTypesTypeForceMandatory {
-    problemSubTypeId: number;
-    name: string;
-    description: string;
+    problemSubTypeId?: number | null;
+    name?: string | null;
+    description?: string | null;
     serviceCalls: ServiceCallsType[];
 }
 export declare namespace ServiceCallProblemSubTypes {

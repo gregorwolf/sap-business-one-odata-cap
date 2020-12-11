@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { SalesOpportunityInterestsSetupRequestBuilder } from './SalesOpportunityInterestsSetupRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "SalesOpportunityInterestsSetup" of service "SAPB1".
  */
-export class SalesOpportunityInterestsSetup extends Entity implements SalesOpportunityInterestsSetupType {
+export class SalesOpportunityInterestsSetup extends EntityV4 implements SalesOpportunityInterestsSetupType {
   /**
    * Technical entity name for SalesOpportunityInterestsSetup.
    */
   static _entityName = 'SalesOpportunityInterestsSetup';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for SalesOpportunityInterestsSetup.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Sequence No.
    * @nullable
@@ -44,11 +39,11 @@ export class SalesOpportunityInterestsSetup extends Entity implements SalesOppor
   salesOpportunities!: SalesOpportunities[];
 
   /**
-   * Returns an entity builder to construct instances `SalesOpportunityInterestsSetup`.
+   * Returns an entity builder to construct instances of `SalesOpportunityInterestsSetup`.
    * @returns A builder that constructs instances of entity type `SalesOpportunityInterestsSetup`.
    */
-  static builder(): EntityBuilderType<SalesOpportunityInterestsSetup, SalesOpportunityInterestsSetupTypeForceMandatory> {
-    return Entity.entityBuilder(SalesOpportunityInterestsSetup);
+  static builder(): EntityBuilderType<SalesOpportunityInterestsSetup, SalesOpportunityInterestsSetupType> {
+    return EntityV4.entityBuilder(SalesOpportunityInterestsSetup);
   }
 
   /**
@@ -64,8 +59,8 @@ export class SalesOpportunityInterestsSetup extends Entity implements SalesOppor
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `SalesOpportunityInterestsSetup`.
    */
-  static customField(fieldName: string): CustomField<SalesOpportunityInterestsSetup> {
-    return Entity.customFieldSelector(fieldName, SalesOpportunityInterestsSetup);
+  static customField(fieldName: string): CustomFieldV4<SalesOpportunityInterestsSetup> {
+    return EntityV4.customFieldSelector(fieldName, SalesOpportunityInterestsSetup);
   }
 
   /**
@@ -80,16 +75,9 @@ export class SalesOpportunityInterestsSetup extends Entity implements SalesOppor
 import { SalesOpportunities, SalesOpportunitiesType } from './SalesOpportunities';
 
 export interface SalesOpportunityInterestsSetupType {
-  sequenceNo?: number;
-  description?: string;
-  sort?: number;
-  salesOpportunities: SalesOpportunitiesType[];
-}
-
-export interface SalesOpportunityInterestsSetupTypeForceMandatory {
-  sequenceNo: number;
-  description: string;
-  sort: number;
+  sequenceNo?: number | null;
+  description?: string | null;
+  sort?: number | null;
   salesOpportunities: SalesOpportunitiesType[];
 }
 

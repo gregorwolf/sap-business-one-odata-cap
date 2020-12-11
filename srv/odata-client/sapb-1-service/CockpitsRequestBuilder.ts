@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { Cockpits } from './Cockpits';
 
 /**
@@ -15,16 +15,16 @@ export class CockpitsRequestBuilder extends RequestBuilder<Cockpits> {
    * @param absEntry Key property. See [[Cockpits.absEntry]].
    * @returns A request builder for creating requests to retrieve one `Cockpits` entity based on its keys.
    */
-  getByKey(absEntry: number): GetByKeyRequestBuilder<Cockpits> {
-    return new GetByKeyRequestBuilder(Cockpits, { AbsEntry: absEntry });
+  getByKey(absEntry: number): GetByKeyRequestBuilderV4<Cockpits> {
+    return new GetByKeyRequestBuilderV4(Cockpits, { AbsEntry: absEntry });
   }
 
   /**
    * Returns a request builder for querying all `Cockpits` entities.
    * @returns A request builder for creating requests to retrieve all `Cockpits` entities.
    */
-  getAll(): GetAllRequestBuilder<Cockpits> {
-    return new GetAllRequestBuilder(Cockpits);
+  getAll(): GetAllRequestBuilderV4<Cockpits> {
+    return new GetAllRequestBuilderV4(Cockpits);
   }
 
   /**
@@ -32,8 +32,8 @@ export class CockpitsRequestBuilder extends RequestBuilder<Cockpits> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `Cockpits`.
    */
-  create(entity: Cockpits): CreateRequestBuilder<Cockpits> {
-    return new CreateRequestBuilder(Cockpits, entity);
+  create(entity: Cockpits): CreateRequestBuilderV4<Cockpits> {
+    return new CreateRequestBuilderV4(Cockpits, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class CockpitsRequestBuilder extends RequestBuilder<Cockpits> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `Cockpits`.
    */
-  update(entity: Cockpits): UpdateRequestBuilder<Cockpits> {
-    return new UpdateRequestBuilder(Cockpits, entity);
+  update(entity: Cockpits): UpdateRequestBuilderV4<Cockpits> {
+    return new UpdateRequestBuilderV4(Cockpits, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class CockpitsRequestBuilder extends RequestBuilder<Cockpits> {
    * @param absEntry Key property. See [[Cockpits.absEntry]].
    * @returns A request builder for creating requests that delete an entity of type `Cockpits`.
    */
-  delete(absEntry: number): DeleteRequestBuilder<Cockpits>;
+  delete(absEntry: number): DeleteRequestBuilderV4<Cockpits>;
   /**
    * Returns a request builder for deleting an entity of type `Cockpits`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `Cockpits` by taking the entity as a parameter.
    */
-  delete(entity: Cockpits): DeleteRequestBuilder<Cockpits>;
-  delete(absEntryOrEntity: any): DeleteRequestBuilder<Cockpits> {
-    return new DeleteRequestBuilder(Cockpits, absEntryOrEntity instanceof Cockpits ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
+  delete(entity: Cockpits): DeleteRequestBuilderV4<Cockpits>;
+  delete(absEntryOrEntity: any): DeleteRequestBuilderV4<Cockpits> {
+    return new DeleteRequestBuilderV4(Cockpits, absEntryOrEntity instanceof Cockpits ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
   }
 }

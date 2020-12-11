@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -14,12 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RetornoCodeParams = exports.RetornoCodeParamsField = exports.createRetornoCodeParams = void 0;
-/*
- * Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
- *
- * This is a generated file powered by the SAP Cloud SDK for JavaScript.
- */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[RetornoCodeParams.build]] instead.
  */
@@ -33,60 +28,110 @@ exports.createRetornoCodeParams = createRetornoCodeParams;
  */
 var RetornoCodeParamsField = /** @class */ (function (_super) {
     __extends(RetornoCodeParamsField, _super);
-    function RetornoCodeParamsField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of RetornoCodeParamsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function RetornoCodeParamsField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, RetornoCodeParams) || this;
         /**
          * Representation of the [[RetornoCodeParams.absEntry]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.absEntry = new v4_1.ComplexTypeNumberPropertyField('AbsEntry', _this, 'Edm.Int32');
+        _this.absEntry = new core_1.ComplexTypeNumberPropertyField('AbsEntry', _this, 'Edm.Int32');
         /**
          * Representation of the [[RetornoCodeParams.occurenceCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.occurenceCode = new v4_1.ComplexTypeNumberPropertyField('OccurenceCode', _this, 'Edm.Int32');
+        _this.occurenceCode = new core_1.ComplexTypeNumberPropertyField('OccurenceCode', _this, 'Edm.Int32');
         /**
          * Representation of the [[RetornoCodeParams.movementCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.movementCode = new v4_1.ComplexTypeNumberPropertyField('MovementCode', _this, 'Edm.Int32');
+        _this.movementCode = new core_1.ComplexTypeNumberPropertyField('MovementCode', _this, 'Edm.Int32');
+        /**
+         * Representation of the [[RetornoCodeParams.boeStatus]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.boeStatus = new core_1.ComplexTypeEnumPropertyField('BoeStatus', _this);
         /**
          * Representation of the [[RetornoCodeParams.description]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.description = new v4_1.ComplexTypeStringPropertyField('Description', _this, 'Edm.String');
+        _this.description = new core_1.ComplexTypeStringPropertyField('Description', _this, 'Edm.String');
         /**
          * Representation of the [[RetornoCodeParams.color]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.color = new v4_1.ComplexTypeNumberPropertyField('Color', _this, 'Edm.Int32');
+        _this.color = new core_1.ComplexTypeNumberPropertyField('Color', _this, 'Edm.Int32');
         /**
          * Representation of the [[RetornoCodeParams.fileFormat]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.fileFormat = new v4_1.ComplexTypeStringPropertyField('FileFormat', _this, 'Edm.String');
+        _this.fileFormat = new core_1.ComplexTypeStringPropertyField('FileFormat', _this, 'Edm.String');
         /**
          * Representation of the [[RetornoCodeParams.bankCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.bankCode = new v4_1.ComplexTypeStringPropertyField('BankCode', _this, 'Edm.String');
+        _this.bankCode = new core_1.ComplexTypeStringPropertyField('BankCode', _this, 'Edm.String');
         return _this;
     }
     return RetornoCodeParamsField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.RetornoCodeParamsField = RetornoCodeParamsField;
 var RetornoCodeParams;
 (function (RetornoCodeParams) {
+    /**
+     * Metadata information on all properties of the `RetornoCodeParams` complex type.
+     */
+    RetornoCodeParams._propertyMetadata = [{
+            originalName: 'AbsEntry',
+            name: 'absEntry',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'OccurenceCode',
+            name: 'occurenceCode',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'MovementCode',
+            name: 'movementCode',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'BoeStatus',
+            name: 'boeStatus',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'Description',
+            name: 'description',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Color',
+            name: 'color',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'FileFormat',
+            name: 'fileFormat',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'BankCode',
+            name: 'bankCode',
+            type: 'Edm.String',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            AbsEntry: function (absEntry) { return ({ absEntry: v4_1.edmToTs(absEntry, 'Edm.Int32') }); },
-            OccurenceCode: function (occurenceCode) { return ({ occurenceCode: v4_1.edmToTs(occurenceCode, 'Edm.Int32') }); },
-            MovementCode: function (movementCode) { return ({ movementCode: v4_1.edmToTs(movementCode, 'Edm.Int32') }); },
-            Description: function (description) { return ({ description: v4_1.edmToTs(description, 'Edm.String') }); },
-            Color: function (color) { return ({ color: v4_1.edmToTs(color, 'Edm.Int32') }); },
-            FileFormat: function (fileFormat) { return ({ fileFormat: v4_1.edmToTs(fileFormat, 'Edm.String') }); },
-            BankCode: function (bankCode) { return ({ bankCode: v4_1.edmToTs(bankCode, 'Edm.String') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, RetornoCodeParams);
     }
     RetornoCodeParams.build = build;
 })(RetornoCodeParams = exports.RetornoCodeParams || (exports.RetornoCodeParams = {}));

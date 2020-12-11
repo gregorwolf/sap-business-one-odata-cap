@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { UserQueries } from './UserQueries';
 
 /**
@@ -16,8 +16,8 @@ export class UserQueriesRequestBuilder extends RequestBuilder<UserQueries> {
    * @param queryCategory Key property. See [[UserQueries.queryCategory]].
    * @returns A request builder for creating requests to retrieve one `UserQueries` entity based on its keys.
    */
-  getByKey(internalKey: number, queryCategory: number): GetByKeyRequestBuilder<UserQueries> {
-    return new GetByKeyRequestBuilder(UserQueries, {
+  getByKey(internalKey: number, queryCategory: number): GetByKeyRequestBuilderV4<UserQueries> {
+    return new GetByKeyRequestBuilderV4(UserQueries, {
       InternalKey: internalKey,
       QueryCategory: queryCategory
     });
@@ -27,8 +27,8 @@ export class UserQueriesRequestBuilder extends RequestBuilder<UserQueries> {
    * Returns a request builder for querying all `UserQueries` entities.
    * @returns A request builder for creating requests to retrieve all `UserQueries` entities.
    */
-  getAll(): GetAllRequestBuilder<UserQueries> {
-    return new GetAllRequestBuilder(UserQueries);
+  getAll(): GetAllRequestBuilderV4<UserQueries> {
+    return new GetAllRequestBuilderV4(UserQueries);
   }
 
   /**
@@ -36,8 +36,8 @@ export class UserQueriesRequestBuilder extends RequestBuilder<UserQueries> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `UserQueries`.
    */
-  create(entity: UserQueries): CreateRequestBuilder<UserQueries> {
-    return new CreateRequestBuilder(UserQueries, entity);
+  create(entity: UserQueries): CreateRequestBuilderV4<UserQueries> {
+    return new CreateRequestBuilderV4(UserQueries, entity);
   }
 
   /**
@@ -45,8 +45,8 @@ export class UserQueriesRequestBuilder extends RequestBuilder<UserQueries> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `UserQueries`.
    */
-  update(entity: UserQueries): UpdateRequestBuilder<UserQueries> {
-    return new UpdateRequestBuilder(UserQueries, entity);
+  update(entity: UserQueries): UpdateRequestBuilderV4<UserQueries> {
+    return new UpdateRequestBuilderV4(UserQueries, entity);
   }
 
   /**
@@ -55,15 +55,15 @@ export class UserQueriesRequestBuilder extends RequestBuilder<UserQueries> {
    * @param queryCategory Key property. See [[UserQueries.queryCategory]].
    * @returns A request builder for creating requests that delete an entity of type `UserQueries`.
    */
-  delete(internalKey: number, queryCategory: number): DeleteRequestBuilder<UserQueries>;
+  delete(internalKey: number, queryCategory: number): DeleteRequestBuilderV4<UserQueries>;
   /**
    * Returns a request builder for deleting an entity of type `UserQueries`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `UserQueries` by taking the entity as a parameter.
    */
-  delete(entity: UserQueries): DeleteRequestBuilder<UserQueries>;
-  delete(internalKeyOrEntity: any, queryCategory?: number): DeleteRequestBuilder<UserQueries> {
-    return new DeleteRequestBuilder(UserQueries, internalKeyOrEntity instanceof UserQueries ? internalKeyOrEntity : {
+  delete(entity: UserQueries): DeleteRequestBuilderV4<UserQueries>;
+  delete(internalKeyOrEntity: any, queryCategory?: number): DeleteRequestBuilderV4<UserQueries> {
+    return new DeleteRequestBuilderV4(UserQueries, internalKeyOrEntity instanceof UserQueries ? internalKeyOrEntity : {
       InternalKey: internalKeyOrEntity!,
       QueryCategory: queryCategory!
     });

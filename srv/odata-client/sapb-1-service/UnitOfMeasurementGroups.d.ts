@@ -1,19 +1,14 @@
 import { UnitOfMeasurementGroupsRequestBuilder } from './UnitOfMeasurementGroupsRequestBuilder';
 import { UoMGroupDefinition } from './UoMGroupDefinition';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "UnitOfMeasurementGroups" of service "SAPB1".
  */
-export declare class UnitOfMeasurementGroups extends Entity implements UnitOfMeasurementGroupsType {
+export declare class UnitOfMeasurementGroups extends EntityV4 implements UnitOfMeasurementGroupsType {
     /**
      * Technical entity name for UnitOfMeasurementGroups.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for UnitOfMeasurementGroups.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -60,10 +55,10 @@ export declare class UnitOfMeasurementGroups extends Entity implements UnitOfMea
      */
     binLocations: BinLocations[];
     /**
-     * Returns an entity builder to construct instances `UnitOfMeasurementGroups`.
+     * Returns an entity builder to construct instances of `UnitOfMeasurementGroups`.
      * @returns A builder that constructs instances of entity type `UnitOfMeasurementGroups`.
      */
-    static builder(): EntityBuilderType<UnitOfMeasurementGroups, UnitOfMeasurementGroupsTypeForceMandatory>;
+    static builder(): EntityBuilderType<UnitOfMeasurementGroups, UnitOfMeasurementGroupsType>;
     /**
      * Returns a request builder to construct requests for operations on the `UnitOfMeasurementGroups` entity type.
      * @returns A `UnitOfMeasurementGroups` request builder.
@@ -74,7 +69,7 @@ export declare class UnitOfMeasurementGroups extends Entity implements UnitOfMea
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `UnitOfMeasurementGroups`.
      */
-    static customField(fieldName: string): CustomField<UnitOfMeasurementGroups>;
+    static customField(fieldName: string): CustomFieldV4<UnitOfMeasurementGroups>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -88,22 +83,11 @@ import { Items, ItemsType } from './Items';
 import { UnitOfMeasurements, UnitOfMeasurementsType } from './UnitOfMeasurements';
 import { BinLocations, BinLocationsType } from './BinLocations';
 export interface UnitOfMeasurementGroupsType {
-    absEntry?: number;
-    code?: string;
-    name?: string;
-    baseUoM?: number;
-    uoMGroupDefinitionCollection?: UoMGroupDefinition[];
-    itemGroups: ItemGroupsType[];
-    items: ItemsType[];
-    unitOfMeasurement: UnitOfMeasurementsType;
-    binLocations: BinLocationsType[];
-}
-export interface UnitOfMeasurementGroupsTypeForceMandatory {
-    absEntry: number;
-    code: string;
-    name: string;
-    baseUoM: number;
-    uoMGroupDefinitionCollection: UoMGroupDefinition[];
+    absEntry?: number | null;
+    code?: string | null;
+    name?: string | null;
+    baseUoM?: number | null;
+    uoMGroupDefinitionCollection?: UoMGroupDefinition[] | null;
     itemGroups: ItemGroupsType[];
     items: ItemsType[];
     unitOfMeasurement: UnitOfMeasurementsType;
@@ -134,7 +118,7 @@ export declare namespace UnitOfMeasurementGroups {
      * Static representation of the [[uoMGroupDefinitionCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const UO_M_GROUP_DEFINITION_COLLECTION: CollectionField<UnitOfMeasurementGroups>;
+    const UO_M_GROUP_DEFINITION_COLLECTION: CollectionField<UnitOfMeasurementGroups, UoMGroupDefinition>;
     /**
      * Static representation of the one-to-many navigation property [[itemGroups]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -158,7 +142,7 @@ export declare namespace UnitOfMeasurementGroups {
     /**
      * All fields of the UnitOfMeasurementGroups entity.
      */
-    const _allFields: Array<NumberField<UnitOfMeasurementGroups> | StringField<UnitOfMeasurementGroups> | CollectionField<UnitOfMeasurementGroups> | OneToManyLink<UnitOfMeasurementGroups, ItemGroups> | OneToManyLink<UnitOfMeasurementGroups, Items> | OneToOneLink<UnitOfMeasurementGroups, UnitOfMeasurements> | OneToManyLink<UnitOfMeasurementGroups, BinLocations>>;
+    const _allFields: Array<NumberField<UnitOfMeasurementGroups> | StringField<UnitOfMeasurementGroups> | CollectionField<UnitOfMeasurementGroups, UoMGroupDefinition> | OneToManyLink<UnitOfMeasurementGroups, ItemGroups> | OneToManyLink<UnitOfMeasurementGroups, Items> | OneToOneLink<UnitOfMeasurementGroups, UnitOfMeasurements> | OneToManyLink<UnitOfMeasurementGroups, BinLocations>>;
     /**
      * All fields selector.
      */

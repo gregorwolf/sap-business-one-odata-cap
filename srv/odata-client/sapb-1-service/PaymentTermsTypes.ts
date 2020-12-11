@@ -4,25 +4,23 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { PaymentTermsTypesRequestBuilder } from './PaymentTermsTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoPayTermDueTypes } from './BoPayTermDueTypes';
+import { BoOpenIncPayment } from './BoOpenIncPayment';
+import { BoBaselineDate } from './BoBaselineDate';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "PaymentTermsTypes" of service "SAPB1".
  */
-export class PaymentTermsTypes extends Entity implements PaymentTermsTypesType {
+export class PaymentTermsTypes extends EntityV4 implements PaymentTermsTypesType {
   /**
    * Technical entity name for PaymentTermsTypes.
    */
   static _entityName = 'PaymentTermsTypes';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for PaymentTermsTypes.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Group Number.
    * @nullable
@@ -33,6 +31,11 @@ export class PaymentTermsTypes extends Entity implements PaymentTermsTypesType {
    * @nullable
    */
   paymentTermsGroupName?: string;
+  /**
+   * Start From.
+   * @nullable
+   */
+  startFrom?: BoPayTermDueTypes;
   /**
    * Number Of Additional Months.
    * @nullable
@@ -69,6 +72,11 @@ export class PaymentTermsTypes extends Entity implements PaymentTermsTypesType {
    */
   loadLimit?: number;
   /**
+   * Open Receipt.
+   * @nullable
+   */
+  openReceipt?: BoOpenIncPayment;
+  /**
    * Discount Code.
    * @nullable
    */
@@ -78,6 +86,11 @@ export class PaymentTermsTypes extends Entity implements PaymentTermsTypesType {
    * @nullable
    */
   dunningCode?: string;
+  /**
+   * Baseline Date.
+   * @nullable
+   */
+  baselineDate?: BoBaselineDate;
   /**
    * Number Of Installments.
    * @nullable
@@ -214,11 +227,11 @@ export class PaymentTermsTypes extends Entity implements PaymentTermsTypesType {
   goodsReturnRequest!: GoodsReturnRequest[];
 
   /**
-   * Returns an entity builder to construct instances `PaymentTermsTypes`.
+   * Returns an entity builder to construct instances of `PaymentTermsTypes`.
    * @returns A builder that constructs instances of entity type `PaymentTermsTypes`.
    */
-  static builder(): EntityBuilderType<PaymentTermsTypes, PaymentTermsTypesTypeForceMandatory> {
-    return Entity.entityBuilder(PaymentTermsTypes);
+  static builder(): EntityBuilderType<PaymentTermsTypes, PaymentTermsTypesType> {
+    return EntityV4.entityBuilder(PaymentTermsTypes);
   }
 
   /**
@@ -234,8 +247,8 @@ export class PaymentTermsTypes extends Entity implements PaymentTermsTypesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `PaymentTermsTypes`.
    */
-  static customField(fieldName: string): CustomField<PaymentTermsTypes> {
-    return Entity.customFieldSelector(fieldName, PaymentTermsTypes);
+  static customField(fieldName: string): CustomFieldV4<PaymentTermsTypes> {
+    return EntityV4.customFieldSelector(fieldName, PaymentTermsTypes);
   }
 
   /**
@@ -280,66 +293,22 @@ import { PurchaseOrders, PurchaseOrdersType } from './PurchaseOrders';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 
 export interface PaymentTermsTypesType {
-  groupNumber?: number;
-  paymentTermsGroupName?: string;
-  numberOfAdditionalMonths?: number;
-  numberOfAdditionalDays?: number;
-  creditLimit?: number;
-  generalDiscount?: number;
-  interestOnArrears?: number;
-  priceListNo?: number;
-  loadLimit?: number;
-  discountCode?: string;
-  dunningCode?: string;
-  numberOfInstallments?: number;
-  numberOfToleranceDays?: number;
-  inventoryGenEntries: InventoryGenEntriesType[];
-  purchaseQuotations: PurchaseQuotationsType[];
-  priceList: PriceListsType;
-  cashDiscount: CashDiscountsType;
-  deliveryNotes: DeliveryNotesType[];
-  businessPartners: BusinessPartnersType[];
-  quotations: QuotationsType[];
-  inventoryGenExits: InventoryGenExitsType[];
-  purchaseRequests: PurchaseRequestsType[];
-  returnRequest: ReturnRequestType[];
-  blanketAgreements: BlanketAgreementsType[];
-  purchaseReturns: PurchaseReturnsType[];
-  invoices: InvoicesType[];
-  creditNotes: CreditNotesType[];
-  orders: OrdersType[];
-  inventoryTransferRequests: InventoryTransferRequestsType[];
-  downPayments: DownPaymentsType[];
-  drafts: DraftsType[];
-  wizardPaymentMethods: WizardPaymentMethodsType[];
-  stockTransferDrafts: StockTransferDraftsType[];
-  returns: ReturnsType[];
-  correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-  correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-  correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-  purchaseInvoices: PurchaseInvoicesType[];
-  purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-  correctionInvoice: CorrectionInvoiceType[];
-  purchaseCreditNotes: PurchaseCreditNotesType[];
-  purchaseDownPayments: PurchaseDownPaymentsType[];
-  purchaseOrders: PurchaseOrdersType[];
-  goodsReturnRequest: GoodsReturnRequestType[];
-}
-
-export interface PaymentTermsTypesTypeForceMandatory {
-  groupNumber: number;
-  paymentTermsGroupName: string;
-  numberOfAdditionalMonths: number;
-  numberOfAdditionalDays: number;
-  creditLimit: number;
-  generalDiscount: number;
-  interestOnArrears: number;
-  priceListNo: number;
-  loadLimit: number;
-  discountCode: string;
-  dunningCode: string;
-  numberOfInstallments: number;
-  numberOfToleranceDays: number;
+  groupNumber?: number | null;
+  paymentTermsGroupName?: string | null;
+  startFrom?: BoPayTermDueTypes | null;
+  numberOfAdditionalMonths?: number | null;
+  numberOfAdditionalDays?: number | null;
+  creditLimit?: number | null;
+  generalDiscount?: number | null;
+  interestOnArrears?: number | null;
+  priceListNo?: number | null;
+  loadLimit?: number | null;
+  openReceipt?: BoOpenIncPayment | null;
+  discountCode?: string | null;
+  dunningCode?: string | null;
+  baselineDate?: BoBaselineDate | null;
+  numberOfInstallments?: number | null;
+  numberOfToleranceDays?: number | null;
   inventoryGenEntries: InventoryGenEntriesType[];
   purchaseQuotations: PurchaseQuotationsType[];
   priceList: PriceListsType;
@@ -385,6 +354,11 @@ export namespace PaymentTermsTypes {
    */
   export const PAYMENT_TERMS_GROUP_NAME: StringField<PaymentTermsTypes> = new StringField('PaymentTermsGroupName', PaymentTermsTypes, 'Edm.String');
   /**
+   * Static representation of the [[startFrom]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const START_FROM: EnumField<PaymentTermsTypes> = new EnumField('StartFrom', PaymentTermsTypes);
+  /**
    * Static representation of the [[numberOfAdditionalMonths]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -420,6 +394,11 @@ export namespace PaymentTermsTypes {
    */
   export const LOAD_LIMIT: NumberField<PaymentTermsTypes> = new NumberField('LoadLimit', PaymentTermsTypes, 'Edm.Double');
   /**
+   * Static representation of the [[openReceipt]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const OPEN_RECEIPT: EnumField<PaymentTermsTypes> = new EnumField('OpenReceipt', PaymentTermsTypes);
+  /**
    * Static representation of the [[discountCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -429,6 +408,11 @@ export namespace PaymentTermsTypes {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DUNNING_CODE: StringField<PaymentTermsTypes> = new StringField('DunningCode', PaymentTermsTypes, 'Edm.String');
+  /**
+   * Static representation of the [[baselineDate]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BASELINE_DATE: EnumField<PaymentTermsTypes> = new EnumField('BaselineDate', PaymentTermsTypes);
   /**
    * Static representation of the [[numberOfInstallments]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -597,9 +581,10 @@ export namespace PaymentTermsTypes {
   /**
    * All fields of the PaymentTermsTypes entity.
    */
-  export const _allFields: Array<NumberField<PaymentTermsTypes> | StringField<PaymentTermsTypes> | OneToManyLink<PaymentTermsTypes, InventoryGenEntries> | OneToManyLink<PaymentTermsTypes, PurchaseQuotations> | OneToOneLink<PaymentTermsTypes, PriceLists> | OneToOneLink<PaymentTermsTypes, CashDiscounts> | OneToManyLink<PaymentTermsTypes, DeliveryNotes> | OneToManyLink<PaymentTermsTypes, BusinessPartners> | OneToManyLink<PaymentTermsTypes, Quotations> | OneToManyLink<PaymentTermsTypes, InventoryGenExits> | OneToManyLink<PaymentTermsTypes, PurchaseRequests> | OneToManyLink<PaymentTermsTypes, ReturnRequest> | OneToManyLink<PaymentTermsTypes, BlanketAgreements> | OneToManyLink<PaymentTermsTypes, PurchaseReturns> | OneToManyLink<PaymentTermsTypes, Invoices> | OneToManyLink<PaymentTermsTypes, CreditNotes> | OneToManyLink<PaymentTermsTypes, Orders> | OneToManyLink<PaymentTermsTypes, InventoryTransferRequests> | OneToManyLink<PaymentTermsTypes, DownPayments> | OneToManyLink<PaymentTermsTypes, Drafts> | OneToManyLink<PaymentTermsTypes, WizardPaymentMethods> | OneToManyLink<PaymentTermsTypes, StockTransferDrafts> | OneToManyLink<PaymentTermsTypes, Returns> | OneToManyLink<PaymentTermsTypes, CorrectionInvoiceReversal> | OneToManyLink<PaymentTermsTypes, CorrectionPurchaseInvoice> | OneToManyLink<PaymentTermsTypes, CorrectionPurchaseInvoiceReversal> | OneToManyLink<PaymentTermsTypes, PurchaseInvoices> | OneToManyLink<PaymentTermsTypes, PurchaseDeliveryNotes> | OneToManyLink<PaymentTermsTypes, CorrectionInvoice> | OneToManyLink<PaymentTermsTypes, PurchaseCreditNotes> | OneToManyLink<PaymentTermsTypes, PurchaseDownPayments> | OneToManyLink<PaymentTermsTypes, PurchaseOrders> | OneToManyLink<PaymentTermsTypes, GoodsReturnRequest>> = [
+  export const _allFields: Array<NumberField<PaymentTermsTypes> | StringField<PaymentTermsTypes> | EnumField<PaymentTermsTypes> | OneToManyLink<PaymentTermsTypes, InventoryGenEntries> | OneToManyLink<PaymentTermsTypes, PurchaseQuotations> | OneToOneLink<PaymentTermsTypes, PriceLists> | OneToOneLink<PaymentTermsTypes, CashDiscounts> | OneToManyLink<PaymentTermsTypes, DeliveryNotes> | OneToManyLink<PaymentTermsTypes, BusinessPartners> | OneToManyLink<PaymentTermsTypes, Quotations> | OneToManyLink<PaymentTermsTypes, InventoryGenExits> | OneToManyLink<PaymentTermsTypes, PurchaseRequests> | OneToManyLink<PaymentTermsTypes, ReturnRequest> | OneToManyLink<PaymentTermsTypes, BlanketAgreements> | OneToManyLink<PaymentTermsTypes, PurchaseReturns> | OneToManyLink<PaymentTermsTypes, Invoices> | OneToManyLink<PaymentTermsTypes, CreditNotes> | OneToManyLink<PaymentTermsTypes, Orders> | OneToManyLink<PaymentTermsTypes, InventoryTransferRequests> | OneToManyLink<PaymentTermsTypes, DownPayments> | OneToManyLink<PaymentTermsTypes, Drafts> | OneToManyLink<PaymentTermsTypes, WizardPaymentMethods> | OneToManyLink<PaymentTermsTypes, StockTransferDrafts> | OneToManyLink<PaymentTermsTypes, Returns> | OneToManyLink<PaymentTermsTypes, CorrectionInvoiceReversal> | OneToManyLink<PaymentTermsTypes, CorrectionPurchaseInvoice> | OneToManyLink<PaymentTermsTypes, CorrectionPurchaseInvoiceReversal> | OneToManyLink<PaymentTermsTypes, PurchaseInvoices> | OneToManyLink<PaymentTermsTypes, PurchaseDeliveryNotes> | OneToManyLink<PaymentTermsTypes, CorrectionInvoice> | OneToManyLink<PaymentTermsTypes, PurchaseCreditNotes> | OneToManyLink<PaymentTermsTypes, PurchaseDownPayments> | OneToManyLink<PaymentTermsTypes, PurchaseOrders> | OneToManyLink<PaymentTermsTypes, GoodsReturnRequest>> = [
     PaymentTermsTypes.GROUP_NUMBER,
     PaymentTermsTypes.PAYMENT_TERMS_GROUP_NAME,
+    PaymentTermsTypes.START_FROM,
     PaymentTermsTypes.NUMBER_OF_ADDITIONAL_MONTHS,
     PaymentTermsTypes.NUMBER_OF_ADDITIONAL_DAYS,
     PaymentTermsTypes.CREDIT_LIMIT,
@@ -607,8 +592,10 @@ export namespace PaymentTermsTypes {
     PaymentTermsTypes.INTEREST_ON_ARREARS,
     PaymentTermsTypes.PRICE_LIST_NO,
     PaymentTermsTypes.LOAD_LIMIT,
+    PaymentTermsTypes.OPEN_RECEIPT,
     PaymentTermsTypes.DISCOUNT_CODE,
     PaymentTermsTypes.DUNNING_CODE,
+    PaymentTermsTypes.BASELINE_DATE,
     PaymentTermsTypes.NUMBER_OF_INSTALLMENTS,
     PaymentTermsTypes.NUMBER_OF_TOLERANCE_DAYS,
     PaymentTermsTypes.INVENTORY_GEN_ENTRIES,

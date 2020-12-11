@@ -5,36 +5,54 @@
  */
 import { InventoryGenEntriesRequestBuilder } from './InventoryGenEntriesRequestBuilder';
 import { Moment } from 'moment';
-import { DocumentApprovalRequest, DocumentApprovalRequestField } from './DocumentApprovalRequest';
-import { DocumentLine, DocumentLineField } from './DocumentLine';
-import { DocumentAdditionalExpense, DocumentAdditionalExpenseField } from './DocumentAdditionalExpense';
-import { WithholdingTaxDataWtx, WithholdingTaxDataWtxField } from './WithholdingTaxDataWtx';
-import { WithholdingTaxData, WithholdingTaxDataField } from './WithholdingTaxData';
-import { DocumentPackage, DocumentPackageField } from './DocumentPackage';
-import { DocumentSpecialLine, DocumentSpecialLineField } from './DocumentSpecialLine';
-import { DocumentInstallment, DocumentInstallmentField } from './DocumentInstallment';
-import { DownPaymentToDraw, DownPaymentToDrawField } from './DownPaymentToDraw';
+import { DocumentApprovalRequest } from './DocumentApprovalRequest';
+import { DocumentLine } from './DocumentLine';
+import { DocumentAdditionalExpense } from './DocumentAdditionalExpense';
+import { WithholdingTaxDataWtx } from './WithholdingTaxDataWtx';
+import { WithholdingTaxData } from './WithholdingTaxData';
+import { DocumentPackage } from './DocumentPackage';
+import { DocumentSpecialLine } from './DocumentSpecialLine';
+import { DocumentInstallment } from './DocumentInstallment';
+import { DownPaymentToDraw } from './DownPaymentToDraw';
 import { TaxExtension, TaxExtensionField } from './TaxExtension';
 import { AddressExtension, AddressExtensionField } from './AddressExtension';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoDocumentTypes } from './BoDocumentTypes';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { PrintStatusEnum } from './PrintStatusEnum';
+import { BoDocSummaryTypes } from './BoDocSummaryTypes';
+import { BoObjectTypes } from './BoObjectTypes';
+import { BoDocWhsUpdateTypes } from './BoDocWhsUpdateTypes';
+import { BoDocumentSubType } from './BoDocumentSubType';
+import { BoStatus } from './BoStatus';
+import { DownPaymentTypeEnum } from './DownPaymentTypeEnum';
+import { BoPayTermDueTypes } from './BoPayTermDueTypes';
+import { EDocGenerationTypeEnum } from './EDocGenerationTypeEnum';
+import { EDocStatusEnum } from './EDocStatusEnum';
+import { BoSoStatus } from './BoSoStatus';
+import { ClosingOptionEnum } from './ClosingOptionEnum';
+import { DocumentAuthorizationStatusEnum } from './DocumentAuthorizationStatusEnum';
+import { CancelStatusEnum } from './CancelStatusEnum';
+import { DocumentDeliveryTypeEnum } from './DocumentDeliveryTypeEnum';
+import { ElecCommStatusEnum } from './ElecCommStatusEnum';
+import { FolioLetterEnum } from './FolioLetterEnum';
+import { BoInterimDocTypes } from './BoInterimDocTypes';
+import { PriceModeDocumentEnum } from './PriceModeDocumentEnum';
+import { GstTransactionTypeEnum } from './GstTransactionTypeEnum';
+import { CommissionTradeTypeEnum } from './CommissionTradeTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "InventoryGenEntries" of service "SAPB1".
  */
-export class InventoryGenEntries extends Entity implements InventoryGenEntriesType {
+export class InventoryGenEntries extends EntityV4 implements InventoryGenEntriesType {
   /**
    * Technical entity name for InventoryGenEntries.
    */
   static _entityName = 'InventoryGenEntries';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for InventoryGenEntries.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Doc Entry.
    * @nullable
@@ -45,6 +63,21 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    * @nullable
    */
   docNum?: number;
+  /**
+   * Doc Type.
+   * @nullable
+   */
+  docType?: BoDocumentTypes;
+  /**
+   * Hand Written.
+   * @nullable
+   */
+  handWritten?: BoYesNoEnum;
+  /**
+   * Printed.
+   * @nullable
+   */
+  printed?: PrintStatusEnum;
   /**
    * Doc Date.
    * @nullable
@@ -136,15 +169,30 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   transportationCode?: number;
   /**
+   * Confirmed.
+   * @nullable
+   */
+  confirmed?: BoYesNoEnum;
+  /**
    * Import File Num.
    * @nullable
    */
   importFileNum?: number;
   /**
+   * Summery Type.
+   * @nullable
+   */
+  summeryType?: BoDocSummaryTypes;
+  /**
    * Contact Person Code.
    * @nullable
    */
   contactPersonCode?: number;
+  /**
+   * Show Scn.
+   * @nullable
+   */
+  showScn?: BoYesNoEnum;
   /**
    * Series.
    * @nullable
@@ -155,6 +203,16 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    * @nullable
    */
   taxDate?: Moment;
+  /**
+   * Partial Supply.
+   * @nullable
+   */
+  partialSupply?: BoYesNoEnum;
+  /**
+   * Doc Object Code.
+   * @nullable
+   */
+  docObjectCode?: BoObjectTypes;
   /**
    * Ship To Code.
    * @nullable
@@ -216,6 +274,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   vatSumFc?: number;
   /**
+   * Net Procedure.
+   * @nullable
+   */
+  netProcedure?: BoYesNoEnum;
+  /**
    * Doc Total Fc.
    * @nullable
    */
@@ -236,6 +299,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   box1099?: string;
   /**
+   * Revision Po.
+   * @nullable
+   */
+  revisionPo?: BoYesNoEnum;
+  /**
    * Requried Date.
    * @nullable
    */
@@ -246,15 +314,40 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   cancelDate?: Moment;
   /**
+   * Block Dunning.
+   * @nullable
+   */
+  blockDunning?: BoYesNoEnum;
+  /**
+   * Submitted.
+   * @nullable
+   */
+  submitted?: BoYesNoEnum;
+  /**
    * Segment.
    * @nullable
    */
   segment?: number;
   /**
+   * Pick Status.
+   * @nullable
+   */
+  pickStatus?: BoYesNoEnum;
+  /**
+   * Pick.
+   * @nullable
+   */
+  pick?: BoYesNoEnum;
+  /**
    * Payment Method.
    * @nullable
    */
   paymentMethod?: string;
+  /**
+   * Payment Block.
+   * @nullable
+   */
+  paymentBlock?: BoYesNoEnum;
   /**
    * Payment Block Entry.
    * @nullable
@@ -265,6 +358,16 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    * @nullable
    */
   centralBankIndicator?: string;
+  /**
+   * Maximum Cash Discount.
+   * @nullable
+   */
+  maximumCashDiscount?: BoYesNoEnum;
+  /**
+   * Reserve.
+   * @nullable
+   */
+  reserve?: BoYesNoEnum;
   /**
    * Project.
    * @nullable
@@ -281,6 +384,16 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   exemptionValidityDateTo?: Moment;
   /**
+   * Ware House Update Type.
+   * @nullable
+   */
+  wareHouseUpdateType?: BoDocWhsUpdateTypes;
+  /**
+   * Rounding.
+   * @nullable
+   */
+  rounding?: BoYesNoEnum;
+  /**
    * External Corrected Doc Num.
    * @nullable
    */
@@ -296,6 +409,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   nextCorrectingDocument?: number;
   /**
+   * Deferred Tax.
+   * @nullable
+   */
+  deferredTax?: BoYesNoEnum;
+  /**
    * Tax Exemption Letter Num.
    * @nullable
    */
@@ -310,6 +428,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    * @nullable
    */
   wtAppliedFc?: number;
+  /**
+   * Bill Of Exchange Reserved.
+   * @nullable
+   */
+  billOfExchangeReserved?: BoYesNoEnum;
   /**
    * Agent Code.
    * @nullable
@@ -340,6 +463,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    * @nullable
    */
   numberOfInstallments?: number;
+  /**
+   * Apply Tax On First Installment.
+   * @nullable
+   */
+  applyTaxOnFirstInstallment?: BoYesNoEnum;
   /**
    * Wt Non Subject Amount.
    * @nullable
@@ -421,6 +549,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   folioNumber?: number;
   /**
+   * Document Sub Type.
+   * @nullable
+   */
+  documentSubType?: BoDocumentSubType;
+  /**
    * Bp Channel Code.
    * @nullable
    */
@@ -436,6 +569,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   address2?: string;
   /**
+   * Document Status.
+   * @nullable
+   */
+  documentStatus?: BoStatus;
+  /**
    * Period Indicator.
    * @nullable
    */
@@ -450,6 +588,16 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    * @nullable
    */
   manualNumber?: string;
+  /**
+   * Use Shpd Goods Act.
+   * @nullable
+   */
+  useShpdGoodsAct?: BoYesNoEnum;
+  /**
+   * Is Pay To Bank.
+   * @nullable
+   */
+  isPayToBank?: BoYesNoEnum;
   /**
    * Pay To Bank Country.
    * @nullable
@@ -480,6 +628,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    * @nullable
    */
   downPayment?: number;
+  /**
+   * Reserve Invoice.
+   * @nullable
+   */
+  reserveInvoice?: BoYesNoEnum;
   /**
    * Language Code.
    * @nullable
@@ -526,6 +679,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   sequenceModel?: string;
   /**
+   * Use Correction Vat Group.
+   * @nullable
+   */
+  useCorrectionVatGroup?: BoYesNoEnum;
+  /**
    * Total Discount.
    * @nullable
    */
@@ -540,6 +698,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    * @nullable
    */
   downPaymentPercentage?: number;
+  /**
+   * Down Payment Type.
+   * @nullable
+   */
+  downPaymentType?: DownPaymentTypeEnum;
   /**
    * Down Payment Amount Sc.
    * @nullable
@@ -586,6 +749,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   roundingDiffAmountSc?: number;
   /**
+   * Cancelled.
+   * @nullable
+   */
+  cancelled?: BoYesNoEnum;
+  /**
    * Signature Input Message.
    * @nullable
    */
@@ -610,6 +778,16 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    * @nullable
    */
   controlAccount?: string;
+  /**
+   * Insurance Operation 347.
+   * @nullable
+   */
+  insuranceOperation347?: BoYesNoEnum;
+  /**
+   * Archive Nonremovable Sales Quotation.
+   * @nullable
+   */
+  archiveNonremovableSalesQuotation?: BoYesNoEnum;
   /**
    * Gts Checker.
    * @nullable
@@ -636,6 +814,16 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   cashDiscountDateOffset?: number;
   /**
+   * Start From.
+   * @nullable
+   */
+  startFrom?: BoPayTermDueTypes;
+  /**
+   * Nts Approved.
+   * @nullable
+   */
+  ntsApproved?: BoYesNoEnum;
+  /**
    * E Tax Web Site.
    * @nullable
    */
@@ -650,6 +838,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    * @nullable
    */
   ntsApprovedNumber?: string;
+  /**
+   * E Doc Generation Type.
+   * @nullable
+   */
+  eDocGenerationType?: EDocGenerationTypeEnum;
   /**
    * E Doc Series.
    * @nullable
@@ -666,6 +859,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   eDocExportFormat?: number;
   /**
+   * E Doc Status.
+   * @nullable
+   */
+  eDocStatus?: EDocStatusEnum;
+  /**
    * E Doc Error Code.
    * @nullable
    */
@@ -676,6 +874,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   eDocErrorMessage?: string;
   /**
+   * Down Payment Status.
+   * @nullable
+   */
+  downPaymentStatus?: BoSoStatus;
+  /**
    * Group Series.
    * @nullable
    */
@@ -685,6 +888,26 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    * @nullable
    */
   groupNumber?: number;
+  /**
+   * Group Hand Written.
+   * @nullable
+   */
+  groupHandWritten?: BoYesNoEnum;
+  /**
+   * Reopen Original Document.
+   * @nullable
+   */
+  reopenOriginalDocument?: BoYesNoEnum;
+  /**
+   * Reopen Manually Closed Or Canceled Document.
+   * @nullable
+   */
+  reopenManuallyClosedOrCanceledDocument?: BoYesNoEnum;
+  /**
+   * Create Online Quotation.
+   * @nullable
+   */
+  createOnlineQuotation?: BoYesNoEnum;
   /**
    * Pos Equipment Number.
    * @nullable
@@ -701,10 +924,30 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   posCashierNumber?: number;
   /**
+   * Apply Current Vat Rates For Down Payments To Draw.
+   * @nullable
+   */
+  applyCurrentVatRatesForDownPaymentsToDraw?: BoYesNoEnum;
+  /**
+   * Closing Option.
+   * @nullable
+   */
+  closingOption?: ClosingOptionEnum;
+  /**
    * Specified Closing Date.
    * @nullable
    */
   specifiedClosingDate?: Moment;
+  /**
+   * Open For Landed Costs.
+   * @nullable
+   */
+  openForLandedCosts?: BoYesNoEnum;
+  /**
+   * Authorization Status.
+   * @nullable
+   */
+  authorizationStatus?: DocumentAuthorizationStatusEnum;
   /**
    * Total Discount Fc.
    * @nullable
@@ -715,6 +958,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    * @nullable
    */
   totalDiscountSc?: number;
+  /**
+   * Relevant To Gts.
+   * @nullable
+   */
+  relevantToGts?: BoYesNoEnum;
   /**
    * Bpl Name.
    * @nullable
@@ -751,6 +999,16 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   blanketAgreementNumber?: number;
   /**
+   * Is Alteration.
+   * @nullable
+   */
+  isAlteration?: BoYesNoEnum;
+  /**
+   * Cancel Status.
+   * @nullable
+   */
+  cancelStatus?: CancelStatusEnum;
+  /**
    * Asset Value Date.
    * @nullable
    */
@@ -781,10 +1039,20 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   requesterEmail?: string;
   /**
+   * Send Notification.
+   * @nullable
+   */
+  sendNotification?: BoYesNoEnum;
+  /**
    * Req Type.
    * @nullable
    */
   reqType?: number;
+  /**
+   * Document Delivery.
+   * @nullable
+   */
+  documentDelivery?: DocumentDeliveryTypeEnum;
   /**
    * Authorization Code.
    * @nullable
@@ -821,10 +1089,30 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   atDocumentType?: string;
   /**
+   * Elec Comm Status.
+   * @nullable
+   */
+  elecCommStatus?: ElecCommStatusEnum;
+  /**
    * Elec Comm Message.
    * @nullable
    */
   elecCommMessage?: string;
+  /**
+   * Reuse Document Num.
+   * @nullable
+   */
+  reuseDocumentNum?: BoYesNoEnum;
+  /**
+   * Reuse Nota Fiscal Num.
+   * @nullable
+   */
+  reuseNotaFiscalNum?: BoYesNoEnum;
+  /**
+   * Print Sepa Direct.
+   * @nullable
+   */
+  printSepaDirect?: BoYesNoEnum;
   /**
    * Fiscal Doc Num.
    * @nullable
@@ -846,6 +1134,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   pointOfIssueCode?: string;
   /**
+   * Letter.
+   * @nullable
+   */
+  letter?: FolioLetterEnum;
+  /**
    * Folio Number From.
    * @nullable
    */
@@ -855,6 +1148,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    * @nullable
    */
   folioNumberTo?: number;
+  /**
+   * Interim Type.
+   * @nullable
+   */
+  interimType?: BoInterimDocTypes;
   /**
    * Related Type.
    * @nullable
@@ -881,6 +1179,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   reportingSectionControlStatementVat?: string;
   /**
+   * Exclude From Tax Report Control Statement Vat.
+   * @nullable
+   */
+  excludeFromTaxReportControlStatementVat?: BoYesNoEnum;
+  /**
    * Pos Cash Register.
    * @nullable
    */
@@ -891,10 +1194,20 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    */
   updateTime?: Time;
   /**
+   * Price Mode.
+   * @nullable
+   */
+  priceMode?: PriceModeDocumentEnum;
+  /**
    * Down Payment Trasaction Id.
    * @nullable
    */
   downPaymentTrasactionId?: string;
+  /**
+   * Revision.
+   * @nullable
+   */
+  revision?: BoYesNoEnum;
   /**
    * Original Ref No.
    * @nullable
@@ -905,6 +1218,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    * @nullable
    */
   originalRefDate?: Moment;
+  /**
+   * Gst Transaction Type.
+   * @nullable
+   */
+  gstTransactionType?: GstTransactionTypeEnum;
   /**
    * Original Credit Or Debit No.
    * @nullable
@@ -940,6 +1258,21 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    * @nullable
    */
   shipFrom?: string;
+  /**
+   * Commission Trade.
+   * @nullable
+   */
+  commissionTrade?: CommissionTradeTypeEnum;
+  /**
+   * Commission Trade Return.
+   * @nullable
+   */
+  commissionTradeReturn?: BoYesNoEnum;
+  /**
+   * Use Bill To Addr To Determine Tax.
+   * @nullable
+   */
+  useBillToAddrToDetermineTax?: BoYesNoEnum;
   /**
    * Issuing Reason.
    * @nullable
@@ -1091,11 +1424,11 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
   posDailySummary!: PosDailySummary;
 
   /**
-   * Returns an entity builder to construct instances `InventoryGenEntries`.
+   * Returns an entity builder to construct instances of `InventoryGenEntries`.
    * @returns A builder that constructs instances of entity type `InventoryGenEntries`.
    */
-  static builder(): EntityBuilderType<InventoryGenEntries, InventoryGenEntriesTypeForceMandatory> {
-    return Entity.entityBuilder(InventoryGenEntries);
+  static builder(): EntityBuilderType<InventoryGenEntries, InventoryGenEntriesType> {
+    return EntityV4.entityBuilder(InventoryGenEntries);
   }
 
   /**
@@ -1111,8 +1444,8 @@ export class InventoryGenEntries extends Entity implements InventoryGenEntriesTy
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `InventoryGenEntries`.
    */
-  static customField(fieldName: string): CustomField<InventoryGenEntries> {
-    return Entity.customFieldSelector(fieldName, InventoryGenEntries);
+  static customField(fieldName: string): CustomFieldV4<InventoryGenEntries> {
+    return EntityV4.customFieldSelector(fieldName, InventoryGenEntries);
   }
 
   /**
@@ -1147,418 +1480,263 @@ import { Departments, DepartmentsType } from './Departments';
 import { PosDailySummary, PosDailySummaryType } from './PosDailySummary';
 
 export interface InventoryGenEntriesType {
-  docEntry?: number;
-  docNum?: number;
-  docDate?: Moment;
-  docDueDate?: Moment;
-  cardCode?: string;
-  cardName?: string;
-  address?: string;
-  numAtCard?: string;
-  docTotal?: number;
-  attachmentEntry?: number;
-  docCurrency?: string;
-  docRate?: number;
-  reference1?: string;
-  reference2?: string;
-  comments?: string;
-  journalMemo?: string;
-  paymentGroupCode?: number;
-  docTime?: Time;
-  salesPersonCode?: number;
-  transportationCode?: number;
-  importFileNum?: number;
-  contactPersonCode?: number;
-  series?: number;
-  taxDate?: Moment;
-  shipToCode?: string;
-  indicator?: string;
-  federalTaxId?: string;
-  discountPercent?: number;
-  paymentReference?: string;
-  creationDate?: Moment;
-  updateDate?: Moment;
-  financialPeriod?: number;
-  transNum?: number;
-  vatSum?: number;
-  vatSumSys?: number;
-  vatSumFc?: number;
-  docTotalFc?: number;
-  docTotalSys?: number;
-  form1099?: number;
-  box1099?: string;
-  requriedDate?: Moment;
-  cancelDate?: Moment;
-  segment?: number;
-  paymentMethod?: string;
-  paymentBlockEntry?: number;
-  centralBankIndicator?: string;
-  project?: string;
-  exemptionValidityDateFrom?: Moment;
-  exemptionValidityDateTo?: Moment;
-  externalCorrectedDocNum?: string;
-  internalCorrectedDocNum?: number;
-  nextCorrectingDocument?: number;
-  taxExemptionLetterNum?: string;
-  wtApplied?: number;
-  wtAppliedFc?: number;
-  agentCode?: string;
-  wtAppliedSc?: number;
-  totalEqualizationTax?: number;
-  totalEqualizationTaxFc?: number;
-  totalEqualizationTaxSc?: number;
-  numberOfInstallments?: number;
-  wtNonSubjectAmount?: number;
-  wtNonSubjectAmountSc?: number;
-  wtNonSubjectAmountFc?: number;
-  wtExemptedAmount?: number;
-  wtExemptedAmountSc?: number;
-  wtExemptedAmountFc?: number;
-  baseAmount?: number;
-  baseAmountSc?: number;
-  baseAmountFc?: number;
-  wtAmount?: number;
-  wtAmountSc?: number;
-  wtAmountFc?: number;
-  vatDate?: Moment;
-  documentsOwner?: number;
-  folioPrefixString?: string;
-  folioNumber?: number;
-  bpChannelCode?: string;
-  bpChannelContact?: number;
-  address2?: string;
-  periodIndicator?: string;
-  payToCode?: string;
-  manualNumber?: string;
-  payToBankCountry?: string;
-  payToBankCode?: string;
-  payToBankAccountNo?: string;
-  payToBankBranch?: string;
-  bplIdAssignedToInvoice?: number;
-  downPayment?: number;
-  languageCode?: number;
-  trackingNumber?: string;
-  pickRemark?: string;
-  closingDate?: Moment;
-  sequenceCode?: number;
-  sequenceSerial?: number;
-  seriesString?: string;
-  subSeriesString?: string;
-  sequenceModel?: string;
-  totalDiscount?: number;
-  downPaymentAmount?: number;
-  downPaymentPercentage?: number;
-  downPaymentAmountSc?: number;
-  downPaymentAmountFc?: number;
-  vatPercent?: number;
-  serviceGrossProfitPercent?: number;
-  openingRemarks?: string;
-  closingRemarks?: string;
-  roundingDiffAmount?: number;
-  roundingDiffAmountFc?: number;
-  roundingDiffAmountSc?: number;
-  signatureInputMessage?: string;
-  signatureDigest?: string;
-  certificationNumber?: string;
-  privateKeyVersion?: number;
-  controlAccount?: string;
-  gtsChecker?: number;
-  gtsPayee?: number;
-  extraMonth?: number;
-  extraDays?: number;
-  cashDiscountDateOffset?: number;
-  eTaxWebSite?: number;
-  eTaxNumber?: string;
-  ntsApprovedNumber?: string;
-  eDocSeries?: number;
-  eDocNum?: string;
-  eDocExportFormat?: number;
-  eDocErrorCode?: string;
-  eDocErrorMessage?: string;
-  groupSeries?: number;
-  groupNumber?: number;
-  posEquipmentNumber?: string;
-  posManufacturerSerialNumber?: string;
-  posCashierNumber?: number;
-  specifiedClosingDate?: Moment;
-  totalDiscountFc?: number;
-  totalDiscountSc?: number;
-  bplName?: string;
-  vatRegNum?: string;
-  annualInvoiceDeclarationReference?: number;
-  supplier?: string;
-  releaser?: number;
-  receiver?: number;
-  blanketAgreementNumber?: number;
-  assetValueDate?: Moment;
-  requester?: string;
-  requesterName?: string;
-  requesterBranch?: number;
-  requesterDepartment?: number;
-  requesterEmail?: string;
-  reqType?: number;
-  authorizationCode?: string;
-  startDeliveryDate?: Moment;
-  startDeliveryTime?: Time;
-  endDeliveryDate?: Moment;
-  endDeliveryTime?: Time;
-  vehiclePlate?: string;
-  atDocumentType?: string;
-  elecCommMessage?: string;
-  fiscalDocNum?: string;
-  posDailySummaryNo?: number;
-  posReceiptNo?: number;
-  pointOfIssueCode?: string;
-  folioNumberFrom?: number;
-  folioNumberTo?: number;
-  relatedType?: number;
-  relatedEntry?: number;
-  documentTaxId?: string;
-  dateOfReportingControlStatementVat?: Moment;
-  reportingSectionControlStatementVat?: string;
-  posCashRegister?: number;
-  updateTime?: Time;
-  downPaymentTrasactionId?: string;
-  originalRefNo?: string;
-  originalRefDate?: Moment;
-  originalCreditOrDebitNo?: string;
-  originalCreditOrDebitDate?: Moment;
-  eCommerceOperator?: string;
-  eCommerceGstin?: string;
-  taxInvoiceNo?: string;
-  taxInvoiceDate?: Moment;
-  shipFrom?: string;
-  issuingReason?: number;
-  documentApprovalRequests?: DocumentApprovalRequest[];
-  documentLines?: DocumentLine[];
-  documentAdditionalExpenses?: DocumentAdditionalExpense[];
-  withholdingTaxDataWtxCollection?: WithholdingTaxDataWtx[];
-  withholdingTaxDataCollection?: WithholdingTaxData[];
-  documentPackages?: DocumentPackage[];
-  documentSpecialLines?: DocumentSpecialLine[];
-  documentInstallments?: DocumentInstallment[];
-  downPaymentsToDraw?: DownPaymentToDraw[];
-  taxExtension?: TaxExtension;
-  addressExtension?: AddressExtension;
-  soiWizardId?: number;
-  businessPartner: BusinessPartnersType;
-  currency: CurrenciesType;
-  paymentTermsType: PaymentTermsTypesType;
-  salesPerson: SalesPersonsType;
-  shippingType: ShippingTypesType;
-  factoringIndicator: FactoringIndicatorsType;
-  journalEntry: JournalEntriesType;
-  forms1099: Forms1099Type;
-  wizardPaymentMethod: WizardPaymentMethodsType;
-  paymentBlock2: PaymentBlocksType;
-  project2: ProjectsType;
-  employeeInfo: EmployeesInfoType;
-  country: CountriesType;
-  businessPlace: BusinessPlacesType;
-  userLanguage: UserLanguagesType;
-  nfModel: NfModelsType;
-  chartOfAccount: ChartOfAccountsType;
-  taxWebSite: TaxWebSitesType;
-  branch: BranchesType;
-  department: DepartmentsType;
-  posDailySummary: PosDailySummaryType;
-}
-
-export interface InventoryGenEntriesTypeForceMandatory {
-  docEntry: number;
-  docNum: number;
-  docDate: Moment;
-  docDueDate: Moment;
-  cardCode: string;
-  cardName: string;
-  address: string;
-  numAtCard: string;
-  docTotal: number;
-  attachmentEntry: number;
-  docCurrency: string;
-  docRate: number;
-  reference1: string;
-  reference2: string;
-  comments: string;
-  journalMemo: string;
-  paymentGroupCode: number;
-  docTime: Time;
-  salesPersonCode: number;
-  transportationCode: number;
-  importFileNum: number;
-  contactPersonCode: number;
-  series: number;
-  taxDate: Moment;
-  shipToCode: string;
-  indicator: string;
-  federalTaxId: string;
-  discountPercent: number;
-  paymentReference: string;
-  creationDate: Moment;
-  updateDate: Moment;
-  financialPeriod: number;
-  transNum: number;
-  vatSum: number;
-  vatSumSys: number;
-  vatSumFc: number;
-  docTotalFc: number;
-  docTotalSys: number;
-  form1099: number;
-  box1099: string;
-  requriedDate: Moment;
-  cancelDate: Moment;
-  segment: number;
-  paymentMethod: string;
-  paymentBlockEntry: number;
-  centralBankIndicator: string;
-  project: string;
-  exemptionValidityDateFrom: Moment;
-  exemptionValidityDateTo: Moment;
-  externalCorrectedDocNum: string;
-  internalCorrectedDocNum: number;
-  nextCorrectingDocument: number;
-  taxExemptionLetterNum: string;
-  wtApplied: number;
-  wtAppliedFc: number;
-  agentCode: string;
-  wtAppliedSc: number;
-  totalEqualizationTax: number;
-  totalEqualizationTaxFc: number;
-  totalEqualizationTaxSc: number;
-  numberOfInstallments: number;
-  wtNonSubjectAmount: number;
-  wtNonSubjectAmountSc: number;
-  wtNonSubjectAmountFc: number;
-  wtExemptedAmount: number;
-  wtExemptedAmountSc: number;
-  wtExemptedAmountFc: number;
-  baseAmount: number;
-  baseAmountSc: number;
-  baseAmountFc: number;
-  wtAmount: number;
-  wtAmountSc: number;
-  wtAmountFc: number;
-  vatDate: Moment;
-  documentsOwner: number;
-  folioPrefixString: string;
-  folioNumber: number;
-  bpChannelCode: string;
-  bpChannelContact: number;
-  address2: string;
-  periodIndicator: string;
-  payToCode: string;
-  manualNumber: string;
-  payToBankCountry: string;
-  payToBankCode: string;
-  payToBankAccountNo: string;
-  payToBankBranch: string;
-  bplIdAssignedToInvoice: number;
-  downPayment: number;
-  languageCode: number;
-  trackingNumber: string;
-  pickRemark: string;
-  closingDate: Moment;
-  sequenceCode: number;
-  sequenceSerial: number;
-  seriesString: string;
-  subSeriesString: string;
-  sequenceModel: string;
-  totalDiscount: number;
-  downPaymentAmount: number;
-  downPaymentPercentage: number;
-  downPaymentAmountSc: number;
-  downPaymentAmountFc: number;
-  vatPercent: number;
-  serviceGrossProfitPercent: number;
-  openingRemarks: string;
-  closingRemarks: string;
-  roundingDiffAmount: number;
-  roundingDiffAmountFc: number;
-  roundingDiffAmountSc: number;
-  signatureInputMessage: string;
-  signatureDigest: string;
-  certificationNumber: string;
-  privateKeyVersion: number;
-  controlAccount: string;
-  gtsChecker: number;
-  gtsPayee: number;
-  extraMonth: number;
-  extraDays: number;
-  cashDiscountDateOffset: number;
-  eTaxWebSite: number;
-  eTaxNumber: string;
-  ntsApprovedNumber: string;
-  eDocSeries: number;
-  eDocNum: string;
-  eDocExportFormat: number;
-  eDocErrorCode: string;
-  eDocErrorMessage: string;
-  groupSeries: number;
-  groupNumber: number;
-  posEquipmentNumber: string;
-  posManufacturerSerialNumber: string;
-  posCashierNumber: number;
-  specifiedClosingDate: Moment;
-  totalDiscountFc: number;
-  totalDiscountSc: number;
-  bplName: string;
-  vatRegNum: string;
-  annualInvoiceDeclarationReference: number;
-  supplier: string;
-  releaser: number;
-  receiver: number;
-  blanketAgreementNumber: number;
-  assetValueDate: Moment;
-  requester: string;
-  requesterName: string;
-  requesterBranch: number;
-  requesterDepartment: number;
-  requesterEmail: string;
-  reqType: number;
-  authorizationCode: string;
-  startDeliveryDate: Moment;
-  startDeliveryTime: Time;
-  endDeliveryDate: Moment;
-  endDeliveryTime: Time;
-  vehiclePlate: string;
-  atDocumentType: string;
-  elecCommMessage: string;
-  fiscalDocNum: string;
-  posDailySummaryNo: number;
-  posReceiptNo: number;
-  pointOfIssueCode: string;
-  folioNumberFrom: number;
-  folioNumberTo: number;
-  relatedType: number;
-  relatedEntry: number;
-  documentTaxId: string;
-  dateOfReportingControlStatementVat: Moment;
-  reportingSectionControlStatementVat: string;
-  posCashRegister: number;
-  updateTime: Time;
-  downPaymentTrasactionId: string;
-  originalRefNo: string;
-  originalRefDate: Moment;
-  originalCreditOrDebitNo: string;
-  originalCreditOrDebitDate: Moment;
-  eCommerceOperator: string;
-  eCommerceGstin: string;
-  taxInvoiceNo: string;
-  taxInvoiceDate: Moment;
-  shipFrom: string;
-  issuingReason: number;
-  documentApprovalRequests: DocumentApprovalRequest[];
-  documentLines: DocumentLine[];
-  documentAdditionalExpenses: DocumentAdditionalExpense[];
-  withholdingTaxDataWtxCollection: WithholdingTaxDataWtx[];
-  withholdingTaxDataCollection: WithholdingTaxData[];
-  documentPackages: DocumentPackage[];
-  documentSpecialLines: DocumentSpecialLine[];
-  documentInstallments: DocumentInstallment[];
-  downPaymentsToDraw: DownPaymentToDraw[];
-  taxExtension: TaxExtension;
-  addressExtension: AddressExtension;
-  soiWizardId: number;
+  docEntry?: number | null;
+  docNum?: number | null;
+  docType?: BoDocumentTypes | null;
+  handWritten?: BoYesNoEnum | null;
+  printed?: PrintStatusEnum | null;
+  docDate?: Moment | null;
+  docDueDate?: Moment | null;
+  cardCode?: string | null;
+  cardName?: string | null;
+  address?: string | null;
+  numAtCard?: string | null;
+  docTotal?: number | null;
+  attachmentEntry?: number | null;
+  docCurrency?: string | null;
+  docRate?: number | null;
+  reference1?: string | null;
+  reference2?: string | null;
+  comments?: string | null;
+  journalMemo?: string | null;
+  paymentGroupCode?: number | null;
+  docTime?: Time | null;
+  salesPersonCode?: number | null;
+  transportationCode?: number | null;
+  confirmed?: BoYesNoEnum | null;
+  importFileNum?: number | null;
+  summeryType?: BoDocSummaryTypes | null;
+  contactPersonCode?: number | null;
+  showScn?: BoYesNoEnum | null;
+  series?: number | null;
+  taxDate?: Moment | null;
+  partialSupply?: BoYesNoEnum | null;
+  docObjectCode?: BoObjectTypes | null;
+  shipToCode?: string | null;
+  indicator?: string | null;
+  federalTaxId?: string | null;
+  discountPercent?: number | null;
+  paymentReference?: string | null;
+  creationDate?: Moment | null;
+  updateDate?: Moment | null;
+  financialPeriod?: number | null;
+  transNum?: number | null;
+  vatSum?: number | null;
+  vatSumSys?: number | null;
+  vatSumFc?: number | null;
+  netProcedure?: BoYesNoEnum | null;
+  docTotalFc?: number | null;
+  docTotalSys?: number | null;
+  form1099?: number | null;
+  box1099?: string | null;
+  revisionPo?: BoYesNoEnum | null;
+  requriedDate?: Moment | null;
+  cancelDate?: Moment | null;
+  blockDunning?: BoYesNoEnum | null;
+  submitted?: BoYesNoEnum | null;
+  segment?: number | null;
+  pickStatus?: BoYesNoEnum | null;
+  pick?: BoYesNoEnum | null;
+  paymentMethod?: string | null;
+  paymentBlock?: BoYesNoEnum | null;
+  paymentBlockEntry?: number | null;
+  centralBankIndicator?: string | null;
+  maximumCashDiscount?: BoYesNoEnum | null;
+  reserve?: BoYesNoEnum | null;
+  project?: string | null;
+  exemptionValidityDateFrom?: Moment | null;
+  exemptionValidityDateTo?: Moment | null;
+  wareHouseUpdateType?: BoDocWhsUpdateTypes | null;
+  rounding?: BoYesNoEnum | null;
+  externalCorrectedDocNum?: string | null;
+  internalCorrectedDocNum?: number | null;
+  nextCorrectingDocument?: number | null;
+  deferredTax?: BoYesNoEnum | null;
+  taxExemptionLetterNum?: string | null;
+  wtApplied?: number | null;
+  wtAppliedFc?: number | null;
+  billOfExchangeReserved?: BoYesNoEnum | null;
+  agentCode?: string | null;
+  wtAppliedSc?: number | null;
+  totalEqualizationTax?: number | null;
+  totalEqualizationTaxFc?: number | null;
+  totalEqualizationTaxSc?: number | null;
+  numberOfInstallments?: number | null;
+  applyTaxOnFirstInstallment?: BoYesNoEnum | null;
+  wtNonSubjectAmount?: number | null;
+  wtNonSubjectAmountSc?: number | null;
+  wtNonSubjectAmountFc?: number | null;
+  wtExemptedAmount?: number | null;
+  wtExemptedAmountSc?: number | null;
+  wtExemptedAmountFc?: number | null;
+  baseAmount?: number | null;
+  baseAmountSc?: number | null;
+  baseAmountFc?: number | null;
+  wtAmount?: number | null;
+  wtAmountSc?: number | null;
+  wtAmountFc?: number | null;
+  vatDate?: Moment | null;
+  documentsOwner?: number | null;
+  folioPrefixString?: string | null;
+  folioNumber?: number | null;
+  documentSubType?: BoDocumentSubType | null;
+  bpChannelCode?: string | null;
+  bpChannelContact?: number | null;
+  address2?: string | null;
+  documentStatus?: BoStatus | null;
+  periodIndicator?: string | null;
+  payToCode?: string | null;
+  manualNumber?: string | null;
+  useShpdGoodsAct?: BoYesNoEnum | null;
+  isPayToBank?: BoYesNoEnum | null;
+  payToBankCountry?: string | null;
+  payToBankCode?: string | null;
+  payToBankAccountNo?: string | null;
+  payToBankBranch?: string | null;
+  bplIdAssignedToInvoice?: number | null;
+  downPayment?: number | null;
+  reserveInvoice?: BoYesNoEnum | null;
+  languageCode?: number | null;
+  trackingNumber?: string | null;
+  pickRemark?: string | null;
+  closingDate?: Moment | null;
+  sequenceCode?: number | null;
+  sequenceSerial?: number | null;
+  seriesString?: string | null;
+  subSeriesString?: string | null;
+  sequenceModel?: string | null;
+  useCorrectionVatGroup?: BoYesNoEnum | null;
+  totalDiscount?: number | null;
+  downPaymentAmount?: number | null;
+  downPaymentPercentage?: number | null;
+  downPaymentType?: DownPaymentTypeEnum | null;
+  downPaymentAmountSc?: number | null;
+  downPaymentAmountFc?: number | null;
+  vatPercent?: number | null;
+  serviceGrossProfitPercent?: number | null;
+  openingRemarks?: string | null;
+  closingRemarks?: string | null;
+  roundingDiffAmount?: number | null;
+  roundingDiffAmountFc?: number | null;
+  roundingDiffAmountSc?: number | null;
+  cancelled?: BoYesNoEnum | null;
+  signatureInputMessage?: string | null;
+  signatureDigest?: string | null;
+  certificationNumber?: string | null;
+  privateKeyVersion?: number | null;
+  controlAccount?: string | null;
+  insuranceOperation347?: BoYesNoEnum | null;
+  archiveNonremovableSalesQuotation?: BoYesNoEnum | null;
+  gtsChecker?: number | null;
+  gtsPayee?: number | null;
+  extraMonth?: number | null;
+  extraDays?: number | null;
+  cashDiscountDateOffset?: number | null;
+  startFrom?: BoPayTermDueTypes | null;
+  ntsApproved?: BoYesNoEnum | null;
+  eTaxWebSite?: number | null;
+  eTaxNumber?: string | null;
+  ntsApprovedNumber?: string | null;
+  eDocGenerationType?: EDocGenerationTypeEnum | null;
+  eDocSeries?: number | null;
+  eDocNum?: string | null;
+  eDocExportFormat?: number | null;
+  eDocStatus?: EDocStatusEnum | null;
+  eDocErrorCode?: string | null;
+  eDocErrorMessage?: string | null;
+  downPaymentStatus?: BoSoStatus | null;
+  groupSeries?: number | null;
+  groupNumber?: number | null;
+  groupHandWritten?: BoYesNoEnum | null;
+  reopenOriginalDocument?: BoYesNoEnum | null;
+  reopenManuallyClosedOrCanceledDocument?: BoYesNoEnum | null;
+  createOnlineQuotation?: BoYesNoEnum | null;
+  posEquipmentNumber?: string | null;
+  posManufacturerSerialNumber?: string | null;
+  posCashierNumber?: number | null;
+  applyCurrentVatRatesForDownPaymentsToDraw?: BoYesNoEnum | null;
+  closingOption?: ClosingOptionEnum | null;
+  specifiedClosingDate?: Moment | null;
+  openForLandedCosts?: BoYesNoEnum | null;
+  authorizationStatus?: DocumentAuthorizationStatusEnum | null;
+  totalDiscountFc?: number | null;
+  totalDiscountSc?: number | null;
+  relevantToGts?: BoYesNoEnum | null;
+  bplName?: string | null;
+  vatRegNum?: string | null;
+  annualInvoiceDeclarationReference?: number | null;
+  supplier?: string | null;
+  releaser?: number | null;
+  receiver?: number | null;
+  blanketAgreementNumber?: number | null;
+  isAlteration?: BoYesNoEnum | null;
+  cancelStatus?: CancelStatusEnum | null;
+  assetValueDate?: Moment | null;
+  requester?: string | null;
+  requesterName?: string | null;
+  requesterBranch?: number | null;
+  requesterDepartment?: number | null;
+  requesterEmail?: string | null;
+  sendNotification?: BoYesNoEnum | null;
+  reqType?: number | null;
+  documentDelivery?: DocumentDeliveryTypeEnum | null;
+  authorizationCode?: string | null;
+  startDeliveryDate?: Moment | null;
+  startDeliveryTime?: Time | null;
+  endDeliveryDate?: Moment | null;
+  endDeliveryTime?: Time | null;
+  vehiclePlate?: string | null;
+  atDocumentType?: string | null;
+  elecCommStatus?: ElecCommStatusEnum | null;
+  elecCommMessage?: string | null;
+  reuseDocumentNum?: BoYesNoEnum | null;
+  reuseNotaFiscalNum?: BoYesNoEnum | null;
+  printSepaDirect?: BoYesNoEnum | null;
+  fiscalDocNum?: string | null;
+  posDailySummaryNo?: number | null;
+  posReceiptNo?: number | null;
+  pointOfIssueCode?: string | null;
+  letter?: FolioLetterEnum | null;
+  folioNumberFrom?: number | null;
+  folioNumberTo?: number | null;
+  interimType?: BoInterimDocTypes | null;
+  relatedType?: number | null;
+  relatedEntry?: number | null;
+  documentTaxId?: string | null;
+  dateOfReportingControlStatementVat?: Moment | null;
+  reportingSectionControlStatementVat?: string | null;
+  excludeFromTaxReportControlStatementVat?: BoYesNoEnum | null;
+  posCashRegister?: number | null;
+  updateTime?: Time | null;
+  priceMode?: PriceModeDocumentEnum | null;
+  downPaymentTrasactionId?: string | null;
+  revision?: BoYesNoEnum | null;
+  originalRefNo?: string | null;
+  originalRefDate?: Moment | null;
+  gstTransactionType?: GstTransactionTypeEnum | null;
+  originalCreditOrDebitNo?: string | null;
+  originalCreditOrDebitDate?: Moment | null;
+  eCommerceOperator?: string | null;
+  eCommerceGstin?: string | null;
+  taxInvoiceNo?: string | null;
+  taxInvoiceDate?: Moment | null;
+  shipFrom?: string | null;
+  commissionTrade?: CommissionTradeTypeEnum | null;
+  commissionTradeReturn?: BoYesNoEnum | null;
+  useBillToAddrToDetermineTax?: BoYesNoEnum | null;
+  issuingReason?: number | null;
+  documentApprovalRequests?: DocumentApprovalRequest[] | null;
+  documentLines?: DocumentLine[] | null;
+  documentAdditionalExpenses?: DocumentAdditionalExpense[] | null;
+  withholdingTaxDataWtxCollection?: WithholdingTaxDataWtx[] | null;
+  withholdingTaxDataCollection?: WithholdingTaxData[] | null;
+  documentPackages?: DocumentPackage[] | null;
+  documentSpecialLines?: DocumentSpecialLine[] | null;
+  documentInstallments?: DocumentInstallment[] | null;
+  downPaymentsToDraw?: DownPaymentToDraw[] | null;
+  taxExtension?: TaxExtension | null;
+  addressExtension?: AddressExtension | null;
+  soiWizardId?: number | null;
   businessPartner: BusinessPartnersType;
   currency: CurrenciesType;
   paymentTermsType: PaymentTermsTypesType;
@@ -1593,6 +1771,21 @@ export namespace InventoryGenEntries {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOC_NUM: NumberField<InventoryGenEntries> = new NumberField('DocNum', InventoryGenEntries, 'Edm.Int32');
+  /**
+   * Static representation of the [[docType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOC_TYPE: EnumField<InventoryGenEntries> = new EnumField('DocType', InventoryGenEntries);
+  /**
+   * Static representation of the [[handWritten]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const HAND_WRITTEN: EnumField<InventoryGenEntries> = new EnumField('HandWritten', InventoryGenEntries);
+  /**
+   * Static representation of the [[printed]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRINTED: EnumField<InventoryGenEntries> = new EnumField('Printed', InventoryGenEntries);
   /**
    * Static representation of the [[docDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1684,15 +1877,30 @@ export namespace InventoryGenEntries {
    */
   export const TRANSPORTATION_CODE: NumberField<InventoryGenEntries> = new NumberField('TransportationCode', InventoryGenEntries, 'Edm.Int32');
   /**
+   * Static representation of the [[confirmed]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CONFIRMED: EnumField<InventoryGenEntries> = new EnumField('Confirmed', InventoryGenEntries);
+  /**
    * Static representation of the [[importFileNum]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const IMPORT_FILE_NUM: NumberField<InventoryGenEntries> = new NumberField('ImportFileNum', InventoryGenEntries, 'Edm.Int32');
   /**
+   * Static representation of the [[summeryType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SUMMERY_TYPE: EnumField<InventoryGenEntries> = new EnumField('SummeryType', InventoryGenEntries);
+  /**
    * Static representation of the [[contactPersonCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CONTACT_PERSON_CODE: NumberField<InventoryGenEntries> = new NumberField('ContactPersonCode', InventoryGenEntries, 'Edm.Int32');
+  /**
+   * Static representation of the [[showScn]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SHOW_SCN: EnumField<InventoryGenEntries> = new EnumField('ShowSCN', InventoryGenEntries);
   /**
    * Static representation of the [[series]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1703,6 +1911,16 @@ export namespace InventoryGenEntries {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const TAX_DATE: DateField<InventoryGenEntries> = new DateField('TaxDate', InventoryGenEntries, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[partialSupply]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PARTIAL_SUPPLY: EnumField<InventoryGenEntries> = new EnumField('PartialSupply', InventoryGenEntries);
+  /**
+   * Static representation of the [[docObjectCode]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOC_OBJECT_CODE: EnumField<InventoryGenEntries> = new EnumField('DocObjectCode', InventoryGenEntries);
   /**
    * Static representation of the [[shipToCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1764,6 +1982,11 @@ export namespace InventoryGenEntries {
    */
   export const VAT_SUM_FC: NumberField<InventoryGenEntries> = new NumberField('VatSumFc', InventoryGenEntries, 'Edm.Double');
   /**
+   * Static representation of the [[netProcedure]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const NET_PROCEDURE: EnumField<InventoryGenEntries> = new EnumField('NetProcedure', InventoryGenEntries);
+  /**
    * Static representation of the [[docTotalFc]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1784,6 +2007,11 @@ export namespace InventoryGenEntries {
    */
   export const BOX_1099: StringField<InventoryGenEntries> = new StringField('Box1099', InventoryGenEntries, 'Edm.String');
   /**
+   * Static representation of the [[revisionPo]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REVISION_PO: EnumField<InventoryGenEntries> = new EnumField('RevisionPo', InventoryGenEntries);
+  /**
    * Static representation of the [[requriedDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1794,15 +2022,40 @@ export namespace InventoryGenEntries {
    */
   export const CANCEL_DATE: DateField<InventoryGenEntries> = new DateField('CancelDate', InventoryGenEntries, 'Edm.DateTimeOffset');
   /**
+   * Static representation of the [[blockDunning]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BLOCK_DUNNING: EnumField<InventoryGenEntries> = new EnumField('BlockDunning', InventoryGenEntries);
+  /**
+   * Static representation of the [[submitted]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SUBMITTED: EnumField<InventoryGenEntries> = new EnumField('Submitted', InventoryGenEntries);
+  /**
    * Static representation of the [[segment]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const SEGMENT: NumberField<InventoryGenEntries> = new NumberField('Segment', InventoryGenEntries, 'Edm.Int32');
   /**
+   * Static representation of the [[pickStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PICK_STATUS: EnumField<InventoryGenEntries> = new EnumField('PickStatus', InventoryGenEntries);
+  /**
+   * Static representation of the [[pick]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PICK: EnumField<InventoryGenEntries> = new EnumField('Pick', InventoryGenEntries);
+  /**
    * Static representation of the [[paymentMethod]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const PAYMENT_METHOD: StringField<InventoryGenEntries> = new StringField('PaymentMethod', InventoryGenEntries, 'Edm.String');
+  /**
+   * Static representation of the [[paymentBlock]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PAYMENT_BLOCK: EnumField<InventoryGenEntries> = new EnumField('PaymentBlock', InventoryGenEntries);
   /**
    * Static representation of the [[paymentBlockEntry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1813,6 +2066,16 @@ export namespace InventoryGenEntries {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CENTRAL_BANK_INDICATOR: StringField<InventoryGenEntries> = new StringField('CentralBankIndicator', InventoryGenEntries, 'Edm.String');
+  /**
+   * Static representation of the [[maximumCashDiscount]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const MAXIMUM_CASH_DISCOUNT: EnumField<InventoryGenEntries> = new EnumField('MaximumCashDiscount', InventoryGenEntries);
+  /**
+   * Static representation of the [[reserve]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RESERVE: EnumField<InventoryGenEntries> = new EnumField('Reserve', InventoryGenEntries);
   /**
    * Static representation of the [[project]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1829,6 +2092,16 @@ export namespace InventoryGenEntries {
    */
   export const EXEMPTION_VALIDITY_DATE_TO: DateField<InventoryGenEntries> = new DateField('ExemptionValidityDateTo', InventoryGenEntries, 'Edm.DateTimeOffset');
   /**
+   * Static representation of the [[wareHouseUpdateType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const WARE_HOUSE_UPDATE_TYPE: EnumField<InventoryGenEntries> = new EnumField('WareHouseUpdateType', InventoryGenEntries);
+  /**
+   * Static representation of the [[rounding]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ROUNDING: EnumField<InventoryGenEntries> = new EnumField('Rounding', InventoryGenEntries);
+  /**
    * Static representation of the [[externalCorrectedDocNum]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1844,6 +2117,11 @@ export namespace InventoryGenEntries {
    */
   export const NEXT_CORRECTING_DOCUMENT: NumberField<InventoryGenEntries> = new NumberField('NextCorrectingDocument', InventoryGenEntries, 'Edm.Int32');
   /**
+   * Static representation of the [[deferredTax]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DEFERRED_TAX: EnumField<InventoryGenEntries> = new EnumField('DeferredTax', InventoryGenEntries);
+  /**
    * Static representation of the [[taxExemptionLetterNum]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1858,6 +2136,11 @@ export namespace InventoryGenEntries {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const WT_APPLIED_FC: NumberField<InventoryGenEntries> = new NumberField('WTAppliedFC', InventoryGenEntries, 'Edm.Double');
+  /**
+   * Static representation of the [[billOfExchangeReserved]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BILL_OF_EXCHANGE_RESERVED: EnumField<InventoryGenEntries> = new EnumField('BillOfExchangeReserved', InventoryGenEntries);
   /**
    * Static representation of the [[agentCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1888,6 +2171,11 @@ export namespace InventoryGenEntries {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const NUMBER_OF_INSTALLMENTS: NumberField<InventoryGenEntries> = new NumberField('NumberOfInstallments', InventoryGenEntries, 'Edm.Int32');
+  /**
+   * Static representation of the [[applyTaxOnFirstInstallment]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const APPLY_TAX_ON_FIRST_INSTALLMENT: EnumField<InventoryGenEntries> = new EnumField('ApplyTaxOnFirstInstallment', InventoryGenEntries);
   /**
    * Static representation of the [[wtNonSubjectAmount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1969,6 +2257,11 @@ export namespace InventoryGenEntries {
    */
   export const FOLIO_NUMBER: NumberField<InventoryGenEntries> = new NumberField('FolioNumber', InventoryGenEntries, 'Edm.Int32');
   /**
+   * Static representation of the [[documentSubType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_SUB_TYPE: EnumField<InventoryGenEntries> = new EnumField('DocumentSubType', InventoryGenEntries);
+  /**
    * Static representation of the [[bpChannelCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1984,6 +2277,11 @@ export namespace InventoryGenEntries {
    */
   export const ADDRESS_2: StringField<InventoryGenEntries> = new StringField('Address2', InventoryGenEntries, 'Edm.String');
   /**
+   * Static representation of the [[documentStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_STATUS: EnumField<InventoryGenEntries> = new EnumField('DocumentStatus', InventoryGenEntries);
+  /**
    * Static representation of the [[periodIndicator]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1998,6 +2296,16 @@ export namespace InventoryGenEntries {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const MANUAL_NUMBER: StringField<InventoryGenEntries> = new StringField('ManualNumber', InventoryGenEntries, 'Edm.String');
+  /**
+   * Static representation of the [[useShpdGoodsAct]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const USE_SHPD_GOODS_ACT: EnumField<InventoryGenEntries> = new EnumField('UseShpdGoodsAct', InventoryGenEntries);
+  /**
+   * Static representation of the [[isPayToBank]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_PAY_TO_BANK: EnumField<InventoryGenEntries> = new EnumField('IsPayToBank', InventoryGenEntries);
   /**
    * Static representation of the [[payToBankCountry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2028,6 +2336,11 @@ export namespace InventoryGenEntries {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOWN_PAYMENT: NumberField<InventoryGenEntries> = new NumberField('DownPayment', InventoryGenEntries, 'Edm.Double');
+  /**
+   * Static representation of the [[reserveInvoice]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RESERVE_INVOICE: EnumField<InventoryGenEntries> = new EnumField('ReserveInvoice', InventoryGenEntries);
   /**
    * Static representation of the [[languageCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2074,6 +2387,11 @@ export namespace InventoryGenEntries {
    */
   export const SEQUENCE_MODEL: StringField<InventoryGenEntries> = new StringField('SequenceModel', InventoryGenEntries, 'Edm.String');
   /**
+   * Static representation of the [[useCorrectionVatGroup]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const USE_CORRECTION_VAT_GROUP: EnumField<InventoryGenEntries> = new EnumField('UseCorrectionVATGroup', InventoryGenEntries);
+  /**
    * Static representation of the [[totalDiscount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2088,6 +2406,11 @@ export namespace InventoryGenEntries {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOWN_PAYMENT_PERCENTAGE: NumberField<InventoryGenEntries> = new NumberField('DownPaymentPercentage', InventoryGenEntries, 'Edm.Double');
+  /**
+   * Static representation of the [[downPaymentType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOWN_PAYMENT_TYPE: EnumField<InventoryGenEntries> = new EnumField('DownPaymentType', InventoryGenEntries);
   /**
    * Static representation of the [[downPaymentAmountSc]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2134,6 +2457,11 @@ export namespace InventoryGenEntries {
    */
   export const ROUNDING_DIFF_AMOUNT_SC: NumberField<InventoryGenEntries> = new NumberField('RoundingDiffAmountSC', InventoryGenEntries, 'Edm.Double');
   /**
+   * Static representation of the [[cancelled]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CANCELLED: EnumField<InventoryGenEntries> = new EnumField('Cancelled', InventoryGenEntries);
+  /**
    * Static representation of the [[signatureInputMessage]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2158,6 +2486,16 @@ export namespace InventoryGenEntries {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CONTROL_ACCOUNT: StringField<InventoryGenEntries> = new StringField('ControlAccount', InventoryGenEntries, 'Edm.String');
+  /**
+   * Static representation of the [[insuranceOperation347]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INSURANCE_OPERATION_347: EnumField<InventoryGenEntries> = new EnumField('InsuranceOperation347', InventoryGenEntries);
+  /**
+   * Static representation of the [[archiveNonremovableSalesQuotation]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ARCHIVE_NONREMOVABLE_SALES_QUOTATION: EnumField<InventoryGenEntries> = new EnumField('ArchiveNonremovableSalesQuotation', InventoryGenEntries);
   /**
    * Static representation of the [[gtsChecker]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2184,6 +2522,16 @@ export namespace InventoryGenEntries {
    */
   export const CASH_DISCOUNT_DATE_OFFSET: NumberField<InventoryGenEntries> = new NumberField('CashDiscountDateOffset', InventoryGenEntries, 'Edm.Int32');
   /**
+   * Static representation of the [[startFrom]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const START_FROM: EnumField<InventoryGenEntries> = new EnumField('StartFrom', InventoryGenEntries);
+  /**
+   * Static representation of the [[ntsApproved]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const NTS_APPROVED: EnumField<InventoryGenEntries> = new EnumField('NTSApproved', InventoryGenEntries);
+  /**
    * Static representation of the [[eTaxWebSite]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2198,6 +2546,11 @@ export namespace InventoryGenEntries {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const NTS_APPROVED_NUMBER: StringField<InventoryGenEntries> = new StringField('NTSApprovedNumber', InventoryGenEntries, 'Edm.String');
+  /**
+   * Static representation of the [[eDocGenerationType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const E_DOC_GENERATION_TYPE: EnumField<InventoryGenEntries> = new EnumField('EDocGenerationType', InventoryGenEntries);
   /**
    * Static representation of the [[eDocSeries]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2214,6 +2567,11 @@ export namespace InventoryGenEntries {
    */
   export const E_DOC_EXPORT_FORMAT: NumberField<InventoryGenEntries> = new NumberField('EDocExportFormat', InventoryGenEntries, 'Edm.Int32');
   /**
+   * Static representation of the [[eDocStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const E_DOC_STATUS: EnumField<InventoryGenEntries> = new EnumField('EDocStatus', InventoryGenEntries);
+  /**
    * Static representation of the [[eDocErrorCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2224,6 +2582,11 @@ export namespace InventoryGenEntries {
    */
   export const E_DOC_ERROR_MESSAGE: StringField<InventoryGenEntries> = new StringField('EDocErrorMessage', InventoryGenEntries, 'Edm.String');
   /**
+   * Static representation of the [[downPaymentStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOWN_PAYMENT_STATUS: EnumField<InventoryGenEntries> = new EnumField('DownPaymentStatus', InventoryGenEntries);
+  /**
    * Static representation of the [[groupSeries]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2233,6 +2596,26 @@ export namespace InventoryGenEntries {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const GROUP_NUMBER: NumberField<InventoryGenEntries> = new NumberField('GroupNumber', InventoryGenEntries, 'Edm.Int32');
+  /**
+   * Static representation of the [[groupHandWritten]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const GROUP_HAND_WRITTEN: EnumField<InventoryGenEntries> = new EnumField('GroupHandWritten', InventoryGenEntries);
+  /**
+   * Static representation of the [[reopenOriginalDocument]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REOPEN_ORIGINAL_DOCUMENT: EnumField<InventoryGenEntries> = new EnumField('ReopenOriginalDocument', InventoryGenEntries);
+  /**
+   * Static representation of the [[reopenManuallyClosedOrCanceledDocument]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REOPEN_MANUALLY_CLOSED_OR_CANCELED_DOCUMENT: EnumField<InventoryGenEntries> = new EnumField('ReopenManuallyClosedOrCanceledDocument', InventoryGenEntries);
+  /**
+   * Static representation of the [[createOnlineQuotation]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CREATE_ONLINE_QUOTATION: EnumField<InventoryGenEntries> = new EnumField('CreateOnlineQuotation', InventoryGenEntries);
   /**
    * Static representation of the [[posEquipmentNumber]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2249,10 +2632,30 @@ export namespace InventoryGenEntries {
    */
   export const POS_CASHIER_NUMBER: NumberField<InventoryGenEntries> = new NumberField('POSCashierNumber', InventoryGenEntries, 'Edm.Int32');
   /**
+   * Static representation of the [[applyCurrentVatRatesForDownPaymentsToDraw]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const APPLY_CURRENT_VAT_RATES_FOR_DOWN_PAYMENTS_TO_DRAW: EnumField<InventoryGenEntries> = new EnumField('ApplyCurrentVATRatesForDownPaymentsToDraw', InventoryGenEntries);
+  /**
+   * Static representation of the [[closingOption]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CLOSING_OPTION: EnumField<InventoryGenEntries> = new EnumField('ClosingOption', InventoryGenEntries);
+  /**
    * Static representation of the [[specifiedClosingDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const SPECIFIED_CLOSING_DATE: DateField<InventoryGenEntries> = new DateField('SpecifiedClosingDate', InventoryGenEntries, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[openForLandedCosts]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const OPEN_FOR_LANDED_COSTS: EnumField<InventoryGenEntries> = new EnumField('OpenForLandedCosts', InventoryGenEntries);
+  /**
+   * Static representation of the [[authorizationStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const AUTHORIZATION_STATUS: EnumField<InventoryGenEntries> = new EnumField('AuthorizationStatus', InventoryGenEntries);
   /**
    * Static representation of the [[totalDiscountFc]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2263,6 +2666,11 @@ export namespace InventoryGenEntries {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const TOTAL_DISCOUNT_SC: NumberField<InventoryGenEntries> = new NumberField('TotalDiscountSC', InventoryGenEntries, 'Edm.Double');
+  /**
+   * Static representation of the [[relevantToGts]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RELEVANT_TO_GTS: EnumField<InventoryGenEntries> = new EnumField('RelevantToGTS', InventoryGenEntries);
   /**
    * Static representation of the [[bplName]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2299,6 +2707,16 @@ export namespace InventoryGenEntries {
    */
   export const BLANKET_AGREEMENT_NUMBER: NumberField<InventoryGenEntries> = new NumberField('BlanketAgreementNumber', InventoryGenEntries, 'Edm.Int32');
   /**
+   * Static representation of the [[isAlteration]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_ALTERATION: EnumField<InventoryGenEntries> = new EnumField('IsAlteration', InventoryGenEntries);
+  /**
+   * Static representation of the [[cancelStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CANCEL_STATUS: EnumField<InventoryGenEntries> = new EnumField('CancelStatus', InventoryGenEntries);
+  /**
    * Static representation of the [[assetValueDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2329,10 +2747,20 @@ export namespace InventoryGenEntries {
    */
   export const REQUESTER_EMAIL: StringField<InventoryGenEntries> = new StringField('RequesterEmail', InventoryGenEntries, 'Edm.String');
   /**
+   * Static representation of the [[sendNotification]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SEND_NOTIFICATION: EnumField<InventoryGenEntries> = new EnumField('SendNotification', InventoryGenEntries);
+  /**
    * Static representation of the [[reqType]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const REQ_TYPE: NumberField<InventoryGenEntries> = new NumberField('ReqType', InventoryGenEntries, 'Edm.Int32');
+  /**
+   * Static representation of the [[documentDelivery]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_DELIVERY: EnumField<InventoryGenEntries> = new EnumField('DocumentDelivery', InventoryGenEntries);
   /**
    * Static representation of the [[authorizationCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2369,10 +2797,30 @@ export namespace InventoryGenEntries {
    */
   export const AT_DOCUMENT_TYPE: StringField<InventoryGenEntries> = new StringField('ATDocumentType', InventoryGenEntries, 'Edm.String');
   /**
+   * Static representation of the [[elecCommStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ELEC_COMM_STATUS: EnumField<InventoryGenEntries> = new EnumField('ElecCommStatus', InventoryGenEntries);
+  /**
    * Static representation of the [[elecCommMessage]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const ELEC_COMM_MESSAGE: StringField<InventoryGenEntries> = new StringField('ElecCommMessage', InventoryGenEntries, 'Edm.String');
+  /**
+   * Static representation of the [[reuseDocumentNum]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REUSE_DOCUMENT_NUM: EnumField<InventoryGenEntries> = new EnumField('ReuseDocumentNum', InventoryGenEntries);
+  /**
+   * Static representation of the [[reuseNotaFiscalNum]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REUSE_NOTA_FISCAL_NUM: EnumField<InventoryGenEntries> = new EnumField('ReuseNotaFiscalNum', InventoryGenEntries);
+  /**
+   * Static representation of the [[printSepaDirect]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRINT_SEPA_DIRECT: EnumField<InventoryGenEntries> = new EnumField('PrintSEPADirect', InventoryGenEntries);
   /**
    * Static representation of the [[fiscalDocNum]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2394,6 +2842,11 @@ export namespace InventoryGenEntries {
    */
   export const POINT_OF_ISSUE_CODE: StringField<InventoryGenEntries> = new StringField('PointOfIssueCode', InventoryGenEntries, 'Edm.String');
   /**
+   * Static representation of the [[letter]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LETTER: EnumField<InventoryGenEntries> = new EnumField('Letter', InventoryGenEntries);
+  /**
    * Static representation of the [[folioNumberFrom]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2403,6 +2856,11 @@ export namespace InventoryGenEntries {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const FOLIO_NUMBER_TO: NumberField<InventoryGenEntries> = new NumberField('FolioNumberTo', InventoryGenEntries, 'Edm.Int32');
+  /**
+   * Static representation of the [[interimType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INTERIM_TYPE: EnumField<InventoryGenEntries> = new EnumField('InterimType', InventoryGenEntries);
   /**
    * Static representation of the [[relatedType]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2429,6 +2887,11 @@ export namespace InventoryGenEntries {
    */
   export const REPORTING_SECTION_CONTROL_STATEMENT_VAT: StringField<InventoryGenEntries> = new StringField('ReportingSectionControlStatementVAT', InventoryGenEntries, 'Edm.String');
   /**
+   * Static representation of the [[excludeFromTaxReportControlStatementVat]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const EXCLUDE_FROM_TAX_REPORT_CONTROL_STATEMENT_VAT: EnumField<InventoryGenEntries> = new EnumField('ExcludeFromTaxReportControlStatementVAT', InventoryGenEntries);
+  /**
    * Static representation of the [[posCashRegister]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2439,10 +2902,20 @@ export namespace InventoryGenEntries {
    */
   export const UPDATE_TIME: TimeField<InventoryGenEntries> = new TimeField('UpdateTime', InventoryGenEntries, 'Edm.TimeOfDay');
   /**
+   * Static representation of the [[priceMode]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRICE_MODE: EnumField<InventoryGenEntries> = new EnumField('PriceMode', InventoryGenEntries);
+  /**
    * Static representation of the [[downPaymentTrasactionId]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOWN_PAYMENT_TRASACTION_ID: StringField<InventoryGenEntries> = new StringField('DownPaymentTrasactionID', InventoryGenEntries, 'Edm.String');
+  /**
+   * Static representation of the [[revision]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REVISION: EnumField<InventoryGenEntries> = new EnumField('Revision', InventoryGenEntries);
   /**
    * Static representation of the [[originalRefNo]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2453,6 +2926,11 @@ export namespace InventoryGenEntries {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const ORIGINAL_REF_DATE: DateField<InventoryGenEntries> = new DateField('OriginalRefDate', InventoryGenEntries, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[gstTransactionType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const GST_TRANSACTION_TYPE: EnumField<InventoryGenEntries> = new EnumField('GSTTransactionType', InventoryGenEntries);
   /**
    * Static representation of the [[originalCreditOrDebitNo]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2489,6 +2967,21 @@ export namespace InventoryGenEntries {
    */
   export const SHIP_FROM: StringField<InventoryGenEntries> = new StringField('ShipFrom', InventoryGenEntries, 'Edm.String');
   /**
+   * Static representation of the [[commissionTrade]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const COMMISSION_TRADE: EnumField<InventoryGenEntries> = new EnumField('CommissionTrade', InventoryGenEntries);
+  /**
+   * Static representation of the [[commissionTradeReturn]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const COMMISSION_TRADE_RETURN: EnumField<InventoryGenEntries> = new EnumField('CommissionTradeReturn', InventoryGenEntries);
+  /**
+   * Static representation of the [[useBillToAddrToDetermineTax]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const USE_BILL_TO_ADDR_TO_DETERMINE_TAX: EnumField<InventoryGenEntries> = new EnumField('UseBillToAddrToDetermineTax', InventoryGenEntries);
+  /**
    * Static representation of the [[issuingReason]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2497,47 +2990,47 @@ export namespace InventoryGenEntries {
    * Static representation of the [[documentApprovalRequests]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_APPROVAL_REQUESTS: CollectionField<InventoryGenEntries> = new CollectionField('Document_ApprovalRequests', InventoryGenEntries, new DocumentApprovalRequestField('', InventoryGenEntries));
+  export const DOCUMENT_APPROVAL_REQUESTS: CollectionField<InventoryGenEntries, DocumentApprovalRequest> = new CollectionField('Document_ApprovalRequests', InventoryGenEntries, DocumentApprovalRequest);
   /**
    * Static representation of the [[documentLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_LINES: CollectionField<InventoryGenEntries> = new CollectionField('DocumentLines', InventoryGenEntries, new DocumentLineField('', InventoryGenEntries));
+  export const DOCUMENT_LINES: CollectionField<InventoryGenEntries, DocumentLine> = new CollectionField('DocumentLines', InventoryGenEntries, DocumentLine);
   /**
    * Static representation of the [[documentAdditionalExpenses]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_ADDITIONAL_EXPENSES: CollectionField<InventoryGenEntries> = new CollectionField('DocumentAdditionalExpenses', InventoryGenEntries, new DocumentAdditionalExpenseField('', InventoryGenEntries));
+  export const DOCUMENT_ADDITIONAL_EXPENSES: CollectionField<InventoryGenEntries, DocumentAdditionalExpense> = new CollectionField('DocumentAdditionalExpenses', InventoryGenEntries, DocumentAdditionalExpense);
   /**
    * Static representation of the [[withholdingTaxDataWtxCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const WITHHOLDING_TAX_DATA_WTX_COLLECTION: CollectionField<InventoryGenEntries> = new CollectionField('WithholdingTaxDataWTXCollection', InventoryGenEntries, new WithholdingTaxDataWtxField('', InventoryGenEntries));
+  export const WITHHOLDING_TAX_DATA_WTX_COLLECTION: CollectionField<InventoryGenEntries, WithholdingTaxDataWtx> = new CollectionField('WithholdingTaxDataWTXCollection', InventoryGenEntries, WithholdingTaxDataWtx);
   /**
    * Static representation of the [[withholdingTaxDataCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const WITHHOLDING_TAX_DATA_COLLECTION: CollectionField<InventoryGenEntries> = new CollectionField('WithholdingTaxDataCollection', InventoryGenEntries, new WithholdingTaxDataField('', InventoryGenEntries));
+  export const WITHHOLDING_TAX_DATA_COLLECTION: CollectionField<InventoryGenEntries, WithholdingTaxData> = new CollectionField('WithholdingTaxDataCollection', InventoryGenEntries, WithholdingTaxData);
   /**
    * Static representation of the [[documentPackages]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_PACKAGES: CollectionField<InventoryGenEntries> = new CollectionField('DocumentPackages', InventoryGenEntries, new DocumentPackageField('', InventoryGenEntries));
+  export const DOCUMENT_PACKAGES: CollectionField<InventoryGenEntries, DocumentPackage> = new CollectionField('DocumentPackages', InventoryGenEntries, DocumentPackage);
   /**
    * Static representation of the [[documentSpecialLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_SPECIAL_LINES: CollectionField<InventoryGenEntries> = new CollectionField('DocumentSpecialLines', InventoryGenEntries, new DocumentSpecialLineField('', InventoryGenEntries));
+  export const DOCUMENT_SPECIAL_LINES: CollectionField<InventoryGenEntries, DocumentSpecialLine> = new CollectionField('DocumentSpecialLines', InventoryGenEntries, DocumentSpecialLine);
   /**
    * Static representation of the [[documentInstallments]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_INSTALLMENTS: CollectionField<InventoryGenEntries> = new CollectionField('DocumentInstallments', InventoryGenEntries, new DocumentInstallmentField('', InventoryGenEntries));
+  export const DOCUMENT_INSTALLMENTS: CollectionField<InventoryGenEntries, DocumentInstallment> = new CollectionField('DocumentInstallments', InventoryGenEntries, DocumentInstallment);
   /**
    * Static representation of the [[downPaymentsToDraw]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOWN_PAYMENTS_TO_DRAW: CollectionField<InventoryGenEntries> = new CollectionField('DownPaymentsToDraw', InventoryGenEntries, new DownPaymentToDrawField('', InventoryGenEntries));
+  export const DOWN_PAYMENTS_TO_DRAW: CollectionField<InventoryGenEntries, DownPaymentToDraw> = new CollectionField('DownPaymentsToDraw', InventoryGenEntries, DownPaymentToDraw);
   /**
    * Static representation of the [[taxExtension]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2661,9 +3154,12 @@ export namespace InventoryGenEntries {
   /**
    * All fields of the InventoryGenEntries entity.
    */
-  export const _allFields: Array<NumberField<InventoryGenEntries> | DateField<InventoryGenEntries> | StringField<InventoryGenEntries> | TimeField<InventoryGenEntries> | CollectionField<InventoryGenEntries> | TaxExtensionField<InventoryGenEntries> | AddressExtensionField<InventoryGenEntries> | OneToOneLink<InventoryGenEntries, BusinessPartners> | OneToOneLink<InventoryGenEntries, Currencies> | OneToOneLink<InventoryGenEntries, PaymentTermsTypes> | OneToOneLink<InventoryGenEntries, SalesPersons> | OneToOneLink<InventoryGenEntries, ShippingTypes> | OneToOneLink<InventoryGenEntries, FactoringIndicators> | OneToOneLink<InventoryGenEntries, JournalEntries> | OneToOneLink<InventoryGenEntries, Forms1099> | OneToOneLink<InventoryGenEntries, WizardPaymentMethods> | OneToOneLink<InventoryGenEntries, PaymentBlocks> | OneToOneLink<InventoryGenEntries, Projects> | OneToOneLink<InventoryGenEntries, EmployeesInfo> | OneToOneLink<InventoryGenEntries, Countries> | OneToOneLink<InventoryGenEntries, BusinessPlaces> | OneToOneLink<InventoryGenEntries, UserLanguages> | OneToOneLink<InventoryGenEntries, NfModels> | OneToOneLink<InventoryGenEntries, ChartOfAccounts> | OneToOneLink<InventoryGenEntries, TaxWebSites> | OneToOneLink<InventoryGenEntries, Branches> | OneToOneLink<InventoryGenEntries, Departments> | OneToOneLink<InventoryGenEntries, PosDailySummary>> = [
+  export const _allFields: Array<NumberField<InventoryGenEntries> | EnumField<InventoryGenEntries> | DateField<InventoryGenEntries> | StringField<InventoryGenEntries> | TimeField<InventoryGenEntries> | CollectionField<InventoryGenEntries, DocumentApprovalRequest> | CollectionField<InventoryGenEntries, DocumentLine> | CollectionField<InventoryGenEntries, DocumentAdditionalExpense> | CollectionField<InventoryGenEntries, WithholdingTaxDataWtx> | CollectionField<InventoryGenEntries, WithholdingTaxData> | CollectionField<InventoryGenEntries, DocumentPackage> | CollectionField<InventoryGenEntries, DocumentSpecialLine> | CollectionField<InventoryGenEntries, DocumentInstallment> | CollectionField<InventoryGenEntries, DownPaymentToDraw> | TaxExtensionField<InventoryGenEntries> | AddressExtensionField<InventoryGenEntries> | OneToOneLink<InventoryGenEntries, BusinessPartners> | OneToOneLink<InventoryGenEntries, Currencies> | OneToOneLink<InventoryGenEntries, PaymentTermsTypes> | OneToOneLink<InventoryGenEntries, SalesPersons> | OneToOneLink<InventoryGenEntries, ShippingTypes> | OneToOneLink<InventoryGenEntries, FactoringIndicators> | OneToOneLink<InventoryGenEntries, JournalEntries> | OneToOneLink<InventoryGenEntries, Forms1099> | OneToOneLink<InventoryGenEntries, WizardPaymentMethods> | OneToOneLink<InventoryGenEntries, PaymentBlocks> | OneToOneLink<InventoryGenEntries, Projects> | OneToOneLink<InventoryGenEntries, EmployeesInfo> | OneToOneLink<InventoryGenEntries, Countries> | OneToOneLink<InventoryGenEntries, BusinessPlaces> | OneToOneLink<InventoryGenEntries, UserLanguages> | OneToOneLink<InventoryGenEntries, NfModels> | OneToOneLink<InventoryGenEntries, ChartOfAccounts> | OneToOneLink<InventoryGenEntries, TaxWebSites> | OneToOneLink<InventoryGenEntries, Branches> | OneToOneLink<InventoryGenEntries, Departments> | OneToOneLink<InventoryGenEntries, PosDailySummary>> = [
     InventoryGenEntries.DOC_ENTRY,
     InventoryGenEntries.DOC_NUM,
+    InventoryGenEntries.DOC_TYPE,
+    InventoryGenEntries.HAND_WRITTEN,
+    InventoryGenEntries.PRINTED,
     InventoryGenEntries.DOC_DATE,
     InventoryGenEntries.DOC_DUE_DATE,
     InventoryGenEntries.CARD_CODE,
@@ -2682,10 +3178,15 @@ export namespace InventoryGenEntries {
     InventoryGenEntries.DOC_TIME,
     InventoryGenEntries.SALES_PERSON_CODE,
     InventoryGenEntries.TRANSPORTATION_CODE,
+    InventoryGenEntries.CONFIRMED,
     InventoryGenEntries.IMPORT_FILE_NUM,
+    InventoryGenEntries.SUMMERY_TYPE,
     InventoryGenEntries.CONTACT_PERSON_CODE,
+    InventoryGenEntries.SHOW_SCN,
     InventoryGenEntries.SERIES,
     InventoryGenEntries.TAX_DATE,
+    InventoryGenEntries.PARTIAL_SUPPLY,
+    InventoryGenEntries.DOC_OBJECT_CODE,
     InventoryGenEntries.SHIP_TO_CODE,
     InventoryGenEntries.INDICATOR,
     InventoryGenEntries.FEDERAL_TAX_ID,
@@ -2698,31 +3199,45 @@ export namespace InventoryGenEntries {
     InventoryGenEntries.VAT_SUM,
     InventoryGenEntries.VAT_SUM_SYS,
     InventoryGenEntries.VAT_SUM_FC,
+    InventoryGenEntries.NET_PROCEDURE,
     InventoryGenEntries.DOC_TOTAL_FC,
     InventoryGenEntries.DOC_TOTAL_SYS,
     InventoryGenEntries.FORM_1099,
     InventoryGenEntries.BOX_1099,
+    InventoryGenEntries.REVISION_PO,
     InventoryGenEntries.REQURIED_DATE,
     InventoryGenEntries.CANCEL_DATE,
+    InventoryGenEntries.BLOCK_DUNNING,
+    InventoryGenEntries.SUBMITTED,
     InventoryGenEntries.SEGMENT,
+    InventoryGenEntries.PICK_STATUS,
+    InventoryGenEntries.PICK,
     InventoryGenEntries.PAYMENT_METHOD,
+    InventoryGenEntries.PAYMENT_BLOCK,
     InventoryGenEntries.PAYMENT_BLOCK_ENTRY,
     InventoryGenEntries.CENTRAL_BANK_INDICATOR,
+    InventoryGenEntries.MAXIMUM_CASH_DISCOUNT,
+    InventoryGenEntries.RESERVE,
     InventoryGenEntries.PROJECT,
     InventoryGenEntries.EXEMPTION_VALIDITY_DATE_FROM,
     InventoryGenEntries.EXEMPTION_VALIDITY_DATE_TO,
+    InventoryGenEntries.WARE_HOUSE_UPDATE_TYPE,
+    InventoryGenEntries.ROUNDING,
     InventoryGenEntries.EXTERNAL_CORRECTED_DOC_NUM,
     InventoryGenEntries.INTERNAL_CORRECTED_DOC_NUM,
     InventoryGenEntries.NEXT_CORRECTING_DOCUMENT,
+    InventoryGenEntries.DEFERRED_TAX,
     InventoryGenEntries.TAX_EXEMPTION_LETTER_NUM,
     InventoryGenEntries.WT_APPLIED,
     InventoryGenEntries.WT_APPLIED_FC,
+    InventoryGenEntries.BILL_OF_EXCHANGE_RESERVED,
     InventoryGenEntries.AGENT_CODE,
     InventoryGenEntries.WT_APPLIED_SC,
     InventoryGenEntries.TOTAL_EQUALIZATION_TAX,
     InventoryGenEntries.TOTAL_EQUALIZATION_TAX_FC,
     InventoryGenEntries.TOTAL_EQUALIZATION_TAX_SC,
     InventoryGenEntries.NUMBER_OF_INSTALLMENTS,
+    InventoryGenEntries.APPLY_TAX_ON_FIRST_INSTALLMENT,
     InventoryGenEntries.WT_NON_SUBJECT_AMOUNT,
     InventoryGenEntries.WT_NON_SUBJECT_AMOUNT_SC,
     InventoryGenEntries.WT_NON_SUBJECT_AMOUNT_FC,
@@ -2739,18 +3254,23 @@ export namespace InventoryGenEntries {
     InventoryGenEntries.DOCUMENTS_OWNER,
     InventoryGenEntries.FOLIO_PREFIX_STRING,
     InventoryGenEntries.FOLIO_NUMBER,
+    InventoryGenEntries.DOCUMENT_SUB_TYPE,
     InventoryGenEntries.BP_CHANNEL_CODE,
     InventoryGenEntries.BP_CHANNEL_CONTACT,
     InventoryGenEntries.ADDRESS_2,
+    InventoryGenEntries.DOCUMENT_STATUS,
     InventoryGenEntries.PERIOD_INDICATOR,
     InventoryGenEntries.PAY_TO_CODE,
     InventoryGenEntries.MANUAL_NUMBER,
+    InventoryGenEntries.USE_SHPD_GOODS_ACT,
+    InventoryGenEntries.IS_PAY_TO_BANK,
     InventoryGenEntries.PAY_TO_BANK_COUNTRY,
     InventoryGenEntries.PAY_TO_BANK_CODE,
     InventoryGenEntries.PAY_TO_BANK_ACCOUNT_NO,
     InventoryGenEntries.PAY_TO_BANK_BRANCH,
     InventoryGenEntries.BPL_ID_ASSIGNED_TO_INVOICE,
     InventoryGenEntries.DOWN_PAYMENT,
+    InventoryGenEntries.RESERVE_INVOICE,
     InventoryGenEntries.LANGUAGE_CODE,
     InventoryGenEntries.TRACKING_NUMBER,
     InventoryGenEntries.PICK_REMARK,
@@ -2760,9 +3280,11 @@ export namespace InventoryGenEntries {
     InventoryGenEntries.SERIES_STRING,
     InventoryGenEntries.SUB_SERIES_STRING,
     InventoryGenEntries.SEQUENCE_MODEL,
+    InventoryGenEntries.USE_CORRECTION_VAT_GROUP,
     InventoryGenEntries.TOTAL_DISCOUNT,
     InventoryGenEntries.DOWN_PAYMENT_AMOUNT,
     InventoryGenEntries.DOWN_PAYMENT_PERCENTAGE,
+    InventoryGenEntries.DOWN_PAYMENT_TYPE,
     InventoryGenEntries.DOWN_PAYMENT_AMOUNT_SC,
     InventoryGenEntries.DOWN_PAYMENT_AMOUNT_FC,
     InventoryGenEntries.VAT_PERCENT,
@@ -2772,32 +3294,49 @@ export namespace InventoryGenEntries {
     InventoryGenEntries.ROUNDING_DIFF_AMOUNT,
     InventoryGenEntries.ROUNDING_DIFF_AMOUNT_FC,
     InventoryGenEntries.ROUNDING_DIFF_AMOUNT_SC,
+    InventoryGenEntries.CANCELLED,
     InventoryGenEntries.SIGNATURE_INPUT_MESSAGE,
     InventoryGenEntries.SIGNATURE_DIGEST,
     InventoryGenEntries.CERTIFICATION_NUMBER,
     InventoryGenEntries.PRIVATE_KEY_VERSION,
     InventoryGenEntries.CONTROL_ACCOUNT,
+    InventoryGenEntries.INSURANCE_OPERATION_347,
+    InventoryGenEntries.ARCHIVE_NONREMOVABLE_SALES_QUOTATION,
     InventoryGenEntries.GTS_CHECKER,
     InventoryGenEntries.GTS_PAYEE,
     InventoryGenEntries.EXTRA_MONTH,
     InventoryGenEntries.EXTRA_DAYS,
     InventoryGenEntries.CASH_DISCOUNT_DATE_OFFSET,
+    InventoryGenEntries.START_FROM,
+    InventoryGenEntries.NTS_APPROVED,
     InventoryGenEntries.E_TAX_WEB_SITE,
     InventoryGenEntries.E_TAX_NUMBER,
     InventoryGenEntries.NTS_APPROVED_NUMBER,
+    InventoryGenEntries.E_DOC_GENERATION_TYPE,
     InventoryGenEntries.E_DOC_SERIES,
     InventoryGenEntries.E_DOC_NUM,
     InventoryGenEntries.E_DOC_EXPORT_FORMAT,
+    InventoryGenEntries.E_DOC_STATUS,
     InventoryGenEntries.E_DOC_ERROR_CODE,
     InventoryGenEntries.E_DOC_ERROR_MESSAGE,
+    InventoryGenEntries.DOWN_PAYMENT_STATUS,
     InventoryGenEntries.GROUP_SERIES,
     InventoryGenEntries.GROUP_NUMBER,
+    InventoryGenEntries.GROUP_HAND_WRITTEN,
+    InventoryGenEntries.REOPEN_ORIGINAL_DOCUMENT,
+    InventoryGenEntries.REOPEN_MANUALLY_CLOSED_OR_CANCELED_DOCUMENT,
+    InventoryGenEntries.CREATE_ONLINE_QUOTATION,
     InventoryGenEntries.POS_EQUIPMENT_NUMBER,
     InventoryGenEntries.POS_MANUFACTURER_SERIAL_NUMBER,
     InventoryGenEntries.POS_CASHIER_NUMBER,
+    InventoryGenEntries.APPLY_CURRENT_VAT_RATES_FOR_DOWN_PAYMENTS_TO_DRAW,
+    InventoryGenEntries.CLOSING_OPTION,
     InventoryGenEntries.SPECIFIED_CLOSING_DATE,
+    InventoryGenEntries.OPEN_FOR_LANDED_COSTS,
+    InventoryGenEntries.AUTHORIZATION_STATUS,
     InventoryGenEntries.TOTAL_DISCOUNT_FC,
     InventoryGenEntries.TOTAL_DISCOUNT_SC,
+    InventoryGenEntries.RELEVANT_TO_GTS,
     InventoryGenEntries.BPL_NAME,
     InventoryGenEntries.VAT_REG_NUM,
     InventoryGenEntries.ANNUAL_INVOICE_DECLARATION_REFERENCE,
@@ -2805,13 +3344,17 @@ export namespace InventoryGenEntries {
     InventoryGenEntries.RELEASER,
     InventoryGenEntries.RECEIVER,
     InventoryGenEntries.BLANKET_AGREEMENT_NUMBER,
+    InventoryGenEntries.IS_ALTERATION,
+    InventoryGenEntries.CANCEL_STATUS,
     InventoryGenEntries.ASSET_VALUE_DATE,
     InventoryGenEntries.REQUESTER,
     InventoryGenEntries.REQUESTER_NAME,
     InventoryGenEntries.REQUESTER_BRANCH,
     InventoryGenEntries.REQUESTER_DEPARTMENT,
     InventoryGenEntries.REQUESTER_EMAIL,
+    InventoryGenEntries.SEND_NOTIFICATION,
     InventoryGenEntries.REQ_TYPE,
+    InventoryGenEntries.DOCUMENT_DELIVERY,
     InventoryGenEntries.AUTHORIZATION_CODE,
     InventoryGenEntries.START_DELIVERY_DATE,
     InventoryGenEntries.START_DELIVERY_TIME,
@@ -2819,23 +3362,33 @@ export namespace InventoryGenEntries {
     InventoryGenEntries.END_DELIVERY_TIME,
     InventoryGenEntries.VEHICLE_PLATE,
     InventoryGenEntries.AT_DOCUMENT_TYPE,
+    InventoryGenEntries.ELEC_COMM_STATUS,
     InventoryGenEntries.ELEC_COMM_MESSAGE,
+    InventoryGenEntries.REUSE_DOCUMENT_NUM,
+    InventoryGenEntries.REUSE_NOTA_FISCAL_NUM,
+    InventoryGenEntries.PRINT_SEPA_DIRECT,
     InventoryGenEntries.FISCAL_DOC_NUM,
     InventoryGenEntries.POS_DAILY_SUMMARY_NO,
     InventoryGenEntries.POS_RECEIPT_NO,
     InventoryGenEntries.POINT_OF_ISSUE_CODE,
+    InventoryGenEntries.LETTER,
     InventoryGenEntries.FOLIO_NUMBER_FROM,
     InventoryGenEntries.FOLIO_NUMBER_TO,
+    InventoryGenEntries.INTERIM_TYPE,
     InventoryGenEntries.RELATED_TYPE,
     InventoryGenEntries.RELATED_ENTRY,
     InventoryGenEntries.DOCUMENT_TAX_ID,
     InventoryGenEntries.DATE_OF_REPORTING_CONTROL_STATEMENT_VAT,
     InventoryGenEntries.REPORTING_SECTION_CONTROL_STATEMENT_VAT,
+    InventoryGenEntries.EXCLUDE_FROM_TAX_REPORT_CONTROL_STATEMENT_VAT,
     InventoryGenEntries.POS_CASH_REGISTER,
     InventoryGenEntries.UPDATE_TIME,
+    InventoryGenEntries.PRICE_MODE,
     InventoryGenEntries.DOWN_PAYMENT_TRASACTION_ID,
+    InventoryGenEntries.REVISION,
     InventoryGenEntries.ORIGINAL_REF_NO,
     InventoryGenEntries.ORIGINAL_REF_DATE,
+    InventoryGenEntries.GST_TRANSACTION_TYPE,
     InventoryGenEntries.ORIGINAL_CREDIT_OR_DEBIT_NO,
     InventoryGenEntries.ORIGINAL_CREDIT_OR_DEBIT_DATE,
     InventoryGenEntries.E_COMMERCE_OPERATOR,
@@ -2843,6 +3396,9 @@ export namespace InventoryGenEntries {
     InventoryGenEntries.TAX_INVOICE_NO,
     InventoryGenEntries.TAX_INVOICE_DATE,
     InventoryGenEntries.SHIP_FROM,
+    InventoryGenEntries.COMMISSION_TRADE,
+    InventoryGenEntries.COMMISSION_TRADE_RETURN,
+    InventoryGenEntries.USE_BILL_TO_ADDR_TO_DETERMINE_TAX,
     InventoryGenEntries.ISSUING_REASON,
     InventoryGenEntries.DOCUMENT_APPROVAL_REQUESTS,
     InventoryGenEntries.DOCUMENT_LINES,

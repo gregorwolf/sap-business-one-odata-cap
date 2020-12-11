@@ -3,8 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { TaxCodeDeterminationTcdKeyFieldValue, TaxCodeDeterminationTcdKeyFieldValueField } from './TaxCodeDeterminationTcdKeyFieldValue';
-import { CollectionField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { TaxCodeDeterminationTcdKeyFieldValue } from './TaxCodeDeterminationTcdKeyFieldValue';
+import { CollectionField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * TaxCodeDeterminationTcdKeyField
@@ -89,7 +89,7 @@ export interface TaxCodeDeterminationTcdKeyField {
    * Tax Code Determination Tcd Key Field Values.
    * @nullable
    */
-  taxCodeDeterminationTcdKeyFieldValues?: TaxCodeDeterminationTcdKeyFieldValue;
+  taxCodeDeterminationTcdKeyFieldValues?: TaxCodeDeterminationTcdKeyFieldValue[];
 }
 
 /**
@@ -103,7 +103,7 @@ export function createTaxCodeDeterminationTcdKeyField(json: any): TaxCodeDetermi
  * TaxCodeDeterminationTcdKeyFieldField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class TaxCodeDeterminationTcdKeyFieldField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class TaxCodeDeterminationTcdKeyFieldField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, TaxCodeDeterminationTcdKeyField> {
   /**
    * Representation of the [[TaxCodeDeterminationTcdKeyField.absId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -183,28 +183,109 @@ export class TaxCodeDeterminationTcdKeyFieldField<EntityT extends Entity> extend
    * Representation of the [[TaxCodeDeterminationTcdKeyField.taxCodeDeterminationTcdKeyFieldValues]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  taxCodeDeterminationTcdKeyFieldValues: TaxCodeDeterminationTcdKeyFieldValueField<EntityT> = new TaxCodeDeterminationTcdKeyFieldValueField('TaxCodeDeterminationTCDKeyFieldValues', this);
+  taxCodeDeterminationTcdKeyFieldValues: CollectionField<EntityT, TaxCodeDeterminationTcdKeyFieldValue> = new CollectionField('TaxCodeDeterminationTCDKeyFieldValues', this, TaxCodeDeterminationTcdKeyFieldValue);
+
+  /**
+   * Creates an instance of TaxCodeDeterminationTcdKeyFieldField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, TaxCodeDeterminationTcdKeyField);
+  }
 }
 
 export namespace TaxCodeDeterminationTcdKeyField {
+  /**
+   * Metadata information on all properties of the `TaxCodeDeterminationTcdKeyField` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<TaxCodeDeterminationTcdKeyField>[] = [{
+    originalName: 'AbsId',
+    name: 'absId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Descr',
+    name: 'descr',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Priority',
+    name: 'priority',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'KeyFld_1',
+    name: 'keyFld1',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'UDFTable_1',
+    name: 'udfTable1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UDFAlias_1',
+    name: 'udfAlias1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'KeyFld_2',
+    name: 'keyFld2',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'UDFTable_2',
+    name: 'udfTable2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UDFAlias_2',
+    name: 'udfAlias2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'KeyFld_3',
+    name: 'keyFld3',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'UDFTable_3',
+    name: 'udfTable3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UDFAlias_3',
+    name: 'udfAlias3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'KeyFld_4',
+    name: 'keyFld4',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'UDFTable_4',
+    name: 'udfTable4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UDFAlias_4',
+    name: 'udfAlias4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxCodeDeterminationTCDKeyFieldValues',
+    name: 'taxCodeDeterminationTcdKeyFieldValues',
+    type: TaxCodeDeterminationTcdKeyFieldValue,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | TaxCodeDeterminationTcdKeyFieldValue }): TaxCodeDeterminationTcdKeyField {
-    return createComplexType(json, {
-      AbsId: (absId: number) => ({ absId: edmToTs(absId, 'Edm.Int32') }),
-      Descr: (descr: string) => ({ descr: edmToTs(descr, 'Edm.String') }),
-      Priority: (priority: number) => ({ priority: edmToTs(priority, 'Edm.Int32') }),
-      KeyFld_1: (keyFld1: number) => ({ keyFld1: edmToTs(keyFld1, 'Edm.Int32') }),
-      UDFTable_1: (udfTable1: string) => ({ udfTable1: edmToTs(udfTable1, 'Edm.String') }),
-      UDFAlias_1: (udfAlias1: string) => ({ udfAlias1: edmToTs(udfAlias1, 'Edm.String') }),
-      KeyFld_2: (keyFld2: number) => ({ keyFld2: edmToTs(keyFld2, 'Edm.Int32') }),
-      UDFTable_2: (udfTable2: string) => ({ udfTable2: edmToTs(udfTable2, 'Edm.String') }),
-      UDFAlias_2: (udfAlias2: string) => ({ udfAlias2: edmToTs(udfAlias2, 'Edm.String') }),
-      KeyFld_3: (keyFld3: number) => ({ keyFld3: edmToTs(keyFld3, 'Edm.Int32') }),
-      UDFTable_3: (udfTable3: string) => ({ udfTable3: edmToTs(udfTable3, 'Edm.String') }),
-      UDFAlias_3: (udfAlias3: string) => ({ udfAlias3: edmToTs(udfAlias3, 'Edm.String') }),
-      KeyFld_4: (keyFld4: number) => ({ keyFld4: edmToTs(keyFld4, 'Edm.Int32') }),
-      UDFTable_4: (udfTable4: string) => ({ udfTable4: edmToTs(udfTable4, 'Edm.String') }),
-      UDFAlias_4: (udfAlias4: string) => ({ udfAlias4: edmToTs(udfAlias4, 'Edm.String') }),
-      TaxCodeDeterminationTCDKeyFieldValues: (taxCodeDeterminationTcdKeyFieldValues: TaxCodeDeterminationTcdKeyFieldValue) => ({ taxCodeDeterminationTcdKeyFieldValues: TaxCodeDeterminationTcdKeyFieldValue.build(taxCodeDeterminationTcdKeyFieldValues) })
-    });
+    return deserializeComplexTypeV4(json, TaxCodeDeterminationTcdKeyField);
   }
 }

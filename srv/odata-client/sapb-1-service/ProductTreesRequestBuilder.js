@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.ProductTreesRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var ProductTrees_1 = require("./ProductTrees");
 /**
  * Request builder class for operations supported on the [[ProductTrees]] entity.
@@ -35,14 +35,14 @@ var ProductTreesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `ProductTrees` entity based on its keys.
      */
     ProductTreesRequestBuilder.prototype.getByKey = function (treeCode) {
-        return new v4_1.GetByKeyRequestBuilder(ProductTrees_1.ProductTrees, { TreeCode: treeCode });
+        return new core_1.GetByKeyRequestBuilderV4(ProductTrees_1.ProductTrees, { TreeCode: treeCode });
     };
     /**
      * Returns a request builder for querying all `ProductTrees` entities.
      * @returns A request builder for creating requests to retrieve all `ProductTrees` entities.
      */
     ProductTreesRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(ProductTrees_1.ProductTrees);
+        return new core_1.GetAllRequestBuilderV4(ProductTrees_1.ProductTrees);
     };
     /**
      * Returns a request builder for creating a `ProductTrees` entity.
@@ -50,7 +50,7 @@ var ProductTreesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `ProductTrees`.
      */
     ProductTreesRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(ProductTrees_1.ProductTrees, entity);
+        return new core_1.CreateRequestBuilderV4(ProductTrees_1.ProductTrees, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `ProductTrees`.
@@ -58,12 +58,12 @@ var ProductTreesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `ProductTrees`.
      */
     ProductTreesRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(ProductTrees_1.ProductTrees, entity);
+        return new core_1.UpdateRequestBuilderV4(ProductTrees_1.ProductTrees, entity);
     };
     ProductTreesRequestBuilder.prototype.delete = function (treeCodeOrEntity) {
-        return new v4_1.DeleteRequestBuilder(ProductTrees_1.ProductTrees, treeCodeOrEntity instanceof ProductTrees_1.ProductTrees ? treeCodeOrEntity : { TreeCode: treeCodeOrEntity });
+        return new core_1.DeleteRequestBuilderV4(ProductTrees_1.ProductTrees, treeCodeOrEntity instanceof ProductTrees_1.ProductTrees ? treeCodeOrEntity : { TreeCode: treeCodeOrEntity });
     };
     return ProductTreesRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.ProductTreesRequestBuilder = ProductTreesRequestBuilder;
 //# sourceMappingURL=ProductTreesRequestBuilder.js.map

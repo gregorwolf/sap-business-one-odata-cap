@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -14,12 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PmcActivityData = exports.PmcActivityDataField = exports.createPmcActivityData = void 0;
-/*
- * Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
- *
- * This is a generated file powered by the SAP Cloud SDK for JavaScript.
- */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[PmcActivityData.build]] instead.
  */
@@ -33,36 +28,80 @@ exports.createPmcActivityData = createPmcActivityData;
  */
 var PmcActivityDataField = /** @class */ (function (_super) {
     __extends(PmcActivityDataField, _super);
-    function PmcActivityDataField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of PmcActivityDataField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function PmcActivityDataField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, PmcActivityData) || this;
         /**
          * Representation of the [[PmcActivityData.activityId]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.activityId = new v4_1.ComplexTypeNumberPropertyField('ActivityID', _this, 'Edm.Int32');
+        _this.activityId = new core_1.ComplexTypeNumberPropertyField('ActivityID', _this, 'Edm.Int32');
         /**
          * Representation of the [[PmcActivityData.activityType]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.activityType = new v4_1.ComplexTypeStringPropertyField('ActivityType', _this, 'Edm.String');
+        _this.activityType = new core_1.ComplexTypeStringPropertyField('ActivityType', _this, 'Edm.String');
         /**
          * Representation of the [[PmcActivityData.laborItem]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.laborItem = new v4_1.ComplexTypeStringPropertyField('LaborItem', _this, 'Edm.String');
+        _this.laborItem = new core_1.ComplexTypeStringPropertyField('LaborItem', _this, 'Edm.String');
+        /**
+         * Representation of the [[PmcActivityData.isChargeable]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.isChargeable = new core_1.ComplexTypeEnumPropertyField('IsChargeable', _this);
+        /**
+         * Representation of the [[PmcActivityData.isAbsence]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.isAbsence = new core_1.ComplexTypeEnumPropertyField('IsAbsence', _this);
         return _this;
     }
     return PmcActivityDataField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.PmcActivityDataField = PmcActivityDataField;
 var PmcActivityData;
 (function (PmcActivityData) {
+    /**
+     * Metadata information on all properties of the `PmcActivityData` complex type.
+     */
+    PmcActivityData._propertyMetadata = [{
+            originalName: 'ActivityID',
+            name: 'activityId',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'ActivityType',
+            name: 'activityType',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'LaborItem',
+            name: 'laborItem',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'IsChargeable',
+            name: 'isChargeable',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'IsAbsence',
+            name: 'isAbsence',
+            type: 'Edm.Enum',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            ActivityID: function (activityId) { return ({ activityId: v4_1.edmToTs(activityId, 'Edm.Int32') }); },
-            ActivityType: function (activityType) { return ({ activityType: v4_1.edmToTs(activityType, 'Edm.String') }); },
-            LaborItem: function (laborItem) { return ({ laborItem: v4_1.edmToTs(laborItem, 'Edm.String') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, PmcActivityData);
     }
     PmcActivityData.build = build;
 })(PmcActivityData = exports.PmcActivityData || (exports.PmcActivityData = {}));

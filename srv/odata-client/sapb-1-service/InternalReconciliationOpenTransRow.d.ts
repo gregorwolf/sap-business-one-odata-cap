@@ -1,8 +1,15 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { CreditOrDebitEnum } from './CreditOrDebitEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * InternalReconciliationOpenTransRow
  */
 export interface InternalReconciliationOpenTransRow {
+    /**
+     * Selected.
+     * @nullable
+     */
+    selected?: BoYesNoEnum;
     /**
      * Short Name.
      * @nullable
@@ -29,6 +36,11 @@ export interface InternalReconciliationOpenTransRow {
      */
     srcObjAbs?: number;
     /**
+     * Credit Or Debit.
+     * @nullable
+     */
+    creditOrDebit?: CreditOrDebitEnum;
+    /**
      * Reconcile Amount.
      * @nullable
      */
@@ -47,7 +59,12 @@ export declare function createInternalReconciliationOpenTransRow(json: any): Int
  * InternalReconciliationOpenTransRowField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class InternalReconciliationOpenTransRowField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class InternalReconciliationOpenTransRowField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, InternalReconciliationOpenTransRow> {
+    /**
+     * Representation of the [[InternalReconciliationOpenTransRow.selected]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    selected: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[InternalReconciliationOpenTransRow.shortName]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -74,6 +91,11 @@ export declare class InternalReconciliationOpenTransRowField<EntityT extends Ent
      */
     srcObjAbs: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[InternalReconciliationOpenTransRow.creditOrDebit]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    creditOrDebit: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[InternalReconciliationOpenTransRow.reconcileAmount]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -83,8 +105,22 @@ export declare class InternalReconciliationOpenTransRowField<EntityT extends Ent
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     cashDiscount: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of InternalReconciliationOpenTransRowField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace InternalReconciliationOpenTransRow {
+    /**
+     * Metadata information on all properties of the `InternalReconciliationOpenTransRow` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<InternalReconciliationOpenTransRow>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): InternalReconciliationOpenTransRow;

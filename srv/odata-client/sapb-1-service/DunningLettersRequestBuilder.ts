@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { DunningLetters } from './DunningLetters';
 
 /**
@@ -15,16 +15,16 @@ export class DunningLettersRequestBuilder extends RequestBuilder<DunningLetters>
    * @param rowNumber Key property. See [[DunningLetters.rowNumber]].
    * @returns A request builder for creating requests to retrieve one `DunningLetters` entity based on its keys.
    */
-  getByKey(rowNumber: number): GetByKeyRequestBuilder<DunningLetters> {
-    return new GetByKeyRequestBuilder(DunningLetters, { RowNumber: rowNumber });
+  getByKey(rowNumber: number): GetByKeyRequestBuilderV4<DunningLetters> {
+    return new GetByKeyRequestBuilderV4(DunningLetters, { RowNumber: rowNumber });
   }
 
   /**
    * Returns a request builder for querying all `DunningLetters` entities.
    * @returns A request builder for creating requests to retrieve all `DunningLetters` entities.
    */
-  getAll(): GetAllRequestBuilder<DunningLetters> {
-    return new GetAllRequestBuilder(DunningLetters);
+  getAll(): GetAllRequestBuilderV4<DunningLetters> {
+    return new GetAllRequestBuilderV4(DunningLetters);
   }
 
   /**
@@ -32,8 +32,8 @@ export class DunningLettersRequestBuilder extends RequestBuilder<DunningLetters>
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `DunningLetters`.
    */
-  create(entity: DunningLetters): CreateRequestBuilder<DunningLetters> {
-    return new CreateRequestBuilder(DunningLetters, entity);
+  create(entity: DunningLetters): CreateRequestBuilderV4<DunningLetters> {
+    return new CreateRequestBuilderV4(DunningLetters, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class DunningLettersRequestBuilder extends RequestBuilder<DunningLetters>
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `DunningLetters`.
    */
-  update(entity: DunningLetters): UpdateRequestBuilder<DunningLetters> {
-    return new UpdateRequestBuilder(DunningLetters, entity);
+  update(entity: DunningLetters): UpdateRequestBuilderV4<DunningLetters> {
+    return new UpdateRequestBuilderV4(DunningLetters, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class DunningLettersRequestBuilder extends RequestBuilder<DunningLetters>
    * @param rowNumber Key property. See [[DunningLetters.rowNumber]].
    * @returns A request builder for creating requests that delete an entity of type `DunningLetters`.
    */
-  delete(rowNumber: number): DeleteRequestBuilder<DunningLetters>;
+  delete(rowNumber: number): DeleteRequestBuilderV4<DunningLetters>;
   /**
    * Returns a request builder for deleting an entity of type `DunningLetters`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `DunningLetters` by taking the entity as a parameter.
    */
-  delete(entity: DunningLetters): DeleteRequestBuilder<DunningLetters>;
-  delete(rowNumberOrEntity: any): DeleteRequestBuilder<DunningLetters> {
-    return new DeleteRequestBuilder(DunningLetters, rowNumberOrEntity instanceof DunningLetters ? rowNumberOrEntity : { RowNumber: rowNumberOrEntity! });
+  delete(entity: DunningLetters): DeleteRequestBuilderV4<DunningLetters>;
+  delete(rowNumberOrEntity: any): DeleteRequestBuilderV4<DunningLetters> {
+    return new DeleteRequestBuilderV4(DunningLetters, rowNumberOrEntity instanceof DunningLetters ? rowNumberOrEntity : { RowNumber: rowNumberOrEntity! });
   }
 }

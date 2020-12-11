@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * FifoLayer
@@ -52,7 +52,7 @@ export function createFifoLayer(json: any): FifoLayer {
  * FifoLayerField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class FifoLayerField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class FifoLayerField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, FifoLayer> {
   /**
    * Representation of the [[FifoLayer.transactionSequenceNum]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -83,17 +83,58 @@ export class FifoLayerField<EntityT extends Entity> extends ComplexTypeField<Ent
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   baseLine: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('BaseLine', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of FifoLayerField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, FifoLayer);
+  }
 }
 
 export namespace FifoLayer {
+  /**
+   * Metadata information on all properties of the `FifoLayer` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<FifoLayer>[] = [{
+    originalName: 'TransactionSequenceNum',
+    name: 'transactionSequenceNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LayerID',
+    name: 'layerId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Quantity',
+    name: 'quantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Price',
+    name: 'price',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'LineTotal',
+    name: 'lineTotal',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BaseLine',
+    name: 'baseLine',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): FifoLayer {
-    return createComplexType(json, {
-      TransactionSequenceNum: (transactionSequenceNum: number) => ({ transactionSequenceNum: edmToTs(transactionSequenceNum, 'Edm.Int32') }),
-      LayerID: (layerId: number) => ({ layerId: edmToTs(layerId, 'Edm.Int32') }),
-      Quantity: (quantity: number) => ({ quantity: edmToTs(quantity, 'Edm.Double') }),
-      Price: (price: number) => ({ price: edmToTs(price, 'Edm.Double') }),
-      LineTotal: (lineTotal: number) => ({ lineTotal: edmToTs(lineTotal, 'Edm.Double') }),
-      BaseLine: (baseLine: number) => ({ baseLine: edmToTs(baseLine, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, FifoLayer);
   }
 }

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.AssetCapitalizationRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var AssetCapitalization_1 = require("./AssetCapitalization");
 /**
  * Request builder class for operations supported on the [[AssetCapitalization]] entity.
@@ -35,14 +35,14 @@ var AssetCapitalizationRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `AssetCapitalization` entity based on its keys.
      */
     AssetCapitalizationRequestBuilder.prototype.getByKey = function (docEntry) {
-        return new v4_1.GetByKeyRequestBuilder(AssetCapitalization_1.AssetCapitalization, { DocEntry: docEntry });
+        return new core_1.GetByKeyRequestBuilderV4(AssetCapitalization_1.AssetCapitalization, { DocEntry: docEntry });
     };
     /**
      * Returns a request builder for querying all `AssetCapitalization` entities.
      * @returns A request builder for creating requests to retrieve all `AssetCapitalization` entities.
      */
     AssetCapitalizationRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(AssetCapitalization_1.AssetCapitalization);
+        return new core_1.GetAllRequestBuilderV4(AssetCapitalization_1.AssetCapitalization);
     };
     /**
      * Returns a request builder for creating a `AssetCapitalization` entity.
@@ -50,7 +50,7 @@ var AssetCapitalizationRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `AssetCapitalization`.
      */
     AssetCapitalizationRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(AssetCapitalization_1.AssetCapitalization, entity);
+        return new core_1.CreateRequestBuilderV4(AssetCapitalization_1.AssetCapitalization, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `AssetCapitalization`.
@@ -58,12 +58,12 @@ var AssetCapitalizationRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `AssetCapitalization`.
      */
     AssetCapitalizationRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(AssetCapitalization_1.AssetCapitalization, entity);
+        return new core_1.UpdateRequestBuilderV4(AssetCapitalization_1.AssetCapitalization, entity);
     };
     AssetCapitalizationRequestBuilder.prototype.delete = function (docEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(AssetCapitalization_1.AssetCapitalization, docEntryOrEntity instanceof AssetCapitalization_1.AssetCapitalization ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(AssetCapitalization_1.AssetCapitalization, docEntryOrEntity instanceof AssetCapitalization_1.AssetCapitalization ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
     };
     return AssetCapitalizationRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.AssetCapitalizationRequestBuilder = AssetCapitalizationRequestBuilder;
 //# sourceMappingURL=AssetCapitalizationRequestBuilder.js.map

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { MaterialGroups } from './MaterialGroups';
 
 /**
@@ -15,16 +15,16 @@ export class MaterialGroupsRequestBuilder extends RequestBuilder<MaterialGroups>
    * @param absEntry Key property. See [[MaterialGroups.absEntry]].
    * @returns A request builder for creating requests to retrieve one `MaterialGroups` entity based on its keys.
    */
-  getByKey(absEntry: number): GetByKeyRequestBuilder<MaterialGroups> {
-    return new GetByKeyRequestBuilder(MaterialGroups, { AbsEntry: absEntry });
+  getByKey(absEntry: number): GetByKeyRequestBuilderV4<MaterialGroups> {
+    return new GetByKeyRequestBuilderV4(MaterialGroups, { AbsEntry: absEntry });
   }
 
   /**
    * Returns a request builder for querying all `MaterialGroups` entities.
    * @returns A request builder for creating requests to retrieve all `MaterialGroups` entities.
    */
-  getAll(): GetAllRequestBuilder<MaterialGroups> {
-    return new GetAllRequestBuilder(MaterialGroups);
+  getAll(): GetAllRequestBuilderV4<MaterialGroups> {
+    return new GetAllRequestBuilderV4(MaterialGroups);
   }
 
   /**
@@ -32,8 +32,8 @@ export class MaterialGroupsRequestBuilder extends RequestBuilder<MaterialGroups>
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `MaterialGroups`.
    */
-  create(entity: MaterialGroups): CreateRequestBuilder<MaterialGroups> {
-    return new CreateRequestBuilder(MaterialGroups, entity);
+  create(entity: MaterialGroups): CreateRequestBuilderV4<MaterialGroups> {
+    return new CreateRequestBuilderV4(MaterialGroups, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class MaterialGroupsRequestBuilder extends RequestBuilder<MaterialGroups>
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `MaterialGroups`.
    */
-  update(entity: MaterialGroups): UpdateRequestBuilder<MaterialGroups> {
-    return new UpdateRequestBuilder(MaterialGroups, entity);
+  update(entity: MaterialGroups): UpdateRequestBuilderV4<MaterialGroups> {
+    return new UpdateRequestBuilderV4(MaterialGroups, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class MaterialGroupsRequestBuilder extends RequestBuilder<MaterialGroups>
    * @param absEntry Key property. See [[MaterialGroups.absEntry]].
    * @returns A request builder for creating requests that delete an entity of type `MaterialGroups`.
    */
-  delete(absEntry: number): DeleteRequestBuilder<MaterialGroups>;
+  delete(absEntry: number): DeleteRequestBuilderV4<MaterialGroups>;
   /**
    * Returns a request builder for deleting an entity of type `MaterialGroups`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `MaterialGroups` by taking the entity as a parameter.
    */
-  delete(entity: MaterialGroups): DeleteRequestBuilder<MaterialGroups>;
-  delete(absEntryOrEntity: any): DeleteRequestBuilder<MaterialGroups> {
-    return new DeleteRequestBuilder(MaterialGroups, absEntryOrEntity instanceof MaterialGroups ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
+  delete(entity: MaterialGroups): DeleteRequestBuilderV4<MaterialGroups>;
+  delete(absEntryOrEntity: any): DeleteRequestBuilderV4<MaterialGroups> {
+    return new DeleteRequestBuilderV4(MaterialGroups, absEntryOrEntity instanceof MaterialGroups ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
   }
 }

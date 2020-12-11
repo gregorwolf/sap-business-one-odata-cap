@@ -1,18 +1,13 @@
 import { DepreciationTypePoolsRequestBuilder } from './DepreciationTypePoolsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "DepreciationTypePools" of service "SAPB1".
  */
-export declare class DepreciationTypePools extends Entity implements DepreciationTypePoolsType {
+export declare class DepreciationTypePools extends EntityV4 implements DepreciationTypePoolsType {
     /**
      * Technical entity name for DepreciationTypePools.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for DepreciationTypePools.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -32,10 +27,10 @@ export declare class DepreciationTypePools extends Entity implements Depreciatio
      */
     depreciationTypes: DepreciationTypes[];
     /**
-     * Returns an entity builder to construct instances `DepreciationTypePools`.
+     * Returns an entity builder to construct instances of `DepreciationTypePools`.
      * @returns A builder that constructs instances of entity type `DepreciationTypePools`.
      */
-    static builder(): EntityBuilderType<DepreciationTypePools, DepreciationTypePoolsTypeForceMandatory>;
+    static builder(): EntityBuilderType<DepreciationTypePools, DepreciationTypePoolsType>;
     /**
      * Returns a request builder to construct requests for operations on the `DepreciationTypePools` entity type.
      * @returns A `DepreciationTypePools` request builder.
@@ -46,7 +41,7 @@ export declare class DepreciationTypePools extends Entity implements Depreciatio
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `DepreciationTypePools`.
      */
-    static customField(fieldName: string): CustomField<DepreciationTypePools>;
+    static customField(fieldName: string): CustomFieldV4<DepreciationTypePools>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -57,13 +52,8 @@ export declare class DepreciationTypePools extends Entity implements Depreciatio
 }
 import { DepreciationTypes, DepreciationTypesType } from './DepreciationTypes';
 export interface DepreciationTypePoolsType {
-    code?: string;
-    description?: string;
-    depreciationTypes: DepreciationTypesType[];
-}
-export interface DepreciationTypePoolsTypeForceMandatory {
-    code: string;
-    description: string;
+    code?: string | null;
+    description?: string | null;
     depreciationTypes: DepreciationTypesType[];
 }
 export declare namespace DepreciationTypePools {

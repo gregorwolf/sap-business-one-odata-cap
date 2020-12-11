@@ -5,25 +5,21 @@
  */
 import { BatchNumberDetailsRequestBuilder } from './BatchNumberDetailsRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BatchDetailServiceStatusEnum } from './BatchDetailServiceStatusEnum';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "BatchNumberDetails" of service "SAPB1".
  */
-export class BatchNumberDetails extends Entity implements BatchNumberDetailsType {
+export class BatchNumberDetails extends EntityV4 implements BatchNumberDetailsType {
   /**
    * Technical entity name for BatchNumberDetails.
    */
   static _entityName = 'BatchNumberDetails';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for BatchNumberDetails.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Doc Entry.
    * @nullable
@@ -39,6 +35,11 @@ export class BatchNumberDetails extends Entity implements BatchNumberDetailsType
    * @nullable
    */
   itemDescription?: string;
+  /**
+   * Status.
+   * @nullable
+   */
+  status?: BatchDetailServiceStatusEnum;
   /**
    * Batch.
    * @nullable
@@ -85,11 +86,11 @@ export class BatchNumberDetails extends Entity implements BatchNumberDetailsType
   item!: Items;
 
   /**
-   * Returns an entity builder to construct instances `BatchNumberDetails`.
+   * Returns an entity builder to construct instances of `BatchNumberDetails`.
    * @returns A builder that constructs instances of entity type `BatchNumberDetails`.
    */
-  static builder(): EntityBuilderType<BatchNumberDetails, BatchNumberDetailsTypeForceMandatory> {
-    return Entity.entityBuilder(BatchNumberDetails);
+  static builder(): EntityBuilderType<BatchNumberDetails, BatchNumberDetailsType> {
+    return EntityV4.entityBuilder(BatchNumberDetails);
   }
 
   /**
@@ -105,8 +106,8 @@ export class BatchNumberDetails extends Entity implements BatchNumberDetailsType
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `BatchNumberDetails`.
    */
-  static customField(fieldName: string): CustomField<BatchNumberDetails> {
-    return Entity.customFieldSelector(fieldName, BatchNumberDetails);
+  static customField(fieldName: string): CustomFieldV4<BatchNumberDetails> {
+    return EntityV4.customFieldSelector(fieldName, BatchNumberDetails);
   }
 
   /**
@@ -121,32 +122,18 @@ export class BatchNumberDetails extends Entity implements BatchNumberDetailsType
 import { Items, ItemsType } from './Items';
 
 export interface BatchNumberDetailsType {
-  docEntry?: number;
-  itemCode?: string;
-  itemDescription?: string;
-  batch?: string;
-  batchAttribute1?: string;
-  batchAttribute2?: string;
-  admissionDate?: Moment;
-  manufacturingDate?: Moment;
-  expirationDate?: Moment;
-  details?: string;
-  systemNumber?: number;
-  item: ItemsType;
-}
-
-export interface BatchNumberDetailsTypeForceMandatory {
-  docEntry: number;
-  itemCode: string;
-  itemDescription: string;
-  batch: string;
-  batchAttribute1: string;
-  batchAttribute2: string;
-  admissionDate: Moment;
-  manufacturingDate: Moment;
-  expirationDate: Moment;
-  details: string;
-  systemNumber: number;
+  docEntry?: number | null;
+  itemCode?: string | null;
+  itemDescription?: string | null;
+  status?: BatchDetailServiceStatusEnum | null;
+  batch?: string | null;
+  batchAttribute1?: string | null;
+  batchAttribute2?: string | null;
+  admissionDate?: Moment | null;
+  manufacturingDate?: Moment | null;
+  expirationDate?: Moment | null;
+  details?: string | null;
+  systemNumber?: number | null;
   item: ItemsType;
 }
 
@@ -166,6 +153,11 @@ export namespace BatchNumberDetails {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const ITEM_DESCRIPTION: StringField<BatchNumberDetails> = new StringField('ItemDescription', BatchNumberDetails, 'Edm.String');
+  /**
+   * Static representation of the [[status]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const STATUS: EnumField<BatchNumberDetails> = new EnumField('Status', BatchNumberDetails);
   /**
    * Static representation of the [[batch]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -214,10 +206,11 @@ export namespace BatchNumberDetails {
   /**
    * All fields of the BatchNumberDetails entity.
    */
-  export const _allFields: Array<NumberField<BatchNumberDetails> | StringField<BatchNumberDetails> | DateField<BatchNumberDetails> | OneToOneLink<BatchNumberDetails, Items>> = [
+  export const _allFields: Array<NumberField<BatchNumberDetails> | StringField<BatchNumberDetails> | EnumField<BatchNumberDetails> | DateField<BatchNumberDetails> | OneToOneLink<BatchNumberDetails, Items>> = [
     BatchNumberDetails.DOC_ENTRY,
     BatchNumberDetails.ITEM_CODE,
     BatchNumberDetails.ITEM_DESCRIPTION,
+    BatchNumberDetails.STATUS,
     BatchNumberDetails.BATCH,
     BatchNumberDetails.BATCH_ATTRIBUTE_1,
     BatchNumberDetails.BATCH_ATTRIBUTE_2,

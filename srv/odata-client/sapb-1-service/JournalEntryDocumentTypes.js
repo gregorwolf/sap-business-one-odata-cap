@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.JournalEntryDocumentTypes = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var JournalEntryDocumentTypesRequestBuilder_1 = require("./JournalEntryDocumentTypesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "JournalEntryDocumentTypes" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var JournalEntryDocumentTypes = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `JournalEntryDocumentTypes`.
+     * Returns an entity builder to construct instances of `JournalEntryDocumentTypes`.
      * @returns A builder that constructs instances of entity type `JournalEntryDocumentTypes`.
      */
     JournalEntryDocumentTypes.builder = function () {
-        return v4_1.Entity.entityBuilder(JournalEntryDocumentTypes);
+        return core_1.EntityV4.entityBuilder(JournalEntryDocumentTypes);
     };
     /**
      * Returns a request builder to construct requests for operations on the `JournalEntryDocumentTypes` entity type.
@@ -60,7 +60,7 @@ var JournalEntryDocumentTypes = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `JournalEntryDocumentTypes`.
      */
     JournalEntryDocumentTypes.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, JournalEntryDocumentTypes);
+        return core_1.EntityV4.customFieldSelector(fieldName, JournalEntryDocumentTypes);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var JournalEntryDocumentTypes = /** @class */ (function (_super) {
      */
     JournalEntryDocumentTypes._entityName = 'JournalEntryDocumentTypes';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for JournalEntryDocumentTypes.
-     */
-    JournalEntryDocumentTypes._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    JournalEntryDocumentTypes._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    JournalEntryDocumentTypes._defaultServicePath = '/b1s/v2/';
     return JournalEntryDocumentTypes;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.JournalEntryDocumentTypes = JournalEntryDocumentTypes;
 var JournalEntries_1 = require("./JournalEntries");
 (function (JournalEntryDocumentTypes) {
@@ -91,22 +86,22 @@ var JournalEntries_1 = require("./JournalEntries");
      * Static representation of the [[journalEntryType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    JournalEntryDocumentTypes.JOURNAL_ENTRY_TYPE = new v4_1.StringField('JournalEntryType', JournalEntryDocumentTypes, 'Edm.String');
+    JournalEntryDocumentTypes.JOURNAL_ENTRY_TYPE = new core_1.StringField('JournalEntryType', JournalEntryDocumentTypes, 'Edm.String');
     /**
      * Static representation of the [[docTypeDescription]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    JournalEntryDocumentTypes.DOC_TYPE_DESCRIPTION = new v4_1.StringField('DocTypeDescription', JournalEntryDocumentTypes, 'Edm.String');
+    JournalEntryDocumentTypes.DOC_TYPE_DESCRIPTION = new core_1.StringField('DocTypeDescription', JournalEntryDocumentTypes, 'Edm.String');
     /**
      * Static representation of the [[shortName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    JournalEntryDocumentTypes.SHORT_NAME = new v4_1.StringField('ShortName', JournalEntryDocumentTypes, 'Edm.String');
+    JournalEntryDocumentTypes.SHORT_NAME = new core_1.StringField('ShortName', JournalEntryDocumentTypes, 'Edm.String');
     /**
      * Static representation of the one-to-many navigation property [[journalEntries]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    JournalEntryDocumentTypes.JOURNAL_ENTRIES = new v4_1.OneToManyLink('JournalEntries', JournalEntryDocumentTypes, JournalEntries_1.JournalEntries);
+    JournalEntryDocumentTypes.JOURNAL_ENTRIES = new core_1.OneToManyLink('JournalEntries', JournalEntryDocumentTypes, JournalEntries_1.JournalEntries);
     /**
      * All fields of the JournalEntryDocumentTypes entity.
      */
@@ -119,7 +114,7 @@ var JournalEntries_1 = require("./JournalEntries");
     /**
      * All fields selector.
      */
-    JournalEntryDocumentTypes.ALL_FIELDS = new v4_1.AllFields('*', JournalEntryDocumentTypes);
+    JournalEntryDocumentTypes.ALL_FIELDS = new core_1.AllFields('*', JournalEntryDocumentTypes);
     /**
      * All key fields of the JournalEntryDocumentTypes entity.
      */

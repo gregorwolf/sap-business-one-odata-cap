@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { CustomsDeclaration } from './CustomsDeclaration';
 
 /**
@@ -15,16 +15,16 @@ export class CustomsDeclarationRequestBuilder extends RequestBuilder<CustomsDecl
    * @param ccdNum Key property. See [[CustomsDeclaration.ccdNum]].
    * @returns A request builder for creating requests to retrieve one `CustomsDeclaration` entity based on its keys.
    */
-  getByKey(ccdNum: string): GetByKeyRequestBuilder<CustomsDeclaration> {
-    return new GetByKeyRequestBuilder(CustomsDeclaration, { CCDNum: ccdNum });
+  getByKey(ccdNum: string): GetByKeyRequestBuilderV4<CustomsDeclaration> {
+    return new GetByKeyRequestBuilderV4(CustomsDeclaration, { CCDNum: ccdNum });
   }
 
   /**
    * Returns a request builder for querying all `CustomsDeclaration` entities.
    * @returns A request builder for creating requests to retrieve all `CustomsDeclaration` entities.
    */
-  getAll(): GetAllRequestBuilder<CustomsDeclaration> {
-    return new GetAllRequestBuilder(CustomsDeclaration);
+  getAll(): GetAllRequestBuilderV4<CustomsDeclaration> {
+    return new GetAllRequestBuilderV4(CustomsDeclaration);
   }
 
   /**
@@ -32,8 +32,8 @@ export class CustomsDeclarationRequestBuilder extends RequestBuilder<CustomsDecl
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `CustomsDeclaration`.
    */
-  create(entity: CustomsDeclaration): CreateRequestBuilder<CustomsDeclaration> {
-    return new CreateRequestBuilder(CustomsDeclaration, entity);
+  create(entity: CustomsDeclaration): CreateRequestBuilderV4<CustomsDeclaration> {
+    return new CreateRequestBuilderV4(CustomsDeclaration, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class CustomsDeclarationRequestBuilder extends RequestBuilder<CustomsDecl
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `CustomsDeclaration`.
    */
-  update(entity: CustomsDeclaration): UpdateRequestBuilder<CustomsDeclaration> {
-    return new UpdateRequestBuilder(CustomsDeclaration, entity);
+  update(entity: CustomsDeclaration): UpdateRequestBuilderV4<CustomsDeclaration> {
+    return new UpdateRequestBuilderV4(CustomsDeclaration, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class CustomsDeclarationRequestBuilder extends RequestBuilder<CustomsDecl
    * @param ccdNum Key property. See [[CustomsDeclaration.ccdNum]].
    * @returns A request builder for creating requests that delete an entity of type `CustomsDeclaration`.
    */
-  delete(ccdNum: string): DeleteRequestBuilder<CustomsDeclaration>;
+  delete(ccdNum: string): DeleteRequestBuilderV4<CustomsDeclaration>;
   /**
    * Returns a request builder for deleting an entity of type `CustomsDeclaration`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `CustomsDeclaration` by taking the entity as a parameter.
    */
-  delete(entity: CustomsDeclaration): DeleteRequestBuilder<CustomsDeclaration>;
-  delete(ccdNumOrEntity: any): DeleteRequestBuilder<CustomsDeclaration> {
-    return new DeleteRequestBuilder(CustomsDeclaration, ccdNumOrEntity instanceof CustomsDeclaration ? ccdNumOrEntity : { CCDNum: ccdNumOrEntity! });
+  delete(entity: CustomsDeclaration): DeleteRequestBuilderV4<CustomsDeclaration>;
+  delete(ccdNumOrEntity: any): DeleteRequestBuilderV4<CustomsDeclaration> {
+    return new DeleteRequestBuilderV4(CustomsDeclaration, ccdNumOrEntity instanceof CustomsDeclaration ? ccdNumOrEntity : { CCDNum: ccdNumOrEntity! });
   }
 }

@@ -4,26 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Forms1099RequestBuilder } from './Forms1099RequestBuilder';
-import { Boxes1099, Boxes1099Field } from './Boxes1099';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { Boxes1099 } from './Boxes1099';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "Forms1099" of service "SAPB1".
  */
-export class Forms1099 extends Entity implements Forms1099Type {
+export class Forms1099 extends EntityV4 implements Forms1099Type {
   /**
    * Technical entity name for Forms1099.
    */
   static _entityName = 'Forms1099';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for Forms1099.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Form Code.
    * @nullable
@@ -141,11 +136,11 @@ export class Forms1099 extends Entity implements Forms1099Type {
   goodsReturnRequest!: GoodsReturnRequest[];
 
   /**
-   * Returns an entity builder to construct instances `Forms1099`.
+   * Returns an entity builder to construct instances of `Forms1099`.
    * @returns A builder that constructs instances of entity type `Forms1099`.
    */
-  static builder(): EntityBuilderType<Forms1099, Forms1099TypeForceMandatory> {
-    return Entity.entityBuilder(Forms1099);
+  static builder(): EntityBuilderType<Forms1099, Forms1099Type> {
+    return EntityV4.entityBuilder(Forms1099);
   }
 
   /**
@@ -161,8 +156,8 @@ export class Forms1099 extends Entity implements Forms1099Type {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `Forms1099`.
    */
-  static customField(fieldName: string): CustomField<Forms1099> {
-    return Entity.customFieldSelector(fieldName, Forms1099);
+  static customField(fieldName: string): CustomFieldV4<Forms1099> {
+    return EntityV4.customFieldSelector(fieldName, Forms1099);
   }
 
   /**
@@ -201,40 +196,9 @@ import { PurchaseOrders, PurchaseOrdersType } from './PurchaseOrders';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 
 export interface Forms1099Type {
-  formCode?: number;
-  form1099?: string;
-  boxes1099?: Boxes1099[];
-  inventoryGenEntries: InventoryGenEntriesType[];
-  purchaseQuotations: PurchaseQuotationsType[];
-  deliveryNotes: DeliveryNotesType[];
-  businessPartners: BusinessPartnersType[];
-  quotations: QuotationsType[];
-  inventoryGenExits: InventoryGenExitsType[];
-  purchaseRequests: PurchaseRequestsType[];
-  returnRequest: ReturnRequestType[];
-  purchaseReturns: PurchaseReturnsType[];
-  invoices: InvoicesType[];
-  creditNotes: CreditNotesType[];
-  orders: OrdersType[];
-  downPayments: DownPaymentsType[];
-  drafts: DraftsType[];
-  returns: ReturnsType[];
-  correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-  correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-  correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-  purchaseInvoices: PurchaseInvoicesType[];
-  purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-  correctionInvoice: CorrectionInvoiceType[];
-  purchaseCreditNotes: PurchaseCreditNotesType[];
-  purchaseDownPayments: PurchaseDownPaymentsType[];
-  purchaseOrders: PurchaseOrdersType[];
-  goodsReturnRequest: GoodsReturnRequestType[];
-}
-
-export interface Forms1099TypeForceMandatory {
-  formCode: number;
-  form1099: string;
-  boxes1099: Boxes1099[];
+  formCode?: number | null;
+  form1099?: string | null;
+  boxes1099?: Boxes1099[] | null;
   inventoryGenEntries: InventoryGenEntriesType[];
   purchaseQuotations: PurchaseQuotationsType[];
   deliveryNotes: DeliveryNotesType[];
@@ -277,7 +241,7 @@ export namespace Forms1099 {
    * Static representation of the [[boxes1099]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const BOXES_1099: CollectionField<Forms1099> = new CollectionField('Boxes1099', Forms1099, new Boxes1099Field('', Forms1099));
+  export const BOXES_1099: CollectionField<Forms1099, Boxes1099> = new CollectionField('Boxes1099', Forms1099, Boxes1099);
   /**
    * Static representation of the one-to-many navigation property [[inventoryGenEntries]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -406,7 +370,7 @@ export namespace Forms1099 {
   /**
    * All fields of the Forms1099 entity.
    */
-  export const _allFields: Array<NumberField<Forms1099> | StringField<Forms1099> | CollectionField<Forms1099> | OneToManyLink<Forms1099, InventoryGenEntries> | OneToManyLink<Forms1099, PurchaseQuotations> | OneToManyLink<Forms1099, DeliveryNotes> | OneToManyLink<Forms1099, BusinessPartners> | OneToManyLink<Forms1099, Quotations> | OneToManyLink<Forms1099, InventoryGenExits> | OneToManyLink<Forms1099, PurchaseRequests> | OneToManyLink<Forms1099, ReturnRequest> | OneToManyLink<Forms1099, PurchaseReturns> | OneToManyLink<Forms1099, Invoices> | OneToManyLink<Forms1099, CreditNotes> | OneToManyLink<Forms1099, Orders> | OneToManyLink<Forms1099, DownPayments> | OneToManyLink<Forms1099, Drafts> | OneToManyLink<Forms1099, Returns> | OneToManyLink<Forms1099, CorrectionInvoiceReversal> | OneToManyLink<Forms1099, CorrectionPurchaseInvoice> | OneToManyLink<Forms1099, CorrectionPurchaseInvoiceReversal> | OneToManyLink<Forms1099, PurchaseInvoices> | OneToManyLink<Forms1099, PurchaseDeliveryNotes> | OneToManyLink<Forms1099, CorrectionInvoice> | OneToManyLink<Forms1099, PurchaseCreditNotes> | OneToManyLink<Forms1099, PurchaseDownPayments> | OneToManyLink<Forms1099, PurchaseOrders> | OneToManyLink<Forms1099, GoodsReturnRequest>> = [
+  export const _allFields: Array<NumberField<Forms1099> | StringField<Forms1099> | CollectionField<Forms1099, Boxes1099> | OneToManyLink<Forms1099, InventoryGenEntries> | OneToManyLink<Forms1099, PurchaseQuotations> | OneToManyLink<Forms1099, DeliveryNotes> | OneToManyLink<Forms1099, BusinessPartners> | OneToManyLink<Forms1099, Quotations> | OneToManyLink<Forms1099, InventoryGenExits> | OneToManyLink<Forms1099, PurchaseRequests> | OneToManyLink<Forms1099, ReturnRequest> | OneToManyLink<Forms1099, PurchaseReturns> | OneToManyLink<Forms1099, Invoices> | OneToManyLink<Forms1099, CreditNotes> | OneToManyLink<Forms1099, Orders> | OneToManyLink<Forms1099, DownPayments> | OneToManyLink<Forms1099, Drafts> | OneToManyLink<Forms1099, Returns> | OneToManyLink<Forms1099, CorrectionInvoiceReversal> | OneToManyLink<Forms1099, CorrectionPurchaseInvoice> | OneToManyLink<Forms1099, CorrectionPurchaseInvoiceReversal> | OneToManyLink<Forms1099, PurchaseInvoices> | OneToManyLink<Forms1099, PurchaseDeliveryNotes> | OneToManyLink<Forms1099, CorrectionInvoice> | OneToManyLink<Forms1099, PurchaseCreditNotes> | OneToManyLink<Forms1099, PurchaseDownPayments> | OneToManyLink<Forms1099, PurchaseOrders> | OneToManyLink<Forms1099, GoodsReturnRequest>> = [
     Forms1099.FORM_CODE,
     Forms1099.FORM_1099,
     Forms1099.BOXES_1099,

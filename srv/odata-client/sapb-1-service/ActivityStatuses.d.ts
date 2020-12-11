@@ -1,18 +1,13 @@
 import { ActivityStatusesRequestBuilder } from './ActivityStatusesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ActivityStatuses" of service "SAPB1".
  */
-export declare class ActivityStatuses extends Entity implements ActivityStatusesType {
+export declare class ActivityStatuses extends EntityV4 implements ActivityStatusesType {
     /**
      * Technical entity name for ActivityStatuses.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ActivityStatuses.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -41,10 +36,10 @@ export declare class ActivityStatuses extends Entity implements ActivityStatuses
      */
     activities: Activities[];
     /**
-     * Returns an entity builder to construct instances `ActivityStatuses`.
+     * Returns an entity builder to construct instances of `ActivityStatuses`.
      * @returns A builder that constructs instances of entity type `ActivityStatuses`.
      */
-    static builder(): EntityBuilderType<ActivityStatuses, ActivityStatusesTypeForceMandatory>;
+    static builder(): EntityBuilderType<ActivityStatuses, ActivityStatusesType>;
     /**
      * Returns a request builder to construct requests for operations on the `ActivityStatuses` entity type.
      * @returns A `ActivityStatuses` request builder.
@@ -55,7 +50,7 @@ export declare class ActivityStatuses extends Entity implements ActivityStatuses
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ActivityStatuses`.
      */
-    static customField(fieldName: string): CustomField<ActivityStatuses>;
+    static customField(fieldName: string): CustomFieldV4<ActivityStatuses>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -67,16 +62,9 @@ export declare class ActivityStatuses extends Entity implements ActivityStatuses
 import { Contacts, ContactsType } from './Contacts';
 import { Activities, ActivitiesType } from './Activities';
 export interface ActivityStatusesType {
-    statusDescription?: string;
-    statusId?: number;
-    statusName?: string;
-    contacts: ContactsType[];
-    activities: ActivitiesType[];
-}
-export interface ActivityStatusesTypeForceMandatory {
-    statusDescription: string;
-    statusId: number;
-    statusName: string;
+    statusDescription?: string | null;
+    statusId?: number | null;
+    statusName?: string | null;
     contacts: ContactsType[];
     activities: ActivitiesType[];
 }

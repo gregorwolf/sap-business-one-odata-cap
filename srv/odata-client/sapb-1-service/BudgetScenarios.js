@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.BudgetScenarios = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var BudgetScenariosRequestBuilder_1 = require("./BudgetScenariosRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "BudgetScenarios" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var BudgetScenarios = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `BudgetScenarios`.
+     * Returns an entity builder to construct instances of `BudgetScenarios`.
      * @returns A builder that constructs instances of entity type `BudgetScenarios`.
      */
     BudgetScenarios.builder = function () {
-        return v4_1.Entity.entityBuilder(BudgetScenarios);
+        return core_1.EntityV4.entityBuilder(BudgetScenarios);
     };
     /**
      * Returns a request builder to construct requests for operations on the `BudgetScenarios` entity type.
@@ -60,7 +60,7 @@ var BudgetScenarios = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `BudgetScenarios`.
      */
     BudgetScenarios.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, BudgetScenarios);
+        return core_1.EntityV4.customFieldSelector(fieldName, BudgetScenarios);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var BudgetScenarios = /** @class */ (function (_super) {
      */
     BudgetScenarios._entityName = 'BudgetScenarios';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BudgetScenarios.
-     */
-    BudgetScenarios._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    BudgetScenarios._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    BudgetScenarios._defaultServicePath = '/b1s/v2/';
     return BudgetScenarios;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.BudgetScenarios = BudgetScenarios;
 var Projects_1 = require("./Projects");
 var DistributionRules_1 = require("./DistributionRules");
@@ -93,72 +88,77 @@ var Budgets_1 = require("./Budgets");
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BudgetScenarios.NAME = new v4_1.StringField('Name', BudgetScenarios, 'Edm.String');
+    BudgetScenarios.NAME = new core_1.StringField('Name', BudgetScenarios, 'Edm.String');
     /**
      * Static representation of the [[initialRatioPercentage]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BudgetScenarios.INITIAL_RATIO_PERCENTAGE = new v4_1.NumberField('InitialRatioPercentage', BudgetScenarios, 'Edm.Double');
+    BudgetScenarios.INITIAL_RATIO_PERCENTAGE = new core_1.NumberField('InitialRatioPercentage', BudgetScenarios, 'Edm.Double');
     /**
      * Static representation of the [[startofFiscalYear]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BudgetScenarios.STARTOF_FISCAL_YEAR = new v4_1.DateField('StartofFiscalYear', BudgetScenarios, 'Edm.DateTimeOffset');
+    BudgetScenarios.STARTOF_FISCAL_YEAR = new core_1.DateField('StartofFiscalYear', BudgetScenarios, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[basicBudget]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BudgetScenarios.BASIC_BUDGET = new v4_1.NumberField('BasicBudget', BudgetScenarios, 'Edm.Int32');
+    BudgetScenarios.BASIC_BUDGET = new core_1.NumberField('BasicBudget', BudgetScenarios, 'Edm.Int32');
     /**
      * Static representation of the [[numerator]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BudgetScenarios.NUMERATOR = new v4_1.NumberField('Numerator', BudgetScenarios, 'Edm.Int32');
+    BudgetScenarios.NUMERATOR = new core_1.NumberField('Numerator', BudgetScenarios, 'Edm.Int32');
+    /**
+     * Static representation of the [[roundingMethod]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    BudgetScenarios.ROUNDING_METHOD = new core_1.EnumField('RoundingMethod', BudgetScenarios);
     /**
      * Static representation of the [[project]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BudgetScenarios.PROJECT = new v4_1.StringField('Project', BudgetScenarios, 'Edm.String');
+    BudgetScenarios.PROJECT = new core_1.StringField('Project', BudgetScenarios, 'Edm.String');
     /**
      * Static representation of the [[distributionRule]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BudgetScenarios.DISTRIBUTION_RULE = new v4_1.StringField('DistributionRule', BudgetScenarios, 'Edm.String');
+    BudgetScenarios.DISTRIBUTION_RULE = new core_1.StringField('DistributionRule', BudgetScenarios, 'Edm.String');
     /**
      * Static representation of the [[distributionRule2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BudgetScenarios.DISTRIBUTION_RULE_2 = new v4_1.StringField('DistributionRule2', BudgetScenarios, 'Edm.String');
+    BudgetScenarios.DISTRIBUTION_RULE_2 = new core_1.StringField('DistributionRule2', BudgetScenarios, 'Edm.String');
     /**
      * Static representation of the [[distributionRule3]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BudgetScenarios.DISTRIBUTION_RULE_3 = new v4_1.StringField('DistributionRule3', BudgetScenarios, 'Edm.String');
+    BudgetScenarios.DISTRIBUTION_RULE_3 = new core_1.StringField('DistributionRule3', BudgetScenarios, 'Edm.String');
     /**
      * Static representation of the [[distributionRule4]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BudgetScenarios.DISTRIBUTION_RULE_4 = new v4_1.StringField('DistributionRule4', BudgetScenarios, 'Edm.String');
+    BudgetScenarios.DISTRIBUTION_RULE_4 = new core_1.StringField('DistributionRule4', BudgetScenarios, 'Edm.String');
     /**
      * Static representation of the [[distributionRule5]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BudgetScenarios.DISTRIBUTION_RULE_5 = new v4_1.StringField('DistributionRule5', BudgetScenarios, 'Edm.String');
+    BudgetScenarios.DISTRIBUTION_RULE_5 = new core_1.StringField('DistributionRule5', BudgetScenarios, 'Edm.String');
     /**
      * Static representation of the one-to-one navigation property [[project2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BudgetScenarios.PROJECT_2 = new v4_1.OneToOneLink('Project2', BudgetScenarios, Projects_1.Projects);
+    BudgetScenarios.PROJECT_2 = new core_1.OneToOneLink('Project2', BudgetScenarios, Projects_1.Projects);
     /**
      * Static representation of the one-to-one navigation property [[distributionRule6]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BudgetScenarios.DISTRIBUTION_RULE_6 = new v4_1.OneToOneLink('DistributionRule6', BudgetScenarios, DistributionRules_1.DistributionRules);
+    BudgetScenarios.DISTRIBUTION_RULE_6 = new core_1.OneToOneLink('DistributionRule6', BudgetScenarios, DistributionRules_1.DistributionRules);
     /**
      * Static representation of the one-to-many navigation property [[budgets]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BudgetScenarios.BUDGETS = new v4_1.OneToManyLink('Budgets', BudgetScenarios, Budgets_1.Budgets);
+    BudgetScenarios.BUDGETS = new core_1.OneToManyLink('Budgets', BudgetScenarios, Budgets_1.Budgets);
     /**
      * All fields of the BudgetScenarios entity.
      */
@@ -168,6 +168,7 @@ var Budgets_1 = require("./Budgets");
         BudgetScenarios.STARTOF_FISCAL_YEAR,
         BudgetScenarios.BASIC_BUDGET,
         BudgetScenarios.NUMERATOR,
+        BudgetScenarios.ROUNDING_METHOD,
         BudgetScenarios.PROJECT,
         BudgetScenarios.DISTRIBUTION_RULE,
         BudgetScenarios.DISTRIBUTION_RULE_2,
@@ -181,7 +182,7 @@ var Budgets_1 = require("./Budgets");
     /**
      * All fields selector.
      */
-    BudgetScenarios.ALL_FIELDS = new v4_1.AllFields('*', BudgetScenarios);
+    BudgetScenarios.ALL_FIELDS = new core_1.AllFields('*', BudgetScenarios);
     /**
      * All key fields of the BudgetScenarios entity.
      */

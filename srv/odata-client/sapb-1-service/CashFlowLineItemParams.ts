@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * CashFlowLineItemParams
@@ -32,7 +32,7 @@ export function createCashFlowLineItemParams(json: any): CashFlowLineItemParams 
  * CashFlowLineItemParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class CashFlowLineItemParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class CashFlowLineItemParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, CashFlowLineItemParams> {
   /**
    * Representation of the [[CashFlowLineItemParams.lineItemId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -43,13 +43,38 @@ export class CashFlowLineItemParamsField<EntityT extends Entity> extends Complex
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   lineItemName: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('LineItemName', this, 'Edm.String');
+
+  /**
+   * Creates an instance of CashFlowLineItemParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, CashFlowLineItemParams);
+  }
 }
 
 export namespace CashFlowLineItemParams {
+  /**
+   * Metadata information on all properties of the `CashFlowLineItemParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<CashFlowLineItemParams>[] = [{
+    originalName: 'LineItemID',
+    name: 'lineItemId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineItemName',
+    name: 'lineItemName',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): CashFlowLineItemParams {
-    return createComplexType(json, {
-      LineItemID: (lineItemId: number) => ({ lineItemId: edmToTs(lineItemId, 'Edm.Int32') }),
-      LineItemName: (lineItemName: string) => ({ lineItemName: edmToTs(lineItemName, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, CashFlowLineItemParams);
   }
 }

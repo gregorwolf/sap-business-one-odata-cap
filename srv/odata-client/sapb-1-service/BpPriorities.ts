@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { BpPrioritiesRequestBuilder } from './BpPrioritiesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "BPPriorities" of service "SAPB1".
  */
-export class BpPriorities extends Entity implements BpPrioritiesType {
+export class BpPriorities extends EntityV4 implements BpPrioritiesType {
   /**
    * Technical entity name for BpPriorities.
    */
   static _entityName = 'BPPriorities';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for BpPriorities.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Priority.
    * @nullable
@@ -39,11 +34,11 @@ export class BpPriorities extends Entity implements BpPrioritiesType {
   businessPartners!: BusinessPartners[];
 
   /**
-   * Returns an entity builder to construct instances `BpPriorities`.
+   * Returns an entity builder to construct instances of `BpPriorities`.
    * @returns A builder that constructs instances of entity type `BpPriorities`.
    */
-  static builder(): EntityBuilderType<BpPriorities, BpPrioritiesTypeForceMandatory> {
-    return Entity.entityBuilder(BpPriorities);
+  static builder(): EntityBuilderType<BpPriorities, BpPrioritiesType> {
+    return EntityV4.entityBuilder(BpPriorities);
   }
 
   /**
@@ -59,8 +54,8 @@ export class BpPriorities extends Entity implements BpPrioritiesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `BpPriorities`.
    */
-  static customField(fieldName: string): CustomField<BpPriorities> {
-    return Entity.customFieldSelector(fieldName, BpPriorities);
+  static customField(fieldName: string): CustomFieldV4<BpPriorities> {
+    return EntityV4.customFieldSelector(fieldName, BpPriorities);
   }
 
   /**
@@ -75,14 +70,8 @@ export class BpPriorities extends Entity implements BpPrioritiesType {
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 
 export interface BpPrioritiesType {
-  priority?: number;
-  priorityDescription?: string;
-  businessPartners: BusinessPartnersType[];
-}
-
-export interface BpPrioritiesTypeForceMandatory {
-  priority: number;
-  priorityDescription: string;
+  priority?: number | null;
+  priorityDescription?: string | null;
   businessPartners: BusinessPartnersType[];
 }
 

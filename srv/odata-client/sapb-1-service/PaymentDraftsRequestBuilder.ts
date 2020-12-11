@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { PaymentDrafts } from './PaymentDrafts';
 
 /**
@@ -15,16 +15,16 @@ export class PaymentDraftsRequestBuilder extends RequestBuilder<PaymentDrafts> {
    * @param docEntry Key property. See [[PaymentDrafts.docEntry]].
    * @returns A request builder for creating requests to retrieve one `PaymentDrafts` entity based on its keys.
    */
-  getByKey(docEntry: number): GetByKeyRequestBuilder<PaymentDrafts> {
-    return new GetByKeyRequestBuilder(PaymentDrafts, { DocEntry: docEntry });
+  getByKey(docEntry: number): GetByKeyRequestBuilderV4<PaymentDrafts> {
+    return new GetByKeyRequestBuilderV4(PaymentDrafts, { DocEntry: docEntry });
   }
 
   /**
    * Returns a request builder for querying all `PaymentDrafts` entities.
    * @returns A request builder for creating requests to retrieve all `PaymentDrafts` entities.
    */
-  getAll(): GetAllRequestBuilder<PaymentDrafts> {
-    return new GetAllRequestBuilder(PaymentDrafts);
+  getAll(): GetAllRequestBuilderV4<PaymentDrafts> {
+    return new GetAllRequestBuilderV4(PaymentDrafts);
   }
 
   /**
@@ -32,8 +32,8 @@ export class PaymentDraftsRequestBuilder extends RequestBuilder<PaymentDrafts> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `PaymentDrafts`.
    */
-  create(entity: PaymentDrafts): CreateRequestBuilder<PaymentDrafts> {
-    return new CreateRequestBuilder(PaymentDrafts, entity);
+  create(entity: PaymentDrafts): CreateRequestBuilderV4<PaymentDrafts> {
+    return new CreateRequestBuilderV4(PaymentDrafts, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class PaymentDraftsRequestBuilder extends RequestBuilder<PaymentDrafts> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `PaymentDrafts`.
    */
-  update(entity: PaymentDrafts): UpdateRequestBuilder<PaymentDrafts> {
-    return new UpdateRequestBuilder(PaymentDrafts, entity);
+  update(entity: PaymentDrafts): UpdateRequestBuilderV4<PaymentDrafts> {
+    return new UpdateRequestBuilderV4(PaymentDrafts, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class PaymentDraftsRequestBuilder extends RequestBuilder<PaymentDrafts> {
    * @param docEntry Key property. See [[PaymentDrafts.docEntry]].
    * @returns A request builder for creating requests that delete an entity of type `PaymentDrafts`.
    */
-  delete(docEntry: number): DeleteRequestBuilder<PaymentDrafts>;
+  delete(docEntry: number): DeleteRequestBuilderV4<PaymentDrafts>;
   /**
    * Returns a request builder for deleting an entity of type `PaymentDrafts`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `PaymentDrafts` by taking the entity as a parameter.
    */
-  delete(entity: PaymentDrafts): DeleteRequestBuilder<PaymentDrafts>;
-  delete(docEntryOrEntity: any): DeleteRequestBuilder<PaymentDrafts> {
-    return new DeleteRequestBuilder(PaymentDrafts, docEntryOrEntity instanceof PaymentDrafts ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
+  delete(entity: PaymentDrafts): DeleteRequestBuilderV4<PaymentDrafts>;
+  delete(docEntryOrEntity: any): DeleteRequestBuilderV4<PaymentDrafts> {
+    return new DeleteRequestBuilderV4(PaymentDrafts, docEntryOrEntity instanceof PaymentDrafts ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
   }
 }

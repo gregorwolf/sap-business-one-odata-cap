@@ -5,27 +5,27 @@
  */
 import { AssetRetirementRequestBuilder } from './AssetRetirementRequestBuilder';
 import { Moment } from 'moment';
-import { AssetDocumentLine, AssetDocumentLineField } from './AssetDocumentLine';
-import { AssetDocumentAreaJournal, AssetDocumentAreaJournalField } from './AssetDocumentAreaJournal';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AssetDocumentLine } from './AssetDocumentLine';
+import { AssetDocumentAreaJournal } from './AssetDocumentAreaJournal';
+import { AssetDocumentStatusEnum } from './AssetDocumentStatusEnum';
+import { AssetDocumentTypeEnum } from './AssetDocumentTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ClosingOptionEnum } from './ClosingOptionEnum';
+import { AssetOriginalTypeEnum } from './AssetOriginalTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "AssetRetirement" of service "SAPB1".
  */
-export class AssetRetirement extends Entity implements AssetRetirementType {
+export class AssetRetirement extends EntityV4 implements AssetRetirementType {
   /**
    * Technical entity name for AssetRetirement.
    */
   static _entityName = 'AssetRetirement';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for AssetRetirement.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Doc Entry.
    * @nullable
@@ -51,6 +51,11 @@ export class AssetRetirement extends Entity implements AssetRetirementType {
    * @nullable
    */
   documentDate?: Moment;
+  /**
+   * Status.
+   * @nullable
+   */
+  status?: AssetDocumentStatusEnum;
   /**
    * Remarks.
    * @nullable
@@ -92,10 +97,30 @@ export class AssetRetirement extends Entity implements AssetRetirementType {
    */
   assetValueDate?: Moment;
   /**
+   * Document Type.
+   * @nullable
+   */
+  documentType?: AssetDocumentTypeEnum;
+  /**
+   * Summerize By Projects.
+   * @nullable
+   */
+  summerizeByProjects?: BoYesNoEnum;
+  /**
+   * Summerize By Distribution Rules.
+   * @nullable
+   */
+  summerizeByDistributionRules?: BoYesNoEnum;
+  /**
    * Manual Depreciation Type.
    * @nullable
    */
   manualDepreciationType?: string;
+  /**
+   * Hand Written.
+   * @nullable
+   */
+  handWritten?: BoYesNoEnum;
   /**
    * Cancellation Date.
    * @nullable
@@ -116,6 +141,21 @@ export class AssetRetirement extends Entity implements AssetRetirementType {
    * @nullable
    */
   origin?: number;
+  /**
+   * Low Value Asset Retirement.
+   * @nullable
+   */
+  lowValueAssetRetirement?: BoYesNoEnum;
+  /**
+   * Cancellation Option.
+   * @nullable
+   */
+  cancellationOption?: ClosingOptionEnum;
+  /**
+   * Original Type.
+   * @nullable
+   */
+  originalType?: AssetOriginalTypeEnum;
   /**
    * Base Reference.
    * @nullable
@@ -159,11 +199,11 @@ export class AssetRetirement extends Entity implements AssetRetirementType {
   businessPlace!: BusinessPlaces;
 
   /**
-   * Returns an entity builder to construct instances `AssetRetirement`.
+   * Returns an entity builder to construct instances of `AssetRetirement`.
    * @returns A builder that constructs instances of entity type `AssetRetirement`.
    */
-  static builder(): EntityBuilderType<AssetRetirement, AssetRetirementTypeForceMandatory> {
-    return Entity.entityBuilder(AssetRetirement);
+  static builder(): EntityBuilderType<AssetRetirement, AssetRetirementType> {
+    return EntityV4.entityBuilder(AssetRetirement);
   }
 
   /**
@@ -179,8 +219,8 @@ export class AssetRetirement extends Entity implements AssetRetirementType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `AssetRetirement`.
    */
-  static customField(fieldName: string): CustomField<AssetRetirement> {
-    return Entity.customFieldSelector(fieldName, AssetRetirement);
+  static customField(fieldName: string): CustomFieldV4<AssetRetirement> {
+    return EntityV4.customFieldSelector(fieldName, AssetRetirement);
   }
 
   /**
@@ -198,59 +238,37 @@ import { DepreciationAreas, DepreciationAreasType } from './DepreciationAreas';
 import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 
 export interface AssetRetirementType {
-  docEntry?: number;
-  docNum?: number;
-  series?: number;
-  postingDate?: Moment;
-  documentDate?: Moment;
-  remarks?: string;
-  reference?: string;
-  currency?: string;
-  documentRate?: number;
-  documentTotal?: number;
-  documentTotalFc?: number;
-  documentTotalSc?: number;
-  assetValueDate?: Moment;
-  manualDepreciationType?: string;
-  cancellationDate?: Moment;
-  depreciationArea?: string;
-  bplId?: number;
-  origin?: number;
-  baseReference?: string;
-  bplName?: string;
-  vatRegNum?: string;
-  assetDocumentLineCollection?: AssetDocumentLine[];
-  assetDocumentAreaJournalCollection?: AssetDocumentAreaJournal[];
-  currency2: CurrenciesType;
-  depreciationType: DepreciationTypesType;
-  depreciationArea2: DepreciationAreasType;
-  businessPlace: BusinessPlacesType;
-}
-
-export interface AssetRetirementTypeForceMandatory {
-  docEntry: number;
-  docNum: number;
-  series: number;
-  postingDate: Moment;
-  documentDate: Moment;
-  remarks: string;
-  reference: string;
-  currency: string;
-  documentRate: number;
-  documentTotal: number;
-  documentTotalFc: number;
-  documentTotalSc: number;
-  assetValueDate: Moment;
-  manualDepreciationType: string;
-  cancellationDate: Moment;
-  depreciationArea: string;
-  bplId: number;
-  origin: number;
-  baseReference: string;
-  bplName: string;
-  vatRegNum: string;
-  assetDocumentLineCollection: AssetDocumentLine[];
-  assetDocumentAreaJournalCollection: AssetDocumentAreaJournal[];
+  docEntry?: number | null;
+  docNum?: number | null;
+  series?: number | null;
+  postingDate?: Moment | null;
+  documentDate?: Moment | null;
+  status?: AssetDocumentStatusEnum | null;
+  remarks?: string | null;
+  reference?: string | null;
+  currency?: string | null;
+  documentRate?: number | null;
+  documentTotal?: number | null;
+  documentTotalFc?: number | null;
+  documentTotalSc?: number | null;
+  assetValueDate?: Moment | null;
+  documentType?: AssetDocumentTypeEnum | null;
+  summerizeByProjects?: BoYesNoEnum | null;
+  summerizeByDistributionRules?: BoYesNoEnum | null;
+  manualDepreciationType?: string | null;
+  handWritten?: BoYesNoEnum | null;
+  cancellationDate?: Moment | null;
+  depreciationArea?: string | null;
+  bplId?: number | null;
+  origin?: number | null;
+  lowValueAssetRetirement?: BoYesNoEnum | null;
+  cancellationOption?: ClosingOptionEnum | null;
+  originalType?: AssetOriginalTypeEnum | null;
+  baseReference?: string | null;
+  bplName?: string | null;
+  vatRegNum?: string | null;
+  assetDocumentLineCollection?: AssetDocumentLine[] | null;
+  assetDocumentAreaJournalCollection?: AssetDocumentAreaJournal[] | null;
   currency2: CurrenciesType;
   depreciationType: DepreciationTypesType;
   depreciationArea2: DepreciationAreasType;
@@ -283,6 +301,11 @@ export namespace AssetRetirement {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOCUMENT_DATE: DateField<AssetRetirement> = new DateField('DocumentDate', AssetRetirement, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[status]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const STATUS: EnumField<AssetRetirement> = new EnumField('Status', AssetRetirement);
   /**
    * Static representation of the [[remarks]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -324,10 +347,30 @@ export namespace AssetRetirement {
    */
   export const ASSET_VALUE_DATE: DateField<AssetRetirement> = new DateField('AssetValueDate', AssetRetirement, 'Edm.DateTimeOffset');
   /**
+   * Static representation of the [[documentType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_TYPE: EnumField<AssetRetirement> = new EnumField('DocumentType', AssetRetirement);
+  /**
+   * Static representation of the [[summerizeByProjects]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SUMMERIZE_BY_PROJECTS: EnumField<AssetRetirement> = new EnumField('SummerizeByProjects', AssetRetirement);
+  /**
+   * Static representation of the [[summerizeByDistributionRules]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SUMMERIZE_BY_DISTRIBUTION_RULES: EnumField<AssetRetirement> = new EnumField('SummerizeByDistributionRules', AssetRetirement);
+  /**
    * Static representation of the [[manualDepreciationType]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const MANUAL_DEPRECIATION_TYPE: StringField<AssetRetirement> = new StringField('ManualDepreciationType', AssetRetirement, 'Edm.String');
+  /**
+   * Static representation of the [[handWritten]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const HAND_WRITTEN: EnumField<AssetRetirement> = new EnumField('HandWritten', AssetRetirement);
   /**
    * Static representation of the [[cancellationDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -349,6 +392,21 @@ export namespace AssetRetirement {
    */
   export const ORIGIN: NumberField<AssetRetirement> = new NumberField('Origin', AssetRetirement, 'Edm.Int32');
   /**
+   * Static representation of the [[lowValueAssetRetirement]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LOW_VALUE_ASSET_RETIREMENT: EnumField<AssetRetirement> = new EnumField('LowValueAssetRetirement', AssetRetirement);
+  /**
+   * Static representation of the [[cancellationOption]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CANCELLATION_OPTION: EnumField<AssetRetirement> = new EnumField('CancellationOption', AssetRetirement);
+  /**
+   * Static representation of the [[originalType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ORIGINAL_TYPE: EnumField<AssetRetirement> = new EnumField('OriginalType', AssetRetirement);
+  /**
    * Static representation of the [[baseReference]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -367,12 +425,12 @@ export namespace AssetRetirement {
    * Static representation of the [[assetDocumentLineCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ASSET_DOCUMENT_LINE_COLLECTION: CollectionField<AssetRetirement> = new CollectionField('AssetDocumentLineCollection', AssetRetirement, new AssetDocumentLineField('', AssetRetirement));
+  export const ASSET_DOCUMENT_LINE_COLLECTION: CollectionField<AssetRetirement, AssetDocumentLine> = new CollectionField('AssetDocumentLineCollection', AssetRetirement, AssetDocumentLine);
   /**
    * Static representation of the [[assetDocumentAreaJournalCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ASSET_DOCUMENT_AREA_JOURNAL_COLLECTION: CollectionField<AssetRetirement> = new CollectionField('AssetDocumentAreaJournalCollection', AssetRetirement, new AssetDocumentAreaJournalField('', AssetRetirement));
+  export const ASSET_DOCUMENT_AREA_JOURNAL_COLLECTION: CollectionField<AssetRetirement, AssetDocumentAreaJournal> = new CollectionField('AssetDocumentAreaJournalCollection', AssetRetirement, AssetDocumentAreaJournal);
   /**
    * Static representation of the one-to-one navigation property [[currency2]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -396,12 +454,13 @@ export namespace AssetRetirement {
   /**
    * All fields of the AssetRetirement entity.
    */
-  export const _allFields: Array<NumberField<AssetRetirement> | DateField<AssetRetirement> | StringField<AssetRetirement> | CollectionField<AssetRetirement> | OneToOneLink<AssetRetirement, Currencies> | OneToOneLink<AssetRetirement, DepreciationTypes> | OneToOneLink<AssetRetirement, DepreciationAreas> | OneToOneLink<AssetRetirement, BusinessPlaces>> = [
+  export const _allFields: Array<NumberField<AssetRetirement> | DateField<AssetRetirement> | EnumField<AssetRetirement> | StringField<AssetRetirement> | CollectionField<AssetRetirement, AssetDocumentLine> | CollectionField<AssetRetirement, AssetDocumentAreaJournal> | OneToOneLink<AssetRetirement, Currencies> | OneToOneLink<AssetRetirement, DepreciationTypes> | OneToOneLink<AssetRetirement, DepreciationAreas> | OneToOneLink<AssetRetirement, BusinessPlaces>> = [
     AssetRetirement.DOC_ENTRY,
     AssetRetirement.DOC_NUM,
     AssetRetirement.SERIES,
     AssetRetirement.POSTING_DATE,
     AssetRetirement.DOCUMENT_DATE,
+    AssetRetirement.STATUS,
     AssetRetirement.REMARKS,
     AssetRetirement.REFERENCE,
     AssetRetirement.CURRENCY,
@@ -410,11 +469,18 @@ export namespace AssetRetirement {
     AssetRetirement.DOCUMENT_TOTAL_FC,
     AssetRetirement.DOCUMENT_TOTAL_SC,
     AssetRetirement.ASSET_VALUE_DATE,
+    AssetRetirement.DOCUMENT_TYPE,
+    AssetRetirement.SUMMERIZE_BY_PROJECTS,
+    AssetRetirement.SUMMERIZE_BY_DISTRIBUTION_RULES,
     AssetRetirement.MANUAL_DEPRECIATION_TYPE,
+    AssetRetirement.HAND_WRITTEN,
     AssetRetirement.CANCELLATION_DATE,
     AssetRetirement.DEPRECIATION_AREA,
     AssetRetirement.BPL_ID,
     AssetRetirement.ORIGIN,
+    AssetRetirement.LOW_VALUE_ASSET_RETIREMENT,
+    AssetRetirement.CANCELLATION_OPTION,
+    AssetRetirement.ORIGINAL_TYPE,
     AssetRetirement.BASE_REFERENCE,
     AssetRetirement.BPL_NAME,
     AssetRetirement.VAT_REG_NUM,

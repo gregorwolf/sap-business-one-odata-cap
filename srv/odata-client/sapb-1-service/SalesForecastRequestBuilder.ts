@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { SalesForecast } from './SalesForecast';
 
 /**
@@ -15,16 +15,16 @@ export class SalesForecastRequestBuilder extends RequestBuilder<SalesForecast> {
    * @param numerator Key property. See [[SalesForecast.numerator]].
    * @returns A request builder for creating requests to retrieve one `SalesForecast` entity based on its keys.
    */
-  getByKey(numerator: number): GetByKeyRequestBuilder<SalesForecast> {
-    return new GetByKeyRequestBuilder(SalesForecast, { Numerator: numerator });
+  getByKey(numerator: number): GetByKeyRequestBuilderV4<SalesForecast> {
+    return new GetByKeyRequestBuilderV4(SalesForecast, { Numerator: numerator });
   }
 
   /**
    * Returns a request builder for querying all `SalesForecast` entities.
    * @returns A request builder for creating requests to retrieve all `SalesForecast` entities.
    */
-  getAll(): GetAllRequestBuilder<SalesForecast> {
-    return new GetAllRequestBuilder(SalesForecast);
+  getAll(): GetAllRequestBuilderV4<SalesForecast> {
+    return new GetAllRequestBuilderV4(SalesForecast);
   }
 
   /**
@@ -32,8 +32,8 @@ export class SalesForecastRequestBuilder extends RequestBuilder<SalesForecast> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `SalesForecast`.
    */
-  create(entity: SalesForecast): CreateRequestBuilder<SalesForecast> {
-    return new CreateRequestBuilder(SalesForecast, entity);
+  create(entity: SalesForecast): CreateRequestBuilderV4<SalesForecast> {
+    return new CreateRequestBuilderV4(SalesForecast, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class SalesForecastRequestBuilder extends RequestBuilder<SalesForecast> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `SalesForecast`.
    */
-  update(entity: SalesForecast): UpdateRequestBuilder<SalesForecast> {
-    return new UpdateRequestBuilder(SalesForecast, entity);
+  update(entity: SalesForecast): UpdateRequestBuilderV4<SalesForecast> {
+    return new UpdateRequestBuilderV4(SalesForecast, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class SalesForecastRequestBuilder extends RequestBuilder<SalesForecast> {
    * @param numerator Key property. See [[SalesForecast.numerator]].
    * @returns A request builder for creating requests that delete an entity of type `SalesForecast`.
    */
-  delete(numerator: number): DeleteRequestBuilder<SalesForecast>;
+  delete(numerator: number): DeleteRequestBuilderV4<SalesForecast>;
   /**
    * Returns a request builder for deleting an entity of type `SalesForecast`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `SalesForecast` by taking the entity as a parameter.
    */
-  delete(entity: SalesForecast): DeleteRequestBuilder<SalesForecast>;
-  delete(numeratorOrEntity: any): DeleteRequestBuilder<SalesForecast> {
-    return new DeleteRequestBuilder(SalesForecast, numeratorOrEntity instanceof SalesForecast ? numeratorOrEntity : { Numerator: numeratorOrEntity! });
+  delete(entity: SalesForecast): DeleteRequestBuilderV4<SalesForecast>;
+  delete(numeratorOrEntity: any): DeleteRequestBuilderV4<SalesForecast> {
+    return new DeleteRequestBuilderV4(SalesForecast, numeratorOrEntity instanceof SalesForecast ? numeratorOrEntity : { Numerator: numeratorOrEntity! });
   }
 }

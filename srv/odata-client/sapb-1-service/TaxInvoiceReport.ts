@@ -5,26 +5,27 @@
  */
 import { TaxInvoiceReportRequestBuilder } from './TaxInvoiceReportRequestBuilder';
 import { Moment } from 'moment';
-import { TaxInvoiceReportLine, TaxInvoiceReportLineField } from './TaxInvoiceReportLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { TaxInvoiceReportLine } from './TaxInvoiceReportLine';
+import { TaxInvoiceReportNtsApprovedEnum } from './TaxInvoiceReportNtsApprovedEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "TaxInvoiceReport" of service "SAPB1".
  */
-export class TaxInvoiceReport extends Entity implements TaxInvoiceReportType {
+export class TaxInvoiceReport extends EntityV4 implements TaxInvoiceReportType {
   /**
    * Technical entity name for TaxInvoiceReport.
    */
   static _entityName = 'TaxInvoiceReport';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for TaxInvoiceReport.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
+  /**
+   * Nts Approval.
+   * @nullable
+   */
+  ntsApproval?: TaxInvoiceReportNtsApprovedEnum;
   /**
    * E Tax Web Site.
    * @nullable
@@ -106,11 +107,11 @@ export class TaxInvoiceReport extends Entity implements TaxInvoiceReportType {
   taxWebSite!: TaxWebSites;
 
   /**
-   * Returns an entity builder to construct instances `TaxInvoiceReport`.
+   * Returns an entity builder to construct instances of `TaxInvoiceReport`.
    * @returns A builder that constructs instances of entity type `TaxInvoiceReport`.
    */
-  static builder(): EntityBuilderType<TaxInvoiceReport, TaxInvoiceReportTypeForceMandatory> {
-    return Entity.entityBuilder(TaxInvoiceReport);
+  static builder(): EntityBuilderType<TaxInvoiceReport, TaxInvoiceReportType> {
+    return EntityV4.entityBuilder(TaxInvoiceReport);
   }
 
   /**
@@ -126,8 +127,8 @@ export class TaxInvoiceReport extends Entity implements TaxInvoiceReportType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `TaxInvoiceReport`.
    */
-  static customField(fieldName: string): CustomField<TaxInvoiceReport> {
-    return Entity.customFieldSelector(fieldName, TaxInvoiceReport);
+  static customField(fieldName: string): CustomFieldV4<TaxInvoiceReport> {
+    return EntityV4.customFieldSelector(fieldName, TaxInvoiceReport);
   }
 
   /**
@@ -142,44 +143,31 @@ export class TaxInvoiceReport extends Entity implements TaxInvoiceReportType {
 import { TaxWebSites, TaxWebSitesType } from './TaxWebSites';
 
 export interface TaxInvoiceReportType {
-  eTaxWebSite?: number;
-  eTaxNo?: string;
-  ntsApprovalNo?: string;
-  originalNtsApprovalNo?: string;
-  remarks?: string;
-  taxInvoiceReportNumber?: string;
-  date?: Moment;
-  businessPlace?: number;
-  bpCode?: string;
-  bpName?: string;
-  baseAmount?: number;
-  taxAmount?: number;
-  canceled?: string;
-  reportType?: number;
-  taxInvoiceReportLineCollection?: TaxInvoiceReportLine[];
-  taxWebSite: TaxWebSitesType;
-}
-
-export interface TaxInvoiceReportTypeForceMandatory {
-  eTaxWebSite: number;
-  eTaxNo: string;
-  ntsApprovalNo: string;
-  originalNtsApprovalNo: string;
-  remarks: string;
-  taxInvoiceReportNumber: string;
-  date: Moment;
-  businessPlace: number;
-  bpCode: string;
-  bpName: string;
-  baseAmount: number;
-  taxAmount: number;
-  canceled: string;
-  reportType: number;
-  taxInvoiceReportLineCollection: TaxInvoiceReportLine[];
+  ntsApproval?: TaxInvoiceReportNtsApprovedEnum | null;
+  eTaxWebSite?: number | null;
+  eTaxNo?: string | null;
+  ntsApprovalNo?: string | null;
+  originalNtsApprovalNo?: string | null;
+  remarks?: string | null;
+  taxInvoiceReportNumber?: string | null;
+  date?: Moment | null;
+  businessPlace?: number | null;
+  bpCode?: string | null;
+  bpName?: string | null;
+  baseAmount?: number | null;
+  taxAmount?: number | null;
+  canceled?: string | null;
+  reportType?: number | null;
+  taxInvoiceReportLineCollection?: TaxInvoiceReportLine[] | null;
   taxWebSite: TaxWebSitesType;
 }
 
 export namespace TaxInvoiceReport {
+  /**
+   * Static representation of the [[ntsApproval]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const NTS_APPROVAL: EnumField<TaxInvoiceReport> = new EnumField('NTSApproval', TaxInvoiceReport);
   /**
    * Static representation of the [[eTaxWebSite]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -254,7 +242,7 @@ export namespace TaxInvoiceReport {
    * Static representation of the [[taxInvoiceReportLineCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const TAX_INVOICE_REPORT_LINE_COLLECTION: CollectionField<TaxInvoiceReport> = new CollectionField('TaxInvoiceReportLineCollection', TaxInvoiceReport, new TaxInvoiceReportLineField('', TaxInvoiceReport));
+  export const TAX_INVOICE_REPORT_LINE_COLLECTION: CollectionField<TaxInvoiceReport, TaxInvoiceReportLine> = new CollectionField('TaxInvoiceReportLineCollection', TaxInvoiceReport, TaxInvoiceReportLine);
   /**
    * Static representation of the one-to-one navigation property [[taxWebSite]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -263,7 +251,8 @@ export namespace TaxInvoiceReport {
   /**
    * All fields of the TaxInvoiceReport entity.
    */
-  export const _allFields: Array<NumberField<TaxInvoiceReport> | StringField<TaxInvoiceReport> | DateField<TaxInvoiceReport> | CollectionField<TaxInvoiceReport> | OneToOneLink<TaxInvoiceReport, TaxWebSites>> = [
+  export const _allFields: Array<EnumField<TaxInvoiceReport> | NumberField<TaxInvoiceReport> | StringField<TaxInvoiceReport> | DateField<TaxInvoiceReport> | CollectionField<TaxInvoiceReport, TaxInvoiceReportLine> | OneToOneLink<TaxInvoiceReport, TaxWebSites>> = [
+    TaxInvoiceReport.NTS_APPROVAL,
     TaxInvoiceReport.E_TAX_WEB_SITE,
     TaxInvoiceReport.E_TAX_NO,
     TaxInvoiceReport.NTS_APPROVAL_NO,

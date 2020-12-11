@@ -1,19 +1,14 @@
 import { KnowledgeBaseSolutionsRequestBuilder } from './KnowledgeBaseSolutionsRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "KnowledgeBaseSolutions" of service "SAPB1".
  */
-export declare class KnowledgeBaseSolutions extends Entity implements KnowledgeBaseSolutionsType {
+export declare class KnowledgeBaseSolutions extends EntityV4 implements KnowledgeBaseSolutionsType {
     /**
      * Technical entity name for KnowledgeBaseSolutions.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for KnowledgeBaseSolutions.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -96,10 +91,10 @@ export declare class KnowledgeBaseSolutions extends Entity implements KnowledgeB
      */
     user: Users;
     /**
-     * Returns an entity builder to construct instances `KnowledgeBaseSolutions`.
+     * Returns an entity builder to construct instances of `KnowledgeBaseSolutions`.
      * @returns A builder that constructs instances of entity type `KnowledgeBaseSolutions`.
      */
-    static builder(): EntityBuilderType<KnowledgeBaseSolutions, KnowledgeBaseSolutionsTypeForceMandatory>;
+    static builder(): EntityBuilderType<KnowledgeBaseSolutions, KnowledgeBaseSolutionsType>;
     /**
      * Returns a request builder to construct requests for operations on the `KnowledgeBaseSolutions` entity type.
      * @returns A `KnowledgeBaseSolutions` request builder.
@@ -110,7 +105,7 @@ export declare class KnowledgeBaseSolutions extends Entity implements KnowledgeB
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `KnowledgeBaseSolutions`.
      */
-    static customField(fieldName: string): CustomField<KnowledgeBaseSolutions>;
+    static customField(fieldName: string): CustomFieldV4<KnowledgeBaseSolutions>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -123,37 +118,19 @@ import { Items, ItemsType } from './Items';
 import { ServiceCallSolutionStatus, ServiceCallSolutionStatusType } from './ServiceCallSolutionStatus';
 import { Users, UsersType } from './Users';
 export interface KnowledgeBaseSolutionsType {
-    itemCode?: string;
-    status?: number;
-    owner?: number;
-    createdBy?: number;
-    creationDate?: Moment;
-    lastUpdatedBy?: number;
-    lastUpdateDate?: Moment;
-    solution?: string;
-    symptom?: string;
-    cause?: string;
-    description?: string;
-    solutionCode?: number;
-    attachmentEntry?: number;
-    item: ItemsType;
-    serviceCallSolutionStatus: ServiceCallSolutionStatusType;
-    user: UsersType;
-}
-export interface KnowledgeBaseSolutionsTypeForceMandatory {
-    itemCode: string;
-    status: number;
-    owner: number;
-    createdBy: number;
-    creationDate: Moment;
-    lastUpdatedBy: number;
-    lastUpdateDate: Moment;
-    solution: string;
-    symptom: string;
-    cause: string;
-    description: string;
-    solutionCode: number;
-    attachmentEntry: number;
+    itemCode?: string | null;
+    status?: number | null;
+    owner?: number | null;
+    createdBy?: number | null;
+    creationDate?: Moment | null;
+    lastUpdatedBy?: number | null;
+    lastUpdateDate?: Moment | null;
+    solution?: string | null;
+    symptom?: string | null;
+    cause?: string | null;
+    description?: string | null;
+    solutionCode?: number | null;
+    attachmentEntry?: number | null;
     item: ItemsType;
     serviceCallSolutionStatus: ServiceCallSolutionStatusType;
     user: UsersType;

@@ -5,7 +5,26 @@
  */
 import { Moment } from 'moment';
 import { ExtendedAdminInfo, ExtendedAdminInfoField } from './ExtendedAdminInfo';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoAlertTypeforWhStockEnum } from './BoAlertTypeforWhStockEnum';
+import { BoTimeTemplate } from './BoTimeTemplate';
+import { BoDateTemplate } from './BoDateTemplate';
+import { BoCurrencyCheck } from './BoCurrencyCheck';
+import { BoBlockBudget } from './BoBlockBudget';
+import { BoBudgetAlert } from './BoBudgetAlert';
+import { BoInventorySystem } from './BoInventorySystem';
+import { BoDefaultBatchStatus } from './BoDefaultBatchStatus';
+import { BoGlMethods } from './BoGlMethods';
+import { BoUniqueSerialNumber } from './BoUniqueSerialNumber';
+import { BoConsumptionMethod } from './BoConsumptionMethod';
+import { GtsResponseToExceedingEnum } from './GtsResponseToExceedingEnum';
+import { IssuePrimarilyByEnum } from './IssuePrimarilyByEnum';
+import { TaxRateDeterminationEnum } from './TaxRateDeterminationEnum';
+import { PriceProceedMethodEnum } from './PriceProceedMethodEnum';
+import { BaDivationAlertLevelEnum } from './BaDivationAlertLevelEnum';
+import { DisplayBatchQtyUoMByEnum } from './DisplayBatchQtyUoMByEnum';
+import { BoDataOwnershipManageMethodEnum } from './BoDataOwnershipManageMethodEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * AdminInfo
@@ -77,6 +96,11 @@ export interface AdminInfo {
    */
   systemCurrency?: string;
   /**
+   * Credit Balancewith Minus Sign.
+   * @nullable
+   */
+  creditBalancewithMinusSign?: BoYesNoEnum;
+  /**
    * Standard Unitof Length.
    * @nullable
    */
@@ -87,10 +111,20 @@ export interface AdminInfo {
    */
   weightUnitDefault?: number;
   /**
+   * Direct Indirect Rate.
+   * @nullable
+   */
+  directIndirectRate?: BoYesNoEnum;
+  /**
    * Minimum Amountfor 347 Report.
    * @nullable
    */
   minimumAmountfor347Report?: number;
+  /**
+   * Set Items Warehouses.
+   * @nullable
+   */
+  setItemsWarehouses?: BoYesNoEnum;
   /**
    * Bank Country.
    * @nullable
@@ -112,6 +146,16 @@ export interface AdminInfo {
    */
   deductionFileNo?: string;
   /**
+   * Tax Collection.
+   * @nullable
+   */
+  taxCollection?: BoYesNoEnum;
+  /**
+   * Tax Definition.
+   * @nullable
+   */
+  taxDefinition?: BoYesNoEnum;
+  /**
    * Tax Percentage.
    * @nullable
    */
@@ -127,6 +171,16 @@ export interface AdminInfo {
    */
   withTax?: number;
   /**
+   * Withholding Tax Vendor Ddct.
+   * @nullable
+   */
+  withholdingTaxVendorDdct?: BoYesNoEnum;
+  /**
+   * Customers Deductionat Source.
+   * @nullable
+   */
+  customersDeductionatSource?: BoYesNoEnum;
+  /**
    * Withholding Tax Tdct Percnt.
    * @nullable
    */
@@ -141,6 +195,51 @@ export interface AdminInfo {
    * @nullable
    */
   withholdingTaxDdctOffice?: string;
+  /**
+   * Commitment Restriction.
+   * @nullable
+   */
+  commitmentRestriction?: BoYesNoEnum;
+  /**
+   * Credit Restriction.
+   * @nullable
+   */
+  creditRestriction?: BoYesNoEnum;
+  /**
+   * Restrict Sales.
+   * @nullable
+   */
+  restrictSales?: BoYesNoEnum;
+  /**
+   * Restrict Del Notes Po.
+   * @nullable
+   */
+  restrictDelNotesPo?: BoYesNoEnum;
+  /**
+   * Restrict Orders.
+   * @nullable
+   */
+  restrictOrders?: BoYesNoEnum;
+  /**
+   * Consider Del Notesin Sales R.
+   * @nullable
+   */
+  considerDelNotesinSalesR?: BoYesNoEnum;
+  /**
+   * Credit Deposit Type.
+   * @nullable
+   */
+  creditDepositType?: BoYesNoEnum;
+  /**
+   * Use Tax.
+   * @nullable
+   */
+  useTax?: BoYesNoEnum;
+  /**
+   * Split Po.
+   * @nullable
+   */
+  splitPo?: BoYesNoEnum;
   /**
    * Alt Name For Ap Invoice.
    * @nullable
@@ -167,6 +266,26 @@ export interface AdminInfo {
    */
   altNameForPurchase?: string;
   /**
+   * Alert Typefor Wh Stock.
+   * @nullable
+   */
+  alertTypeforWhStock?: BoAlertTypeforWhStockEnum;
+  /**
+   * Set Commissionby Customer.
+   * @nullable
+   */
+  setCommissionbyCustomer?: BoYesNoEnum;
+  /**
+   * Set Commissionby Item.
+   * @nullable
+   */
+  setCommissionbyItem?: BoYesNoEnum;
+  /**
+   * Set Commissionby Se.
+   * @nullable
+   */
+  setCommissionbySe?: BoYesNoEnum;
+  /**
    * Default Customer Payment Terms.
    * @nullable
    */
@@ -177,10 +296,45 @@ export interface AdminInfo {
    */
   defaultVendorPaymentTerms?: number;
   /**
+   * Calculate Gross Profitper Tra.
+   * @nullable
+   */
+  calculateGrossProfitperTra?: BoYesNoEnum;
+  /**
    * Price Listfor Cost Price.
    * @nullable
    */
   priceListforCostPrice?: number;
+  /**
+   * Gross Profit After Sale.
+   * @nullable
+   */
+  grossProfitAfterSale?: BoYesNoEnum;
+  /**
+   * Display Pricefor Price Only.
+   * @nullable
+   */
+  displayPriceforPriceOnly?: BoYesNoEnum;
+  /**
+   * Calculate Taxin Sales Quotati.
+   * @nullable
+   */
+  calculateTaxinSalesQuotati?: BoYesNoEnum;
+  /**
+   * Base Field.
+   * @nullable
+   */
+  baseField?: BoYesNoEnum;
+  /**
+   * Allow Closed Sales Quotations.
+   * @nullable
+   */
+  allowClosedSalesQuotations?: BoYesNoEnum;
+  /**
+   * User Conversion Code.
+   * @nullable
+   */
+  userConversionCode?: BoYesNoEnum;
   /**
    * Company Color.
    * @nullable
@@ -257,25 +411,70 @@ export interface AdminInfo {
    */
   managingDirectorForeignLan?: string;
   /**
+   * Time Template.
+   * @nullable
+   */
+  timeTemplate?: BoTimeTemplate;
+  /**
+   * Date Template.
+   * @nullable
+   */
+  dateTemplate?: BoDateTemplate;
+  /**
    * Date Separator.
    * @nullable
    */
   dateSeparator?: string;
+  /**
+   * Fc Check Account.
+   * @nullable
+   */
+  fcCheckAccount?: BoCurrencyCheck;
+  /**
+   * Changed Existing Orders.
+   * @nullable
+   */
+  changedExistingOrders?: BoYesNoEnum;
+  /**
+   * Multi Currency Check.
+   * @nullable
+   */
+  multiCurrencyCheck?: BoCurrencyCheck;
   /**
    * Isr Type.
    * @nullable
    */
   isrType?: number;
   /**
+   * Display Rounding Remark.
+   * @nullable
+   */
+  displayRoundingRemark?: BoYesNoEnum;
+  /**
    * Isr Biller Id.
    * @nullable
    */
   isrBillerId?: string;
   /**
+   * Block System Currency Editing.
+   * @nullable
+   */
+  blockSystemCurrencyEditing?: BoYesNoEnum;
+  /**
+   * Block Posting Date Editing.
+   * @nullable
+   */
+  blockPostingDateEditing?: BoYesNoEnum;
+  /**
    * Default Warehouse.
    * @nullable
    */
   defaultWarehouse?: string;
+  /**
+   * Block Tax Date.
+   * @nullable
+   */
+  blockTaxDate?: BoYesNoEnum;
   /**
    * Tax Definitionfor Vatitem.
    * @nullable
@@ -297,20 +496,70 @@ export interface AdminInfo {
    */
   taxGroupforServicePurchase?: string;
   /**
+   * Calculate Budget.
+   * @nullable
+   */
+  calculateBudget?: BoYesNoEnum;
+  /**
    * Customer Id Number.
    * @nullable
    */
   customerIdNumber?: string;
+  /**
+   * Block Budget.
+   * @nullable
+   */
+  blockBudget?: BoBlockBudget;
+  /**
+   * Budget Alert.
+   * @nullable
+   */
+  budgetAlert?: BoBudgetAlert;
+  /**
+   * Block Purchase Orders.
+   * @nullable
+   */
+  blockPurchaseOrders?: BoYesNoEnum;
+  /**
+   * Block Bookkeeping.
+   * @nullable
+   */
+  blockBookkeeping?: BoYesNoEnum;
   /**
    * Default Budget Cost Assess Mt.
    * @nullable
    */
   defaultBudgetCostAssessMt?: number;
   /**
+   * Continuous Stock Management.
+   * @nullable
+   */
+  continuousStockManagement?: BoYesNoEnum;
+  /**
+   * Continuous Stock System.
+   * @nullable
+   */
+  continuousStockSystem?: BoInventorySystem;
+  /**
+   * Round Tax Amounts.
+   * @nullable
+   */
+  roundTaxAmounts?: BoYesNoEnum;
+  /**
+   * Block Del Notesfor Purchase.
+   * @nullable
+   */
+  blockDelNotesforPurchase?: BoYesNoEnum;
+  /**
    * File Numberin Income Tax.
    * @nullable
    */
   fileNumberinIncomeTax?: string;
+  /**
+   * Deferred Tax.
+   * @nullable
+   */
+  deferredTax?: BoYesNoEnum;
   /**
    * Default Bank No.
    * @nullable
@@ -326,6 +575,11 @@ export interface AdminInfo {
    * @nullable
    */
   defaultBranch?: string;
+  /**
+   * Use Pa System.
+   * @nullable
+   */
+  usePaSystem?: BoYesNoEnum;
   /**
    * Service Code.
    * @nullable
@@ -367,10 +621,60 @@ export interface AdminInfo {
    */
   thousandsSeparator?: string;
   /**
+   * Display Currencyonthe Right.
+   * @nullable
+   */
+  displayCurrencyontheRight?: BoYesNoEnum;
+  /**
+   * Alertby Warehouse.
+   * @nullable
+   */
+  alertbyWarehouse?: BoYesNoEnum;
+  /**
+   * Price System.
+   * @nullable
+   */
+  priceSystem?: BoYesNoEnum;
+  /**
+   * Wholding Tax Ded Hierarchy.
+   * @nullable
+   */
+  wholdingTaxDedHierarchy?: BoYesNoEnum;
+  /**
+   * Doc Confirmation.
+   * @nullable
+   */
+  docConfirmation?: BoYesNoEnum;
+  /**
+   * Defaultfor Batch Status.
+   * @nullable
+   */
+  defaultforBatchStatus?: BoDefaultBatchStatus;
+  /**
+   * Gl Method.
+   * @nullable
+   */
+  glMethod?: BoGlMethods;
+  /**
+   * Unique Serial No.
+   * @nullable
+   */
+  uniqueSerialNo?: BoUniqueSerialNumber;
+  /**
    * Max History.
    * @nullable
    */
   maxHistory?: number;
+  /**
+   * Change Def Recon Ap Accounts.
+   * @nullable
+   */
+  changeDefReconApAccounts?: BoYesNoEnum;
+  /**
+   * Change Def Recon Ar Accounts.
+   * @nullable
+   */
+  changeDefReconArAccounts?: BoYesNoEnum;
   /**
    * Bp Type Code.
    * @nullable
@@ -397,6 +701,16 @@ export interface AdminInfo {
    */
   accountSegmentsSeparator?: string;
   /**
+   * Display Bookkeeping Window.
+   * @nullable
+   */
+  displayBookkeepingWindow?: BoYesNoEnum;
+  /**
+   * S Handle Wt.
+   * @nullable
+   */
+  sHandleWt?: BoYesNoEnum;
+  /**
    * S Default Wt Code.
    * @nullable
    */
@@ -412,6 +726,16 @@ export interface AdminInfo {
    */
   pDefaultWtCode?: string;
   /**
+   * Wt Liable Expense.
+   * @nullable
+   */
+  wtLiableExpense?: BoYesNoEnum;
+  /**
+   * Use Negative Amounts.
+   * @nullable
+   */
+  useNegativeAmounts?: BoYesNoEnum;
+  /**
    * Holidays Name.
    * @nullable
    */
@@ -421,6 +745,16 @@ export interface AdminInfo {
    * @nullable
    */
   orderBlock?: string;
+  /**
+   * Rounding Method.
+   * @nullable
+   */
+  roundingMethod?: BoYesNoEnum;
+  /**
+   * Adress From Wh.
+   * @nullable
+   */
+  adressFromWh?: BoYesNoEnum;
   /**
    * Ordering Party.
    * @nullable
@@ -442,6 +776,16 @@ export interface AdminInfo {
    */
   nationalInsuranceNo?: string;
   /**
+   * Sales Order Confirmed.
+   * @nullable
+   */
+  salesOrderConfirmed?: BoYesNoEnum;
+  /**
+   * Purchase Order Confirmed.
+   * @nullable
+   */
+  purchaseOrderConfirmed?: BoYesNoEnum;
+  /**
    * S Dflt Itwt.
    * @nullable
    */
@@ -451,6 +795,31 @@ export interface AdminInfo {
    * @nullable
    */
   pDfltItwt?: string;
+  /**
+   * Default Account Currency.
+   * @nullable
+   */
+  defaultAccountCurrency?: BoYesNoEnum;
+  /**
+   * Deferred Taxfor Vendors.
+   * @nullable
+   */
+  deferredTaxforVendors?: BoYesNoEnum;
+  /**
+   * Create Auto Vat Linein Jdt.
+   * @nullable
+   */
+  createAutoVatLineinJdt?: BoYesNoEnum;
+  /**
+   * Consume Forecast.
+   * @nullable
+   */
+  consumeForecast?: BoYesNoEnum;
+  /**
+   * Consumption Method.
+   * @nullable
+   */
+  consumptionMethod?: BoConsumptionMethod;
   /**
    * Days Backward.
    * @nullable
@@ -472,6 +841,16 @@ export interface AdminInfo {
    */
   defaultBankAccountKey?: number;
   /**
+   * Multi Language Support Enable.
+   * @nullable
+   */
+  multiLanguageSupportEnable?: BoYesNoEnum;
+  /**
+   * Allow Future Posting Date.
+   * @nullable
+   */
+  allowFuturePostingDate?: BoYesNoEnum;
+  /**
    * Additional Id Number.
    * @nullable
    */
@@ -482,6 +861,16 @@ export interface AdminInfo {
    */
   state?: string;
   /**
+   * Calculate Row Discount.
+   * @nullable
+   */
+  calculateRowDiscount?: BoYesNoEnum;
+  /**
+   * Bank Statement Installed.
+   * @nullable
+   */
+  bankStatementInstalled?: BoYesNoEnum;
+  /**
    * Unique Tax Payer Reference.
    * @nullable
    */
@@ -491,6 +880,11 @@ export interface AdminInfo {
    * @nullable
    */
   employerReference?: string;
+  /**
+   * Period Status Auto Change.
+   * @nullable
+   */
+  periodStatusAutoChange?: BoYesNoEnum;
   /**
    * Period Status Change Delay.
    * @nullable
@@ -507,6 +901,11 @@ export interface AdminInfo {
    */
   xmlFileFolderPath?: string;
   /**
+   * Pick List.
+   * @nullable
+   */
+  pickList?: BoYesNoEnum;
+  /**
    * General Manager.
    * @nullable
    */
@@ -517,6 +916,11 @@ export interface AdminInfo {
    */
   generalManagerForeignLanguage?: string;
   /**
+   * Use Production Profit And Loss Account.
+   * @nullable
+   */
+  useProductionProfitAndLossAccount?: BoYesNoEnum;
+  /**
    * Wt Accum Amount Ap.
    * @nullable
    */
@@ -526,6 +930,11 @@ export interface AdminInfo {
    * @nullable
    */
   wtAccumAmountAr?: number;
+  /**
+   * Copy Exchange Rate In Copy To.
+   * @nullable
+   */
+  copyExchangeRateInCopyTo?: BoYesNoEnum;
   /**
    * Gts Outbound Folder.
    * @nullable
@@ -557,6 +966,16 @@ export interface AdminInfo {
    */
   gtsMaxAmount?: number;
   /**
+   * Gts Response To Exceeding.
+   * @nullable
+   */
+  gtsResponseToExceeding?: GtsResponseToExceedingEnum;
+  /**
+   * Application Of Ifrs.
+   * @nullable
+   */
+  applicationOfIfrs?: BoYesNoEnum;
+  /**
    * Starting In Fiscal Year.
    * @nullable
    */
@@ -566,6 +985,66 @@ export interface AdminInfo {
    * @nullable
    */
   reportAccordingTo?: number;
+  /**
+   * Copy Open Rows To Delivery.
+   * @nullable
+   */
+  copyOpenRowsToDelivery?: BoYesNoEnum;
+  /**
+   * Enable Approval Procedure In Di.
+   * @nullable
+   */
+  enableApprovalProcedureInDi?: BoYesNoEnum;
+  /**
+   * Enable Update Doc After Approval.
+   * @nullable
+   */
+  enableUpdateDocAfterApproval?: BoYesNoEnum;
+  /**
+   * Enable Update Draft During Approval.
+   * @nullable
+   */
+  enableUpdateDraftDuringApproval?: BoYesNoEnum;
+  /**
+   * Issue Primarily By.
+   * @nullable
+   */
+  issuePrimarilyBy?: IssuePrimarilyByEnum;
+  /**
+   * Is Remove Unpriced Value.
+   * @nullable
+   */
+  isRemoveUnpricedValue?: BoYesNoEnum;
+  /**
+   * Enable Advanced Gl Account Determination.
+   * @nullable
+   */
+  enableAdvancedGlAccountDetermination?: BoYesNoEnum;
+  /**
+   * Create Online Quotation.
+   * @nullable
+   */
+  createOnlineQuotation?: BoYesNoEnum;
+  /**
+   * Is Printer Connected.
+   * @nullable
+   */
+  isPrinterConnected?: BoYesNoEnum;
+  /**
+   * Enable Branches.
+   * @nullable
+   */
+  enableBranches?: BoYesNoEnum;
+  /**
+   * Ie Mandatory Validation.
+   * @nullable
+   */
+  ieMandatoryValidation?: BoYesNoEnum;
+  /**
+   * Enable Payment Due Dates.
+   * @nullable
+   */
+  enablePaymentDueDates?: BoYesNoEnum;
   /**
    * Maximum Number Of Days For Due Date.
    * @nullable
@@ -577,15 +1056,110 @@ export interface AdminInfo {
    */
   aliasName?: string;
   /**
+   * Enable Centralized Incoming Payments.
+   * @nullable
+   */
+  enableCentralizedIncomingPayments?: BoYesNoEnum;
+  /**
+   * Enable Centralized Outgoing Payments.
+   * @nullable
+   */
+  enableCentralizedOutgoingPayments?: BoYesNoEnum;
+  /**
+   * Tax Rate Determination.
+   * @nullable
+   */
+  taxRateDetermination?: TaxRateDeterminationEnum;
+  /**
    * Boleto Folder Path.
    * @nullable
    */
   boletoFolderPath?: string;
   /**
+   * Allow Multiple Ba On Same Period.
+   * @nullable
+   */
+  allowMultipleBaOnSamePeriod?: BoYesNoEnum;
+  /**
+   * Block Multiple Ba On Same Ap Document.
+   * @nullable
+   */
+  blockMultipleBaOnSameApDocument?: BoYesNoEnum;
+  /**
+   * Block Multiple Ba On Same Ar Document.
+   * @nullable
+   */
+  blockMultipleBaOnSameArDocument?: BoYesNoEnum;
+  /**
+   * Display Cancel Doc In Report.
+   * @nullable
+   */
+  displayCancelDocInReport?: BoYesNoEnum;
+  /**
    * Max Days For Cancel.
    * @nullable
    */
   maxDaysForCancel?: number;
+  /**
+   * Reuse Document Num.
+   * @nullable
+   */
+  reuseDocumentNum?: BoYesNoEnum;
+  /**
+   * Reuse Nota Fiscal Num.
+   * @nullable
+   */
+  reuseNotaFiscalNum?: BoYesNoEnum;
+  /**
+   * Auto Add Uo M.
+   * @nullable
+   */
+  autoAddUoM?: BoYesNoEnum;
+  /**
+   * Auto Add Package.
+   * @nullable
+   */
+  autoAddPackage?: BoYesNoEnum;
+  /**
+   * Display Inactive Price List In Reports.
+   * @nullable
+   */
+  displayInactivePriceListInReports?: BoYesNoEnum;
+  /**
+   * Display Inactive Price List In Documents.
+   * @nullable
+   */
+  displayInactivePriceListInDocuments?: BoYesNoEnum;
+  /**
+   * Display Inactive Price List In Settings.
+   * @nullable
+   */
+  displayInactivePriceListInSettings?: BoYesNoEnum;
+  /**
+   * Apply Base Inactive Status To Special Prices.
+   * @nullable
+   */
+  applyBaseInactiveStatusToSpecialPrices?: BoYesNoEnum;
+  /**
+   * Apply Base Inactive Status To Period Volume Discounts.
+   * @nullable
+   */
+  applyBaseInactiveStatusToPeriodVolumeDiscounts?: BoYesNoEnum;
+  /**
+   * Apply Base Inactive Status To Price Lists.
+   * @nullable
+   */
+  applyBaseInactiveStatusToPriceLists?: BoYesNoEnum;
+  /**
+   * Price Proceed Method.
+   * @nullable
+   */
+  priceProceedMethod?: PriceProceedMethodEnum;
+  /**
+   * Remove Update Prices Based On Non Standard Price Lists.
+   * @nullable
+   */
+  removeUpdatePricesBasedOnNonStandardPriceLists?: BoYesNoEnum;
   /**
    * Siren No.
    * @nullable
@@ -596,6 +1170,51 @@ export interface AdminInfo {
    * @nullable
    */
   institutionCode?: string;
+  /**
+   * Set Resources Warehouses.
+   * @nullable
+   */
+  setResourcesWarehouses?: BoYesNoEnum;
+  /**
+   * Block Stock Negative Quantity.
+   * @nullable
+   */
+  blockStockNegativeQuantity?: BoYesNoEnum;
+  /**
+   * Use Parent Wip In Components.
+   * @nullable
+   */
+  useParentWipInComponents?: BoYesNoEnum;
+  /**
+   * Enable Update Ba Price And Planned Amount.
+   * @nullable
+   */
+  enableUpdateBaPriceAndPlannedAmount?: BoYesNoEnum;
+  /**
+   * Auto Assign Only Valid Apba.
+   * @nullable
+   */
+  autoAssignOnlyValidApba?: BoYesNoEnum;
+  /**
+   * Auto Assign Only Valid Arba.
+   * @nullable
+   */
+  autoAssignOnlyValidArba?: BoYesNoEnum;
+  /**
+   * Action When Deviate From Ba For Po.
+   * @nullable
+   */
+  actionWhenDeviateFromBaForPo?: BaDivationAlertLevelEnum;
+  /**
+   * Action When Deviate From Ba For Grpo.
+   * @nullable
+   */
+  actionWhenDeviateFromBaForGrpo?: BaDivationAlertLevelEnum;
+  /**
+   * Action When Deviate From Ba For Accounting.
+   * @nullable
+   */
+  actionWhenDeviateFromBaForAccounting?: BaDivationAlertLevelEnum;
   /**
    * Series.
    * @nullable
@@ -612,10 +1231,25 @@ export interface AdminInfo {
    */
   enableMultipleSchedulings?: string;
   /**
+   * Display Batch Qty Uo M By.
+   * @nullable
+   */
+  displayBatchQtyUoMBy?: DisplayBatchQtyUoMByEnum;
+  /**
+   * Allow In Bound Posting With Zero Price.
+   * @nullable
+   */
+  allowInBoundPostingWithZeroPrice?: BoYesNoEnum;
+  /**
    * Inventory Posting Highlight Variance.
    * @nullable
    */
   inventoryPostingHighlightVariance?: number;
+  /**
+   * Inventory Posting Release Only Serial And Batch.
+   * @nullable
+   */
+  inventoryPostingReleaseOnlySerialAndBatch?: BoYesNoEnum;
   /**
    * Inventory Counting Highlight Variance.
    * @nullable
@@ -632,10 +1266,50 @@ export interface AdminInfo {
    */
   inventoryCountingHighlightCountersDifference?: number;
   /**
+   * Copy Single Counter To Individual Counter.
+   * @nullable
+   */
+  copySingleCounterToIndividualCounter?: BoYesNoEnum;
+  /**
+   * Close Counted Rows With Zero Difference.
+   * @nullable
+   */
+  closeCountedRowsWithZeroDifference?: BoYesNoEnum;
+  /**
+   * Close Counted Rows Without Confirmation.
+   * @nullable
+   */
+  closeCountedRowsWithoutConfirmation?: BoYesNoEnum;
+  /**
+   * Calculate In Whse Qty Based On Posting Date.
+   * @nullable
+   */
+  calculateInWhseQtyBasedOnPostingDate?: BoYesNoEnum;
+  /**
+   * Refresh In Whse Qty In Di.
+   * @nullable
+   */
+  refreshInWhseQtyInDi?: BoYesNoEnum;
+  /**
    * Sepa Creditor Id.
    * @nullable
    */
   sepaCreditorId?: string;
+  /**
+   * Data Ownership Manage By.
+   * @nullable
+   */
+  dataOwnershipManageBy?: BoDataOwnershipManageMethodEnum;
+  /**
+   * Allow Bp With No Owner.
+   * @nullable
+   */
+  allowBpWithNoOwner?: BoYesNoEnum;
+  /**
+   * Enable Separate Price Mode.
+   * @nullable
+   */
+  enableSeparatePriceMode?: BoYesNoEnum;
   /**
    * Extended Admin Info.
    * @nullable
@@ -654,7 +1328,7 @@ export function createAdminInfo(json: any): AdminInfo {
  * AdminInfoField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class AdminInfoField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, AdminInfo> {
   /**
    * Representation of the [[AdminInfo.code]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -721,6 +1395,11 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   systemCurrency: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('SystemCurrency', this, 'Edm.String');
   /**
+   * Representation of the [[AdminInfo.creditBalancewithMinusSign]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  creditBalancewithMinusSign: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CreditBalancewithMinusSign', this);
+  /**
    * Representation of the [[AdminInfo.standardUnitofLength]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -731,10 +1410,20 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   weightUnitDefault: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('WeightUnitDefault', this, 'Edm.Int32');
   /**
+   * Representation of the [[AdminInfo.directIndirectRate]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  directIndirectRate: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DirectIndirectRate', this);
+  /**
    * Representation of the [[AdminInfo.minimumAmountfor347Report]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   minimumAmountfor347Report: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('MinimumAmountfor347Report', this, 'Edm.Double');
+  /**
+   * Representation of the [[AdminInfo.setItemsWarehouses]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  setItemsWarehouses: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SetItemsWarehouses', this);
   /**
    * Representation of the [[AdminInfo.bankCountry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -756,6 +1445,16 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   deductionFileNo: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('DeductionFileNo', this, 'Edm.String');
   /**
+   * Representation of the [[AdminInfo.taxCollection]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  taxCollection: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('TaxCollection', this);
+  /**
+   * Representation of the [[AdminInfo.taxDefinition]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  taxDefinition: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('TaxDefinition', this);
+  /**
    * Representation of the [[AdminInfo.taxPercentage]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -771,6 +1470,16 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   withTax: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('WithTax', this, 'Edm.Double');
   /**
+   * Representation of the [[AdminInfo.withholdingTaxVendorDdct]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  withholdingTaxVendorDdct: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('WithholdingTaxVendorDdct', this);
+  /**
+   * Representation of the [[AdminInfo.customersDeductionatSource]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  customersDeductionatSource: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CustomersDeductionatSource', this);
+  /**
    * Representation of the [[AdminInfo.withholdingTaxTdctPercnt]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -785,6 +1494,51 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   withholdingTaxDdctOffice: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('WithholdingTaxDdctOffice', this, 'Edm.String');
+  /**
+   * Representation of the [[AdminInfo.commitmentRestriction]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  commitmentRestriction: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CommitmentRestriction', this);
+  /**
+   * Representation of the [[AdminInfo.creditRestriction]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  creditRestriction: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CreditRestriction', this);
+  /**
+   * Representation of the [[AdminInfo.restrictSales]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  restrictSales: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('RestrictSales', this);
+  /**
+   * Representation of the [[AdminInfo.restrictDelNotesPo]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  restrictDelNotesPo: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('RestrictDelNotesPO', this);
+  /**
+   * Representation of the [[AdminInfo.restrictOrders]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  restrictOrders: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('RestrictOrders', this);
+  /**
+   * Representation of the [[AdminInfo.considerDelNotesinSalesR]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  considerDelNotesinSalesR: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ConsiderDelNotesinSalesR', this);
+  /**
+   * Representation of the [[AdminInfo.creditDepositType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  creditDepositType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CreditDepositType', this);
+  /**
+   * Representation of the [[AdminInfo.useTax]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  useTax: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('UseTax', this);
+  /**
+   * Representation of the [[AdminInfo.splitPo]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  splitPo: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SplitPO', this);
   /**
    * Representation of the [[AdminInfo.altNameForApInvoice]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -811,6 +1565,26 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   altNameForPurchase: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('AltNameForPurchase', this, 'Edm.String');
   /**
+   * Representation of the [[AdminInfo.alertTypeforWhStock]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  alertTypeforWhStock: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AlertTypeforWHStock', this);
+  /**
+   * Representation of the [[AdminInfo.setCommissionbyCustomer]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  setCommissionbyCustomer: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SetCommissionbyCustomer', this);
+  /**
+   * Representation of the [[AdminInfo.setCommissionbyItem]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  setCommissionbyItem: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SetCommissionbyItem', this);
+  /**
+   * Representation of the [[AdminInfo.setCommissionbySe]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  setCommissionbySe: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SetCommissionbySE', this);
+  /**
    * Representation of the [[AdminInfo.defaultCustomerPaymentTerms]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -821,10 +1595,45 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   defaultVendorPaymentTerms: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DefaultVendorPaymentTerms', this, 'Edm.Int32');
   /**
+   * Representation of the [[AdminInfo.calculateGrossProfitperTra]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  calculateGrossProfitperTra: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CalculateGrossProfitperTra', this);
+  /**
    * Representation of the [[AdminInfo.priceListforCostPrice]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   priceListforCostPrice: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('PriceListforCostPrice', this, 'Edm.Int32');
+  /**
+   * Representation of the [[AdminInfo.grossProfitAfterSale]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  grossProfitAfterSale: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('GrossProfitAfterSale', this);
+  /**
+   * Representation of the [[AdminInfo.displayPriceforPriceOnly]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  displayPriceforPriceOnly: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DisplayPriceforPriceOnly', this);
+  /**
+   * Representation of the [[AdminInfo.calculateTaxinSalesQuotati]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  calculateTaxinSalesQuotati: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CalculateTaxinSalesQuotati', this);
+  /**
+   * Representation of the [[AdminInfo.baseField]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  baseField: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BaseField', this);
+  /**
+   * Representation of the [[AdminInfo.allowClosedSalesQuotations]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  allowClosedSalesQuotations: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AllowClosedSalesQuotations', this);
+  /**
+   * Representation of the [[AdminInfo.userConversionCode]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  userConversionCode: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('UserConversionCode', this);
   /**
    * Representation of the [[AdminInfo.companyColor]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -901,25 +1710,70 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   managingDirectorForeignLan: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('ManagingDirectorForeignLan', this, 'Edm.String');
   /**
+   * Representation of the [[AdminInfo.timeTemplate]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  timeTemplate: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('TimeTemplate', this);
+  /**
+   * Representation of the [[AdminInfo.dateTemplate]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  dateTemplate: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DateTemplate', this);
+  /**
    * Representation of the [[AdminInfo.dateSeparator]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   dateSeparator: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('DateSeparator', this, 'Edm.String');
+  /**
+   * Representation of the [[AdminInfo.fcCheckAccount]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  fcCheckAccount: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('FCCheckAccount', this);
+  /**
+   * Representation of the [[AdminInfo.changedExistingOrders]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  changedExistingOrders: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ChangedExistingOrders', this);
+  /**
+   * Representation of the [[AdminInfo.multiCurrencyCheck]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  multiCurrencyCheck: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('MultiCurrencyCheck', this);
   /**
    * Representation of the [[AdminInfo.isrType]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   isrType: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('ISRType', this, 'Edm.Int32');
   /**
+   * Representation of the [[AdminInfo.displayRoundingRemark]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  displayRoundingRemark: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DisplayRoundingRemark', this);
+  /**
    * Representation of the [[AdminInfo.isrBillerId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   isrBillerId: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('ISRBillerID', this, 'Edm.String');
   /**
+   * Representation of the [[AdminInfo.blockSystemCurrencyEditing]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  blockSystemCurrencyEditing: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BlockSystemCurrencyEditing', this);
+  /**
+   * Representation of the [[AdminInfo.blockPostingDateEditing]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  blockPostingDateEditing: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BlockPostingDateEditing', this);
+  /**
    * Representation of the [[AdminInfo.defaultWarehouse]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   defaultWarehouse: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('DefaultWarehouse', this, 'Edm.String');
+  /**
+   * Representation of the [[AdminInfo.blockTaxDate]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  blockTaxDate: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BlockTaxDate', this);
   /**
    * Representation of the [[AdminInfo.taxDefinitionforVatitem]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -941,20 +1795,70 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   taxGroupforServicePurchase: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('TaxGroupforServicePurchase', this, 'Edm.String');
   /**
+   * Representation of the [[AdminInfo.calculateBudget]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  calculateBudget: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CalculateBudget', this);
+  /**
    * Representation of the [[AdminInfo.customerIdNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   customerIdNumber: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('CustomerIdNumber', this, 'Edm.String');
+  /**
+   * Representation of the [[AdminInfo.blockBudget]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  blockBudget: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BlockBudget', this);
+  /**
+   * Representation of the [[AdminInfo.budgetAlert]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  budgetAlert: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BudgetAlert', this);
+  /**
+   * Representation of the [[AdminInfo.blockPurchaseOrders]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  blockPurchaseOrders: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BlockPurchaseOrders', this);
+  /**
+   * Representation of the [[AdminInfo.blockBookkeeping]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  blockBookkeeping: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BlockBookkeeping', this);
   /**
    * Representation of the [[AdminInfo.defaultBudgetCostAssessMt]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   defaultBudgetCostAssessMt: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DefaultBudgetCostAssessMt', this, 'Edm.Int32');
   /**
+   * Representation of the [[AdminInfo.continuousStockManagement]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  continuousStockManagement: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ContinuousStockManagement', this);
+  /**
+   * Representation of the [[AdminInfo.continuousStockSystem]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  continuousStockSystem: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ContinuousStockSystem', this);
+  /**
+   * Representation of the [[AdminInfo.roundTaxAmounts]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  roundTaxAmounts: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('RoundTaxAmounts', this);
+  /**
+   * Representation of the [[AdminInfo.blockDelNotesforPurchase]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  blockDelNotesforPurchase: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BlockDelNotesforPurchase', this);
+  /**
    * Representation of the [[AdminInfo.fileNumberinIncomeTax]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   fileNumberinIncomeTax: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('FileNumberinIncomeTax', this, 'Edm.String');
+  /**
+   * Representation of the [[AdminInfo.deferredTax]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  deferredTax: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DeferredTax', this);
   /**
    * Representation of the [[AdminInfo.defaultBankNo]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -970,6 +1874,11 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   defaultBranch: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('DefaultBranch', this, 'Edm.String');
+  /**
+   * Representation of the [[AdminInfo.usePaSystem]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  usePaSystem: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('UsePASystem', this);
   /**
    * Representation of the [[AdminInfo.serviceCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1011,10 +1920,60 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   thousandsSeparator: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('ThousandsSeparator', this, 'Edm.String');
   /**
+   * Representation of the [[AdminInfo.displayCurrencyontheRight]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  displayCurrencyontheRight: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DisplayCurrencyontheRight', this);
+  /**
+   * Representation of the [[AdminInfo.alertbyWarehouse]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  alertbyWarehouse: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AlertbyWarehouse', this);
+  /**
+   * Representation of the [[AdminInfo.priceSystem]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  priceSystem: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('PriceSystem', this);
+  /**
+   * Representation of the [[AdminInfo.wholdingTaxDedHierarchy]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  wholdingTaxDedHierarchy: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('WholdingTaxDedHierarchy', this);
+  /**
+   * Representation of the [[AdminInfo.docConfirmation]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  docConfirmation: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DocConfirmation', this);
+  /**
+   * Representation of the [[AdminInfo.defaultforBatchStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  defaultforBatchStatus: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DefaultforBatchStatus', this);
+  /**
+   * Representation of the [[AdminInfo.glMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  glMethod: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('GLMethod', this);
+  /**
+   * Representation of the [[AdminInfo.uniqueSerialNo]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  uniqueSerialNo: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('UniqueSerialNo', this);
+  /**
    * Representation of the [[AdminInfo.maxHistory]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   maxHistory: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('MaxHistory', this, 'Edm.Int32');
+  /**
+   * Representation of the [[AdminInfo.changeDefReconApAccounts]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  changeDefReconApAccounts: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ChangeDefReconAPAccounts', this);
+  /**
+   * Representation of the [[AdminInfo.changeDefReconArAccounts]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  changeDefReconArAccounts: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ChangeDefReconARAccounts', this);
   /**
    * Representation of the [[AdminInfo.bpTypeCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1041,6 +2000,16 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   accountSegmentsSeparator: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('AccountSegmentsSeparator', this, 'Edm.String');
   /**
+   * Representation of the [[AdminInfo.displayBookkeepingWindow]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  displayBookkeepingWindow: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DisplayBookkeepingWindow', this);
+  /**
+   * Representation of the [[AdminInfo.sHandleWt]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  sHandleWt: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SHandleWT', this);
+  /**
    * Representation of the [[AdminInfo.sDefaultWtCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -1056,6 +2025,16 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   pDefaultWtCode: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('PDefaultWTCode', this, 'Edm.String');
   /**
+   * Representation of the [[AdminInfo.wtLiableExpense]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  wtLiableExpense: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('WTLiableExpense', this);
+  /**
+   * Representation of the [[AdminInfo.useNegativeAmounts]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  useNegativeAmounts: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('UseNegativeAmounts', this);
+  /**
    * Representation of the [[AdminInfo.holidaysName]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -1065,6 +2044,16 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   orderBlock: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('OrderBlock', this, 'Edm.String');
+  /**
+   * Representation of the [[AdminInfo.roundingMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  roundingMethod: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('RoundingMethod', this);
+  /**
+   * Representation of the [[AdminInfo.adressFromWh]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  adressFromWh: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AdressFromWH', this);
   /**
    * Representation of the [[AdminInfo.orderingParty]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1086,6 +2075,16 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   nationalInsuranceNo: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('NationalInsuranceNo', this, 'Edm.String');
   /**
+   * Representation of the [[AdminInfo.salesOrderConfirmed]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  salesOrderConfirmed: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SalesOrderConfirmed', this);
+  /**
+   * Representation of the [[AdminInfo.purchaseOrderConfirmed]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  purchaseOrderConfirmed: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('PurchaseOrderConfirmed', this);
+  /**
    * Representation of the [[AdminInfo.sDfltItwt]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -1095,6 +2094,31 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   pDfltItwt: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('PDfltITWT', this, 'Edm.String');
+  /**
+   * Representation of the [[AdminInfo.defaultAccountCurrency]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  defaultAccountCurrency: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DefaultAccountCurrency', this);
+  /**
+   * Representation of the [[AdminInfo.deferredTaxforVendors]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  deferredTaxforVendors: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DeferredTaxforVendors', this);
+  /**
+   * Representation of the [[AdminInfo.createAutoVatLineinJdt]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  createAutoVatLineinJdt: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CreateAutoVATLineinJDT', this);
+  /**
+   * Representation of the [[AdminInfo.consumeForecast]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  consumeForecast: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ConsumeForecast', this);
+  /**
+   * Representation of the [[AdminInfo.consumptionMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  consumptionMethod: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ConsumptionMethod', this);
   /**
    * Representation of the [[AdminInfo.daysBackward]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1116,6 +2140,16 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   defaultBankAccountKey: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DefaultBankAccountKey', this, 'Edm.Int32');
   /**
+   * Representation of the [[AdminInfo.multiLanguageSupportEnable]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  multiLanguageSupportEnable: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('MultiLanguageSupportEnable', this);
+  /**
+   * Representation of the [[AdminInfo.allowFuturePostingDate]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  allowFuturePostingDate: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AllowFuturePostingDate', this);
+  /**
    * Representation of the [[AdminInfo.additionalIdNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -1126,6 +2160,16 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   state: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('State', this, 'Edm.String');
   /**
+   * Representation of the [[AdminInfo.calculateRowDiscount]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  calculateRowDiscount: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CalculateRowDiscount', this);
+  /**
+   * Representation of the [[AdminInfo.bankStatementInstalled]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  bankStatementInstalled: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BankStatementInstalled', this);
+  /**
    * Representation of the [[AdminInfo.uniqueTaxPayerReference]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -1135,6 +2179,11 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   employerReference: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('EmployerReference', this, 'Edm.String');
+  /**
+   * Representation of the [[AdminInfo.periodStatusAutoChange]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  periodStatusAutoChange: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('PeriodStatusAutoChange', this);
   /**
    * Representation of the [[AdminInfo.periodStatusChangeDelay]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1151,6 +2200,11 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   xmlFileFolderPath: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('XMLFileFolderPath', this, 'Edm.String');
   /**
+   * Representation of the [[AdminInfo.pickList]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  pickList: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('PickList', this);
+  /**
    * Representation of the [[AdminInfo.generalManager]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -1161,6 +2215,11 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   generalManagerForeignLanguage: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('GeneralManagerForeignLanguage', this, 'Edm.String');
   /**
+   * Representation of the [[AdminInfo.useProductionProfitAndLossAccount]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  useProductionProfitAndLossAccount: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('UseProductionProfitAndLossAccount', this);
+  /**
    * Representation of the [[AdminInfo.wtAccumAmountAp]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -1170,6 +2229,11 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   wtAccumAmountAr: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('WTAccumAmountAR', this, 'Edm.Double');
+  /**
+   * Representation of the [[AdminInfo.copyExchangeRateInCopyTo]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  copyExchangeRateInCopyTo: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CopyExchangeRateInCopyTo', this);
   /**
    * Representation of the [[AdminInfo.gtsOutboundFolder]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1201,6 +2265,16 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   gtsMaxAmount: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('GTSMaxAmount', this, 'Edm.Double');
   /**
+   * Representation of the [[AdminInfo.gtsResponseToExceeding]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  gtsResponseToExceeding: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('GTSResponseToExceeding', this);
+  /**
+   * Representation of the [[AdminInfo.applicationOfIfrs]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  applicationOfIfrs: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ApplicationOfIFRS', this);
+  /**
    * Representation of the [[AdminInfo.startingInFiscalYear]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -1210,6 +2284,66 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   reportAccordingTo: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('ReportAccordingTo', this, 'Edm.Int32');
+  /**
+   * Representation of the [[AdminInfo.copyOpenRowsToDelivery]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  copyOpenRowsToDelivery: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CopyOpenRowsToDelivery', this);
+  /**
+   * Representation of the [[AdminInfo.enableApprovalProcedureInDi]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  enableApprovalProcedureInDi: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('EnableApprovalProcedureInDI', this);
+  /**
+   * Representation of the [[AdminInfo.enableUpdateDocAfterApproval]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  enableUpdateDocAfterApproval: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('EnableUpdateDocAfterApproval', this);
+  /**
+   * Representation of the [[AdminInfo.enableUpdateDraftDuringApproval]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  enableUpdateDraftDuringApproval: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('EnableUpdateDraftDuringApproval', this);
+  /**
+   * Representation of the [[AdminInfo.issuePrimarilyBy]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  issuePrimarilyBy: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IssuePrimarilyBy', this);
+  /**
+   * Representation of the [[AdminInfo.isRemoveUnpricedValue]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  isRemoveUnpricedValue: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IsRemoveUnpricedValue', this);
+  /**
+   * Representation of the [[AdminInfo.enableAdvancedGlAccountDetermination]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  enableAdvancedGlAccountDetermination: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('EnableAdvancedGLAccountDetermination', this);
+  /**
+   * Representation of the [[AdminInfo.createOnlineQuotation]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  createOnlineQuotation: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CreateOnlineQuotation', this);
+  /**
+   * Representation of the [[AdminInfo.isPrinterConnected]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  isPrinterConnected: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IsPrinterConnected', this);
+  /**
+   * Representation of the [[AdminInfo.enableBranches]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  enableBranches: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('EnableBranches', this);
+  /**
+   * Representation of the [[AdminInfo.ieMandatoryValidation]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  ieMandatoryValidation: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IEMandatoryValidation', this);
+  /**
+   * Representation of the [[AdminInfo.enablePaymentDueDates]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  enablePaymentDueDates: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('EnablePaymentDueDates', this);
   /**
    * Representation of the [[AdminInfo.maximumNumberOfDaysForDueDate]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1221,15 +2355,110 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   aliasName: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('AliasName', this, 'Edm.String');
   /**
+   * Representation of the [[AdminInfo.enableCentralizedIncomingPayments]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  enableCentralizedIncomingPayments: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('EnableCentralizedIncomingPayments', this);
+  /**
+   * Representation of the [[AdminInfo.enableCentralizedOutgoingPayments]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  enableCentralizedOutgoingPayments: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('EnableCentralizedOutgoingPayments', this);
+  /**
+   * Representation of the [[AdminInfo.taxRateDetermination]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  taxRateDetermination: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('TaxRateDetermination', this);
+  /**
    * Representation of the [[AdminInfo.boletoFolderPath]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   boletoFolderPath: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('BoletoFolderPath', this, 'Edm.String');
   /**
+   * Representation of the [[AdminInfo.allowMultipleBaOnSamePeriod]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  allowMultipleBaOnSamePeriod: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AllowMultipleBAOnSamePeriod', this);
+  /**
+   * Representation of the [[AdminInfo.blockMultipleBaOnSameApDocument]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  blockMultipleBaOnSameApDocument: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BlockMultipleBAOnSameAPDocument', this);
+  /**
+   * Representation of the [[AdminInfo.blockMultipleBaOnSameArDocument]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  blockMultipleBaOnSameArDocument: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BlockMultipleBAOnSameARDocument', this);
+  /**
+   * Representation of the [[AdminInfo.displayCancelDocInReport]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  displayCancelDocInReport: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DisplayCancelDocInReport', this);
+  /**
    * Representation of the [[AdminInfo.maxDaysForCancel]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   maxDaysForCancel: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('MaxDaysForCancel', this, 'Edm.Int32');
+  /**
+   * Representation of the [[AdminInfo.reuseDocumentNum]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  reuseDocumentNum: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ReuseDocumentNum', this);
+  /**
+   * Representation of the [[AdminInfo.reuseNotaFiscalNum]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  reuseNotaFiscalNum: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ReuseNotaFiscalNum', this);
+  /**
+   * Representation of the [[AdminInfo.autoAddUoM]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  autoAddUoM: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AutoAddUoM', this);
+  /**
+   * Representation of the [[AdminInfo.autoAddPackage]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  autoAddPackage: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AutoAddPackage', this);
+  /**
+   * Representation of the [[AdminInfo.displayInactivePriceListInReports]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  displayInactivePriceListInReports: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DisplayInactivePriceListInReports', this);
+  /**
+   * Representation of the [[AdminInfo.displayInactivePriceListInDocuments]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  displayInactivePriceListInDocuments: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DisplayInactivePriceListInDocuments', this);
+  /**
+   * Representation of the [[AdminInfo.displayInactivePriceListInSettings]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  displayInactivePriceListInSettings: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DisplayInactivePriceListInSettings', this);
+  /**
+   * Representation of the [[AdminInfo.applyBaseInactiveStatusToSpecialPrices]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  applyBaseInactiveStatusToSpecialPrices: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ApplyBaseInactiveStatusToSpecialPrices', this);
+  /**
+   * Representation of the [[AdminInfo.applyBaseInactiveStatusToPeriodVolumeDiscounts]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  applyBaseInactiveStatusToPeriodVolumeDiscounts: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ApplyBaseInactiveStatusToPeriodVolumeDiscounts', this);
+  /**
+   * Representation of the [[AdminInfo.applyBaseInactiveStatusToPriceLists]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  applyBaseInactiveStatusToPriceLists: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ApplyBaseInactiveStatusToPriceLists', this);
+  /**
+   * Representation of the [[AdminInfo.priceProceedMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  priceProceedMethod: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('PriceProceedMethod', this);
+  /**
+   * Representation of the [[AdminInfo.removeUpdatePricesBasedOnNonStandardPriceLists]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  removeUpdatePricesBasedOnNonStandardPriceLists: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('RemoveUpdatePricesBasedOnNonStandardPriceLists', this);
   /**
    * Representation of the [[AdminInfo.sirenNo]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1240,6 +2469,51 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   institutionCode: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('InstitutionCode', this, 'Edm.String');
+  /**
+   * Representation of the [[AdminInfo.setResourcesWarehouses]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  setResourcesWarehouses: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SetResourcesWarehouses', this);
+  /**
+   * Representation of the [[AdminInfo.blockStockNegativeQuantity]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  blockStockNegativeQuantity: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BlockStockNegativeQuantity', this);
+  /**
+   * Representation of the [[AdminInfo.useParentWipInComponents]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  useParentWipInComponents: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('UseParentWIPInComponents', this);
+  /**
+   * Representation of the [[AdminInfo.enableUpdateBaPriceAndPlannedAmount]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  enableUpdateBaPriceAndPlannedAmount: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('EnableUpdateBAPriceAndPlannedAmount', this);
+  /**
+   * Representation of the [[AdminInfo.autoAssignOnlyValidApba]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  autoAssignOnlyValidApba: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AutoAssignOnlyValidAPBA', this);
+  /**
+   * Representation of the [[AdminInfo.autoAssignOnlyValidArba]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  autoAssignOnlyValidArba: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AutoAssignOnlyValidARBA', this);
+  /**
+   * Representation of the [[AdminInfo.actionWhenDeviateFromBaForPo]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  actionWhenDeviateFromBaForPo: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ActionWhenDeviateFromBAForPO', this);
+  /**
+   * Representation of the [[AdminInfo.actionWhenDeviateFromBaForGrpo]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  actionWhenDeviateFromBaForGrpo: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ActionWhenDeviateFromBAForGRPO', this);
+  /**
+   * Representation of the [[AdminInfo.actionWhenDeviateFromBaForAccounting]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  actionWhenDeviateFromBaForAccounting: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ActionWhenDeviateFromBAForAccounting', this);
   /**
    * Representation of the [[AdminInfo.series]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1256,10 +2530,25 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   enableMultipleSchedulings: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('EnableMultipleSchedulings', this, 'Edm.String');
   /**
+   * Representation of the [[AdminInfo.displayBatchQtyUoMBy]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  displayBatchQtyUoMBy: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DisplayBatchQtyUoMBy', this);
+  /**
+   * Representation of the [[AdminInfo.allowInBoundPostingWithZeroPrice]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  allowInBoundPostingWithZeroPrice: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AllowInBoundPostingWithZeroPrice', this);
+  /**
    * Representation of the [[AdminInfo.inventoryPostingHighlightVariance]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   inventoryPostingHighlightVariance: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('InventoryPostingHighlightVariance', this, 'Edm.Double');
+  /**
+   * Representation of the [[AdminInfo.inventoryPostingReleaseOnlySerialAndBatch]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  inventoryPostingReleaseOnlySerialAndBatch: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('InventoryPostingReleaseOnlySerialAndBatch', this);
   /**
    * Representation of the [[AdminInfo.inventoryCountingHighlightVariance]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1276,146 +2565,1362 @@ export class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   inventoryCountingHighlightCountersDifference: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('InventoryCountingHighlightCountersDifference', this, 'Edm.Double');
   /**
+   * Representation of the [[AdminInfo.copySingleCounterToIndividualCounter]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  copySingleCounterToIndividualCounter: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CopySingleCounterToIndividualCounter', this);
+  /**
+   * Representation of the [[AdminInfo.closeCountedRowsWithZeroDifference]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  closeCountedRowsWithZeroDifference: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CloseCountedRowsWithZeroDifference', this);
+  /**
+   * Representation of the [[AdminInfo.closeCountedRowsWithoutConfirmation]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  closeCountedRowsWithoutConfirmation: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CloseCountedRowsWithoutConfirmation', this);
+  /**
+   * Representation of the [[AdminInfo.calculateInWhseQtyBasedOnPostingDate]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  calculateInWhseQtyBasedOnPostingDate: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CalculateInWhseQtyBasedOnPostingDate', this);
+  /**
+   * Representation of the [[AdminInfo.refreshInWhseQtyInDi]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  refreshInWhseQtyInDi: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('RefreshInWhseQtyInDI', this);
+  /**
    * Representation of the [[AdminInfo.sepaCreditorId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   sepaCreditorId: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('SEPACreditorID', this, 'Edm.String');
   /**
+   * Representation of the [[AdminInfo.dataOwnershipManageBy]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  dataOwnershipManageBy: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DataOwnershipManageBy', this);
+  /**
+   * Representation of the [[AdminInfo.allowBpWithNoOwner]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  allowBpWithNoOwner: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AllowBPWithNoOwner', this);
+  /**
+   * Representation of the [[AdminInfo.enableSeparatePriceMode]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  enableSeparatePriceMode: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('EnableSeparatePriceMode', this);
+  /**
    * Representation of the [[AdminInfo.extendedAdminInfo]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   extendedAdminInfo: ExtendedAdminInfoField<EntityT> = new ExtendedAdminInfoField('ExtendedAdminInfo', this);
+
+  /**
+   * Creates an instance of AdminInfoField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, AdminInfo);
+  }
 }
 
 export namespace AdminInfo {
+  /**
+   * Metadata information on all properties of the `AdminInfo` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<AdminInfo>[] = [{
+    originalName: 'Code',
+    name: 'code',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CompanyName',
+    name: 'companyName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Address',
+    name: 'address',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Country',
+    name: 'country',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PrintingHeader',
+    name: 'printingHeader',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PhoneNumber1',
+    name: 'phoneNumber1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PhoneNumber2',
+    name: 'phoneNumber2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FaxNumber',
+    name: 'faxNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'eMail',
+    name: 'eMail',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ManagingDirector',
+    name: 'managingDirector',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ChartofAccountsTemplate',
+    name: 'chartofAccountsTemplate',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LocalCurrency',
+    name: 'localCurrency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SystemCurrency',
+    name: 'systemCurrency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CreditBalancewithMinusSign',
+    name: 'creditBalancewithMinusSign',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'StandardUnitofLength',
+    name: 'standardUnitofLength',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'WeightUnitDefault',
+    name: 'weightUnitDefault',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DirectIndirectRate',
+    name: 'directIndirectRate',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'MinimumAmountfor347Report',
+    name: 'minimumAmountfor347Report',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SetItemsWarehouses',
+    name: 'setItemsWarehouses',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BankCountry',
+    name: 'bankCountry',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FederalTaxID',
+    name: 'federalTaxId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxOffice',
+    name: 'taxOffice',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DeductionFileNo',
+    name: 'deductionFileNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxCollection',
+    name: 'taxCollection',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'TaxDefinition',
+    name: 'taxDefinition',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'TaxPercentage',
+    name: 'taxPercentage',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AdvancesonCorpIncomeTax',
+    name: 'advancesonCorpIncomeTax',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WithTax',
+    name: 'withTax',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WithholdingTaxVendorDdct',
+    name: 'withholdingTaxVendorDdct',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CustomersDeductionatSource',
+    name: 'customersDeductionatSource',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'WithholdingTaxTdctPercnt',
+    name: 'withholdingTaxTdctPercnt',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WithholdingTaxDdctExpired',
+    name: 'withholdingTaxDdctExpired',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'WithholdingTaxDdctOffice',
+    name: 'withholdingTaxDdctOffice',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CommitmentRestriction',
+    name: 'commitmentRestriction',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CreditRestriction',
+    name: 'creditRestriction',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'RestrictSales',
+    name: 'restrictSales',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'RestrictDelNotesPO',
+    name: 'restrictDelNotesPo',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'RestrictOrders',
+    name: 'restrictOrders',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ConsiderDelNotesinSalesR',
+    name: 'considerDelNotesinSalesR',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CreditDepositType',
+    name: 'creditDepositType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'UseTax',
+    name: 'useTax',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SplitPO',
+    name: 'splitPo',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AltNameForApInvoice',
+    name: 'altNameForApInvoice',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AltNameforCreditMemo',
+    name: 'altNameforCreditMemo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AltNameForGoodsReceipt',
+    name: 'altNameForGoodsReceipt',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AltNameForGoodsReturn',
+    name: 'altNameForGoodsReturn',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AltNameForPurchase',
+    name: 'altNameForPurchase',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AlertTypeforWHStock',
+    name: 'alertTypeforWhStock',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SetCommissionbyCustomer',
+    name: 'setCommissionbyCustomer',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SetCommissionbyItem',
+    name: 'setCommissionbyItem',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SetCommissionbySE',
+    name: 'setCommissionbySe',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DefaultCustomerPaymentTerms',
+    name: 'defaultCustomerPaymentTerms',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DefaultVendorPaymentTerms',
+    name: 'defaultVendorPaymentTerms',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CalculateGrossProfitperTra',
+    name: 'calculateGrossProfitperTra',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'PriceListforCostPrice',
+    name: 'priceListforCostPrice',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'GrossProfitAfterSale',
+    name: 'grossProfitAfterSale',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DisplayPriceforPriceOnly',
+    name: 'displayPriceforPriceOnly',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CalculateTaxinSalesQuotati',
+    name: 'calculateTaxinSalesQuotati',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BaseField',
+    name: 'baseField',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AllowClosedSalesQuotations',
+    name: 'allowClosedSalesQuotations',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'UserConversionCode',
+    name: 'userConversionCode',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CompanyColor',
+    name: 'companyColor',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TotalsAccuracy',
+    name: 'totalsAccuracy',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AccuracyofQuantities',
+    name: 'accuracyofQuantities',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PriceAccuracy',
+    name: 'priceAccuracy',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'RateAccuracy',
+    name: 'rateAccuracy',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PercentageAccuracy',
+    name: 'percentageAccuracy',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'MeasuringAccuracy',
+    name: 'measuringAccuracy',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'QueryAccuracy',
+    name: 'queryAccuracy',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AddressinForeignLanguage',
+    name: 'addressinForeignLanguage',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DefaultTaxCode',
+    name: 'defaultTaxCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LetterHeaderinForeignLangu',
+    name: 'letterHeaderinForeignLangu',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PhoneNumber1ForeignLang',
+    name: 'phoneNumber1ForeignLang',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PhoneNumber2ForeignLang',
+    name: 'phoneNumber2ForeignLang',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FaxNumberForeignLang',
+    name: 'faxNumberForeignLang',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ManagingDirectorForeignLan',
+    name: 'managingDirectorForeignLan',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TimeTemplate',
+    name: 'timeTemplate',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DateTemplate',
+    name: 'dateTemplate',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DateSeparator',
+    name: 'dateSeparator',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FCCheckAccount',
+    name: 'fcCheckAccount',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ChangedExistingOrders',
+    name: 'changedExistingOrders',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'MultiCurrencyCheck',
+    name: 'multiCurrencyCheck',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ISRType',
+    name: 'isrType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DisplayRoundingRemark',
+    name: 'displayRoundingRemark',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ISRBillerID',
+    name: 'isrBillerId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BlockSystemCurrencyEditing',
+    name: 'blockSystemCurrencyEditing',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BlockPostingDateEditing',
+    name: 'blockPostingDateEditing',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DefaultWarehouse',
+    name: 'defaultWarehouse',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BlockTaxDate',
+    name: 'blockTaxDate',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'TaxDefinitionforVatitem',
+    name: 'taxDefinitionforVatitem',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxDefinitionforVatservice',
+    name: 'taxDefinitionforVatservice',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxGroupforPurchaseItem',
+    name: 'taxGroupforPurchaseItem',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxGroupforServicePurchase',
+    name: 'taxGroupforServicePurchase',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CalculateBudget',
+    name: 'calculateBudget',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CustomerIdNumber',
+    name: 'customerIdNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BlockBudget',
+    name: 'blockBudget',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BudgetAlert',
+    name: 'budgetAlert',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BlockPurchaseOrders',
+    name: 'blockPurchaseOrders',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BlockBookkeeping',
+    name: 'blockBookkeeping',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DefaultBudgetCostAssessMt',
+    name: 'defaultBudgetCostAssessMt',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ContinuousStockManagement',
+    name: 'continuousStockManagement',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ContinuousStockSystem',
+    name: 'continuousStockSystem',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'RoundTaxAmounts',
+    name: 'roundTaxAmounts',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BlockDelNotesforPurchase',
+    name: 'blockDelNotesforPurchase',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'FileNumberinIncomeTax',
+    name: 'fileNumberinIncomeTax',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DeferredTax',
+    name: 'deferredTax',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DefaultBankNo',
+    name: 'defaultBankNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DefaultBankAccount',
+    name: 'defaultBankAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DefaultBranch',
+    name: 'defaultBranch',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UsePASystem',
+    name: 'usePaSystem',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ServiceCode',
+    name: 'serviceCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ServicePassword',
+    name: 'servicePassword',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ParamFolderPath',
+    name: 'paramFolderPath',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExcelFolderPath',
+    name: 'excelFolderPath',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FederalTaxID2',
+    name: 'federalTaxId2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FederalTaxID3',
+    name: 'federalTaxId3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DecimalSeparator',
+    name: 'decimalSeparator',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ThousandsSeparator',
+    name: 'thousandsSeparator',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DisplayCurrencyontheRight',
+    name: 'displayCurrencyontheRight',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AlertbyWarehouse',
+    name: 'alertbyWarehouse',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'PriceSystem',
+    name: 'priceSystem',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'WholdingTaxDedHierarchy',
+    name: 'wholdingTaxDedHierarchy',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DocConfirmation',
+    name: 'docConfirmation',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DefaultforBatchStatus',
+    name: 'defaultforBatchStatus',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'GLMethod',
+    name: 'glMethod',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'UniqueSerialNo',
+    name: 'uniqueSerialNo',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'MaxHistory',
+    name: 'maxHistory',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ChangeDefReconAPAccounts',
+    name: 'changeDefReconApAccounts',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ChangeDefReconARAccounts',
+    name: 'changeDefReconArAccounts',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BPTypeCode',
+    name: 'bpTypeCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PBSNumber',
+    name: 'pbsNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PBSGroupNumber',
+    name: 'pbsGroupNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'OrganizationNumber',
+    name: 'organizationNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AccountSegmentsSeparator',
+    name: 'accountSegmentsSeparator',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DisplayBookkeepingWindow',
+    name: 'displayBookkeepingWindow',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SHandleWT',
+    name: 'sHandleWt',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SDefaultWTCode',
+    name: 'sDefaultWtCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WithholdingTaxPHandle',
+    name: 'withholdingTaxPHandle',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PDefaultWTCode',
+    name: 'pDefaultWtCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WTLiableExpense',
+    name: 'wtLiableExpense',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'UseNegativeAmounts',
+    name: 'useNegativeAmounts',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'HolidaysName',
+    name: 'holidaysName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'OrderBlock',
+    name: 'orderBlock',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RoundingMethod',
+    name: 'roundingMethod',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AdressFromWH',
+    name: 'adressFromWh',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'OrderingParty',
+    name: 'orderingParty',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CertificateNo',
+    name: 'certificateNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExpirationDate',
+    name: 'expirationDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'NationalInsuranceNo',
+    name: 'nationalInsuranceNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SalesOrderConfirmed',
+    name: 'salesOrderConfirmed',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'PurchaseOrderConfirmed',
+    name: 'purchaseOrderConfirmed',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SDfltITWT',
+    name: 'sDfltItwt',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PDfltITWT',
+    name: 'pDfltItwt',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DefaultAccountCurrency',
+    name: 'defaultAccountCurrency',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DeferredTaxforVendors',
+    name: 'deferredTaxforVendors',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CreateAutoVATLineinJDT',
+    name: 'createAutoVatLineinJdt',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ConsumeForecast',
+    name: 'consumeForecast',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ConsumptionMethod',
+    name: 'consumptionMethod',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DaysBackward',
+    name: 'daysBackward',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DaysForward',
+    name: 'daysForward',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DefaultDunningTerm',
+    name: 'defaultDunningTerm',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DefaultBankAccountKey',
+    name: 'defaultBankAccountKey',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'MultiLanguageSupportEnable',
+    name: 'multiLanguageSupportEnable',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AllowFuturePostingDate',
+    name: 'allowFuturePostingDate',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalIdNumber',
+    name: 'additionalIdNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'State',
+    name: 'state',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CalculateRowDiscount',
+    name: 'calculateRowDiscount',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BankStatementInstalled',
+    name: 'bankStatementInstalled',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'UniqueTaxPayerReference',
+    name: 'uniqueTaxPayerReference',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'EmployerReference',
+    name: 'employerReference',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PeriodStatusAutoChange',
+    name: 'periodStatusAutoChange',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'PeriodStatusChangeDelay',
+    name: 'periodStatusChangeDelay',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'GrossProfitPercentForServiceDocuments',
+    name: 'grossProfitPercentForServiceDocuments',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'XMLFileFolderPath',
+    name: 'xmlFileFolderPath',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PickList',
+    name: 'pickList',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'GeneralManager',
+    name: 'generalManager',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GeneralManagerForeignLanguage',
+    name: 'generalManagerForeignLanguage',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UseProductionProfitAndLossAccount',
+    name: 'useProductionProfitAndLossAccount',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'WTAccumAmountAP',
+    name: 'wtAccumAmountAp',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WTAccumAmountAR',
+    name: 'wtAccumAmountAr',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CopyExchangeRateInCopyTo',
+    name: 'copyExchangeRateInCopyTo',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'GTSOutboundFolder',
+    name: 'gtsOutboundFolder',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GTSInboundFolder',
+    name: 'gtsInboundFolder',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GTSSeparateCode',
+    name: 'gtsSeparateCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GTSDefaultChecker',
+    name: 'gtsDefaultChecker',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'GTSDefaultPayee',
+    name: 'gtsDefaultPayee',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'GTSMaxAmount',
+    name: 'gtsMaxAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'GTSResponseToExceeding',
+    name: 'gtsResponseToExceeding',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ApplicationOfIFRS',
+    name: 'applicationOfIfrs',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'StartingInFiscalYear',
+    name: 'startingInFiscalYear',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ReportAccordingTo',
+    name: 'reportAccordingTo',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CopyOpenRowsToDelivery',
+    name: 'copyOpenRowsToDelivery',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'EnableApprovalProcedureInDI',
+    name: 'enableApprovalProcedureInDi',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'EnableUpdateDocAfterApproval',
+    name: 'enableUpdateDocAfterApproval',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'EnableUpdateDraftDuringApproval',
+    name: 'enableUpdateDraftDuringApproval',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'IssuePrimarilyBy',
+    name: 'issuePrimarilyBy',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'IsRemoveUnpricedValue',
+    name: 'isRemoveUnpricedValue',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'EnableAdvancedGLAccountDetermination',
+    name: 'enableAdvancedGlAccountDetermination',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CreateOnlineQuotation',
+    name: 'createOnlineQuotation',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'IsPrinterConnected',
+    name: 'isPrinterConnected',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'EnableBranches',
+    name: 'enableBranches',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'IEMandatoryValidation',
+    name: 'ieMandatoryValidation',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'EnablePaymentDueDates',
+    name: 'enablePaymentDueDates',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'MaximumNumberOfDaysForDueDate',
+    name: 'maximumNumberOfDaysForDueDate',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AliasName',
+    name: 'aliasName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'EnableCentralizedIncomingPayments',
+    name: 'enableCentralizedIncomingPayments',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'EnableCentralizedOutgoingPayments',
+    name: 'enableCentralizedOutgoingPayments',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'TaxRateDetermination',
+    name: 'taxRateDetermination',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BoletoFolderPath',
+    name: 'boletoFolderPath',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AllowMultipleBAOnSamePeriod',
+    name: 'allowMultipleBaOnSamePeriod',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BlockMultipleBAOnSameAPDocument',
+    name: 'blockMultipleBaOnSameApDocument',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BlockMultipleBAOnSameARDocument',
+    name: 'blockMultipleBaOnSameArDocument',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DisplayCancelDocInReport',
+    name: 'displayCancelDocInReport',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'MaxDaysForCancel',
+    name: 'maxDaysForCancel',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ReuseDocumentNum',
+    name: 'reuseDocumentNum',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ReuseNotaFiscalNum',
+    name: 'reuseNotaFiscalNum',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AutoAddUoM',
+    name: 'autoAddUoM',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AutoAddPackage',
+    name: 'autoAddPackage',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DisplayInactivePriceListInReports',
+    name: 'displayInactivePriceListInReports',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DisplayInactivePriceListInDocuments',
+    name: 'displayInactivePriceListInDocuments',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DisplayInactivePriceListInSettings',
+    name: 'displayInactivePriceListInSettings',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ApplyBaseInactiveStatusToSpecialPrices',
+    name: 'applyBaseInactiveStatusToSpecialPrices',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ApplyBaseInactiveStatusToPeriodVolumeDiscounts',
+    name: 'applyBaseInactiveStatusToPeriodVolumeDiscounts',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ApplyBaseInactiveStatusToPriceLists',
+    name: 'applyBaseInactiveStatusToPriceLists',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'PriceProceedMethod',
+    name: 'priceProceedMethod',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'RemoveUpdatePricesBasedOnNonStandardPriceLists',
+    name: 'removeUpdatePricesBasedOnNonStandardPriceLists',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SirenNo',
+    name: 'sirenNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InstitutionCode',
+    name: 'institutionCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SetResourcesWarehouses',
+    name: 'setResourcesWarehouses',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BlockStockNegativeQuantity',
+    name: 'blockStockNegativeQuantity',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'UseParentWIPInComponents',
+    name: 'useParentWipInComponents',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'EnableUpdateBAPriceAndPlannedAmount',
+    name: 'enableUpdateBaPriceAndPlannedAmount',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AutoAssignOnlyValidAPBA',
+    name: 'autoAssignOnlyValidApba',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AutoAssignOnlyValidARBA',
+    name: 'autoAssignOnlyValidArba',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ActionWhenDeviateFromBAForPO',
+    name: 'actionWhenDeviateFromBaForPo',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ActionWhenDeviateFromBAForGRPO',
+    name: 'actionWhenDeviateFromBaForGrpo',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ActionWhenDeviateFromBAForAccounting',
+    name: 'actionWhenDeviateFromBaForAccounting',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Series',
+    name: 'series',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Account',
+    name: 'account',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'EnableMultipleSchedulings',
+    name: 'enableMultipleSchedulings',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DisplayBatchQtyUoMBy',
+    name: 'displayBatchQtyUoMBy',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AllowInBoundPostingWithZeroPrice',
+    name: 'allowInBoundPostingWithZeroPrice',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'InventoryPostingHighlightVariance',
+    name: 'inventoryPostingHighlightVariance',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'InventoryPostingReleaseOnlySerialAndBatch',
+    name: 'inventoryPostingReleaseOnlySerialAndBatch',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'InventoryCountingHighlightVariance',
+    name: 'inventoryCountingHighlightVariance',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'InventoryCountingHighlightMaxVariance',
+    name: 'inventoryCountingHighlightMaxVariance',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'InventoryCountingHighlightCountersDifference',
+    name: 'inventoryCountingHighlightCountersDifference',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CopySingleCounterToIndividualCounter',
+    name: 'copySingleCounterToIndividualCounter',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CloseCountedRowsWithZeroDifference',
+    name: 'closeCountedRowsWithZeroDifference',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CloseCountedRowsWithoutConfirmation',
+    name: 'closeCountedRowsWithoutConfirmation',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CalculateInWhseQtyBasedOnPostingDate',
+    name: 'calculateInWhseQtyBasedOnPostingDate',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'RefreshInWhseQtyInDI',
+    name: 'refreshInWhseQtyInDi',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SEPACreditorID',
+    name: 'sepaCreditorId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DataOwnershipManageBy',
+    name: 'dataOwnershipManageBy',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AllowBPWithNoOwner',
+    name: 'allowBpWithNoOwner',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'EnableSeparatePriceMode',
+    name: 'enableSeparatePriceMode',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ExtendedAdminInfo',
+    name: 'extendedAdminInfo',
+    type: ExtendedAdminInfo,
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | ExtendedAdminInfo }): AdminInfo {
-    return createComplexType(json, {
-      Code: (code: number) => ({ code: edmToTs(code, 'Edm.Int32') }),
-      CompanyName: (companyName: string) => ({ companyName: edmToTs(companyName, 'Edm.String') }),
-      Address: (address: string) => ({ address: edmToTs(address, 'Edm.String') }),
-      Country: (country: string) => ({ country: edmToTs(country, 'Edm.String') }),
-      PrintingHeader: (printingHeader: string) => ({ printingHeader: edmToTs(printingHeader, 'Edm.String') }),
-      PhoneNumber1: (phoneNumber1: string) => ({ phoneNumber1: edmToTs(phoneNumber1, 'Edm.String') }),
-      PhoneNumber2: (phoneNumber2: string) => ({ phoneNumber2: edmToTs(phoneNumber2, 'Edm.String') }),
-      FaxNumber: (faxNumber: string) => ({ faxNumber: edmToTs(faxNumber, 'Edm.String') }),
-      eMail: (eMail: string) => ({ eMail: edmToTs(eMail, 'Edm.String') }),
-      ManagingDirector: (managingDirector: string) => ({ managingDirector: edmToTs(managingDirector, 'Edm.String') }),
-      ChartofAccountsTemplate: (chartofAccountsTemplate: string) => ({ chartofAccountsTemplate: edmToTs(chartofAccountsTemplate, 'Edm.String') }),
-      LocalCurrency: (localCurrency: string) => ({ localCurrency: edmToTs(localCurrency, 'Edm.String') }),
-      SystemCurrency: (systemCurrency: string) => ({ systemCurrency: edmToTs(systemCurrency, 'Edm.String') }),
-      StandardUnitofLength: (standardUnitofLength: number) => ({ standardUnitofLength: edmToTs(standardUnitofLength, 'Edm.Int32') }),
-      WeightUnitDefault: (weightUnitDefault: number) => ({ weightUnitDefault: edmToTs(weightUnitDefault, 'Edm.Int32') }),
-      MinimumAmountfor347Report: (minimumAmountfor347Report: number) => ({ minimumAmountfor347Report: edmToTs(minimumAmountfor347Report, 'Edm.Double') }),
-      BankCountry: (bankCountry: string) => ({ bankCountry: edmToTs(bankCountry, 'Edm.String') }),
-      FederalTaxID: (federalTaxId: string) => ({ federalTaxId: edmToTs(federalTaxId, 'Edm.String') }),
-      TaxOffice: (taxOffice: string) => ({ taxOffice: edmToTs(taxOffice, 'Edm.String') }),
-      DeductionFileNo: (deductionFileNo: string) => ({ deductionFileNo: edmToTs(deductionFileNo, 'Edm.String') }),
-      TaxPercentage: (taxPercentage: number) => ({ taxPercentage: edmToTs(taxPercentage, 'Edm.Double') }),
-      AdvancesonCorpIncomeTax: (advancesonCorpIncomeTax: number) => ({ advancesonCorpIncomeTax: edmToTs(advancesonCorpIncomeTax, 'Edm.Double') }),
-      WithTax: (withTax: number) => ({ withTax: edmToTs(withTax, 'Edm.Double') }),
-      WithholdingTaxTdctPercnt: (withholdingTaxTdctPercnt: number) => ({ withholdingTaxTdctPercnt: edmToTs(withholdingTaxTdctPercnt, 'Edm.Double') }),
-      WithholdingTaxDdctExpired: (withholdingTaxDdctExpired: Moment) => ({ withholdingTaxDdctExpired: edmToTs(withholdingTaxDdctExpired, 'Edm.DateTimeOffset') }),
-      WithholdingTaxDdctOffice: (withholdingTaxDdctOffice: string) => ({ withholdingTaxDdctOffice: edmToTs(withholdingTaxDdctOffice, 'Edm.String') }),
-      AltNameForApInvoice: (altNameForApInvoice: string) => ({ altNameForApInvoice: edmToTs(altNameForApInvoice, 'Edm.String') }),
-      AltNameforCreditMemo: (altNameforCreditMemo: string) => ({ altNameforCreditMemo: edmToTs(altNameforCreditMemo, 'Edm.String') }),
-      AltNameForGoodsReceipt: (altNameForGoodsReceipt: string) => ({ altNameForGoodsReceipt: edmToTs(altNameForGoodsReceipt, 'Edm.String') }),
-      AltNameForGoodsReturn: (altNameForGoodsReturn: string) => ({ altNameForGoodsReturn: edmToTs(altNameForGoodsReturn, 'Edm.String') }),
-      AltNameForPurchase: (altNameForPurchase: string) => ({ altNameForPurchase: edmToTs(altNameForPurchase, 'Edm.String') }),
-      DefaultCustomerPaymentTerms: (defaultCustomerPaymentTerms: number) => ({ defaultCustomerPaymentTerms: edmToTs(defaultCustomerPaymentTerms, 'Edm.Int32') }),
-      DefaultVendorPaymentTerms: (defaultVendorPaymentTerms: number) => ({ defaultVendorPaymentTerms: edmToTs(defaultVendorPaymentTerms, 'Edm.Int32') }),
-      PriceListforCostPrice: (priceListforCostPrice: number) => ({ priceListforCostPrice: edmToTs(priceListforCostPrice, 'Edm.Int32') }),
-      CompanyColor: (companyColor: number) => ({ companyColor: edmToTs(companyColor, 'Edm.Int32') }),
-      TotalsAccuracy: (totalsAccuracy: number) => ({ totalsAccuracy: edmToTs(totalsAccuracy, 'Edm.Int32') }),
-      AccuracyofQuantities: (accuracyofQuantities: number) => ({ accuracyofQuantities: edmToTs(accuracyofQuantities, 'Edm.Int32') }),
-      PriceAccuracy: (priceAccuracy: number) => ({ priceAccuracy: edmToTs(priceAccuracy, 'Edm.Int32') }),
-      RateAccuracy: (rateAccuracy: number) => ({ rateAccuracy: edmToTs(rateAccuracy, 'Edm.Int32') }),
-      PercentageAccuracy: (percentageAccuracy: number) => ({ percentageAccuracy: edmToTs(percentageAccuracy, 'Edm.Int32') }),
-      MeasuringAccuracy: (measuringAccuracy: number) => ({ measuringAccuracy: edmToTs(measuringAccuracy, 'Edm.Int32') }),
-      QueryAccuracy: (queryAccuracy: number) => ({ queryAccuracy: edmToTs(queryAccuracy, 'Edm.Int32') }),
-      AddressinForeignLanguage: (addressinForeignLanguage: string) => ({ addressinForeignLanguage: edmToTs(addressinForeignLanguage, 'Edm.String') }),
-      DefaultTaxCode: (defaultTaxCode: string) => ({ defaultTaxCode: edmToTs(defaultTaxCode, 'Edm.String') }),
-      LetterHeaderinForeignLangu: (letterHeaderinForeignLangu: string) => ({ letterHeaderinForeignLangu: edmToTs(letterHeaderinForeignLangu, 'Edm.String') }),
-      PhoneNumber1ForeignLang: (phoneNumber1ForeignLang: string) => ({ phoneNumber1ForeignLang: edmToTs(phoneNumber1ForeignLang, 'Edm.String') }),
-      PhoneNumber2ForeignLang: (phoneNumber2ForeignLang: string) => ({ phoneNumber2ForeignLang: edmToTs(phoneNumber2ForeignLang, 'Edm.String') }),
-      FaxNumberForeignLang: (faxNumberForeignLang: string) => ({ faxNumberForeignLang: edmToTs(faxNumberForeignLang, 'Edm.String') }),
-      ManagingDirectorForeignLan: (managingDirectorForeignLan: string) => ({ managingDirectorForeignLan: edmToTs(managingDirectorForeignLan, 'Edm.String') }),
-      DateSeparator: (dateSeparator: string) => ({ dateSeparator: edmToTs(dateSeparator, 'Edm.String') }),
-      ISRType: (isrType: number) => ({ isrType: edmToTs(isrType, 'Edm.Int32') }),
-      ISRBillerID: (isrBillerId: string) => ({ isrBillerId: edmToTs(isrBillerId, 'Edm.String') }),
-      DefaultWarehouse: (defaultWarehouse: string) => ({ defaultWarehouse: edmToTs(defaultWarehouse, 'Edm.String') }),
-      TaxDefinitionforVatitem: (taxDefinitionforVatitem: string) => ({ taxDefinitionforVatitem: edmToTs(taxDefinitionforVatitem, 'Edm.String') }),
-      TaxDefinitionforVatservice: (taxDefinitionforVatservice: string) => ({ taxDefinitionforVatservice: edmToTs(taxDefinitionforVatservice, 'Edm.String') }),
-      TaxGroupforPurchaseItem: (taxGroupforPurchaseItem: string) => ({ taxGroupforPurchaseItem: edmToTs(taxGroupforPurchaseItem, 'Edm.String') }),
-      TaxGroupforServicePurchase: (taxGroupforServicePurchase: string) => ({ taxGroupforServicePurchase: edmToTs(taxGroupforServicePurchase, 'Edm.String') }),
-      CustomerIdNumber: (customerIdNumber: string) => ({ customerIdNumber: edmToTs(customerIdNumber, 'Edm.String') }),
-      DefaultBudgetCostAssessMt: (defaultBudgetCostAssessMt: number) => ({ defaultBudgetCostAssessMt: edmToTs(defaultBudgetCostAssessMt, 'Edm.Int32') }),
-      FileNumberinIncomeTax: (fileNumberinIncomeTax: string) => ({ fileNumberinIncomeTax: edmToTs(fileNumberinIncomeTax, 'Edm.String') }),
-      DefaultBankNo: (defaultBankNo: string) => ({ defaultBankNo: edmToTs(defaultBankNo, 'Edm.String') }),
-      DefaultBankAccount: (defaultBankAccount: string) => ({ defaultBankAccount: edmToTs(defaultBankAccount, 'Edm.String') }),
-      DefaultBranch: (defaultBranch: string) => ({ defaultBranch: edmToTs(defaultBranch, 'Edm.String') }),
-      ServiceCode: (serviceCode: string) => ({ serviceCode: edmToTs(serviceCode, 'Edm.String') }),
-      ServicePassword: (servicePassword: string) => ({ servicePassword: edmToTs(servicePassword, 'Edm.String') }),
-      ParamFolderPath: (paramFolderPath: string) => ({ paramFolderPath: edmToTs(paramFolderPath, 'Edm.String') }),
-      ExcelFolderPath: (excelFolderPath: string) => ({ excelFolderPath: edmToTs(excelFolderPath, 'Edm.String') }),
-      FederalTaxID2: (federalTaxId2: string) => ({ federalTaxId2: edmToTs(federalTaxId2, 'Edm.String') }),
-      FederalTaxID3: (federalTaxId3: string) => ({ federalTaxId3: edmToTs(federalTaxId3, 'Edm.String') }),
-      DecimalSeparator: (decimalSeparator: string) => ({ decimalSeparator: edmToTs(decimalSeparator, 'Edm.String') }),
-      ThousandsSeparator: (thousandsSeparator: string) => ({ thousandsSeparator: edmToTs(thousandsSeparator, 'Edm.String') }),
-      MaxHistory: (maxHistory: number) => ({ maxHistory: edmToTs(maxHistory, 'Edm.Int32') }),
-      BPTypeCode: (bpTypeCode: string) => ({ bpTypeCode: edmToTs(bpTypeCode, 'Edm.String') }),
-      PBSNumber: (pbsNumber: string) => ({ pbsNumber: edmToTs(pbsNumber, 'Edm.String') }),
-      PBSGroupNumber: (pbsGroupNumber: string) => ({ pbsGroupNumber: edmToTs(pbsGroupNumber, 'Edm.String') }),
-      OrganizationNumber: (organizationNumber: string) => ({ organizationNumber: edmToTs(organizationNumber, 'Edm.String') }),
-      AccountSegmentsSeparator: (accountSegmentsSeparator: string) => ({ accountSegmentsSeparator: edmToTs(accountSegmentsSeparator, 'Edm.String') }),
-      SDefaultWTCode: (sDefaultWtCode: string) => ({ sDefaultWtCode: edmToTs(sDefaultWtCode, 'Edm.String') }),
-      WithholdingTaxPHandle: (withholdingTaxPHandle: string) => ({ withholdingTaxPHandle: edmToTs(withholdingTaxPHandle, 'Edm.String') }),
-      PDefaultWTCode: (pDefaultWtCode: string) => ({ pDefaultWtCode: edmToTs(pDefaultWtCode, 'Edm.String') }),
-      HolidaysName: (holidaysName: string) => ({ holidaysName: edmToTs(holidaysName, 'Edm.String') }),
-      OrderBlock: (orderBlock: string) => ({ orderBlock: edmToTs(orderBlock, 'Edm.String') }),
-      OrderingParty: (orderingParty: string) => ({ orderingParty: edmToTs(orderingParty, 'Edm.String') }),
-      CertificateNo: (certificateNo: string) => ({ certificateNo: edmToTs(certificateNo, 'Edm.String') }),
-      ExpirationDate: (expirationDate: Moment) => ({ expirationDate: edmToTs(expirationDate, 'Edm.DateTimeOffset') }),
-      NationalInsuranceNo: (nationalInsuranceNo: string) => ({ nationalInsuranceNo: edmToTs(nationalInsuranceNo, 'Edm.String') }),
-      SDfltITWT: (sDfltItwt: string) => ({ sDfltItwt: edmToTs(sDfltItwt, 'Edm.String') }),
-      PDfltITWT: (pDfltItwt: string) => ({ pDfltItwt: edmToTs(pDfltItwt, 'Edm.String') }),
-      DaysBackward: (daysBackward: number) => ({ daysBackward: edmToTs(daysBackward, 'Edm.Int32') }),
-      DaysForward: (daysForward: number) => ({ daysForward: edmToTs(daysForward, 'Edm.Int32') }),
-      DefaultDunningTerm: (defaultDunningTerm: string) => ({ defaultDunningTerm: edmToTs(defaultDunningTerm, 'Edm.String') }),
-      DefaultBankAccountKey: (defaultBankAccountKey: number) => ({ defaultBankAccountKey: edmToTs(defaultBankAccountKey, 'Edm.Int32') }),
-      AdditionalIdNumber: (additionalIdNumber: string) => ({ additionalIdNumber: edmToTs(additionalIdNumber, 'Edm.String') }),
-      State: (state: string) => ({ state: edmToTs(state, 'Edm.String') }),
-      UniqueTaxPayerReference: (uniqueTaxPayerReference: string) => ({ uniqueTaxPayerReference: edmToTs(uniqueTaxPayerReference, 'Edm.String') }),
-      EmployerReference: (employerReference: string) => ({ employerReference: edmToTs(employerReference, 'Edm.String') }),
-      PeriodStatusChangeDelay: (periodStatusChangeDelay: number) => ({ periodStatusChangeDelay: edmToTs(periodStatusChangeDelay, 'Edm.Int32') }),
-      GrossProfitPercentForServiceDocuments: (grossProfitPercentForServiceDocuments: number) => ({ grossProfitPercentForServiceDocuments: edmToTs(grossProfitPercentForServiceDocuments, 'Edm.Double') }),
-      XMLFileFolderPath: (xmlFileFolderPath: string) => ({ xmlFileFolderPath: edmToTs(xmlFileFolderPath, 'Edm.String') }),
-      GeneralManager: (generalManager: string) => ({ generalManager: edmToTs(generalManager, 'Edm.String') }),
-      GeneralManagerForeignLanguage: (generalManagerForeignLanguage: string) => ({ generalManagerForeignLanguage: edmToTs(generalManagerForeignLanguage, 'Edm.String') }),
-      WTAccumAmountAP: (wtAccumAmountAp: number) => ({ wtAccumAmountAp: edmToTs(wtAccumAmountAp, 'Edm.Double') }),
-      WTAccumAmountAR: (wtAccumAmountAr: number) => ({ wtAccumAmountAr: edmToTs(wtAccumAmountAr, 'Edm.Double') }),
-      GTSOutboundFolder: (gtsOutboundFolder: string) => ({ gtsOutboundFolder: edmToTs(gtsOutboundFolder, 'Edm.String') }),
-      GTSInboundFolder: (gtsInboundFolder: string) => ({ gtsInboundFolder: edmToTs(gtsInboundFolder, 'Edm.String') }),
-      GTSSeparateCode: (gtsSeparateCode: string) => ({ gtsSeparateCode: edmToTs(gtsSeparateCode, 'Edm.String') }),
-      GTSDefaultChecker: (gtsDefaultChecker: number) => ({ gtsDefaultChecker: edmToTs(gtsDefaultChecker, 'Edm.Int32') }),
-      GTSDefaultPayee: (gtsDefaultPayee: number) => ({ gtsDefaultPayee: edmToTs(gtsDefaultPayee, 'Edm.Int32') }),
-      GTSMaxAmount: (gtsMaxAmount: number) => ({ gtsMaxAmount: edmToTs(gtsMaxAmount, 'Edm.Double') }),
-      StartingInFiscalYear: (startingInFiscalYear: number) => ({ startingInFiscalYear: edmToTs(startingInFiscalYear, 'Edm.Int32') }),
-      ReportAccordingTo: (reportAccordingTo: number) => ({ reportAccordingTo: edmToTs(reportAccordingTo, 'Edm.Int32') }),
-      MaximumNumberOfDaysForDueDate: (maximumNumberOfDaysForDueDate: number) => ({ maximumNumberOfDaysForDueDate: edmToTs(maximumNumberOfDaysForDueDate, 'Edm.Int32') }),
-      AliasName: (aliasName: string) => ({ aliasName: edmToTs(aliasName, 'Edm.String') }),
-      BoletoFolderPath: (boletoFolderPath: string) => ({ boletoFolderPath: edmToTs(boletoFolderPath, 'Edm.String') }),
-      MaxDaysForCancel: (maxDaysForCancel: number) => ({ maxDaysForCancel: edmToTs(maxDaysForCancel, 'Edm.Int32') }),
-      SirenNo: (sirenNo: string) => ({ sirenNo: edmToTs(sirenNo, 'Edm.String') }),
-      InstitutionCode: (institutionCode: string) => ({ institutionCode: edmToTs(institutionCode, 'Edm.String') }),
-      Series: (series: number) => ({ series: edmToTs(series, 'Edm.Int32') }),
-      Account: (account: string) => ({ account: edmToTs(account, 'Edm.String') }),
-      EnableMultipleSchedulings: (enableMultipleSchedulings: string) => ({ enableMultipleSchedulings: edmToTs(enableMultipleSchedulings, 'Edm.String') }),
-      InventoryPostingHighlightVariance: (inventoryPostingHighlightVariance: number) => ({ inventoryPostingHighlightVariance: edmToTs(inventoryPostingHighlightVariance, 'Edm.Double') }),
-      InventoryCountingHighlightVariance: (inventoryCountingHighlightVariance: number) => ({ inventoryCountingHighlightVariance: edmToTs(inventoryCountingHighlightVariance, 'Edm.Double') }),
-      InventoryCountingHighlightMaxVariance: (inventoryCountingHighlightMaxVariance: number) => ({ inventoryCountingHighlightMaxVariance: edmToTs(inventoryCountingHighlightMaxVariance, 'Edm.Double') }),
-      InventoryCountingHighlightCountersDifference: (inventoryCountingHighlightCountersDifference: number) => ({ inventoryCountingHighlightCountersDifference: edmToTs(inventoryCountingHighlightCountersDifference, 'Edm.Double') }),
-      SEPACreditorID: (sepaCreditorId: string) => ({ sepaCreditorId: edmToTs(sepaCreditorId, 'Edm.String') }),
-      ExtendedAdminInfo: (extendedAdminInfo: ExtendedAdminInfo) => ({ extendedAdminInfo: ExtendedAdminInfo.build(extendedAdminInfo) })
-    });
+    return deserializeComplexTypeV4(json, AdminInfo);
   }
 }

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.AssetGroups = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var AssetGroupsRequestBuilder_1 = require("./AssetGroupsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "AssetGroups" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var AssetGroups = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `AssetGroups`.
+     * Returns an entity builder to construct instances of `AssetGroups`.
      * @returns A builder that constructs instances of entity type `AssetGroups`.
      */
     AssetGroups.builder = function () {
-        return v4_1.Entity.entityBuilder(AssetGroups);
+        return core_1.EntityV4.entityBuilder(AssetGroups);
     };
     /**
      * Returns a request builder to construct requests for operations on the `AssetGroups` entity type.
@@ -60,7 +60,7 @@ var AssetGroups = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `AssetGroups`.
      */
     AssetGroups.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, AssetGroups);
+        return core_1.EntityV4.customFieldSelector(fieldName, AssetGroups);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var AssetGroups = /** @class */ (function (_super) {
      */
     AssetGroups._entityName = 'AssetGroups';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for AssetGroups.
-     */
-    AssetGroups._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    AssetGroups._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    AssetGroups._defaultServicePath = '/b1s/v2/';
     return AssetGroups;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.AssetGroups = AssetGroups;
 var Items_1 = require("./Items");
 (function (AssetGroups) {
@@ -91,17 +86,17 @@ var Items_1 = require("./Items");
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    AssetGroups.CODE = new v4_1.StringField('Code', AssetGroups, 'Edm.String');
+    AssetGroups.CODE = new core_1.StringField('Code', AssetGroups, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    AssetGroups.DESCRIPTION = new v4_1.StringField('Description', AssetGroups, 'Edm.String');
+    AssetGroups.DESCRIPTION = new core_1.StringField('Description', AssetGroups, 'Edm.String');
     /**
      * Static representation of the one-to-many navigation property [[items]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    AssetGroups.ITEMS = new v4_1.OneToManyLink('Items', AssetGroups, Items_1.Items);
+    AssetGroups.ITEMS = new core_1.OneToManyLink('Items', AssetGroups, Items_1.Items);
     /**
      * All fields of the AssetGroups entity.
      */
@@ -113,7 +108,7 @@ var Items_1 = require("./Items");
     /**
      * All fields selector.
      */
-    AssetGroups.ALL_FIELDS = new v4_1.AllFields('*', AssetGroups);
+    AssetGroups.ALL_FIELDS = new core_1.AllFields('*', AssetGroups);
     /**
      * All key fields of the AssetGroups entity.
      */

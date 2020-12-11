@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.EmployeeTransfers = void 0;
  */
 var EmployeeTransfersRequestBuilder_1 = require("./EmployeeTransfersRequestBuilder");
 var EmployeeTransferDetail_1 = require("./EmployeeTransferDetail");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "EmployeeTransfers" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var EmployeeTransfers = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `EmployeeTransfers`.
+     * Returns an entity builder to construct instances of `EmployeeTransfers`.
      * @returns A builder that constructs instances of entity type `EmployeeTransfers`.
      */
     EmployeeTransfers.builder = function () {
-        return v4_1.Entity.entityBuilder(EmployeeTransfers);
+        return core_1.EntityV4.entityBuilder(EmployeeTransfers);
     };
     /**
      * Returns a request builder to construct requests for operations on the `EmployeeTransfers` entity type.
@@ -61,7 +61,7 @@ var EmployeeTransfers = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `EmployeeTransfers`.
      */
     EmployeeTransfers.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, EmployeeTransfers);
+        return core_1.EntityV4.customFieldSelector(fieldName, EmployeeTransfers);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,53 +75,53 @@ var EmployeeTransfers = /** @class */ (function (_super) {
      */
     EmployeeTransfers._entityName = 'EmployeeTransfers';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for EmployeeTransfers.
-     */
-    EmployeeTransfers._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    EmployeeTransfers._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    EmployeeTransfers._defaultServicePath = '/b1s/v2/';
     return EmployeeTransfers;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.EmployeeTransfers = EmployeeTransfers;
 (function (EmployeeTransfers) {
     /**
      * Static representation of the [[transferId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    EmployeeTransfers.TRANSFER_ID = new v4_1.NumberField('TransferID', EmployeeTransfers, 'Edm.Int32');
+    EmployeeTransfers.TRANSFER_ID = new core_1.NumberField('TransferID', EmployeeTransfers, 'Edm.Int32');
     /**
      * Static representation of the [[transStartDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    EmployeeTransfers.TRANS_START_DATE = new v4_1.DateField('TransStartDate', EmployeeTransfers, 'Edm.DateTimeOffset');
+    EmployeeTransfers.TRANS_START_DATE = new core_1.DateField('TransStartDate', EmployeeTransfers, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[transStartTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    EmployeeTransfers.TRANS_START_TIME = new v4_1.TimeField('TransStartTime', EmployeeTransfers, 'Edm.TimeOfDay');
+    EmployeeTransfers.TRANS_START_TIME = new core_1.TimeField('TransStartTime', EmployeeTransfers, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[transEndDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    EmployeeTransfers.TRANS_END_DATE = new v4_1.DateField('TransEndDate', EmployeeTransfers, 'Edm.DateTimeOffset');
+    EmployeeTransfers.TRANS_END_DATE = new core_1.DateField('TransEndDate', EmployeeTransfers, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[transEndTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    EmployeeTransfers.TRANS_END_TIME = new v4_1.TimeField('TransEndTime', EmployeeTransfers, 'Edm.TimeOfDay');
+    EmployeeTransfers.TRANS_END_TIME = new core_1.TimeField('TransEndTime', EmployeeTransfers, 'Edm.TimeOfDay');
+    /**
+     * Static representation of the [[status]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    EmployeeTransfers.STATUS = new core_1.EnumField('Status', EmployeeTransfers);
     /**
      * Static representation of the [[comment]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    EmployeeTransfers.COMMENT = new v4_1.StringField('Comment', EmployeeTransfers, 'Edm.String');
+    EmployeeTransfers.COMMENT = new core_1.StringField('Comment', EmployeeTransfers, 'Edm.String');
     /**
      * Static representation of the [[employeeTransferDetails]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    EmployeeTransfers.EMPLOYEE_TRANSFER_DETAILS = new v4_1.CollectionField('EmployeeTransferDetails', EmployeeTransfers, new EmployeeTransferDetail_1.EmployeeTransferDetailField('', EmployeeTransfers));
+    EmployeeTransfers.EMPLOYEE_TRANSFER_DETAILS = new core_1.CollectionField('EmployeeTransferDetails', EmployeeTransfers, EmployeeTransferDetail_1.EmployeeTransferDetail);
     /**
      * All fields of the EmployeeTransfers entity.
      */
@@ -131,13 +131,14 @@ exports.EmployeeTransfers = EmployeeTransfers;
         EmployeeTransfers.TRANS_START_TIME,
         EmployeeTransfers.TRANS_END_DATE,
         EmployeeTransfers.TRANS_END_TIME,
+        EmployeeTransfers.STATUS,
         EmployeeTransfers.COMMENT,
         EmployeeTransfers.EMPLOYEE_TRANSFER_DETAILS
     ];
     /**
      * All fields selector.
      */
-    EmployeeTransfers.ALL_FIELDS = new v4_1.AllFields('*', EmployeeTransfers);
+    EmployeeTransfers.ALL_FIELDS = new core_1.AllFields('*', EmployeeTransfers);
     /**
      * All key fields of the EmployeeTransfers entity.
      */

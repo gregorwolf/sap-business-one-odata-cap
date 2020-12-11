@@ -4,7 +4,8 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { SepaSequenceTypeEnum } from './SepaSequenceTypeEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * BpBankAccount
@@ -175,6 +176,11 @@ export interface BpBankAccount {
    * @nullable
    */
   mandateExpDate?: Moment;
+  /**
+   * Sepa Seq Type.
+   * @nullable
+   */
+  sepaSeqType?: SepaSequenceTypeEnum;
 }
 
 /**
@@ -188,7 +194,7 @@ export function createBpBankAccount(json: any): BpBankAccount {
  * BpBankAccountField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class BpBankAccountField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class BpBankAccountField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BpBankAccount> {
   /**
    * Representation of the [[BpBankAccount.logInstance]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -354,44 +360,203 @@ export class BpBankAccountField<EntityT extends Entity> extends ComplexTypeField
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   mandateExpDate: ComplexTypeDatePropertyField<EntityT> = new ComplexTypeDatePropertyField('MandateExpDate', this, 'Edm.DateTimeOffset');
+  /**
+   * Representation of the [[BpBankAccount.sepaSeqType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  sepaSeqType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SEPASeqType', this);
+
+  /**
+   * Creates an instance of BpBankAccountField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, BpBankAccount);
+  }
 }
 
 export namespace BpBankAccount {
+  /**
+   * Metadata information on all properties of the `BpBankAccount` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<BpBankAccount>[] = [{
+    originalName: 'LogInstance',
+    name: 'logInstance',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'UserNo4',
+    name: 'userNo4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPCode',
+    name: 'bpCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'County',
+    name: 'county',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'State',
+    name: 'state',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UserNo2',
+    name: 'userNo2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'IBAN',
+    name: 'iban',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ZipCode',
+    name: 'zipCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'City',
+    name: 'city',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Block',
+    name: 'block',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Branch',
+    name: 'branch',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Country',
+    name: 'country',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Street',
+    name: 'street',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ControlKey',
+    name: 'controlKey',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UserNo3',
+    name: 'userNo3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BankCode',
+    name: 'bankCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AccountNo',
+    name: 'accountNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UserNo1',
+    name: 'userNo1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InternalKey',
+    name: 'internalKey',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BuildingFloorRoom',
+    name: 'buildingFloorRoom',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BIK',
+    name: 'bik',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AccountName',
+    name: 'accountName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CorrespondentAccount',
+    name: 'correspondentAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Phone',
+    name: 'phone',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Fax',
+    name: 'fax',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CustomerIdNumber',
+    name: 'customerIdNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ISRBillerID',
+    name: 'isrBillerId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ISRType',
+    name: 'isrType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BICSwiftCode',
+    name: 'bicSwiftCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ABARoutingNumber',
+    name: 'abaRoutingNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'MandateID',
+    name: 'mandateId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SignatureDate',
+    name: 'signatureDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'MandateExpDate',
+    name: 'mandateExpDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'SEPASeqType',
+    name: 'sepaSeqType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): BpBankAccount {
-    return createComplexType(json, {
-      LogInstance: (logInstance: number) => ({ logInstance: edmToTs(logInstance, 'Edm.Int32') }),
-      UserNo4: (userNo4: string) => ({ userNo4: edmToTs(userNo4, 'Edm.String') }),
-      BPCode: (bpCode: string) => ({ bpCode: edmToTs(bpCode, 'Edm.String') }),
-      County: (county: string) => ({ county: edmToTs(county, 'Edm.String') }),
-      State: (state: string) => ({ state: edmToTs(state, 'Edm.String') }),
-      UserNo2: (userNo2: string) => ({ userNo2: edmToTs(userNo2, 'Edm.String') }),
-      IBAN: (iban: string) => ({ iban: edmToTs(iban, 'Edm.String') }),
-      ZipCode: (zipCode: string) => ({ zipCode: edmToTs(zipCode, 'Edm.String') }),
-      City: (city: string) => ({ city: edmToTs(city, 'Edm.String') }),
-      Block: (block: string) => ({ block: edmToTs(block, 'Edm.String') }),
-      Branch: (branch: string) => ({ branch: edmToTs(branch, 'Edm.String') }),
-      Country: (country: string) => ({ country: edmToTs(country, 'Edm.String') }),
-      Street: (street: string) => ({ street: edmToTs(street, 'Edm.String') }),
-      ControlKey: (controlKey: string) => ({ controlKey: edmToTs(controlKey, 'Edm.String') }),
-      UserNo3: (userNo3: string) => ({ userNo3: edmToTs(userNo3, 'Edm.String') }),
-      BankCode: (bankCode: string) => ({ bankCode: edmToTs(bankCode, 'Edm.String') }),
-      AccountNo: (accountNo: string) => ({ accountNo: edmToTs(accountNo, 'Edm.String') }),
-      UserNo1: (userNo1: string) => ({ userNo1: edmToTs(userNo1, 'Edm.String') }),
-      InternalKey: (internalKey: number) => ({ internalKey: edmToTs(internalKey, 'Edm.Int32') }),
-      BuildingFloorRoom: (buildingFloorRoom: string) => ({ buildingFloorRoom: edmToTs(buildingFloorRoom, 'Edm.String') }),
-      BIK: (bik: string) => ({ bik: edmToTs(bik, 'Edm.String') }),
-      AccountName: (accountName: string) => ({ accountName: edmToTs(accountName, 'Edm.String') }),
-      CorrespondentAccount: (correspondentAccount: string) => ({ correspondentAccount: edmToTs(correspondentAccount, 'Edm.String') }),
-      Phone: (phone: string) => ({ phone: edmToTs(phone, 'Edm.String') }),
-      Fax: (fax: string) => ({ fax: edmToTs(fax, 'Edm.String') }),
-      CustomerIdNumber: (customerIdNumber: string) => ({ customerIdNumber: edmToTs(customerIdNumber, 'Edm.String') }),
-      ISRBillerID: (isrBillerId: string) => ({ isrBillerId: edmToTs(isrBillerId, 'Edm.String') }),
-      ISRType: (isrType: number) => ({ isrType: edmToTs(isrType, 'Edm.Int32') }),
-      BICSwiftCode: (bicSwiftCode: string) => ({ bicSwiftCode: edmToTs(bicSwiftCode, 'Edm.String') }),
-      ABARoutingNumber: (abaRoutingNumber: string) => ({ abaRoutingNumber: edmToTs(abaRoutingNumber, 'Edm.String') }),
-      MandateID: (mandateId: string) => ({ mandateId: edmToTs(mandateId, 'Edm.String') }),
-      SignatureDate: (signatureDate: Moment) => ({ signatureDate: edmToTs(signatureDate, 'Edm.DateTimeOffset') }),
-      MandateExpDate: (mandateExpDate: Moment) => ({ mandateExpDate: edmToTs(mandateExpDate, 'Edm.DateTimeOffset') })
-    });
+    return deserializeComplexTypeV4(json, BpBankAccount);
   }
 }

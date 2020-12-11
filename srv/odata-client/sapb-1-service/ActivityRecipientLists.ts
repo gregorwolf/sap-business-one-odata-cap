@@ -4,26 +4,22 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ActivityRecipientListsRequestBuilder } from './ActivityRecipientListsRequestBuilder';
-import { ActivityRecipient, ActivityRecipientField } from './ActivityRecipient';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { ActivityRecipient } from './ActivityRecipient';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ActivityRecipientLists" of service "SAPB1".
  */
-export class ActivityRecipientLists extends Entity implements ActivityRecipientListsType {
+export class ActivityRecipientLists extends EntityV4 implements ActivityRecipientListsType {
   /**
    * Technical entity name for ActivityRecipientLists.
    */
   static _entityName = 'ActivityRecipientLists';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ActivityRecipientLists.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -35,6 +31,16 @@ export class ActivityRecipientLists extends Entity implements ActivityRecipientL
    */
   name?: string;
   /**
+   * Active.
+   * @nullable
+   */
+  active?: BoYesNoEnum;
+  /**
+   * Is Multiple.
+   * @nullable
+   */
+  isMultiple?: BoYesNoEnum;
+  /**
    * Activity Recipient Collection.
    * @nullable
    */
@@ -45,11 +51,11 @@ export class ActivityRecipientLists extends Entity implements ActivityRecipientL
   activities!: Activities[];
 
   /**
-   * Returns an entity builder to construct instances `ActivityRecipientLists`.
+   * Returns an entity builder to construct instances of `ActivityRecipientLists`.
    * @returns A builder that constructs instances of entity type `ActivityRecipientLists`.
    */
-  static builder(): EntityBuilderType<ActivityRecipientLists, ActivityRecipientListsTypeForceMandatory> {
-    return Entity.entityBuilder(ActivityRecipientLists);
+  static builder(): EntityBuilderType<ActivityRecipientLists, ActivityRecipientListsType> {
+    return EntityV4.entityBuilder(ActivityRecipientLists);
   }
 
   /**
@@ -65,8 +71,8 @@ export class ActivityRecipientLists extends Entity implements ActivityRecipientL
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ActivityRecipientLists`.
    */
-  static customField(fieldName: string): CustomField<ActivityRecipientLists> {
-    return Entity.customFieldSelector(fieldName, ActivityRecipientLists);
+  static customField(fieldName: string): CustomFieldV4<ActivityRecipientLists> {
+    return EntityV4.customFieldSelector(fieldName, ActivityRecipientLists);
   }
 
   /**
@@ -81,16 +87,11 @@ export class ActivityRecipientLists extends Entity implements ActivityRecipientL
 import { Activities, ActivitiesType } from './Activities';
 
 export interface ActivityRecipientListsType {
-  code?: number;
-  name?: string;
-  activityRecipientCollection?: ActivityRecipient[];
-  activities: ActivitiesType[];
-}
-
-export interface ActivityRecipientListsTypeForceMandatory {
-  code: number;
-  name: string;
-  activityRecipientCollection: ActivityRecipient[];
+  code?: number | null;
+  name?: string | null;
+  active?: BoYesNoEnum | null;
+  isMultiple?: BoYesNoEnum | null;
+  activityRecipientCollection?: ActivityRecipient[] | null;
   activities: ActivitiesType[];
 }
 
@@ -106,10 +107,20 @@ export namespace ActivityRecipientLists {
    */
   export const NAME: StringField<ActivityRecipientLists> = new StringField('Name', ActivityRecipientLists, 'Edm.String');
   /**
+   * Static representation of the [[active]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ACTIVE: EnumField<ActivityRecipientLists> = new EnumField('Active', ActivityRecipientLists);
+  /**
+   * Static representation of the [[isMultiple]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_MULTIPLE: EnumField<ActivityRecipientLists> = new EnumField('IsMultiple', ActivityRecipientLists);
+  /**
    * Static representation of the [[activityRecipientCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ACTIVITY_RECIPIENT_COLLECTION: CollectionField<ActivityRecipientLists> = new CollectionField('ActivityRecipientCollection', ActivityRecipientLists, new ActivityRecipientField('', ActivityRecipientLists));
+  export const ACTIVITY_RECIPIENT_COLLECTION: CollectionField<ActivityRecipientLists, ActivityRecipient> = new CollectionField('ActivityRecipientCollection', ActivityRecipientLists, ActivityRecipient);
   /**
    * Static representation of the one-to-many navigation property [[activities]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -118,9 +129,11 @@ export namespace ActivityRecipientLists {
   /**
    * All fields of the ActivityRecipientLists entity.
    */
-  export const _allFields: Array<NumberField<ActivityRecipientLists> | StringField<ActivityRecipientLists> | CollectionField<ActivityRecipientLists> | OneToManyLink<ActivityRecipientLists, Activities>> = [
+  export const _allFields: Array<NumberField<ActivityRecipientLists> | StringField<ActivityRecipientLists> | EnumField<ActivityRecipientLists> | CollectionField<ActivityRecipientLists, ActivityRecipient> | OneToManyLink<ActivityRecipientLists, Activities>> = [
     ActivityRecipientLists.CODE,
     ActivityRecipientLists.NAME,
+    ActivityRecipientLists.ACTIVE,
+    ActivityRecipientLists.IS_MULTIPLE,
     ActivityRecipientLists.ACTIVITY_RECIPIENT_COLLECTION,
     ActivityRecipientLists.ACTIVITIES
   ];

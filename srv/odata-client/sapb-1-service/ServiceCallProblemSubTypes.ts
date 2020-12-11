@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ServiceCallProblemSubTypesRequestBuilder } from './ServiceCallProblemSubTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ServiceCallProblemSubTypes" of service "SAPB1".
  */
-export class ServiceCallProblemSubTypes extends Entity implements ServiceCallProblemSubTypesType {
+export class ServiceCallProblemSubTypes extends EntityV4 implements ServiceCallProblemSubTypesType {
   /**
    * Technical entity name for ServiceCallProblemSubTypes.
    */
   static _entityName = 'ServiceCallProblemSubTypes';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ServiceCallProblemSubTypes.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Problem Sub Type Id.
    * @nullable
@@ -44,11 +39,11 @@ export class ServiceCallProblemSubTypes extends Entity implements ServiceCallPro
   serviceCalls!: ServiceCalls[];
 
   /**
-   * Returns an entity builder to construct instances `ServiceCallProblemSubTypes`.
+   * Returns an entity builder to construct instances of `ServiceCallProblemSubTypes`.
    * @returns A builder that constructs instances of entity type `ServiceCallProblemSubTypes`.
    */
-  static builder(): EntityBuilderType<ServiceCallProblemSubTypes, ServiceCallProblemSubTypesTypeForceMandatory> {
-    return Entity.entityBuilder(ServiceCallProblemSubTypes);
+  static builder(): EntityBuilderType<ServiceCallProblemSubTypes, ServiceCallProblemSubTypesType> {
+    return EntityV4.entityBuilder(ServiceCallProblemSubTypes);
   }
 
   /**
@@ -64,8 +59,8 @@ export class ServiceCallProblemSubTypes extends Entity implements ServiceCallPro
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ServiceCallProblemSubTypes`.
    */
-  static customField(fieldName: string): CustomField<ServiceCallProblemSubTypes> {
-    return Entity.customFieldSelector(fieldName, ServiceCallProblemSubTypes);
+  static customField(fieldName: string): CustomFieldV4<ServiceCallProblemSubTypes> {
+    return EntityV4.customFieldSelector(fieldName, ServiceCallProblemSubTypes);
   }
 
   /**
@@ -80,16 +75,9 @@ export class ServiceCallProblemSubTypes extends Entity implements ServiceCallPro
 import { ServiceCalls, ServiceCallsType } from './ServiceCalls';
 
 export interface ServiceCallProblemSubTypesType {
-  problemSubTypeId?: number;
-  name?: string;
-  description?: string;
-  serviceCalls: ServiceCallsType[];
-}
-
-export interface ServiceCallProblemSubTypesTypeForceMandatory {
-  problemSubTypeId: number;
-  name: string;
-  description: string;
+  problemSubTypeId?: number | null;
+  name?: string | null;
+  description?: string | null;
   serviceCalls: ServiceCallsType[];
 }
 

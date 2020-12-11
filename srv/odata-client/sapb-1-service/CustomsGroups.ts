@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { CustomsGroupsRequestBuilder } from './CustomsGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "CustomsGroups" of service "SAPB1".
  */
-export class CustomsGroups extends Entity implements CustomsGroupsType {
+export class CustomsGroups extends EntityV4 implements CustomsGroupsType {
   /**
    * Technical entity name for CustomsGroups.
    */
   static _entityName = 'CustomsGroups';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for CustomsGroups.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -59,6 +55,11 @@ export class CustomsGroups extends Entity implements CustomsGroupsType {
    */
   total?: number;
   /**
+   * Locked.
+   * @nullable
+   */
+  locked?: BoYesNoEnum;
+  /**
    * Customs Allocation Account.
    * @nullable
    */
@@ -88,11 +89,11 @@ export class CustomsGroups extends Entity implements CustomsGroupsType {
   items!: Items[];
 
   /**
-   * Returns an entity builder to construct instances `CustomsGroups`.
+   * Returns an entity builder to construct instances of `CustomsGroups`.
    * @returns A builder that constructs instances of entity type `CustomsGroups`.
    */
-  static builder(): EntityBuilderType<CustomsGroups, CustomsGroupsTypeForceMandatory> {
-    return Entity.entityBuilder(CustomsGroups);
+  static builder(): EntityBuilderType<CustomsGroups, CustomsGroupsType> {
+    return EntityV4.entityBuilder(CustomsGroups);
   }
 
   /**
@@ -108,8 +109,8 @@ export class CustomsGroups extends Entity implements CustomsGroupsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `CustomsGroups`.
    */
-  static customField(fieldName: string): CustomField<CustomsGroups> {
-    return Entity.customFieldSelector(fieldName, CustomsGroups);
+  static customField(fieldName: string): CustomFieldV4<CustomsGroups> {
+    return EntityV4.customFieldSelector(fieldName, CustomsGroups);
   }
 
   /**
@@ -125,33 +126,18 @@ import { ChartOfAccounts, ChartOfAccountsType } from './ChartOfAccounts';
 import { Items, ItemsType } from './Items';
 
 export interface CustomsGroupsType {
-  code?: number;
-  name?: string;
-  number?: string;
-  customs?: number;
-  purchase?: number;
-  other?: number;
-  total?: number;
-  customsAllocationAccount?: string;
-  customsExpenseAccount?: string;
-  portAddress?: string;
-  portState?: string;
-  chartOfAccount: ChartOfAccountsType;
-  items: ItemsType[];
-}
-
-export interface CustomsGroupsTypeForceMandatory {
-  code: number;
-  name: string;
-  number: string;
-  customs: number;
-  purchase: number;
-  other: number;
-  total: number;
-  customsAllocationAccount: string;
-  customsExpenseAccount: string;
-  portAddress: string;
-  portState: string;
+  code?: number | null;
+  name?: string | null;
+  number?: string | null;
+  customs?: number | null;
+  purchase?: number | null;
+  other?: number | null;
+  total?: number | null;
+  locked?: BoYesNoEnum | null;
+  customsAllocationAccount?: string | null;
+  customsExpenseAccount?: string | null;
+  portAddress?: string | null;
+  portState?: string | null;
   chartOfAccount: ChartOfAccountsType;
   items: ItemsType[];
 }
@@ -193,6 +179,11 @@ export namespace CustomsGroups {
    */
   export const TOTAL: NumberField<CustomsGroups> = new NumberField('Total', CustomsGroups, 'Edm.Double');
   /**
+   * Static representation of the [[locked]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LOCKED: EnumField<CustomsGroups> = new EnumField('Locked', CustomsGroups);
+  /**
    * Static representation of the [[customsAllocationAccount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -225,7 +216,7 @@ export namespace CustomsGroups {
   /**
    * All fields of the CustomsGroups entity.
    */
-  export const _allFields: Array<NumberField<CustomsGroups> | StringField<CustomsGroups> | OneToOneLink<CustomsGroups, ChartOfAccounts> | OneToManyLink<CustomsGroups, Items>> = [
+  export const _allFields: Array<NumberField<CustomsGroups> | StringField<CustomsGroups> | EnumField<CustomsGroups> | OneToOneLink<CustomsGroups, ChartOfAccounts> | OneToManyLink<CustomsGroups, Items>> = [
     CustomsGroups.CODE,
     CustomsGroups.NAME,
     CustomsGroups.NUMBER,
@@ -233,6 +224,7 @@ export namespace CustomsGroups {
     CustomsGroups.PURCHASE,
     CustomsGroups.OTHER,
     CustomsGroups.TOTAL,
+    CustomsGroups.LOCKED,
     CustomsGroups.CUSTOMS_ALLOCATION_ACCOUNT,
     CustomsGroups.CUSTOMS_EXPENSE_ACCOUNT,
     CustomsGroups.PORT_ADDRESS,

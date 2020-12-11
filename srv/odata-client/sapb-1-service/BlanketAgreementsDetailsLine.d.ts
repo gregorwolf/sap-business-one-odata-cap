@@ -1,5 +1,7 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BlanketAgreementDatePeriodsEnum } from './BlanketAgreementDatePeriodsEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * BlanketAgreementsDetailsLine
  */
@@ -19,6 +21,11 @@ export interface BlanketAgreementsDetailsLine {
      * @nullable
      */
     agreementEffectiveRowNumber?: number;
+    /**
+     * Frequency.
+     * @nullable
+     */
+    frequency?: BlanketAgreementDatePeriodsEnum;
     /**
      * From.
      * @nullable
@@ -50,6 +57,11 @@ export interface BlanketAgreementsDetailsLine {
      */
     freeText?: string;
     /**
+     * Consume Sales Forecast.
+     * @nullable
+     */
+    consumeSalesForecast?: BoYesNoEnum;
+    /**
      * Planned Amount Lc.
      * @nullable
      */
@@ -68,7 +80,7 @@ export declare function createBlanketAgreementsDetailsLine(json: any): BlanketAg
  * BlanketAgreementsDetailsLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class BlanketAgreementsDetailsLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class BlanketAgreementsDetailsLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BlanketAgreementsDetailsLine> {
     /**
      * Representation of the [[BlanketAgreementsDetailsLine.agreementNo]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -84,6 +96,11 @@ export declare class BlanketAgreementsDetailsLineField<EntityT extends Entity> e
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     agreementEffectiveRowNumber: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[BlanketAgreementsDetailsLine.frequency]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    frequency: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[BlanketAgreementsDetailsLine.from]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -115,6 +132,11 @@ export declare class BlanketAgreementsDetailsLineField<EntityT extends Entity> e
      */
     freeText: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[BlanketAgreementsDetailsLine.consumeSalesForecast]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    consumeSalesForecast: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[BlanketAgreementsDetailsLine.plannedAmountLc]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -124,8 +146,22 @@ export declare class BlanketAgreementsDetailsLineField<EntityT extends Entity> e
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     plannedAmountFc: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of BlanketAgreementsDetailsLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace BlanketAgreementsDetailsLine {
+    /**
+     * Metadata information on all properties of the `BlanketAgreementsDetailsLine` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<BlanketAgreementsDetailsLine>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): BlanketAgreementsDetailsLine;

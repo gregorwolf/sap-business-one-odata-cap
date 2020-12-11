@@ -1,5 +1,7 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { StageDepTypeEnum } from './StageDepTypeEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * PmStageData
  */
@@ -70,6 +72,11 @@ export interface PmStageData {
      */
     percentualCompletness?: number;
     /**
+     * Is Finished.
+     * @nullable
+     */
+    isFinished?: BoYesNoEnum;
+    /**
      * Stage Owner.
      * @nullable
      */
@@ -94,6 +101,26 @@ export interface PmStageData {
      * @nullable
      */
     dependsOnStage4?: number;
+    /**
+     * Stage Dependency 1 Type.
+     * @nullable
+     */
+    stageDependency1Type?: StageDepTypeEnum;
+    /**
+     * Stage Dependency 2 Type.
+     * @nullable
+     */
+    stageDependency2Type?: StageDepTypeEnum;
+    /**
+     * Stage Dependency 3 Type.
+     * @nullable
+     */
+    stageDependency3Type?: StageDepTypeEnum;
+    /**
+     * Stage Dependency 4 Type.
+     * @nullable
+     */
+    stageDependency4Type?: StageDepTypeEnum;
     /**
      * Depends On Stage Id 1.
      * @nullable
@@ -138,7 +165,7 @@ export declare function createPmStageData(json: any): PmStageData;
  * PmStageDataField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class PmStageDataField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class PmStageDataField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PmStageData> {
     /**
      * Representation of the [[PmStageData.lineId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -205,6 +232,11 @@ export declare class PmStageDataField<EntityT extends Entity> extends ComplexTyp
      */
     percentualCompletness: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[PmStageData.isFinished]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    isFinished: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[PmStageData.stageOwner]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -229,6 +261,26 @@ export declare class PmStageDataField<EntityT extends Entity> extends ComplexTyp
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     dependsOnStage4: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[PmStageData.stageDependency1Type]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    stageDependency1Type: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[PmStageData.stageDependency2Type]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    stageDependency2Type: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[PmStageData.stageDependency3Type]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    stageDependency3Type: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[PmStageData.stageDependency4Type]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    stageDependency4Type: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[PmStageData.dependsOnStageId1]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -264,8 +316,22 @@ export declare class PmStageDataField<EntityT extends Entity> extends ComplexTyp
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     finishedDate: ComplexTypeDatePropertyField<EntityT>;
+    /**
+     * Creates an instance of PmStageDataField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace PmStageData {
+    /**
+     * Metadata information on all properties of the `PmStageData` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<PmStageData>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): PmStageData;

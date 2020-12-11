@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { Invoices } from './Invoices';
 
 /**
@@ -15,16 +15,16 @@ export class InvoicesRequestBuilder extends RequestBuilder<Invoices> {
    * @param docEntry Key property. See [[Invoices.docEntry]].
    * @returns A request builder for creating requests to retrieve one `Invoices` entity based on its keys.
    */
-  getByKey(docEntry: number): GetByKeyRequestBuilder<Invoices> {
-    return new GetByKeyRequestBuilder(Invoices, { DocEntry: docEntry });
+  getByKey(docEntry: number): GetByKeyRequestBuilderV4<Invoices> {
+    return new GetByKeyRequestBuilderV4(Invoices, { DocEntry: docEntry });
   }
 
   /**
    * Returns a request builder for querying all `Invoices` entities.
    * @returns A request builder for creating requests to retrieve all `Invoices` entities.
    */
-  getAll(): GetAllRequestBuilder<Invoices> {
-    return new GetAllRequestBuilder(Invoices);
+  getAll(): GetAllRequestBuilderV4<Invoices> {
+    return new GetAllRequestBuilderV4(Invoices);
   }
 
   /**
@@ -32,8 +32,8 @@ export class InvoicesRequestBuilder extends RequestBuilder<Invoices> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `Invoices`.
    */
-  create(entity: Invoices): CreateRequestBuilder<Invoices> {
-    return new CreateRequestBuilder(Invoices, entity);
+  create(entity: Invoices): CreateRequestBuilderV4<Invoices> {
+    return new CreateRequestBuilderV4(Invoices, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class InvoicesRequestBuilder extends RequestBuilder<Invoices> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `Invoices`.
    */
-  update(entity: Invoices): UpdateRequestBuilder<Invoices> {
-    return new UpdateRequestBuilder(Invoices, entity);
+  update(entity: Invoices): UpdateRequestBuilderV4<Invoices> {
+    return new UpdateRequestBuilderV4(Invoices, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class InvoicesRequestBuilder extends RequestBuilder<Invoices> {
    * @param docEntry Key property. See [[Invoices.docEntry]].
    * @returns A request builder for creating requests that delete an entity of type `Invoices`.
    */
-  delete(docEntry: number): DeleteRequestBuilder<Invoices>;
+  delete(docEntry: number): DeleteRequestBuilderV4<Invoices>;
   /**
    * Returns a request builder for deleting an entity of type `Invoices`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `Invoices` by taking the entity as a parameter.
    */
-  delete(entity: Invoices): DeleteRequestBuilder<Invoices>;
-  delete(docEntryOrEntity: any): DeleteRequestBuilder<Invoices> {
-    return new DeleteRequestBuilder(Invoices, docEntryOrEntity instanceof Invoices ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
+  delete(entity: Invoices): DeleteRequestBuilderV4<Invoices>;
+  delete(docEntryOrEntity: any): DeleteRequestBuilderV4<Invoices> {
+    return new DeleteRequestBuilderV4(Invoices, docEntryOrEntity instanceof Invoices ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
   }
 }

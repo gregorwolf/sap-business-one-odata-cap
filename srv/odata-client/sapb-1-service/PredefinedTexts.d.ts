@@ -1,18 +1,13 @@
 import { PredefinedTextsRequestBuilder } from './PredefinedTextsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "PredefinedTexts" of service "SAPB1".
  */
-export declare class PredefinedTexts extends Entity implements PredefinedTextsType {
+export declare class PredefinedTexts extends EntityV4 implements PredefinedTextsType {
     /**
      * Technical entity name for PredefinedTexts.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for PredefinedTexts.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -33,10 +28,10 @@ export declare class PredefinedTexts extends Entity implements PredefinedTextsTy
      */
     text?: string;
     /**
-     * Returns an entity builder to construct instances `PredefinedTexts`.
+     * Returns an entity builder to construct instances of `PredefinedTexts`.
      * @returns A builder that constructs instances of entity type `PredefinedTexts`.
      */
-    static builder(): EntityBuilderType<PredefinedTexts, PredefinedTextsTypeForceMandatory>;
+    static builder(): EntityBuilderType<PredefinedTexts, PredefinedTextsType>;
     /**
      * Returns a request builder to construct requests for operations on the `PredefinedTexts` entity type.
      * @returns A `PredefinedTexts` request builder.
@@ -47,7 +42,7 @@ export declare class PredefinedTexts extends Entity implements PredefinedTextsTy
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `PredefinedTexts`.
      */
-    static customField(fieldName: string): CustomField<PredefinedTexts>;
+    static customField(fieldName: string): CustomFieldV4<PredefinedTexts>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -57,14 +52,9 @@ export declare class PredefinedTexts extends Entity implements PredefinedTextsTy
     };
 }
 export interface PredefinedTextsType {
-    numerator?: number;
-    textCode?: string;
-    text?: string;
-}
-export interface PredefinedTextsTypeForceMandatory {
-    numerator: number;
-    textCode: string;
-    text: string;
+    numerator?: number | null;
+    textCode?: string | null;
+    text?: string | null;
 }
 export declare namespace PredefinedTexts {
     /**

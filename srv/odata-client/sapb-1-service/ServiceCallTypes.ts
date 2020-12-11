@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ServiceCallTypesRequestBuilder } from './ServiceCallTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ServiceCallTypes" of service "SAPB1".
  */
-export class ServiceCallTypes extends Entity implements ServiceCallTypesType {
+export class ServiceCallTypes extends EntityV4 implements ServiceCallTypesType {
   /**
    * Technical entity name for ServiceCallTypes.
    */
   static _entityName = 'ServiceCallTypes';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ServiceCallTypes.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Call Type Id.
    * @nullable
@@ -44,11 +39,11 @@ export class ServiceCallTypes extends Entity implements ServiceCallTypesType {
   serviceCalls!: ServiceCalls[];
 
   /**
-   * Returns an entity builder to construct instances `ServiceCallTypes`.
+   * Returns an entity builder to construct instances of `ServiceCallTypes`.
    * @returns A builder that constructs instances of entity type `ServiceCallTypes`.
    */
-  static builder(): EntityBuilderType<ServiceCallTypes, ServiceCallTypesTypeForceMandatory> {
-    return Entity.entityBuilder(ServiceCallTypes);
+  static builder(): EntityBuilderType<ServiceCallTypes, ServiceCallTypesType> {
+    return EntityV4.entityBuilder(ServiceCallTypes);
   }
 
   /**
@@ -64,8 +59,8 @@ export class ServiceCallTypes extends Entity implements ServiceCallTypesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ServiceCallTypes`.
    */
-  static customField(fieldName: string): CustomField<ServiceCallTypes> {
-    return Entity.customFieldSelector(fieldName, ServiceCallTypes);
+  static customField(fieldName: string): CustomFieldV4<ServiceCallTypes> {
+    return EntityV4.customFieldSelector(fieldName, ServiceCallTypes);
   }
 
   /**
@@ -80,16 +75,9 @@ export class ServiceCallTypes extends Entity implements ServiceCallTypesType {
 import { ServiceCalls, ServiceCallsType } from './ServiceCalls';
 
 export interface ServiceCallTypesType {
-  callTypeId?: number;
-  name?: string;
-  description?: string;
-  serviceCalls: ServiceCallsType[];
-}
-
-export interface ServiceCallTypesTypeForceMandatory {
-  callTypeId: number;
-  name: string;
-  description: string;
+  callTypeId?: number | null;
+  name?: string | null;
+  description?: string | null;
   serviceCalls: ServiceCallsType[];
 }
 

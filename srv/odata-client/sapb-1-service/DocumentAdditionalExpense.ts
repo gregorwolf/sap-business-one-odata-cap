@@ -3,8 +3,12 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { DocExpenseTaxJurisdiction, DocExpenseTaxJurisdictionField } from './DocExpenseTaxJurisdiction';
-import { CollectionField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { DocExpenseTaxJurisdiction } from './DocExpenseTaxJurisdiction';
+import { BoAdEpnsDistribMethods } from './BoAdEpnsDistribMethods';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoAdEpnsTaxTypes } from './BoAdEpnsTaxTypes';
+import { BoStatus } from './BoStatus';
+import { CollectionField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * DocumentAdditionalExpense
@@ -51,6 +55,16 @@ export interface DocumentAdditionalExpense {
    */
   remarks?: string;
   /**
+   * Distribution Method.
+   * @nullable
+   */
+  distributionMethod?: BoAdEpnsDistribMethods;
+  /**
+   * Tax Liable.
+   * @nullable
+   */
+  taxLiable?: BoYesNoEnum;
+  /**
    * Vat Group.
    * @nullable
    */
@@ -91,10 +105,20 @@ export interface DocumentAdditionalExpense {
    */
   deductibleTaxSumSys?: number;
   /**
+   * Aquisition Tax.
+   * @nullable
+   */
+  aquisitionTax?: BoYesNoEnum;
+  /**
    * Tax Code.
    * @nullable
    */
   taxCode?: string;
+  /**
+   * Tax Type.
+   * @nullable
+   */
+  taxType?: BoAdEpnsTaxTypes;
   /**
    * Tax Paid.
    * @nullable
@@ -171,6 +195,21 @@ export interface DocumentAdditionalExpense {
    */
   lineNum?: number;
   /**
+   * Last Purchase Price.
+   * @nullable
+   */
+  lastPurchasePrice?: BoYesNoEnum;
+  /**
+   * Status.
+   * @nullable
+   */
+  status?: BoStatus;
+  /**
+   * Stock.
+   * @nullable
+   */
+  stock?: BoYesNoEnum;
+  /**
    * Target Abs Entry.
    * @nullable
    */
@@ -180,6 +219,11 @@ export interface DocumentAdditionalExpense {
    * @nullable
    */
   targetType?: number;
+  /**
+   * Wt Liable.
+   * @nullable
+   */
+  wtLiable?: BoYesNoEnum;
   /**
    * Distribution Rule.
    * @nullable
@@ -229,7 +273,7 @@ export interface DocumentAdditionalExpense {
    * Doc Expense Tax Jurisdictions.
    * @nullable
    */
-  docExpenseTaxJurisdictions?: DocExpenseTaxJurisdiction;
+  docExpenseTaxJurisdictions?: DocExpenseTaxJurisdiction[];
 }
 
 /**
@@ -243,7 +287,7 @@ export function createDocumentAdditionalExpense(json: any): DocumentAdditionalEx
  * DocumentAdditionalExpenseField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class DocumentAdditionalExpenseField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class DocumentAdditionalExpenseField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, DocumentAdditionalExpense> {
   /**
    * Representation of the [[DocumentAdditionalExpense.expenseCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -285,6 +329,16 @@ export class DocumentAdditionalExpenseField<EntityT extends Entity> extends Comp
    */
   remarks: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Remarks', this, 'Edm.String');
   /**
+   * Representation of the [[DocumentAdditionalExpense.distributionMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  distributionMethod: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DistributionMethod', this);
+  /**
+   * Representation of the [[DocumentAdditionalExpense.taxLiable]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  taxLiable: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('TaxLiable', this);
+  /**
    * Representation of the [[DocumentAdditionalExpense.vatGroup]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -325,10 +379,20 @@ export class DocumentAdditionalExpenseField<EntityT extends Entity> extends Comp
    */
   deductibleTaxSumSys: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DeductibleTaxSumSys', this, 'Edm.Double');
   /**
+   * Representation of the [[DocumentAdditionalExpense.aquisitionTax]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  aquisitionTax: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AquisitionTax', this);
+  /**
    * Representation of the [[DocumentAdditionalExpense.taxCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   taxCode: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('TaxCode', this, 'Edm.String');
+  /**
+   * Representation of the [[DocumentAdditionalExpense.taxType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  taxType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('TaxType', this);
   /**
    * Representation of the [[DocumentAdditionalExpense.taxPaid]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -405,6 +469,21 @@ export class DocumentAdditionalExpenseField<EntityT extends Entity> extends Comp
    */
   lineNum: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('LineNum', this, 'Edm.Int32');
   /**
+   * Representation of the [[DocumentAdditionalExpense.lastPurchasePrice]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  lastPurchasePrice: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('LastPurchasePrice', this);
+  /**
+   * Representation of the [[DocumentAdditionalExpense.status]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  status: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Status', this);
+  /**
+   * Representation of the [[DocumentAdditionalExpense.stock]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  stock: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Stock', this);
+  /**
    * Representation of the [[DocumentAdditionalExpense.targetAbsEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -414,6 +493,11 @@ export class DocumentAdditionalExpenseField<EntityT extends Entity> extends Comp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   targetType: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('TargetType', this, 'Edm.Int32');
+  /**
+   * Representation of the [[DocumentAdditionalExpense.wtLiable]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  wtLiable: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('WTLiable', this);
   /**
    * Representation of the [[DocumentAdditionalExpense.distributionRule]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -463,56 +547,289 @@ export class DocumentAdditionalExpenseField<EntityT extends Entity> extends Comp
    * Representation of the [[DocumentAdditionalExpense.docExpenseTaxJurisdictions]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  docExpenseTaxJurisdictions: DocExpenseTaxJurisdictionField<EntityT> = new DocExpenseTaxJurisdictionField('DocExpenseTaxJurisdictions', this);
+  docExpenseTaxJurisdictions: CollectionField<EntityT, DocExpenseTaxJurisdiction> = new CollectionField('DocExpenseTaxJurisdictions', this, DocExpenseTaxJurisdiction);
+
+  /**
+   * Creates an instance of DocumentAdditionalExpenseField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, DocumentAdditionalExpense);
+  }
 }
 
 export namespace DocumentAdditionalExpense {
+  /**
+   * Metadata information on all properties of the `DocumentAdditionalExpense` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<DocumentAdditionalExpense>[] = [{
+    originalName: 'ExpenseCode',
+    name: 'expenseCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineTotal',
+    name: 'lineTotal',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'LineTotalFC',
+    name: 'lineTotalFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'LineTotalSys',
+    name: 'lineTotalSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PaidToDate',
+    name: 'paidToDate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PaidToDateFC',
+    name: 'paidToDateFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PaidToDateSys',
+    name: 'paidToDateSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Remarks',
+    name: 'remarks',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionMethod',
+    name: 'distributionMethod',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'TaxLiable',
+    name: 'taxLiable',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'VatGroup',
+    name: 'vatGroup',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxPercent',
+    name: 'taxPercent',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxSum',
+    name: 'taxSum',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxSumFC',
+    name: 'taxSumFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxSumSys',
+    name: 'taxSumSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DeductibleTaxSum',
+    name: 'deductibleTaxSum',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DeductibleTaxSumFC',
+    name: 'deductibleTaxSumFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DeductibleTaxSumSys',
+    name: 'deductibleTaxSumSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AquisitionTax',
+    name: 'aquisitionTax',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'TaxCode',
+    name: 'taxCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxType',
+    name: 'taxType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'TaxPaid',
+    name: 'taxPaid',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxPaidFC',
+    name: 'taxPaidFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxPaidSys',
+    name: 'taxPaidSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'EqualizationTaxPercent',
+    name: 'equalizationTaxPercent',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'EqualizationTaxSum',
+    name: 'equalizationTaxSum',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'EqualizationTaxFC',
+    name: 'equalizationTaxFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'EqualizationTaxSys',
+    name: 'equalizationTaxSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxTotalSum',
+    name: 'taxTotalSum',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxTotalSumFC',
+    name: 'taxTotalSumFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxTotalSumSys',
+    name: 'taxTotalSumSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BaseDocEntry',
+    name: 'baseDocEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseDocLine',
+    name: 'baseDocLine',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseDocType',
+    name: 'baseDocType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseDocumentReference',
+    name: 'baseDocumentReference',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LastPurchasePrice',
+    name: 'lastPurchasePrice',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Status',
+    name: 'status',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Stock',
+    name: 'stock',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'TargetAbsEntry',
+    name: 'targetAbsEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TargetType',
+    name: 'targetType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'WTLiable',
+    name: 'wtLiable',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule',
+    name: 'distributionRule',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Project',
+    name: 'project',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule2',
+    name: 'distributionRule2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule3',
+    name: 'distributionRule3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule4',
+    name: 'distributionRule4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule5',
+    name: 'distributionRule5',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LineGross',
+    name: 'lineGross',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'LineGrossSys',
+    name: 'lineGrossSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'LineGrossFC',
+    name: 'lineGrossFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DocExpenseTaxJurisdictions',
+    name: 'docExpenseTaxJurisdictions',
+    type: DocExpenseTaxJurisdiction,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | DocExpenseTaxJurisdiction }): DocumentAdditionalExpense {
-    return createComplexType(json, {
-      ExpenseCode: (expenseCode: number) => ({ expenseCode: edmToTs(expenseCode, 'Edm.Int32') }),
-      LineTotal: (lineTotal: number) => ({ lineTotal: edmToTs(lineTotal, 'Edm.Double') }),
-      LineTotalFC: (lineTotalFc: number) => ({ lineTotalFc: edmToTs(lineTotalFc, 'Edm.Double') }),
-      LineTotalSys: (lineTotalSys: number) => ({ lineTotalSys: edmToTs(lineTotalSys, 'Edm.Double') }),
-      PaidToDate: (paidToDate: number) => ({ paidToDate: edmToTs(paidToDate, 'Edm.Double') }),
-      PaidToDateFC: (paidToDateFc: number) => ({ paidToDateFc: edmToTs(paidToDateFc, 'Edm.Double') }),
-      PaidToDateSys: (paidToDateSys: number) => ({ paidToDateSys: edmToTs(paidToDateSys, 'Edm.Double') }),
-      Remarks: (remarks: string) => ({ remarks: edmToTs(remarks, 'Edm.String') }),
-      VatGroup: (vatGroup: string) => ({ vatGroup: edmToTs(vatGroup, 'Edm.String') }),
-      TaxPercent: (taxPercent: number) => ({ taxPercent: edmToTs(taxPercent, 'Edm.Double') }),
-      TaxSum: (taxSum: number) => ({ taxSum: edmToTs(taxSum, 'Edm.Double') }),
-      TaxSumFC: (taxSumFc: number) => ({ taxSumFc: edmToTs(taxSumFc, 'Edm.Double') }),
-      TaxSumSys: (taxSumSys: number) => ({ taxSumSys: edmToTs(taxSumSys, 'Edm.Double') }),
-      DeductibleTaxSum: (deductibleTaxSum: number) => ({ deductibleTaxSum: edmToTs(deductibleTaxSum, 'Edm.Double') }),
-      DeductibleTaxSumFC: (deductibleTaxSumFc: number) => ({ deductibleTaxSumFc: edmToTs(deductibleTaxSumFc, 'Edm.Double') }),
-      DeductibleTaxSumSys: (deductibleTaxSumSys: number) => ({ deductibleTaxSumSys: edmToTs(deductibleTaxSumSys, 'Edm.Double') }),
-      TaxCode: (taxCode: string) => ({ taxCode: edmToTs(taxCode, 'Edm.String') }),
-      TaxPaid: (taxPaid: number) => ({ taxPaid: edmToTs(taxPaid, 'Edm.Double') }),
-      TaxPaidFC: (taxPaidFc: number) => ({ taxPaidFc: edmToTs(taxPaidFc, 'Edm.Double') }),
-      TaxPaidSys: (taxPaidSys: number) => ({ taxPaidSys: edmToTs(taxPaidSys, 'Edm.Double') }),
-      EqualizationTaxPercent: (equalizationTaxPercent: number) => ({ equalizationTaxPercent: edmToTs(equalizationTaxPercent, 'Edm.Double') }),
-      EqualizationTaxSum: (equalizationTaxSum: number) => ({ equalizationTaxSum: edmToTs(equalizationTaxSum, 'Edm.Double') }),
-      EqualizationTaxFC: (equalizationTaxFc: number) => ({ equalizationTaxFc: edmToTs(equalizationTaxFc, 'Edm.Double') }),
-      EqualizationTaxSys: (equalizationTaxSys: number) => ({ equalizationTaxSys: edmToTs(equalizationTaxSys, 'Edm.Double') }),
-      TaxTotalSum: (taxTotalSum: number) => ({ taxTotalSum: edmToTs(taxTotalSum, 'Edm.Double') }),
-      TaxTotalSumFC: (taxTotalSumFc: number) => ({ taxTotalSumFc: edmToTs(taxTotalSumFc, 'Edm.Double') }),
-      TaxTotalSumSys: (taxTotalSumSys: number) => ({ taxTotalSumSys: edmToTs(taxTotalSumSys, 'Edm.Double') }),
-      BaseDocEntry: (baseDocEntry: number) => ({ baseDocEntry: edmToTs(baseDocEntry, 'Edm.Int32') }),
-      BaseDocLine: (baseDocLine: number) => ({ baseDocLine: edmToTs(baseDocLine, 'Edm.Int32') }),
-      BaseDocType: (baseDocType: number) => ({ baseDocType: edmToTs(baseDocType, 'Edm.Int32') }),
-      BaseDocumentReference: (baseDocumentReference: number) => ({ baseDocumentReference: edmToTs(baseDocumentReference, 'Edm.Int32') }),
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      TargetAbsEntry: (targetAbsEntry: number) => ({ targetAbsEntry: edmToTs(targetAbsEntry, 'Edm.Int32') }),
-      TargetType: (targetType: number) => ({ targetType: edmToTs(targetType, 'Edm.Int32') }),
-      DistributionRule: (distributionRule: string) => ({ distributionRule: edmToTs(distributionRule, 'Edm.String') }),
-      Project: (project: string) => ({ project: edmToTs(project, 'Edm.String') }),
-      DistributionRule2: (distributionRule2: string) => ({ distributionRule2: edmToTs(distributionRule2, 'Edm.String') }),
-      DistributionRule3: (distributionRule3: string) => ({ distributionRule3: edmToTs(distributionRule3, 'Edm.String') }),
-      DistributionRule4: (distributionRule4: string) => ({ distributionRule4: edmToTs(distributionRule4, 'Edm.String') }),
-      DistributionRule5: (distributionRule5: string) => ({ distributionRule5: edmToTs(distributionRule5, 'Edm.String') }),
-      LineGross: (lineGross: number) => ({ lineGross: edmToTs(lineGross, 'Edm.Double') }),
-      LineGrossSys: (lineGrossSys: number) => ({ lineGrossSys: edmToTs(lineGrossSys, 'Edm.Double') }),
-      LineGrossFC: (lineGrossFc: number) => ({ lineGrossFc: edmToTs(lineGrossFc, 'Edm.Double') }),
-      DocExpenseTaxJurisdictions: (docExpenseTaxJurisdictions: DocExpenseTaxJurisdiction) => ({ docExpenseTaxJurisdictions: DocExpenseTaxJurisdiction.build(docExpenseTaxJurisdictions) })
-    });
+    return deserializeComplexTypeV4(json, DocumentAdditionalExpense);
   }
 }

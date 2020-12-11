@@ -3,8 +3,9 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ItemCycleCount, ItemCycleCountField } from './ItemCycleCount';
-import { CollectionField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ItemCycleCount } from './ItemCycleCount';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { CollectionField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ItemWarehouseInfo
@@ -30,6 +31,11 @@ export interface ItemWarehouseInfo {
    * @nullable
    */
   standardAveragePrice?: number;
+  /**
+   * Locked.
+   * @nullable
+   */
+  locked?: BoYesNoEnum;
   /**
    * Inventory Account.
    * @nullable
@@ -130,6 +136,11 @@ export interface ItemWarehouseInfo {
    * @nullable
    */
   countedQuantity?: number;
+  /**
+   * Was Counted.
+   * @nullable
+   */
+  wasCounted?: BoYesNoEnum;
   /**
    * User Signature.
    * @nullable
@@ -296,6 +307,11 @@ export interface ItemWarehouseInfo {
    */
   defaultBin?: number;
   /**
+   * Default Bin Enforced.
+   * @nullable
+   */
+  defaultBinEnforced?: BoYesNoEnum;
+  /**
    * Purchase Balance Account.
    * @nullable
    */
@@ -304,7 +320,7 @@ export interface ItemWarehouseInfo {
    * Item Cycle Counts.
    * @nullable
    */
-  itemCycleCounts?: ItemCycleCount;
+  itemCycleCounts?: ItemCycleCount[];
 }
 
 /**
@@ -318,7 +334,7 @@ export function createItemWarehouseInfo(json: any): ItemWarehouseInfo {
  * ItemWarehouseInfoField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ItemWarehouseInfoField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ItemWarehouseInfoField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ItemWarehouseInfo> {
   /**
    * Representation of the [[ItemWarehouseInfo.minimalStock]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -339,6 +355,11 @@ export class ItemWarehouseInfoField<EntityT extends Entity> extends ComplexTypeF
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   standardAveragePrice: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('StandardAveragePrice', this, 'Edm.Double');
+  /**
+   * Representation of the [[ItemWarehouseInfo.locked]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  locked: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Locked', this);
   /**
    * Representation of the [[ItemWarehouseInfo.inventoryAccount]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -439,6 +460,11 @@ export class ItemWarehouseInfoField<EntityT extends Entity> extends ComplexTypeF
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   countedQuantity: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('CountedQuantity', this, 'Edm.Double');
+  /**
+   * Representation of the [[ItemWarehouseInfo.wasCounted]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  wasCounted: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('WasCounted', this);
   /**
    * Representation of the [[ItemWarehouseInfo.userSignature]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -605,6 +631,11 @@ export class ItemWarehouseInfoField<EntityT extends Entity> extends ComplexTypeF
    */
   defaultBin: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DefaultBin', this, 'Edm.Int32');
   /**
+   * Representation of the [[ItemWarehouseInfo.defaultBinEnforced]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  defaultBinEnforced: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DefaultBinEnforced', this);
+  /**
    * Representation of the [[ItemWarehouseInfo.purchaseBalanceAccount]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -613,71 +644,339 @@ export class ItemWarehouseInfoField<EntityT extends Entity> extends ComplexTypeF
    * Representation of the [[ItemWarehouseInfo.itemCycleCounts]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  itemCycleCounts: ItemCycleCountField<EntityT> = new ItemCycleCountField('ItemCycleCounts', this);
+  itemCycleCounts: CollectionField<EntityT, ItemCycleCount> = new CollectionField('ItemCycleCounts', this, ItemCycleCount);
+
+  /**
+   * Creates an instance of ItemWarehouseInfoField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ItemWarehouseInfo);
+  }
 }
 
 export namespace ItemWarehouseInfo {
+  /**
+   * Metadata information on all properties of the `ItemWarehouseInfo` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ItemWarehouseInfo>[] = [{
+    originalName: 'MinimalStock',
+    name: 'minimalStock',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'MaximalStock',
+    name: 'maximalStock',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'MinimalOrder',
+    name: 'minimalOrder',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'StandardAveragePrice',
+    name: 'standardAveragePrice',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Locked',
+    name: 'locked',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'InventoryAccount',
+    name: 'inventoryAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostAccount',
+    name: 'costAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TransferAccount',
+    name: 'transferAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RevenuesAccount',
+    name: 'revenuesAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'VarienceAccount',
+    name: 'varienceAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DecreasingAccount',
+    name: 'decreasingAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'IncreasingAccount',
+    name: 'increasingAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ReturningAccount',
+    name: 'returningAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExpensesAccount',
+    name: 'expensesAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'EURevenuesAccount',
+    name: 'euRevenuesAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'EUExpensesAccount',
+    name: 'euExpensesAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ForeignRevenueAcc',
+    name: 'foreignRevenueAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ForeignExpensAcc',
+    name: 'foreignExpensAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExemptIncomeAcc',
+    name: 'exemptIncomeAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PriceDifferenceAcc',
+    name: 'priceDifferenceAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WarehouseCode',
+    name: 'warehouseCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InStock',
+    name: 'inStock',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Committed',
+    name: 'committed',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Ordered',
+    name: 'ordered',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CountedQuantity',
+    name: 'countedQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WasCounted',
+    name: 'wasCounted',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'UserSignature',
+    name: 'userSignature',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Counted',
+    name: 'counted',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ExpenseClearingAct',
+    name: 'expenseClearingAct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PurchaseCreditAcc',
+    name: 'purchaseCreditAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'EUPurchaseCreditAcc',
+    name: 'euPurchaseCreditAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ForeignPurchaseCreditAcc',
+    name: 'foreignPurchaseCreditAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SalesCreditAcc',
+    name: 'salesCreditAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SalesCreditEUAcc',
+    name: 'salesCreditEuAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExemptedCredits',
+    name: 'exemptedCredits',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SalesCreditForeignAcc',
+    name: 'salesCreditForeignAcc',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExpenseOffsettingAccount',
+    name: 'expenseOffsettingAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WipAccount',
+    name: 'wipAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExchangeRateDifferencesAcct',
+    name: 'exchangeRateDifferencesAcct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GoodsClearingAcct',
+    name: 'goodsClearingAcct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'NegativeInventoryAdjustmentAccount',
+    name: 'negativeInventoryAdjustmentAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostInflationOffsetAccount',
+    name: 'costInflationOffsetAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GLDecreaseAcct',
+    name: 'glDecreaseAcct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GLIncreaseAcct',
+    name: 'glIncreaseAcct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PAReturnAcct',
+    name: 'paReturnAcct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PurchaseAcct',
+    name: 'purchaseAcct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PurchaseOffsetAcct',
+    name: 'purchaseOffsetAcct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShippedGoodsAccount',
+    name: 'shippedGoodsAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StockInflationOffsetAccount',
+    name: 'stockInflationOffsetAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StockInflationAdjustAccount',
+    name: 'stockInflationAdjustAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'VATInRevenueAccount',
+    name: 'vatInRevenueAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WipVarianceAccount',
+    name: 'wipVarianceAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostInflationAccount',
+    name: 'costInflationAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WHIncomingCenvatAccount',
+    name: 'whIncomingCenvatAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WHOutgoingCenvatAccount',
+    name: 'whOutgoingCenvatAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StockInTransitAccount',
+    name: 'stockInTransitAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WipOffsetProfitAndLossAccount',
+    name: 'wipOffsetProfitAndLossAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InventoryOffsetProfitAndLossAccount',
+    name: 'inventoryOffsetProfitAndLossAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DefaultBin',
+    name: 'defaultBin',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DefaultBinEnforced',
+    name: 'defaultBinEnforced',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'PurchaseBalanceAccount',
+    name: 'purchaseBalanceAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemCycleCounts',
+    name: 'itemCycleCounts',
+    type: ItemCycleCount,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | ItemCycleCount }): ItemWarehouseInfo {
-    return createComplexType(json, {
-      MinimalStock: (minimalStock: number) => ({ minimalStock: edmToTs(minimalStock, 'Edm.Double') }),
-      MaximalStock: (maximalStock: number) => ({ maximalStock: edmToTs(maximalStock, 'Edm.Double') }),
-      MinimalOrder: (minimalOrder: number) => ({ minimalOrder: edmToTs(minimalOrder, 'Edm.Double') }),
-      StandardAveragePrice: (standardAveragePrice: number) => ({ standardAveragePrice: edmToTs(standardAveragePrice, 'Edm.Double') }),
-      InventoryAccount: (inventoryAccount: string) => ({ inventoryAccount: edmToTs(inventoryAccount, 'Edm.String') }),
-      CostAccount: (costAccount: string) => ({ costAccount: edmToTs(costAccount, 'Edm.String') }),
-      TransferAccount: (transferAccount: string) => ({ transferAccount: edmToTs(transferAccount, 'Edm.String') }),
-      RevenuesAccount: (revenuesAccount: string) => ({ revenuesAccount: edmToTs(revenuesAccount, 'Edm.String') }),
-      VarienceAccount: (varienceAccount: string) => ({ varienceAccount: edmToTs(varienceAccount, 'Edm.String') }),
-      DecreasingAccount: (decreasingAccount: string) => ({ decreasingAccount: edmToTs(decreasingAccount, 'Edm.String') }),
-      IncreasingAccount: (increasingAccount: string) => ({ increasingAccount: edmToTs(increasingAccount, 'Edm.String') }),
-      ReturningAccount: (returningAccount: string) => ({ returningAccount: edmToTs(returningAccount, 'Edm.String') }),
-      ExpensesAccount: (expensesAccount: string) => ({ expensesAccount: edmToTs(expensesAccount, 'Edm.String') }),
-      EURevenuesAccount: (euRevenuesAccount: string) => ({ euRevenuesAccount: edmToTs(euRevenuesAccount, 'Edm.String') }),
-      EUExpensesAccount: (euExpensesAccount: string) => ({ euExpensesAccount: edmToTs(euExpensesAccount, 'Edm.String') }),
-      ForeignRevenueAcc: (foreignRevenueAcc: string) => ({ foreignRevenueAcc: edmToTs(foreignRevenueAcc, 'Edm.String') }),
-      ForeignExpensAcc: (foreignExpensAcc: string) => ({ foreignExpensAcc: edmToTs(foreignExpensAcc, 'Edm.String') }),
-      ExemptIncomeAcc: (exemptIncomeAcc: string) => ({ exemptIncomeAcc: edmToTs(exemptIncomeAcc, 'Edm.String') }),
-      PriceDifferenceAcc: (priceDifferenceAcc: string) => ({ priceDifferenceAcc: edmToTs(priceDifferenceAcc, 'Edm.String') }),
-      WarehouseCode: (warehouseCode: string) => ({ warehouseCode: edmToTs(warehouseCode, 'Edm.String') }),
-      InStock: (inStock: number) => ({ inStock: edmToTs(inStock, 'Edm.Double') }),
-      Committed: (committed: number) => ({ committed: edmToTs(committed, 'Edm.Double') }),
-      Ordered: (ordered: number) => ({ ordered: edmToTs(ordered, 'Edm.Double') }),
-      CountedQuantity: (countedQuantity: number) => ({ countedQuantity: edmToTs(countedQuantity, 'Edm.Double') }),
-      UserSignature: (userSignature: number) => ({ userSignature: edmToTs(userSignature, 'Edm.Int32') }),
-      Counted: (counted: number) => ({ counted: edmToTs(counted, 'Edm.Double') }),
-      ExpenseClearingAct: (expenseClearingAct: string) => ({ expenseClearingAct: edmToTs(expenseClearingAct, 'Edm.String') }),
-      PurchaseCreditAcc: (purchaseCreditAcc: string) => ({ purchaseCreditAcc: edmToTs(purchaseCreditAcc, 'Edm.String') }),
-      EUPurchaseCreditAcc: (euPurchaseCreditAcc: string) => ({ euPurchaseCreditAcc: edmToTs(euPurchaseCreditAcc, 'Edm.String') }),
-      ForeignPurchaseCreditAcc: (foreignPurchaseCreditAcc: string) => ({ foreignPurchaseCreditAcc: edmToTs(foreignPurchaseCreditAcc, 'Edm.String') }),
-      SalesCreditAcc: (salesCreditAcc: string) => ({ salesCreditAcc: edmToTs(salesCreditAcc, 'Edm.String') }),
-      SalesCreditEUAcc: (salesCreditEuAcc: string) => ({ salesCreditEuAcc: edmToTs(salesCreditEuAcc, 'Edm.String') }),
-      ExemptedCredits: (exemptedCredits: string) => ({ exemptedCredits: edmToTs(exemptedCredits, 'Edm.String') }),
-      SalesCreditForeignAcc: (salesCreditForeignAcc: string) => ({ salesCreditForeignAcc: edmToTs(salesCreditForeignAcc, 'Edm.String') }),
-      ExpenseOffsettingAccount: (expenseOffsettingAccount: string) => ({ expenseOffsettingAccount: edmToTs(expenseOffsettingAccount, 'Edm.String') }),
-      WipAccount: (wipAccount: string) => ({ wipAccount: edmToTs(wipAccount, 'Edm.String') }),
-      ExchangeRateDifferencesAcct: (exchangeRateDifferencesAcct: string) => ({ exchangeRateDifferencesAcct: edmToTs(exchangeRateDifferencesAcct, 'Edm.String') }),
-      GoodsClearingAcct: (goodsClearingAcct: string) => ({ goodsClearingAcct: edmToTs(goodsClearingAcct, 'Edm.String') }),
-      NegativeInventoryAdjustmentAccount: (negativeInventoryAdjustmentAccount: string) => ({ negativeInventoryAdjustmentAccount: edmToTs(negativeInventoryAdjustmentAccount, 'Edm.String') }),
-      CostInflationOffsetAccount: (costInflationOffsetAccount: string) => ({ costInflationOffsetAccount: edmToTs(costInflationOffsetAccount, 'Edm.String') }),
-      GLDecreaseAcct: (glDecreaseAcct: string) => ({ glDecreaseAcct: edmToTs(glDecreaseAcct, 'Edm.String') }),
-      GLIncreaseAcct: (glIncreaseAcct: string) => ({ glIncreaseAcct: edmToTs(glIncreaseAcct, 'Edm.String') }),
-      PAReturnAcct: (paReturnAcct: string) => ({ paReturnAcct: edmToTs(paReturnAcct, 'Edm.String') }),
-      PurchaseAcct: (purchaseAcct: string) => ({ purchaseAcct: edmToTs(purchaseAcct, 'Edm.String') }),
-      PurchaseOffsetAcct: (purchaseOffsetAcct: string) => ({ purchaseOffsetAcct: edmToTs(purchaseOffsetAcct, 'Edm.String') }),
-      ShippedGoodsAccount: (shippedGoodsAccount: string) => ({ shippedGoodsAccount: edmToTs(shippedGoodsAccount, 'Edm.String') }),
-      StockInflationOffsetAccount: (stockInflationOffsetAccount: string) => ({ stockInflationOffsetAccount: edmToTs(stockInflationOffsetAccount, 'Edm.String') }),
-      StockInflationAdjustAccount: (stockInflationAdjustAccount: string) => ({ stockInflationAdjustAccount: edmToTs(stockInflationAdjustAccount, 'Edm.String') }),
-      VATInRevenueAccount: (vatInRevenueAccount: string) => ({ vatInRevenueAccount: edmToTs(vatInRevenueAccount, 'Edm.String') }),
-      WipVarianceAccount: (wipVarianceAccount: string) => ({ wipVarianceAccount: edmToTs(wipVarianceAccount, 'Edm.String') }),
-      CostInflationAccount: (costInflationAccount: string) => ({ costInflationAccount: edmToTs(costInflationAccount, 'Edm.String') }),
-      WHIncomingCenvatAccount: (whIncomingCenvatAccount: string) => ({ whIncomingCenvatAccount: edmToTs(whIncomingCenvatAccount, 'Edm.String') }),
-      WHOutgoingCenvatAccount: (whOutgoingCenvatAccount: string) => ({ whOutgoingCenvatAccount: edmToTs(whOutgoingCenvatAccount, 'Edm.String') }),
-      StockInTransitAccount: (stockInTransitAccount: string) => ({ stockInTransitAccount: edmToTs(stockInTransitAccount, 'Edm.String') }),
-      WipOffsetProfitAndLossAccount: (wipOffsetProfitAndLossAccount: string) => ({ wipOffsetProfitAndLossAccount: edmToTs(wipOffsetProfitAndLossAccount, 'Edm.String') }),
-      InventoryOffsetProfitAndLossAccount: (inventoryOffsetProfitAndLossAccount: string) => ({ inventoryOffsetProfitAndLossAccount: edmToTs(inventoryOffsetProfitAndLossAccount, 'Edm.String') }),
-      DefaultBin: (defaultBin: number) => ({ defaultBin: edmToTs(defaultBin, 'Edm.Int32') }),
-      PurchaseBalanceAccount: (purchaseBalanceAccount: string) => ({ purchaseBalanceAccount: edmToTs(purchaseBalanceAccount, 'Edm.String') }),
-      ItemCycleCounts: (itemCycleCounts: ItemCycleCount) => ({ itemCycleCounts: ItemCycleCount.build(itemCycleCounts) })
-    });
+    return deserializeComplexTypeV4(json, ItemWarehouseInfo);
   }
 }

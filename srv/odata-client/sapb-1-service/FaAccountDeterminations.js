@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.FaAccountDeterminations = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var FaAccountDeterminationsRequestBuilder_1 = require("./FaAccountDeterminationsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "FAAccountDeterminations" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var FaAccountDeterminations = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `FaAccountDeterminations`.
+     * Returns an entity builder to construct instances of `FaAccountDeterminations`.
      * @returns A builder that constructs instances of entity type `FaAccountDeterminations`.
      */
     FaAccountDeterminations.builder = function () {
-        return v4_1.Entity.entityBuilder(FaAccountDeterminations);
+        return core_1.EntityV4.entityBuilder(FaAccountDeterminations);
     };
     /**
      * Returns a request builder to construct requests for operations on the `FaAccountDeterminations` entity type.
@@ -60,7 +60,7 @@ var FaAccountDeterminations = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `FaAccountDeterminations`.
      */
     FaAccountDeterminations.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, FaAccountDeterminations);
+        return core_1.EntityV4.customFieldSelector(fieldName, FaAccountDeterminations);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var FaAccountDeterminations = /** @class */ (function (_super) {
      */
     FaAccountDeterminations._entityName = 'FAAccountDeterminations';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for FaAccountDeterminations.
-     */
-    FaAccountDeterminations._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    FaAccountDeterminations._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    FaAccountDeterminations._defaultServicePath = '/b1s/v2/';
     return FaAccountDeterminations;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.FaAccountDeterminations = FaAccountDeterminations;
 var ChartOfAccounts_1 = require("./ChartOfAccounts");
 (function (FaAccountDeterminations) {
@@ -91,102 +86,102 @@ var ChartOfAccounts_1 = require("./ChartOfAccounts");
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.CODE = new v4_1.StringField('Code', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.CODE = new core_1.StringField('Code', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.DESCRIPTION = new v4_1.StringField('Description', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.DESCRIPTION = new core_1.StringField('Description', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[assetBalanceSheetAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.ASSET_BALANCE_SHEET_ACCOUNT = new v4_1.StringField('AssetBalanceSheetAccount', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.ASSET_BALANCE_SHEET_ACCOUNT = new core_1.StringField('AssetBalanceSheetAccount', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[clearingAccountAcquisition]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.CLEARING_ACCOUNT_ACQUISITION = new v4_1.StringField('ClearingAccountAcquisition', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.CLEARING_ACCOUNT_ACQUISITION = new core_1.StringField('ClearingAccountAcquisition', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[revaluationReserveAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.REVALUATION_RESERVE_ACCOUNT = new v4_1.StringField('RevaluationReserveAccount', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.REVALUATION_RESERVE_ACCOUNT = new core_1.StringField('RevaluationReserveAccount', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[revaluationReserveClearing]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.REVALUATION_RESERVE_CLEARING = new v4_1.StringField('RevaluationReserveClearing', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.REVALUATION_RESERVE_CLEARING = new core_1.StringField('RevaluationReserveClearing', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[ordinaryDepreciation]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.ORDINARY_DEPRECIATION = new v4_1.StringField('OrdinaryDepreciation', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.ORDINARY_DEPRECIATION = new core_1.StringField('OrdinaryDepreciation', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[accumulatedOrdinaryDepr]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.ACCUMULATED_ORDINARY_DEPR = new v4_1.StringField('AccumulatedOrdinaryDepr', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.ACCUMULATED_ORDINARY_DEPR = new core_1.StringField('AccumulatedOrdinaryDepr', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[unplannedDepreciation]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.UNPLANNED_DEPRECIATION = new v4_1.StringField('UnplannedDepreciation', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.UNPLANNED_DEPRECIATION = new core_1.StringField('UnplannedDepreciation', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[accumulatedUnplannedDepr]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.ACCUMULATED_UNPLANNED_DEPR = new v4_1.StringField('AccumulatedUnplannedDepr', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.ACCUMULATED_UNPLANNED_DEPR = new core_1.StringField('AccumulatedUnplannedDepr', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[specialDepreciation]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.SPECIAL_DEPRECIATION = new v4_1.StringField('SpecialDepreciation', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.SPECIAL_DEPRECIATION = new core_1.StringField('SpecialDepreciation', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[accumulatedSpecialDepr]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.ACCUMULATED_SPECIAL_DEPR = new v4_1.StringField('AccumulatedSpecialDepr', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.ACCUMULATED_SPECIAL_DEPR = new core_1.StringField('AccumulatedSpecialDepr', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[revenuefromAssetSalesNet]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.REVENUEFROM_ASSET_SALES_NET = new v4_1.StringField('RevenuefromAssetSalesNet', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.REVENUEFROM_ASSET_SALES_NET = new core_1.StringField('RevenuefromAssetSalesNet', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[retirementwithExpenseNet]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.RETIREMENTWITH_EXPENSE_NET = new v4_1.StringField('RetirementwithExpenseNet', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.RETIREMENTWITH_EXPENSE_NET = new core_1.StringField('RetirementwithExpenseNet', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[retirementwithRevenueNet]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.RETIREMENTWITH_REVENUE_NET = new v4_1.StringField('RetirementwithRevenueNet', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.RETIREMENTWITH_REVENUE_NET = new core_1.StringField('RetirementwithRevenueNet', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[leavewithExpenseNbvGross]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.LEAVEWITH_EXPENSE_NBV_GROSS = new v4_1.StringField('LeavewithExpenseNBVGross', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.LEAVEWITH_EXPENSE_NBV_GROSS = new core_1.StringField('LeavewithExpenseNBVGross', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[leavewithRevenueNbvGross]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.LEAVEWITH_REVENUE_NBV_GROSS = new v4_1.StringField('LeavewithRevenueNBVGross', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.LEAVEWITH_REVENUE_NBV_GROSS = new core_1.StringField('LeavewithRevenueNBVGross', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[revenueAccountforRetirement]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.REVENUE_ACCOUNTFOR_RETIREMENT = new v4_1.StringField('RevenueAccountforRetirement', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.REVENUE_ACCOUNTFOR_RETIREMENT = new core_1.StringField('RevenueAccountforRetirement', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the [[revenueClearingAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.REVENUE_CLEARING_ACCOUNT = new v4_1.StringField('RevenueClearingAccount', FaAccountDeterminations, 'Edm.String');
+    FaAccountDeterminations.REVENUE_CLEARING_ACCOUNT = new core_1.StringField('RevenueClearingAccount', FaAccountDeterminations, 'Edm.String');
     /**
      * Static representation of the one-to-one navigation property [[chartOfAccount]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    FaAccountDeterminations.CHART_OF_ACCOUNT = new v4_1.OneToOneLink('ChartOfAccount', FaAccountDeterminations, ChartOfAccounts_1.ChartOfAccounts);
+    FaAccountDeterminations.CHART_OF_ACCOUNT = new core_1.OneToOneLink('ChartOfAccount', FaAccountDeterminations, ChartOfAccounts_1.ChartOfAccounts);
     /**
      * All fields of the FaAccountDeterminations entity.
      */
@@ -215,7 +210,7 @@ var ChartOfAccounts_1 = require("./ChartOfAccounts");
     /**
      * All fields selector.
      */
-    FaAccountDeterminations.ALL_FIELDS = new v4_1.AllFields('*', FaAccountDeterminations);
+    FaAccountDeterminations.ALL_FIELDS = new core_1.AllFields('*', FaAccountDeterminations);
     /**
      * All key fields of the FaAccountDeterminations entity.
      */

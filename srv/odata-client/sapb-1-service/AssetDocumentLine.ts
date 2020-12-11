@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * AssetDocumentLine
@@ -65,6 +66,11 @@ export interface AssetDocumentLine {
    */
   newAssetNumber?: string;
   /**
+   * Partial.
+   * @nullable
+   */
+  partial?: BoYesNoEnum;
+  /**
    * Apc.
    * @nullable
    */
@@ -117,7 +123,7 @@ export function createAssetDocumentLine(json: any): AssetDocumentLine {
  * AssetDocumentLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class AssetDocumentLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class AssetDocumentLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, AssetDocumentLine> {
   /**
    * Representation of the [[AssetDocumentLine.docEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -174,6 +180,11 @@ export class AssetDocumentLineField<EntityT extends Entity> extends ComplexTypeF
    */
   newAssetNumber: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('NewAssetNumber', this, 'Edm.String');
   /**
+   * Representation of the [[AssetDocumentLine.partial]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  partial: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Partial', this);
+  /**
    * Representation of the [[AssetDocumentLine.apc]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -213,30 +224,128 @@ export class AssetDocumentLineField<EntityT extends Entity> extends ComplexTypeF
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   project: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Project', this, 'Edm.String');
+
+  /**
+   * Creates an instance of AssetDocumentLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, AssetDocumentLine);
+  }
 }
 
 export namespace AssetDocumentLine {
+  /**
+   * Metadata information on all properties of the `AssetDocumentLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<AssetDocumentLine>[] = [{
+    originalName: 'DocEntry',
+    name: 'docEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AssetNumber',
+    name: 'assetNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GLAccount',
+    name: 'glAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Quantity',
+    name: 'quantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TotalLC',
+    name: 'totalLc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TotalFC',
+    name: 'totalFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TotalSC',
+    name: 'totalSc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DepreciationArea',
+    name: 'depreciationArea',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Remarks',
+    name: 'remarks',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'NewAssetNumber',
+    name: 'newAssetNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Partial',
+    name: 'partial',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'APC',
+    name: 'apc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'NewAssetClass',
+    name: 'newAssetClass',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule',
+    name: 'distributionRule',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule2',
+    name: 'distributionRule2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule3',
+    name: 'distributionRule3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule4',
+    name: 'distributionRule4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule5',
+    name: 'distributionRule5',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Project',
+    name: 'project',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): AssetDocumentLine {
-    return createComplexType(json, {
-      DocEntry: (docEntry: number) => ({ docEntry: edmToTs(docEntry, 'Edm.Int32') }),
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      AssetNumber: (assetNumber: string) => ({ assetNumber: edmToTs(assetNumber, 'Edm.String') }),
-      GLAccount: (glAccount: string) => ({ glAccount: edmToTs(glAccount, 'Edm.String') }),
-      Quantity: (quantity: number) => ({ quantity: edmToTs(quantity, 'Edm.Double') }),
-      TotalLC: (totalLc: number) => ({ totalLc: edmToTs(totalLc, 'Edm.Double') }),
-      TotalFC: (totalFc: number) => ({ totalFc: edmToTs(totalFc, 'Edm.Double') }),
-      TotalSC: (totalSc: number) => ({ totalSc: edmToTs(totalSc, 'Edm.Double') }),
-      DepreciationArea: (depreciationArea: string) => ({ depreciationArea: edmToTs(depreciationArea, 'Edm.String') }),
-      Remarks: (remarks: string) => ({ remarks: edmToTs(remarks, 'Edm.String') }),
-      NewAssetNumber: (newAssetNumber: string) => ({ newAssetNumber: edmToTs(newAssetNumber, 'Edm.String') }),
-      APC: (apc: number) => ({ apc: edmToTs(apc, 'Edm.Double') }),
-      NewAssetClass: (newAssetClass: string) => ({ newAssetClass: edmToTs(newAssetClass, 'Edm.String') }),
-      DistributionRule: (distributionRule: string) => ({ distributionRule: edmToTs(distributionRule, 'Edm.String') }),
-      DistributionRule2: (distributionRule2: string) => ({ distributionRule2: edmToTs(distributionRule2, 'Edm.String') }),
-      DistributionRule3: (distributionRule3: string) => ({ distributionRule3: edmToTs(distributionRule3, 'Edm.String') }),
-      DistributionRule4: (distributionRule4: string) => ({ distributionRule4: edmToTs(distributionRule4, 'Edm.String') }),
-      DistributionRule5: (distributionRule5: string) => ({ distributionRule5: edmToTs(distributionRule5, 'Edm.String') }),
-      Project: (project: string) => ({ project: edmToTs(project, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, AssetDocumentLine);
   }
 }

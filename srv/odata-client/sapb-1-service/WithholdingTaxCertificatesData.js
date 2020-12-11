@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -15,7 +15,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WithholdingTaxCertificatesData = exports.WithholdingTaxCertificatesDataField = exports.createWithholdingTaxCertificatesData = void 0;
 var WtGroups_1 = require("./WtGroups");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[WithholdingTaxCertificatesData.build]] instead.
  */
@@ -29,108 +29,180 @@ exports.createWithholdingTaxCertificatesData = createWithholdingTaxCertificatesD
  */
 var WithholdingTaxCertificatesDataField = /** @class */ (function (_super) {
     __extends(WithholdingTaxCertificatesDataField, _super);
-    function WithholdingTaxCertificatesDataField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of WithholdingTaxCertificatesDataField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function WithholdingTaxCertificatesDataField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, WithholdingTaxCertificatesData) || this;
         /**
          * Representation of the [[WithholdingTaxCertificatesData.poiCodeRef]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.poiCodeRef = new v4_1.ComplexTypeStringPropertyField('POICodeRef', _this, 'Edm.String');
+        _this.poiCodeRef = new core_1.ComplexTypeStringPropertyField('POICodeRef', _this, 'Edm.String');
         /**
          * Representation of the [[WithholdingTaxCertificatesData.poiCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.poiCode = new v4_1.ComplexTypeStringPropertyField('POICode', _this, 'Edm.String');
+        _this.poiCode = new core_1.ComplexTypeStringPropertyField('POICode', _this, 'Edm.String');
         /**
          * Representation of the [[WithholdingTaxCertificatesData.certificate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.certificate = new v4_1.ComplexTypeStringPropertyField('Certificate', _this, 'Edm.String');
+        _this.certificate = new core_1.ComplexTypeStringPropertyField('Certificate', _this, 'Edm.String');
         /**
          * Representation of the [[WithholdingTaxCertificatesData.wTaxType]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.wTaxType = new v4_1.ComplexTypeStringPropertyField('WTaxType', _this, 'Edm.String');
+        _this.wTaxType = new core_1.ComplexTypeStringPropertyField('WTaxType', _this, 'Edm.String');
         /**
          * Representation of the [[WithholdingTaxCertificatesData.periodIndicator]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.periodIndicator = new v4_1.ComplexTypeStringPropertyField('PeriodIndicator', _this, 'Edm.String');
+        _this.periodIndicator = new core_1.ComplexTypeStringPropertyField('PeriodIndicator', _this, 'Edm.String');
         /**
          * Representation of the [[WithholdingTaxCertificatesData.whtAbsId]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.whtAbsId = new v4_1.ComplexTypeNumberPropertyField('WhtAbsId', _this, 'Edm.Int32');
+        _this.whtAbsId = new core_1.ComplexTypeNumberPropertyField('WhtAbsId', _this, 'Edm.Int32');
         /**
          * Representation of the [[WithholdingTaxCertificatesData.series]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.series = new v4_1.ComplexTypeNumberPropertyField('Series', _this, 'Edm.Int32');
+        _this.series = new core_1.ComplexTypeNumberPropertyField('Series', _this, 'Edm.Int32');
         /**
          * Representation of the [[WithholdingTaxCertificatesData.number]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.number = new v4_1.ComplexTypeNumberPropertyField('Number', _this, 'Edm.Int32');
+        _this.number = new core_1.ComplexTypeNumberPropertyField('Number', _this, 'Edm.Int32');
         /**
          * Representation of the [[WithholdingTaxCertificatesData.issueDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.issueDate = new v4_1.ComplexTypeDatePropertyField('IssueDate', _this, 'Edm.DateTimeOffset');
+        _this.issueDate = new core_1.ComplexTypeDatePropertyField('IssueDate', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[WithholdingTaxCertificatesData.sumVatAmount]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.sumVatAmount = new v4_1.ComplexTypeNumberPropertyField('SumVATAmount', _this, 'Edm.Double');
+        _this.sumVatAmount = new core_1.ComplexTypeNumberPropertyField('SumVATAmount', _this, 'Edm.Double');
         /**
          * Representation of the [[WithholdingTaxCertificatesData.sumDocTotal]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.sumDocTotal = new v4_1.ComplexTypeNumberPropertyField('SumDocTotal', _this, 'Edm.Double');
+        _this.sumDocTotal = new core_1.ComplexTypeNumberPropertyField('SumDocTotal', _this, 'Edm.Double');
         /**
          * Representation of the [[WithholdingTaxCertificatesData.sumBaseAmount]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.sumBaseAmount = new v4_1.ComplexTypeNumberPropertyField('SumBaseAmount', _this, 'Edm.Double');
+        _this.sumBaseAmount = new core_1.ComplexTypeNumberPropertyField('SumBaseAmount', _this, 'Edm.Double');
         /**
          * Representation of the [[WithholdingTaxCertificatesData.sumAccumAmount]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.sumAccumAmount = new v4_1.ComplexTypeNumberPropertyField('SumAccumAmount', _this, 'Edm.Double');
+        _this.sumAccumAmount = new core_1.ComplexTypeNumberPropertyField('SumAccumAmount', _this, 'Edm.Double');
         /**
          * Representation of the [[WithholdingTaxCertificatesData.sumPercAmount]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.sumPercAmount = new v4_1.ComplexTypeNumberPropertyField('SumPercAmount', _this, 'Edm.Double');
+        _this.sumPercAmount = new core_1.ComplexTypeNumberPropertyField('SumPercAmount', _this, 'Edm.Double');
         /**
          * Representation of the [[WithholdingTaxCertificatesData.wtGroupsCollection]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.wtGroupsCollection = new WtGroups_1.WtGroupsField('WTGroupsCollection', _this);
+        _this.wtGroupsCollection = new core_1.CollectionField('WTGroupsCollection', _this, WtGroups_1.WtGroups);
         return _this;
     }
     return WithholdingTaxCertificatesDataField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.WithholdingTaxCertificatesDataField = WithholdingTaxCertificatesDataField;
 var WithholdingTaxCertificatesData;
 (function (WithholdingTaxCertificatesData) {
+    /**
+     * Metadata information on all properties of the `WithholdingTaxCertificatesData` complex type.
+     */
+    WithholdingTaxCertificatesData._propertyMetadata = [{
+            originalName: 'POICodeRef',
+            name: 'poiCodeRef',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'POICode',
+            name: 'poiCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Certificate',
+            name: 'certificate',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'WTaxType',
+            name: 'wTaxType',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'PeriodIndicator',
+            name: 'periodIndicator',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'WhtAbsId',
+            name: 'whtAbsId',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Series',
+            name: 'series',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Number',
+            name: 'number',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'IssueDate',
+            name: 'issueDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'SumVATAmount',
+            name: 'sumVatAmount',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'SumDocTotal',
+            name: 'sumDocTotal',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'SumBaseAmount',
+            name: 'sumBaseAmount',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'SumAccumAmount',
+            name: 'sumAccumAmount',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'SumPercAmount',
+            name: 'sumPercAmount',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'WTGroupsCollection',
+            name: 'wtGroupsCollection',
+            type: WtGroups_1.WtGroups,
+            isCollection: true
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            POICodeRef: function (poiCodeRef) { return ({ poiCodeRef: v4_1.edmToTs(poiCodeRef, 'Edm.String') }); },
-            POICode: function (poiCode) { return ({ poiCode: v4_1.edmToTs(poiCode, 'Edm.String') }); },
-            Certificate: function (certificate) { return ({ certificate: v4_1.edmToTs(certificate, 'Edm.String') }); },
-            WTaxType: function (wTaxType) { return ({ wTaxType: v4_1.edmToTs(wTaxType, 'Edm.String') }); },
-            PeriodIndicator: function (periodIndicator) { return ({ periodIndicator: v4_1.edmToTs(periodIndicator, 'Edm.String') }); },
-            WhtAbsId: function (whtAbsId) { return ({ whtAbsId: v4_1.edmToTs(whtAbsId, 'Edm.Int32') }); },
-            Series: function (series) { return ({ series: v4_1.edmToTs(series, 'Edm.Int32') }); },
-            Number: function (number) { return ({ number: v4_1.edmToTs(number, 'Edm.Int32') }); },
-            IssueDate: function (issueDate) { return ({ issueDate: v4_1.edmToTs(issueDate, 'Edm.DateTimeOffset') }); },
-            SumVATAmount: function (sumVatAmount) { return ({ sumVatAmount: v4_1.edmToTs(sumVatAmount, 'Edm.Double') }); },
-            SumDocTotal: function (sumDocTotal) { return ({ sumDocTotal: v4_1.edmToTs(sumDocTotal, 'Edm.Double') }); },
-            SumBaseAmount: function (sumBaseAmount) { return ({ sumBaseAmount: v4_1.edmToTs(sumBaseAmount, 'Edm.Double') }); },
-            SumAccumAmount: function (sumAccumAmount) { return ({ sumAccumAmount: v4_1.edmToTs(sumAccumAmount, 'Edm.Double') }); },
-            SumPercAmount: function (sumPercAmount) { return ({ sumPercAmount: v4_1.edmToTs(sumPercAmount, 'Edm.Double') }); },
-            WTGroupsCollection: function (wtGroupsCollection) { return ({ wtGroupsCollection: WtGroups_1.WtGroups.build(wtGroupsCollection) }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, WithholdingTaxCertificatesData);
     }
     WithholdingTaxCertificatesData.build = build;
 })(WithholdingTaxCertificatesData = exports.WithholdingTaxCertificatesData || (exports.WithholdingTaxCertificatesData = {}));

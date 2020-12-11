@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { BinLocationAttributesRequestBuilder } from './BinLocationAttributesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "BinLocationAttributes" of service "SAPB1".
  */
-export class BinLocationAttributes extends Entity implements BinLocationAttributesType {
+export class BinLocationAttributes extends EntityV4 implements BinLocationAttributesType {
   /**
    * Technical entity name for BinLocationAttributes.
    */
   static _entityName = 'BinLocationAttributes';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for BinLocationAttributes.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Attribute.
    * @nullable
@@ -44,11 +39,11 @@ export class BinLocationAttributes extends Entity implements BinLocationAttribut
   binLocationField!: BinLocationFields;
 
   /**
-   * Returns an entity builder to construct instances `BinLocationAttributes`.
+   * Returns an entity builder to construct instances of `BinLocationAttributes`.
    * @returns A builder that constructs instances of entity type `BinLocationAttributes`.
    */
-  static builder(): EntityBuilderType<BinLocationAttributes, BinLocationAttributesTypeForceMandatory> {
-    return Entity.entityBuilder(BinLocationAttributes);
+  static builder(): EntityBuilderType<BinLocationAttributes, BinLocationAttributesType> {
+    return EntityV4.entityBuilder(BinLocationAttributes);
   }
 
   /**
@@ -64,8 +59,8 @@ export class BinLocationAttributes extends Entity implements BinLocationAttribut
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `BinLocationAttributes`.
    */
-  static customField(fieldName: string): CustomField<BinLocationAttributes> {
-    return Entity.customFieldSelector(fieldName, BinLocationAttributes);
+  static customField(fieldName: string): CustomFieldV4<BinLocationAttributes> {
+    return EntityV4.customFieldSelector(fieldName, BinLocationAttributes);
   }
 
   /**
@@ -80,16 +75,9 @@ export class BinLocationAttributes extends Entity implements BinLocationAttribut
 import { BinLocationFields, BinLocationFieldsType } from './BinLocationFields';
 
 export interface BinLocationAttributesType {
-  attribute?: number;
-  code?: string;
-  absEntry?: number;
-  binLocationField: BinLocationFieldsType;
-}
-
-export interface BinLocationAttributesTypeForceMandatory {
-  attribute: number;
-  code: string;
-  absEntry: number;
+  attribute?: number | null;
+  code?: string | null;
+  absEntry?: number | null;
   binLocationField: BinLocationFieldsType;
 }
 

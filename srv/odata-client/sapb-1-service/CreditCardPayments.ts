@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { CreditCardPaymentsRequestBuilder } from './CreditCardPaymentsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { DueDateTypesEnum } from './DueDateTypesEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "CreditCardPayments" of service "SAPB1".
  */
-export class CreditCardPayments extends Entity implements CreditCardPaymentsType {
+export class CreditCardPayments extends EntityV4 implements CreditCardPaymentsType {
   /**
    * Technical entity name for CreditCardPayments.
    */
   static _entityName = 'CreditCardPayments';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for CreditCardPayments.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Due Date Code.
    * @nullable
@@ -33,6 +29,11 @@ export class CreditCardPayments extends Entity implements CreditCardPaymentsType
    * @nullable
    */
   dueDateName?: string;
+  /**
+   * Due Dates Type.
+   * @nullable
+   */
+  dueDatesType?: DueDateTypesEnum;
   /**
    * Payment After Days.
    * @nullable
@@ -129,11 +130,11 @@ export class CreditCardPayments extends Entity implements CreditCardPaymentsType
   creditPaymentMethods!: CreditPaymentMethods[];
 
   /**
-   * Returns an entity builder to construct instances `CreditCardPayments`.
+   * Returns an entity builder to construct instances of `CreditCardPayments`.
    * @returns A builder that constructs instances of entity type `CreditCardPayments`.
    */
-  static builder(): EntityBuilderType<CreditCardPayments, CreditCardPaymentsTypeForceMandatory> {
-    return Entity.entityBuilder(CreditCardPayments);
+  static builder(): EntityBuilderType<CreditCardPayments, CreditCardPaymentsType> {
+    return EntityV4.entityBuilder(CreditCardPayments);
   }
 
   /**
@@ -149,8 +150,8 @@ export class CreditCardPayments extends Entity implements CreditCardPaymentsType
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `CreditCardPayments`.
    */
-  static customField(fieldName: string): CustomField<CreditCardPayments> {
-    return Entity.customFieldSelector(fieldName, CreditCardPayments);
+  static customField(fieldName: string): CustomFieldV4<CreditCardPayments> {
+    return EntityV4.customFieldSelector(fieldName, CreditCardPayments);
   }
 
   /**
@@ -165,50 +166,27 @@ export class CreditCardPayments extends Entity implements CreditCardPaymentsType
 import { CreditPaymentMethods, CreditPaymentMethodsType } from './CreditPaymentMethods';
 
 export interface CreditCardPaymentsType {
-  dueDateCode?: string;
-  dueDateName?: string;
-  paymentAfterDays?: number;
-  paymentAfterMonths?: number;
-  fromDay1?: number;
-  toDay1?: number;
-  paymentDay1?: number;
-  noOfMonths1?: number;
-  fromDay2?: number;
-  toDay2?: number;
-  paymentDay2?: number;
-  noOfMonths2?: number;
-  fromDay3?: number;
-  toDay3?: number;
-  paymentDay3?: number;
-  noOfMonths3?: number;
-  fromDay4?: number;
-  toDay4?: number;
-  paymentDay4?: number;
-  noOfMonths4?: number;
-  creditPaymentMethods: CreditPaymentMethodsType[];
-}
-
-export interface CreditCardPaymentsTypeForceMandatory {
-  dueDateCode: string;
-  dueDateName: string;
-  paymentAfterDays: number;
-  paymentAfterMonths: number;
-  fromDay1: number;
-  toDay1: number;
-  paymentDay1: number;
-  noOfMonths1: number;
-  fromDay2: number;
-  toDay2: number;
-  paymentDay2: number;
-  noOfMonths2: number;
-  fromDay3: number;
-  toDay3: number;
-  paymentDay3: number;
-  noOfMonths3: number;
-  fromDay4: number;
-  toDay4: number;
-  paymentDay4: number;
-  noOfMonths4: number;
+  dueDateCode?: string | null;
+  dueDateName?: string | null;
+  dueDatesType?: DueDateTypesEnum | null;
+  paymentAfterDays?: number | null;
+  paymentAfterMonths?: number | null;
+  fromDay1?: number | null;
+  toDay1?: number | null;
+  paymentDay1?: number | null;
+  noOfMonths1?: number | null;
+  fromDay2?: number | null;
+  toDay2?: number | null;
+  paymentDay2?: number | null;
+  noOfMonths2?: number | null;
+  fromDay3?: number | null;
+  toDay3?: number | null;
+  paymentDay3?: number | null;
+  noOfMonths3?: number | null;
+  fromDay4?: number | null;
+  toDay4?: number | null;
+  paymentDay4?: number | null;
+  noOfMonths4?: number | null;
   creditPaymentMethods: CreditPaymentMethodsType[];
 }
 
@@ -223,6 +201,11 @@ export namespace CreditCardPayments {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DUE_DATE_NAME: StringField<CreditCardPayments> = new StringField('DueDateName', CreditCardPayments, 'Edm.String');
+  /**
+   * Static representation of the [[dueDatesType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DUE_DATES_TYPE: EnumField<CreditCardPayments> = new EnumField('DueDatesType', CreditCardPayments);
   /**
    * Static representation of the [[paymentAfterDays]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -321,9 +304,10 @@ export namespace CreditCardPayments {
   /**
    * All fields of the CreditCardPayments entity.
    */
-  export const _allFields: Array<StringField<CreditCardPayments> | NumberField<CreditCardPayments> | OneToManyLink<CreditCardPayments, CreditPaymentMethods>> = [
+  export const _allFields: Array<StringField<CreditCardPayments> | EnumField<CreditCardPayments> | NumberField<CreditCardPayments> | OneToManyLink<CreditCardPayments, CreditPaymentMethods>> = [
     CreditCardPayments.DUE_DATE_CODE,
     CreditCardPayments.DUE_DATE_NAME,
+    CreditCardPayments.DUE_DATES_TYPE,
     CreditCardPayments.PAYMENT_AFTER_DAYS,
     CreditCardPayments.PAYMENT_AFTER_MONTHS,
     CreditCardPayments.FROM_DAY_1,

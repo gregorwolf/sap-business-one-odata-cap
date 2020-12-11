@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.CashFlowLineItems = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var CashFlowLineItemsRequestBuilder_1 = require("./CashFlowLineItemsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "CashFlowLineItems" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var CashFlowLineItems = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `CashFlowLineItems`.
+     * Returns an entity builder to construct instances of `CashFlowLineItems`.
      * @returns A builder that constructs instances of entity type `CashFlowLineItems`.
      */
     CashFlowLineItems.builder = function () {
-        return v4_1.Entity.entityBuilder(CashFlowLineItems);
+        return core_1.EntityV4.entityBuilder(CashFlowLineItems);
     };
     /**
      * Returns a request builder to construct requests for operations on the `CashFlowLineItems` entity type.
@@ -60,7 +60,7 @@ var CashFlowLineItems = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `CashFlowLineItems`.
      */
     CashFlowLineItems.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, CashFlowLineItems);
+        return core_1.EntityV4.customFieldSelector(fieldName, CashFlowLineItems);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,49 +74,50 @@ var CashFlowLineItems = /** @class */ (function (_super) {
      */
     CashFlowLineItems._entityName = 'CashFlowLineItems';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for CashFlowLineItems.
-     */
-    CashFlowLineItems._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    CashFlowLineItems._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    CashFlowLineItems._defaultServicePath = '/b1s/v2/';
     return CashFlowLineItems;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.CashFlowLineItems = CashFlowLineItems;
 (function (CashFlowLineItems) {
     /**
      * Static representation of the [[lineItemId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CashFlowLineItems.LINE_ITEM_ID = new v4_1.NumberField('LineItemID', CashFlowLineItems, 'Edm.Int32');
+    CashFlowLineItems.LINE_ITEM_ID = new core_1.NumberField('LineItemID', CashFlowLineItems, 'Edm.Int32');
     /**
      * Static representation of the [[lineItemName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CashFlowLineItems.LINE_ITEM_NAME = new v4_1.StringField('LineItemName', CashFlowLineItems, 'Edm.String');
+    CashFlowLineItems.LINE_ITEM_NAME = new core_1.StringField('LineItemName', CashFlowLineItems, 'Edm.String');
+    /**
+     * Static representation of the [[activeLineItem]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    CashFlowLineItems.ACTIVE_LINE_ITEM = new core_1.EnumField('ActiveLineItem', CashFlowLineItems);
     /**
      * Static representation of the [[parentArticle]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CashFlowLineItems.PARENT_ARTICLE = new v4_1.NumberField('ParentArticle', CashFlowLineItems, 'Edm.Int32');
+    CashFlowLineItems.PARENT_ARTICLE = new core_1.NumberField('ParentArticle', CashFlowLineItems, 'Edm.Int32');
     /**
      * Static representation of the [[level]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CashFlowLineItems.LEVEL = new v4_1.NumberField('Level', CashFlowLineItems, 'Edm.Int32');
+    CashFlowLineItems.LEVEL = new core_1.NumberField('Level', CashFlowLineItems, 'Edm.Int32');
     /**
      * Static representation of the [[drawer]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CashFlowLineItems.DRAWER = new v4_1.NumberField('Drawer', CashFlowLineItems, 'Edm.Int32');
+    CashFlowLineItems.DRAWER = new core_1.NumberField('Drawer', CashFlowLineItems, 'Edm.Int32');
     /**
      * All fields of the CashFlowLineItems entity.
      */
     CashFlowLineItems._allFields = [
         CashFlowLineItems.LINE_ITEM_ID,
         CashFlowLineItems.LINE_ITEM_NAME,
+        CashFlowLineItems.ACTIVE_LINE_ITEM,
         CashFlowLineItems.PARENT_ARTICLE,
         CashFlowLineItems.LEVEL,
         CashFlowLineItems.DRAWER
@@ -124,7 +125,7 @@ exports.CashFlowLineItems = CashFlowLineItems;
     /**
      * All fields selector.
      */
-    CashFlowLineItems.ALL_FIELDS = new v4_1.AllFields('*', CashFlowLineItems);
+    CashFlowLineItems.ALL_FIELDS = new core_1.AllFields('*', CashFlowLineItems);
     /**
      * All key fields of the CashFlowLineItems entity.
      */

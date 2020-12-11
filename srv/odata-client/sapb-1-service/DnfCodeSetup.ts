@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { DnfCodeSetupRequestBuilder } from './DnfCodeSetupRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "DNFCodeSetup" of service "SAPB1".
  */
-export class DnfCodeSetup extends Entity implements DnfCodeSetupType {
+export class DnfCodeSetup extends EntityV4 implements DnfCodeSetupType {
   /**
    * Technical entity name for DnfCodeSetup.
    */
   static _entityName = 'DNFCodeSetup';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for DnfCodeSetup.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Abs Entry.
    * @nullable
@@ -58,11 +53,11 @@ export class DnfCodeSetup extends Entity implements DnfCodeSetupType {
   ncmCodeSetup!: NcmCodesSetup;
 
   /**
-   * Returns an entity builder to construct instances `DnfCodeSetup`.
+   * Returns an entity builder to construct instances of `DnfCodeSetup`.
    * @returns A builder that constructs instances of entity type `DnfCodeSetup`.
    */
-  static builder(): EntityBuilderType<DnfCodeSetup, DnfCodeSetupTypeForceMandatory> {
-    return Entity.entityBuilder(DnfCodeSetup);
+  static builder(): EntityBuilderType<DnfCodeSetup, DnfCodeSetupType> {
+    return EntityV4.entityBuilder(DnfCodeSetup);
   }
 
   /**
@@ -78,8 +73,8 @@ export class DnfCodeSetup extends Entity implements DnfCodeSetupType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `DnfCodeSetup`.
    */
-  static customField(fieldName: string): CustomField<DnfCodeSetup> {
-    return Entity.customFieldSelector(fieldName, DnfCodeSetup);
+  static customField(fieldName: string): CustomFieldV4<DnfCodeSetup> {
+    return EntityV4.customFieldSelector(fieldName, DnfCodeSetup);
   }
 
   /**
@@ -95,21 +90,11 @@ import { Items, ItemsType } from './Items';
 import { NcmCodesSetup, NcmCodesSetupType } from './NcmCodesSetup';
 
 export interface DnfCodeSetupType {
-  absEntry?: number;
-  ncmCode?: number;
-  dnfCode?: string;
-  uoM?: string;
-  factor?: number;
-  items: ItemsType[];
-  ncmCodeSetup: NcmCodesSetupType;
-}
-
-export interface DnfCodeSetupTypeForceMandatory {
-  absEntry: number;
-  ncmCode: number;
-  dnfCode: string;
-  uoM: string;
-  factor: number;
+  absEntry?: number | null;
+  ncmCode?: number | null;
+  dnfCode?: string | null;
+  uoM?: string | null;
+  factor?: number | null;
   items: ItemsType[];
   ncmCodeSetup: NcmCodesSetupType;
 }

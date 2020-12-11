@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { WizardPaymentMethods } from './WizardPaymentMethods';
 
 /**
@@ -15,16 +15,16 @@ export class WizardPaymentMethodsRequestBuilder extends RequestBuilder<WizardPay
    * @param paymentMethodCode Key property. See [[WizardPaymentMethods.paymentMethodCode]].
    * @returns A request builder for creating requests to retrieve one `WizardPaymentMethods` entity based on its keys.
    */
-  getByKey(paymentMethodCode: string): GetByKeyRequestBuilder<WizardPaymentMethods> {
-    return new GetByKeyRequestBuilder(WizardPaymentMethods, { PaymentMethodCode: paymentMethodCode });
+  getByKey(paymentMethodCode: string): GetByKeyRequestBuilderV4<WizardPaymentMethods> {
+    return new GetByKeyRequestBuilderV4(WizardPaymentMethods, { PaymentMethodCode: paymentMethodCode });
   }
 
   /**
    * Returns a request builder for querying all `WizardPaymentMethods` entities.
    * @returns A request builder for creating requests to retrieve all `WizardPaymentMethods` entities.
    */
-  getAll(): GetAllRequestBuilder<WizardPaymentMethods> {
-    return new GetAllRequestBuilder(WizardPaymentMethods);
+  getAll(): GetAllRequestBuilderV4<WizardPaymentMethods> {
+    return new GetAllRequestBuilderV4(WizardPaymentMethods);
   }
 
   /**
@@ -32,8 +32,8 @@ export class WizardPaymentMethodsRequestBuilder extends RequestBuilder<WizardPay
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `WizardPaymentMethods`.
    */
-  create(entity: WizardPaymentMethods): CreateRequestBuilder<WizardPaymentMethods> {
-    return new CreateRequestBuilder(WizardPaymentMethods, entity);
+  create(entity: WizardPaymentMethods): CreateRequestBuilderV4<WizardPaymentMethods> {
+    return new CreateRequestBuilderV4(WizardPaymentMethods, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class WizardPaymentMethodsRequestBuilder extends RequestBuilder<WizardPay
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `WizardPaymentMethods`.
    */
-  update(entity: WizardPaymentMethods): UpdateRequestBuilder<WizardPaymentMethods> {
-    return new UpdateRequestBuilder(WizardPaymentMethods, entity);
+  update(entity: WizardPaymentMethods): UpdateRequestBuilderV4<WizardPaymentMethods> {
+    return new UpdateRequestBuilderV4(WizardPaymentMethods, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class WizardPaymentMethodsRequestBuilder extends RequestBuilder<WizardPay
    * @param paymentMethodCode Key property. See [[WizardPaymentMethods.paymentMethodCode]].
    * @returns A request builder for creating requests that delete an entity of type `WizardPaymentMethods`.
    */
-  delete(paymentMethodCode: string): DeleteRequestBuilder<WizardPaymentMethods>;
+  delete(paymentMethodCode: string): DeleteRequestBuilderV4<WizardPaymentMethods>;
   /**
    * Returns a request builder for deleting an entity of type `WizardPaymentMethods`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `WizardPaymentMethods` by taking the entity as a parameter.
    */
-  delete(entity: WizardPaymentMethods): DeleteRequestBuilder<WizardPaymentMethods>;
-  delete(paymentMethodCodeOrEntity: any): DeleteRequestBuilder<WizardPaymentMethods> {
-    return new DeleteRequestBuilder(WizardPaymentMethods, paymentMethodCodeOrEntity instanceof WizardPaymentMethods ? paymentMethodCodeOrEntity : { PaymentMethodCode: paymentMethodCodeOrEntity! });
+  delete(entity: WizardPaymentMethods): DeleteRequestBuilderV4<WizardPaymentMethods>;
+  delete(paymentMethodCodeOrEntity: any): DeleteRequestBuilderV4<WizardPaymentMethods> {
+    return new DeleteRequestBuilderV4(WizardPaymentMethods, paymentMethodCodeOrEntity instanceof WizardPaymentMethods ? paymentMethodCodeOrEntity : { PaymentMethodCode: paymentMethodCodeOrEntity! });
   }
 }

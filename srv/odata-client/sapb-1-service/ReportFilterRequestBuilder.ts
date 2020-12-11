@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { ReportFilter } from './ReportFilter';
 
 /**
@@ -15,16 +15,16 @@ export class ReportFilterRequestBuilder extends RequestBuilder<ReportFilter> {
    * @param code Key property. See [[ReportFilter.code]].
    * @returns A request builder for creating requests to retrieve one `ReportFilter` entity based on its keys.
    */
-  getByKey(code: number): GetByKeyRequestBuilder<ReportFilter> {
-    return new GetByKeyRequestBuilder(ReportFilter, { Code: code });
+  getByKey(code: number): GetByKeyRequestBuilderV4<ReportFilter> {
+    return new GetByKeyRequestBuilderV4(ReportFilter, { Code: code });
   }
 
   /**
    * Returns a request builder for querying all `ReportFilter` entities.
    * @returns A request builder for creating requests to retrieve all `ReportFilter` entities.
    */
-  getAll(): GetAllRequestBuilder<ReportFilter> {
-    return new GetAllRequestBuilder(ReportFilter);
+  getAll(): GetAllRequestBuilderV4<ReportFilter> {
+    return new GetAllRequestBuilderV4(ReportFilter);
   }
 
   /**
@@ -32,8 +32,8 @@ export class ReportFilterRequestBuilder extends RequestBuilder<ReportFilter> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `ReportFilter`.
    */
-  create(entity: ReportFilter): CreateRequestBuilder<ReportFilter> {
-    return new CreateRequestBuilder(ReportFilter, entity);
+  create(entity: ReportFilter): CreateRequestBuilderV4<ReportFilter> {
+    return new CreateRequestBuilderV4(ReportFilter, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class ReportFilterRequestBuilder extends RequestBuilder<ReportFilter> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `ReportFilter`.
    */
-  update(entity: ReportFilter): UpdateRequestBuilder<ReportFilter> {
-    return new UpdateRequestBuilder(ReportFilter, entity);
+  update(entity: ReportFilter): UpdateRequestBuilderV4<ReportFilter> {
+    return new UpdateRequestBuilderV4(ReportFilter, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class ReportFilterRequestBuilder extends RequestBuilder<ReportFilter> {
    * @param code Key property. See [[ReportFilter.code]].
    * @returns A request builder for creating requests that delete an entity of type `ReportFilter`.
    */
-  delete(code: number): DeleteRequestBuilder<ReportFilter>;
+  delete(code: number): DeleteRequestBuilderV4<ReportFilter>;
   /**
    * Returns a request builder for deleting an entity of type `ReportFilter`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `ReportFilter` by taking the entity as a parameter.
    */
-  delete(entity: ReportFilter): DeleteRequestBuilder<ReportFilter>;
-  delete(codeOrEntity: any): DeleteRequestBuilder<ReportFilter> {
-    return new DeleteRequestBuilder(ReportFilter, codeOrEntity instanceof ReportFilter ? codeOrEntity : { Code: codeOrEntity! });
+  delete(entity: ReportFilter): DeleteRequestBuilderV4<ReportFilter>;
+  delete(codeOrEntity: any): DeleteRequestBuilderV4<ReportFilter> {
+    return new DeleteRequestBuilderV4(ReportFilter, codeOrEntity instanceof ReportFilter ? codeOrEntity : { Code: codeOrEntity! });
   }
 }

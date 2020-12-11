@@ -1,18 +1,13 @@
 import { DnfCodeSetupRequestBuilder } from './DnfCodeSetupRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "DNFCodeSetup" of service "SAPB1".
  */
-export declare class DnfCodeSetup extends Entity implements DnfCodeSetupType {
+export declare class DnfCodeSetup extends EntityV4 implements DnfCodeSetupType {
     /**
      * Technical entity name for DnfCodeSetup.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for DnfCodeSetup.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -51,10 +46,10 @@ export declare class DnfCodeSetup extends Entity implements DnfCodeSetupType {
      */
     ncmCodeSetup: NcmCodesSetup;
     /**
-     * Returns an entity builder to construct instances `DnfCodeSetup`.
+     * Returns an entity builder to construct instances of `DnfCodeSetup`.
      * @returns A builder that constructs instances of entity type `DnfCodeSetup`.
      */
-    static builder(): EntityBuilderType<DnfCodeSetup, DnfCodeSetupTypeForceMandatory>;
+    static builder(): EntityBuilderType<DnfCodeSetup, DnfCodeSetupType>;
     /**
      * Returns a request builder to construct requests for operations on the `DnfCodeSetup` entity type.
      * @returns A `DnfCodeSetup` request builder.
@@ -65,7 +60,7 @@ export declare class DnfCodeSetup extends Entity implements DnfCodeSetupType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `DnfCodeSetup`.
      */
-    static customField(fieldName: string): CustomField<DnfCodeSetup>;
+    static customField(fieldName: string): CustomFieldV4<DnfCodeSetup>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -77,20 +72,11 @@ export declare class DnfCodeSetup extends Entity implements DnfCodeSetupType {
 import { Items, ItemsType } from './Items';
 import { NcmCodesSetup, NcmCodesSetupType } from './NcmCodesSetup';
 export interface DnfCodeSetupType {
-    absEntry?: number;
-    ncmCode?: number;
-    dnfCode?: string;
-    uoM?: string;
-    factor?: number;
-    items: ItemsType[];
-    ncmCodeSetup: NcmCodesSetupType;
-}
-export interface DnfCodeSetupTypeForceMandatory {
-    absEntry: number;
-    ncmCode: number;
-    dnfCode: string;
-    uoM: string;
-    factor: number;
+    absEntry?: number | null;
+    ncmCode?: number | null;
+    dnfCode?: string | null;
+    uoM?: string | null;
+    factor?: number | null;
     items: ItemsType[];
     ncmCodeSetup: NcmCodesSetupType;
 }

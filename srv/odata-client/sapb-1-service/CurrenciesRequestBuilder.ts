@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { Currencies } from './Currencies';
 
 /**
@@ -15,16 +15,16 @@ export class CurrenciesRequestBuilder extends RequestBuilder<Currencies> {
    * @param code Key property. See [[Currencies.code]].
    * @returns A request builder for creating requests to retrieve one `Currencies` entity based on its keys.
    */
-  getByKey(code: string): GetByKeyRequestBuilder<Currencies> {
-    return new GetByKeyRequestBuilder(Currencies, { Code: code });
+  getByKey(code: string): GetByKeyRequestBuilderV4<Currencies> {
+    return new GetByKeyRequestBuilderV4(Currencies, { Code: code });
   }
 
   /**
    * Returns a request builder for querying all `Currencies` entities.
    * @returns A request builder for creating requests to retrieve all `Currencies` entities.
    */
-  getAll(): GetAllRequestBuilder<Currencies> {
-    return new GetAllRequestBuilder(Currencies);
+  getAll(): GetAllRequestBuilderV4<Currencies> {
+    return new GetAllRequestBuilderV4(Currencies);
   }
 
   /**
@@ -32,8 +32,8 @@ export class CurrenciesRequestBuilder extends RequestBuilder<Currencies> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `Currencies`.
    */
-  create(entity: Currencies): CreateRequestBuilder<Currencies> {
-    return new CreateRequestBuilder(Currencies, entity);
+  create(entity: Currencies): CreateRequestBuilderV4<Currencies> {
+    return new CreateRequestBuilderV4(Currencies, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class CurrenciesRequestBuilder extends RequestBuilder<Currencies> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `Currencies`.
    */
-  update(entity: Currencies): UpdateRequestBuilder<Currencies> {
-    return new UpdateRequestBuilder(Currencies, entity);
+  update(entity: Currencies): UpdateRequestBuilderV4<Currencies> {
+    return new UpdateRequestBuilderV4(Currencies, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class CurrenciesRequestBuilder extends RequestBuilder<Currencies> {
    * @param code Key property. See [[Currencies.code]].
    * @returns A request builder for creating requests that delete an entity of type `Currencies`.
    */
-  delete(code: string): DeleteRequestBuilder<Currencies>;
+  delete(code: string): DeleteRequestBuilderV4<Currencies>;
   /**
    * Returns a request builder for deleting an entity of type `Currencies`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `Currencies` by taking the entity as a parameter.
    */
-  delete(entity: Currencies): DeleteRequestBuilder<Currencies>;
-  delete(codeOrEntity: any): DeleteRequestBuilder<Currencies> {
-    return new DeleteRequestBuilder(Currencies, codeOrEntity instanceof Currencies ? codeOrEntity : { Code: codeOrEntity! });
+  delete(entity: Currencies): DeleteRequestBuilderV4<Currencies>;
+  delete(codeOrEntity: any): DeleteRequestBuilderV4<Currencies> {
+    return new DeleteRequestBuilderV4(Currencies, codeOrEntity instanceof Currencies ? codeOrEntity : { Code: codeOrEntity! });
   }
 }

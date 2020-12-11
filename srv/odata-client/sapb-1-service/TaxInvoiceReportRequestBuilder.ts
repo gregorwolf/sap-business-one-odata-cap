@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { TaxInvoiceReport } from './TaxInvoiceReport';
 
 /**
@@ -15,16 +15,16 @@ export class TaxInvoiceReportRequestBuilder extends RequestBuilder<TaxInvoiceRep
    * @param taxInvoiceReportNumber Key property. See [[TaxInvoiceReport.taxInvoiceReportNumber]].
    * @returns A request builder for creating requests to retrieve one `TaxInvoiceReport` entity based on its keys.
    */
-  getByKey(taxInvoiceReportNumber: string): GetByKeyRequestBuilder<TaxInvoiceReport> {
-    return new GetByKeyRequestBuilder(TaxInvoiceReport, { TaxInvoiceReportNumber: taxInvoiceReportNumber });
+  getByKey(taxInvoiceReportNumber: string): GetByKeyRequestBuilderV4<TaxInvoiceReport> {
+    return new GetByKeyRequestBuilderV4(TaxInvoiceReport, { TaxInvoiceReportNumber: taxInvoiceReportNumber });
   }
 
   /**
    * Returns a request builder for querying all `TaxInvoiceReport` entities.
    * @returns A request builder for creating requests to retrieve all `TaxInvoiceReport` entities.
    */
-  getAll(): GetAllRequestBuilder<TaxInvoiceReport> {
-    return new GetAllRequestBuilder(TaxInvoiceReport);
+  getAll(): GetAllRequestBuilderV4<TaxInvoiceReport> {
+    return new GetAllRequestBuilderV4(TaxInvoiceReport);
   }
 
   /**
@@ -32,8 +32,8 @@ export class TaxInvoiceReportRequestBuilder extends RequestBuilder<TaxInvoiceRep
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `TaxInvoiceReport`.
    */
-  create(entity: TaxInvoiceReport): CreateRequestBuilder<TaxInvoiceReport> {
-    return new CreateRequestBuilder(TaxInvoiceReport, entity);
+  create(entity: TaxInvoiceReport): CreateRequestBuilderV4<TaxInvoiceReport> {
+    return new CreateRequestBuilderV4(TaxInvoiceReport, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class TaxInvoiceReportRequestBuilder extends RequestBuilder<TaxInvoiceRep
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `TaxInvoiceReport`.
    */
-  update(entity: TaxInvoiceReport): UpdateRequestBuilder<TaxInvoiceReport> {
-    return new UpdateRequestBuilder(TaxInvoiceReport, entity);
+  update(entity: TaxInvoiceReport): UpdateRequestBuilderV4<TaxInvoiceReport> {
+    return new UpdateRequestBuilderV4(TaxInvoiceReport, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class TaxInvoiceReportRequestBuilder extends RequestBuilder<TaxInvoiceRep
    * @param taxInvoiceReportNumber Key property. See [[TaxInvoiceReport.taxInvoiceReportNumber]].
    * @returns A request builder for creating requests that delete an entity of type `TaxInvoiceReport`.
    */
-  delete(taxInvoiceReportNumber: string): DeleteRequestBuilder<TaxInvoiceReport>;
+  delete(taxInvoiceReportNumber: string): DeleteRequestBuilderV4<TaxInvoiceReport>;
   /**
    * Returns a request builder for deleting an entity of type `TaxInvoiceReport`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `TaxInvoiceReport` by taking the entity as a parameter.
    */
-  delete(entity: TaxInvoiceReport): DeleteRequestBuilder<TaxInvoiceReport>;
-  delete(taxInvoiceReportNumberOrEntity: any): DeleteRequestBuilder<TaxInvoiceReport> {
-    return new DeleteRequestBuilder(TaxInvoiceReport, taxInvoiceReportNumberOrEntity instanceof TaxInvoiceReport ? taxInvoiceReportNumberOrEntity : { TaxInvoiceReportNumber: taxInvoiceReportNumberOrEntity! });
+  delete(entity: TaxInvoiceReport): DeleteRequestBuilderV4<TaxInvoiceReport>;
+  delete(taxInvoiceReportNumberOrEntity: any): DeleteRequestBuilderV4<TaxInvoiceReport> {
+    return new DeleteRequestBuilderV4(TaxInvoiceReport, taxInvoiceReportNumberOrEntity instanceof TaxInvoiceReport ? taxInvoiceReportNumberOrEntity : { TaxInvoiceReportNumber: taxInvoiceReportNumberOrEntity! });
   }
 }

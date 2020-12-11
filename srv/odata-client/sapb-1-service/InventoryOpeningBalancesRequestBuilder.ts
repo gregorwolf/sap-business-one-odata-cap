@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { InventoryOpeningBalances } from './InventoryOpeningBalances';
 
 /**
@@ -15,16 +15,16 @@ export class InventoryOpeningBalancesRequestBuilder extends RequestBuilder<Inven
    * @param documentEntry Key property. See [[InventoryOpeningBalances.documentEntry]].
    * @returns A request builder for creating requests to retrieve one `InventoryOpeningBalances` entity based on its keys.
    */
-  getByKey(documentEntry: number): GetByKeyRequestBuilder<InventoryOpeningBalances> {
-    return new GetByKeyRequestBuilder(InventoryOpeningBalances, { DocumentEntry: documentEntry });
+  getByKey(documentEntry: number): GetByKeyRequestBuilderV4<InventoryOpeningBalances> {
+    return new GetByKeyRequestBuilderV4(InventoryOpeningBalances, { DocumentEntry: documentEntry });
   }
 
   /**
    * Returns a request builder for querying all `InventoryOpeningBalances` entities.
    * @returns A request builder for creating requests to retrieve all `InventoryOpeningBalances` entities.
    */
-  getAll(): GetAllRequestBuilder<InventoryOpeningBalances> {
-    return new GetAllRequestBuilder(InventoryOpeningBalances);
+  getAll(): GetAllRequestBuilderV4<InventoryOpeningBalances> {
+    return new GetAllRequestBuilderV4(InventoryOpeningBalances);
   }
 
   /**
@@ -32,8 +32,8 @@ export class InventoryOpeningBalancesRequestBuilder extends RequestBuilder<Inven
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `InventoryOpeningBalances`.
    */
-  create(entity: InventoryOpeningBalances): CreateRequestBuilder<InventoryOpeningBalances> {
-    return new CreateRequestBuilder(InventoryOpeningBalances, entity);
+  create(entity: InventoryOpeningBalances): CreateRequestBuilderV4<InventoryOpeningBalances> {
+    return new CreateRequestBuilderV4(InventoryOpeningBalances, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class InventoryOpeningBalancesRequestBuilder extends RequestBuilder<Inven
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `InventoryOpeningBalances`.
    */
-  update(entity: InventoryOpeningBalances): UpdateRequestBuilder<InventoryOpeningBalances> {
-    return new UpdateRequestBuilder(InventoryOpeningBalances, entity);
+  update(entity: InventoryOpeningBalances): UpdateRequestBuilderV4<InventoryOpeningBalances> {
+    return new UpdateRequestBuilderV4(InventoryOpeningBalances, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class InventoryOpeningBalancesRequestBuilder extends RequestBuilder<Inven
    * @param documentEntry Key property. See [[InventoryOpeningBalances.documentEntry]].
    * @returns A request builder for creating requests that delete an entity of type `InventoryOpeningBalances`.
    */
-  delete(documentEntry: number): DeleteRequestBuilder<InventoryOpeningBalances>;
+  delete(documentEntry: number): DeleteRequestBuilderV4<InventoryOpeningBalances>;
   /**
    * Returns a request builder for deleting an entity of type `InventoryOpeningBalances`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `InventoryOpeningBalances` by taking the entity as a parameter.
    */
-  delete(entity: InventoryOpeningBalances): DeleteRequestBuilder<InventoryOpeningBalances>;
-  delete(documentEntryOrEntity: any): DeleteRequestBuilder<InventoryOpeningBalances> {
-    return new DeleteRequestBuilder(InventoryOpeningBalances, documentEntryOrEntity instanceof InventoryOpeningBalances ? documentEntryOrEntity : { DocumentEntry: documentEntryOrEntity! });
+  delete(entity: InventoryOpeningBalances): DeleteRequestBuilderV4<InventoryOpeningBalances>;
+  delete(documentEntryOrEntity: any): DeleteRequestBuilderV4<InventoryOpeningBalances> {
+    return new DeleteRequestBuilderV4(InventoryOpeningBalances, documentEntryOrEntity instanceof InventoryOpeningBalances ? documentEntryOrEntity : { DocumentEntry: documentEntryOrEntity! });
   }
 }

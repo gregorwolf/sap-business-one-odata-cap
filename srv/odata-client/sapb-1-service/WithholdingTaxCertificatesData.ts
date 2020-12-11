@@ -4,8 +4,8 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { WtGroups, WtGroupsField } from './WtGroups';
-import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { WtGroups } from './WtGroups';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * WithholdingTaxCertificatesData
@@ -85,7 +85,7 @@ export interface WithholdingTaxCertificatesData {
    * Wt Groups Collection.
    * @nullable
    */
-  wtGroupsCollection?: WtGroups;
+  wtGroupsCollection?: WtGroups[];
 }
 
 /**
@@ -99,7 +99,7 @@ export function createWithholdingTaxCertificatesData(json: any): WithholdingTaxC
  * WithholdingTaxCertificatesDataField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class WithholdingTaxCertificatesDataField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class WithholdingTaxCertificatesDataField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, WithholdingTaxCertificatesData> {
   /**
    * Representation of the [[WithholdingTaxCertificatesData.poiCodeRef]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -174,27 +174,104 @@ export class WithholdingTaxCertificatesDataField<EntityT extends Entity> extends
    * Representation of the [[WithholdingTaxCertificatesData.wtGroupsCollection]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  wtGroupsCollection: WtGroupsField<EntityT> = new WtGroupsField('WTGroupsCollection', this);
+  wtGroupsCollection: CollectionField<EntityT, WtGroups> = new CollectionField('WTGroupsCollection', this, WtGroups);
+
+  /**
+   * Creates an instance of WithholdingTaxCertificatesDataField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, WithholdingTaxCertificatesData);
+  }
 }
 
 export namespace WithholdingTaxCertificatesData {
+  /**
+   * Metadata information on all properties of the `WithholdingTaxCertificatesData` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<WithholdingTaxCertificatesData>[] = [{
+    originalName: 'POICodeRef',
+    name: 'poiCodeRef',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'POICode',
+    name: 'poiCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Certificate',
+    name: 'certificate',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WTaxType',
+    name: 'wTaxType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PeriodIndicator',
+    name: 'periodIndicator',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WhtAbsId',
+    name: 'whtAbsId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Series',
+    name: 'series',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Number',
+    name: 'number',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'IssueDate',
+    name: 'issueDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'SumVATAmount',
+    name: 'sumVatAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SumDocTotal',
+    name: 'sumDocTotal',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SumBaseAmount',
+    name: 'sumBaseAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SumAccumAmount',
+    name: 'sumAccumAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SumPercAmount',
+    name: 'sumPercAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WTGroupsCollection',
+    name: 'wtGroupsCollection',
+    type: WtGroups,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | WtGroups }): WithholdingTaxCertificatesData {
-    return createComplexType(json, {
-      POICodeRef: (poiCodeRef: string) => ({ poiCodeRef: edmToTs(poiCodeRef, 'Edm.String') }),
-      POICode: (poiCode: string) => ({ poiCode: edmToTs(poiCode, 'Edm.String') }),
-      Certificate: (certificate: string) => ({ certificate: edmToTs(certificate, 'Edm.String') }),
-      WTaxType: (wTaxType: string) => ({ wTaxType: edmToTs(wTaxType, 'Edm.String') }),
-      PeriodIndicator: (periodIndicator: string) => ({ periodIndicator: edmToTs(periodIndicator, 'Edm.String') }),
-      WhtAbsId: (whtAbsId: number) => ({ whtAbsId: edmToTs(whtAbsId, 'Edm.Int32') }),
-      Series: (series: number) => ({ series: edmToTs(series, 'Edm.Int32') }),
-      Number: (number: number) => ({ number: edmToTs(number, 'Edm.Int32') }),
-      IssueDate: (issueDate: Moment) => ({ issueDate: edmToTs(issueDate, 'Edm.DateTimeOffset') }),
-      SumVATAmount: (sumVatAmount: number) => ({ sumVatAmount: edmToTs(sumVatAmount, 'Edm.Double') }),
-      SumDocTotal: (sumDocTotal: number) => ({ sumDocTotal: edmToTs(sumDocTotal, 'Edm.Double') }),
-      SumBaseAmount: (sumBaseAmount: number) => ({ sumBaseAmount: edmToTs(sumBaseAmount, 'Edm.Double') }),
-      SumAccumAmount: (sumAccumAmount: number) => ({ sumAccumAmount: edmToTs(sumAccumAmount, 'Edm.Double') }),
-      SumPercAmount: (sumPercAmount: number) => ({ sumPercAmount: edmToTs(sumPercAmount, 'Edm.Double') }),
-      WTGroupsCollection: (wtGroupsCollection: WtGroups) => ({ wtGroupsCollection: WtGroups.build(wtGroupsCollection) })
-    });
+    return deserializeComplexTypeV4(json, WithholdingTaxCertificatesData);
   }
 }

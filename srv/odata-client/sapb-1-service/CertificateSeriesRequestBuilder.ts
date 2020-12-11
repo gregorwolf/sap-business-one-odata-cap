@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { CertificateSeries } from './CertificateSeries';
 
 /**
@@ -15,16 +15,16 @@ export class CertificateSeriesRequestBuilder extends RequestBuilder<CertificateS
    * @param absEntry Key property. See [[CertificateSeries.absEntry]].
    * @returns A request builder for creating requests to retrieve one `CertificateSeries` entity based on its keys.
    */
-  getByKey(absEntry: number): GetByKeyRequestBuilder<CertificateSeries> {
-    return new GetByKeyRequestBuilder(CertificateSeries, { AbsEntry: absEntry });
+  getByKey(absEntry: number): GetByKeyRequestBuilderV4<CertificateSeries> {
+    return new GetByKeyRequestBuilderV4(CertificateSeries, { AbsEntry: absEntry });
   }
 
   /**
    * Returns a request builder for querying all `CertificateSeries` entities.
    * @returns A request builder for creating requests to retrieve all `CertificateSeries` entities.
    */
-  getAll(): GetAllRequestBuilder<CertificateSeries> {
-    return new GetAllRequestBuilder(CertificateSeries);
+  getAll(): GetAllRequestBuilderV4<CertificateSeries> {
+    return new GetAllRequestBuilderV4(CertificateSeries);
   }
 
   /**
@@ -32,8 +32,8 @@ export class CertificateSeriesRequestBuilder extends RequestBuilder<CertificateS
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `CertificateSeries`.
    */
-  create(entity: CertificateSeries): CreateRequestBuilder<CertificateSeries> {
-    return new CreateRequestBuilder(CertificateSeries, entity);
+  create(entity: CertificateSeries): CreateRequestBuilderV4<CertificateSeries> {
+    return new CreateRequestBuilderV4(CertificateSeries, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class CertificateSeriesRequestBuilder extends RequestBuilder<CertificateS
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `CertificateSeries`.
    */
-  update(entity: CertificateSeries): UpdateRequestBuilder<CertificateSeries> {
-    return new UpdateRequestBuilder(CertificateSeries, entity);
+  update(entity: CertificateSeries): UpdateRequestBuilderV4<CertificateSeries> {
+    return new UpdateRequestBuilderV4(CertificateSeries, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class CertificateSeriesRequestBuilder extends RequestBuilder<CertificateS
    * @param absEntry Key property. See [[CertificateSeries.absEntry]].
    * @returns A request builder for creating requests that delete an entity of type `CertificateSeries`.
    */
-  delete(absEntry: number): DeleteRequestBuilder<CertificateSeries>;
+  delete(absEntry: number): DeleteRequestBuilderV4<CertificateSeries>;
   /**
    * Returns a request builder for deleting an entity of type `CertificateSeries`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `CertificateSeries` by taking the entity as a parameter.
    */
-  delete(entity: CertificateSeries): DeleteRequestBuilder<CertificateSeries>;
-  delete(absEntryOrEntity: any): DeleteRequestBuilder<CertificateSeries> {
-    return new DeleteRequestBuilder(CertificateSeries, absEntryOrEntity instanceof CertificateSeries ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
+  delete(entity: CertificateSeries): DeleteRequestBuilderV4<CertificateSeries>;
+  delete(absEntryOrEntity: any): DeleteRequestBuilderV4<CertificateSeries> {
+    return new DeleteRequestBuilderV4(CertificateSeries, absEntryOrEntity instanceof CertificateSeries ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
   }
 }

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.DeterminationCriterias = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var DeterminationCriteriasRequestBuilder_1 = require("./DeterminationCriteriasRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "DeterminationCriterias" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var DeterminationCriterias = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `DeterminationCriterias`.
+     * Returns an entity builder to construct instances of `DeterminationCriterias`.
      * @returns A builder that constructs instances of entity type `DeterminationCriterias`.
      */
     DeterminationCriterias.builder = function () {
-        return v4_1.Entity.entityBuilder(DeterminationCriterias);
+        return core_1.EntityV4.entityBuilder(DeterminationCriterias);
     };
     /**
      * Returns a request builder to construct requests for operations on the `DeterminationCriterias` entity type.
@@ -60,7 +60,7 @@ var DeterminationCriterias = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `DeterminationCriterias`.
      */
     DeterminationCriterias.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, DeterminationCriterias);
+        return core_1.EntityV4.customFieldSelector(fieldName, DeterminationCriterias);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,45 +74,46 @@ var DeterminationCriterias = /** @class */ (function (_super) {
      */
     DeterminationCriterias._entityName = 'DeterminationCriterias';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for DeterminationCriterias.
-     */
-    DeterminationCriterias._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    DeterminationCriterias._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    DeterminationCriterias._defaultServicePath = '/b1s/v2/';
     return DeterminationCriterias;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.DeterminationCriterias = DeterminationCriterias;
 (function (DeterminationCriterias) {
     /**
      * Static representation of the [[dmcId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DeterminationCriterias.DMC_ID = new v4_1.NumberField('DmcId', DeterminationCriterias, 'Edm.Int32');
+    DeterminationCriterias.DMC_ID = new core_1.NumberField('DmcId', DeterminationCriterias, 'Edm.Int32');
     /**
      * Static representation of the [[determinationCriteria]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DeterminationCriterias.DETERMINATION_CRITERIA = new v4_1.StringField('DeterminationCriteria', DeterminationCriterias, 'Edm.String');
+    DeterminationCriterias.DETERMINATION_CRITERIA = new core_1.StringField('DeterminationCriteria', DeterminationCriterias, 'Edm.String');
+    /**
+     * Static representation of the [[isActive]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    DeterminationCriterias.IS_ACTIVE = new core_1.EnumField('IsActive', DeterminationCriterias);
     /**
      * Static representation of the [[priority]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DeterminationCriterias.PRIORITY = new v4_1.NumberField('Priority', DeterminationCriterias, 'Edm.Int32');
+    DeterminationCriterias.PRIORITY = new core_1.NumberField('Priority', DeterminationCriterias, 'Edm.Int32');
     /**
      * All fields of the DeterminationCriterias entity.
      */
     DeterminationCriterias._allFields = [
         DeterminationCriterias.DMC_ID,
         DeterminationCriterias.DETERMINATION_CRITERIA,
+        DeterminationCriterias.IS_ACTIVE,
         DeterminationCriterias.PRIORITY
     ];
     /**
      * All fields selector.
      */
-    DeterminationCriterias.ALL_FIELDS = new v4_1.AllFields('*', DeterminationCriterias);
+    DeterminationCriterias.ALL_FIELDS = new core_1.AllFields('*', DeterminationCriterias);
     /**
      * All key fields of the DeterminationCriterias entity.
      */

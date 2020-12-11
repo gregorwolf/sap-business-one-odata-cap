@@ -1,5 +1,7 @@
-import { LineExpenseTaxJurisdiction, LineExpenseTaxJurisdictionField } from './LineExpenseTaxJurisdiction';
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { LineExpenseTaxJurisdiction } from './LineExpenseTaxJurisdiction';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoAdEpnsTaxTypes } from './BoAdEpnsTaxTypes';
+import { CollectionField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * DocumentLineAdditionalExpense
  */
@@ -50,6 +52,11 @@ export interface DocumentLineAdditionalExpense {
      */
     paidToDateSys?: number;
     /**
+     * Tax Liable.
+     * @nullable
+     */
+    taxLiable?: BoYesNoEnum;
+    /**
      * Vat Group.
      * @nullable
      */
@@ -90,10 +97,20 @@ export interface DocumentLineAdditionalExpense {
      */
     deductibleTaxSumSys?: number;
     /**
+     * Aquisition Tax.
+     * @nullable
+     */
+    aquisitionTax?: BoYesNoEnum;
+    /**
      * Tax Code.
      * @nullable
      */
     taxCode?: string;
+    /**
+     * Tax Type.
+     * @nullable
+     */
+    taxType?: BoAdEpnsTaxTypes;
     /**
      * Tax Paid.
      * @nullable
@@ -145,6 +162,11 @@ export interface DocumentLineAdditionalExpense {
      */
     taxTotalSumSys?: number;
     /**
+     * Wt Liable.
+     * @nullable
+     */
+    wtLiable?: BoYesNoEnum;
+    /**
      * Base Group.
      * @nullable
      */
@@ -183,7 +205,7 @@ export interface DocumentLineAdditionalExpense {
      * Line Expense Tax Jurisdictions.
      * @nullable
      */
-    lineExpenseTaxJurisdictions?: LineExpenseTaxJurisdiction;
+    lineExpenseTaxJurisdictions?: LineExpenseTaxJurisdiction[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[DocumentLineAdditionalExpense.build]] instead.
@@ -193,7 +215,7 @@ export declare function createDocumentLineAdditionalExpense(json: any): Document
  * DocumentLineAdditionalExpenseField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class DocumentLineAdditionalExpenseField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class DocumentLineAdditionalExpenseField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, DocumentLineAdditionalExpense> {
     /**
      * Representation of the [[DocumentLineAdditionalExpense.lineNumber]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -240,6 +262,11 @@ export declare class DocumentLineAdditionalExpenseField<EntityT extends Entity> 
      */
     paidToDateSys: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[DocumentLineAdditionalExpense.taxLiable]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    taxLiable: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[DocumentLineAdditionalExpense.vatGroup]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -280,10 +307,20 @@ export declare class DocumentLineAdditionalExpenseField<EntityT extends Entity> 
      */
     deductibleTaxSumSys: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[DocumentLineAdditionalExpense.aquisitionTax]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    aquisitionTax: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[DocumentLineAdditionalExpense.taxCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     taxCode: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[DocumentLineAdditionalExpense.taxType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    taxType: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[DocumentLineAdditionalExpense.taxPaid]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -335,6 +372,11 @@ export declare class DocumentLineAdditionalExpenseField<EntityT extends Entity> 
      */
     taxTotalSumSys: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[DocumentLineAdditionalExpense.wtLiable]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    wtLiable: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[DocumentLineAdditionalExpense.baseGroup]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -373,9 +415,23 @@ export declare class DocumentLineAdditionalExpenseField<EntityT extends Entity> 
      * Representation of the [[DocumentLineAdditionalExpense.lineExpenseTaxJurisdictions]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    lineExpenseTaxJurisdictions: LineExpenseTaxJurisdictionField<EntityT>;
+    lineExpenseTaxJurisdictions: CollectionField<EntityT, LineExpenseTaxJurisdiction>;
+    /**
+     * Creates an instance of DocumentLineAdditionalExpenseField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace DocumentLineAdditionalExpense {
+    /**
+     * Metadata information on all properties of the `DocumentLineAdditionalExpense` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<DocumentLineAdditionalExpense>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | LineExpenseTaxJurisdiction;
     }): DocumentLineAdditionalExpense;

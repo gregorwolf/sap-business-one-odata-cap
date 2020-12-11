@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * EmployeePreviousEmpoymentInfo
@@ -58,7 +58,7 @@ export function createEmployeePreviousEmpoymentInfo(json: any): EmployeePrevious
  * EmployeePreviousEmpoymentInfoField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class EmployeePreviousEmpoymentInfoField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class EmployeePreviousEmpoymentInfoField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, EmployeePreviousEmpoymentInfo> {
   /**
    * Representation of the [[EmployeePreviousEmpoymentInfo.employeeNo]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -94,18 +94,63 @@ export class EmployeePreviousEmpoymentInfoField<EntityT extends Entity> extends 
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   remarks: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Remarks', this, 'Edm.String');
+
+  /**
+   * Creates an instance of EmployeePreviousEmpoymentInfoField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, EmployeePreviousEmpoymentInfo);
+  }
 }
 
 export namespace EmployeePreviousEmpoymentInfo {
+  /**
+   * Metadata information on all properties of the `EmployeePreviousEmpoymentInfo` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<EmployeePreviousEmpoymentInfo>[] = [{
+    originalName: 'EmployeeNo',
+    name: 'employeeNo',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'FromDtae',
+    name: 'fromDtae',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ToDate',
+    name: 'toDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Employer',
+    name: 'employer',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Position',
+    name: 'position',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Remarks',
+    name: 'remarks',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): EmployeePreviousEmpoymentInfo {
-    return createComplexType(json, {
-      EmployeeNo: (employeeNo: number) => ({ employeeNo: edmToTs(employeeNo, 'Edm.Int32') }),
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      FromDtae: (fromDtae: Moment) => ({ fromDtae: edmToTs(fromDtae, 'Edm.DateTimeOffset') }),
-      ToDate: (toDate: Moment) => ({ toDate: edmToTs(toDate, 'Edm.DateTimeOffset') }),
-      Employer: (employer: string) => ({ employer: edmToTs(employer, 'Edm.String') }),
-      Position: (position: string) => ({ position: edmToTs(position, 'Edm.String') }),
-      Remarks: (remarks: string) => ({ remarks: edmToTs(remarks, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, EmployeePreviousEmpoymentInfo);
   }
 }

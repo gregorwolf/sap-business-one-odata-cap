@@ -4,7 +4,9 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoDepositCheckEnum } from './BoDepositCheckEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * CheckLine
@@ -51,6 +53,16 @@ export interface CheckLine {
    */
   checkAmount?: number;
   /**
+   * Deposited.
+   * @nullable
+   */
+  deposited?: BoDepositCheckEnum;
+  /**
+   * Transferred.
+   * @nullable
+   */
+  transferred?: BoYesNoEnum;
+  /**
    * Account Number.
    * @nullable
    */
@@ -70,6 +82,11 @@ export interface CheckLine {
    * @nullable
    */
   originallyIssuedBy?: string;
+  /**
+   * Rejected By Bank.
+   * @nullable
+   */
+  rejectedByBank?: BoYesNoEnum;
 }
 
 /**
@@ -83,7 +100,7 @@ export function createCheckLine(json: any): CheckLine {
  * CheckLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class CheckLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class CheckLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, CheckLine> {
   /**
    * Representation of the [[CheckLine.checkKey]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -125,6 +142,16 @@ export class CheckLineField<EntityT extends Entity> extends ComplexTypeField<Ent
    */
   checkAmount: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('CheckAmount', this, 'Edm.Double');
   /**
+   * Representation of the [[CheckLine.deposited]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  deposited: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Deposited', this);
+  /**
+   * Representation of the [[CheckLine.transferred]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  transferred: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Transferred', this);
+  /**
    * Representation of the [[CheckLine.accountNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -144,23 +171,108 @@ export class CheckLineField<EntityT extends Entity> extends ComplexTypeField<Ent
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   originallyIssuedBy: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('OriginallyIssuedBy', this, 'Edm.String');
+  /**
+   * Representation of the [[CheckLine.rejectedByBank]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  rejectedByBank: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('RejectedByBank', this);
+
+  /**
+   * Creates an instance of CheckLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, CheckLine);
+  }
 }
 
 export namespace CheckLine {
+  /**
+   * Metadata information on all properties of the `CheckLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<CheckLine>[] = [{
+    originalName: 'CheckKey',
+    name: 'checkKey',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CheckNumber',
+    name: 'checkNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Bank',
+    name: 'bank',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Branch',
+    name: 'branch',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CashCheck',
+    name: 'cashCheck',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CheckDate',
+    name: 'checkDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Customer',
+    name: 'customer',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CheckAmount',
+    name: 'checkAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Deposited',
+    name: 'deposited',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Transferred',
+    name: 'transferred',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AccountNumber',
+    name: 'accountNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CheckCurrency',
+    name: 'checkCurrency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FiscalID',
+    name: 'fiscalId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'OriginallyIssuedBy',
+    name: 'originallyIssuedBy',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RejectedByBank',
+    name: 'rejectedByBank',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): CheckLine {
-    return createComplexType(json, {
-      CheckKey: (checkKey: number) => ({ checkKey: edmToTs(checkKey, 'Edm.Int32') }),
-      CheckNumber: (checkNumber: number) => ({ checkNumber: edmToTs(checkNumber, 'Edm.Int32') }),
-      Bank: (bank: string) => ({ bank: edmToTs(bank, 'Edm.String') }),
-      Branch: (branch: string) => ({ branch: edmToTs(branch, 'Edm.String') }),
-      CashCheck: (cashCheck: string) => ({ cashCheck: edmToTs(cashCheck, 'Edm.String') }),
-      CheckDate: (checkDate: Moment) => ({ checkDate: edmToTs(checkDate, 'Edm.DateTimeOffset') }),
-      Customer: (customer: string) => ({ customer: edmToTs(customer, 'Edm.String') }),
-      CheckAmount: (checkAmount: number) => ({ checkAmount: edmToTs(checkAmount, 'Edm.Double') }),
-      AccountNumber: (accountNumber: string) => ({ accountNumber: edmToTs(accountNumber, 'Edm.String') }),
-      CheckCurrency: (checkCurrency: string) => ({ checkCurrency: edmToTs(checkCurrency, 'Edm.String') }),
-      FiscalID: (fiscalId: string) => ({ fiscalId: edmToTs(fiscalId, 'Edm.String') }),
-      OriginallyIssuedBy: (originallyIssuedBy: string) => ({ originallyIssuedBy: edmToTs(originallyIssuedBy, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, CheckLine);
   }
 }

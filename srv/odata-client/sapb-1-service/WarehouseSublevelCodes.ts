@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { WarehouseSublevelCodesRequestBuilder } from './WarehouseSublevelCodesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "WarehouseSublevelCodes" of service "SAPB1".
  */
-export class WarehouseSublevelCodes extends Entity implements WarehouseSublevelCodesType {
+export class WarehouseSublevelCodes extends EntityV4 implements WarehouseSublevelCodesType {
   /**
    * Technical entity name for WarehouseSublevelCodes.
    */
   static _entityName = 'WarehouseSublevelCodes';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for WarehouseSublevelCodes.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Warehouse Sublevel.
    * @nullable
@@ -49,11 +44,11 @@ export class WarehouseSublevelCodes extends Entity implements WarehouseSublevelC
   binLocationField!: BinLocationFields;
 
   /**
-   * Returns an entity builder to construct instances `WarehouseSublevelCodes`.
+   * Returns an entity builder to construct instances of `WarehouseSublevelCodes`.
    * @returns A builder that constructs instances of entity type `WarehouseSublevelCodes`.
    */
-  static builder(): EntityBuilderType<WarehouseSublevelCodes, WarehouseSublevelCodesTypeForceMandatory> {
-    return Entity.entityBuilder(WarehouseSublevelCodes);
+  static builder(): EntityBuilderType<WarehouseSublevelCodes, WarehouseSublevelCodesType> {
+    return EntityV4.entityBuilder(WarehouseSublevelCodes);
   }
 
   /**
@@ -69,8 +64,8 @@ export class WarehouseSublevelCodes extends Entity implements WarehouseSublevelC
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `WarehouseSublevelCodes`.
    */
-  static customField(fieldName: string): CustomField<WarehouseSublevelCodes> {
-    return Entity.customFieldSelector(fieldName, WarehouseSublevelCodes);
+  static customField(fieldName: string): CustomFieldV4<WarehouseSublevelCodes> {
+    return EntityV4.customFieldSelector(fieldName, WarehouseSublevelCodes);
   }
 
   /**
@@ -85,18 +80,10 @@ export class WarehouseSublevelCodes extends Entity implements WarehouseSublevelC
 import { BinLocationFields, BinLocationFieldsType } from './BinLocationFields';
 
 export interface WarehouseSublevelCodesType {
-  warehouseSublevel?: number;
-  code?: string;
-  description?: string;
-  absEntry?: number;
-  binLocationField: BinLocationFieldsType;
-}
-
-export interface WarehouseSublevelCodesTypeForceMandatory {
-  warehouseSublevel: number;
-  code: string;
-  description: string;
-  absEntry: number;
+  warehouseSublevel?: number | null;
+  code?: string | null;
+  description?: string | null;
+  absEntry?: number | null;
   binLocationField: BinLocationFieldsType;
 }
 

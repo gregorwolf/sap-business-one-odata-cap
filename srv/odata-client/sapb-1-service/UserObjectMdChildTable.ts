@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * UserObjectMdChildTable
@@ -47,7 +47,7 @@ export function createUserObjectMdChildTable(json: any): UserObjectMdChildTable 
  * UserObjectMdChildTableField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class UserObjectMdChildTableField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class UserObjectMdChildTableField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, UserObjectMdChildTable> {
   /**
    * Representation of the [[UserObjectMdChildTable.sonNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -73,16 +73,53 @@ export class UserObjectMdChildTableField<EntityT extends Entity> extends Complex
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   objectName: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('ObjectName', this, 'Edm.String');
+
+  /**
+   * Creates an instance of UserObjectMdChildTableField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, UserObjectMdChildTable);
+  }
 }
 
 export namespace UserObjectMdChildTable {
+  /**
+   * Metadata information on all properties of the `UserObjectMdChildTable` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<UserObjectMdChildTable>[] = [{
+    originalName: 'SonNumber',
+    name: 'sonNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TableName',
+    name: 'tableName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LogTableName',
+    name: 'logTableName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Code',
+    name: 'code',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ObjectName',
+    name: 'objectName',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): UserObjectMdChildTable {
-    return createComplexType(json, {
-      SonNumber: (sonNumber: number) => ({ sonNumber: edmToTs(sonNumber, 'Edm.Int32') }),
-      TableName: (tableName: string) => ({ tableName: edmToTs(tableName, 'Edm.String') }),
-      LogTableName: (logTableName: string) => ({ logTableName: edmToTs(logTableName, 'Edm.String') }),
-      Code: (code: string) => ({ code: edmToTs(code, 'Edm.String') }),
-      ObjectName: (objectName: string) => ({ objectName: edmToTs(objectName, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, UserObjectMdChildTable);
   }
 }

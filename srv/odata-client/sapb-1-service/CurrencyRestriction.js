@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -14,12 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CurrencyRestriction = exports.CurrencyRestrictionField = exports.createCurrencyRestriction = void 0;
-/*
- * Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
- *
- * This is a generated file powered by the SAP Cloud SDK for JavaScript.
- */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[CurrencyRestriction.build]] instead.
  */
@@ -33,36 +28,70 @@ exports.createCurrencyRestriction = createCurrencyRestriction;
  */
 var CurrencyRestrictionField = /** @class */ (function (_super) {
     __extends(CurrencyRestrictionField, _super);
-    function CurrencyRestrictionField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of CurrencyRestrictionField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function CurrencyRestrictionField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, CurrencyRestriction) || this;
         /**
          * Representation of the [[CurrencyRestriction.paymentMethodCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.paymentMethodCode = new v4_1.ComplexTypeStringPropertyField('PaymentMethodCode', _this, 'Edm.String');
+        _this.paymentMethodCode = new core_1.ComplexTypeStringPropertyField('PaymentMethodCode', _this, 'Edm.String');
         /**
          * Representation of the [[CurrencyRestriction.currencyCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.currencyCode = new v4_1.ComplexTypeStringPropertyField('CurrencyCode', _this, 'Edm.String');
+        _this.currencyCode = new core_1.ComplexTypeStringPropertyField('CurrencyCode', _this, 'Edm.String');
         /**
          * Representation of the [[CurrencyRestriction.currencyName]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.currencyName = new v4_1.ComplexTypeStringPropertyField('CurrencyName', _this, 'Edm.String');
+        _this.currencyName = new core_1.ComplexTypeStringPropertyField('CurrencyName', _this, 'Edm.String');
+        /**
+         * Representation of the [[CurrencyRestriction.choose]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.choose = new core_1.ComplexTypeEnumPropertyField('Choose', _this);
         return _this;
     }
     return CurrencyRestrictionField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.CurrencyRestrictionField = CurrencyRestrictionField;
 var CurrencyRestriction;
 (function (CurrencyRestriction) {
+    /**
+     * Metadata information on all properties of the `CurrencyRestriction` complex type.
+     */
+    CurrencyRestriction._propertyMetadata = [{
+            originalName: 'PaymentMethodCode',
+            name: 'paymentMethodCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'CurrencyCode',
+            name: 'currencyCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'CurrencyName',
+            name: 'currencyName',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Choose',
+            name: 'choose',
+            type: 'Edm.Enum',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            PaymentMethodCode: function (paymentMethodCode) { return ({ paymentMethodCode: v4_1.edmToTs(paymentMethodCode, 'Edm.String') }); },
-            CurrencyCode: function (currencyCode) { return ({ currencyCode: v4_1.edmToTs(currencyCode, 'Edm.String') }); },
-            CurrencyName: function (currencyName) { return ({ currencyName: v4_1.edmToTs(currencyName, 'Edm.String') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, CurrencyRestriction);
     }
     CurrencyRestriction.build = build;
 })(CurrencyRestriction = exports.CurrencyRestriction || (exports.CurrencyRestriction = {}));

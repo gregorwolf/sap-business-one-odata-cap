@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.BatchNumberDetailsRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var BatchNumberDetails_1 = require("./BatchNumberDetails");
 /**
  * Request builder class for operations supported on the [[BatchNumberDetails]] entity.
@@ -35,14 +35,14 @@ var BatchNumberDetailsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `BatchNumberDetails` entity based on its keys.
      */
     BatchNumberDetailsRequestBuilder.prototype.getByKey = function (docEntry) {
-        return new v4_1.GetByKeyRequestBuilder(BatchNumberDetails_1.BatchNumberDetails, { DocEntry: docEntry });
+        return new core_1.GetByKeyRequestBuilderV4(BatchNumberDetails_1.BatchNumberDetails, { DocEntry: docEntry });
     };
     /**
      * Returns a request builder for querying all `BatchNumberDetails` entities.
      * @returns A request builder for creating requests to retrieve all `BatchNumberDetails` entities.
      */
     BatchNumberDetailsRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(BatchNumberDetails_1.BatchNumberDetails);
+        return new core_1.GetAllRequestBuilderV4(BatchNumberDetails_1.BatchNumberDetails);
     };
     /**
      * Returns a request builder for creating a `BatchNumberDetails` entity.
@@ -50,7 +50,7 @@ var BatchNumberDetailsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `BatchNumberDetails`.
      */
     BatchNumberDetailsRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(BatchNumberDetails_1.BatchNumberDetails, entity);
+        return new core_1.CreateRequestBuilderV4(BatchNumberDetails_1.BatchNumberDetails, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `BatchNumberDetails`.
@@ -58,12 +58,12 @@ var BatchNumberDetailsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `BatchNumberDetails`.
      */
     BatchNumberDetailsRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(BatchNumberDetails_1.BatchNumberDetails, entity);
+        return new core_1.UpdateRequestBuilderV4(BatchNumberDetails_1.BatchNumberDetails, entity);
     };
     BatchNumberDetailsRequestBuilder.prototype.delete = function (docEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(BatchNumberDetails_1.BatchNumberDetails, docEntryOrEntity instanceof BatchNumberDetails_1.BatchNumberDetails ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(BatchNumberDetails_1.BatchNumberDetails, docEntryOrEntity instanceof BatchNumberDetails_1.BatchNumberDetails ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
     };
     return BatchNumberDetailsRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.BatchNumberDetailsRequestBuilder = BatchNumberDetailsRequestBuilder;
 //# sourceMappingURL=BatchNumberDetailsRequestBuilder.js.map

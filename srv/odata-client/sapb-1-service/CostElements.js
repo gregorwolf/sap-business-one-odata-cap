@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.CostElements = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var CostElementsRequestBuilder_1 = require("./CostElementsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "CostElements" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var CostElements = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `CostElements`.
+     * Returns an entity builder to construct instances of `CostElements`.
      * @returns A builder that constructs instances of entity type `CostElements`.
      */
     CostElements.builder = function () {
-        return v4_1.Entity.entityBuilder(CostElements);
+        return core_1.EntityV4.entityBuilder(CostElements);
     };
     /**
      * Returns a request builder to construct requests for operations on the `CostElements` entity type.
@@ -60,7 +60,7 @@ var CostElements = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `CostElements`.
      */
     CostElements.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, CostElements);
+        return core_1.EntityV4.customFieldSelector(fieldName, CostElements);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var CostElements = /** @class */ (function (_super) {
      */
     CostElements._entityName = 'CostElements';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for CostElements.
-     */
-    CostElements._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    CostElements._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    CostElements._defaultServicePath = '/b1s/v2/';
     return CostElements;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.CostElements = CostElements;
 var ChartOfAccounts_1 = require("./ChartOfAccounts");
 (function (CostElements) {
@@ -91,29 +86,35 @@ var ChartOfAccounts_1 = require("./ChartOfAccounts");
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CostElements.CODE = new v4_1.StringField('Code', CostElements, 'Edm.String');
+    CostElements.CODE = new core_1.StringField('Code', CostElements, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CostElements.DESCRIPTION = new v4_1.StringField('Description', CostElements, 'Edm.String');
+    CostElements.DESCRIPTION = new core_1.StringField('Description', CostElements, 'Edm.String');
+    /**
+     * Static representation of the [[isActive]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    CostElements.IS_ACTIVE = new core_1.EnumField('IsActive', CostElements);
     /**
      * Static representation of the one-to-many navigation property [[chartOfAccounts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CostElements.CHART_OF_ACCOUNTS = new v4_1.OneToManyLink('ChartOfAccounts', CostElements, ChartOfAccounts_1.ChartOfAccounts);
+    CostElements.CHART_OF_ACCOUNTS = new core_1.OneToManyLink('ChartOfAccounts', CostElements, ChartOfAccounts_1.ChartOfAccounts);
     /**
      * All fields of the CostElements entity.
      */
     CostElements._allFields = [
         CostElements.CODE,
         CostElements.DESCRIPTION,
+        CostElements.IS_ACTIVE,
         CostElements.CHART_OF_ACCOUNTS
     ];
     /**
      * All fields selector.
      */
-    CostElements.ALL_FIELDS = new v4_1.AllFields('*', CostElements);
+    CostElements.ALL_FIELDS = new core_1.AllFields('*', CostElements);
     /**
      * All key fields of the CostElements entity.
      */

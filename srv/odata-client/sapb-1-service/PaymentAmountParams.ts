@@ -3,12 +3,18 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { PaymentInvoiceTypeEnum } from './PaymentInvoiceTypeEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * PaymentAmountParams
  */
 export interface PaymentAmountParams {
+  /**
+   * Doc Type.
+   * @nullable
+   */
+  docType?: PaymentInvoiceTypeEnum;
   /**
    * Doc Entry.
    * @nullable
@@ -67,7 +73,12 @@ export function createPaymentAmountParams(json: any): PaymentAmountParams {
  * PaymentAmountParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class PaymentAmountParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class PaymentAmountParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PaymentAmountParams> {
+  /**
+   * Representation of the [[PaymentAmountParams.docType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  docType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DocType', this);
   /**
    * Representation of the [[PaymentAmountParams.docEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -113,20 +124,78 @@ export class PaymentAmountParamsField<EntityT extends Entity> extends ComplexTyp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   totalPaymentAmountSc: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('TotalPaymentAmountSC', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of PaymentAmountParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, PaymentAmountParams);
+  }
 }
 
 export namespace PaymentAmountParams {
+  /**
+   * Metadata information on all properties of the `PaymentAmountParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<PaymentAmountParams>[] = [{
+    originalName: 'DocType',
+    name: 'docType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DocEntry',
+    name: 'docEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'InstallmentId',
+    name: 'installmentId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CashDiscountPercentage',
+    name: 'cashDiscountPercentage',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CashDiscountAmount',
+    name: 'cashDiscountAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CashDiscountAmountFC',
+    name: 'cashDiscountAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CashDiscountAmountSC',
+    name: 'cashDiscountAmountSc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TotalPaymentAmount',
+    name: 'totalPaymentAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TotalPaymentAmountFC',
+    name: 'totalPaymentAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TotalPaymentAmountSC',
+    name: 'totalPaymentAmountSc',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): PaymentAmountParams {
-    return createComplexType(json, {
-      DocEntry: (docEntry: number) => ({ docEntry: edmToTs(docEntry, 'Edm.Int32') }),
-      InstallmentId: (installmentId: number) => ({ installmentId: edmToTs(installmentId, 'Edm.Int32') }),
-      CashDiscountPercentage: (cashDiscountPercentage: number) => ({ cashDiscountPercentage: edmToTs(cashDiscountPercentage, 'Edm.Double') }),
-      CashDiscountAmount: (cashDiscountAmount: number) => ({ cashDiscountAmount: edmToTs(cashDiscountAmount, 'Edm.Double') }),
-      CashDiscountAmountFC: (cashDiscountAmountFc: number) => ({ cashDiscountAmountFc: edmToTs(cashDiscountAmountFc, 'Edm.Double') }),
-      CashDiscountAmountSC: (cashDiscountAmountSc: number) => ({ cashDiscountAmountSc: edmToTs(cashDiscountAmountSc, 'Edm.Double') }),
-      TotalPaymentAmount: (totalPaymentAmount: number) => ({ totalPaymentAmount: edmToTs(totalPaymentAmount, 'Edm.Double') }),
-      TotalPaymentAmountFC: (totalPaymentAmountFc: number) => ({ totalPaymentAmountFc: edmToTs(totalPaymentAmountFc, 'Edm.Double') }),
-      TotalPaymentAmountSC: (totalPaymentAmountSc: number) => ({ totalPaymentAmountSc: edmToTs(totalPaymentAmountSc, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, PaymentAmountParams);
   }
 }

@@ -1,18 +1,13 @@
 import { WarehouseSublevelCodesRequestBuilder } from './WarehouseSublevelCodesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "WarehouseSublevelCodes" of service "SAPB1".
  */
-export declare class WarehouseSublevelCodes extends Entity implements WarehouseSublevelCodesType {
+export declare class WarehouseSublevelCodes extends EntityV4 implements WarehouseSublevelCodesType {
     /**
      * Technical entity name for WarehouseSublevelCodes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for WarehouseSublevelCodes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -42,10 +37,10 @@ export declare class WarehouseSublevelCodes extends Entity implements WarehouseS
      */
     binLocationField: BinLocationFields;
     /**
-     * Returns an entity builder to construct instances `WarehouseSublevelCodes`.
+     * Returns an entity builder to construct instances of `WarehouseSublevelCodes`.
      * @returns A builder that constructs instances of entity type `WarehouseSublevelCodes`.
      */
-    static builder(): EntityBuilderType<WarehouseSublevelCodes, WarehouseSublevelCodesTypeForceMandatory>;
+    static builder(): EntityBuilderType<WarehouseSublevelCodes, WarehouseSublevelCodesType>;
     /**
      * Returns a request builder to construct requests for operations on the `WarehouseSublevelCodes` entity type.
      * @returns A `WarehouseSublevelCodes` request builder.
@@ -56,7 +51,7 @@ export declare class WarehouseSublevelCodes extends Entity implements WarehouseS
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `WarehouseSublevelCodes`.
      */
-    static customField(fieldName: string): CustomField<WarehouseSublevelCodes>;
+    static customField(fieldName: string): CustomFieldV4<WarehouseSublevelCodes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -67,17 +62,10 @@ export declare class WarehouseSublevelCodes extends Entity implements WarehouseS
 }
 import { BinLocationFields, BinLocationFieldsType } from './BinLocationFields';
 export interface WarehouseSublevelCodesType {
-    warehouseSublevel?: number;
-    code?: string;
-    description?: string;
-    absEntry?: number;
-    binLocationField: BinLocationFieldsType;
-}
-export interface WarehouseSublevelCodesTypeForceMandatory {
-    warehouseSublevel: number;
-    code: string;
-    description: string;
-    absEntry: number;
+    warehouseSublevel?: number | null;
+    code?: string | null;
+    description?: string | null;
+    absEntry?: number | null;
     binLocationField: BinLocationFieldsType;
 }
 export declare namespace WarehouseSublevelCodes {

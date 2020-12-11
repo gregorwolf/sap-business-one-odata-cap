@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * AssetDocumentAreaJournal
@@ -57,7 +57,7 @@ export function createAssetDocumentAreaJournal(json: any): AssetDocumentAreaJour
  * AssetDocumentAreaJournalField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class AssetDocumentAreaJournalField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class AssetDocumentAreaJournalField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, AssetDocumentAreaJournal> {
   /**
    * Representation of the [[AssetDocumentAreaJournal.docEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -93,18 +93,63 @@ export class AssetDocumentAreaJournalField<EntityT extends Entity> extends Compl
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   cancellationTransactionNumber: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('CancellationTransactionNumber', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of AssetDocumentAreaJournalField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, AssetDocumentAreaJournal);
+  }
 }
 
 export namespace AssetDocumentAreaJournal {
+  /**
+   * Metadata information on all properties of the `AssetDocumentAreaJournal` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<AssetDocumentAreaJournal>[] = [{
+    originalName: 'DocEntry',
+    name: 'docEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DepreciationArea',
+    name: 'depreciationArea',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'JournalRemarks',
+    name: 'journalRemarks',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TransactionNumber',
+    name: 'transactionNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CancellationJournalRemarks',
+    name: 'cancellationJournalRemarks',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CancellationTransactionNumber',
+    name: 'cancellationTransactionNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): AssetDocumentAreaJournal {
-    return createComplexType(json, {
-      DocEntry: (docEntry: number) => ({ docEntry: edmToTs(docEntry, 'Edm.Int32') }),
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      DepreciationArea: (depreciationArea: string) => ({ depreciationArea: edmToTs(depreciationArea, 'Edm.String') }),
-      JournalRemarks: (journalRemarks: string) => ({ journalRemarks: edmToTs(journalRemarks, 'Edm.String') }),
-      TransactionNumber: (transactionNumber: number) => ({ transactionNumber: edmToTs(transactionNumber, 'Edm.Int32') }),
-      CancellationJournalRemarks: (cancellationJournalRemarks: string) => ({ cancellationJournalRemarks: edmToTs(cancellationJournalRemarks, 'Edm.String') }),
-      CancellationTransactionNumber: (cancellationTransactionNumber: number) => ({ cancellationTransactionNumber: edmToTs(cancellationTransactionNumber, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, AssetDocumentAreaJournal);
   }
 }

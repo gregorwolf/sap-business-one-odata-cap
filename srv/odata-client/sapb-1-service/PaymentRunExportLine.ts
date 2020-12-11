@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * PaymentRunExportLine
@@ -178,7 +178,7 @@ export function createPaymentRunExportLine(json: any): PaymentRunExportLine {
  * PaymentRunExportLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class PaymentRunExportLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class PaymentRunExportLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PaymentRunExportLine> {
   /**
    * Representation of the [[PaymentRunExportLine.rowNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -334,42 +334,183 @@ export class PaymentRunExportLineField<EntityT extends Entity> extends ComplexTy
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   freeText3: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('FreeText3', this, 'Edm.String');
+
+  /**
+   * Creates an instance of PaymentRunExportLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, PaymentRunExportLine);
+  }
 }
 
 export namespace PaymentRunExportLine {
+  /**
+   * Metadata information on all properties of the `PaymentRunExportLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<PaymentRunExportLine>[] = [{
+    originalName: 'RowNumber',
+    name: 'rowNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DateOfPaymentRun',
+    name: 'dateOfPaymentRun',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'PaymentWizardCode',
+    name: 'paymentWizardCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'VendorNumber',
+    name: 'vendorNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CustomerNumber',
+    name: 'customerNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PaymentMeans',
+    name: 'paymentMeans',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PaymentDocNum',
+    name: 'paymentDocNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'FiscalYear',
+    name: 'fiscalYear',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'VendorRefNum',
+    name: 'vendorRefNum',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DocumentObjectType',
+    name: 'documentObjectType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DocumentPostingDate',
+    name: 'documentPostingDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'DocumentTaxDate',
+    name: 'documentTaxDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'BPDebitPayableAccount',
+    name: 'bpDebitPayableAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DocumentCurrency',
+    name: 'documentCurrency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DocumentRate',
+    name: 'documentRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DocumentTotal',
+    name: 'documentTotal',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DocumentTotalFC',
+    name: 'documentTotalFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DocumentTaxAmount',
+    name: 'documentTaxAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DocumentTaxAmountFC',
+    name: 'documentTaxAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DocumentRemarks',
+    name: 'documentRemarks',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DocumentPaymentTerms',
+    name: 'documentPaymentTerms',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PaymentDocReference',
+    name: 'paymentDocReference',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DocumentLocalCurrency',
+    name: 'documentLocalCurrency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PaymentTermsPeriod',
+    name: 'paymentTermsPeriod',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DocumentObjectTypeEx',
+    name: 'documentObjectTypeEx',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DocumentNumber',
+    name: 'documentNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PaymentNumber',
+    name: 'paymentNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PaymentOrderNum',
+    name: 'paymentOrderNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'FreeText1',
+    name: 'freeText1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FreeText2',
+    name: 'freeText2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FreeText3',
+    name: 'freeText3',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): PaymentRunExportLine {
-    return createComplexType(json, {
-      RowNumber: (rowNumber: number) => ({ rowNumber: edmToTs(rowNumber, 'Edm.Int32') }),
-      DateOfPaymentRun: (dateOfPaymentRun: Moment) => ({ dateOfPaymentRun: edmToTs(dateOfPaymentRun, 'Edm.DateTimeOffset') }),
-      PaymentWizardCode: (paymentWizardCode: number) => ({ paymentWizardCode: edmToTs(paymentWizardCode, 'Edm.Int32') }),
-      VendorNumber: (vendorNumber: string) => ({ vendorNumber: edmToTs(vendorNumber, 'Edm.String') }),
-      CustomerNumber: (customerNumber: string) => ({ customerNumber: edmToTs(customerNumber, 'Edm.String') }),
-      PaymentMeans: (paymentMeans: string) => ({ paymentMeans: edmToTs(paymentMeans, 'Edm.String') }),
-      PaymentDocNum: (paymentDocNum: number) => ({ paymentDocNum: edmToTs(paymentDocNum, 'Edm.Int32') }),
-      FiscalYear: (fiscalYear: Moment) => ({ fiscalYear: edmToTs(fiscalYear, 'Edm.DateTimeOffset') }),
-      VendorRefNum: (vendorRefNum: string) => ({ vendorRefNum: edmToTs(vendorRefNum, 'Edm.String') }),
-      DocumentObjectType: (documentObjectType: string) => ({ documentObjectType: edmToTs(documentObjectType, 'Edm.String') }),
-      DocumentPostingDate: (documentPostingDate: Moment) => ({ documentPostingDate: edmToTs(documentPostingDate, 'Edm.DateTimeOffset') }),
-      DocumentTaxDate: (documentTaxDate: Moment) => ({ documentTaxDate: edmToTs(documentTaxDate, 'Edm.DateTimeOffset') }),
-      BPDebitPayableAccount: (bpDebitPayableAccount: string) => ({ bpDebitPayableAccount: edmToTs(bpDebitPayableAccount, 'Edm.String') }),
-      DocumentCurrency: (documentCurrency: string) => ({ documentCurrency: edmToTs(documentCurrency, 'Edm.String') }),
-      DocumentRate: (documentRate: number) => ({ documentRate: edmToTs(documentRate, 'Edm.Double') }),
-      DocumentTotal: (documentTotal: number) => ({ documentTotal: edmToTs(documentTotal, 'Edm.Double') }),
-      DocumentTotalFC: (documentTotalFc: number) => ({ documentTotalFc: edmToTs(documentTotalFc, 'Edm.Double') }),
-      DocumentTaxAmount: (documentTaxAmount: number) => ({ documentTaxAmount: edmToTs(documentTaxAmount, 'Edm.Double') }),
-      DocumentTaxAmountFC: (documentTaxAmountFc: number) => ({ documentTaxAmountFc: edmToTs(documentTaxAmountFc, 'Edm.Double') }),
-      DocumentRemarks: (documentRemarks: string) => ({ documentRemarks: edmToTs(documentRemarks, 'Edm.String') }),
-      DocumentPaymentTerms: (documentPaymentTerms: number) => ({ documentPaymentTerms: edmToTs(documentPaymentTerms, 'Edm.Int32') }),
-      PaymentDocReference: (paymentDocReference: string) => ({ paymentDocReference: edmToTs(paymentDocReference, 'Edm.String') }),
-      DocumentLocalCurrency: (documentLocalCurrency: string) => ({ documentLocalCurrency: edmToTs(documentLocalCurrency, 'Edm.String') }),
-      PaymentTermsPeriod: (paymentTermsPeriod: number) => ({ paymentTermsPeriod: edmToTs(paymentTermsPeriod, 'Edm.Int32') }),
-      DocumentObjectTypeEx: (documentObjectTypeEx: string) => ({ documentObjectTypeEx: edmToTs(documentObjectTypeEx, 'Edm.String') }),
-      DocumentNumber: (documentNumber: number) => ({ documentNumber: edmToTs(documentNumber, 'Edm.Int32') }),
-      PaymentNumber: (paymentNumber: number) => ({ paymentNumber: edmToTs(paymentNumber, 'Edm.Int32') }),
-      PaymentOrderNum: (paymentOrderNum: number) => ({ paymentOrderNum: edmToTs(paymentOrderNum, 'Edm.Int32') }),
-      FreeText1: (freeText1: string) => ({ freeText1: edmToTs(freeText1, 'Edm.String') }),
-      FreeText2: (freeText2: string) => ({ freeText2: edmToTs(freeText2, 'Edm.String') }),
-      FreeText3: (freeText3: string) => ({ freeText3: edmToTs(freeText3, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, PaymentRunExportLine);
   }
 }

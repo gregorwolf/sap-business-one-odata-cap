@@ -3,12 +3,18 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ItemUoMTypeEnum } from './ItemUoMTypeEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ItemUoMPackage
  */
 export interface ItemUoMPackage {
+  /**
+   * Uo M Type.
+   * @nullable
+   */
+  uoMType?: ItemUoMTypeEnum;
   /**
    * Uo M Entry.
    * @nullable
@@ -127,7 +133,12 @@ export function createItemUoMPackage(json: any): ItemUoMPackage {
  * ItemUoMPackageField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ItemUoMPackageField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ItemUoMPackageField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ItemUoMPackage> {
+  /**
+   * Representation of the [[ItemUoMPackage.uoMType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  uoMType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('UoMType', this);
   /**
    * Representation of the [[ItemUoMPackage.uoMEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -233,32 +244,138 @@ export class ItemUoMPackageField<EntityT extends Entity> extends ComplexTypeFiel
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   quantityPerPackage: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('QuantityPerPackage', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of ItemUoMPackageField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ItemUoMPackage);
+  }
 }
 
 export namespace ItemUoMPackage {
+  /**
+   * Metadata information on all properties of the `ItemUoMPackage` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ItemUoMPackage>[] = [{
+    originalName: 'UoMType',
+    name: 'uoMType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'UoMEntry',
+    name: 'uoMEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PackageTypeEntry',
+    name: 'packageTypeEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Length1',
+    name: 'length1',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Length1Unit',
+    name: 'length1Unit',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Length2',
+    name: 'length2',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Length2Unit',
+    name: 'length2Unit',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Width1',
+    name: 'width1',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Width1Unit',
+    name: 'width1Unit',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Width2',
+    name: 'width2',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Width2Unit',
+    name: 'width2Unit',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Height1',
+    name: 'height1',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Height1Unit',
+    name: 'height1Unit',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Height2',
+    name: 'height2',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Height2Unit',
+    name: 'height2Unit',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Volume',
+    name: 'volume',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'VolumeUnit',
+    name: 'volumeUnit',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Weight1',
+    name: 'weight1',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Weight1Unit',
+    name: 'weight1Unit',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Weight2',
+    name: 'weight2',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Weight2Unit',
+    name: 'weight2Unit',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'QuantityPerPackage',
+    name: 'quantityPerPackage',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ItemUoMPackage {
-    return createComplexType(json, {
-      UoMEntry: (uoMEntry: number) => ({ uoMEntry: edmToTs(uoMEntry, 'Edm.Int32') }),
-      PackageTypeEntry: (packageTypeEntry: number) => ({ packageTypeEntry: edmToTs(packageTypeEntry, 'Edm.Int32') }),
-      Length1: (length1: number) => ({ length1: edmToTs(length1, 'Edm.Double') }),
-      Length1Unit: (length1Unit: number) => ({ length1Unit: edmToTs(length1Unit, 'Edm.Int32') }),
-      Length2: (length2: number) => ({ length2: edmToTs(length2, 'Edm.Double') }),
-      Length2Unit: (length2Unit: number) => ({ length2Unit: edmToTs(length2Unit, 'Edm.Int32') }),
-      Width1: (width1: number) => ({ width1: edmToTs(width1, 'Edm.Double') }),
-      Width1Unit: (width1Unit: number) => ({ width1Unit: edmToTs(width1Unit, 'Edm.Int32') }),
-      Width2: (width2: number) => ({ width2: edmToTs(width2, 'Edm.Double') }),
-      Width2Unit: (width2Unit: number) => ({ width2Unit: edmToTs(width2Unit, 'Edm.Int32') }),
-      Height1: (height1: number) => ({ height1: edmToTs(height1, 'Edm.Double') }),
-      Height1Unit: (height1Unit: number) => ({ height1Unit: edmToTs(height1Unit, 'Edm.Int32') }),
-      Height2: (height2: number) => ({ height2: edmToTs(height2, 'Edm.Double') }),
-      Height2Unit: (height2Unit: number) => ({ height2Unit: edmToTs(height2Unit, 'Edm.Int32') }),
-      Volume: (volume: number) => ({ volume: edmToTs(volume, 'Edm.Double') }),
-      VolumeUnit: (volumeUnit: number) => ({ volumeUnit: edmToTs(volumeUnit, 'Edm.Int32') }),
-      Weight1: (weight1: number) => ({ weight1: edmToTs(weight1, 'Edm.Double') }),
-      Weight1Unit: (weight1Unit: number) => ({ weight1Unit: edmToTs(weight1Unit, 'Edm.Int32') }),
-      Weight2: (weight2: number) => ({ weight2: edmToTs(weight2, 'Edm.Double') }),
-      Weight2Unit: (weight2Unit: number) => ({ weight2Unit: edmToTs(weight2Unit, 'Edm.Int32') }),
-      QuantityPerPackage: (quantityPerPackage: number) => ({ quantityPerPackage: edmToTs(quantityPerPackage, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, ItemUoMPackage);
   }
 }

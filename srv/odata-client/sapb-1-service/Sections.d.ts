@@ -1,18 +1,13 @@
 import { SectionsRequestBuilder } from './SectionsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "Sections" of service "SAPB1".
  */
-export declare class Sections extends Entity implements SectionsType {
+export declare class Sections extends EntityV4 implements SectionsType {
     /**
      * Technical entity name for Sections.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Sections.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -46,10 +41,10 @@ export declare class Sections extends Entity implements SectionsType {
      */
     withholdingTaxCodes: WithholdingTaxCodes[];
     /**
-     * Returns an entity builder to construct instances `Sections`.
+     * Returns an entity builder to construct instances of `Sections`.
      * @returns A builder that constructs instances of entity type `Sections`.
      */
-    static builder(): EntityBuilderType<Sections, SectionsTypeForceMandatory>;
+    static builder(): EntityBuilderType<Sections, SectionsType>;
     /**
      * Returns a request builder to construct requests for operations on the `Sections` entity type.
      * @returns A `Sections` request builder.
@@ -60,7 +55,7 @@ export declare class Sections extends Entity implements SectionsType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `Sections`.
      */
-    static customField(fieldName: string): CustomField<Sections>;
+    static customField(fieldName: string): CustomFieldV4<Sections>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -72,18 +67,10 @@ export declare class Sections extends Entity implements SectionsType {
 import { CertificateSeries, CertificateSeriesType } from './CertificateSeries';
 import { WithholdingTaxCodes, WithholdingTaxCodesType } from './WithholdingTaxCodes';
 export interface SectionsType {
-    absEntry?: number;
-    code?: string;
-    description?: string;
-    eCode?: string;
-    certificateSeries: CertificateSeriesType[];
-    withholdingTaxCodes: WithholdingTaxCodesType[];
-}
-export interface SectionsTypeForceMandatory {
-    absEntry: number;
-    code: string;
-    description: string;
-    eCode: string;
+    absEntry?: number | null;
+    code?: string | null;
+    description?: string | null;
+    eCode?: string | null;
     certificateSeries: CertificateSeriesType[];
     withholdingTaxCodes: WithholdingTaxCodesType[];
 }

@@ -1,7 +1,8 @@
-import { SerialNumber, SerialNumberField } from './SerialNumber';
-import { BatchNumber, BatchNumberField } from './BatchNumber';
-import { DocumentLinesBinAllocation, DocumentLinesBinAllocationField } from './DocumentLinesBinAllocation';
-import { ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { SerialNumber } from './SerialNumber';
+import { BatchNumber } from './BatchNumber';
+import { DocumentLinesBinAllocation } from './DocumentLinesBinAllocation';
+import { BoPickStatus } from './BoPickStatus';
+import { CollectionField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * PickListsLine
  */
@@ -32,6 +33,11 @@ export interface PickListsLine {
      */
     pickedQuantity?: number;
     /**
+     * Pick Status.
+     * @nullable
+     */
+    pickStatus?: BoPickStatus;
+    /**
      * Released Quantity.
      * @nullable
      */
@@ -50,17 +56,17 @@ export interface PickListsLine {
      * Serial Numbers.
      * @nullable
      */
-    serialNumbers?: SerialNumber;
+    serialNumbers?: SerialNumber[];
     /**
      * Batch Numbers.
      * @nullable
      */
-    batchNumbers?: BatchNumber;
+    batchNumbers?: BatchNumber[];
     /**
      * Document Lines Bin Allocations.
      * @nullable
      */
-    documentLinesBinAllocations?: DocumentLinesBinAllocation;
+    documentLinesBinAllocations?: DocumentLinesBinAllocation[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[PickListsLine.build]] instead.
@@ -70,7 +76,7 @@ export declare function createPickListsLine(json: any): PickListsLine;
  * PickListsLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class PickListsLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class PickListsLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PickListsLine> {
     /**
      * Representation of the [[PickListsLine.absoluteEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -97,6 +103,11 @@ export declare class PickListsLineField<EntityT extends Entity> extends ComplexT
      */
     pickedQuantity: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[PickListsLine.pickStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    pickStatus: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[PickListsLine.releasedQuantity]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -115,19 +126,33 @@ export declare class PickListsLineField<EntityT extends Entity> extends ComplexT
      * Representation of the [[PickListsLine.serialNumbers]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    serialNumbers: SerialNumberField<EntityT>;
+    serialNumbers: CollectionField<EntityT, SerialNumber>;
     /**
      * Representation of the [[PickListsLine.batchNumbers]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    batchNumbers: BatchNumberField<EntityT>;
+    batchNumbers: CollectionField<EntityT, BatchNumber>;
     /**
      * Representation of the [[PickListsLine.documentLinesBinAllocations]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    documentLinesBinAllocations: DocumentLinesBinAllocationField<EntityT>;
+    documentLinesBinAllocations: CollectionField<EntityT, DocumentLinesBinAllocation>;
+    /**
+     * Creates an instance of PickListsLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace PickListsLine {
+    /**
+     * Metadata information on all properties of the `PickListsLine` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<PickListsLine>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | BatchNumber | DocumentLinesBinAllocation | SerialNumber;
     }): PickListsLine;

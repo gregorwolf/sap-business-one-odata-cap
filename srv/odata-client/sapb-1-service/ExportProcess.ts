@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ExportProcess
@@ -78,7 +78,7 @@ export function createExportProcess(json: any): ExportProcess {
  * ExportProcessField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ExportProcessField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ExportProcessField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ExportProcess> {
   /**
    * Representation of the [[ExportProcess.lineNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -134,22 +134,83 @@ export class ExportProcessField<EntityT extends Entity> extends ComplexTypeField
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   ladingBillTypeCode: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('LadingBillTypeCode', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of ExportProcessField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ExportProcess);
+  }
 }
 
 export namespace ExportProcess {
+  /**
+   * Metadata information on all properties of the `ExportProcess` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ExportProcess>[] = [{
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ExportationDocumentTypeCode',
+    name: 'exportationDocumentTypeCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ExportationDeclarationNumber',
+    name: 'exportationDeclarationNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ExportationDeclarationDate',
+    name: 'exportationDeclarationDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ExportationNatureCode',
+    name: 'exportationNatureCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ExportationRegistryNumber',
+    name: 'exportationRegistryNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ExportationRegistryDate',
+    name: 'exportationRegistryDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'LadingBillNumber',
+    name: 'ladingBillNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LadingBillDate',
+    name: 'ladingBillDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'MerchandiseLeftCustomsDate',
+    name: 'merchandiseLeftCustomsDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'LadingBillTypeCode',
+    name: 'ladingBillTypeCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ExportProcess {
-    return createComplexType(json, {
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      ExportationDocumentTypeCode: (exportationDocumentTypeCode: number) => ({ exportationDocumentTypeCode: edmToTs(exportationDocumentTypeCode, 'Edm.Int32') }),
-      ExportationDeclarationNumber: (exportationDeclarationNumber: number) => ({ exportationDeclarationNumber: edmToTs(exportationDeclarationNumber, 'Edm.Int32') }),
-      ExportationDeclarationDate: (exportationDeclarationDate: Moment) => ({ exportationDeclarationDate: edmToTs(exportationDeclarationDate, 'Edm.DateTimeOffset') }),
-      ExportationNatureCode: (exportationNatureCode: number) => ({ exportationNatureCode: edmToTs(exportationNatureCode, 'Edm.Int32') }),
-      ExportationRegistryNumber: (exportationRegistryNumber: number) => ({ exportationRegistryNumber: edmToTs(exportationRegistryNumber, 'Edm.Int32') }),
-      ExportationRegistryDate: (exportationRegistryDate: Moment) => ({ exportationRegistryDate: edmToTs(exportationRegistryDate, 'Edm.DateTimeOffset') }),
-      LadingBillNumber: (ladingBillNumber: string) => ({ ladingBillNumber: edmToTs(ladingBillNumber, 'Edm.String') }),
-      LadingBillDate: (ladingBillDate: Moment) => ({ ladingBillDate: edmToTs(ladingBillDate, 'Edm.DateTimeOffset') }),
-      MerchandiseLeftCustomsDate: (merchandiseLeftCustomsDate: Moment) => ({ merchandiseLeftCustomsDate: edmToTs(merchandiseLeftCustomsDate, 'Edm.DateTimeOffset') }),
-      LadingBillTypeCode: (ladingBillTypeCode: number) => ({ ladingBillTypeCode: edmToTs(ladingBillTypeCode, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, ExportProcess);
   }
 }

@@ -1,4 +1,4 @@
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { UnitOfMeasurements } from './UnitOfMeasurements';
 /**
  * Request builder class for operations supported on the [[UnitOfMeasurements]] entity.
@@ -9,35 +9,35 @@ export declare class UnitOfMeasurementsRequestBuilder extends RequestBuilder<Uni
      * @param absEntry Key property. See [[UnitOfMeasurements.absEntry]].
      * @returns A request builder for creating requests to retrieve one `UnitOfMeasurements` entity based on its keys.
      */
-    getByKey(absEntry: number): GetByKeyRequestBuilder<UnitOfMeasurements>;
+    getByKey(absEntry: number): GetByKeyRequestBuilderV4<UnitOfMeasurements>;
     /**
      * Returns a request builder for querying all `UnitOfMeasurements` entities.
      * @returns A request builder for creating requests to retrieve all `UnitOfMeasurements` entities.
      */
-    getAll(): GetAllRequestBuilder<UnitOfMeasurements>;
+    getAll(): GetAllRequestBuilderV4<UnitOfMeasurements>;
     /**
      * Returns a request builder for creating a `UnitOfMeasurements` entity.
      * @param entity The entity to be created
      * @returns A request builder for creating requests that create an entity of type `UnitOfMeasurements`.
      */
-    create(entity: UnitOfMeasurements): CreateRequestBuilder<UnitOfMeasurements>;
+    create(entity: UnitOfMeasurements): CreateRequestBuilderV4<UnitOfMeasurements>;
     /**
      * Returns a request builder for updating an entity of type `UnitOfMeasurements`.
      * @param entity The entity to be updated
      * @returns A request builder for creating requests that update an entity of type `UnitOfMeasurements`.
      */
-    update(entity: UnitOfMeasurements): UpdateRequestBuilder<UnitOfMeasurements>;
+    update(entity: UnitOfMeasurements): UpdateRequestBuilderV4<UnitOfMeasurements>;
     /**
      * Returns a request builder for deleting an entity of type `UnitOfMeasurements`.
      * @param absEntry Key property. See [[UnitOfMeasurements.absEntry]].
      * @returns A request builder for creating requests that delete an entity of type `UnitOfMeasurements`.
      */
-    delete(absEntry: number): DeleteRequestBuilder<UnitOfMeasurements>;
+    delete(absEntry: number): DeleteRequestBuilderV4<UnitOfMeasurements>;
     /**
      * Returns a request builder for deleting an entity of type `UnitOfMeasurements`.
      * @param entity Pass the entity to be deleted.
      * @returns A request builder for creating requests that delete an entity of type `UnitOfMeasurements` by taking the entity as a parameter.
      */
-    delete(entity: UnitOfMeasurements): DeleteRequestBuilder<UnitOfMeasurements>;
+    delete(entity: UnitOfMeasurements): DeleteRequestBuilderV4<UnitOfMeasurements>;
 }
 //# sourceMappingURL=UnitOfMeasurementsRequestBuilder.d.ts.map

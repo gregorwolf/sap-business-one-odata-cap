@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * BudgetLine
@@ -127,7 +127,7 @@ export function createBudgetLine(json: any): BudgetLine {
  * BudgetLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class BudgetLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class BudgetLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BudgetLine> {
   /**
    * Representation of the [[BudgetLine.precentOfAnnualBudgetAmount]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -233,32 +233,133 @@ export class BudgetLineField<EntityT extends Entity> extends ComplexTypeField<En
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   futureIncomeDeb: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('FutureIncomeDeb', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of BudgetLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, BudgetLine);
+  }
 }
 
 export namespace BudgetLine {
+  /**
+   * Metadata information on all properties of the `BudgetLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<BudgetLine>[] = [{
+    originalName: 'PrecentOfAnnualBudgetAmount',
+    name: 'precentOfAnnualBudgetAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'RowDetails',
+    name: 'rowDetails',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RowNumber',
+    name: 'rowNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'FutExpenSysDebit',
+    name: 'futExpenSysDebit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FutExpenDebit',
+    name: 'futExpenDebit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FutExpenSysCredit',
+    name: 'futExpenSysCredit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FutExpenCredit',
+    name: 'futExpenCredit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FutIncomesSysCredit',
+    name: 'futIncomesSysCredit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FutIncomesSysDebit',
+    name: 'futIncomesSysDebit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FutIncomesCredit',
+    name: 'futIncomesCredit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BudgetSysTotDebit',
+    name: 'budgetSysTotDebit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BalSysTotDebit',
+    name: 'balSysTotDebit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BalTotDebit',
+    name: 'balTotDebit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BudgetTotCredit',
+    name: 'budgetTotCredit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BudgetSysTotCredit',
+    name: 'budgetSysTotCredit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BudgetTotDebit',
+    name: 'budgetTotDebit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BalSysTotCredit',
+    name: 'balSysTotCredit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BalTotCredit',
+    name: 'balTotCredit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BudgetKey',
+    name: 'budgetKey',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AccountCode',
+    name: 'accountCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FutureIncomeDeb',
+    name: 'futureIncomeDeb',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): BudgetLine {
-    return createComplexType(json, {
-      PrecentOfAnnualBudgetAmount: (precentOfAnnualBudgetAmount: number) => ({ precentOfAnnualBudgetAmount: edmToTs(precentOfAnnualBudgetAmount, 'Edm.Double') }),
-      RowDetails: (rowDetails: string) => ({ rowDetails: edmToTs(rowDetails, 'Edm.String') }),
-      RowNumber: (rowNumber: number) => ({ rowNumber: edmToTs(rowNumber, 'Edm.Int32') }),
-      FutExpenSysDebit: (futExpenSysDebit: number) => ({ futExpenSysDebit: edmToTs(futExpenSysDebit, 'Edm.Double') }),
-      FutExpenDebit: (futExpenDebit: number) => ({ futExpenDebit: edmToTs(futExpenDebit, 'Edm.Double') }),
-      FutExpenSysCredit: (futExpenSysCredit: number) => ({ futExpenSysCredit: edmToTs(futExpenSysCredit, 'Edm.Double') }),
-      FutExpenCredit: (futExpenCredit: number) => ({ futExpenCredit: edmToTs(futExpenCredit, 'Edm.Double') }),
-      FutIncomesSysCredit: (futIncomesSysCredit: number) => ({ futIncomesSysCredit: edmToTs(futIncomesSysCredit, 'Edm.Double') }),
-      FutIncomesSysDebit: (futIncomesSysDebit: number) => ({ futIncomesSysDebit: edmToTs(futIncomesSysDebit, 'Edm.Double') }),
-      FutIncomesCredit: (futIncomesCredit: number) => ({ futIncomesCredit: edmToTs(futIncomesCredit, 'Edm.Double') }),
-      BudgetSysTotDebit: (budgetSysTotDebit: number) => ({ budgetSysTotDebit: edmToTs(budgetSysTotDebit, 'Edm.Double') }),
-      BalSysTotDebit: (balSysTotDebit: number) => ({ balSysTotDebit: edmToTs(balSysTotDebit, 'Edm.Double') }),
-      BalTotDebit: (balTotDebit: number) => ({ balTotDebit: edmToTs(balTotDebit, 'Edm.Double') }),
-      BudgetTotCredit: (budgetTotCredit: number) => ({ budgetTotCredit: edmToTs(budgetTotCredit, 'Edm.Double') }),
-      BudgetSysTotCredit: (budgetSysTotCredit: number) => ({ budgetSysTotCredit: edmToTs(budgetSysTotCredit, 'Edm.Double') }),
-      BudgetTotDebit: (budgetTotDebit: number) => ({ budgetTotDebit: edmToTs(budgetTotDebit, 'Edm.Double') }),
-      BalSysTotCredit: (balSysTotCredit: number) => ({ balSysTotCredit: edmToTs(balSysTotCredit, 'Edm.Double') }),
-      BalTotCredit: (balTotCredit: number) => ({ balTotCredit: edmToTs(balTotCredit, 'Edm.Double') }),
-      BudgetKey: (budgetKey: number) => ({ budgetKey: edmToTs(budgetKey, 'Edm.Int32') }),
-      AccountCode: (accountCode: string) => ({ accountCode: edmToTs(accountCode, 'Edm.String') }),
-      FutureIncomeDeb: (futureIncomeDeb: number) => ({ futureIncomeDeb: edmToTs(futureIncomeDeb, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, BudgetLine);
   }
 }

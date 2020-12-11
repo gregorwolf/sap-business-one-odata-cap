@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.IndustriesRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var Industries_1 = require("./Industries");
 /**
  * Request builder class for operations supported on the [[Industries]] entity.
@@ -35,14 +35,14 @@ var IndustriesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `Industries` entity based on its keys.
      */
     IndustriesRequestBuilder.prototype.getByKey = function (industryCode) {
-        return new v4_1.GetByKeyRequestBuilder(Industries_1.Industries, { IndustryCode: industryCode });
+        return new core_1.GetByKeyRequestBuilderV4(Industries_1.Industries, { IndustryCode: industryCode });
     };
     /**
      * Returns a request builder for querying all `Industries` entities.
      * @returns A request builder for creating requests to retrieve all `Industries` entities.
      */
     IndustriesRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(Industries_1.Industries);
+        return new core_1.GetAllRequestBuilderV4(Industries_1.Industries);
     };
     /**
      * Returns a request builder for creating a `Industries` entity.
@@ -50,7 +50,7 @@ var IndustriesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `Industries`.
      */
     IndustriesRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(Industries_1.Industries, entity);
+        return new core_1.CreateRequestBuilderV4(Industries_1.Industries, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `Industries`.
@@ -58,12 +58,12 @@ var IndustriesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `Industries`.
      */
     IndustriesRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(Industries_1.Industries, entity);
+        return new core_1.UpdateRequestBuilderV4(Industries_1.Industries, entity);
     };
     IndustriesRequestBuilder.prototype.delete = function (industryCodeOrEntity) {
-        return new v4_1.DeleteRequestBuilder(Industries_1.Industries, industryCodeOrEntity instanceof Industries_1.Industries ? industryCodeOrEntity : { IndustryCode: industryCodeOrEntity });
+        return new core_1.DeleteRequestBuilderV4(Industries_1.Industries, industryCodeOrEntity instanceof Industries_1.Industries ? industryCodeOrEntity : { IndustryCode: industryCodeOrEntity });
     };
     return IndustriesRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.IndustriesRequestBuilder = IndustriesRequestBuilder;
 //# sourceMappingURL=IndustriesRequestBuilder.js.map

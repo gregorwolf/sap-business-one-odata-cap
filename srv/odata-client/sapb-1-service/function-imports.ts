@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { transformReturnValueForEdmType, transformReturnValueForComplexTypeList, transformReturnValueForComplexType, edmToTs, FunctionImportRequestBuilder, FunctionImportParameter } from '@sap-cloud-sdk/core/v4';
+import { transformReturnValueForEdmTypeV4, transformReturnValueForComplexTypeListV4, transformReturnValueForComplexTypeV4, edmToTsV4, deserializeComplexTypeV4, FunctionImportRequestBuilderV4, FunctionImportParameter } from '@sap-cloud-sdk/core';
 import { MessageHeader } from './MessageHeader';
 import { PathAdmin } from './PathAdmin';
 import { AdminInfo } from './AdminInfo';
@@ -22,12 +22,12 @@ export interface LicenseServiceGetInstallationNumberParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export function licenseServiceGetInstallationNumber(parameters: LicenseServiceGetInstallationNumberParameters): FunctionImportRequestBuilder<LicenseServiceGetInstallationNumberParameters, string> {
+export function licenseServiceGetInstallationNumber(parameters: LicenseServiceGetInstallationNumberParameters): FunctionImportRequestBuilderV4<LicenseServiceGetInstallationNumberParameters, string> {
   const params = {
 
   }
 
-  return new FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'LicenseService_GetInstallationNumber', (data) => transformReturnValueForEdmType(data, (val) => edmToTs(val, 'Edm.String')), params);
+  return new FunctionImportRequestBuilderV4('/b1s/v2/', 'LicenseService_GetInstallationNumber', (data) => transformReturnValueForEdmTypeV4(data, (val) => edmToTsV4(val.value, 'Edm.String')), params);
 }
 
 /**
@@ -50,13 +50,13 @@ export interface SboBobServiceFormatMoneyToStringParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export function sboBobServiceFormatMoneyToString(parameters: SboBobServiceFormatMoneyToStringParameters): FunctionImportRequestBuilder<SboBobServiceFormatMoneyToStringParameters, string> {
+export function sboBobServiceFormatMoneyToString(parameters: SboBobServiceFormatMoneyToStringParameters): FunctionImportRequestBuilderV4<SboBobServiceFormatMoneyToStringParameters, string> {
   const params = {
     inMoney: new FunctionImportParameter('InMoney', 'Edm.Double', parameters.inMoney),
     inPrecision: new FunctionImportParameter('InPrecision', 'Edm.String', parameters.inPrecision)
   }
 
-  return new FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'SBOBobService_Format_MoneyToString', (data) => transformReturnValueForEdmType(data, (val) => edmToTs(val, 'Edm.String')), params);
+  return new FunctionImportRequestBuilderV4('/b1s/v2/', 'SBOBobService_Format_MoneyToString', (data) => transformReturnValueForEdmTypeV4(data, (val) => edmToTsV4(val.value, 'Edm.String')), params);
 }
 
 /**
@@ -79,13 +79,13 @@ export interface SboBobServiceGetIndexRateParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export function sboBobServiceGetIndexRate(parameters: SboBobServiceGetIndexRateParameters): FunctionImportRequestBuilder<SboBobServiceGetIndexRateParameters, number> {
+export function sboBobServiceGetIndexRate(parameters: SboBobServiceGetIndexRateParameters): FunctionImportRequestBuilderV4<SboBobServiceGetIndexRateParameters, number> {
   const params = {
     index: new FunctionImportParameter('Index', 'Edm.String', parameters.index),
     date: new FunctionImportParameter('Date', 'Edm.String', parameters.date)
   }
 
-  return new FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'SBOBobService_GetIndexRate', (data) => transformReturnValueForEdmType(data, (val) => edmToTs(val, 'Edm.Double')), params);
+  return new FunctionImportRequestBuilderV4('/b1s/v2/', 'SBOBobService_GetIndexRate', (data) => transformReturnValueForEdmTypeV4(data, (val) => edmToTsV4(val.value, 'Edm.Double')), params);
 }
 
 /**
@@ -108,13 +108,13 @@ export interface SboBobServiceGetCurrencyRateParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export function sboBobServiceGetCurrencyRate(parameters: SboBobServiceGetCurrencyRateParameters): FunctionImportRequestBuilder<SboBobServiceGetCurrencyRateParameters, number> {
+export function sboBobServiceGetCurrencyRate(parameters: SboBobServiceGetCurrencyRateParameters): FunctionImportRequestBuilderV4<SboBobServiceGetCurrencyRateParameters, number> {
   const params = {
     currency: new FunctionImportParameter('Currency', 'Edm.String', parameters.currency),
     date: new FunctionImportParameter('Date', 'Edm.String', parameters.date)
   }
 
-  return new FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'SBOBobService_GetCurrencyRate', (data) => transformReturnValueForEdmType(data, (val) => edmToTs(val, 'Edm.Double')), params);
+  return new FunctionImportRequestBuilderV4('/b1s/v2/', 'SBOBobService_GetCurrencyRate', (data) => transformReturnValueForEdmTypeV4(data, (val) => edmToTsV4(val.value, 'Edm.Double')), params);
 }
 
 /**
@@ -129,12 +129,12 @@ export interface SboBobServiceGetLocalCurrencyParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export function sboBobServiceGetLocalCurrency(parameters: SboBobServiceGetLocalCurrencyParameters): FunctionImportRequestBuilder<SboBobServiceGetLocalCurrencyParameters, string> {
+export function sboBobServiceGetLocalCurrency(parameters: SboBobServiceGetLocalCurrencyParameters): FunctionImportRequestBuilderV4<SboBobServiceGetLocalCurrencyParameters, string> {
   const params = {
 
   }
 
-  return new FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'SBOBobService_GetLocalCurrency', (data) => transformReturnValueForEdmType(data, (val) => edmToTs(val, 'Edm.String')), params);
+  return new FunctionImportRequestBuilderV4('/b1s/v2/', 'SBOBobService_GetLocalCurrency', (data) => transformReturnValueForEdmTypeV4(data, (val) => edmToTsV4(val.value, 'Edm.String')), params);
 }
 
 /**
@@ -157,13 +157,13 @@ export interface SboBobServiceGetDueDateParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export function sboBobServiceGetDueDate(parameters: SboBobServiceGetDueDateParameters): FunctionImportRequestBuilder<SboBobServiceGetDueDateParameters, string> {
+export function sboBobServiceGetDueDate(parameters: SboBobServiceGetDueDateParameters): FunctionImportRequestBuilderV4<SboBobServiceGetDueDateParameters, string> {
   const params = {
     cardCode: new FunctionImportParameter('CardCode', 'Edm.String', parameters.cardCode),
     refDate: new FunctionImportParameter('RefDate', 'Edm.String', parameters.refDate)
   }
 
-  return new FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'SBOBobService_GetDueDate', (data) => transformReturnValueForEdmType(data, (val) => edmToTs(val, 'Edm.String')), params);
+  return new FunctionImportRequestBuilderV4('/b1s/v2/', 'SBOBobService_GetDueDate', (data) => transformReturnValueForEdmTypeV4(data, (val) => edmToTsV4(val.value, 'Edm.String')), params);
 }
 
 /**
@@ -178,12 +178,12 @@ export interface MessagesServiceGetOutboxParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export function messagesServiceGetOutbox(parameters: MessagesServiceGetOutboxParameters): FunctionImportRequestBuilder<MessagesServiceGetOutboxParameters, MessageHeader[]> {
+export function messagesServiceGetOutbox(parameters: MessagesServiceGetOutboxParameters): FunctionImportRequestBuilderV4<MessagesServiceGetOutboxParameters, MessageHeader[]> {
   const params = {
 
   }
 
-  return new FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'MessagesService_GetOutbox', (data) => transformReturnValueForComplexTypeList(data, MessageHeader.build), params);
+  return new FunctionImportRequestBuilderV4('/b1s/v2/', 'MessagesService_GetOutbox', (data) => transformReturnValueForComplexTypeListV4(data, (data) => deserializeComplexTypeV4(data, MessageHeader)), params);
 }
 
 /**
@@ -198,12 +198,12 @@ export interface MessagesServiceGetInboxParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export function messagesServiceGetInbox(parameters: MessagesServiceGetInboxParameters): FunctionImportRequestBuilder<MessagesServiceGetInboxParameters, MessageHeader[]> {
+export function messagesServiceGetInbox(parameters: MessagesServiceGetInboxParameters): FunctionImportRequestBuilderV4<MessagesServiceGetInboxParameters, MessageHeader[]> {
   const params = {
 
   }
 
-  return new FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'MessagesService_GetInbox', (data) => transformReturnValueForComplexTypeList(data, MessageHeader.build), params);
+  return new FunctionImportRequestBuilderV4('/b1s/v2/', 'MessagesService_GetInbox', (data) => transformReturnValueForComplexTypeListV4(data, (data) => deserializeComplexTypeV4(data, MessageHeader)), params);
 }
 
 /**
@@ -218,12 +218,12 @@ export interface CompanyServiceGetPathAdminParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export function companyServiceGetPathAdmin(parameters: CompanyServiceGetPathAdminParameters): FunctionImportRequestBuilder<CompanyServiceGetPathAdminParameters, PathAdmin> {
+export function companyServiceGetPathAdmin(parameters: CompanyServiceGetPathAdminParameters): FunctionImportRequestBuilderV4<CompanyServiceGetPathAdminParameters, PathAdmin> {
   const params = {
 
   }
 
-  return new FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'CompanyService_GetPathAdmin', (data) => transformReturnValueForComplexType(data, PathAdmin.build), params);
+  return new FunctionImportRequestBuilderV4('/b1s/v2/', 'CompanyService_GetPathAdmin', (data) => transformReturnValueForComplexTypeV4(data, (data) => deserializeComplexTypeV4(data, PathAdmin)), params);
 }
 
 /**
@@ -238,12 +238,12 @@ export interface CompanyServiceGetAdminInfoParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export function companyServiceGetAdminInfo(parameters: CompanyServiceGetAdminInfoParameters): FunctionImportRequestBuilder<CompanyServiceGetAdminInfoParameters, AdminInfo> {
+export function companyServiceGetAdminInfo(parameters: CompanyServiceGetAdminInfoParameters): FunctionImportRequestBuilderV4<CompanyServiceGetAdminInfoParameters, AdminInfo> {
   const params = {
 
   }
 
-  return new FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'CompanyService_GetAdminInfo', (data) => transformReturnValueForComplexType(data, AdminInfo.build), params);
+  return new FunctionImportRequestBuilderV4('/b1s/v2/', 'CompanyService_GetAdminInfo', (data) => transformReturnValueForComplexTypeV4(data, (data) => deserializeComplexTypeV4(data, AdminInfo)), params);
 }
 
 /**
@@ -258,12 +258,12 @@ export interface CompanyServiceGetCompanyInfoParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export function companyServiceGetCompanyInfo(parameters: CompanyServiceGetCompanyInfoParameters): FunctionImportRequestBuilder<CompanyServiceGetCompanyInfoParameters, CompanyInfo> {
+export function companyServiceGetCompanyInfo(parameters: CompanyServiceGetCompanyInfoParameters): FunctionImportRequestBuilderV4<CompanyServiceGetCompanyInfoParameters, CompanyInfo> {
   const params = {
 
   }
 
-  return new FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'CompanyService_GetCompanyInfo', (data) => transformReturnValueForComplexType(data, CompanyInfo.build), params);
+  return new FunctionImportRequestBuilderV4('/b1s/v2/', 'CompanyService_GetCompanyInfo', (data) => transformReturnValueForComplexTypeV4(data, (data) => deserializeComplexTypeV4(data, CompanyInfo)), params);
 }
 
 /**
@@ -286,13 +286,13 @@ export interface SboBobServiceGetSystemPermissionParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export function sboBobServiceGetSystemPermission(parameters: SboBobServiceGetSystemPermissionParameters): FunctionImportRequestBuilder<SboBobServiceGetSystemPermissionParameters, number> {
+export function sboBobServiceGetSystemPermission(parameters: SboBobServiceGetSystemPermissionParameters): FunctionImportRequestBuilderV4<SboBobServiceGetSystemPermissionParameters, number> {
   const params = {
     userCode: new FunctionImportParameter('UserCode', 'Edm.String', parameters.userCode),
     permissionId: new FunctionImportParameter('PermissionID', 'Edm.String', parameters.permissionId)
   }
 
-  return new FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'SBOBobService_GetSystemPermission', (data) => transformReturnValueForEdmType(data, (val) => edmToTs(val, 'Edm.Int32')), params);
+  return new FunctionImportRequestBuilderV4('/b1s/v2/', 'SBOBobService_GetSystemPermission', (data) => transformReturnValueForEdmTypeV4(data, (val) => edmToTsV4(val.value, 'Edm.Int32')), params);
 }
 
 /**
@@ -307,12 +307,12 @@ export interface UserMenuServiceGetCurrentUserMenuParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export function userMenuServiceGetCurrentUserMenu(parameters: UserMenuServiceGetCurrentUserMenuParameters): FunctionImportRequestBuilder<UserMenuServiceGetCurrentUserMenuParameters, UserMenuItem[]> {
+export function userMenuServiceGetCurrentUserMenu(parameters: UserMenuServiceGetCurrentUserMenuParameters): FunctionImportRequestBuilderV4<UserMenuServiceGetCurrentUserMenuParameters, UserMenuItem[]> {
   const params = {
 
   }
 
-  return new FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'UserMenuService_GetCurrentUserMenu', (data) => transformReturnValueForComplexTypeList(data, UserMenuItem.build), params);
+  return new FunctionImportRequestBuilderV4('/b1s/v2/', 'UserMenuService_GetCurrentUserMenu', (data) => transformReturnValueForComplexTypeListV4(data, (data) => deserializeComplexTypeV4(data, UserMenuItem)), params);
 }
 
 /**
@@ -327,12 +327,12 @@ export interface SboBobServiceGetSystemCurrencyParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export function sboBobServiceGetSystemCurrency(parameters: SboBobServiceGetSystemCurrencyParameters): FunctionImportRequestBuilder<SboBobServiceGetSystemCurrencyParameters, string> {
+export function sboBobServiceGetSystemCurrency(parameters: SboBobServiceGetSystemCurrencyParameters): FunctionImportRequestBuilderV4<SboBobServiceGetSystemCurrencyParameters, string> {
   const params = {
 
   }
 
-  return new FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'SBOBobService_GetSystemCurrency', (data) => transformReturnValueForEdmType(data, (val) => edmToTs(val, 'Edm.String')), params);
+  return new FunctionImportRequestBuilderV4('/b1s/v2/', 'SBOBobService_GetSystemCurrency', (data) => transformReturnValueForEdmTypeV4(data, (val) => edmToTsV4(val.value, 'Edm.String')), params);
 }
 
 export const functionImports = {

@@ -4,7 +4,9 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { StageDepTypeEnum } from './StageDepTypeEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * PmStageData
@@ -76,6 +78,11 @@ export interface PmStageData {
    */
   percentualCompletness?: number;
   /**
+   * Is Finished.
+   * @nullable
+   */
+  isFinished?: BoYesNoEnum;
+  /**
    * Stage Owner.
    * @nullable
    */
@@ -100,6 +107,26 @@ export interface PmStageData {
    * @nullable
    */
   dependsOnStage4?: number;
+  /**
+   * Stage Dependency 1 Type.
+   * @nullable
+   */
+  stageDependency1Type?: StageDepTypeEnum;
+  /**
+   * Stage Dependency 2 Type.
+   * @nullable
+   */
+  stageDependency2Type?: StageDepTypeEnum;
+  /**
+   * Stage Dependency 3 Type.
+   * @nullable
+   */
+  stageDependency3Type?: StageDepTypeEnum;
+  /**
+   * Stage Dependency 4 Type.
+   * @nullable
+   */
+  stageDependency4Type?: StageDepTypeEnum;
   /**
    * Depends On Stage Id 1.
    * @nullable
@@ -148,7 +175,7 @@ export function createPmStageData(json: any): PmStageData {
  * PmStageDataField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class PmStageDataField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class PmStageDataField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PmStageData> {
   /**
    * Representation of the [[PmStageData.lineId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -215,6 +242,11 @@ export class PmStageDataField<EntityT extends Entity> extends ComplexTypeField<E
    */
   percentualCompletness: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('PercentualCompletness', this, 'Edm.Double');
   /**
+   * Representation of the [[PmStageData.isFinished]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  isFinished: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IsFinished', this);
+  /**
    * Representation of the [[PmStageData.stageOwner]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -239,6 +271,26 @@ export class PmStageDataField<EntityT extends Entity> extends ComplexTypeField<E
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   dependsOnStage4: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DependsOnStage4', this, 'Edm.Int32');
+  /**
+   * Representation of the [[PmStageData.stageDependency1Type]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  stageDependency1Type: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('StageDependency1Type', this);
+  /**
+   * Representation of the [[PmStageData.stageDependency2Type]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  stageDependency2Type: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('StageDependency2Type', this);
+  /**
+   * Representation of the [[PmStageData.stageDependency3Type]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  stageDependency3Type: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('StageDependency3Type', this);
+  /**
+   * Representation of the [[PmStageData.stageDependency4Type]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  stageDependency4Type: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('StageDependency4Type', this);
   /**
    * Representation of the [[PmStageData.dependsOnStageId1]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -274,36 +326,178 @@ export class PmStageDataField<EntityT extends Entity> extends ComplexTypeField<E
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   finishedDate: ComplexTypeDatePropertyField<EntityT> = new ComplexTypeDatePropertyField('FinishedDate', this, 'Edm.DateTimeOffset');
+
+  /**
+   * Creates an instance of PmStageDataField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, PmStageData);
+  }
 }
 
 export namespace PmStageData {
+  /**
+   * Metadata information on all properties of the `PmStageData` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<PmStageData>[] = [{
+    originalName: 'LineID',
+    name: 'lineId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'StageID',
+    name: 'stageId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'StageType',
+    name: 'stageType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'StartDate',
+    name: 'startDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'CloseDate',
+    name: 'closeDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Task',
+    name: 'task',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Description',
+    name: 'description',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExpectedCosts',
+    name: 'expectedCosts',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'InvoicedAmountSales',
+    name: 'invoicedAmountSales',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'OpenAmountSales',
+    name: 'openAmountSales',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'InvoicedAmountPurchase',
+    name: 'invoicedAmountPurchase',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'OpenAmountPurchase',
+    name: 'openAmountPurchase',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PercentualCompletness',
+    name: 'percentualCompletness',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'IsFinished',
+    name: 'isFinished',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'StageOwner',
+    name: 'stageOwner',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DependsOnStage1',
+    name: 'dependsOnStage1',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DependsOnStage2',
+    name: 'dependsOnStage2',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DependsOnStage3',
+    name: 'dependsOnStage3',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DependsOnStage4',
+    name: 'dependsOnStage4',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'StageDependency1Type',
+    name: 'stageDependency1Type',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'StageDependency2Type',
+    name: 'stageDependency2Type',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'StageDependency3Type',
+    name: 'stageDependency3Type',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'StageDependency4Type',
+    name: 'stageDependency4Type',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DependsOnStageID1',
+    name: 'dependsOnStageId1',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DependsOnStageID2',
+    name: 'dependsOnStageId2',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DependsOnStageID3',
+    name: 'dependsOnStageId3',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DependsOnStageID4',
+    name: 'dependsOnStageId4',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AttachmentEntry',
+    name: 'attachmentEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'UniqueID',
+    name: 'uniqueId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FinishedDate',
+    name: 'finishedDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): PmStageData {
-    return createComplexType(json, {
-      LineID: (lineId: number) => ({ lineId: edmToTs(lineId, 'Edm.Int32') }),
-      StageID: (stageId: number) => ({ stageId: edmToTs(stageId, 'Edm.Int32') }),
-      StageType: (stageType: number) => ({ stageType: edmToTs(stageType, 'Edm.Int32') }),
-      StartDate: (startDate: Moment) => ({ startDate: edmToTs(startDate, 'Edm.DateTimeOffset') }),
-      CloseDate: (closeDate: Moment) => ({ closeDate: edmToTs(closeDate, 'Edm.DateTimeOffset') }),
-      Task: (task: number) => ({ task: edmToTs(task, 'Edm.Int32') }),
-      Description: (description: string) => ({ description: edmToTs(description, 'Edm.String') }),
-      ExpectedCosts: (expectedCosts: number) => ({ expectedCosts: edmToTs(expectedCosts, 'Edm.Double') }),
-      InvoicedAmountSales: (invoicedAmountSales: number) => ({ invoicedAmountSales: edmToTs(invoicedAmountSales, 'Edm.Double') }),
-      OpenAmountSales: (openAmountSales: number) => ({ openAmountSales: edmToTs(openAmountSales, 'Edm.Double') }),
-      InvoicedAmountPurchase: (invoicedAmountPurchase: number) => ({ invoicedAmountPurchase: edmToTs(invoicedAmountPurchase, 'Edm.Double') }),
-      OpenAmountPurchase: (openAmountPurchase: number) => ({ openAmountPurchase: edmToTs(openAmountPurchase, 'Edm.Double') }),
-      PercentualCompletness: (percentualCompletness: number) => ({ percentualCompletness: edmToTs(percentualCompletness, 'Edm.Double') }),
-      StageOwner: (stageOwner: number) => ({ stageOwner: edmToTs(stageOwner, 'Edm.Int32') }),
-      DependsOnStage1: (dependsOnStage1: number) => ({ dependsOnStage1: edmToTs(dependsOnStage1, 'Edm.Int32') }),
-      DependsOnStage2: (dependsOnStage2: number) => ({ dependsOnStage2: edmToTs(dependsOnStage2, 'Edm.Int32') }),
-      DependsOnStage3: (dependsOnStage3: number) => ({ dependsOnStage3: edmToTs(dependsOnStage3, 'Edm.Int32') }),
-      DependsOnStage4: (dependsOnStage4: number) => ({ dependsOnStage4: edmToTs(dependsOnStage4, 'Edm.Int32') }),
-      DependsOnStageID1: (dependsOnStageId1: number) => ({ dependsOnStageId1: edmToTs(dependsOnStageId1, 'Edm.Int32') }),
-      DependsOnStageID2: (dependsOnStageId2: number) => ({ dependsOnStageId2: edmToTs(dependsOnStageId2, 'Edm.Int32') }),
-      DependsOnStageID3: (dependsOnStageId3: number) => ({ dependsOnStageId3: edmToTs(dependsOnStageId3, 'Edm.Int32') }),
-      DependsOnStageID4: (dependsOnStageId4: number) => ({ dependsOnStageId4: edmToTs(dependsOnStageId4, 'Edm.Int32') }),
-      AttachmentEntry: (attachmentEntry: number) => ({ attachmentEntry: edmToTs(attachmentEntry, 'Edm.Int32') }),
-      UniqueID: (uniqueId: string) => ({ uniqueId: edmToTs(uniqueId, 'Edm.String') }),
-      FinishedDate: (finishedDate: Moment) => ({ finishedDate: edmToTs(finishedDate, 'Edm.DateTimeOffset') })
-    });
+    return deserializeComplexTypeV4(json, PmStageData);
   }
 }

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -23,7 +23,7 @@ var BatchNumber_1 = require("./BatchNumber");
 var DocumentLinesBinAllocation_1 = require("./DocumentLinesBinAllocation");
 var ExportProcess_1 = require("./ExportProcess");
 var ImportProcess_1 = require("./ImportProcess");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[DocumentLine.build]] instead.
  */
@@ -37,1050 +37,2000 @@ exports.createDocumentLine = createDocumentLine;
  */
 var DocumentLineField = /** @class */ (function (_super) {
     __extends(DocumentLineField, _super);
-    function DocumentLineField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of DocumentLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function DocumentLineField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, DocumentLine) || this;
         /**
          * Representation of the [[DocumentLine.lineNum]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.lineNum = new v4_1.ComplexTypeNumberPropertyField('LineNum', _this, 'Edm.Int32');
+        _this.lineNum = new core_1.ComplexTypeNumberPropertyField('LineNum', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.itemCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.itemCode = new v4_1.ComplexTypeStringPropertyField('ItemCode', _this, 'Edm.String');
+        _this.itemCode = new core_1.ComplexTypeStringPropertyField('ItemCode', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.itemDescription]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.itemDescription = new v4_1.ComplexTypeStringPropertyField('ItemDescription', _this, 'Edm.String');
+        _this.itemDescription = new core_1.ComplexTypeStringPropertyField('ItemDescription', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.quantity]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.quantity = new v4_1.ComplexTypeNumberPropertyField('Quantity', _this, 'Edm.Double');
+        _this.quantity = new core_1.ComplexTypeNumberPropertyField('Quantity', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.shipDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.shipDate = new v4_1.ComplexTypeDatePropertyField('ShipDate', _this, 'Edm.DateTimeOffset');
+        _this.shipDate = new core_1.ComplexTypeDatePropertyField('ShipDate', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[DocumentLine.price]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.price = new v4_1.ComplexTypeNumberPropertyField('Price', _this, 'Edm.Double');
+        _this.price = new core_1.ComplexTypeNumberPropertyField('Price', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.priceAfterVat]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.priceAfterVat = new v4_1.ComplexTypeNumberPropertyField('PriceAfterVAT', _this, 'Edm.Double');
+        _this.priceAfterVat = new core_1.ComplexTypeNumberPropertyField('PriceAfterVAT', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.currency]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.currency = new v4_1.ComplexTypeStringPropertyField('Currency', _this, 'Edm.String');
+        _this.currency = new core_1.ComplexTypeStringPropertyField('Currency', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.rate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.rate = new v4_1.ComplexTypeNumberPropertyField('Rate', _this, 'Edm.Double');
+        _this.rate = new core_1.ComplexTypeNumberPropertyField('Rate', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.discountPercent]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.discountPercent = new v4_1.ComplexTypeNumberPropertyField('DiscountPercent', _this, 'Edm.Double');
+        _this.discountPercent = new core_1.ComplexTypeNumberPropertyField('DiscountPercent', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.vendorNum]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.vendorNum = new v4_1.ComplexTypeStringPropertyField('VendorNum', _this, 'Edm.String');
+        _this.vendorNum = new core_1.ComplexTypeStringPropertyField('VendorNum', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.serialNum]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.serialNum = new v4_1.ComplexTypeStringPropertyField('SerialNum', _this, 'Edm.String');
+        _this.serialNum = new core_1.ComplexTypeStringPropertyField('SerialNum', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.warehouseCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.warehouseCode = new v4_1.ComplexTypeStringPropertyField('WarehouseCode', _this, 'Edm.String');
+        _this.warehouseCode = new core_1.ComplexTypeStringPropertyField('WarehouseCode', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.salesPersonCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.salesPersonCode = new v4_1.ComplexTypeNumberPropertyField('SalesPersonCode', _this, 'Edm.Int32');
+        _this.salesPersonCode = new core_1.ComplexTypeNumberPropertyField('SalesPersonCode', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.commisionPercent]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.commisionPercent = new v4_1.ComplexTypeNumberPropertyField('CommisionPercent', _this, 'Edm.Double');
+        _this.commisionPercent = new core_1.ComplexTypeNumberPropertyField('CommisionPercent', _this, 'Edm.Double');
+        /**
+         * Representation of the [[DocumentLine.treeType]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.treeType = new core_1.ComplexTypeEnumPropertyField('TreeType', _this);
         /**
          * Representation of the [[DocumentLine.accountCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.accountCode = new v4_1.ComplexTypeStringPropertyField('AccountCode', _this, 'Edm.String');
+        _this.accountCode = new core_1.ComplexTypeStringPropertyField('AccountCode', _this, 'Edm.String');
+        /**
+         * Representation of the [[DocumentLine.useBaseUnits]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.useBaseUnits = new core_1.ComplexTypeEnumPropertyField('UseBaseUnits', _this);
         /**
          * Representation of the [[DocumentLine.supplierCatNum]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.supplierCatNum = new v4_1.ComplexTypeStringPropertyField('SupplierCatNum', _this, 'Edm.String');
+        _this.supplierCatNum = new core_1.ComplexTypeStringPropertyField('SupplierCatNum', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.costingCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.costingCode = new v4_1.ComplexTypeStringPropertyField('CostingCode', _this, 'Edm.String');
+        _this.costingCode = new core_1.ComplexTypeStringPropertyField('CostingCode', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.projectCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.projectCode = new v4_1.ComplexTypeStringPropertyField('ProjectCode', _this, 'Edm.String');
+        _this.projectCode = new core_1.ComplexTypeStringPropertyField('ProjectCode', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.barCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.barCode = new v4_1.ComplexTypeStringPropertyField('BarCode', _this, 'Edm.String');
+        _this.barCode = new core_1.ComplexTypeStringPropertyField('BarCode', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.vatGroup]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.vatGroup = new v4_1.ComplexTypeStringPropertyField('VatGroup', _this, 'Edm.String');
+        _this.vatGroup = new core_1.ComplexTypeStringPropertyField('VatGroup', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.height1]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.height1 = new v4_1.ComplexTypeNumberPropertyField('Height1', _this, 'Edm.Double');
+        _this.height1 = new core_1.ComplexTypeNumberPropertyField('Height1', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.hight1Unit]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.hight1Unit = new v4_1.ComplexTypeNumberPropertyField('Hight1Unit', _this, 'Edm.Int32');
+        _this.hight1Unit = new core_1.ComplexTypeNumberPropertyField('Hight1Unit', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.height2]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.height2 = new v4_1.ComplexTypeNumberPropertyField('Height2', _this, 'Edm.Double');
+        _this.height2 = new core_1.ComplexTypeNumberPropertyField('Height2', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.height2Unit]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.height2Unit = new v4_1.ComplexTypeNumberPropertyField('Height2Unit', _this, 'Edm.Int32');
+        _this.height2Unit = new core_1.ComplexTypeNumberPropertyField('Height2Unit', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.lengh1]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.lengh1 = new v4_1.ComplexTypeNumberPropertyField('Lengh1', _this, 'Edm.Double');
+        _this.lengh1 = new core_1.ComplexTypeNumberPropertyField('Lengh1', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.lengh1Unit]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.lengh1Unit = new v4_1.ComplexTypeNumberPropertyField('Lengh1Unit', _this, 'Edm.Int32');
+        _this.lengh1Unit = new core_1.ComplexTypeNumberPropertyField('Lengh1Unit', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.lengh2]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.lengh2 = new v4_1.ComplexTypeNumberPropertyField('Lengh2', _this, 'Edm.Double');
+        _this.lengh2 = new core_1.ComplexTypeNumberPropertyField('Lengh2', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.lengh2Unit]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.lengh2Unit = new v4_1.ComplexTypeNumberPropertyField('Lengh2Unit', _this, 'Edm.Int32');
+        _this.lengh2Unit = new core_1.ComplexTypeNumberPropertyField('Lengh2Unit', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.weight1]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.weight1 = new v4_1.ComplexTypeNumberPropertyField('Weight1', _this, 'Edm.Double');
+        _this.weight1 = new core_1.ComplexTypeNumberPropertyField('Weight1', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.weight1Unit]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.weight1Unit = new v4_1.ComplexTypeNumberPropertyField('Weight1Unit', _this, 'Edm.Int32');
+        _this.weight1Unit = new core_1.ComplexTypeNumberPropertyField('Weight1Unit', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.weight2]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.weight2 = new v4_1.ComplexTypeNumberPropertyField('Weight2', _this, 'Edm.Double');
+        _this.weight2 = new core_1.ComplexTypeNumberPropertyField('Weight2', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.weight2Unit]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.weight2Unit = new v4_1.ComplexTypeNumberPropertyField('Weight2Unit', _this, 'Edm.Int32');
+        _this.weight2Unit = new core_1.ComplexTypeNumberPropertyField('Weight2Unit', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.factor1]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.factor1 = new v4_1.ComplexTypeNumberPropertyField('Factor1', _this, 'Edm.Double');
+        _this.factor1 = new core_1.ComplexTypeNumberPropertyField('Factor1', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.factor2]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.factor2 = new v4_1.ComplexTypeNumberPropertyField('Factor2', _this, 'Edm.Double');
+        _this.factor2 = new core_1.ComplexTypeNumberPropertyField('Factor2', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.factor3]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.factor3 = new v4_1.ComplexTypeNumberPropertyField('Factor3', _this, 'Edm.Double');
+        _this.factor3 = new core_1.ComplexTypeNumberPropertyField('Factor3', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.factor4]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.factor4 = new v4_1.ComplexTypeNumberPropertyField('Factor4', _this, 'Edm.Double');
+        _this.factor4 = new core_1.ComplexTypeNumberPropertyField('Factor4', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.baseType]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.baseType = new v4_1.ComplexTypeNumberPropertyField('BaseType', _this, 'Edm.Int32');
+        _this.baseType = new core_1.ComplexTypeNumberPropertyField('BaseType', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.baseEntry]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.baseEntry = new v4_1.ComplexTypeNumberPropertyField('BaseEntry', _this, 'Edm.Int32');
+        _this.baseEntry = new core_1.ComplexTypeNumberPropertyField('BaseEntry', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.baseLine]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.baseLine = new v4_1.ComplexTypeNumberPropertyField('BaseLine', _this, 'Edm.Int32');
+        _this.baseLine = new core_1.ComplexTypeNumberPropertyField('BaseLine', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.volume]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.volume = new v4_1.ComplexTypeNumberPropertyField('Volume', _this, 'Edm.Double');
+        _this.volume = new core_1.ComplexTypeNumberPropertyField('Volume', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.volumeUnit]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.volumeUnit = new v4_1.ComplexTypeNumberPropertyField('VolumeUnit', _this, 'Edm.Int32');
+        _this.volumeUnit = new core_1.ComplexTypeNumberPropertyField('VolumeUnit', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.width1]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.width1 = new v4_1.ComplexTypeNumberPropertyField('Width1', _this, 'Edm.Double');
+        _this.width1 = new core_1.ComplexTypeNumberPropertyField('Width1', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.width1Unit]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.width1Unit = new v4_1.ComplexTypeNumberPropertyField('Width1Unit', _this, 'Edm.Int32');
+        _this.width1Unit = new core_1.ComplexTypeNumberPropertyField('Width1Unit', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.width2]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.width2 = new v4_1.ComplexTypeNumberPropertyField('Width2', _this, 'Edm.Double');
+        _this.width2 = new core_1.ComplexTypeNumberPropertyField('Width2', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.width2Unit]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.width2Unit = new v4_1.ComplexTypeNumberPropertyField('Width2Unit', _this, 'Edm.Int32');
+        _this.width2Unit = new core_1.ComplexTypeNumberPropertyField('Width2Unit', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.address]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.address = new v4_1.ComplexTypeStringPropertyField('Address', _this, 'Edm.String');
+        _this.address = new core_1.ComplexTypeStringPropertyField('Address', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.taxCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.taxCode = new v4_1.ComplexTypeStringPropertyField('TaxCode', _this, 'Edm.String');
+        _this.taxCode = new core_1.ComplexTypeStringPropertyField('TaxCode', _this, 'Edm.String');
+        /**
+         * Representation of the [[DocumentLine.taxType]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.taxType = new core_1.ComplexTypeEnumPropertyField('TaxType', _this);
+        /**
+         * Representation of the [[DocumentLine.taxLiable]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.taxLiable = new core_1.ComplexTypeEnumPropertyField('TaxLiable', _this);
+        /**
+         * Representation of the [[DocumentLine.pickStatus]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.pickStatus = new core_1.ComplexTypeEnumPropertyField('PickStatus', _this);
         /**
          * Representation of the [[DocumentLine.pickQuantity]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.pickQuantity = new v4_1.ComplexTypeNumberPropertyField('PickQuantity', _this, 'Edm.Double');
+        _this.pickQuantity = new core_1.ComplexTypeNumberPropertyField('PickQuantity', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.pickListIdNumber]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.pickListIdNumber = new v4_1.ComplexTypeNumberPropertyField('PickListIdNumber', _this, 'Edm.Int32');
+        _this.pickListIdNumber = new core_1.ComplexTypeNumberPropertyField('PickListIdNumber', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.originalItem]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.originalItem = new v4_1.ComplexTypeStringPropertyField('OriginalItem', _this, 'Edm.String');
+        _this.originalItem = new core_1.ComplexTypeStringPropertyField('OriginalItem', _this, 'Edm.String');
+        /**
+         * Representation of the [[DocumentLine.backOrder]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.backOrder = new core_1.ComplexTypeEnumPropertyField('BackOrder', _this);
         /**
          * Representation of the [[DocumentLine.freeText]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.freeText = new v4_1.ComplexTypeStringPropertyField('FreeText', _this, 'Edm.String');
+        _this.freeText = new core_1.ComplexTypeStringPropertyField('FreeText', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.shippingMethod]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.shippingMethod = new v4_1.ComplexTypeNumberPropertyField('ShippingMethod', _this, 'Edm.Int32');
+        _this.shippingMethod = new core_1.ComplexTypeNumberPropertyField('ShippingMethod', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.poTargetNum]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.poTargetNum = new v4_1.ComplexTypeNumberPropertyField('POTargetNum', _this, 'Edm.Int32');
+        _this.poTargetNum = new core_1.ComplexTypeNumberPropertyField('POTargetNum', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.poTargetEntry]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.poTargetEntry = new v4_1.ComplexTypeStringPropertyField('POTargetEntry', _this, 'Edm.String');
+        _this.poTargetEntry = new core_1.ComplexTypeStringPropertyField('POTargetEntry', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.poTargetRowNum]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.poTargetRowNum = new v4_1.ComplexTypeNumberPropertyField('POTargetRowNum', _this, 'Edm.Int32');
+        _this.poTargetRowNum = new core_1.ComplexTypeNumberPropertyField('POTargetRowNum', _this, 'Edm.Int32');
+        /**
+         * Representation of the [[DocumentLine.correctionInvoiceItem]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.correctionInvoiceItem = new core_1.ComplexTypeEnumPropertyField('CorrectionInvoiceItem', _this);
         /**
          * Representation of the [[DocumentLine.corrInvAmountToStock]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.corrInvAmountToStock = new v4_1.ComplexTypeNumberPropertyField('CorrInvAmountToStock', _this, 'Edm.Double');
+        _this.corrInvAmountToStock = new core_1.ComplexTypeNumberPropertyField('CorrInvAmountToStock', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.corrInvAmountToDiffAcct]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.corrInvAmountToDiffAcct = new v4_1.ComplexTypeNumberPropertyField('CorrInvAmountToDiffAcct', _this, 'Edm.Double');
+        _this.corrInvAmountToDiffAcct = new core_1.ComplexTypeNumberPropertyField('CorrInvAmountToDiffAcct', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.appliedTax]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.appliedTax = new v4_1.ComplexTypeNumberPropertyField('AppliedTax', _this, 'Edm.Double');
+        _this.appliedTax = new core_1.ComplexTypeNumberPropertyField('AppliedTax', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.appliedTaxFc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.appliedTaxFc = new v4_1.ComplexTypeNumberPropertyField('AppliedTaxFC', _this, 'Edm.Double');
+        _this.appliedTaxFc = new core_1.ComplexTypeNumberPropertyField('AppliedTaxFC', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.appliedTaxSc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.appliedTaxSc = new v4_1.ComplexTypeNumberPropertyField('AppliedTaxSC', _this, 'Edm.Double');
+        _this.appliedTaxSc = new core_1.ComplexTypeNumberPropertyField('AppliedTaxSC', _this, 'Edm.Double');
+        /**
+         * Representation of the [[DocumentLine.wtLiable]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.wtLiable = new core_1.ComplexTypeEnumPropertyField('WTLiable', _this);
+        /**
+         * Representation of the [[DocumentLine.deferredTax]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.deferredTax = new core_1.ComplexTypeEnumPropertyField('DeferredTax', _this);
         /**
          * Representation of the [[DocumentLine.equalizationTaxPercent]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.equalizationTaxPercent = new v4_1.ComplexTypeNumberPropertyField('EqualizationTaxPercent', _this, 'Edm.Double');
+        _this.equalizationTaxPercent = new core_1.ComplexTypeNumberPropertyField('EqualizationTaxPercent', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.totalEqualizationTax]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.totalEqualizationTax = new v4_1.ComplexTypeNumberPropertyField('TotalEqualizationTax', _this, 'Edm.Double');
+        _this.totalEqualizationTax = new core_1.ComplexTypeNumberPropertyField('TotalEqualizationTax', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.totalEqualizationTaxFc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.totalEqualizationTaxFc = new v4_1.ComplexTypeNumberPropertyField('TotalEqualizationTaxFC', _this, 'Edm.Double');
+        _this.totalEqualizationTaxFc = new core_1.ComplexTypeNumberPropertyField('TotalEqualizationTaxFC', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.totalEqualizationTaxSc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.totalEqualizationTaxSc = new v4_1.ComplexTypeNumberPropertyField('TotalEqualizationTaxSC', _this, 'Edm.Double');
+        _this.totalEqualizationTaxSc = new core_1.ComplexTypeNumberPropertyField('TotalEqualizationTaxSC', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.netTaxAmount]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.netTaxAmount = new v4_1.ComplexTypeNumberPropertyField('NetTaxAmount', _this, 'Edm.Double');
+        _this.netTaxAmount = new core_1.ComplexTypeNumberPropertyField('NetTaxAmount', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.netTaxAmountFc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.netTaxAmountFc = new v4_1.ComplexTypeNumberPropertyField('NetTaxAmountFC', _this, 'Edm.Double');
+        _this.netTaxAmountFc = new core_1.ComplexTypeNumberPropertyField('NetTaxAmountFC', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.netTaxAmountSc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.netTaxAmountSc = new v4_1.ComplexTypeNumberPropertyField('NetTaxAmountSC', _this, 'Edm.Double');
+        _this.netTaxAmountSc = new core_1.ComplexTypeNumberPropertyField('NetTaxAmountSC', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.measureUnit]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.measureUnit = new v4_1.ComplexTypeStringPropertyField('MeasureUnit', _this, 'Edm.String');
+        _this.measureUnit = new core_1.ComplexTypeStringPropertyField('MeasureUnit', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.unitsOfMeasurment]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.unitsOfMeasurment = new v4_1.ComplexTypeNumberPropertyField('UnitsOfMeasurment', _this, 'Edm.Double');
+        _this.unitsOfMeasurment = new core_1.ComplexTypeNumberPropertyField('UnitsOfMeasurment', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.lineTotal]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.lineTotal = new v4_1.ComplexTypeNumberPropertyField('LineTotal', _this, 'Edm.Double');
+        _this.lineTotal = new core_1.ComplexTypeNumberPropertyField('LineTotal', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.taxPercentagePerRow]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.taxPercentagePerRow = new v4_1.ComplexTypeNumberPropertyField('TaxPercentagePerRow', _this, 'Edm.Double');
+        _this.taxPercentagePerRow = new core_1.ComplexTypeNumberPropertyField('TaxPercentagePerRow', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.taxTotal]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.taxTotal = new v4_1.ComplexTypeNumberPropertyField('TaxTotal', _this, 'Edm.Double');
+        _this.taxTotal = new core_1.ComplexTypeNumberPropertyField('TaxTotal', _this, 'Edm.Double');
+        /**
+         * Representation of the [[DocumentLine.consumerSalesForecast]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.consumerSalesForecast = new core_1.ComplexTypeEnumPropertyField('ConsumerSalesForecast', _this);
         /**
          * Representation of the [[DocumentLine.exciseAmount]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.exciseAmount = new v4_1.ComplexTypeNumberPropertyField('ExciseAmount', _this, 'Edm.Double');
+        _this.exciseAmount = new core_1.ComplexTypeNumberPropertyField('ExciseAmount', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.taxPerUnit]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.taxPerUnit = new v4_1.ComplexTypeNumberPropertyField('TaxPerUnit', _this, 'Edm.Double');
+        _this.taxPerUnit = new core_1.ComplexTypeNumberPropertyField('TaxPerUnit', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.totalInclTax]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.totalInclTax = new v4_1.ComplexTypeNumberPropertyField('TotalInclTax', _this, 'Edm.Double');
+        _this.totalInclTax = new core_1.ComplexTypeNumberPropertyField('TotalInclTax', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.countryOrg]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.countryOrg = new v4_1.ComplexTypeStringPropertyField('CountryOrg', _this, 'Edm.String');
+        _this.countryOrg = new core_1.ComplexTypeStringPropertyField('CountryOrg', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.sww]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.sww = new v4_1.ComplexTypeStringPropertyField('SWW', _this, 'Edm.String');
+        _this.sww = new core_1.ComplexTypeStringPropertyField('SWW', _this, 'Edm.String');
+        /**
+         * Representation of the [[DocumentLine.transactionType]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.transactionType = new core_1.ComplexTypeEnumPropertyField('TransactionType', _this);
+        /**
+         * Representation of the [[DocumentLine.distributeExpense]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.distributeExpense = new core_1.ComplexTypeEnumPropertyField('DistributeExpense', _this);
         /**
          * Representation of the [[DocumentLine.shipToCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.shipToCode = new v4_1.ComplexTypeStringPropertyField('ShipToCode', _this, 'Edm.String');
+        _this.shipToCode = new core_1.ComplexTypeStringPropertyField('ShipToCode', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.rowTotalFc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.rowTotalFc = new v4_1.ComplexTypeNumberPropertyField('RowTotalFC', _this, 'Edm.Double');
+        _this.rowTotalFc = new core_1.ComplexTypeNumberPropertyField('RowTotalFC', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.rowTotalSc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.rowTotalSc = new v4_1.ComplexTypeNumberPropertyField('RowTotalSC', _this, 'Edm.Double');
+        _this.rowTotalSc = new core_1.ComplexTypeNumberPropertyField('RowTotalSC', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.lastBuyInmPrice]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.lastBuyInmPrice = new v4_1.ComplexTypeNumberPropertyField('LastBuyInmPrice', _this, 'Edm.Double');
+        _this.lastBuyInmPrice = new core_1.ComplexTypeNumberPropertyField('LastBuyInmPrice', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.lastBuyDistributeSumFc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.lastBuyDistributeSumFc = new v4_1.ComplexTypeNumberPropertyField('LastBuyDistributeSumFc', _this, 'Edm.Double');
+        _this.lastBuyDistributeSumFc = new core_1.ComplexTypeNumberPropertyField('LastBuyDistributeSumFc', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.lastBuyDistributeSumSc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.lastBuyDistributeSumSc = new v4_1.ComplexTypeNumberPropertyField('LastBuyDistributeSumSc', _this, 'Edm.Double');
+        _this.lastBuyDistributeSumSc = new core_1.ComplexTypeNumberPropertyField('LastBuyDistributeSumSc', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.lastBuyDistributeSum]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.lastBuyDistributeSum = new v4_1.ComplexTypeNumberPropertyField('LastBuyDistributeSum', _this, 'Edm.Double');
+        _this.lastBuyDistributeSum = new core_1.ComplexTypeNumberPropertyField('LastBuyDistributeSum', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.stockDistributesumForeign]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.stockDistributesumForeign = new v4_1.ComplexTypeNumberPropertyField('StockDistributesumForeign', _this, 'Edm.Double');
+        _this.stockDistributesumForeign = new core_1.ComplexTypeNumberPropertyField('StockDistributesumForeign', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.stockDistributesumSystem]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.stockDistributesumSystem = new v4_1.ComplexTypeNumberPropertyField('StockDistributesumSystem', _this, 'Edm.Double');
+        _this.stockDistributesumSystem = new core_1.ComplexTypeNumberPropertyField('StockDistributesumSystem', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.stockDistributesum]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.stockDistributesum = new v4_1.ComplexTypeNumberPropertyField('StockDistributesum', _this, 'Edm.Double');
+        _this.stockDistributesum = new core_1.ComplexTypeNumberPropertyField('StockDistributesum', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.stockInmPrice]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.stockInmPrice = new v4_1.ComplexTypeNumberPropertyField('StockInmPrice', _this, 'Edm.Double');
+        _this.stockInmPrice = new core_1.ComplexTypeNumberPropertyField('StockInmPrice', _this, 'Edm.Double');
+        /**
+         * Representation of the [[DocumentLine.pickStatusEx]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.pickStatusEx = new core_1.ComplexTypeEnumPropertyField('PickStatusEx', _this);
         /**
          * Representation of the [[DocumentLine.taxBeforeDpm]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.taxBeforeDpm = new v4_1.ComplexTypeNumberPropertyField('TaxBeforeDPM', _this, 'Edm.Double');
+        _this.taxBeforeDpm = new core_1.ComplexTypeNumberPropertyField('TaxBeforeDPM', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.taxBeforeDpmfc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.taxBeforeDpmfc = new v4_1.ComplexTypeNumberPropertyField('TaxBeforeDPMFC', _this, 'Edm.Double');
+        _this.taxBeforeDpmfc = new core_1.ComplexTypeNumberPropertyField('TaxBeforeDPMFC', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.taxBeforeDpmsc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.taxBeforeDpmsc = new v4_1.ComplexTypeNumberPropertyField('TaxBeforeDPMSC', _this, 'Edm.Double');
+        _this.taxBeforeDpmsc = new core_1.ComplexTypeNumberPropertyField('TaxBeforeDPMSC', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.cfopCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.cfopCode = new v4_1.ComplexTypeStringPropertyField('CFOPCode', _this, 'Edm.String');
+        _this.cfopCode = new core_1.ComplexTypeStringPropertyField('CFOPCode', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.cstCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.cstCode = new v4_1.ComplexTypeStringPropertyField('CSTCode', _this, 'Edm.String');
+        _this.cstCode = new core_1.ComplexTypeStringPropertyField('CSTCode', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.usage]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.usage = new v4_1.ComplexTypeNumberPropertyField('Usage', _this, 'Edm.Int32');
+        _this.usage = new core_1.ComplexTypeNumberPropertyField('Usage', _this, 'Edm.Int32');
+        /**
+         * Representation of the [[DocumentLine.taxOnly]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.taxOnly = new core_1.ComplexTypeEnumPropertyField('TaxOnly', _this);
         /**
          * Representation of the [[DocumentLine.visualOrder]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.visualOrder = new v4_1.ComplexTypeNumberPropertyField('VisualOrder', _this, 'Edm.Int32');
+        _this.visualOrder = new core_1.ComplexTypeNumberPropertyField('VisualOrder', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.baseOpenQuantity]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.baseOpenQuantity = new v4_1.ComplexTypeNumberPropertyField('BaseOpenQuantity', _this, 'Edm.Double');
+        _this.baseOpenQuantity = new core_1.ComplexTypeNumberPropertyField('BaseOpenQuantity', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.unitPrice]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.unitPrice = new v4_1.ComplexTypeNumberPropertyField('UnitPrice', _this, 'Edm.Double');
+        _this.unitPrice = new core_1.ComplexTypeNumberPropertyField('UnitPrice', _this, 'Edm.Double');
+        /**
+         * Representation of the [[DocumentLine.lineStatus]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.lineStatus = new core_1.ComplexTypeEnumPropertyField('LineStatus', _this);
         /**
          * Representation of the [[DocumentLine.packageQuantity]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.packageQuantity = new v4_1.ComplexTypeNumberPropertyField('PackageQuantity', _this, 'Edm.Double');
+        _this.packageQuantity = new core_1.ComplexTypeNumberPropertyField('PackageQuantity', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.text]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.text = new v4_1.ComplexTypeStringPropertyField('Text', _this, 'Edm.String');
+        _this.text = new core_1.ComplexTypeStringPropertyField('Text', _this, 'Edm.String');
+        /**
+         * Representation of the [[DocumentLine.lineType]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.lineType = new core_1.ComplexTypeEnumPropertyField('LineType', _this);
         /**
          * Representation of the [[DocumentLine.cogsCostingCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.cogsCostingCode = new v4_1.ComplexTypeStringPropertyField('COGSCostingCode', _this, 'Edm.String');
+        _this.cogsCostingCode = new core_1.ComplexTypeStringPropertyField('COGSCostingCode', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.cogsAccountCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.cogsAccountCode = new v4_1.ComplexTypeStringPropertyField('COGSAccountCode', _this, 'Edm.String');
+        _this.cogsAccountCode = new core_1.ComplexTypeStringPropertyField('COGSAccountCode', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.changeAssemlyBoMWarehouse]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.changeAssemlyBoMWarehouse = new v4_1.ComplexTypeStringPropertyField('ChangeAssemlyBoMWarehouse', _this, 'Edm.String');
+        _this.changeAssemlyBoMWarehouse = new core_1.ComplexTypeStringPropertyField('ChangeAssemlyBoMWarehouse', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.grossBuyPrice]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.grossBuyPrice = new v4_1.ComplexTypeNumberPropertyField('GrossBuyPrice', _this, 'Edm.Double');
+        _this.grossBuyPrice = new core_1.ComplexTypeNumberPropertyField('GrossBuyPrice', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.grossBase]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.grossBase = new v4_1.ComplexTypeNumberPropertyField('GrossBase', _this, 'Edm.Int32');
+        _this.grossBase = new core_1.ComplexTypeNumberPropertyField('GrossBase', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.grossProfitTotalBasePrice]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.grossProfitTotalBasePrice = new v4_1.ComplexTypeNumberPropertyField('GrossProfitTotalBasePrice', _this, 'Edm.Double');
+        _this.grossProfitTotalBasePrice = new core_1.ComplexTypeNumberPropertyField('GrossProfitTotalBasePrice', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.costingCode2]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.costingCode2 = new v4_1.ComplexTypeStringPropertyField('CostingCode2', _this, 'Edm.String');
+        _this.costingCode2 = new core_1.ComplexTypeStringPropertyField('CostingCode2', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.costingCode3]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.costingCode3 = new v4_1.ComplexTypeStringPropertyField('CostingCode3', _this, 'Edm.String');
+        _this.costingCode3 = new core_1.ComplexTypeStringPropertyField('CostingCode3', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.costingCode4]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.costingCode4 = new v4_1.ComplexTypeStringPropertyField('CostingCode4', _this, 'Edm.String');
+        _this.costingCode4 = new core_1.ComplexTypeStringPropertyField('CostingCode4', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.costingCode5]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.costingCode5 = new v4_1.ComplexTypeStringPropertyField('CostingCode5', _this, 'Edm.String');
+        _this.costingCode5 = new core_1.ComplexTypeStringPropertyField('CostingCode5', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.itemDetails]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.itemDetails = new v4_1.ComplexTypeStringPropertyField('ItemDetails', _this, 'Edm.String');
+        _this.itemDetails = new core_1.ComplexTypeStringPropertyField('ItemDetails', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.locationCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.locationCode = new v4_1.ComplexTypeNumberPropertyField('LocationCode', _this, 'Edm.Int32');
+        _this.locationCode = new core_1.ComplexTypeNumberPropertyField('LocationCode', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.actualDeliveryDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.actualDeliveryDate = new v4_1.ComplexTypeDatePropertyField('ActualDeliveryDate', _this, 'Edm.DateTimeOffset');
+        _this.actualDeliveryDate = new core_1.ComplexTypeDatePropertyField('ActualDeliveryDate', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[DocumentLine.remainingOpenQuantity]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.remainingOpenQuantity = new v4_1.ComplexTypeNumberPropertyField('RemainingOpenQuantity', _this, 'Edm.Double');
+        _this.remainingOpenQuantity = new core_1.ComplexTypeNumberPropertyField('RemainingOpenQuantity', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.openAmount]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.openAmount = new v4_1.ComplexTypeNumberPropertyField('OpenAmount', _this, 'Edm.Double');
+        _this.openAmount = new core_1.ComplexTypeNumberPropertyField('OpenAmount', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.openAmountFc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.openAmountFc = new v4_1.ComplexTypeNumberPropertyField('OpenAmountFC', _this, 'Edm.Double');
+        _this.openAmountFc = new core_1.ComplexTypeNumberPropertyField('OpenAmountFC', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.openAmountSc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.openAmountSc = new v4_1.ComplexTypeNumberPropertyField('OpenAmountSC', _this, 'Edm.Double');
+        _this.openAmountSc = new core_1.ComplexTypeNumberPropertyField('OpenAmountSC', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.exLineNo]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.exLineNo = new v4_1.ComplexTypeStringPropertyField('ExLineNo', _this, 'Edm.String');
+        _this.exLineNo = new core_1.ComplexTypeStringPropertyField('ExLineNo', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.requiredDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.requiredDate = new v4_1.ComplexTypeDatePropertyField('RequiredDate', _this, 'Edm.DateTimeOffset');
+        _this.requiredDate = new core_1.ComplexTypeDatePropertyField('RequiredDate', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[DocumentLine.requiredQuantity]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.requiredQuantity = new v4_1.ComplexTypeNumberPropertyField('RequiredQuantity', _this, 'Edm.Double');
+        _this.requiredQuantity = new core_1.ComplexTypeNumberPropertyField('RequiredQuantity', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.cogsCostingCode2]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.cogsCostingCode2 = new v4_1.ComplexTypeStringPropertyField('COGSCostingCode2', _this, 'Edm.String');
+        _this.cogsCostingCode2 = new core_1.ComplexTypeStringPropertyField('COGSCostingCode2', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.cogsCostingCode3]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.cogsCostingCode3 = new v4_1.ComplexTypeStringPropertyField('COGSCostingCode3', _this, 'Edm.String');
+        _this.cogsCostingCode3 = new core_1.ComplexTypeStringPropertyField('COGSCostingCode3', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.cogsCostingCode4]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.cogsCostingCode4 = new v4_1.ComplexTypeStringPropertyField('COGSCostingCode4', _this, 'Edm.String');
+        _this.cogsCostingCode4 = new core_1.ComplexTypeStringPropertyField('COGSCostingCode4', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.cogsCostingCode5]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.cogsCostingCode5 = new v4_1.ComplexTypeStringPropertyField('COGSCostingCode5', _this, 'Edm.String');
+        _this.cogsCostingCode5 = new core_1.ComplexTypeStringPropertyField('COGSCostingCode5', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.csTforIpi]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.csTforIpi = new v4_1.ComplexTypeStringPropertyField('CSTforIPI', _this, 'Edm.String');
+        _this.csTforIpi = new core_1.ComplexTypeStringPropertyField('CSTforIPI', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.csTforPis]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.csTforPis = new v4_1.ComplexTypeStringPropertyField('CSTforPIS', _this, 'Edm.String');
+        _this.csTforPis = new core_1.ComplexTypeStringPropertyField('CSTforPIS', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.csTforCofins]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.csTforCofins = new v4_1.ComplexTypeStringPropertyField('CSTforCOFINS', _this, 'Edm.String');
+        _this.csTforCofins = new core_1.ComplexTypeStringPropertyField('CSTforCOFINS', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.creditOriginCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.creditOriginCode = new v4_1.ComplexTypeStringPropertyField('CreditOriginCode', _this, 'Edm.String');
+        _this.creditOriginCode = new core_1.ComplexTypeStringPropertyField('CreditOriginCode', _this, 'Edm.String');
+        /**
+         * Representation of the [[DocumentLine.withoutInventoryMovement]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.withoutInventoryMovement = new core_1.ComplexTypeEnumPropertyField('WithoutInventoryMovement', _this);
         /**
          * Representation of the [[DocumentLine.agreementNo]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.agreementNo = new v4_1.ComplexTypeNumberPropertyField('AgreementNo', _this, 'Edm.Int32');
+        _this.agreementNo = new core_1.ComplexTypeNumberPropertyField('AgreementNo', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.agreementRowNumber]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.agreementRowNumber = new v4_1.ComplexTypeNumberPropertyField('AgreementRowNumber', _this, 'Edm.Int32');
+        _this.agreementRowNumber = new core_1.ComplexTypeNumberPropertyField('AgreementRowNumber', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.shipToDescription]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.shipToDescription = new v4_1.ComplexTypeStringPropertyField('ShipToDescription', _this, 'Edm.String');
+        _this.shipToDescription = new core_1.ComplexTypeStringPropertyField('ShipToDescription', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.actualBaseEntry]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.actualBaseEntry = new v4_1.ComplexTypeNumberPropertyField('ActualBaseEntry', _this, 'Edm.Int32');
+        _this.actualBaseEntry = new core_1.ComplexTypeNumberPropertyField('ActualBaseEntry', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.actualBaseLine]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.actualBaseLine = new v4_1.ComplexTypeNumberPropertyField('ActualBaseLine', _this, 'Edm.Int32');
+        _this.actualBaseLine = new core_1.ComplexTypeNumberPropertyField('ActualBaseLine', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.docEntry]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.docEntry = new v4_1.ComplexTypeNumberPropertyField('DocEntry', _this, 'Edm.Int32');
+        _this.docEntry = new core_1.ComplexTypeNumberPropertyField('DocEntry', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.surpluses]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.surpluses = new v4_1.ComplexTypeNumberPropertyField('Surpluses', _this, 'Edm.Double');
+        _this.surpluses = new core_1.ComplexTypeNumberPropertyField('Surpluses', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.defectAndBreakup]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.defectAndBreakup = new v4_1.ComplexTypeNumberPropertyField('DefectAndBreakup', _this, 'Edm.Double');
+        _this.defectAndBreakup = new core_1.ComplexTypeNumberPropertyField('DefectAndBreakup', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.shortages]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.shortages = new v4_1.ComplexTypeNumberPropertyField('Shortages', _this, 'Edm.Double');
+        _this.shortages = new core_1.ComplexTypeNumberPropertyField('Shortages', _this, 'Edm.Double');
+        /**
+         * Representation of the [[DocumentLine.considerQuantity]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.considerQuantity = new core_1.ComplexTypeEnumPropertyField('ConsiderQuantity', _this);
+        /**
+         * Representation of the [[DocumentLine.partialRetirement]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.partialRetirement = new core_1.ComplexTypeEnumPropertyField('PartialRetirement', _this);
         /**
          * Representation of the [[DocumentLine.retirementQuantity]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.retirementQuantity = new v4_1.ComplexTypeNumberPropertyField('RetirementQuantity', _this, 'Edm.Double');
+        _this.retirementQuantity = new core_1.ComplexTypeNumberPropertyField('RetirementQuantity', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.retirementApc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.retirementApc = new v4_1.ComplexTypeNumberPropertyField('RetirementAPC', _this, 'Edm.Double');
+        _this.retirementApc = new core_1.ComplexTypeNumberPropertyField('RetirementAPC', _this, 'Edm.Double');
+        /**
+         * Representation of the [[DocumentLine.thirdParty]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.thirdParty = new core_1.ComplexTypeEnumPropertyField('ThirdParty', _this);
         /**
          * Representation of the [[DocumentLine.expenseType]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.expenseType = new v4_1.ComplexTypeStringPropertyField('ExpenseType', _this, 'Edm.String');
+        _this.expenseType = new core_1.ComplexTypeStringPropertyField('ExpenseType', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.receiptNumber]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.receiptNumber = new v4_1.ComplexTypeStringPropertyField('ReceiptNumber', _this, 'Edm.String');
+        _this.receiptNumber = new core_1.ComplexTypeStringPropertyField('ReceiptNumber', _this, 'Edm.String');
+        /**
+         * Representation of the [[DocumentLine.expenseOperationType]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.expenseOperationType = new core_1.ComplexTypeEnumPropertyField('ExpenseOperationType', _this);
         /**
          * Representation of the [[DocumentLine.federalTaxId]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.federalTaxId = new v4_1.ComplexTypeStringPropertyField('FederalTaxID', _this, 'Edm.String');
+        _this.federalTaxId = new core_1.ComplexTypeStringPropertyField('FederalTaxID', _this, 'Edm.String');
+        /**
+         * Representation of the [[DocumentLine.enableReturnCost]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.enableReturnCost = new core_1.ComplexTypeEnumPropertyField('EnableReturnCost', _this);
         /**
          * Representation of the [[DocumentLine.returnCost]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.returnCost = new v4_1.ComplexTypeNumberPropertyField('ReturnCost', _this, 'Edm.Double');
+        _this.returnCost = new core_1.ComplexTypeNumberPropertyField('ReturnCost', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.lineVendor]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.lineVendor = new v4_1.ComplexTypeStringPropertyField('LineVendor', _this, 'Edm.String');
+        _this.lineVendor = new core_1.ComplexTypeStringPropertyField('LineVendor', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.stgSeqNum]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.stgSeqNum = new v4_1.ComplexTypeNumberPropertyField('StgSeqNum', _this, 'Edm.Int32');
+        _this.stgSeqNum = new core_1.ComplexTypeNumberPropertyField('StgSeqNum', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.stgEntry]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.stgEntry = new v4_1.ComplexTypeNumberPropertyField('StgEntry', _this, 'Edm.Int32');
+        _this.stgEntry = new core_1.ComplexTypeNumberPropertyField('StgEntry', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.stgDesc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.stgDesc = new v4_1.ComplexTypeStringPropertyField('StgDesc', _this, 'Edm.String');
+        _this.stgDesc = new core_1.ComplexTypeStringPropertyField('StgDesc', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.uoMEntry]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.uoMEntry = new v4_1.ComplexTypeNumberPropertyField('UoMEntry', _this, 'Edm.Int32');
+        _this.uoMEntry = new core_1.ComplexTypeNumberPropertyField('UoMEntry', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.uoMCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.uoMCode = new v4_1.ComplexTypeStringPropertyField('UoMCode', _this, 'Edm.String');
+        _this.uoMCode = new core_1.ComplexTypeStringPropertyField('UoMCode', _this, 'Edm.String');
         /**
          * Representation of the [[DocumentLine.inventoryQuantity]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.inventoryQuantity = new v4_1.ComplexTypeNumberPropertyField('InventoryQuantity', _this, 'Edm.Double');
+        _this.inventoryQuantity = new core_1.ComplexTypeNumberPropertyField('InventoryQuantity', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.remainingOpenInventoryQuantity]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.remainingOpenInventoryQuantity = new v4_1.ComplexTypeNumberPropertyField('RemainingOpenInventoryQuantity', _this, 'Edm.Double');
+        _this.remainingOpenInventoryQuantity = new core_1.ComplexTypeNumberPropertyField('RemainingOpenInventoryQuantity', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.parentLineNum]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.parentLineNum = new v4_1.ComplexTypeNumberPropertyField('ParentLineNum', _this, 'Edm.Int32');
+        _this.parentLineNum = new core_1.ComplexTypeNumberPropertyField('ParentLineNum', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.incoterms]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.incoterms = new v4_1.ComplexTypeNumberPropertyField('Incoterms', _this, 'Edm.Int32');
+        _this.incoterms = new core_1.ComplexTypeNumberPropertyField('Incoterms', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.transportMode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.transportMode = new v4_1.ComplexTypeNumberPropertyField('TransportMode', _this, 'Edm.Int32');
+        _this.transportMode = new core_1.ComplexTypeNumberPropertyField('TransportMode', _this, 'Edm.Int32');
+        /**
+         * Representation of the [[DocumentLine.itemType]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.itemType = new core_1.ComplexTypeEnumPropertyField('ItemType', _this);
+        /**
+         * Representation of the [[DocumentLine.changeInventoryQuantityIndependently]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.changeInventoryQuantityIndependently = new core_1.ComplexTypeEnumPropertyField('ChangeInventoryQuantityIndependently', _this);
+        /**
+         * Representation of the [[DocumentLine.freeOfChargeBp]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.freeOfChargeBp = new core_1.ComplexTypeEnumPropertyField('FreeOfChargeBP', _this);
         /**
          * Representation of the [[DocumentLine.sacEntry]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.sacEntry = new v4_1.ComplexTypeNumberPropertyField('SACEntry', _this, 'Edm.Int32');
+        _this.sacEntry = new core_1.ComplexTypeNumberPropertyField('SACEntry', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.hsnEntry]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.hsnEntry = new v4_1.ComplexTypeNumberPropertyField('HSNEntry', _this, 'Edm.Int32');
+        _this.hsnEntry = new core_1.ComplexTypeNumberPropertyField('HSNEntry', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.grossPrice]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.grossPrice = new v4_1.ComplexTypeNumberPropertyField('GrossPrice', _this, 'Edm.Double');
+        _this.grossPrice = new core_1.ComplexTypeNumberPropertyField('GrossPrice', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.grossTotal]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.grossTotal = new v4_1.ComplexTypeNumberPropertyField('GrossTotal', _this, 'Edm.Double');
+        _this.grossTotal = new core_1.ComplexTypeNumberPropertyField('GrossTotal', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.grossTotalFc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.grossTotalFc = new v4_1.ComplexTypeNumberPropertyField('GrossTotalFC', _this, 'Edm.Double');
+        _this.grossTotalFc = new core_1.ComplexTypeNumberPropertyField('GrossTotalFC', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.grossTotalSc]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.grossTotalSc = new v4_1.ComplexTypeNumberPropertyField('GrossTotalSC', _this, 'Edm.Double');
+        _this.grossTotalSc = new core_1.ComplexTypeNumberPropertyField('GrossTotalSC', _this, 'Edm.Double');
         /**
          * Representation of the [[DocumentLine.ncmCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.ncmCode = new v4_1.ComplexTypeNumberPropertyField('NCMCode', _this, 'Edm.Int32');
+        _this.ncmCode = new core_1.ComplexTypeNumberPropertyField('NCMCode', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.lineTaxJurisdictions]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.lineTaxJurisdictions = new LineTaxJurisdiction_1.LineTaxJurisdictionField('LineTaxJurisdictions', _this);
+        _this.lineTaxJurisdictions = new core_1.CollectionField('LineTaxJurisdictions', _this, LineTaxJurisdiction_1.LineTaxJurisdiction);
         /**
          * Representation of the [[DocumentLine.generatedAssets]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.generatedAssets = new GeneratedAsset_1.GeneratedAssetField('GeneratedAssets', _this);
+        _this.generatedAssets = new core_1.CollectionField('GeneratedAssets', _this, GeneratedAsset_1.GeneratedAsset);
         /**
          * Representation of the [[DocumentLine.documentLineAdditionalExpenses]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.documentLineAdditionalExpenses = new DocumentLineAdditionalExpense_1.DocumentLineAdditionalExpenseField('DocumentLineAdditionalExpenses', _this);
+        _this.documentLineAdditionalExpenses = new core_1.CollectionField('DocumentLineAdditionalExpenses', _this, DocumentLineAdditionalExpense_1.DocumentLineAdditionalExpense);
         /**
          * Representation of the [[DocumentLine.withholdingTaxLines]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.withholdingTaxLines = new WithholdingTaxLine_1.WithholdingTaxLineField('WithholdingTaxLines', _this);
+        _this.withholdingTaxLines = new core_1.CollectionField('WithholdingTaxLines', _this, WithholdingTaxLine_1.WithholdingTaxLine);
         /**
          * Representation of the [[DocumentLine.serialNumbers]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.serialNumbers = new SerialNumber_1.SerialNumberField('SerialNumbers', _this);
+        _this.serialNumbers = new core_1.CollectionField('SerialNumbers', _this, SerialNumber_1.SerialNumber);
         /**
          * Representation of the [[DocumentLine.batchNumbers]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.batchNumbers = new BatchNumber_1.BatchNumberField('BatchNumbers', _this);
+        _this.batchNumbers = new core_1.CollectionField('BatchNumbers', _this, BatchNumber_1.BatchNumber);
         /**
          * Representation of the [[DocumentLine.documentLinesBinAllocations]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.documentLinesBinAllocations = new DocumentLinesBinAllocation_1.DocumentLinesBinAllocationField('DocumentLinesBinAllocations', _this);
+        _this.documentLinesBinAllocations = new core_1.CollectionField('DocumentLinesBinAllocations', _this, DocumentLinesBinAllocation_1.DocumentLinesBinAllocation);
         /**
          * Representation of the [[DocumentLine.exportProcesses]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.exportProcesses = new ExportProcess_1.ExportProcessField('ExportProcesses', _this);
+        _this.exportProcesses = new core_1.CollectionField('ExportProcesses', _this, ExportProcess_1.ExportProcess);
         /**
          * Representation of the [[DocumentLine.returnAction]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.returnAction = new v4_1.ComplexTypeNumberPropertyField('ReturnAction', _this, 'Edm.Int32');
+        _this.returnAction = new core_1.ComplexTypeNumberPropertyField('ReturnAction', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.returnReason]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.returnReason = new v4_1.ComplexTypeNumberPropertyField('ReturnReason', _this, 'Edm.Int32');
+        _this.returnReason = new core_1.ComplexTypeNumberPropertyField('ReturnReason', _this, 'Edm.Int32');
         /**
          * Representation of the [[DocumentLine.importProcesses]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.importProcesses = new ImportProcess_1.ImportProcessField('ImportProcesses', _this);
+        _this.importProcesses = new core_1.CollectionField('ImportProcesses', _this, ImportProcess_1.ImportProcess);
         return _this;
     }
     return DocumentLineField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.DocumentLineField = DocumentLineField;
 var DocumentLine;
 (function (DocumentLine) {
+    /**
+     * Metadata information on all properties of the `DocumentLine` complex type.
+     */
+    DocumentLine._propertyMetadata = [{
+            originalName: 'LineNum',
+            name: 'lineNum',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'ItemCode',
+            name: 'itemCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'ItemDescription',
+            name: 'itemDescription',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Quantity',
+            name: 'quantity',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'ShipDate',
+            name: 'shipDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'Price',
+            name: 'price',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'PriceAfterVAT',
+            name: 'priceAfterVat',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Currency',
+            name: 'currency',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Rate',
+            name: 'rate',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'DiscountPercent',
+            name: 'discountPercent',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'VendorNum',
+            name: 'vendorNum',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'SerialNum',
+            name: 'serialNum',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'WarehouseCode',
+            name: 'warehouseCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'SalesPersonCode',
+            name: 'salesPersonCode',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'CommisionPercent',
+            name: 'commisionPercent',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'TreeType',
+            name: 'treeType',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'AccountCode',
+            name: 'accountCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'UseBaseUnits',
+            name: 'useBaseUnits',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'SupplierCatNum',
+            name: 'supplierCatNum',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'CostingCode',
+            name: 'costingCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'ProjectCode',
+            name: 'projectCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'BarCode',
+            name: 'barCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'VatGroup',
+            name: 'vatGroup',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Height1',
+            name: 'height1',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Hight1Unit',
+            name: 'hight1Unit',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Height2',
+            name: 'height2',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Height2Unit',
+            name: 'height2Unit',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Lengh1',
+            name: 'lengh1',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Lengh1Unit',
+            name: 'lengh1Unit',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Lengh2',
+            name: 'lengh2',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Lengh2Unit',
+            name: 'lengh2Unit',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Weight1',
+            name: 'weight1',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Weight1Unit',
+            name: 'weight1Unit',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Weight2',
+            name: 'weight2',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Weight2Unit',
+            name: 'weight2Unit',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Factor1',
+            name: 'factor1',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Factor2',
+            name: 'factor2',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Factor3',
+            name: 'factor3',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Factor4',
+            name: 'factor4',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'BaseType',
+            name: 'baseType',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'BaseEntry',
+            name: 'baseEntry',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'BaseLine',
+            name: 'baseLine',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Volume',
+            name: 'volume',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'VolumeUnit',
+            name: 'volumeUnit',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Width1',
+            name: 'width1',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Width1Unit',
+            name: 'width1Unit',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Width2',
+            name: 'width2',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Width2Unit',
+            name: 'width2Unit',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Address',
+            name: 'address',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'TaxCode',
+            name: 'taxCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'TaxType',
+            name: 'taxType',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'TaxLiable',
+            name: 'taxLiable',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'PickStatus',
+            name: 'pickStatus',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'PickQuantity',
+            name: 'pickQuantity',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'PickListIdNumber',
+            name: 'pickListIdNumber',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'OriginalItem',
+            name: 'originalItem',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'BackOrder',
+            name: 'backOrder',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'FreeText',
+            name: 'freeText',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'ShippingMethod',
+            name: 'shippingMethod',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'POTargetNum',
+            name: 'poTargetNum',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'POTargetEntry',
+            name: 'poTargetEntry',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'POTargetRowNum',
+            name: 'poTargetRowNum',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'CorrectionInvoiceItem',
+            name: 'correctionInvoiceItem',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'CorrInvAmountToStock',
+            name: 'corrInvAmountToStock',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'CorrInvAmountToDiffAcct',
+            name: 'corrInvAmountToDiffAcct',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'AppliedTax',
+            name: 'appliedTax',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'AppliedTaxFC',
+            name: 'appliedTaxFc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'AppliedTaxSC',
+            name: 'appliedTaxSc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'WTLiable',
+            name: 'wtLiable',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'DeferredTax',
+            name: 'deferredTax',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'EqualizationTaxPercent',
+            name: 'equalizationTaxPercent',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'TotalEqualizationTax',
+            name: 'totalEqualizationTax',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'TotalEqualizationTaxFC',
+            name: 'totalEqualizationTaxFc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'TotalEqualizationTaxSC',
+            name: 'totalEqualizationTaxSc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'NetTaxAmount',
+            name: 'netTaxAmount',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'NetTaxAmountFC',
+            name: 'netTaxAmountFc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'NetTaxAmountSC',
+            name: 'netTaxAmountSc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'MeasureUnit',
+            name: 'measureUnit',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'UnitsOfMeasurment',
+            name: 'unitsOfMeasurment',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'LineTotal',
+            name: 'lineTotal',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'TaxPercentagePerRow',
+            name: 'taxPercentagePerRow',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'TaxTotal',
+            name: 'taxTotal',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'ConsumerSalesForecast',
+            name: 'consumerSalesForecast',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'ExciseAmount',
+            name: 'exciseAmount',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'TaxPerUnit',
+            name: 'taxPerUnit',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'TotalInclTax',
+            name: 'totalInclTax',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'CountryOrg',
+            name: 'countryOrg',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'SWW',
+            name: 'sww',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'TransactionType',
+            name: 'transactionType',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'DistributeExpense',
+            name: 'distributeExpense',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'ShipToCode',
+            name: 'shipToCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'RowTotalFC',
+            name: 'rowTotalFc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'RowTotalSC',
+            name: 'rowTotalSc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'LastBuyInmPrice',
+            name: 'lastBuyInmPrice',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'LastBuyDistributeSumFc',
+            name: 'lastBuyDistributeSumFc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'LastBuyDistributeSumSc',
+            name: 'lastBuyDistributeSumSc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'LastBuyDistributeSum',
+            name: 'lastBuyDistributeSum',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'StockDistributesumForeign',
+            name: 'stockDistributesumForeign',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'StockDistributesumSystem',
+            name: 'stockDistributesumSystem',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'StockDistributesum',
+            name: 'stockDistributesum',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'StockInmPrice',
+            name: 'stockInmPrice',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'PickStatusEx',
+            name: 'pickStatusEx',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'TaxBeforeDPM',
+            name: 'taxBeforeDpm',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'TaxBeforeDPMFC',
+            name: 'taxBeforeDpmfc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'TaxBeforeDPMSC',
+            name: 'taxBeforeDpmsc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'CFOPCode',
+            name: 'cfopCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'CSTCode',
+            name: 'cstCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Usage',
+            name: 'usage',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'TaxOnly',
+            name: 'taxOnly',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'VisualOrder',
+            name: 'visualOrder',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'BaseOpenQuantity',
+            name: 'baseOpenQuantity',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'UnitPrice',
+            name: 'unitPrice',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'LineStatus',
+            name: 'lineStatus',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'PackageQuantity',
+            name: 'packageQuantity',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Text',
+            name: 'text',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'LineType',
+            name: 'lineType',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'COGSCostingCode',
+            name: 'cogsCostingCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'COGSAccountCode',
+            name: 'cogsAccountCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'ChangeAssemlyBoMWarehouse',
+            name: 'changeAssemlyBoMWarehouse',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'GrossBuyPrice',
+            name: 'grossBuyPrice',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'GrossBase',
+            name: 'grossBase',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'GrossProfitTotalBasePrice',
+            name: 'grossProfitTotalBasePrice',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'CostingCode2',
+            name: 'costingCode2',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'CostingCode3',
+            name: 'costingCode3',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'CostingCode4',
+            name: 'costingCode4',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'CostingCode5',
+            name: 'costingCode5',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'ItemDetails',
+            name: 'itemDetails',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'LocationCode',
+            name: 'locationCode',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'ActualDeliveryDate',
+            name: 'actualDeliveryDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'RemainingOpenQuantity',
+            name: 'remainingOpenQuantity',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'OpenAmount',
+            name: 'openAmount',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'OpenAmountFC',
+            name: 'openAmountFc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'OpenAmountSC',
+            name: 'openAmountSc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'ExLineNo',
+            name: 'exLineNo',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'RequiredDate',
+            name: 'requiredDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'RequiredQuantity',
+            name: 'requiredQuantity',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'COGSCostingCode2',
+            name: 'cogsCostingCode2',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'COGSCostingCode3',
+            name: 'cogsCostingCode3',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'COGSCostingCode4',
+            name: 'cogsCostingCode4',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'COGSCostingCode5',
+            name: 'cogsCostingCode5',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'CSTforIPI',
+            name: 'csTforIpi',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'CSTforPIS',
+            name: 'csTforPis',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'CSTforCOFINS',
+            name: 'csTforCofins',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'CreditOriginCode',
+            name: 'creditOriginCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'WithoutInventoryMovement',
+            name: 'withoutInventoryMovement',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'AgreementNo',
+            name: 'agreementNo',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'AgreementRowNumber',
+            name: 'agreementRowNumber',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'ShipToDescription',
+            name: 'shipToDescription',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'ActualBaseEntry',
+            name: 'actualBaseEntry',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'ActualBaseLine',
+            name: 'actualBaseLine',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'DocEntry',
+            name: 'docEntry',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Surpluses',
+            name: 'surpluses',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'DefectAndBreakup',
+            name: 'defectAndBreakup',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'Shortages',
+            name: 'shortages',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'ConsiderQuantity',
+            name: 'considerQuantity',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'PartialRetirement',
+            name: 'partialRetirement',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'RetirementQuantity',
+            name: 'retirementQuantity',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'RetirementAPC',
+            name: 'retirementApc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'ThirdParty',
+            name: 'thirdParty',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'ExpenseType',
+            name: 'expenseType',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'ReceiptNumber',
+            name: 'receiptNumber',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'ExpenseOperationType',
+            name: 'expenseOperationType',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'FederalTaxID',
+            name: 'federalTaxId',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'EnableReturnCost',
+            name: 'enableReturnCost',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'ReturnCost',
+            name: 'returnCost',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'LineVendor',
+            name: 'lineVendor',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'StgSeqNum',
+            name: 'stgSeqNum',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'StgEntry',
+            name: 'stgEntry',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'StgDesc',
+            name: 'stgDesc',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'UoMEntry',
+            name: 'uoMEntry',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'UoMCode',
+            name: 'uoMCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'InventoryQuantity',
+            name: 'inventoryQuantity',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'RemainingOpenInventoryQuantity',
+            name: 'remainingOpenInventoryQuantity',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'ParentLineNum',
+            name: 'parentLineNum',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Incoterms',
+            name: 'incoterms',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'TransportMode',
+            name: 'transportMode',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'ItemType',
+            name: 'itemType',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'ChangeInventoryQuantityIndependently',
+            name: 'changeInventoryQuantityIndependently',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'FreeOfChargeBP',
+            name: 'freeOfChargeBp',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'SACEntry',
+            name: 'sacEntry',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'HSNEntry',
+            name: 'hsnEntry',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'GrossPrice',
+            name: 'grossPrice',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'GrossTotal',
+            name: 'grossTotal',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'GrossTotalFC',
+            name: 'grossTotalFc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'GrossTotalSC',
+            name: 'grossTotalSc',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'NCMCode',
+            name: 'ncmCode',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'LineTaxJurisdictions',
+            name: 'lineTaxJurisdictions',
+            type: LineTaxJurisdiction_1.LineTaxJurisdiction,
+            isCollection: true
+        }, {
+            originalName: 'GeneratedAssets',
+            name: 'generatedAssets',
+            type: GeneratedAsset_1.GeneratedAsset,
+            isCollection: true
+        }, {
+            originalName: 'DocumentLineAdditionalExpenses',
+            name: 'documentLineAdditionalExpenses',
+            type: DocumentLineAdditionalExpense_1.DocumentLineAdditionalExpense,
+            isCollection: true
+        }, {
+            originalName: 'WithholdingTaxLines',
+            name: 'withholdingTaxLines',
+            type: WithholdingTaxLine_1.WithholdingTaxLine,
+            isCollection: true
+        }, {
+            originalName: 'SerialNumbers',
+            name: 'serialNumbers',
+            type: SerialNumber_1.SerialNumber,
+            isCollection: true
+        }, {
+            originalName: 'BatchNumbers',
+            name: 'batchNumbers',
+            type: BatchNumber_1.BatchNumber,
+            isCollection: true
+        }, {
+            originalName: 'DocumentLinesBinAllocations',
+            name: 'documentLinesBinAllocations',
+            type: DocumentLinesBinAllocation_1.DocumentLinesBinAllocation,
+            isCollection: true
+        }, {
+            originalName: 'ExportProcesses',
+            name: 'exportProcesses',
+            type: ExportProcess_1.ExportProcess,
+            isCollection: true
+        }, {
+            originalName: 'ReturnAction',
+            name: 'returnAction',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'ReturnReason',
+            name: 'returnReason',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'ImportProcesses',
+            name: 'importProcesses',
+            type: ImportProcess_1.ImportProcess,
+            isCollection: true
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            LineNum: function (lineNum) { return ({ lineNum: v4_1.edmToTs(lineNum, 'Edm.Int32') }); },
-            ItemCode: function (itemCode) { return ({ itemCode: v4_1.edmToTs(itemCode, 'Edm.String') }); },
-            ItemDescription: function (itemDescription) { return ({ itemDescription: v4_1.edmToTs(itemDescription, 'Edm.String') }); },
-            Quantity: function (quantity) { return ({ quantity: v4_1.edmToTs(quantity, 'Edm.Double') }); },
-            ShipDate: function (shipDate) { return ({ shipDate: v4_1.edmToTs(shipDate, 'Edm.DateTimeOffset') }); },
-            Price: function (price) { return ({ price: v4_1.edmToTs(price, 'Edm.Double') }); },
-            PriceAfterVAT: function (priceAfterVat) { return ({ priceAfterVat: v4_1.edmToTs(priceAfterVat, 'Edm.Double') }); },
-            Currency: function (currency) { return ({ currency: v4_1.edmToTs(currency, 'Edm.String') }); },
-            Rate: function (rate) { return ({ rate: v4_1.edmToTs(rate, 'Edm.Double') }); },
-            DiscountPercent: function (discountPercent) { return ({ discountPercent: v4_1.edmToTs(discountPercent, 'Edm.Double') }); },
-            VendorNum: function (vendorNum) { return ({ vendorNum: v4_1.edmToTs(vendorNum, 'Edm.String') }); },
-            SerialNum: function (serialNum) { return ({ serialNum: v4_1.edmToTs(serialNum, 'Edm.String') }); },
-            WarehouseCode: function (warehouseCode) { return ({ warehouseCode: v4_1.edmToTs(warehouseCode, 'Edm.String') }); },
-            SalesPersonCode: function (salesPersonCode) { return ({ salesPersonCode: v4_1.edmToTs(salesPersonCode, 'Edm.Int32') }); },
-            CommisionPercent: function (commisionPercent) { return ({ commisionPercent: v4_1.edmToTs(commisionPercent, 'Edm.Double') }); },
-            AccountCode: function (accountCode) { return ({ accountCode: v4_1.edmToTs(accountCode, 'Edm.String') }); },
-            SupplierCatNum: function (supplierCatNum) { return ({ supplierCatNum: v4_1.edmToTs(supplierCatNum, 'Edm.String') }); },
-            CostingCode: function (costingCode) { return ({ costingCode: v4_1.edmToTs(costingCode, 'Edm.String') }); },
-            ProjectCode: function (projectCode) { return ({ projectCode: v4_1.edmToTs(projectCode, 'Edm.String') }); },
-            BarCode: function (barCode) { return ({ barCode: v4_1.edmToTs(barCode, 'Edm.String') }); },
-            VatGroup: function (vatGroup) { return ({ vatGroup: v4_1.edmToTs(vatGroup, 'Edm.String') }); },
-            Height1: function (height1) { return ({ height1: v4_1.edmToTs(height1, 'Edm.Double') }); },
-            Hight1Unit: function (hight1Unit) { return ({ hight1Unit: v4_1.edmToTs(hight1Unit, 'Edm.Int32') }); },
-            Height2: function (height2) { return ({ height2: v4_1.edmToTs(height2, 'Edm.Double') }); },
-            Height2Unit: function (height2Unit) { return ({ height2Unit: v4_1.edmToTs(height2Unit, 'Edm.Int32') }); },
-            Lengh1: function (lengh1) { return ({ lengh1: v4_1.edmToTs(lengh1, 'Edm.Double') }); },
-            Lengh1Unit: function (lengh1Unit) { return ({ lengh1Unit: v4_1.edmToTs(lengh1Unit, 'Edm.Int32') }); },
-            Lengh2: function (lengh2) { return ({ lengh2: v4_1.edmToTs(lengh2, 'Edm.Double') }); },
-            Lengh2Unit: function (lengh2Unit) { return ({ lengh2Unit: v4_1.edmToTs(lengh2Unit, 'Edm.Int32') }); },
-            Weight1: function (weight1) { return ({ weight1: v4_1.edmToTs(weight1, 'Edm.Double') }); },
-            Weight1Unit: function (weight1Unit) { return ({ weight1Unit: v4_1.edmToTs(weight1Unit, 'Edm.Int32') }); },
-            Weight2: function (weight2) { return ({ weight2: v4_1.edmToTs(weight2, 'Edm.Double') }); },
-            Weight2Unit: function (weight2Unit) { return ({ weight2Unit: v4_1.edmToTs(weight2Unit, 'Edm.Int32') }); },
-            Factor1: function (factor1) { return ({ factor1: v4_1.edmToTs(factor1, 'Edm.Double') }); },
-            Factor2: function (factor2) { return ({ factor2: v4_1.edmToTs(factor2, 'Edm.Double') }); },
-            Factor3: function (factor3) { return ({ factor3: v4_1.edmToTs(factor3, 'Edm.Double') }); },
-            Factor4: function (factor4) { return ({ factor4: v4_1.edmToTs(factor4, 'Edm.Double') }); },
-            BaseType: function (baseType) { return ({ baseType: v4_1.edmToTs(baseType, 'Edm.Int32') }); },
-            BaseEntry: function (baseEntry) { return ({ baseEntry: v4_1.edmToTs(baseEntry, 'Edm.Int32') }); },
-            BaseLine: function (baseLine) { return ({ baseLine: v4_1.edmToTs(baseLine, 'Edm.Int32') }); },
-            Volume: function (volume) { return ({ volume: v4_1.edmToTs(volume, 'Edm.Double') }); },
-            VolumeUnit: function (volumeUnit) { return ({ volumeUnit: v4_1.edmToTs(volumeUnit, 'Edm.Int32') }); },
-            Width1: function (width1) { return ({ width1: v4_1.edmToTs(width1, 'Edm.Double') }); },
-            Width1Unit: function (width1Unit) { return ({ width1Unit: v4_1.edmToTs(width1Unit, 'Edm.Int32') }); },
-            Width2: function (width2) { return ({ width2: v4_1.edmToTs(width2, 'Edm.Double') }); },
-            Width2Unit: function (width2Unit) { return ({ width2Unit: v4_1.edmToTs(width2Unit, 'Edm.Int32') }); },
-            Address: function (address) { return ({ address: v4_1.edmToTs(address, 'Edm.String') }); },
-            TaxCode: function (taxCode) { return ({ taxCode: v4_1.edmToTs(taxCode, 'Edm.String') }); },
-            PickQuantity: function (pickQuantity) { return ({ pickQuantity: v4_1.edmToTs(pickQuantity, 'Edm.Double') }); },
-            PickListIdNumber: function (pickListIdNumber) { return ({ pickListIdNumber: v4_1.edmToTs(pickListIdNumber, 'Edm.Int32') }); },
-            OriginalItem: function (originalItem) { return ({ originalItem: v4_1.edmToTs(originalItem, 'Edm.String') }); },
-            FreeText: function (freeText) { return ({ freeText: v4_1.edmToTs(freeText, 'Edm.String') }); },
-            ShippingMethod: function (shippingMethod) { return ({ shippingMethod: v4_1.edmToTs(shippingMethod, 'Edm.Int32') }); },
-            POTargetNum: function (poTargetNum) { return ({ poTargetNum: v4_1.edmToTs(poTargetNum, 'Edm.Int32') }); },
-            POTargetEntry: function (poTargetEntry) { return ({ poTargetEntry: v4_1.edmToTs(poTargetEntry, 'Edm.String') }); },
-            POTargetRowNum: function (poTargetRowNum) { return ({ poTargetRowNum: v4_1.edmToTs(poTargetRowNum, 'Edm.Int32') }); },
-            CorrInvAmountToStock: function (corrInvAmountToStock) { return ({ corrInvAmountToStock: v4_1.edmToTs(corrInvAmountToStock, 'Edm.Double') }); },
-            CorrInvAmountToDiffAcct: function (corrInvAmountToDiffAcct) { return ({ corrInvAmountToDiffAcct: v4_1.edmToTs(corrInvAmountToDiffAcct, 'Edm.Double') }); },
-            AppliedTax: function (appliedTax) { return ({ appliedTax: v4_1.edmToTs(appliedTax, 'Edm.Double') }); },
-            AppliedTaxFC: function (appliedTaxFc) { return ({ appliedTaxFc: v4_1.edmToTs(appliedTaxFc, 'Edm.Double') }); },
-            AppliedTaxSC: function (appliedTaxSc) { return ({ appliedTaxSc: v4_1.edmToTs(appliedTaxSc, 'Edm.Double') }); },
-            EqualizationTaxPercent: function (equalizationTaxPercent) { return ({ equalizationTaxPercent: v4_1.edmToTs(equalizationTaxPercent, 'Edm.Double') }); },
-            TotalEqualizationTax: function (totalEqualizationTax) { return ({ totalEqualizationTax: v4_1.edmToTs(totalEqualizationTax, 'Edm.Double') }); },
-            TotalEqualizationTaxFC: function (totalEqualizationTaxFc) { return ({ totalEqualizationTaxFc: v4_1.edmToTs(totalEqualizationTaxFc, 'Edm.Double') }); },
-            TotalEqualizationTaxSC: function (totalEqualizationTaxSc) { return ({ totalEqualizationTaxSc: v4_1.edmToTs(totalEqualizationTaxSc, 'Edm.Double') }); },
-            NetTaxAmount: function (netTaxAmount) { return ({ netTaxAmount: v4_1.edmToTs(netTaxAmount, 'Edm.Double') }); },
-            NetTaxAmountFC: function (netTaxAmountFc) { return ({ netTaxAmountFc: v4_1.edmToTs(netTaxAmountFc, 'Edm.Double') }); },
-            NetTaxAmountSC: function (netTaxAmountSc) { return ({ netTaxAmountSc: v4_1.edmToTs(netTaxAmountSc, 'Edm.Double') }); },
-            MeasureUnit: function (measureUnit) { return ({ measureUnit: v4_1.edmToTs(measureUnit, 'Edm.String') }); },
-            UnitsOfMeasurment: function (unitsOfMeasurment) { return ({ unitsOfMeasurment: v4_1.edmToTs(unitsOfMeasurment, 'Edm.Double') }); },
-            LineTotal: function (lineTotal) { return ({ lineTotal: v4_1.edmToTs(lineTotal, 'Edm.Double') }); },
-            TaxPercentagePerRow: function (taxPercentagePerRow) { return ({ taxPercentagePerRow: v4_1.edmToTs(taxPercentagePerRow, 'Edm.Double') }); },
-            TaxTotal: function (taxTotal) { return ({ taxTotal: v4_1.edmToTs(taxTotal, 'Edm.Double') }); },
-            ExciseAmount: function (exciseAmount) { return ({ exciseAmount: v4_1.edmToTs(exciseAmount, 'Edm.Double') }); },
-            TaxPerUnit: function (taxPerUnit) { return ({ taxPerUnit: v4_1.edmToTs(taxPerUnit, 'Edm.Double') }); },
-            TotalInclTax: function (totalInclTax) { return ({ totalInclTax: v4_1.edmToTs(totalInclTax, 'Edm.Double') }); },
-            CountryOrg: function (countryOrg) { return ({ countryOrg: v4_1.edmToTs(countryOrg, 'Edm.String') }); },
-            SWW: function (sww) { return ({ sww: v4_1.edmToTs(sww, 'Edm.String') }); },
-            ShipToCode: function (shipToCode) { return ({ shipToCode: v4_1.edmToTs(shipToCode, 'Edm.String') }); },
-            RowTotalFC: function (rowTotalFc) { return ({ rowTotalFc: v4_1.edmToTs(rowTotalFc, 'Edm.Double') }); },
-            RowTotalSC: function (rowTotalSc) { return ({ rowTotalSc: v4_1.edmToTs(rowTotalSc, 'Edm.Double') }); },
-            LastBuyInmPrice: function (lastBuyInmPrice) { return ({ lastBuyInmPrice: v4_1.edmToTs(lastBuyInmPrice, 'Edm.Double') }); },
-            LastBuyDistributeSumFc: function (lastBuyDistributeSumFc) { return ({ lastBuyDistributeSumFc: v4_1.edmToTs(lastBuyDistributeSumFc, 'Edm.Double') }); },
-            LastBuyDistributeSumSc: function (lastBuyDistributeSumSc) { return ({ lastBuyDistributeSumSc: v4_1.edmToTs(lastBuyDistributeSumSc, 'Edm.Double') }); },
-            LastBuyDistributeSum: function (lastBuyDistributeSum) { return ({ lastBuyDistributeSum: v4_1.edmToTs(lastBuyDistributeSum, 'Edm.Double') }); },
-            StockDistributesumForeign: function (stockDistributesumForeign) { return ({ stockDistributesumForeign: v4_1.edmToTs(stockDistributesumForeign, 'Edm.Double') }); },
-            StockDistributesumSystem: function (stockDistributesumSystem) { return ({ stockDistributesumSystem: v4_1.edmToTs(stockDistributesumSystem, 'Edm.Double') }); },
-            StockDistributesum: function (stockDistributesum) { return ({ stockDistributesum: v4_1.edmToTs(stockDistributesum, 'Edm.Double') }); },
-            StockInmPrice: function (stockInmPrice) { return ({ stockInmPrice: v4_1.edmToTs(stockInmPrice, 'Edm.Double') }); },
-            TaxBeforeDPM: function (taxBeforeDpm) { return ({ taxBeforeDpm: v4_1.edmToTs(taxBeforeDpm, 'Edm.Double') }); },
-            TaxBeforeDPMFC: function (taxBeforeDpmfc) { return ({ taxBeforeDpmfc: v4_1.edmToTs(taxBeforeDpmfc, 'Edm.Double') }); },
-            TaxBeforeDPMSC: function (taxBeforeDpmsc) { return ({ taxBeforeDpmsc: v4_1.edmToTs(taxBeforeDpmsc, 'Edm.Double') }); },
-            CFOPCode: function (cfopCode) { return ({ cfopCode: v4_1.edmToTs(cfopCode, 'Edm.String') }); },
-            CSTCode: function (cstCode) { return ({ cstCode: v4_1.edmToTs(cstCode, 'Edm.String') }); },
-            Usage: function (usage) { return ({ usage: v4_1.edmToTs(usage, 'Edm.Int32') }); },
-            VisualOrder: function (visualOrder) { return ({ visualOrder: v4_1.edmToTs(visualOrder, 'Edm.Int32') }); },
-            BaseOpenQuantity: function (baseOpenQuantity) { return ({ baseOpenQuantity: v4_1.edmToTs(baseOpenQuantity, 'Edm.Double') }); },
-            UnitPrice: function (unitPrice) { return ({ unitPrice: v4_1.edmToTs(unitPrice, 'Edm.Double') }); },
-            PackageQuantity: function (packageQuantity) { return ({ packageQuantity: v4_1.edmToTs(packageQuantity, 'Edm.Double') }); },
-            Text: function (text) { return ({ text: v4_1.edmToTs(text, 'Edm.String') }); },
-            COGSCostingCode: function (cogsCostingCode) { return ({ cogsCostingCode: v4_1.edmToTs(cogsCostingCode, 'Edm.String') }); },
-            COGSAccountCode: function (cogsAccountCode) { return ({ cogsAccountCode: v4_1.edmToTs(cogsAccountCode, 'Edm.String') }); },
-            ChangeAssemlyBoMWarehouse: function (changeAssemlyBoMWarehouse) { return ({ changeAssemlyBoMWarehouse: v4_1.edmToTs(changeAssemlyBoMWarehouse, 'Edm.String') }); },
-            GrossBuyPrice: function (grossBuyPrice) { return ({ grossBuyPrice: v4_1.edmToTs(grossBuyPrice, 'Edm.Double') }); },
-            GrossBase: function (grossBase) { return ({ grossBase: v4_1.edmToTs(grossBase, 'Edm.Int32') }); },
-            GrossProfitTotalBasePrice: function (grossProfitTotalBasePrice) { return ({ grossProfitTotalBasePrice: v4_1.edmToTs(grossProfitTotalBasePrice, 'Edm.Double') }); },
-            CostingCode2: function (costingCode2) { return ({ costingCode2: v4_1.edmToTs(costingCode2, 'Edm.String') }); },
-            CostingCode3: function (costingCode3) { return ({ costingCode3: v4_1.edmToTs(costingCode3, 'Edm.String') }); },
-            CostingCode4: function (costingCode4) { return ({ costingCode4: v4_1.edmToTs(costingCode4, 'Edm.String') }); },
-            CostingCode5: function (costingCode5) { return ({ costingCode5: v4_1.edmToTs(costingCode5, 'Edm.String') }); },
-            ItemDetails: function (itemDetails) { return ({ itemDetails: v4_1.edmToTs(itemDetails, 'Edm.String') }); },
-            LocationCode: function (locationCode) { return ({ locationCode: v4_1.edmToTs(locationCode, 'Edm.Int32') }); },
-            ActualDeliveryDate: function (actualDeliveryDate) { return ({ actualDeliveryDate: v4_1.edmToTs(actualDeliveryDate, 'Edm.DateTimeOffset') }); },
-            RemainingOpenQuantity: function (remainingOpenQuantity) { return ({ remainingOpenQuantity: v4_1.edmToTs(remainingOpenQuantity, 'Edm.Double') }); },
-            OpenAmount: function (openAmount) { return ({ openAmount: v4_1.edmToTs(openAmount, 'Edm.Double') }); },
-            OpenAmountFC: function (openAmountFc) { return ({ openAmountFc: v4_1.edmToTs(openAmountFc, 'Edm.Double') }); },
-            OpenAmountSC: function (openAmountSc) { return ({ openAmountSc: v4_1.edmToTs(openAmountSc, 'Edm.Double') }); },
-            ExLineNo: function (exLineNo) { return ({ exLineNo: v4_1.edmToTs(exLineNo, 'Edm.String') }); },
-            RequiredDate: function (requiredDate) { return ({ requiredDate: v4_1.edmToTs(requiredDate, 'Edm.DateTimeOffset') }); },
-            RequiredQuantity: function (requiredQuantity) { return ({ requiredQuantity: v4_1.edmToTs(requiredQuantity, 'Edm.Double') }); },
-            COGSCostingCode2: function (cogsCostingCode2) { return ({ cogsCostingCode2: v4_1.edmToTs(cogsCostingCode2, 'Edm.String') }); },
-            COGSCostingCode3: function (cogsCostingCode3) { return ({ cogsCostingCode3: v4_1.edmToTs(cogsCostingCode3, 'Edm.String') }); },
-            COGSCostingCode4: function (cogsCostingCode4) { return ({ cogsCostingCode4: v4_1.edmToTs(cogsCostingCode4, 'Edm.String') }); },
-            COGSCostingCode5: function (cogsCostingCode5) { return ({ cogsCostingCode5: v4_1.edmToTs(cogsCostingCode5, 'Edm.String') }); },
-            CSTforIPI: function (csTforIpi) { return ({ csTforIpi: v4_1.edmToTs(csTforIpi, 'Edm.String') }); },
-            CSTforPIS: function (csTforPis) { return ({ csTforPis: v4_1.edmToTs(csTforPis, 'Edm.String') }); },
-            CSTforCOFINS: function (csTforCofins) { return ({ csTforCofins: v4_1.edmToTs(csTforCofins, 'Edm.String') }); },
-            CreditOriginCode: function (creditOriginCode) { return ({ creditOriginCode: v4_1.edmToTs(creditOriginCode, 'Edm.String') }); },
-            AgreementNo: function (agreementNo) { return ({ agreementNo: v4_1.edmToTs(agreementNo, 'Edm.Int32') }); },
-            AgreementRowNumber: function (agreementRowNumber) { return ({ agreementRowNumber: v4_1.edmToTs(agreementRowNumber, 'Edm.Int32') }); },
-            ShipToDescription: function (shipToDescription) { return ({ shipToDescription: v4_1.edmToTs(shipToDescription, 'Edm.String') }); },
-            ActualBaseEntry: function (actualBaseEntry) { return ({ actualBaseEntry: v4_1.edmToTs(actualBaseEntry, 'Edm.Int32') }); },
-            ActualBaseLine: function (actualBaseLine) { return ({ actualBaseLine: v4_1.edmToTs(actualBaseLine, 'Edm.Int32') }); },
-            DocEntry: function (docEntry) { return ({ docEntry: v4_1.edmToTs(docEntry, 'Edm.Int32') }); },
-            Surpluses: function (surpluses) { return ({ surpluses: v4_1.edmToTs(surpluses, 'Edm.Double') }); },
-            DefectAndBreakup: function (defectAndBreakup) { return ({ defectAndBreakup: v4_1.edmToTs(defectAndBreakup, 'Edm.Double') }); },
-            Shortages: function (shortages) { return ({ shortages: v4_1.edmToTs(shortages, 'Edm.Double') }); },
-            RetirementQuantity: function (retirementQuantity) { return ({ retirementQuantity: v4_1.edmToTs(retirementQuantity, 'Edm.Double') }); },
-            RetirementAPC: function (retirementApc) { return ({ retirementApc: v4_1.edmToTs(retirementApc, 'Edm.Double') }); },
-            ExpenseType: function (expenseType) { return ({ expenseType: v4_1.edmToTs(expenseType, 'Edm.String') }); },
-            ReceiptNumber: function (receiptNumber) { return ({ receiptNumber: v4_1.edmToTs(receiptNumber, 'Edm.String') }); },
-            FederalTaxID: function (federalTaxId) { return ({ federalTaxId: v4_1.edmToTs(federalTaxId, 'Edm.String') }); },
-            ReturnCost: function (returnCost) { return ({ returnCost: v4_1.edmToTs(returnCost, 'Edm.Double') }); },
-            LineVendor: function (lineVendor) { return ({ lineVendor: v4_1.edmToTs(lineVendor, 'Edm.String') }); },
-            StgSeqNum: function (stgSeqNum) { return ({ stgSeqNum: v4_1.edmToTs(stgSeqNum, 'Edm.Int32') }); },
-            StgEntry: function (stgEntry) { return ({ stgEntry: v4_1.edmToTs(stgEntry, 'Edm.Int32') }); },
-            StgDesc: function (stgDesc) { return ({ stgDesc: v4_1.edmToTs(stgDesc, 'Edm.String') }); },
-            UoMEntry: function (uoMEntry) { return ({ uoMEntry: v4_1.edmToTs(uoMEntry, 'Edm.Int32') }); },
-            UoMCode: function (uoMCode) { return ({ uoMCode: v4_1.edmToTs(uoMCode, 'Edm.String') }); },
-            InventoryQuantity: function (inventoryQuantity) { return ({ inventoryQuantity: v4_1.edmToTs(inventoryQuantity, 'Edm.Double') }); },
-            RemainingOpenInventoryQuantity: function (remainingOpenInventoryQuantity) { return ({ remainingOpenInventoryQuantity: v4_1.edmToTs(remainingOpenInventoryQuantity, 'Edm.Double') }); },
-            ParentLineNum: function (parentLineNum) { return ({ parentLineNum: v4_1.edmToTs(parentLineNum, 'Edm.Int32') }); },
-            Incoterms: function (incoterms) { return ({ incoterms: v4_1.edmToTs(incoterms, 'Edm.Int32') }); },
-            TransportMode: function (transportMode) { return ({ transportMode: v4_1.edmToTs(transportMode, 'Edm.Int32') }); },
-            SACEntry: function (sacEntry) { return ({ sacEntry: v4_1.edmToTs(sacEntry, 'Edm.Int32') }); },
-            HSNEntry: function (hsnEntry) { return ({ hsnEntry: v4_1.edmToTs(hsnEntry, 'Edm.Int32') }); },
-            GrossPrice: function (grossPrice) { return ({ grossPrice: v4_1.edmToTs(grossPrice, 'Edm.Double') }); },
-            GrossTotal: function (grossTotal) { return ({ grossTotal: v4_1.edmToTs(grossTotal, 'Edm.Double') }); },
-            GrossTotalFC: function (grossTotalFc) { return ({ grossTotalFc: v4_1.edmToTs(grossTotalFc, 'Edm.Double') }); },
-            GrossTotalSC: function (grossTotalSc) { return ({ grossTotalSc: v4_1.edmToTs(grossTotalSc, 'Edm.Double') }); },
-            NCMCode: function (ncmCode) { return ({ ncmCode: v4_1.edmToTs(ncmCode, 'Edm.Int32') }); },
-            LineTaxJurisdictions: function (lineTaxJurisdictions) { return ({ lineTaxJurisdictions: LineTaxJurisdiction_1.LineTaxJurisdiction.build(lineTaxJurisdictions) }); },
-            GeneratedAssets: function (generatedAssets) { return ({ generatedAssets: GeneratedAsset_1.GeneratedAsset.build(generatedAssets) }); },
-            DocumentLineAdditionalExpenses: function (documentLineAdditionalExpenses) { return ({ documentLineAdditionalExpenses: DocumentLineAdditionalExpense_1.DocumentLineAdditionalExpense.build(documentLineAdditionalExpenses) }); },
-            WithholdingTaxLines: function (withholdingTaxLines) { return ({ withholdingTaxLines: WithholdingTaxLine_1.WithholdingTaxLine.build(withholdingTaxLines) }); },
-            SerialNumbers: function (serialNumbers) { return ({ serialNumbers: SerialNumber_1.SerialNumber.build(serialNumbers) }); },
-            BatchNumbers: function (batchNumbers) { return ({ batchNumbers: BatchNumber_1.BatchNumber.build(batchNumbers) }); },
-            DocumentLinesBinAllocations: function (documentLinesBinAllocations) { return ({ documentLinesBinAllocations: DocumentLinesBinAllocation_1.DocumentLinesBinAllocation.build(documentLinesBinAllocations) }); },
-            ExportProcesses: function (exportProcesses) { return ({ exportProcesses: ExportProcess_1.ExportProcess.build(exportProcesses) }); },
-            ReturnAction: function (returnAction) { return ({ returnAction: v4_1.edmToTs(returnAction, 'Edm.Int32') }); },
-            ReturnReason: function (returnReason) { return ({ returnReason: v4_1.edmToTs(returnReason, 'Edm.Int32') }); },
-            ImportProcesses: function (importProcesses) { return ({ importProcesses: ImportProcess_1.ImportProcess.build(importProcesses) }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, DocumentLine);
     }
     DocumentLine.build = build;
 })(DocumentLine = exports.DocumentLine || (exports.DocumentLine = {}));

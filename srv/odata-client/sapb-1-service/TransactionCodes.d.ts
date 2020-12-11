@@ -1,18 +1,13 @@
 import { TransactionCodesRequestBuilder } from './TransactionCodesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "TransactionCodes" of service "SAPB1".
  */
-export declare class TransactionCodes extends Entity implements TransactionCodesType {
+export declare class TransactionCodes extends EntityV4 implements TransactionCodesType {
     /**
      * Technical entity name for TransactionCodes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for TransactionCodes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -48,10 +43,10 @@ export declare class TransactionCodes extends Entity implements TransactionCodes
      */
     incomingPayments: IncomingPayments[];
     /**
-     * Returns an entity builder to construct instances `TransactionCodes`.
+     * Returns an entity builder to construct instances of `TransactionCodes`.
      * @returns A builder that constructs instances of entity type `TransactionCodes`.
      */
-    static builder(): EntityBuilderType<TransactionCodes, TransactionCodesTypeForceMandatory>;
+    static builder(): EntityBuilderType<TransactionCodes, TransactionCodesType>;
     /**
      * Returns a request builder to construct requests for operations on the `TransactionCodes` entity type.
      * @returns A `TransactionCodes` request builder.
@@ -62,7 +57,7 @@ export declare class TransactionCodes extends Entity implements TransactionCodes
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `TransactionCodes`.
      */
-    static customField(fieldName: string): CustomField<TransactionCodes>;
+    static customField(fieldName: string): CustomFieldV4<TransactionCodes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -77,17 +72,8 @@ import { ChartOfAccounts, ChartOfAccountsType } from './ChartOfAccounts';
 import { PaymentDrafts, PaymentDraftsType } from './PaymentDrafts';
 import { IncomingPayments, IncomingPaymentsType } from './IncomingPayments';
 export interface TransactionCodesType {
-    code?: string;
-    description?: string;
-    vendorPayments: VendorPaymentsType[];
-    journalEntries: JournalEntriesType[];
-    chartOfAccounts: ChartOfAccountsType[];
-    paymentDrafts: PaymentDraftsType[];
-    incomingPayments: IncomingPaymentsType[];
-}
-export interface TransactionCodesTypeForceMandatory {
-    code: string;
-    description: string;
+    code?: string | null;
+    description?: string | null;
     vendorPayments: VendorPaymentsType[];
     journalEntries: JournalEntriesType[];
     chartOfAccounts: ChartOfAccountsType[];

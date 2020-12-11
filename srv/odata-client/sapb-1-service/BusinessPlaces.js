@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -33,7 +33,7 @@ exports.BusinessPlaces = void 0;
 var BusinessPlacesRequestBuilder_1 = require("./BusinessPlacesRequestBuilder");
 var BusinessPlaceIeNumber_1 = require("./BusinessPlaceIeNumber");
 var BusinessPlaceTributaryInfo_1 = require("./BusinessPlaceTributaryInfo");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "BusinessPlaces" of service "SAPB1".
  */
@@ -43,11 +43,11 @@ var BusinessPlaces = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `BusinessPlaces`.
+     * Returns an entity builder to construct instances of `BusinessPlaces`.
      * @returns A builder that constructs instances of entity type `BusinessPlaces`.
      */
     BusinessPlaces.builder = function () {
-        return v4_1.Entity.entityBuilder(BusinessPlaces);
+        return core_1.EntityV4.entityBuilder(BusinessPlaces);
     };
     /**
      * Returns a request builder to construct requests for operations on the `BusinessPlaces` entity type.
@@ -62,7 +62,7 @@ var BusinessPlaces = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `BusinessPlaces`.
      */
     BusinessPlaces.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, BusinessPlaces);
+        return core_1.EntityV4.customFieldSelector(fieldName, BusinessPlaces);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -76,16 +76,11 @@ var BusinessPlaces = /** @class */ (function (_super) {
      */
     BusinessPlaces._entityName = 'BusinessPlaces';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BusinessPlaces.
-     */
-    BusinessPlaces._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    BusinessPlaces._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    BusinessPlaces._defaultServicePath = '/b1s/v2/';
     return BusinessPlaces;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.BusinessPlaces = BusinessPlaces;
 var UserDefaultGroups_1 = require("./UserDefaultGroups");
 var InventoryGenEntries_1 = require("./InventoryGenEntries");
@@ -140,482 +135,497 @@ var IncomingPayments_1 = require("./IncomingPayments");
      * Static representation of the [[bplid]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.BPLID = new v4_1.NumberField('BPLID', BusinessPlaces, 'Edm.Int32');
+    BusinessPlaces.BPLID = new core_1.NumberField('BPLID', BusinessPlaces, 'Edm.Int32');
     /**
      * Static representation of the [[bplName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.BPL_NAME = new v4_1.StringField('BPLName', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.BPL_NAME = new core_1.StringField('BPLName', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[bplNameForeign]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.BPL_NAME_FOREIGN = new v4_1.StringField('BPLNameForeign', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.BPL_NAME_FOREIGN = new core_1.StringField('BPLNameForeign', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[vatRegNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.VAT_REG_NUM = new v4_1.StringField('VATRegNum', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.VAT_REG_NUM = new core_1.StringField('VATRegNum', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[repName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.REP_NAME = new v4_1.StringField('RepName', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.REP_NAME = new core_1.StringField('RepName', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[industry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.INDUSTRY = new v4_1.StringField('Industry', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.INDUSTRY = new core_1.StringField('Industry', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[business]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.BUSINESS = new v4_1.StringField('Business', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.BUSINESS = new core_1.StringField('Business', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[address]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.ADDRESS = new v4_1.StringField('Address', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.ADDRESS = new core_1.StringField('Address', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[addressforeign]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.ADDRESSFOREIGN = new v4_1.StringField('Addressforeign', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.ADDRESSFOREIGN = new core_1.StringField('Addressforeign', BusinessPlaces, 'Edm.String');
+    /**
+     * Static representation of the [[mainBpl]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    BusinessPlaces.MAIN_BPL = new core_1.EnumField('MainBPL', BusinessPlaces);
     /**
      * Static representation of the [[taxOfficeNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.TAX_OFFICE_NO = new v4_1.StringField('TaxOfficeNo', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.TAX_OFFICE_NO = new core_1.StringField('TaxOfficeNo', BusinessPlaces, 'Edm.String');
+    /**
+     * Static representation of the [[disabled]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    BusinessPlaces.DISABLED = new core_1.EnumField('Disabled', BusinessPlaces);
     /**
      * Static representation of the [[defaultCustomerId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.DEFAULT_CUSTOMER_ID = new v4_1.StringField('DefaultCustomerID', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.DEFAULT_CUSTOMER_ID = new core_1.StringField('DefaultCustomerID', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[defaultVendorId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.DEFAULT_VENDOR_ID = new v4_1.StringField('DefaultVendorID', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.DEFAULT_VENDOR_ID = new core_1.StringField('DefaultVendorID', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[defaultWarehouseId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.DEFAULT_WAREHOUSE_ID = new v4_1.StringField('DefaultWarehouseID', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.DEFAULT_WAREHOUSE_ID = new core_1.StringField('DefaultWarehouseID', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[defaultTaxCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.DEFAULT_TAX_CODE = new v4_1.StringField('DefaultTaxCode', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.DEFAULT_TAX_CODE = new core_1.StringField('DefaultTaxCode', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[taxOffice]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.TAX_OFFICE = new v4_1.StringField('TaxOffice', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.TAX_OFFICE = new core_1.StringField('TaxOffice', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[federalTaxId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.FEDERAL_TAX_ID = new v4_1.StringField('FederalTaxID', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.FEDERAL_TAX_ID = new core_1.StringField('FederalTaxID', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[federalTaxId2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.FEDERAL_TAX_ID_2 = new v4_1.StringField('FederalTaxID2', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.FEDERAL_TAX_ID_2 = new core_1.StringField('FederalTaxID2', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[federalTaxId3]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.FEDERAL_TAX_ID_3 = new v4_1.StringField('FederalTaxID3', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.FEDERAL_TAX_ID_3 = new core_1.StringField('FederalTaxID3', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[additionalIdNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.ADDITIONAL_ID_NUMBER = new v4_1.StringField('AdditionalIdNumber', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.ADDITIONAL_ID_NUMBER = new core_1.StringField('AdditionalIdNumber', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[natureOfCompanyCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.NATURE_OF_COMPANY_CODE = new v4_1.NumberField('NatureOfCompanyCode', BusinessPlaces, 'Edm.Int32');
+    BusinessPlaces.NATURE_OF_COMPANY_CODE = new core_1.NumberField('NatureOfCompanyCode', BusinessPlaces, 'Edm.Int32');
     /**
      * Static representation of the [[economicActivityTypeCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.ECONOMIC_ACTIVITY_TYPE_CODE = new v4_1.NumberField('EconomicActivityTypeCode', BusinessPlaces, 'Edm.Int32');
+    BusinessPlaces.ECONOMIC_ACTIVITY_TYPE_CODE = new core_1.NumberField('EconomicActivityTypeCode', BusinessPlaces, 'Edm.Int32');
     /**
      * Static representation of the [[creditContributionOriginCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.CREDIT_CONTRIBUTION_ORIGIN_CODE = new v4_1.StringField('CreditContributionOriginCode', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.CREDIT_CONTRIBUTION_ORIGIN_CODE = new core_1.StringField('CreditContributionOriginCode', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[ipiPeriodCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.IPI_PERIOD_CODE = new v4_1.StringField('IPIPeriodCode', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.IPI_PERIOD_CODE = new core_1.StringField('IPIPeriodCode', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[cooperativeAssociationTypeCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.COOPERATIVE_ASSOCIATION_TYPE_CODE = new v4_1.NumberField('CooperativeAssociationTypeCode', BusinessPlaces, 'Edm.Int32');
+    BusinessPlaces.COOPERATIVE_ASSOCIATION_TYPE_CODE = new core_1.NumberField('CooperativeAssociationTypeCode', BusinessPlaces, 'Edm.Int32');
     /**
      * Static representation of the [[profitTaxationCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.PROFIT_TAXATION_CODE = new v4_1.NumberField('ProfitTaxationCode', BusinessPlaces, 'Edm.Int32');
+    BusinessPlaces.PROFIT_TAXATION_CODE = new core_1.NumberField('ProfitTaxationCode', BusinessPlaces, 'Edm.Int32');
     /**
      * Static representation of the [[companyQualificationCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.COMPANY_QUALIFICATION_CODE = new v4_1.NumberField('CompanyQualificationCode', BusinessPlaces, 'Edm.Int32');
+    BusinessPlaces.COMPANY_QUALIFICATION_CODE = new core_1.NumberField('CompanyQualificationCode', BusinessPlaces, 'Edm.Int32');
     /**
      * Static representation of the [[declarerTypeCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.DECLARER_TYPE_CODE = new v4_1.NumberField('DeclarerTypeCode', BusinessPlaces, 'Edm.Int32');
+    BusinessPlaces.DECLARER_TYPE_CODE = new core_1.NumberField('DeclarerTypeCode', BusinessPlaces, 'Edm.Int32');
     /**
      * Static representation of the [[preferredStateCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.PREFERRED_STATE_CODE = new v4_1.StringField('PreferredStateCode', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.PREFERRED_STATE_CODE = new core_1.StringField('PreferredStateCode', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[addressType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.ADDRESS_TYPE = new v4_1.StringField('AddressType', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.ADDRESS_TYPE = new core_1.StringField('AddressType', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[street]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.STREET = new v4_1.StringField('Street', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.STREET = new core_1.StringField('Street', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[streetNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.STREET_NO = new v4_1.StringField('StreetNo', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.STREET_NO = new core_1.StringField('StreetNo', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[building]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.BUILDING = new v4_1.StringField('Building', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.BUILDING = new core_1.StringField('Building', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[zipCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.ZIP_CODE = new v4_1.StringField('ZipCode', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.ZIP_CODE = new core_1.StringField('ZipCode', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[block]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.BLOCK = new v4_1.StringField('Block', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.BLOCK = new core_1.StringField('Block', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[city]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.CITY = new v4_1.StringField('City', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.CITY = new core_1.StringField('City', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[state]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.STATE = new v4_1.StringField('State', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.STATE = new core_1.StringField('State', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[county]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.COUNTY = new v4_1.StringField('County', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.COUNTY = new core_1.StringField('County', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[country]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.COUNTRY = new v4_1.StringField('Country', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.COUNTRY = new core_1.StringField('Country', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[aliasName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.ALIAS_NAME = new v4_1.StringField('AliasName', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.ALIAS_NAME = new core_1.StringField('AliasName', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[commercialRegister]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.COMMERCIAL_REGISTER = new v4_1.StringField('CommercialRegister', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.COMMERCIAL_REGISTER = new core_1.StringField('CommercialRegister', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[dateOfIncorporation]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.DATE_OF_INCORPORATION = new v4_1.DateField('DateOfIncorporation', BusinessPlaces, 'Edm.DateTimeOffset');
+    BusinessPlaces.DATE_OF_INCORPORATION = new core_1.DateField('DateOfIncorporation', BusinessPlaces, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[spedProfile]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.SPED_PROFILE = new v4_1.StringField('SPEDProfile', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.SPED_PROFILE = new core_1.StringField('SPEDProfile', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[environmentType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.ENVIRONMENT_TYPE = new v4_1.NumberField('EnvironmentType', BusinessPlaces, 'Edm.Int32');
+    BusinessPlaces.ENVIRONMENT_TYPE = new core_1.NumberField('EnvironmentType', BusinessPlaces, 'Edm.Int32');
+    /**
+     * Static representation of the [[opting4Icms]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    BusinessPlaces.OPTING_4_ICMS = new core_1.EnumField('Opting4ICMS', BusinessPlaces);
     /**
      * Static representation of the [[paymentClearingAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.PAYMENT_CLEARING_ACCOUNT = new v4_1.StringField('PaymentClearingAccount', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.PAYMENT_CLEARING_ACCOUNT = new core_1.StringField('PaymentClearingAccount', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[globalLocationNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.GLOBAL_LOCATION_NUMBER = new v4_1.StringField('GlobalLocationNumber', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.GLOBAL_LOCATION_NUMBER = new core_1.StringField('GlobalLocationNumber', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[defaultResourceWarehouseId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.DEFAULT_RESOURCE_WAREHOUSE_ID = new v4_1.StringField('DefaultResourceWarehouseID', BusinessPlaces, 'Edm.String');
+    BusinessPlaces.DEFAULT_RESOURCE_WAREHOUSE_ID = new core_1.StringField('DefaultResourceWarehouseID', BusinessPlaces, 'Edm.String');
     /**
      * Static representation of the [[businessPlaceIeNumbers]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.BUSINESS_PLACE_IE_NUMBERS = new v4_1.CollectionField('BusinessPlaceIENumbers', BusinessPlaces, new BusinessPlaceIeNumber_1.BusinessPlaceIeNumberField('', BusinessPlaces));
+    BusinessPlaces.BUSINESS_PLACE_IE_NUMBERS = new core_1.CollectionField('BusinessPlaceIENumbers', BusinessPlaces, BusinessPlaceIeNumber_1.BusinessPlaceIeNumber);
     /**
      * Static representation of the [[businessPlaceTributaryInfos]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.BUSINESS_PLACE_TRIBUTARY_INFOS = new v4_1.CollectionField('BusinessPlaceTributaryInfos', BusinessPlaces, new BusinessPlaceTributaryInfo_1.BusinessPlaceTributaryInfoField('', BusinessPlaces));
+    BusinessPlaces.BUSINESS_PLACE_TRIBUTARY_INFOS = new core_1.CollectionField('BusinessPlaceTributaryInfos', BusinessPlaces, BusinessPlaceTributaryInfo_1.BusinessPlaceTributaryInfo);
     /**
      * Static representation of the one-to-many navigation property [[userDefaultGroups]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.USER_DEFAULT_GROUPS = new v4_1.OneToManyLink('UserDefaultGroups', BusinessPlaces, UserDefaultGroups_1.UserDefaultGroups);
+    BusinessPlaces.USER_DEFAULT_GROUPS = new core_1.OneToManyLink('UserDefaultGroups', BusinessPlaces, UserDefaultGroups_1.UserDefaultGroups);
     /**
      * Static representation of the one-to-many navigation property [[inventoryGenEntries]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.INVENTORY_GEN_ENTRIES = new v4_1.OneToManyLink('InventoryGenEntries', BusinessPlaces, InventoryGenEntries_1.InventoryGenEntries);
+    BusinessPlaces.INVENTORY_GEN_ENTRIES = new core_1.OneToManyLink('InventoryGenEntries', BusinessPlaces, InventoryGenEntries_1.InventoryGenEntries);
     /**
      * Static representation of the one-to-many navigation property [[purchaseQuotations]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.PURCHASE_QUOTATIONS = new v4_1.OneToManyLink('PurchaseQuotations', BusinessPlaces, PurchaseQuotations_1.PurchaseQuotations);
+    BusinessPlaces.PURCHASE_QUOTATIONS = new core_1.OneToManyLink('PurchaseQuotations', BusinessPlaces, PurchaseQuotations_1.PurchaseQuotations);
     /**
      * Static representation of the one-to-many navigation property [[vendorPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.VENDOR_PAYMENTS = new v4_1.OneToManyLink('VendorPayments', BusinessPlaces, VendorPayments_1.VendorPayments);
+    BusinessPlaces.VENDOR_PAYMENTS = new core_1.OneToManyLink('VendorPayments', BusinessPlaces, VendorPayments_1.VendorPayments);
     /**
      * Static representation of the one-to-many navigation property [[assetTransfer]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.ASSET_TRANSFER = new v4_1.OneToManyLink('AssetTransfer', BusinessPlaces, AssetTransfer_1.AssetTransfer);
+    BusinessPlaces.ASSET_TRANSFER = new core_1.OneToManyLink('AssetTransfer', BusinessPlaces, AssetTransfer_1.AssetTransfer);
     /**
      * Static representation of the one-to-many navigation property [[assetRetirement]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.ASSET_RETIREMENT = new v4_1.OneToManyLink('AssetRetirement', BusinessPlaces, AssetRetirement_1.AssetRetirement);
+    BusinessPlaces.ASSET_RETIREMENT = new core_1.OneToManyLink('AssetRetirement', BusinessPlaces, AssetRetirement_1.AssetRetirement);
     /**
      * Static representation of the one-to-many navigation property [[assetCapitalizationCreditMemo]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.ASSET_CAPITALIZATION_CREDIT_MEMO = new v4_1.OneToManyLink('AssetCapitalizationCreditMemo', BusinessPlaces, AssetCapitalizationCreditMemo_1.AssetCapitalizationCreditMemo);
+    BusinessPlaces.ASSET_CAPITALIZATION_CREDIT_MEMO = new core_1.OneToManyLink('AssetCapitalizationCreditMemo', BusinessPlaces, AssetCapitalizationCreditMemo_1.AssetCapitalizationCreditMemo);
     /**
      * Static representation of the one-to-many navigation property [[assetClasses]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.ASSET_CLASSES = new v4_1.OneToManyLink('AssetClasses', BusinessPlaces, AssetClasses_1.AssetClasses);
+    BusinessPlaces.ASSET_CLASSES = new core_1.OneToManyLink('AssetClasses', BusinessPlaces, AssetClasses_1.AssetClasses);
     /**
      * Static representation of the one-to-many navigation property [[inventoryPostings]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.INVENTORY_POSTINGS = new v4_1.OneToManyLink('InventoryPostings', BusinessPlaces, InventoryPostings_1.InventoryPostings);
+    BusinessPlaces.INVENTORY_POSTINGS = new core_1.OneToManyLink('InventoryPostings', BusinessPlaces, InventoryPostings_1.InventoryPostings);
     /**
      * Static representation of the one-to-many navigation property [[deliveryNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.DELIVERY_NOTES = new v4_1.OneToManyLink('DeliveryNotes', BusinessPlaces, DeliveryNotes_1.DeliveryNotes);
+    BusinessPlaces.DELIVERY_NOTES = new core_1.OneToManyLink('DeliveryNotes', BusinessPlaces, DeliveryNotes_1.DeliveryNotes);
     /**
      * Static representation of the one-to-many navigation property [[quotations]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.QUOTATIONS = new v4_1.OneToManyLink('Quotations', BusinessPlaces, Quotations_1.Quotations);
+    BusinessPlaces.QUOTATIONS = new core_1.OneToManyLink('Quotations', BusinessPlaces, Quotations_1.Quotations);
     /**
      * Static representation of the one-to-many navigation property [[inventoryGenExits]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.INVENTORY_GEN_EXITS = new v4_1.OneToManyLink('InventoryGenExits', BusinessPlaces, InventoryGenExits_1.InventoryGenExits);
+    BusinessPlaces.INVENTORY_GEN_EXITS = new core_1.OneToManyLink('InventoryGenExits', BusinessPlaces, InventoryGenExits_1.InventoryGenExits);
     /**
      * Static representation of the one-to-many navigation property [[purchaseRequests]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.PURCHASE_REQUESTS = new v4_1.OneToManyLink('PurchaseRequests', BusinessPlaces, PurchaseRequests_1.PurchaseRequests);
+    BusinessPlaces.PURCHASE_REQUESTS = new core_1.OneToManyLink('PurchaseRequests', BusinessPlaces, PurchaseRequests_1.PurchaseRequests);
     /**
      * Static representation of the one-to-many navigation property [[returnRequest]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.RETURN_REQUEST = new v4_1.OneToManyLink('ReturnRequest', BusinessPlaces, ReturnRequest_1.ReturnRequest);
+    BusinessPlaces.RETURN_REQUEST = new core_1.OneToManyLink('ReturnRequest', BusinessPlaces, ReturnRequest_1.ReturnRequest);
     /**
      * Static representation of the one-to-many navigation property [[purchaseReturns]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.PURCHASE_RETURNS = new v4_1.OneToManyLink('PurchaseReturns', BusinessPlaces, PurchaseReturns_1.PurchaseReturns);
+    BusinessPlaces.PURCHASE_RETURNS = new core_1.OneToManyLink('PurchaseReturns', BusinessPlaces, PurchaseReturns_1.PurchaseReturns);
     /**
      * Static representation of the one-to-many navigation property [[invoices]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.INVOICES = new v4_1.OneToManyLink('Invoices', BusinessPlaces, Invoices_1.Invoices);
+    BusinessPlaces.INVOICES = new core_1.OneToManyLink('Invoices', BusinessPlaces, Invoices_1.Invoices);
     /**
      * Static representation of the one-to-many navigation property [[assetCapitalization]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.ASSET_CAPITALIZATION = new v4_1.OneToManyLink('AssetCapitalization', BusinessPlaces, AssetCapitalization_1.AssetCapitalization);
+    BusinessPlaces.ASSET_CAPITALIZATION = new core_1.OneToManyLink('AssetCapitalization', BusinessPlaces, AssetCapitalization_1.AssetCapitalization);
     /**
      * Static representation of the one-to-many navigation property [[creditNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.CREDIT_NOTES = new v4_1.OneToManyLink('CreditNotes', BusinessPlaces, CreditNotes_1.CreditNotes);
+    BusinessPlaces.CREDIT_NOTES = new core_1.OneToManyLink('CreditNotes', BusinessPlaces, CreditNotes_1.CreditNotes);
     /**
      * Static representation of the one-to-many navigation property [[stockTransfers]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.STOCK_TRANSFERS = new v4_1.OneToManyLink('StockTransfers', BusinessPlaces, StockTransfers_1.StockTransfers);
+    BusinessPlaces.STOCK_TRANSFERS = new core_1.OneToManyLink('StockTransfers', BusinessPlaces, StockTransfers_1.StockTransfers);
     /**
      * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.BUSINESS_PARTNER = new v4_1.OneToOneLink('BusinessPartner', BusinessPlaces, BusinessPartners_1.BusinessPartners);
+    BusinessPlaces.BUSINESS_PARTNER = new core_1.OneToOneLink('BusinessPartner', BusinessPlaces, BusinessPartners_1.BusinessPartners);
     /**
      * Static representation of the one-to-one navigation property [[warehouse]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.WAREHOUSE = new v4_1.OneToOneLink('Warehouse', BusinessPlaces, Warehouses_1.Warehouses);
+    BusinessPlaces.WAREHOUSE = new core_1.OneToOneLink('Warehouse', BusinessPlaces, Warehouses_1.Warehouses);
     /**
      * Static representation of the one-to-one navigation property [[brazilNumericIndexer]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.BRAZIL_NUMERIC_INDEXER = new v4_1.OneToOneLink('BrazilNumericIndexer', BusinessPlaces, BrazilNumericIndexers_1.BrazilNumericIndexers);
+    BusinessPlaces.BRAZIL_NUMERIC_INDEXER = new core_1.OneToOneLink('BrazilNumericIndexer', BusinessPlaces, BrazilNumericIndexers_1.BrazilNumericIndexers);
     /**
      * Static representation of the one-to-one navigation property [[brazilStringIndexer]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.BRAZIL_STRING_INDEXER = new v4_1.OneToOneLink('BrazilStringIndexer', BusinessPlaces, BrazilStringIndexers_1.BrazilStringIndexers);
+    BusinessPlaces.BRAZIL_STRING_INDEXER = new core_1.OneToOneLink('BrazilStringIndexer', BusinessPlaces, BrazilStringIndexers_1.BrazilStringIndexers);
     /**
      * Static representation of the one-to-one navigation property [[country2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.COUNTRY_2 = new v4_1.OneToOneLink('Country2', BusinessPlaces, Countries_1.Countries);
+    BusinessPlaces.COUNTRY_2 = new core_1.OneToOneLink('Country2', BusinessPlaces, Countries_1.Countries);
     /**
      * Static representation of the one-to-one navigation property [[chartOfAccount]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.CHART_OF_ACCOUNT = new v4_1.OneToOneLink('ChartOfAccount', BusinessPlaces, ChartOfAccounts_1.ChartOfAccounts);
+    BusinessPlaces.CHART_OF_ACCOUNT = new core_1.OneToOneLink('ChartOfAccount', BusinessPlaces, ChartOfAccounts_1.ChartOfAccounts);
     /**
      * Static representation of the one-to-many navigation property [[orders]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.ORDERS = new v4_1.OneToManyLink('Orders', BusinessPlaces, Orders_1.Orders);
+    BusinessPlaces.ORDERS = new core_1.OneToManyLink('Orders', BusinessPlaces, Orders_1.Orders);
     /**
      * Static representation of the one-to-many navigation property [[inventoryCountings]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.INVENTORY_COUNTINGS = new v4_1.OneToManyLink('InventoryCountings', BusinessPlaces, InventoryCountings_1.InventoryCountings);
+    BusinessPlaces.INVENTORY_COUNTINGS = new core_1.OneToManyLink('InventoryCountings', BusinessPlaces, InventoryCountings_1.InventoryCountings);
     /**
      * Static representation of the one-to-many navigation property [[inventoryTransferRequests]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.INVENTORY_TRANSFER_REQUESTS = new v4_1.OneToManyLink('InventoryTransferRequests', BusinessPlaces, InventoryTransferRequests_1.InventoryTransferRequests);
+    BusinessPlaces.INVENTORY_TRANSFER_REQUESTS = new core_1.OneToManyLink('InventoryTransferRequests', BusinessPlaces, InventoryTransferRequests_1.InventoryTransferRequests);
     /**
      * Static representation of the one-to-many navigation property [[assetManualDepreciation]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.ASSET_MANUAL_DEPRECIATION = new v4_1.OneToManyLink('AssetManualDepreciation', BusinessPlaces, AssetManualDepreciation_1.AssetManualDepreciation);
+    BusinessPlaces.ASSET_MANUAL_DEPRECIATION = new core_1.OneToManyLink('AssetManualDepreciation', BusinessPlaces, AssetManualDepreciation_1.AssetManualDepreciation);
     /**
      * Static representation of the one-to-many navigation property [[downPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.DOWN_PAYMENTS = new v4_1.OneToManyLink('DownPayments', BusinessPlaces, DownPayments_1.DownPayments);
+    BusinessPlaces.DOWN_PAYMENTS = new core_1.OneToManyLink('DownPayments', BusinessPlaces, DownPayments_1.DownPayments);
     /**
      * Static representation of the one-to-many navigation property [[drafts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.DRAFTS = new v4_1.OneToManyLink('Drafts', BusinessPlaces, Drafts_1.Drafts);
+    BusinessPlaces.DRAFTS = new core_1.OneToManyLink('Drafts', BusinessPlaces, Drafts_1.Drafts);
     /**
      * Static representation of the one-to-many navigation property [[paymentDrafts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.PAYMENT_DRAFTS = new v4_1.OneToManyLink('PaymentDrafts', BusinessPlaces, PaymentDrafts_1.PaymentDrafts);
+    BusinessPlaces.PAYMENT_DRAFTS = new core_1.OneToManyLink('PaymentDrafts', BusinessPlaces, PaymentDrafts_1.PaymentDrafts);
     /**
      * Static representation of the one-to-many navigation property [[stockTransferDrafts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.STOCK_TRANSFER_DRAFTS = new v4_1.OneToManyLink('StockTransferDrafts', BusinessPlaces, StockTransferDrafts_1.StockTransferDrafts);
+    BusinessPlaces.STOCK_TRANSFER_DRAFTS = new core_1.OneToManyLink('StockTransferDrafts', BusinessPlaces, StockTransferDrafts_1.StockTransferDrafts);
     /**
      * Static representation of the one-to-many navigation property [[returns]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.RETURNS = new v4_1.OneToManyLink('Returns', BusinessPlaces, Returns_1.Returns);
+    BusinessPlaces.RETURNS = new core_1.OneToManyLink('Returns', BusinessPlaces, Returns_1.Returns);
     /**
      * Static representation of the one-to-many navigation property [[correctionInvoiceReversal]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.CORRECTION_INVOICE_REVERSAL = new v4_1.OneToManyLink('CorrectionInvoiceReversal', BusinessPlaces, CorrectionInvoiceReversal_1.CorrectionInvoiceReversal);
+    BusinessPlaces.CORRECTION_INVOICE_REVERSAL = new core_1.OneToManyLink('CorrectionInvoiceReversal', BusinessPlaces, CorrectionInvoiceReversal_1.CorrectionInvoiceReversal);
     /**
      * Static representation of the one-to-many navigation property [[correctionPurchaseInvoice]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.CORRECTION_PURCHASE_INVOICE = new v4_1.OneToManyLink('CorrectionPurchaseInvoice', BusinessPlaces, CorrectionPurchaseInvoice_1.CorrectionPurchaseInvoice);
+    BusinessPlaces.CORRECTION_PURCHASE_INVOICE = new core_1.OneToManyLink('CorrectionPurchaseInvoice', BusinessPlaces, CorrectionPurchaseInvoice_1.CorrectionPurchaseInvoice);
     /**
      * Static representation of the one-to-many navigation property [[correctionPurchaseInvoiceReversal]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.CORRECTION_PURCHASE_INVOICE_REVERSAL = new v4_1.OneToManyLink('CorrectionPurchaseInvoiceReversal', BusinessPlaces, CorrectionPurchaseInvoiceReversal_1.CorrectionPurchaseInvoiceReversal);
+    BusinessPlaces.CORRECTION_PURCHASE_INVOICE_REVERSAL = new core_1.OneToManyLink('CorrectionPurchaseInvoiceReversal', BusinessPlaces, CorrectionPurchaseInvoiceReversal_1.CorrectionPurchaseInvoiceReversal);
     /**
      * Static representation of the one-to-many navigation property [[purchaseInvoices]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.PURCHASE_INVOICES = new v4_1.OneToManyLink('PurchaseInvoices', BusinessPlaces, PurchaseInvoices_1.PurchaseInvoices);
+    BusinessPlaces.PURCHASE_INVOICES = new core_1.OneToManyLink('PurchaseInvoices', BusinessPlaces, PurchaseInvoices_1.PurchaseInvoices);
     /**
      * Static representation of the one-to-many navigation property [[purchaseDeliveryNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.PURCHASE_DELIVERY_NOTES = new v4_1.OneToManyLink('PurchaseDeliveryNotes', BusinessPlaces, PurchaseDeliveryNotes_1.PurchaseDeliveryNotes);
+    BusinessPlaces.PURCHASE_DELIVERY_NOTES = new core_1.OneToManyLink('PurchaseDeliveryNotes', BusinessPlaces, PurchaseDeliveryNotes_1.PurchaseDeliveryNotes);
     /**
      * Static representation of the one-to-many navigation property [[correctionInvoice]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.CORRECTION_INVOICE = new v4_1.OneToManyLink('CorrectionInvoice', BusinessPlaces, CorrectionInvoice_1.CorrectionInvoice);
+    BusinessPlaces.CORRECTION_INVOICE = new core_1.OneToManyLink('CorrectionInvoice', BusinessPlaces, CorrectionInvoice_1.CorrectionInvoice);
     /**
      * Static representation of the one-to-many navigation property [[purchaseCreditNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.PURCHASE_CREDIT_NOTES = new v4_1.OneToManyLink('PurchaseCreditNotes', BusinessPlaces, PurchaseCreditNotes_1.PurchaseCreditNotes);
+    BusinessPlaces.PURCHASE_CREDIT_NOTES = new core_1.OneToManyLink('PurchaseCreditNotes', BusinessPlaces, PurchaseCreditNotes_1.PurchaseCreditNotes);
     /**
      * Static representation of the one-to-many navigation property [[inventoryOpeningBalances]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.INVENTORY_OPENING_BALANCES = new v4_1.OneToManyLink('InventoryOpeningBalances', BusinessPlaces, InventoryOpeningBalances_1.InventoryOpeningBalances);
+    BusinessPlaces.INVENTORY_OPENING_BALANCES = new core_1.OneToManyLink('InventoryOpeningBalances', BusinessPlaces, InventoryOpeningBalances_1.InventoryOpeningBalances);
     /**
      * Static representation of the one-to-many navigation property [[purchaseDownPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.PURCHASE_DOWN_PAYMENTS = new v4_1.OneToManyLink('PurchaseDownPayments', BusinessPlaces, PurchaseDownPayments_1.PurchaseDownPayments);
+    BusinessPlaces.PURCHASE_DOWN_PAYMENTS = new core_1.OneToManyLink('PurchaseDownPayments', BusinessPlaces, PurchaseDownPayments_1.PurchaseDownPayments);
     /**
      * Static representation of the one-to-many navigation property [[employeesInfo]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.EMPLOYEES_INFO = new v4_1.OneToManyLink('EmployeesInfo', BusinessPlaces, EmployeesInfo_1.EmployeesInfo);
+    BusinessPlaces.EMPLOYEES_INFO = new core_1.OneToManyLink('EmployeesInfo', BusinessPlaces, EmployeesInfo_1.EmployeesInfo);
     /**
      * Static representation of the one-to-many navigation property [[purchaseOrders]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.PURCHASE_ORDERS = new v4_1.OneToManyLink('PurchaseOrders', BusinessPlaces, PurchaseOrders_1.PurchaseOrders);
+    BusinessPlaces.PURCHASE_ORDERS = new core_1.OneToManyLink('PurchaseOrders', BusinessPlaces, PurchaseOrders_1.PurchaseOrders);
     /**
      * Static representation of the one-to-many navigation property [[goodsReturnRequest]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.GOODS_RETURN_REQUEST = new v4_1.OneToManyLink('GoodsReturnRequest', BusinessPlaces, GoodsReturnRequest_1.GoodsReturnRequest);
+    BusinessPlaces.GOODS_RETURN_REQUEST = new core_1.OneToManyLink('GoodsReturnRequest', BusinessPlaces, GoodsReturnRequest_1.GoodsReturnRequest);
     /**
      * Static representation of the one-to-many navigation property [[deposits]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.DEPOSITS = new v4_1.OneToManyLink('Deposits', BusinessPlaces, Deposits_1.Deposits);
+    BusinessPlaces.DEPOSITS = new core_1.OneToManyLink('Deposits', BusinessPlaces, Deposits_1.Deposits);
     /**
      * Static representation of the one-to-many navigation property [[incomingPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPlaces.INCOMING_PAYMENTS = new v4_1.OneToManyLink('IncomingPayments', BusinessPlaces, IncomingPayments_1.IncomingPayments);
+    BusinessPlaces.INCOMING_PAYMENTS = new core_1.OneToManyLink('IncomingPayments', BusinessPlaces, IncomingPayments_1.IncomingPayments);
     /**
      * All fields of the BusinessPlaces entity.
      */
@@ -629,7 +639,9 @@ var IncomingPayments_1 = require("./IncomingPayments");
         BusinessPlaces.BUSINESS,
         BusinessPlaces.ADDRESS,
         BusinessPlaces.ADDRESSFOREIGN,
+        BusinessPlaces.MAIN_BPL,
         BusinessPlaces.TAX_OFFICE_NO,
+        BusinessPlaces.DISABLED,
         BusinessPlaces.DEFAULT_CUSTOMER_ID,
         BusinessPlaces.DEFAULT_VENDOR_ID,
         BusinessPlaces.DEFAULT_WAREHOUSE_ID,
@@ -663,6 +675,7 @@ var IncomingPayments_1 = require("./IncomingPayments");
         BusinessPlaces.DATE_OF_INCORPORATION,
         BusinessPlaces.SPED_PROFILE,
         BusinessPlaces.ENVIRONMENT_TYPE,
+        BusinessPlaces.OPTING_4_ICMS,
         BusinessPlaces.PAYMENT_CLEARING_ACCOUNT,
         BusinessPlaces.GLOBAL_LOCATION_NUMBER,
         BusinessPlaces.DEFAULT_RESOURCE_WAREHOUSE_ID,
@@ -720,7 +733,7 @@ var IncomingPayments_1 = require("./IncomingPayments");
     /**
      * All fields selector.
      */
-    BusinessPlaces.ALL_FIELDS = new v4_1.AllFields('*', BusinessPlaces);
+    BusinessPlaces.ALL_FIELDS = new core_1.AllFields('*', BusinessPlaces);
     /**
      * All key fields of the BusinessPlaces entity.
      */

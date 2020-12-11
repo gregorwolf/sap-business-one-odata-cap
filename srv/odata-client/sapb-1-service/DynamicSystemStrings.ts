@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { DynamicSystemStringsRequestBuilder } from './DynamicSystemStringsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "DynamicSystemStrings" of service "SAPB1".
  */
-export class DynamicSystemStrings extends Entity implements DynamicSystemStringsType {
+export class DynamicSystemStrings extends EntityV4 implements DynamicSystemStringsType {
   /**
    * Technical entity name for DynamicSystemStrings.
    */
   static _entityName = 'DynamicSystemStrings';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for DynamicSystemStrings.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Form Id.
    * @nullable
@@ -43,13 +39,23 @@ export class DynamicSystemStrings extends Entity implements DynamicSystemStrings
    * @nullable
    */
   itemString?: string;
+  /**
+   * Is Bold.
+   * @nullable
+   */
+  isBold?: BoYesNoEnum;
+  /**
+   * Is Italics.
+   * @nullable
+   */
+  isItalics?: BoYesNoEnum;
 
   /**
-   * Returns an entity builder to construct instances `DynamicSystemStrings`.
+   * Returns an entity builder to construct instances of `DynamicSystemStrings`.
    * @returns A builder that constructs instances of entity type `DynamicSystemStrings`.
    */
-  static builder(): EntityBuilderType<DynamicSystemStrings, DynamicSystemStringsTypeForceMandatory> {
-    return Entity.entityBuilder(DynamicSystemStrings);
+  static builder(): EntityBuilderType<DynamicSystemStrings, DynamicSystemStringsType> {
+    return EntityV4.entityBuilder(DynamicSystemStrings);
   }
 
   /**
@@ -65,8 +71,8 @@ export class DynamicSystemStrings extends Entity implements DynamicSystemStrings
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `DynamicSystemStrings`.
    */
-  static customField(fieldName: string): CustomField<DynamicSystemStrings> {
-    return Entity.customFieldSelector(fieldName, DynamicSystemStrings);
+  static customField(fieldName: string): CustomFieldV4<DynamicSystemStrings> {
+    return EntityV4.customFieldSelector(fieldName, DynamicSystemStrings);
   }
 
   /**
@@ -79,17 +85,12 @@ export class DynamicSystemStrings extends Entity implements DynamicSystemStrings
 }
 
 export interface DynamicSystemStringsType {
-  formId?: string;
-  itemId?: string;
-  columnId?: string;
-  itemString?: string;
-}
-
-export interface DynamicSystemStringsTypeForceMandatory {
-  formId: string;
-  itemId: string;
-  columnId: string;
-  itemString: string;
+  formId?: string | null;
+  itemId?: string | null;
+  columnId?: string | null;
+  itemString?: string | null;
+  isBold?: BoYesNoEnum | null;
+  isItalics?: BoYesNoEnum | null;
 }
 
 export namespace DynamicSystemStrings {
@@ -114,13 +115,25 @@ export namespace DynamicSystemStrings {
    */
   export const ITEM_STRING: StringField<DynamicSystemStrings> = new StringField('ItemString', DynamicSystemStrings, 'Edm.String');
   /**
+   * Static representation of the [[isBold]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_BOLD: EnumField<DynamicSystemStrings> = new EnumField('IsBold', DynamicSystemStrings);
+  /**
+   * Static representation of the [[isItalics]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_ITALICS: EnumField<DynamicSystemStrings> = new EnumField('IsItalics', DynamicSystemStrings);
+  /**
    * All fields of the DynamicSystemStrings entity.
    */
-  export const _allFields: Array<StringField<DynamicSystemStrings>> = [
+  export const _allFields: Array<StringField<DynamicSystemStrings> | EnumField<DynamicSystemStrings>> = [
     DynamicSystemStrings.FORM_ID,
     DynamicSystemStrings.ITEM_ID,
     DynamicSystemStrings.COLUMN_ID,
-    DynamicSystemStrings.ITEM_STRING
+    DynamicSystemStrings.ITEM_STRING,
+    DynamicSystemStrings.IS_BOLD,
+    DynamicSystemStrings.IS_ITALICS
   ];
   /**
    * All fields selector.

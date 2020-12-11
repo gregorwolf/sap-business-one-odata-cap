@@ -1,18 +1,13 @@
 import { ManufacturersRequestBuilder } from './ManufacturersRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "Manufacturers" of service "SAPB1".
  */
-export declare class Manufacturers extends Entity implements ManufacturersType {
+export declare class Manufacturers extends EntityV4 implements ManufacturersType {
     /**
      * Technical entity name for Manufacturers.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Manufacturers.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -32,10 +27,10 @@ export declare class Manufacturers extends Entity implements ManufacturersType {
      */
     items: Items[];
     /**
-     * Returns an entity builder to construct instances `Manufacturers`.
+     * Returns an entity builder to construct instances of `Manufacturers`.
      * @returns A builder that constructs instances of entity type `Manufacturers`.
      */
-    static builder(): EntityBuilderType<Manufacturers, ManufacturersTypeForceMandatory>;
+    static builder(): EntityBuilderType<Manufacturers, ManufacturersType>;
     /**
      * Returns a request builder to construct requests for operations on the `Manufacturers` entity type.
      * @returns A `Manufacturers` request builder.
@@ -46,7 +41,7 @@ export declare class Manufacturers extends Entity implements ManufacturersType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `Manufacturers`.
      */
-    static customField(fieldName: string): CustomField<Manufacturers>;
+    static customField(fieldName: string): CustomFieldV4<Manufacturers>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -57,13 +52,8 @@ export declare class Manufacturers extends Entity implements ManufacturersType {
 }
 import { Items, ItemsType } from './Items';
 export interface ManufacturersType {
-    code?: number;
-    manufacturerName?: string;
-    items: ItemsType[];
-}
-export interface ManufacturersTypeForceMandatory {
-    code: number;
-    manufacturerName: string;
+    code?: number | null;
+    manufacturerName?: string | null;
     items: ItemsType[];
 }
 export declare namespace Manufacturers {

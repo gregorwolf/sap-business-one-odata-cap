@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { RelationshipsRequestBuilder } from './RelationshipsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "Relationships" of service "SAPB1".
  */
-export class Relationships extends Entity implements RelationshipsType {
+export class Relationships extends EntityV4 implements RelationshipsType {
   /**
    * Technical entity name for Relationships.
    */
   static _entityName = 'Relationships';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for Relationships.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Relationship Description.
    * @nullable
@@ -39,11 +34,11 @@ export class Relationships extends Entity implements RelationshipsType {
   partnersSetups!: PartnersSetups[];
 
   /**
-   * Returns an entity builder to construct instances `Relationships`.
+   * Returns an entity builder to construct instances of `Relationships`.
    * @returns A builder that constructs instances of entity type `Relationships`.
    */
-  static builder(): EntityBuilderType<Relationships, RelationshipsTypeForceMandatory> {
-    return Entity.entityBuilder(Relationships);
+  static builder(): EntityBuilderType<Relationships, RelationshipsType> {
+    return EntityV4.entityBuilder(Relationships);
   }
 
   /**
@@ -59,8 +54,8 @@ export class Relationships extends Entity implements RelationshipsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `Relationships`.
    */
-  static customField(fieldName: string): CustomField<Relationships> {
-    return Entity.customFieldSelector(fieldName, Relationships);
+  static customField(fieldName: string): CustomFieldV4<Relationships> {
+    return EntityV4.customFieldSelector(fieldName, Relationships);
   }
 
   /**
@@ -75,14 +70,8 @@ export class Relationships extends Entity implements RelationshipsType {
 import { PartnersSetups, PartnersSetupsType } from './PartnersSetups';
 
 export interface RelationshipsType {
-  relationshipDescription?: string;
-  relationshipCode?: number;
-  partnersSetups: PartnersSetupsType[];
-}
-
-export interface RelationshipsTypeForceMandatory {
-  relationshipDescription: string;
-  relationshipCode: number;
+  relationshipDescription?: string | null;
+  relationshipCode?: number | null;
   partnersSetups: PartnersSetupsType[];
 }
 

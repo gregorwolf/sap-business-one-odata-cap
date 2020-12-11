@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * InventoryPostingLineUoM
@@ -62,7 +62,7 @@ export function createInventoryPostingLineUoM(json: any): InventoryPostingLineUo
  * InventoryPostingLineUoMField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class InventoryPostingLineUoMField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class InventoryPostingLineUoMField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, InventoryPostingLineUoM> {
   /**
    * Representation of the [[InventoryPostingLineUoM.documentEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -103,19 +103,68 @@ export class InventoryPostingLineUoMField<EntityT extends Entity> extends Comple
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   barCode: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('BarCode', this, 'Edm.String');
+
+  /**
+   * Creates an instance of InventoryPostingLineUoMField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, InventoryPostingLineUoM);
+  }
 }
 
 export namespace InventoryPostingLineUoM {
+  /**
+   * Metadata information on all properties of the `InventoryPostingLineUoM` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<InventoryPostingLineUoM>[] = [{
+    originalName: 'DocumentEntry',
+    name: 'documentEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ChildNumber',
+    name: 'childNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'UoMCountedQuantity',
+    name: 'uoMCountedQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ItemsPerUnit',
+    name: 'itemsPerUnit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CountedQuantity',
+    name: 'countedQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'UoMCode',
+    name: 'uoMCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BarCode',
+    name: 'barCode',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): InventoryPostingLineUoM {
-    return createComplexType(json, {
-      DocumentEntry: (documentEntry: number) => ({ documentEntry: edmToTs(documentEntry, 'Edm.Int32') }),
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      ChildNumber: (childNumber: number) => ({ childNumber: edmToTs(childNumber, 'Edm.Int32') }),
-      UoMCountedQuantity: (uoMCountedQuantity: number) => ({ uoMCountedQuantity: edmToTs(uoMCountedQuantity, 'Edm.Double') }),
-      ItemsPerUnit: (itemsPerUnit: number) => ({ itemsPerUnit: edmToTs(itemsPerUnit, 'Edm.Double') }),
-      CountedQuantity: (countedQuantity: number) => ({ countedQuantity: edmToTs(countedQuantity, 'Edm.Double') }),
-      UoMCode: (uoMCode: string) => ({ uoMCode: edmToTs(uoMCode, 'Edm.String') }),
-      BarCode: (barCode: string) => ({ barCode: edmToTs(barCode, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, InventoryPostingLineUoM);
   }
 }

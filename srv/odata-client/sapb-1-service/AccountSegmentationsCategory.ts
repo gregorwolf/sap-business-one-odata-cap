@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * AccountSegmentationsCategory
@@ -42,7 +42,7 @@ export function createAccountSegmentationsCategory(json: any): AccountSegmentati
  * AccountSegmentationsCategoryField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class AccountSegmentationsCategoryField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class AccountSegmentationsCategoryField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, AccountSegmentationsCategory> {
   /**
    * Representation of the [[AccountSegmentationsCategory.segmentId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -63,15 +63,48 @@ export class AccountSegmentationsCategoryField<EntityT extends Entity> extends C
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   shortName: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('ShortName', this, 'Edm.String');
+
+  /**
+   * Creates an instance of AccountSegmentationsCategoryField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, AccountSegmentationsCategory);
+  }
 }
 
 export namespace AccountSegmentationsCategory {
+  /**
+   * Metadata information on all properties of the `AccountSegmentationsCategory` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<AccountSegmentationsCategory>[] = [{
+    originalName: 'SegmentID',
+    name: 'segmentId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Code',
+    name: 'code',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Name',
+    name: 'name',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShortName',
+    name: 'shortName',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): AccountSegmentationsCategory {
-    return createComplexType(json, {
-      SegmentID: (segmentId: number) => ({ segmentId: edmToTs(segmentId, 'Edm.Int32') }),
-      Code: (code: string) => ({ code: edmToTs(code, 'Edm.String') }),
-      Name: (name: string) => ({ name: edmToTs(name, 'Edm.String') }),
-      ShortName: (shortName: string) => ({ shortName: edmToTs(shortName, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, AccountSegmentationsCategory);
   }
 }

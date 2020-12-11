@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { SalesTaxAuthorities } from './SalesTaxAuthorities';
 
 /**
@@ -16,8 +16,8 @@ export class SalesTaxAuthoritiesRequestBuilder extends RequestBuilder<SalesTaxAu
    * @param code Key property. See [[SalesTaxAuthorities.code]].
    * @returns A request builder for creating requests to retrieve one `SalesTaxAuthorities` entity based on its keys.
    */
-  getByKey(type: number, code: string): GetByKeyRequestBuilder<SalesTaxAuthorities> {
-    return new GetByKeyRequestBuilder(SalesTaxAuthorities, {
+  getByKey(type: number, code: string): GetByKeyRequestBuilderV4<SalesTaxAuthorities> {
+    return new GetByKeyRequestBuilderV4(SalesTaxAuthorities, {
       Type: type,
       Code: code
     });
@@ -27,8 +27,8 @@ export class SalesTaxAuthoritiesRequestBuilder extends RequestBuilder<SalesTaxAu
    * Returns a request builder for querying all `SalesTaxAuthorities` entities.
    * @returns A request builder for creating requests to retrieve all `SalesTaxAuthorities` entities.
    */
-  getAll(): GetAllRequestBuilder<SalesTaxAuthorities> {
-    return new GetAllRequestBuilder(SalesTaxAuthorities);
+  getAll(): GetAllRequestBuilderV4<SalesTaxAuthorities> {
+    return new GetAllRequestBuilderV4(SalesTaxAuthorities);
   }
 
   /**
@@ -36,8 +36,8 @@ export class SalesTaxAuthoritiesRequestBuilder extends RequestBuilder<SalesTaxAu
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `SalesTaxAuthorities`.
    */
-  create(entity: SalesTaxAuthorities): CreateRequestBuilder<SalesTaxAuthorities> {
-    return new CreateRequestBuilder(SalesTaxAuthorities, entity);
+  create(entity: SalesTaxAuthorities): CreateRequestBuilderV4<SalesTaxAuthorities> {
+    return new CreateRequestBuilderV4(SalesTaxAuthorities, entity);
   }
 
   /**
@@ -45,8 +45,8 @@ export class SalesTaxAuthoritiesRequestBuilder extends RequestBuilder<SalesTaxAu
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `SalesTaxAuthorities`.
    */
-  update(entity: SalesTaxAuthorities): UpdateRequestBuilder<SalesTaxAuthorities> {
-    return new UpdateRequestBuilder(SalesTaxAuthorities, entity);
+  update(entity: SalesTaxAuthorities): UpdateRequestBuilderV4<SalesTaxAuthorities> {
+    return new UpdateRequestBuilderV4(SalesTaxAuthorities, entity);
   }
 
   /**
@@ -55,15 +55,15 @@ export class SalesTaxAuthoritiesRequestBuilder extends RequestBuilder<SalesTaxAu
    * @param code Key property. See [[SalesTaxAuthorities.code]].
    * @returns A request builder for creating requests that delete an entity of type `SalesTaxAuthorities`.
    */
-  delete(type: number, code: string): DeleteRequestBuilder<SalesTaxAuthorities>;
+  delete(type: number, code: string): DeleteRequestBuilderV4<SalesTaxAuthorities>;
   /**
    * Returns a request builder for deleting an entity of type `SalesTaxAuthorities`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `SalesTaxAuthorities` by taking the entity as a parameter.
    */
-  delete(entity: SalesTaxAuthorities): DeleteRequestBuilder<SalesTaxAuthorities>;
-  delete(typeOrEntity: any, code?: string): DeleteRequestBuilder<SalesTaxAuthorities> {
-    return new DeleteRequestBuilder(SalesTaxAuthorities, typeOrEntity instanceof SalesTaxAuthorities ? typeOrEntity : {
+  delete(entity: SalesTaxAuthorities): DeleteRequestBuilderV4<SalesTaxAuthorities>;
+  delete(typeOrEntity: any, code?: string): DeleteRequestBuilderV4<SalesTaxAuthorities> {
+    return new DeleteRequestBuilderV4(SalesTaxAuthorities, typeOrEntity instanceof SalesTaxAuthorities ? typeOrEntity : {
       Type: typeOrEntity!,
       Code: code!
     });

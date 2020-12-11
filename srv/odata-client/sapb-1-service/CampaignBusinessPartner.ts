@@ -3,7 +3,10 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { LinkedDocTypeEnum } from './LinkedDocTypeEnum';
+import { CampaignAssignToEnum } from './CampaignAssignToEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * CampaignBusinessPartner
@@ -85,6 +88,11 @@ export interface CampaignBusinessPartner {
    */
   contactAddress?: string;
   /**
+   * Response.
+   * @nullable
+   */
+  response?: BoYesNoEnum;
+  /**
    * Related Sales Opportunity.
    * @nullable
    */
@@ -129,6 +137,16 @@ export interface CampaignBusinessPartner {
    * @nullable
    */
   building?: string;
+  /**
+   * Doc Type.
+   * @nullable
+   */
+  docType?: LinkedDocTypeEnum;
+  /**
+   * Is Show Linked Doc.
+   * @nullable
+   */
+  isShowLinkedDoc?: BoYesNoEnum;
   /**
    * Doc Number.
    * @nullable
@@ -185,6 +203,16 @@ export interface CampaignBusinessPartner {
    */
   streetNo?: string;
   /**
+   * Create Activity.
+   * @nullable
+   */
+  createActivity?: BoYesNoEnum;
+  /**
+   * Assign To.
+   * @nullable
+   */
+  assignTo?: CampaignAssignToEnum;
+  /**
    * Assign Name.
    * @nullable
    */
@@ -207,7 +235,7 @@ export function createCampaignBusinessPartner(json: any): CampaignBusinessPartne
  * CampaignBusinessPartnerField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class CampaignBusinessPartnerField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class CampaignBusinessPartnerField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, CampaignBusinessPartner> {
   /**
    * Representation of the [[CampaignBusinessPartner.campaignNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -284,6 +312,11 @@ export class CampaignBusinessPartnerField<EntityT extends Entity> extends Comple
    */
   contactAddress: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('ContactAddress', this, 'Edm.String');
   /**
+   * Representation of the [[CampaignBusinessPartner.response]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  response: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Response', this);
+  /**
    * Representation of the [[CampaignBusinessPartner.relatedSalesOpportunity]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -328,6 +361,16 @@ export class CampaignBusinessPartnerField<EntityT extends Entity> extends Comple
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   building: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Building', this, 'Edm.String');
+  /**
+   * Representation of the [[CampaignBusinessPartner.docType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  docType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DocType', this);
+  /**
+   * Representation of the [[CampaignBusinessPartner.isShowLinkedDoc]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  isShowLinkedDoc: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IsShowLinkedDoc', this);
   /**
    * Representation of the [[CampaignBusinessPartner.docNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -384,6 +427,16 @@ export class CampaignBusinessPartnerField<EntityT extends Entity> extends Comple
    */
   streetNo: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('StreetNo', this, 'Edm.String');
   /**
+   * Representation of the [[CampaignBusinessPartner.createActivity]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  createActivity: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CreateActivity', this);
+  /**
+   * Representation of the [[CampaignBusinessPartner.assignTo]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  assignTo: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AssignTo', this);
+  /**
    * Representation of the [[CampaignBusinessPartner.assignName]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -393,48 +446,238 @@ export class CampaignBusinessPartnerField<EntityT extends Entity> extends Comple
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   responseType: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('ResponseType', this, 'Edm.String');
+
+  /**
+   * Creates an instance of CampaignBusinessPartnerField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, CampaignBusinessPartner);
+  }
 }
 
 export namespace CampaignBusinessPartner {
+  /**
+   * Metadata information on all properties of the `CampaignBusinessPartner` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<CampaignBusinessPartner>[] = [{
+    originalName: 'CampaignNumber',
+    name: 'campaignNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CampaignLineNumber',
+    name: 'campaignLineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BPCode',
+    name: 'bpCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPName',
+    name: 'bpName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPGroupName',
+    name: 'bpGroupName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPIndustryName',
+    name: 'bpIndustryName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPStatus',
+    name: 'bpStatus',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ContactCode',
+    name: 'contactCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ContactTitle',
+    name: 'contactTitle',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ContactPosition',
+    name: 'contactPosition',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ContactEmail',
+    name: 'contactEmail',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ContactTelephone',
+    name: 'contactTelephone',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ContactMobile',
+    name: 'contactMobile',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ContactFax',
+    name: 'contactFax',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ContactAddress',
+    name: 'contactAddress',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Response',
+    name: 'response',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'RelatedSalesOpportunity',
+    name: 'relatedSalesOpportunity',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Street',
+    name: 'street',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Block',
+    name: 'block',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'City',
+    name: 'city',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ZipCode',
+    name: 'zipCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'County',
+    name: 'county',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'State',
+    name: 'state',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Country',
+    name: 'country',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Building',
+    name: 'building',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DocType',
+    name: 'docType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'IsShowLinkedDoc',
+    name: 'isShowLinkedDoc',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DocNumber',
+    name: 'docNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DocEntry',
+    name: 'docEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'FirstName',
+    name: 'firstName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'MiddleName',
+    name: 'middleName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LastName',
+    name: 'lastName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AddressID',
+    name: 'addressId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AddressType',
+    name: 'addressType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AddressName2',
+    name: 'addressName2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AddressName3',
+    name: 'addressName3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FederalTaxID',
+    name: 'federalTaxId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StreetNo',
+    name: 'streetNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CreateActivity',
+    name: 'createActivity',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AssignTo',
+    name: 'assignTo',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AssignName',
+    name: 'assignName',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ResponseType',
+    name: 'responseType',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): CampaignBusinessPartner {
-    return createComplexType(json, {
-      CampaignNumber: (campaignNumber: number) => ({ campaignNumber: edmToTs(campaignNumber, 'Edm.Int32') }),
-      CampaignLineNumber: (campaignLineNumber: number) => ({ campaignLineNumber: edmToTs(campaignLineNumber, 'Edm.Int32') }),
-      BPCode: (bpCode: string) => ({ bpCode: edmToTs(bpCode, 'Edm.String') }),
-      BPName: (bpName: string) => ({ bpName: edmToTs(bpName, 'Edm.String') }),
-      BPGroupName: (bpGroupName: string) => ({ bpGroupName: edmToTs(bpGroupName, 'Edm.String') }),
-      BPIndustryName: (bpIndustryName: string) => ({ bpIndustryName: edmToTs(bpIndustryName, 'Edm.String') }),
-      BPStatus: (bpStatus: string) => ({ bpStatus: edmToTs(bpStatus, 'Edm.String') }),
-      ContactCode: (contactCode: string) => ({ contactCode: edmToTs(contactCode, 'Edm.String') }),
-      ContactTitle: (contactTitle: string) => ({ contactTitle: edmToTs(contactTitle, 'Edm.String') }),
-      ContactPosition: (contactPosition: string) => ({ contactPosition: edmToTs(contactPosition, 'Edm.String') }),
-      ContactEmail: (contactEmail: string) => ({ contactEmail: edmToTs(contactEmail, 'Edm.String') }),
-      ContactTelephone: (contactTelephone: string) => ({ contactTelephone: edmToTs(contactTelephone, 'Edm.String') }),
-      ContactMobile: (contactMobile: string) => ({ contactMobile: edmToTs(contactMobile, 'Edm.String') }),
-      ContactFax: (contactFax: string) => ({ contactFax: edmToTs(contactFax, 'Edm.String') }),
-      ContactAddress: (contactAddress: string) => ({ contactAddress: edmToTs(contactAddress, 'Edm.String') }),
-      RelatedSalesOpportunity: (relatedSalesOpportunity: number) => ({ relatedSalesOpportunity: edmToTs(relatedSalesOpportunity, 'Edm.Int32') }),
-      Street: (street: string) => ({ street: edmToTs(street, 'Edm.String') }),
-      Block: (block: string) => ({ block: edmToTs(block, 'Edm.String') }),
-      City: (city: string) => ({ city: edmToTs(city, 'Edm.String') }),
-      ZipCode: (zipCode: string) => ({ zipCode: edmToTs(zipCode, 'Edm.String') }),
-      County: (county: string) => ({ county: edmToTs(county, 'Edm.String') }),
-      State: (state: string) => ({ state: edmToTs(state, 'Edm.String') }),
-      Country: (country: string) => ({ country: edmToTs(country, 'Edm.String') }),
-      Building: (building: string) => ({ building: edmToTs(building, 'Edm.String') }),
-      DocNumber: (docNumber: number) => ({ docNumber: edmToTs(docNumber, 'Edm.Int32') }),
-      DocEntry: (docEntry: number) => ({ docEntry: edmToTs(docEntry, 'Edm.Int32') }),
-      FirstName: (firstName: string) => ({ firstName: edmToTs(firstName, 'Edm.String') }),
-      MiddleName: (middleName: string) => ({ middleName: edmToTs(middleName, 'Edm.String') }),
-      LastName: (lastName: string) => ({ lastName: edmToTs(lastName, 'Edm.String') }),
-      AddressID: (addressId: string) => ({ addressId: edmToTs(addressId, 'Edm.String') }),
-      AddressType: (addressType: string) => ({ addressType: edmToTs(addressType, 'Edm.String') }),
-      AddressName2: (addressName2: string) => ({ addressName2: edmToTs(addressName2, 'Edm.String') }),
-      AddressName3: (addressName3: string) => ({ addressName3: edmToTs(addressName3, 'Edm.String') }),
-      FederalTaxID: (federalTaxId: string) => ({ federalTaxId: edmToTs(federalTaxId, 'Edm.String') }),
-      StreetNo: (streetNo: string) => ({ streetNo: edmToTs(streetNo, 'Edm.String') }),
-      AssignName: (assignName: number) => ({ assignName: edmToTs(assignName, 'Edm.Int32') }),
-      ResponseType: (responseType: string) => ({ responseType: edmToTs(responseType, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, CampaignBusinessPartner);
   }
 }

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * TaxWebSiteParams
@@ -32,7 +32,7 @@ export function createTaxWebSiteParams(json: any): TaxWebSiteParams {
  * TaxWebSiteParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class TaxWebSiteParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class TaxWebSiteParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, TaxWebSiteParams> {
   /**
    * Representation of the [[TaxWebSiteParams.absEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -43,13 +43,38 @@ export class TaxWebSiteParamsField<EntityT extends Entity> extends ComplexTypeFi
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   webSiteName: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('WebSiteName', this, 'Edm.String');
+
+  /**
+   * Creates an instance of TaxWebSiteParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, TaxWebSiteParams);
+  }
 }
 
 export namespace TaxWebSiteParams {
+  /**
+   * Metadata information on all properties of the `TaxWebSiteParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<TaxWebSiteParams>[] = [{
+    originalName: 'AbsEntry',
+    name: 'absEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'WebSiteName',
+    name: 'webSiteName',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): TaxWebSiteParams {
-    return createComplexType(json, {
-      AbsEntry: (absEntry: number) => ({ absEntry: edmToTs(absEntry, 'Edm.Int32') }),
-      WebSiteName: (webSiteName: string) => ({ webSiteName: edmToTs(webSiteName, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, TaxWebSiteParams);
   }
 }

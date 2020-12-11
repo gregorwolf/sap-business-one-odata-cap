@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { Activities } from './Activities';
 
 /**
@@ -15,16 +15,16 @@ export class ActivitiesRequestBuilder extends RequestBuilder<Activities> {
    * @param activityCode Key property. See [[Activities.activityCode]].
    * @returns A request builder for creating requests to retrieve one `Activities` entity based on its keys.
    */
-  getByKey(activityCode: number): GetByKeyRequestBuilder<Activities> {
-    return new GetByKeyRequestBuilder(Activities, { ActivityCode: activityCode });
+  getByKey(activityCode: number): GetByKeyRequestBuilderV4<Activities> {
+    return new GetByKeyRequestBuilderV4(Activities, { ActivityCode: activityCode });
   }
 
   /**
    * Returns a request builder for querying all `Activities` entities.
    * @returns A request builder for creating requests to retrieve all `Activities` entities.
    */
-  getAll(): GetAllRequestBuilder<Activities> {
-    return new GetAllRequestBuilder(Activities);
+  getAll(): GetAllRequestBuilderV4<Activities> {
+    return new GetAllRequestBuilderV4(Activities);
   }
 
   /**
@@ -32,8 +32,8 @@ export class ActivitiesRequestBuilder extends RequestBuilder<Activities> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `Activities`.
    */
-  create(entity: Activities): CreateRequestBuilder<Activities> {
-    return new CreateRequestBuilder(Activities, entity);
+  create(entity: Activities): CreateRequestBuilderV4<Activities> {
+    return new CreateRequestBuilderV4(Activities, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class ActivitiesRequestBuilder extends RequestBuilder<Activities> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `Activities`.
    */
-  update(entity: Activities): UpdateRequestBuilder<Activities> {
-    return new UpdateRequestBuilder(Activities, entity);
+  update(entity: Activities): UpdateRequestBuilderV4<Activities> {
+    return new UpdateRequestBuilderV4(Activities, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class ActivitiesRequestBuilder extends RequestBuilder<Activities> {
    * @param activityCode Key property. See [[Activities.activityCode]].
    * @returns A request builder for creating requests that delete an entity of type `Activities`.
    */
-  delete(activityCode: number): DeleteRequestBuilder<Activities>;
+  delete(activityCode: number): DeleteRequestBuilderV4<Activities>;
   /**
    * Returns a request builder for deleting an entity of type `Activities`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `Activities` by taking the entity as a parameter.
    */
-  delete(entity: Activities): DeleteRequestBuilder<Activities>;
-  delete(activityCodeOrEntity: any): DeleteRequestBuilder<Activities> {
-    return new DeleteRequestBuilder(Activities, activityCodeOrEntity instanceof Activities ? activityCodeOrEntity : { ActivityCode: activityCodeOrEntity! });
+  delete(entity: Activities): DeleteRequestBuilderV4<Activities>;
+  delete(activityCodeOrEntity: any): DeleteRequestBuilderV4<Activities> {
+    return new DeleteRequestBuilderV4(Activities, activityCodeOrEntity instanceof Activities ? activityCodeOrEntity : { ActivityCode: activityCodeOrEntity! });
   }
 }

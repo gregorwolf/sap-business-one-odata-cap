@@ -5,25 +5,25 @@
  */
 import { BinLocationsRequestBuilder } from './BinLocationsRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BinRestrictItemEnum } from './BinRestrictItemEnum';
+import { BinRestrictionBatchEnum } from './BinRestrictionBatchEnum';
+import { BinRestrictTransactionEnum } from './BinRestrictTransactionEnum';
+import { BinRestrictUoMEnum } from './BinRestrictUoMEnum';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "BinLocations" of service "SAPB1".
  */
-export class BinLocations extends Entity implements BinLocationsType {
+export class BinLocations extends EntityV4 implements BinLocationsType {
   /**
    * Technical entity name for BinLocations.
    */
   static _entityName = 'BinLocations';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for BinLocations.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Abs Entry.
    * @nullable
@@ -59,6 +59,11 @@ export class BinLocations extends Entity implements BinLocationsType {
    * @nullable
    */
   binCode?: string;
+  /**
+   * Inactive.
+   * @nullable
+   */
+  inactive?: BoYesNoEnum;
   /**
    * Description.
    * @nullable
@@ -125,6 +130,11 @@ export class BinLocations extends Entity implements BinLocationsType {
    */
   attribute10?: string;
   /**
+   * Restricted Item Type.
+   * @nullable
+   */
+  restrictedItemType?: BinRestrictItemEnum;
+  /**
    * Specific Item.
    * @nullable
    */
@@ -134,6 +144,16 @@ export class BinLocations extends Entity implements BinLocationsType {
    * @nullable
    */
   specificItemGroup?: number;
+  /**
+   * Batch Restrictions.
+   * @nullable
+   */
+  batchRestrictions?: BinRestrictionBatchEnum;
+  /**
+   * Restricted Trans Type.
+   * @nullable
+   */
+  restrictedTransType?: BinRestrictTransactionEnum;
   /**
    * Restriction Reason.
    * @nullable
@@ -155,6 +175,21 @@ export class BinLocations extends Entity implements BinLocationsType {
    */
   maximumQty?: number;
   /**
+   * Is System Bin.
+   * @nullable
+   */
+  isSystemBin?: BoYesNoEnum;
+  /**
+   * Receiving Bin Location.
+   * @nullable
+   */
+  receivingBinLocation?: BoYesNoEnum;
+  /**
+   * Exclude Auto Alloc On Issue.
+   * @nullable
+   */
+  excludeAutoAllocOnIssue?: BoYesNoEnum;
+  /**
    * Maximum Weight.
    * @nullable
    */
@@ -174,6 +209,11 @@ export class BinLocations extends Entity implements BinLocationsType {
    * @nullable
    */
   maximumWeightUnit1?: number;
+  /**
+   * Restricted Uo M Type.
+   * @nullable
+   */
+  restrictedUoMType?: BinRestrictUoMEnum;
   /**
    * Specific Uo M.
    * @nullable
@@ -214,11 +254,11 @@ export class BinLocations extends Entity implements BinLocationsType {
   unitOfMeasurementGroup!: UnitOfMeasurementGroups;
 
   /**
-   * Returns an entity builder to construct instances `BinLocations`.
+   * Returns an entity builder to construct instances of `BinLocations`.
    * @returns A builder that constructs instances of entity type `BinLocations`.
    */
-  static builder(): EntityBuilderType<BinLocations, BinLocationsTypeForceMandatory> {
-    return Entity.entityBuilder(BinLocations);
+  static builder(): EntityBuilderType<BinLocations, BinLocationsType> {
+    return EntityV4.entityBuilder(BinLocations);
   }
 
   /**
@@ -234,8 +274,8 @@ export class BinLocations extends Entity implements BinLocationsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `BinLocations`.
    */
-  static customField(fieldName: string): CustomField<BinLocations> {
-    return Entity.customFieldSelector(fieldName, BinLocations);
+  static customField(fieldName: string): CustomFieldV4<BinLocations> {
+    return EntityV4.customFieldSelector(fieldName, BinLocations);
   }
 
   /**
@@ -255,80 +295,46 @@ import { UnitOfMeasurements, UnitOfMeasurementsType } from './UnitOfMeasurements
 import { UnitOfMeasurementGroups, UnitOfMeasurementGroupsType } from './UnitOfMeasurementGroups';
 
 export interface BinLocationsType {
-  absEntry?: number;
-  warehouse?: string;
-  sublevel1?: string;
-  sublevel2?: string;
-  sublevel3?: string;
-  sublevel4?: string;
-  binCode?: string;
-  description?: string;
-  alternativeSortCode?: string;
-  barCode?: string;
-  attribute1?: string;
-  attribute2?: string;
-  attribute3?: string;
-  attribute4?: string;
-  attribute5?: string;
-  attribute6?: string;
-  attribute7?: string;
-  attribute8?: string;
-  attribute9?: string;
-  attribute10?: string;
-  specificItem?: string;
-  specificItemGroup?: number;
-  restrictionReason?: string;
-  dateRestrictionChanged?: Moment;
-  minimumQty?: number;
-  maximumQty?: number;
-  maximumWeight?: number;
-  maximumWeight1?: number;
-  maximumWeightUnit?: number;
-  maximumWeightUnit1?: number;
-  specificUoM?: number;
-  specificUoMGroup?: number;
-  warehouses: WarehousesType[];
-  warehouse2: WarehousesType;
-  item: ItemsType;
-  itemGroups: ItemGroupsType;
-  weightMeasure: WeightMeasuresType;
-  unitOfMeasurement: UnitOfMeasurementsType;
-  unitOfMeasurementGroup: UnitOfMeasurementGroupsType;
-}
-
-export interface BinLocationsTypeForceMandatory {
-  absEntry: number;
-  warehouse: string;
-  sublevel1: string;
-  sublevel2: string;
-  sublevel3: string;
-  sublevel4: string;
-  binCode: string;
-  description: string;
-  alternativeSortCode: string;
-  barCode: string;
-  attribute1: string;
-  attribute2: string;
-  attribute3: string;
-  attribute4: string;
-  attribute5: string;
-  attribute6: string;
-  attribute7: string;
-  attribute8: string;
-  attribute9: string;
-  attribute10: string;
-  specificItem: string;
-  specificItemGroup: number;
-  restrictionReason: string;
-  dateRestrictionChanged: Moment;
-  minimumQty: number;
-  maximumQty: number;
-  maximumWeight: number;
-  maximumWeight1: number;
-  maximumWeightUnit: number;
-  maximumWeightUnit1: number;
-  specificUoM: number;
-  specificUoMGroup: number;
+  absEntry?: number | null;
+  warehouse?: string | null;
+  sublevel1?: string | null;
+  sublevel2?: string | null;
+  sublevel3?: string | null;
+  sublevel4?: string | null;
+  binCode?: string | null;
+  inactive?: BoYesNoEnum | null;
+  description?: string | null;
+  alternativeSortCode?: string | null;
+  barCode?: string | null;
+  attribute1?: string | null;
+  attribute2?: string | null;
+  attribute3?: string | null;
+  attribute4?: string | null;
+  attribute5?: string | null;
+  attribute6?: string | null;
+  attribute7?: string | null;
+  attribute8?: string | null;
+  attribute9?: string | null;
+  attribute10?: string | null;
+  restrictedItemType?: BinRestrictItemEnum | null;
+  specificItem?: string | null;
+  specificItemGroup?: number | null;
+  batchRestrictions?: BinRestrictionBatchEnum | null;
+  restrictedTransType?: BinRestrictTransactionEnum | null;
+  restrictionReason?: string | null;
+  dateRestrictionChanged?: Moment | null;
+  minimumQty?: number | null;
+  maximumQty?: number | null;
+  isSystemBin?: BoYesNoEnum | null;
+  receivingBinLocation?: BoYesNoEnum | null;
+  excludeAutoAllocOnIssue?: BoYesNoEnum | null;
+  maximumWeight?: number | null;
+  maximumWeight1?: number | null;
+  maximumWeightUnit?: number | null;
+  maximumWeightUnit1?: number | null;
+  restrictedUoMType?: BinRestrictUoMEnum | null;
+  specificUoM?: number | null;
+  specificUoMGroup?: number | null;
   warehouses: WarehousesType[];
   warehouse2: WarehousesType;
   item: ItemsType;
@@ -374,6 +380,11 @@ export namespace BinLocations {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const BIN_CODE: StringField<BinLocations> = new StringField('BinCode', BinLocations, 'Edm.String');
+  /**
+   * Static representation of the [[inactive]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INACTIVE: EnumField<BinLocations> = new EnumField('Inactive', BinLocations);
   /**
    * Static representation of the [[description]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -440,6 +451,11 @@ export namespace BinLocations {
    */
   export const ATTRIBUTE_10: StringField<BinLocations> = new StringField('Attribute10', BinLocations, 'Edm.String');
   /**
+   * Static representation of the [[restrictedItemType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RESTRICTED_ITEM_TYPE: EnumField<BinLocations> = new EnumField('RestrictedItemType', BinLocations);
+  /**
    * Static representation of the [[specificItem]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -449,6 +465,16 @@ export namespace BinLocations {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const SPECIFIC_ITEM_GROUP: NumberField<BinLocations> = new NumberField('SpecificItemGroup', BinLocations, 'Edm.Int32');
+  /**
+   * Static representation of the [[batchRestrictions]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BATCH_RESTRICTIONS: EnumField<BinLocations> = new EnumField('BatchRestrictions', BinLocations);
+  /**
+   * Static representation of the [[restrictedTransType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RESTRICTED_TRANS_TYPE: EnumField<BinLocations> = new EnumField('RestrictedTransType', BinLocations);
   /**
    * Static representation of the [[restrictionReason]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -470,6 +496,21 @@ export namespace BinLocations {
    */
   export const MAXIMUM_QTY: NumberField<BinLocations> = new NumberField('MaximumQty', BinLocations, 'Edm.Double');
   /**
+   * Static representation of the [[isSystemBin]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_SYSTEM_BIN: EnumField<BinLocations> = new EnumField('IsSystemBin', BinLocations);
+  /**
+   * Static representation of the [[receivingBinLocation]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RECEIVING_BIN_LOCATION: EnumField<BinLocations> = new EnumField('ReceivingBinLocation', BinLocations);
+  /**
+   * Static representation of the [[excludeAutoAllocOnIssue]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const EXCLUDE_AUTO_ALLOC_ON_ISSUE: EnumField<BinLocations> = new EnumField('ExcludeAutoAllocOnIssue', BinLocations);
+  /**
    * Static representation of the [[maximumWeight]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -489,6 +530,11 @@ export namespace BinLocations {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const MAXIMUM_WEIGHT_UNIT_1: NumberField<BinLocations> = new NumberField('MaximumWeightUnit1', BinLocations, 'Edm.Int32');
+  /**
+   * Static representation of the [[restrictedUoMType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RESTRICTED_UO_M_TYPE: EnumField<BinLocations> = new EnumField('RestrictedUoMType', BinLocations);
   /**
    * Static representation of the [[specificUoM]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -537,7 +583,7 @@ export namespace BinLocations {
   /**
    * All fields of the BinLocations entity.
    */
-  export const _allFields: Array<NumberField<BinLocations> | StringField<BinLocations> | DateField<BinLocations> | OneToManyLink<BinLocations, Warehouses> | OneToOneLink<BinLocations, Warehouses> | OneToOneLink<BinLocations, Items> | OneToOneLink<BinLocations, ItemGroups> | OneToOneLink<BinLocations, WeightMeasures> | OneToOneLink<BinLocations, UnitOfMeasurements> | OneToOneLink<BinLocations, UnitOfMeasurementGroups>> = [
+  export const _allFields: Array<NumberField<BinLocations> | StringField<BinLocations> | EnumField<BinLocations> | DateField<BinLocations> | OneToManyLink<BinLocations, Warehouses> | OneToOneLink<BinLocations, Warehouses> | OneToOneLink<BinLocations, Items> | OneToOneLink<BinLocations, ItemGroups> | OneToOneLink<BinLocations, WeightMeasures> | OneToOneLink<BinLocations, UnitOfMeasurements> | OneToOneLink<BinLocations, UnitOfMeasurementGroups>> = [
     BinLocations.ABS_ENTRY,
     BinLocations.WAREHOUSE,
     BinLocations.SUBLEVEL_1,
@@ -545,6 +591,7 @@ export namespace BinLocations {
     BinLocations.SUBLEVEL_3,
     BinLocations.SUBLEVEL_4,
     BinLocations.BIN_CODE,
+    BinLocations.INACTIVE,
     BinLocations.DESCRIPTION,
     BinLocations.ALTERNATIVE_SORT_CODE,
     BinLocations.BAR_CODE,
@@ -558,16 +605,23 @@ export namespace BinLocations {
     BinLocations.ATTRIBUTE_8,
     BinLocations.ATTRIBUTE_9,
     BinLocations.ATTRIBUTE_10,
+    BinLocations.RESTRICTED_ITEM_TYPE,
     BinLocations.SPECIFIC_ITEM,
     BinLocations.SPECIFIC_ITEM_GROUP,
+    BinLocations.BATCH_RESTRICTIONS,
+    BinLocations.RESTRICTED_TRANS_TYPE,
     BinLocations.RESTRICTION_REASON,
     BinLocations.DATE_RESTRICTION_CHANGED,
     BinLocations.MINIMUM_QTY,
     BinLocations.MAXIMUM_QTY,
+    BinLocations.IS_SYSTEM_BIN,
+    BinLocations.RECEIVING_BIN_LOCATION,
+    BinLocations.EXCLUDE_AUTO_ALLOC_ON_ISSUE,
     BinLocations.MAXIMUM_WEIGHT,
     BinLocations.MAXIMUM_WEIGHT_1,
     BinLocations.MAXIMUM_WEIGHT_UNIT,
     BinLocations.MAXIMUM_WEIGHT_UNIT_1,
+    BinLocations.RESTRICTED_UO_M_TYPE,
     BinLocations.SPECIFIC_UO_M,
     BinLocations.SPECIFIC_UO_M_GROUP,
     BinLocations.WAREHOUSES,

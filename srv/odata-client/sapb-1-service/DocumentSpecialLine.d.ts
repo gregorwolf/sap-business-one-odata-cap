@@ -1,4 +1,5 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoDocSpecialLineType } from './BoDocSpecialLineType';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * DocumentSpecialLine
  */
@@ -18,6 +19,11 @@ export interface DocumentSpecialLine {
      * @nullable
      */
     orderNumber?: number;
+    /**
+     * Line Type.
+     * @nullable
+     */
+    lineType?: BoDocSpecialLineType;
     /**
      * Subtotal.
      * @nullable
@@ -122,7 +128,7 @@ export declare function createDocumentSpecialLine(json: any): DocumentSpecialLin
  * DocumentSpecialLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class DocumentSpecialLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class DocumentSpecialLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, DocumentSpecialLine> {
     /**
      * Representation of the [[DocumentSpecialLine.lineNum]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -138,6 +144,11 @@ export declare class DocumentSpecialLineField<EntityT extends Entity> extends Co
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     orderNumber: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[DocumentSpecialLine.lineType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    lineType: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[DocumentSpecialLine.subtotal]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -233,8 +244,22 @@ export declare class DocumentSpecialLineField<EntityT extends Entity> extends Co
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     grossTotalSc: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of DocumentSpecialLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace DocumentSpecialLine {
+    /**
+     * Metadata information on all properties of the `DocumentSpecialLine` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<DocumentSpecialLine>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): DocumentSpecialLine;

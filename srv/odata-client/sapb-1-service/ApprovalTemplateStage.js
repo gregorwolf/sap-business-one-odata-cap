@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.ApprovalTemplateStage = exports.ApprovalTemplateStageField = exports.cre
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[ApprovalTemplateStage.build]] instead.
  */
@@ -33,36 +33,60 @@ exports.createApprovalTemplateStage = createApprovalTemplateStage;
  */
 var ApprovalTemplateStageField = /** @class */ (function (_super) {
     __extends(ApprovalTemplateStageField, _super);
-    function ApprovalTemplateStageField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of ApprovalTemplateStageField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function ApprovalTemplateStageField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, ApprovalTemplateStage) || this;
         /**
          * Representation of the [[ApprovalTemplateStage.sortId]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.sortId = new v4_1.ComplexTypeNumberPropertyField('SortID', _this, 'Edm.Int32');
+        _this.sortId = new core_1.ComplexTypeNumberPropertyField('SortID', _this, 'Edm.Int32');
         /**
          * Representation of the [[ApprovalTemplateStage.approvalStageCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.approvalStageCode = new v4_1.ComplexTypeNumberPropertyField('ApprovalStageCode', _this, 'Edm.Int32');
+        _this.approvalStageCode = new core_1.ComplexTypeNumberPropertyField('ApprovalStageCode', _this, 'Edm.Int32');
         /**
          * Representation of the [[ApprovalTemplateStage.remarks]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.remarks = new v4_1.ComplexTypeStringPropertyField('Remarks', _this, 'Edm.String');
+        _this.remarks = new core_1.ComplexTypeStringPropertyField('Remarks', _this, 'Edm.String');
         return _this;
     }
     return ApprovalTemplateStageField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.ApprovalTemplateStageField = ApprovalTemplateStageField;
 var ApprovalTemplateStage;
 (function (ApprovalTemplateStage) {
+    /**
+     * Metadata information on all properties of the `ApprovalTemplateStage` complex type.
+     */
+    ApprovalTemplateStage._propertyMetadata = [{
+            originalName: 'SortID',
+            name: 'sortId',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'ApprovalStageCode',
+            name: 'approvalStageCode',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Remarks',
+            name: 'remarks',
+            type: 'Edm.String',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            SortID: function (sortId) { return ({ sortId: v4_1.edmToTs(sortId, 'Edm.Int32') }); },
-            ApprovalStageCode: function (approvalStageCode) { return ({ approvalStageCode: v4_1.edmToTs(approvalStageCode, 'Edm.Int32') }); },
-            Remarks: function (remarks) { return ({ remarks: v4_1.edmToTs(remarks, 'Edm.String') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, ApprovalTemplateStage);
     }
     ApprovalTemplateStage.build = build;
 })(ApprovalTemplateStage = exports.ApprovalTemplateStage || (exports.ApprovalTemplateStage = {}));

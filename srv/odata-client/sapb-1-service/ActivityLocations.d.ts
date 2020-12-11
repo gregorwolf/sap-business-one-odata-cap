@@ -1,18 +1,13 @@
 import { ActivityLocationsRequestBuilder } from './ActivityLocationsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ActivityLocations" of service "SAPB1".
  */
-export declare class ActivityLocations extends Entity implements ActivityLocationsType {
+export declare class ActivityLocations extends EntityV4 implements ActivityLocationsType {
     /**
      * Technical entity name for ActivityLocations.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ActivityLocations.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -40,10 +35,10 @@ export declare class ActivityLocations extends Entity implements ActivityLocatio
      */
     serviceCalls: ServiceCalls[];
     /**
-     * Returns an entity builder to construct instances `ActivityLocations`.
+     * Returns an entity builder to construct instances of `ActivityLocations`.
      * @returns A builder that constructs instances of entity type `ActivityLocations`.
      */
-    static builder(): EntityBuilderType<ActivityLocations, ActivityLocationsTypeForceMandatory>;
+    static builder(): EntityBuilderType<ActivityLocations, ActivityLocationsType>;
     /**
      * Returns a request builder to construct requests for operations on the `ActivityLocations` entity type.
      * @returns A `ActivityLocations` request builder.
@@ -54,7 +49,7 @@ export declare class ActivityLocations extends Entity implements ActivityLocatio
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ActivityLocations`.
      */
-    static customField(fieldName: string): CustomField<ActivityLocations>;
+    static customField(fieldName: string): CustomFieldV4<ActivityLocations>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -67,15 +62,8 @@ import { Contacts, ContactsType } from './Contacts';
 import { Activities, ActivitiesType } from './Activities';
 import { ServiceCalls, ServiceCallsType } from './ServiceCalls';
 export interface ActivityLocationsType {
-    code?: number;
-    name?: string;
-    contacts: ContactsType[];
-    activities: ActivitiesType[];
-    serviceCalls: ServiceCallsType[];
-}
-export interface ActivityLocationsTypeForceMandatory {
-    code: number;
-    name: string;
+    code?: number | null;
+    name?: string | null;
     contacts: ContactsType[];
     activities: ActivitiesType[];
     serviceCalls: ServiceCallsType[];

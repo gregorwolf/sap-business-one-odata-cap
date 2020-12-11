@@ -1,18 +1,13 @@
 import { ServiceCallOriginsRequestBuilder } from './ServiceCallOriginsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ServiceCallOrigins" of service "SAPB1".
  */
-export declare class ServiceCallOrigins extends Entity implements ServiceCallOriginsType {
+export declare class ServiceCallOrigins extends EntityV4 implements ServiceCallOriginsType {
     /**
      * Technical entity name for ServiceCallOrigins.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ServiceCallOrigins.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -37,10 +32,10 @@ export declare class ServiceCallOrigins extends Entity implements ServiceCallOri
      */
     serviceCalls: ServiceCalls[];
     /**
-     * Returns an entity builder to construct instances `ServiceCallOrigins`.
+     * Returns an entity builder to construct instances of `ServiceCallOrigins`.
      * @returns A builder that constructs instances of entity type `ServiceCallOrigins`.
      */
-    static builder(): EntityBuilderType<ServiceCallOrigins, ServiceCallOriginsTypeForceMandatory>;
+    static builder(): EntityBuilderType<ServiceCallOrigins, ServiceCallOriginsType>;
     /**
      * Returns a request builder to construct requests for operations on the `ServiceCallOrigins` entity type.
      * @returns A `ServiceCallOrigins` request builder.
@@ -51,7 +46,7 @@ export declare class ServiceCallOrigins extends Entity implements ServiceCallOri
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ServiceCallOrigins`.
      */
-    static customField(fieldName: string): CustomField<ServiceCallOrigins>;
+    static customField(fieldName: string): CustomFieldV4<ServiceCallOrigins>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -62,15 +57,9 @@ export declare class ServiceCallOrigins extends Entity implements ServiceCallOri
 }
 import { ServiceCalls, ServiceCallsType } from './ServiceCalls';
 export interface ServiceCallOriginsType {
-    originId?: number;
-    name?: string;
-    description?: string;
-    serviceCalls: ServiceCallsType[];
-}
-export interface ServiceCallOriginsTypeForceMandatory {
-    originId: number;
-    name: string;
-    description: string;
+    originId?: number | null;
+    name?: string | null;
+    description?: string | null;
     serviceCalls: ServiceCallsType[];
 }
 export declare namespace ServiceCallOrigins {

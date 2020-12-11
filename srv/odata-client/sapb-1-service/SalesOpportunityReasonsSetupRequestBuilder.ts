@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { SalesOpportunityReasonsSetup } from './SalesOpportunityReasonsSetup';
 
 /**
@@ -15,16 +15,16 @@ export class SalesOpportunityReasonsSetupRequestBuilder extends RequestBuilder<S
    * @param sequenceNo Key property. See [[SalesOpportunityReasonsSetup.sequenceNo]].
    * @returns A request builder for creating requests to retrieve one `SalesOpportunityReasonsSetup` entity based on its keys.
    */
-  getByKey(sequenceNo: number): GetByKeyRequestBuilder<SalesOpportunityReasonsSetup> {
-    return new GetByKeyRequestBuilder(SalesOpportunityReasonsSetup, { SequenceNo: sequenceNo });
+  getByKey(sequenceNo: number): GetByKeyRequestBuilderV4<SalesOpportunityReasonsSetup> {
+    return new GetByKeyRequestBuilderV4(SalesOpportunityReasonsSetup, { SequenceNo: sequenceNo });
   }
 
   /**
    * Returns a request builder for querying all `SalesOpportunityReasonsSetup` entities.
    * @returns A request builder for creating requests to retrieve all `SalesOpportunityReasonsSetup` entities.
    */
-  getAll(): GetAllRequestBuilder<SalesOpportunityReasonsSetup> {
-    return new GetAllRequestBuilder(SalesOpportunityReasonsSetup);
+  getAll(): GetAllRequestBuilderV4<SalesOpportunityReasonsSetup> {
+    return new GetAllRequestBuilderV4(SalesOpportunityReasonsSetup);
   }
 
   /**
@@ -32,8 +32,8 @@ export class SalesOpportunityReasonsSetupRequestBuilder extends RequestBuilder<S
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `SalesOpportunityReasonsSetup`.
    */
-  create(entity: SalesOpportunityReasonsSetup): CreateRequestBuilder<SalesOpportunityReasonsSetup> {
-    return new CreateRequestBuilder(SalesOpportunityReasonsSetup, entity);
+  create(entity: SalesOpportunityReasonsSetup): CreateRequestBuilderV4<SalesOpportunityReasonsSetup> {
+    return new CreateRequestBuilderV4(SalesOpportunityReasonsSetup, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class SalesOpportunityReasonsSetupRequestBuilder extends RequestBuilder<S
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `SalesOpportunityReasonsSetup`.
    */
-  update(entity: SalesOpportunityReasonsSetup): UpdateRequestBuilder<SalesOpportunityReasonsSetup> {
-    return new UpdateRequestBuilder(SalesOpportunityReasonsSetup, entity);
+  update(entity: SalesOpportunityReasonsSetup): UpdateRequestBuilderV4<SalesOpportunityReasonsSetup> {
+    return new UpdateRequestBuilderV4(SalesOpportunityReasonsSetup, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class SalesOpportunityReasonsSetupRequestBuilder extends RequestBuilder<S
    * @param sequenceNo Key property. See [[SalesOpportunityReasonsSetup.sequenceNo]].
    * @returns A request builder for creating requests that delete an entity of type `SalesOpportunityReasonsSetup`.
    */
-  delete(sequenceNo: number): DeleteRequestBuilder<SalesOpportunityReasonsSetup>;
+  delete(sequenceNo: number): DeleteRequestBuilderV4<SalesOpportunityReasonsSetup>;
   /**
    * Returns a request builder for deleting an entity of type `SalesOpportunityReasonsSetup`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `SalesOpportunityReasonsSetup` by taking the entity as a parameter.
    */
-  delete(entity: SalesOpportunityReasonsSetup): DeleteRequestBuilder<SalesOpportunityReasonsSetup>;
-  delete(sequenceNoOrEntity: any): DeleteRequestBuilder<SalesOpportunityReasonsSetup> {
-    return new DeleteRequestBuilder(SalesOpportunityReasonsSetup, sequenceNoOrEntity instanceof SalesOpportunityReasonsSetup ? sequenceNoOrEntity : { SequenceNo: sequenceNoOrEntity! });
+  delete(entity: SalesOpportunityReasonsSetup): DeleteRequestBuilderV4<SalesOpportunityReasonsSetup>;
+  delete(sequenceNoOrEntity: any): DeleteRequestBuilderV4<SalesOpportunityReasonsSetup> {
+    return new DeleteRequestBuilderV4(SalesOpportunityReasonsSetup, sequenceNoOrEntity instanceof SalesOpportunityReasonsSetup ? sequenceNoOrEntity : { SequenceNo: sequenceNoOrEntity! });
   }
 }

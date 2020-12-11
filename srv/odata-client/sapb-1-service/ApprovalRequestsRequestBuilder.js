@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.ApprovalRequestsRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var ApprovalRequests_1 = require("./ApprovalRequests");
 /**
  * Request builder class for operations supported on the [[ApprovalRequests]] entity.
@@ -35,14 +35,14 @@ var ApprovalRequestsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `ApprovalRequests` entity based on its keys.
      */
     ApprovalRequestsRequestBuilder.prototype.getByKey = function (code) {
-        return new v4_1.GetByKeyRequestBuilder(ApprovalRequests_1.ApprovalRequests, { Code: code });
+        return new core_1.GetByKeyRequestBuilderV4(ApprovalRequests_1.ApprovalRequests, { Code: code });
     };
     /**
      * Returns a request builder for querying all `ApprovalRequests` entities.
      * @returns A request builder for creating requests to retrieve all `ApprovalRequests` entities.
      */
     ApprovalRequestsRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(ApprovalRequests_1.ApprovalRequests);
+        return new core_1.GetAllRequestBuilderV4(ApprovalRequests_1.ApprovalRequests);
     };
     /**
      * Returns a request builder for creating a `ApprovalRequests` entity.
@@ -50,7 +50,7 @@ var ApprovalRequestsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `ApprovalRequests`.
      */
     ApprovalRequestsRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(ApprovalRequests_1.ApprovalRequests, entity);
+        return new core_1.CreateRequestBuilderV4(ApprovalRequests_1.ApprovalRequests, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `ApprovalRequests`.
@@ -58,12 +58,12 @@ var ApprovalRequestsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `ApprovalRequests`.
      */
     ApprovalRequestsRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(ApprovalRequests_1.ApprovalRequests, entity);
+        return new core_1.UpdateRequestBuilderV4(ApprovalRequests_1.ApprovalRequests, entity);
     };
     ApprovalRequestsRequestBuilder.prototype.delete = function (codeOrEntity) {
-        return new v4_1.DeleteRequestBuilder(ApprovalRequests_1.ApprovalRequests, codeOrEntity instanceof ApprovalRequests_1.ApprovalRequests ? codeOrEntity : { Code: codeOrEntity });
+        return new core_1.DeleteRequestBuilderV4(ApprovalRequests_1.ApprovalRequests, codeOrEntity instanceof ApprovalRequests_1.ApprovalRequests ? codeOrEntity : { Code: codeOrEntity });
     };
     return ApprovalRequestsRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.ApprovalRequestsRequestBuilder = ApprovalRequestsRequestBuilder;
 //# sourceMappingURL=ApprovalRequestsRequestBuilder.js.map

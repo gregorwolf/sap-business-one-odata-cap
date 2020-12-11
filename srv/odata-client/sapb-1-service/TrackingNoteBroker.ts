@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * TrackingNoteBroker
@@ -42,7 +42,7 @@ export function createTrackingNoteBroker(json: any): TrackingNoteBroker {
  * TrackingNoteBrokerField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class TrackingNoteBrokerField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class TrackingNoteBrokerField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, TrackingNoteBroker> {
   /**
    * Representation of the [[TrackingNoteBroker.trackingNoteNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -63,15 +63,48 @@ export class TrackingNoteBrokerField<EntityT extends Entity> extends ComplexType
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   agreementNumber: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('AgreementNumber', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of TrackingNoteBrokerField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, TrackingNoteBroker);
+  }
 }
 
 export namespace TrackingNoteBroker {
+  /**
+   * Metadata information on all properties of the `TrackingNoteBroker` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<TrackingNoteBroker>[] = [{
+    originalName: 'TrackingNoteNumber',
+    name: 'trackingNoteNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TrackingNoteLineNumber',
+    name: 'trackingNoteLineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BPCode',
+    name: 'bpCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AgreementNumber',
+    name: 'agreementNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): TrackingNoteBroker {
-    return createComplexType(json, {
-      TrackingNoteNumber: (trackingNoteNumber: number) => ({ trackingNoteNumber: edmToTs(trackingNoteNumber, 'Edm.Int32') }),
-      TrackingNoteLineNumber: (trackingNoteLineNumber: number) => ({ trackingNoteLineNumber: edmToTs(trackingNoteLineNumber, 'Edm.Int32') }),
-      BPCode: (bpCode: string) => ({ bpCode: edmToTs(bpCode, 'Edm.String') }),
-      AgreementNumber: (agreementNumber: number) => ({ agreementNumber: edmToTs(agreementNumber, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, TrackingNoteBroker);
   }
 }

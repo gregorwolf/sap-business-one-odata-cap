@@ -1,19 +1,15 @@
 import { CockpitsRequestBuilder } from './CockpitsRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoCockpitTypeEnum } from './BoCockpitTypeEnum';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "Cockpits" of service "SAPB1".
  */
-export declare class Cockpits extends Entity implements CockpitsType {
+export declare class Cockpits extends EntityV4 implements CockpitsType {
     /**
      * Technical entity name for Cockpits.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Cockpits.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -64,14 +60,19 @@ export declare class Cockpits extends Entity implements CockpitsType {
      */
     publisher?: string;
     /**
+     * Cockpit Type.
+     * @nullable
+     */
+    cockpitType?: BoCockpitTypeEnum;
+    /**
      * One-to-one navigation property to the [[Users]] entity.
      */
     user: Users;
     /**
-     * Returns an entity builder to construct instances `Cockpits`.
+     * Returns an entity builder to construct instances of `Cockpits`.
      * @returns A builder that constructs instances of entity type `Cockpits`.
      */
-    static builder(): EntityBuilderType<Cockpits, CockpitsTypeForceMandatory>;
+    static builder(): EntityBuilderType<Cockpits, CockpitsType>;
     /**
      * Returns a request builder to construct requests for operations on the `Cockpits` entity type.
      * @returns A `Cockpits` request builder.
@@ -82,7 +83,7 @@ export declare class Cockpits extends Entity implements CockpitsType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `Cockpits`.
      */
-    static customField(fieldName: string): CustomField<Cockpits>;
+    static customField(fieldName: string): CustomFieldV4<Cockpits>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -93,27 +94,16 @@ export declare class Cockpits extends Entity implements CockpitsType {
 }
 import { Users, UsersType } from './Users';
 export interface CockpitsType {
-    absEntry?: number;
-    code?: number;
-    name?: string;
-    description?: string;
-    userSignature?: number;
-    date?: Moment;
-    time?: Time;
-    manufacturer?: string;
-    publisher?: string;
-    user: UsersType;
-}
-export interface CockpitsTypeForceMandatory {
-    absEntry: number;
-    code: number;
-    name: string;
-    description: string;
-    userSignature: number;
-    date: Moment;
-    time: Time;
-    manufacturer: string;
-    publisher: string;
+    absEntry?: number | null;
+    code?: number | null;
+    name?: string | null;
+    description?: string | null;
+    userSignature?: number | null;
+    date?: Moment | null;
+    time?: Time | null;
+    manufacturer?: string | null;
+    publisher?: string | null;
+    cockpitType?: BoCockpitTypeEnum | null;
     user: UsersType;
 }
 export declare namespace Cockpits {
@@ -163,6 +153,11 @@ export declare namespace Cockpits {
      */
     const PUBLISHER: StringField<Cockpits>;
     /**
+     * Static representation of the [[cockpitType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COCKPIT_TYPE: EnumField<Cockpits>;
+    /**
      * Static representation of the one-to-one navigation property [[user]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -170,7 +165,7 @@ export declare namespace Cockpits {
     /**
      * All fields of the Cockpits entity.
      */
-    const _allFields: Array<NumberField<Cockpits> | StringField<Cockpits> | DateField<Cockpits> | TimeField<Cockpits> | OneToOneLink<Cockpits, Users>>;
+    const _allFields: Array<NumberField<Cockpits> | StringField<Cockpits> | DateField<Cockpits> | TimeField<Cockpits> | EnumField<Cockpits> | OneToOneLink<Cockpits, Users>>;
     /**
      * All fields selector.
      */

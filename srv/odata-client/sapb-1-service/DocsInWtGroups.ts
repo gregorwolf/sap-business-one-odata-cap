@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * DocsInWtGroups
@@ -62,7 +62,7 @@ export function createDocsInWtGroups(json: any): DocsInWtGroups {
  * DocsInWtGroupsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class DocsInWtGroupsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class DocsInWtGroupsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, DocsInWtGroups> {
   /**
    * Representation of the [[DocsInWtGroups.docEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -103,19 +103,68 @@ export class DocsInWtGroupsField<EntityT extends Entity> extends ComplexTypeFiel
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   percent: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('Percent', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of DocsInWtGroupsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, DocsInWtGroups);
+  }
 }
 
 export namespace DocsInWtGroups {
+  /**
+   * Metadata information on all properties of the `DocsInWtGroups` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<DocsInWtGroups>[] = [{
+    originalName: 'DocEntry',
+    name: 'docEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DocObjType',
+    name: 'docObjType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'VATAmount',
+    name: 'vatAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DocTotal',
+    name: 'docTotal',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BaseAmount',
+    name: 'baseAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumAmount',
+    name: 'accumAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PerceptAmount',
+    name: 'perceptAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Percent',
+    name: 'percent',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): DocsInWtGroups {
-    return createComplexType(json, {
-      DocEntry: (docEntry: number) => ({ docEntry: edmToTs(docEntry, 'Edm.Int32') }),
-      DocObjType: (docObjType: string) => ({ docObjType: edmToTs(docObjType, 'Edm.String') }),
-      VATAmount: (vatAmount: number) => ({ vatAmount: edmToTs(vatAmount, 'Edm.Double') }),
-      DocTotal: (docTotal: number) => ({ docTotal: edmToTs(docTotal, 'Edm.Double') }),
-      BaseAmount: (baseAmount: number) => ({ baseAmount: edmToTs(baseAmount, 'Edm.Double') }),
-      AccumAmount: (accumAmount: number) => ({ accumAmount: edmToTs(accumAmount, 'Edm.Double') }),
-      PerceptAmount: (perceptAmount: number) => ({ perceptAmount: edmToTs(perceptAmount, 'Edm.Double') }),
-      Percent: (percent: number) => ({ percent: edmToTs(percent, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, DocsInWtGroups);
   }
 }

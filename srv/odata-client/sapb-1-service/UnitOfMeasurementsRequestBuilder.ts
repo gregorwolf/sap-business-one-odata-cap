@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { UnitOfMeasurements } from './UnitOfMeasurements';
 
 /**
@@ -15,16 +15,16 @@ export class UnitOfMeasurementsRequestBuilder extends RequestBuilder<UnitOfMeasu
    * @param absEntry Key property. See [[UnitOfMeasurements.absEntry]].
    * @returns A request builder for creating requests to retrieve one `UnitOfMeasurements` entity based on its keys.
    */
-  getByKey(absEntry: number): GetByKeyRequestBuilder<UnitOfMeasurements> {
-    return new GetByKeyRequestBuilder(UnitOfMeasurements, { AbsEntry: absEntry });
+  getByKey(absEntry: number): GetByKeyRequestBuilderV4<UnitOfMeasurements> {
+    return new GetByKeyRequestBuilderV4(UnitOfMeasurements, { AbsEntry: absEntry });
   }
 
   /**
    * Returns a request builder for querying all `UnitOfMeasurements` entities.
    * @returns A request builder for creating requests to retrieve all `UnitOfMeasurements` entities.
    */
-  getAll(): GetAllRequestBuilder<UnitOfMeasurements> {
-    return new GetAllRequestBuilder(UnitOfMeasurements);
+  getAll(): GetAllRequestBuilderV4<UnitOfMeasurements> {
+    return new GetAllRequestBuilderV4(UnitOfMeasurements);
   }
 
   /**
@@ -32,8 +32,8 @@ export class UnitOfMeasurementsRequestBuilder extends RequestBuilder<UnitOfMeasu
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `UnitOfMeasurements`.
    */
-  create(entity: UnitOfMeasurements): CreateRequestBuilder<UnitOfMeasurements> {
-    return new CreateRequestBuilder(UnitOfMeasurements, entity);
+  create(entity: UnitOfMeasurements): CreateRequestBuilderV4<UnitOfMeasurements> {
+    return new CreateRequestBuilderV4(UnitOfMeasurements, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class UnitOfMeasurementsRequestBuilder extends RequestBuilder<UnitOfMeasu
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `UnitOfMeasurements`.
    */
-  update(entity: UnitOfMeasurements): UpdateRequestBuilder<UnitOfMeasurements> {
-    return new UpdateRequestBuilder(UnitOfMeasurements, entity);
+  update(entity: UnitOfMeasurements): UpdateRequestBuilderV4<UnitOfMeasurements> {
+    return new UpdateRequestBuilderV4(UnitOfMeasurements, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class UnitOfMeasurementsRequestBuilder extends RequestBuilder<UnitOfMeasu
    * @param absEntry Key property. See [[UnitOfMeasurements.absEntry]].
    * @returns A request builder for creating requests that delete an entity of type `UnitOfMeasurements`.
    */
-  delete(absEntry: number): DeleteRequestBuilder<UnitOfMeasurements>;
+  delete(absEntry: number): DeleteRequestBuilderV4<UnitOfMeasurements>;
   /**
    * Returns a request builder for deleting an entity of type `UnitOfMeasurements`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `UnitOfMeasurements` by taking the entity as a parameter.
    */
-  delete(entity: UnitOfMeasurements): DeleteRequestBuilder<UnitOfMeasurements>;
-  delete(absEntryOrEntity: any): DeleteRequestBuilder<UnitOfMeasurements> {
-    return new DeleteRequestBuilder(UnitOfMeasurements, absEntryOrEntity instanceof UnitOfMeasurements ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
+  delete(entity: UnitOfMeasurements): DeleteRequestBuilderV4<UnitOfMeasurements>;
+  delete(absEntryOrEntity: any): DeleteRequestBuilderV4<UnitOfMeasurements> {
+    return new DeleteRequestBuilderV4(UnitOfMeasurements, absEntryOrEntity instanceof UnitOfMeasurements ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
   }
 }

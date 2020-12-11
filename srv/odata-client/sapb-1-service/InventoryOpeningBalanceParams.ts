@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * InventoryOpeningBalanceParams
@@ -32,7 +32,7 @@ export function createInventoryOpeningBalanceParams(json: any): InventoryOpening
  * InventoryOpeningBalanceParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class InventoryOpeningBalanceParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class InventoryOpeningBalanceParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, InventoryOpeningBalanceParams> {
   /**
    * Representation of the [[InventoryOpeningBalanceParams.documentEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -43,13 +43,38 @@ export class InventoryOpeningBalanceParamsField<EntityT extends Entity> extends 
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   documentNumber: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DocumentNumber', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of InventoryOpeningBalanceParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, InventoryOpeningBalanceParams);
+  }
 }
 
 export namespace InventoryOpeningBalanceParams {
+  /**
+   * Metadata information on all properties of the `InventoryOpeningBalanceParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<InventoryOpeningBalanceParams>[] = [{
+    originalName: 'DocumentEntry',
+    name: 'documentEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DocumentNumber',
+    name: 'documentNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): InventoryOpeningBalanceParams {
-    return createComplexType(json, {
-      DocumentEntry: (documentEntry: number) => ({ documentEntry: edmToTs(documentEntry, 'Edm.Int32') }),
-      DocumentNumber: (documentNumber: number) => ({ documentNumber: edmToTs(documentNumber, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, InventoryOpeningBalanceParams);
   }
 }

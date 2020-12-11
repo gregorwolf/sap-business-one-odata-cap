@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.DynamicSystemStrings = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var DynamicSystemStringsRequestBuilder_1 = require("./DynamicSystemStringsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "DynamicSystemStrings" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var DynamicSystemStrings = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `DynamicSystemStrings`.
+     * Returns an entity builder to construct instances of `DynamicSystemStrings`.
      * @returns A builder that constructs instances of entity type `DynamicSystemStrings`.
      */
     DynamicSystemStrings.builder = function () {
-        return v4_1.Entity.entityBuilder(DynamicSystemStrings);
+        return core_1.EntityV4.entityBuilder(DynamicSystemStrings);
     };
     /**
      * Returns a request builder to construct requests for operations on the `DynamicSystemStrings` entity type.
@@ -60,7 +60,7 @@ var DynamicSystemStrings = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `DynamicSystemStrings`.
      */
     DynamicSystemStrings.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, DynamicSystemStrings);
+        return core_1.EntityV4.customFieldSelector(fieldName, DynamicSystemStrings);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,38 +74,43 @@ var DynamicSystemStrings = /** @class */ (function (_super) {
      */
     DynamicSystemStrings._entityName = 'DynamicSystemStrings';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for DynamicSystemStrings.
-     */
-    DynamicSystemStrings._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    DynamicSystemStrings._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    DynamicSystemStrings._defaultServicePath = '/b1s/v2/';
     return DynamicSystemStrings;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.DynamicSystemStrings = DynamicSystemStrings;
 (function (DynamicSystemStrings) {
     /**
      * Static representation of the [[formId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DynamicSystemStrings.FORM_ID = new v4_1.StringField('FormID', DynamicSystemStrings, 'Edm.String');
+    DynamicSystemStrings.FORM_ID = new core_1.StringField('FormID', DynamicSystemStrings, 'Edm.String');
     /**
      * Static representation of the [[itemId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DynamicSystemStrings.ITEM_ID = new v4_1.StringField('ItemID', DynamicSystemStrings, 'Edm.String');
+    DynamicSystemStrings.ITEM_ID = new core_1.StringField('ItemID', DynamicSystemStrings, 'Edm.String');
     /**
      * Static representation of the [[columnId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DynamicSystemStrings.COLUMN_ID = new v4_1.StringField('ColumnID', DynamicSystemStrings, 'Edm.String');
+    DynamicSystemStrings.COLUMN_ID = new core_1.StringField('ColumnID', DynamicSystemStrings, 'Edm.String');
     /**
      * Static representation of the [[itemString]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DynamicSystemStrings.ITEM_STRING = new v4_1.StringField('ItemString', DynamicSystemStrings, 'Edm.String');
+    DynamicSystemStrings.ITEM_STRING = new core_1.StringField('ItemString', DynamicSystemStrings, 'Edm.String');
+    /**
+     * Static representation of the [[isBold]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    DynamicSystemStrings.IS_BOLD = new core_1.EnumField('IsBold', DynamicSystemStrings);
+    /**
+     * Static representation of the [[isItalics]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    DynamicSystemStrings.IS_ITALICS = new core_1.EnumField('IsItalics', DynamicSystemStrings);
     /**
      * All fields of the DynamicSystemStrings entity.
      */
@@ -113,12 +118,14 @@ exports.DynamicSystemStrings = DynamicSystemStrings;
         DynamicSystemStrings.FORM_ID,
         DynamicSystemStrings.ITEM_ID,
         DynamicSystemStrings.COLUMN_ID,
-        DynamicSystemStrings.ITEM_STRING
+        DynamicSystemStrings.ITEM_STRING,
+        DynamicSystemStrings.IS_BOLD,
+        DynamicSystemStrings.IS_ITALICS
     ];
     /**
      * All fields selector.
      */
-    DynamicSystemStrings.ALL_FIELDS = new v4_1.AllFields('*', DynamicSystemStrings);
+    DynamicSystemStrings.ALL_FIELDS = new core_1.AllFields('*', DynamicSystemStrings);
     /**
      * All key fields of the DynamicSystemStrings entity.
      */

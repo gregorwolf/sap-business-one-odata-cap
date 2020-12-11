@@ -5,28 +5,28 @@
  */
 import { InventoryTransferRequestsRequestBuilder } from './InventoryTransferRequestsRequestBuilder';
 import { Moment } from 'moment';
-import { StockTransferApprovalRequest, StockTransferApprovalRequestField } from './StockTransferApprovalRequest';
-import { StockTransferLine, StockTransferLineField } from './StockTransferLine';
+import { StockTransferApprovalRequest } from './StockTransferApprovalRequest';
+import { StockTransferLine } from './StockTransferLine';
 import { StockTransferTaxExtension, StockTransferTaxExtensionField } from './StockTransferTaxExtension';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { StockTransferAuthorizationStatusEnum } from './StockTransferAuthorizationStatusEnum';
+import { ElecCommStatusEnum } from './ElecCommStatusEnum';
+import { FolioLetterEnum } from './FolioLetterEnum';
+import { BoStatus } from './BoStatus';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "InventoryTransferRequests" of service "SAPB1".
  */
-export class InventoryTransferRequests extends Entity implements InventoryTransferRequestsType {
+export class InventoryTransferRequests extends EntityV4 implements InventoryTransferRequestsType {
   /**
    * Technical entity name for InventoryTransferRequests.
    */
   static _entityName = 'InventoryTransferRequests';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for InventoryTransferRequests.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Doc Entry.
    * @nullable
@@ -37,6 +37,11 @@ export class InventoryTransferRequests extends Entity implements InventoryTransf
    * @nullable
    */
   series?: number;
+  /**
+   * Printed.
+   * @nullable
+   */
+  printed?: BoYesNoEnum;
   /**
    * Doc Date.
    * @nullable
@@ -153,6 +158,11 @@ export class InventoryTransferRequests extends Entity implements InventoryTransf
    */
   docObjectCode?: string;
   /**
+   * Authorization Status.
+   * @nullable
+   */
+  authorizationStatus?: StockTransferAuthorizationStatusEnum;
+  /**
    * Bplid.
    * @nullable
    */
@@ -208,6 +218,11 @@ export class InventoryTransferRequests extends Entity implements InventoryTransf
    */
   eDocExportFormat?: number;
   /**
+   * Elec Comm Status.
+   * @nullable
+   */
+  elecCommStatus?: ElecCommStatusEnum;
+  /**
    * Elec Comm Message.
    * @nullable
    */
@@ -217,6 +232,11 @@ export class InventoryTransferRequests extends Entity implements InventoryTransf
    * @nullable
    */
   pointOfIssueCode?: string;
+  /**
+   * Letter.
+   * @nullable
+   */
+  letter?: FolioLetterEnum;
   /**
    * Folio Number From.
    * @nullable
@@ -232,6 +252,11 @@ export class InventoryTransferRequests extends Entity implements InventoryTransf
    * @nullable
    */
   attachmentEntry?: number;
+  /**
+   * Document Status.
+   * @nullable
+   */
+  documentStatus?: BoStatus;
   /**
    * Ship To Code.
    * @nullable
@@ -274,11 +299,11 @@ export class InventoryTransferRequests extends Entity implements InventoryTransf
   businessPlace!: BusinessPlaces;
 
   /**
-   * Returns an entity builder to construct instances `InventoryTransferRequests`.
+   * Returns an entity builder to construct instances of `InventoryTransferRequests`.
    * @returns A builder that constructs instances of entity type `InventoryTransferRequests`.
    */
-  static builder(): EntityBuilderType<InventoryTransferRequests, InventoryTransferRequestsTypeForceMandatory> {
-    return Entity.entityBuilder(InventoryTransferRequests);
+  static builder(): EntityBuilderType<InventoryTransferRequests, InventoryTransferRequestsType> {
+    return EntityV4.entityBuilder(InventoryTransferRequests);
   }
 
   /**
@@ -294,8 +319,8 @@ export class InventoryTransferRequests extends Entity implements InventoryTransf
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `InventoryTransferRequests`.
    */
-  static customField(fieldName: string): CustomField<InventoryTransferRequests> {
-    return Entity.customFieldSelector(fieldName, InventoryTransferRequests);
+  static customField(fieldName: string): CustomFieldV4<InventoryTransferRequests> {
+    return EntityV4.customFieldSelector(fieldName, InventoryTransferRequests);
   }
 
   /**
@@ -314,104 +339,56 @@ import { Warehouses, WarehousesType } from './Warehouses';
 import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 
 export interface InventoryTransferRequestsType {
-  docEntry?: number;
-  series?: number;
-  docDate?: Moment;
-  dueDate?: Moment;
-  cardCode?: string;
-  cardName?: string;
-  address?: string;
-  reference1?: string;
-  reference2?: string;
-  comments?: string;
-  journalMemo?: string;
-  priceList?: number;
-  salesPersonCode?: number;
-  fromWarehouse?: string;
-  toWarehouse?: string;
-  creationDate?: Moment;
-  updateDate?: Moment;
-  financialPeriod?: number;
-  transNum?: number;
-  docNum?: number;
-  taxDate?: Moment;
-  contactPerson?: number;
-  folioPrefixString?: string;
-  folioNumber?: number;
-  docObjectCode?: string;
-  bplid?: number;
-  bplName?: string;
-  vatRegNum?: string;
-  authorizationCode?: string;
-  startDeliveryDate?: Moment;
-  startDeliveryTime?: Time;
-  endDeliveryDate?: Moment;
-  endDeliveryTime?: Time;
-  vehiclePlate?: string;
-  atDocumentType?: string;
-  eDocExportFormat?: number;
-  elecCommMessage?: string;
-  pointOfIssueCode?: string;
-  folioNumberFrom?: number;
-  folioNumberTo?: number;
-  attachmentEntry?: number;
-  shipToCode?: string;
-  stockTransferApprovalRequests?: StockTransferApprovalRequest[];
-  stockTransferLines?: StockTransferLine[];
-  stockTransferTaxExtension?: StockTransferTaxExtension;
-  businessPartner: BusinessPartnersType;
-  paymentTermsType: PaymentTermsTypesType;
-  salesPerson: SalesPersonsType;
-  warehouse: WarehousesType;
-  businessPlace: BusinessPlacesType;
-}
-
-export interface InventoryTransferRequestsTypeForceMandatory {
-  docEntry: number;
-  series: number;
-  docDate: Moment;
-  dueDate: Moment;
-  cardCode: string;
-  cardName: string;
-  address: string;
-  reference1: string;
-  reference2: string;
-  comments: string;
-  journalMemo: string;
-  priceList: number;
-  salesPersonCode: number;
-  fromWarehouse: string;
-  toWarehouse: string;
-  creationDate: Moment;
-  updateDate: Moment;
-  financialPeriod: number;
-  transNum: number;
-  docNum: number;
-  taxDate: Moment;
-  contactPerson: number;
-  folioPrefixString: string;
-  folioNumber: number;
-  docObjectCode: string;
-  bplid: number;
-  bplName: string;
-  vatRegNum: string;
-  authorizationCode: string;
-  startDeliveryDate: Moment;
-  startDeliveryTime: Time;
-  endDeliveryDate: Moment;
-  endDeliveryTime: Time;
-  vehiclePlate: string;
-  atDocumentType: string;
-  eDocExportFormat: number;
-  elecCommMessage: string;
-  pointOfIssueCode: string;
-  folioNumberFrom: number;
-  folioNumberTo: number;
-  attachmentEntry: number;
-  shipToCode: string;
-  stockTransferApprovalRequests: StockTransferApprovalRequest[];
-  stockTransferLines: StockTransferLine[];
-  stockTransferTaxExtension: StockTransferTaxExtension;
+  docEntry?: number | null;
+  series?: number | null;
+  printed?: BoYesNoEnum | null;
+  docDate?: Moment | null;
+  dueDate?: Moment | null;
+  cardCode?: string | null;
+  cardName?: string | null;
+  address?: string | null;
+  reference1?: string | null;
+  reference2?: string | null;
+  comments?: string | null;
+  journalMemo?: string | null;
+  priceList?: number | null;
+  salesPersonCode?: number | null;
+  fromWarehouse?: string | null;
+  toWarehouse?: string | null;
+  creationDate?: Moment | null;
+  updateDate?: Moment | null;
+  financialPeriod?: number | null;
+  transNum?: number | null;
+  docNum?: number | null;
+  taxDate?: Moment | null;
+  contactPerson?: number | null;
+  folioPrefixString?: string | null;
+  folioNumber?: number | null;
+  docObjectCode?: string | null;
+  authorizationStatus?: StockTransferAuthorizationStatusEnum | null;
+  bplid?: number | null;
+  bplName?: string | null;
+  vatRegNum?: string | null;
+  authorizationCode?: string | null;
+  startDeliveryDate?: Moment | null;
+  startDeliveryTime?: Time | null;
+  endDeliveryDate?: Moment | null;
+  endDeliveryTime?: Time | null;
+  vehiclePlate?: string | null;
+  atDocumentType?: string | null;
+  eDocExportFormat?: number | null;
+  elecCommStatus?: ElecCommStatusEnum | null;
+  elecCommMessage?: string | null;
+  pointOfIssueCode?: string | null;
+  letter?: FolioLetterEnum | null;
+  folioNumberFrom?: number | null;
+  folioNumberTo?: number | null;
+  attachmentEntry?: number | null;
+  documentStatus?: BoStatus | null;
+  shipToCode?: string | null;
+  stockTransferApprovalRequests?: StockTransferApprovalRequest[] | null;
+  stockTransferLines?: StockTransferLine[] | null;
+  stockTransferTaxExtension?: StockTransferTaxExtension | null;
   businessPartner: BusinessPartnersType;
   paymentTermsType: PaymentTermsTypesType;
   salesPerson: SalesPersonsType;
@@ -430,6 +407,11 @@ export namespace InventoryTransferRequests {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const SERIES: NumberField<InventoryTransferRequests> = new NumberField('Series', InventoryTransferRequests, 'Edm.Int32');
+  /**
+   * Static representation of the [[printed]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRINTED: EnumField<InventoryTransferRequests> = new EnumField('Printed', InventoryTransferRequests);
   /**
    * Static representation of the [[docDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -546,6 +528,11 @@ export namespace InventoryTransferRequests {
    */
   export const DOC_OBJECT_CODE: StringField<InventoryTransferRequests> = new StringField('DocObjectCode', InventoryTransferRequests, 'Edm.String');
   /**
+   * Static representation of the [[authorizationStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const AUTHORIZATION_STATUS: EnumField<InventoryTransferRequests> = new EnumField('AuthorizationStatus', InventoryTransferRequests);
+  /**
    * Static representation of the [[bplid]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -601,6 +588,11 @@ export namespace InventoryTransferRequests {
    */
   export const E_DOC_EXPORT_FORMAT: NumberField<InventoryTransferRequests> = new NumberField('EDocExportFormat', InventoryTransferRequests, 'Edm.Int32');
   /**
+   * Static representation of the [[elecCommStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ELEC_COMM_STATUS: EnumField<InventoryTransferRequests> = new EnumField('ElecCommStatus', InventoryTransferRequests);
+  /**
    * Static representation of the [[elecCommMessage]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -610,6 +602,11 @@ export namespace InventoryTransferRequests {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const POINT_OF_ISSUE_CODE: StringField<InventoryTransferRequests> = new StringField('PointOfIssueCode', InventoryTransferRequests, 'Edm.String');
+  /**
+   * Static representation of the [[letter]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LETTER: EnumField<InventoryTransferRequests> = new EnumField('Letter', InventoryTransferRequests);
   /**
    * Static representation of the [[folioNumberFrom]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -626,6 +623,11 @@ export namespace InventoryTransferRequests {
    */
   export const ATTACHMENT_ENTRY: NumberField<InventoryTransferRequests> = new NumberField('AttachmentEntry', InventoryTransferRequests, 'Edm.Int32');
   /**
+   * Static representation of the [[documentStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_STATUS: EnumField<InventoryTransferRequests> = new EnumField('DocumentStatus', InventoryTransferRequests);
+  /**
    * Static representation of the [[shipToCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -634,12 +636,12 @@ export namespace InventoryTransferRequests {
    * Static representation of the [[stockTransferApprovalRequests]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const STOCK_TRANSFER_APPROVAL_REQUESTS: CollectionField<InventoryTransferRequests> = new CollectionField('StockTransfer_ApprovalRequests', InventoryTransferRequests, new StockTransferApprovalRequestField('', InventoryTransferRequests));
+  export const STOCK_TRANSFER_APPROVAL_REQUESTS: CollectionField<InventoryTransferRequests, StockTransferApprovalRequest> = new CollectionField('StockTransfer_ApprovalRequests', InventoryTransferRequests, StockTransferApprovalRequest);
   /**
    * Static representation of the [[stockTransferLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const STOCK_TRANSFER_LINES: CollectionField<InventoryTransferRequests> = new CollectionField('StockTransferLines', InventoryTransferRequests, new StockTransferLineField('', InventoryTransferRequests));
+  export const STOCK_TRANSFER_LINES: CollectionField<InventoryTransferRequests, StockTransferLine> = new CollectionField('StockTransferLines', InventoryTransferRequests, StockTransferLine);
   /**
    * Static representation of the [[stockTransferTaxExtension]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -673,9 +675,10 @@ export namespace InventoryTransferRequests {
   /**
    * All fields of the InventoryTransferRequests entity.
    */
-  export const _allFields: Array<NumberField<InventoryTransferRequests> | DateField<InventoryTransferRequests> | StringField<InventoryTransferRequests> | TimeField<InventoryTransferRequests> | CollectionField<InventoryTransferRequests> | StockTransferTaxExtensionField<InventoryTransferRequests> | OneToOneLink<InventoryTransferRequests, BusinessPartners> | OneToOneLink<InventoryTransferRequests, PaymentTermsTypes> | OneToOneLink<InventoryTransferRequests, SalesPersons> | OneToOneLink<InventoryTransferRequests, Warehouses> | OneToOneLink<InventoryTransferRequests, BusinessPlaces>> = [
+  export const _allFields: Array<NumberField<InventoryTransferRequests> | EnumField<InventoryTransferRequests> | DateField<InventoryTransferRequests> | StringField<InventoryTransferRequests> | TimeField<InventoryTransferRequests> | CollectionField<InventoryTransferRequests, StockTransferApprovalRequest> | CollectionField<InventoryTransferRequests, StockTransferLine> | StockTransferTaxExtensionField<InventoryTransferRequests> | OneToOneLink<InventoryTransferRequests, BusinessPartners> | OneToOneLink<InventoryTransferRequests, PaymentTermsTypes> | OneToOneLink<InventoryTransferRequests, SalesPersons> | OneToOneLink<InventoryTransferRequests, Warehouses> | OneToOneLink<InventoryTransferRequests, BusinessPlaces>> = [
     InventoryTransferRequests.DOC_ENTRY,
     InventoryTransferRequests.SERIES,
+    InventoryTransferRequests.PRINTED,
     InventoryTransferRequests.DOC_DATE,
     InventoryTransferRequests.DUE_DATE,
     InventoryTransferRequests.CARD_CODE,
@@ -699,6 +702,7 @@ export namespace InventoryTransferRequests {
     InventoryTransferRequests.FOLIO_PREFIX_STRING,
     InventoryTransferRequests.FOLIO_NUMBER,
     InventoryTransferRequests.DOC_OBJECT_CODE,
+    InventoryTransferRequests.AUTHORIZATION_STATUS,
     InventoryTransferRequests.BPLID,
     InventoryTransferRequests.BPL_NAME,
     InventoryTransferRequests.VAT_REG_NUM,
@@ -710,11 +714,14 @@ export namespace InventoryTransferRequests {
     InventoryTransferRequests.VEHICLE_PLATE,
     InventoryTransferRequests.AT_DOCUMENT_TYPE,
     InventoryTransferRequests.E_DOC_EXPORT_FORMAT,
+    InventoryTransferRequests.ELEC_COMM_STATUS,
     InventoryTransferRequests.ELEC_COMM_MESSAGE,
     InventoryTransferRequests.POINT_OF_ISSUE_CODE,
+    InventoryTransferRequests.LETTER,
     InventoryTransferRequests.FOLIO_NUMBER_FROM,
     InventoryTransferRequests.FOLIO_NUMBER_TO,
     InventoryTransferRequests.ATTACHMENT_ENTRY,
+    InventoryTransferRequests.DOCUMENT_STATUS,
     InventoryTransferRequests.SHIP_TO_CODE,
     InventoryTransferRequests.STOCK_TRANSFER_APPROVAL_REQUESTS,
     InventoryTransferRequests.STOCK_TRANSFER_LINES,

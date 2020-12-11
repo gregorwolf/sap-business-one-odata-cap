@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.WarehouseSublevelCodes = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var WarehouseSublevelCodesRequestBuilder_1 = require("./WarehouseSublevelCodesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "WarehouseSublevelCodes" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var WarehouseSublevelCodes = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `WarehouseSublevelCodes`.
+     * Returns an entity builder to construct instances of `WarehouseSublevelCodes`.
      * @returns A builder that constructs instances of entity type `WarehouseSublevelCodes`.
      */
     WarehouseSublevelCodes.builder = function () {
-        return v4_1.Entity.entityBuilder(WarehouseSublevelCodes);
+        return core_1.EntityV4.entityBuilder(WarehouseSublevelCodes);
     };
     /**
      * Returns a request builder to construct requests for operations on the `WarehouseSublevelCodes` entity type.
@@ -60,7 +60,7 @@ var WarehouseSublevelCodes = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `WarehouseSublevelCodes`.
      */
     WarehouseSublevelCodes.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, WarehouseSublevelCodes);
+        return core_1.EntityV4.customFieldSelector(fieldName, WarehouseSublevelCodes);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var WarehouseSublevelCodes = /** @class */ (function (_super) {
      */
     WarehouseSublevelCodes._entityName = 'WarehouseSublevelCodes';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for WarehouseSublevelCodes.
-     */
-    WarehouseSublevelCodes._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    WarehouseSublevelCodes._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    WarehouseSublevelCodes._defaultServicePath = '/b1s/v2/';
     return WarehouseSublevelCodes;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.WarehouseSublevelCodes = WarehouseSublevelCodes;
 var BinLocationFields_1 = require("./BinLocationFields");
 (function (WarehouseSublevelCodes) {
@@ -91,27 +86,27 @@ var BinLocationFields_1 = require("./BinLocationFields");
      * Static representation of the [[warehouseSublevel]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WarehouseSublevelCodes.WAREHOUSE_SUBLEVEL = new v4_1.NumberField('WarehouseSublevel', WarehouseSublevelCodes, 'Edm.Int32');
+    WarehouseSublevelCodes.WAREHOUSE_SUBLEVEL = new core_1.NumberField('WarehouseSublevel', WarehouseSublevelCodes, 'Edm.Int32');
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WarehouseSublevelCodes.CODE = new v4_1.StringField('Code', WarehouseSublevelCodes, 'Edm.String');
+    WarehouseSublevelCodes.CODE = new core_1.StringField('Code', WarehouseSublevelCodes, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WarehouseSublevelCodes.DESCRIPTION = new v4_1.StringField('Description', WarehouseSublevelCodes, 'Edm.String');
+    WarehouseSublevelCodes.DESCRIPTION = new core_1.StringField('Description', WarehouseSublevelCodes, 'Edm.String');
     /**
      * Static representation of the [[absEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WarehouseSublevelCodes.ABS_ENTRY = new v4_1.NumberField('AbsEntry', WarehouseSublevelCodes, 'Edm.Int32');
+    WarehouseSublevelCodes.ABS_ENTRY = new core_1.NumberField('AbsEntry', WarehouseSublevelCodes, 'Edm.Int32');
     /**
      * Static representation of the one-to-one navigation property [[binLocationField]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    WarehouseSublevelCodes.BIN_LOCATION_FIELD = new v4_1.OneToOneLink('BinLocationField', WarehouseSublevelCodes, BinLocationFields_1.BinLocationFields);
+    WarehouseSublevelCodes.BIN_LOCATION_FIELD = new core_1.OneToOneLink('BinLocationField', WarehouseSublevelCodes, BinLocationFields_1.BinLocationFields);
     /**
      * All fields of the WarehouseSublevelCodes entity.
      */
@@ -125,7 +120,7 @@ var BinLocationFields_1 = require("./BinLocationFields");
     /**
      * All fields selector.
      */
-    WarehouseSublevelCodes.ALL_FIELDS = new v4_1.AllFields('*', WarehouseSublevelCodes);
+    WarehouseSublevelCodes.ALL_FIELDS = new core_1.AllFields('*', WarehouseSublevelCodes);
     /**
      * All key fields of the WarehouseSublevelCodes entity.
      */

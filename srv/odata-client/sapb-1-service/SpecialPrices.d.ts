@@ -1,20 +1,17 @@
 import { SpecialPricesRequestBuilder } from './SpecialPricesRequestBuilder';
 import { Moment } from 'moment';
 import { SpecialPriceDataArea } from './SpecialPriceDataArea';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { SourceCurrencyEnum } from './SourceCurrencyEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "SpecialPrices" of service "SAPB1".
  */
-export declare class SpecialPrices extends Entity implements SpecialPricesType {
+export declare class SpecialPrices extends EntityV4 implements SpecialPricesType {
     /**
      * Technical entity name for SpecialPrices.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for SpecialPrices.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -50,6 +47,21 @@ export declare class SpecialPrices extends Entity implements SpecialPricesType {
      */
     priceListNum?: number;
     /**
+     * Auto Update.
+     * @nullable
+     */
+    autoUpdate?: BoYesNoEnum;
+    /**
+     * Source Price.
+     * @nullable
+     */
+    sourcePrice?: SourceCurrencyEnum;
+    /**
+     * Valid.
+     * @nullable
+     */
+    valid?: BoYesNoEnum;
+    /**
      * Valid From.
      * @nullable
      */
@@ -77,10 +89,10 @@ export declare class SpecialPrices extends Entity implements SpecialPricesType {
      */
     priceList: PriceLists;
     /**
-     * Returns an entity builder to construct instances `SpecialPrices`.
+     * Returns an entity builder to construct instances of `SpecialPrices`.
      * @returns A builder that constructs instances of entity type `SpecialPrices`.
      */
-    static builder(): EntityBuilderType<SpecialPrices, SpecialPricesTypeForceMandatory>;
+    static builder(): EntityBuilderType<SpecialPrices, SpecialPricesType>;
     /**
      * Returns a request builder to construct requests for operations on the `SpecialPrices` entity type.
      * @returns A `SpecialPrices` request builder.
@@ -91,7 +103,7 @@ export declare class SpecialPrices extends Entity implements SpecialPricesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `SpecialPrices`.
      */
-    static customField(fieldName: string): CustomField<SpecialPrices>;
+    static customField(fieldName: string): CustomFieldV4<SpecialPrices>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -104,29 +116,18 @@ import { Items, ItemsType } from './Items';
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 import { PriceLists, PriceListsType } from './PriceLists';
 export interface SpecialPricesType {
-    itemCode?: string;
-    cardCode?: string;
-    price?: number;
-    currency?: string;
-    discountPercent?: number;
-    priceListNum?: number;
-    validFrom?: Moment;
-    validTo?: Moment;
-    specialPriceDataAreas?: SpecialPriceDataArea[];
-    item: ItemsType;
-    businessPartner: BusinessPartnersType;
-    priceList: PriceListsType;
-}
-export interface SpecialPricesTypeForceMandatory {
-    itemCode: string;
-    cardCode: string;
-    price: number;
-    currency: string;
-    discountPercent: number;
-    priceListNum: number;
-    validFrom: Moment;
-    validTo: Moment;
-    specialPriceDataAreas: SpecialPriceDataArea[];
+    itemCode?: string | null;
+    cardCode?: string | null;
+    price?: number | null;
+    currency?: string | null;
+    discountPercent?: number | null;
+    priceListNum?: number | null;
+    autoUpdate?: BoYesNoEnum | null;
+    sourcePrice?: SourceCurrencyEnum | null;
+    valid?: BoYesNoEnum | null;
+    validFrom?: Moment | null;
+    validTo?: Moment | null;
+    specialPriceDataAreas?: SpecialPriceDataArea[] | null;
     item: ItemsType;
     businessPartner: BusinessPartnersType;
     priceList: PriceListsType;
@@ -163,6 +164,21 @@ export declare namespace SpecialPrices {
      */
     const PRICE_LIST_NUM: NumberField<SpecialPrices>;
     /**
+     * Static representation of the [[autoUpdate]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const AUTO_UPDATE: EnumField<SpecialPrices>;
+    /**
+     * Static representation of the [[sourcePrice]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SOURCE_PRICE: EnumField<SpecialPrices>;
+    /**
+     * Static representation of the [[valid]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const VALID: EnumField<SpecialPrices>;
+    /**
      * Static representation of the [[validFrom]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -176,7 +192,7 @@ export declare namespace SpecialPrices {
      * Static representation of the [[specialPriceDataAreas]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const SPECIAL_PRICE_DATA_AREAS: CollectionField<SpecialPrices>;
+    const SPECIAL_PRICE_DATA_AREAS: CollectionField<SpecialPrices, SpecialPriceDataArea>;
     /**
      * Static representation of the one-to-one navigation property [[item]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -195,7 +211,7 @@ export declare namespace SpecialPrices {
     /**
      * All fields of the SpecialPrices entity.
      */
-    const _allFields: Array<StringField<SpecialPrices> | NumberField<SpecialPrices> | DateField<SpecialPrices> | CollectionField<SpecialPrices> | OneToOneLink<SpecialPrices, Items> | OneToOneLink<SpecialPrices, BusinessPartners> | OneToOneLink<SpecialPrices, PriceLists>>;
+    const _allFields: Array<StringField<SpecialPrices> | NumberField<SpecialPrices> | EnumField<SpecialPrices> | DateField<SpecialPrices> | CollectionField<SpecialPrices, SpecialPriceDataArea> | OneToOneLink<SpecialPrices, Items> | OneToOneLink<SpecialPrices, BusinessPartners> | OneToOneLink<SpecialPrices, PriceLists>>;
     /**
      * All fields selector.
      */

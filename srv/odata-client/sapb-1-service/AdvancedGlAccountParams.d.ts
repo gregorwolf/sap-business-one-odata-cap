@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { InventoryAccountTypeEnum } from './InventoryAccountTypeEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * AdvancedGlAccountParams
  */
@@ -45,6 +46,11 @@ export interface AdvancedGlAccountParams {
      */
     postingDate?: Moment;
     /**
+     * Account Type.
+     * @nullable
+     */
+    accountType?: InventoryAccountTypeEnum;
+    /**
      * Usage.
      * @nullable
      */
@@ -83,7 +89,7 @@ export declare function createAdvancedGlAccountParams(json: any): AdvancedGlAcco
  * AdvancedGlAccountParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class AdvancedGlAccountParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class AdvancedGlAccountParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, AdvancedGlAccountParams> {
     /**
      * Representation of the [[AdvancedGlAccountParams.itemCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -125,6 +131,11 @@ export declare class AdvancedGlAccountParamsField<EntityT extends Entity> extend
      */
     postingDate: ComplexTypeDatePropertyField<EntityT>;
     /**
+     * Representation of the [[AdvancedGlAccountParams.accountType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    accountType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdvancedGlAccountParams.usage]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -154,8 +165,22 @@ export declare class AdvancedGlAccountParamsField<EntityT extends Entity> extend
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     udf5: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Creates an instance of AdvancedGlAccountParamsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace AdvancedGlAccountParams {
+    /**
+     * Metadata information on all properties of the `AdvancedGlAccountParams` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<AdvancedGlAccountParams>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): AdvancedGlAccountParams;

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.CertificateSeries = void 0;
  */
 var CertificateSeriesRequestBuilder_1 = require("./CertificateSeriesRequestBuilder");
 var SeriesLine_1 = require("./SeriesLine");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "CertificateSeries" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var CertificateSeries = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `CertificateSeries`.
+     * Returns an entity builder to construct instances of `CertificateSeries`.
      * @returns A builder that constructs instances of entity type `CertificateSeries`.
      */
     CertificateSeries.builder = function () {
-        return v4_1.Entity.entityBuilder(CertificateSeries);
+        return core_1.EntityV4.entityBuilder(CertificateSeries);
     };
     /**
      * Returns a request builder to construct requests for operations on the `CertificateSeries` entity type.
@@ -61,7 +61,7 @@ var CertificateSeries = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `CertificateSeries`.
      */
     CertificateSeries.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, CertificateSeries);
+        return core_1.EntityV4.customFieldSelector(fieldName, CertificateSeries);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,16 +75,11 @@ var CertificateSeries = /** @class */ (function (_super) {
      */
     CertificateSeries._entityName = 'CertificateSeries';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for CertificateSeries.
-     */
-    CertificateSeries._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    CertificateSeries._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    CertificateSeries._defaultServicePath = '/b1s/v2/';
     return CertificateSeries;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.CertificateSeries = CertificateSeries;
 var Sections_1 = require("./Sections");
 var WarehouseLocations_1 = require("./WarehouseLocations");
@@ -93,42 +88,42 @@ var WarehouseLocations_1 = require("./WarehouseLocations");
      * Static representation of the [[absEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CertificateSeries.ABS_ENTRY = new v4_1.NumberField('AbsEntry', CertificateSeries, 'Edm.Int32');
+    CertificateSeries.ABS_ENTRY = new core_1.NumberField('AbsEntry', CertificateSeries, 'Edm.Int32');
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CertificateSeries.CODE = new v4_1.StringField('Code', CertificateSeries, 'Edm.String');
+    CertificateSeries.CODE = new core_1.StringField('Code', CertificateSeries, 'Edm.String');
     /**
      * Static representation of the [[section]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CertificateSeries.SECTION = new v4_1.NumberField('Section', CertificateSeries, 'Edm.Int32');
+    CertificateSeries.SECTION = new core_1.NumberField('Section', CertificateSeries, 'Edm.Int32');
     /**
      * Static representation of the [[location]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CertificateSeries.LOCATION = new v4_1.NumberField('Location', CertificateSeries, 'Edm.Int32');
+    CertificateSeries.LOCATION = new core_1.NumberField('Location', CertificateSeries, 'Edm.Int32');
     /**
      * Static representation of the [[defaultSeries]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CertificateSeries.DEFAULT_SERIES = new v4_1.NumberField('DefaultSeries', CertificateSeries, 'Edm.Int32');
+    CertificateSeries.DEFAULT_SERIES = new core_1.NumberField('DefaultSeries', CertificateSeries, 'Edm.Int32');
     /**
      * Static representation of the [[seriesLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CertificateSeries.SERIES_LINES = new v4_1.CollectionField('SeriesLines', CertificateSeries, new SeriesLine_1.SeriesLineField('', CertificateSeries));
+    CertificateSeries.SERIES_LINES = new core_1.CollectionField('SeriesLines', CertificateSeries, SeriesLine_1.SeriesLine);
     /**
      * Static representation of the one-to-one navigation property [[section2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CertificateSeries.SECTION_2 = new v4_1.OneToOneLink('Section2', CertificateSeries, Sections_1.Sections);
+    CertificateSeries.SECTION_2 = new core_1.OneToOneLink('Section2', CertificateSeries, Sections_1.Sections);
     /**
      * Static representation of the one-to-one navigation property [[warehouseLocation]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CertificateSeries.WAREHOUSE_LOCATION = new v4_1.OneToOneLink('WarehouseLocation', CertificateSeries, WarehouseLocations_1.WarehouseLocations);
+    CertificateSeries.WAREHOUSE_LOCATION = new core_1.OneToOneLink('WarehouseLocation', CertificateSeries, WarehouseLocations_1.WarehouseLocations);
     /**
      * All fields of the CertificateSeries entity.
      */
@@ -145,7 +140,7 @@ var WarehouseLocations_1 = require("./WarehouseLocations");
     /**
      * All fields selector.
      */
-    CertificateSeries.ALL_FIELDS = new v4_1.AllFields('*', CertificateSeries);
+    CertificateSeries.ALL_FIELDS = new core_1.AllFields('*', CertificateSeries);
     /**
      * All key fields of the CertificateSeries entity.
      */

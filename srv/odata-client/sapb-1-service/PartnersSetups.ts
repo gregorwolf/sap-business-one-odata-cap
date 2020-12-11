@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { PartnersSetupsRequestBuilder } from './PartnersSetupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "PartnersSetups" of service "SAPB1".
  */
-export class PartnersSetups extends Entity implements PartnersSetupsType {
+export class PartnersSetups extends EntityV4 implements PartnersSetupsType {
   /**
    * Technical entity name for PartnersSetups.
    */
   static _entityName = 'PartnersSetups';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for PartnersSetups.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Name.
    * @nullable
@@ -53,11 +48,11 @@ export class PartnersSetups extends Entity implements PartnersSetupsType {
   businessPartner!: BusinessPartners;
 
   /**
-   * Returns an entity builder to construct instances `PartnersSetups`.
+   * Returns an entity builder to construct instances of `PartnersSetups`.
    * @returns A builder that constructs instances of entity type `PartnersSetups`.
    */
-  static builder(): EntityBuilderType<PartnersSetups, PartnersSetupsTypeForceMandatory> {
-    return Entity.entityBuilder(PartnersSetups);
+  static builder(): EntityBuilderType<PartnersSetups, PartnersSetupsType> {
+    return EntityV4.entityBuilder(PartnersSetups);
   }
 
   /**
@@ -73,8 +68,8 @@ export class PartnersSetups extends Entity implements PartnersSetupsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `PartnersSetups`.
    */
-  static customField(fieldName: string): CustomField<PartnersSetups> {
-    return Entity.customFieldSelector(fieldName, PartnersSetups);
+  static customField(fieldName: string): CustomFieldV4<PartnersSetups> {
+    return EntityV4.customFieldSelector(fieldName, PartnersSetups);
   }
 
   /**
@@ -90,19 +85,10 @@ import { Relationships, RelationshipsType } from './Relationships';
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 
 export interface PartnersSetupsType {
-  name?: string;
-  defaultRelationship?: number;
-  relatedBp?: string;
-  details?: string;
-  relationship: RelationshipsType;
-  businessPartner: BusinessPartnersType;
-}
-
-export interface PartnersSetupsTypeForceMandatory {
-  name: string;
-  defaultRelationship: number;
-  relatedBp: string;
-  details: string;
+  name?: string | null;
+  defaultRelationship?: number | null;
+  relatedBp?: string | null;
+  details?: string | null;
   relationship: RelationshipsType;
   businessPartner: BusinessPartnersType;
 }

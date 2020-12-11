@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { UserFieldsMd } from './UserFieldsMd';
 
 /**
@@ -16,8 +16,8 @@ export class UserFieldsMdRequestBuilder extends RequestBuilder<UserFieldsMd> {
    * @param fieldId Key property. See [[UserFieldsMd.fieldId]].
    * @returns A request builder for creating requests to retrieve one `UserFieldsMd` entity based on its keys.
    */
-  getByKey(tableName: string, fieldId: number): GetByKeyRequestBuilder<UserFieldsMd> {
-    return new GetByKeyRequestBuilder(UserFieldsMd, {
+  getByKey(tableName: string, fieldId: number): GetByKeyRequestBuilderV4<UserFieldsMd> {
+    return new GetByKeyRequestBuilderV4(UserFieldsMd, {
       TableName: tableName,
       FieldID: fieldId
     });
@@ -27,8 +27,8 @@ export class UserFieldsMdRequestBuilder extends RequestBuilder<UserFieldsMd> {
    * Returns a request builder for querying all `UserFieldsMd` entities.
    * @returns A request builder for creating requests to retrieve all `UserFieldsMd` entities.
    */
-  getAll(): GetAllRequestBuilder<UserFieldsMd> {
-    return new GetAllRequestBuilder(UserFieldsMd);
+  getAll(): GetAllRequestBuilderV4<UserFieldsMd> {
+    return new GetAllRequestBuilderV4(UserFieldsMd);
   }
 
   /**
@@ -36,8 +36,8 @@ export class UserFieldsMdRequestBuilder extends RequestBuilder<UserFieldsMd> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `UserFieldsMd`.
    */
-  create(entity: UserFieldsMd): CreateRequestBuilder<UserFieldsMd> {
-    return new CreateRequestBuilder(UserFieldsMd, entity);
+  create(entity: UserFieldsMd): CreateRequestBuilderV4<UserFieldsMd> {
+    return new CreateRequestBuilderV4(UserFieldsMd, entity);
   }
 
   /**
@@ -45,8 +45,8 @@ export class UserFieldsMdRequestBuilder extends RequestBuilder<UserFieldsMd> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `UserFieldsMd`.
    */
-  update(entity: UserFieldsMd): UpdateRequestBuilder<UserFieldsMd> {
-    return new UpdateRequestBuilder(UserFieldsMd, entity);
+  update(entity: UserFieldsMd): UpdateRequestBuilderV4<UserFieldsMd> {
+    return new UpdateRequestBuilderV4(UserFieldsMd, entity);
   }
 
   /**
@@ -55,15 +55,15 @@ export class UserFieldsMdRequestBuilder extends RequestBuilder<UserFieldsMd> {
    * @param fieldId Key property. See [[UserFieldsMd.fieldId]].
    * @returns A request builder for creating requests that delete an entity of type `UserFieldsMd`.
    */
-  delete(tableName: string, fieldId: number): DeleteRequestBuilder<UserFieldsMd>;
+  delete(tableName: string, fieldId: number): DeleteRequestBuilderV4<UserFieldsMd>;
   /**
    * Returns a request builder for deleting an entity of type `UserFieldsMd`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `UserFieldsMd` by taking the entity as a parameter.
    */
-  delete(entity: UserFieldsMd): DeleteRequestBuilder<UserFieldsMd>;
-  delete(tableNameOrEntity: any, fieldId?: number): DeleteRequestBuilder<UserFieldsMd> {
-    return new DeleteRequestBuilder(UserFieldsMd, tableNameOrEntity instanceof UserFieldsMd ? tableNameOrEntity : {
+  delete(entity: UserFieldsMd): DeleteRequestBuilderV4<UserFieldsMd>;
+  delete(tableNameOrEntity: any, fieldId?: number): DeleteRequestBuilderV4<UserFieldsMd> {
+    return new DeleteRequestBuilderV4(UserFieldsMd, tableNameOrEntity instanceof UserFieldsMd ? tableNameOrEntity : {
       TableName: tableNameOrEntity!,
       FieldID: fieldId!
     });

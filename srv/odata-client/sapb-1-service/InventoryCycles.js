@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.InventoryCycles = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var InventoryCyclesRequestBuilder_1 = require("./InventoryCyclesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "InventoryCycles" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var InventoryCycles = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `InventoryCycles`.
+     * Returns an entity builder to construct instances of `InventoryCycles`.
      * @returns A builder that constructs instances of entity type `InventoryCycles`.
      */
     InventoryCycles.builder = function () {
-        return v4_1.Entity.entityBuilder(InventoryCycles);
+        return core_1.EntityV4.entityBuilder(InventoryCycles);
     };
     /**
      * Returns a request builder to construct requests for operations on the `InventoryCycles` entity type.
@@ -60,7 +60,7 @@ var InventoryCycles = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `InventoryCycles`.
      */
     InventoryCycles.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, InventoryCycles);
+        return core_1.EntityV4.customFieldSelector(fieldName, InventoryCycles);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var InventoryCycles = /** @class */ (function (_super) {
      */
     InventoryCycles._entityName = 'InventoryCycles';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for InventoryCycles.
-     */
-    InventoryCycles._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    InventoryCycles._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    InventoryCycles._defaultServicePath = '/b1s/v2/';
     return InventoryCycles;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.InventoryCycles = InventoryCycles;
 var ItemGroups_1 = require("./ItemGroups");
 var Items_1 = require("./Items");
@@ -92,74 +87,146 @@ var Items_1 = require("./Items");
      * Static representation of the [[cycleCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryCycles.CYCLE_CODE = new v4_1.NumberField('CycleCode', InventoryCycles, 'Edm.Int32');
+    InventoryCycles.CYCLE_CODE = new core_1.NumberField('CycleCode', InventoryCycles, 'Edm.Int32');
     /**
      * Static representation of the [[cycleName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryCycles.CYCLE_NAME = new v4_1.StringField('CycleName', InventoryCycles, 'Edm.String');
+    InventoryCycles.CYCLE_NAME = new core_1.StringField('CycleName', InventoryCycles, 'Edm.String');
+    /**
+     * Static representation of the [[frequency]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    InventoryCycles.FREQUENCY = new core_1.EnumField('Frequency', InventoryCycles);
     /**
      * Static representation of the [[day]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryCycles.DAY = new v4_1.NumberField('Day', InventoryCycles, 'Edm.Int32');
+    InventoryCycles.DAY = new core_1.NumberField('Day', InventoryCycles, 'Edm.Int32');
     /**
      * Static representation of the [[hour]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryCycles.HOUR = new v4_1.TimeField('Hour', InventoryCycles, 'Edm.TimeOfDay');
+    InventoryCycles.HOUR = new core_1.TimeField('Hour', InventoryCycles, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[nextCountingDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryCycles.NEXT_COUNTING_DATE = new v4_1.DateField('NextCountingDate', InventoryCycles, 'Edm.DateTimeOffset');
+    InventoryCycles.NEXT_COUNTING_DATE = new core_1.DateField('NextCountingDate', InventoryCycles, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[interval]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryCycles.INTERVAL = new v4_1.NumberField('Interval', InventoryCycles, 'Edm.Int32');
+    InventoryCycles.INTERVAL = new core_1.NumberField('Interval', InventoryCycles, 'Edm.Int32');
+    /**
+     * Static representation of the [[sunday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    InventoryCycles.SUNDAY = new core_1.EnumField('Sunday', InventoryCycles);
+    /**
+     * Static representation of the [[monday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    InventoryCycles.MONDAY = new core_1.EnumField('Monday', InventoryCycles);
+    /**
+     * Static representation of the [[tuesday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    InventoryCycles.TUESDAY = new core_1.EnumField('Tuesday', InventoryCycles);
+    /**
+     * Static representation of the [[wednesday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    InventoryCycles.WEDNESDAY = new core_1.EnumField('Wednesday', InventoryCycles);
+    /**
+     * Static representation of the [[thursday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    InventoryCycles.THURSDAY = new core_1.EnumField('Thursday', InventoryCycles);
+    /**
+     * Static representation of the [[friday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    InventoryCycles.FRIDAY = new core_1.EnumField('Friday', InventoryCycles);
+    /**
+     * Static representation of the [[saturday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    InventoryCycles.SATURDAY = new core_1.EnumField('Saturday', InventoryCycles);
+    /**
+     * Static representation of the [[repeatOption]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    InventoryCycles.REPEAT_OPTION = new core_1.EnumField('RepeatOption', InventoryCycles);
+    /**
+     * Static representation of the [[recurrenceSequenceSpecifier]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    InventoryCycles.RECURRENCE_SEQUENCE_SPECIFIER = new core_1.EnumField('RecurrenceSequenceSpecifier', InventoryCycles);
     /**
      * Static representation of the [[recurrenceDayInMonth]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryCycles.RECURRENCE_DAY_IN_MONTH = new v4_1.NumberField('RecurrenceDayInMonth', InventoryCycles, 'Edm.Int32');
+    InventoryCycles.RECURRENCE_DAY_IN_MONTH = new core_1.NumberField('RecurrenceDayInMonth', InventoryCycles, 'Edm.Int32');
     /**
      * Static representation of the [[recurrenceMonth]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryCycles.RECURRENCE_MONTH = new v4_1.NumberField('RecurrenceMonth', InventoryCycles, 'Edm.Int32');
+    InventoryCycles.RECURRENCE_MONTH = new core_1.NumberField('RecurrenceMonth', InventoryCycles, 'Edm.Int32');
+    /**
+     * Static representation of the [[recurrenceDayOfWeek]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    InventoryCycles.RECURRENCE_DAY_OF_WEEK = new core_1.EnumField('RecurrenceDayOfWeek', InventoryCycles);
+    /**
+     * Static representation of the [[endType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    InventoryCycles.END_TYPE = new core_1.EnumField('endType', InventoryCycles);
     /**
      * Static representation of the [[maxOccurrence]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryCycles.MAX_OCCURRENCE = new v4_1.NumberField('MaxOccurrence', InventoryCycles, 'Edm.Int32');
+    InventoryCycles.MAX_OCCURRENCE = new core_1.NumberField('MaxOccurrence', InventoryCycles, 'Edm.Int32');
     /**
      * Static representation of the [[seriesEndDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryCycles.SERIES_END_DATE = new v4_1.DateField('SeriesEndDate', InventoryCycles, 'Edm.DateTimeOffset');
+    InventoryCycles.SERIES_END_DATE = new core_1.DateField('SeriesEndDate', InventoryCycles, 'Edm.DateTimeOffset');
     /**
      * Static representation of the one-to-many navigation property [[itemGroups]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryCycles.ITEM_GROUPS = new v4_1.OneToManyLink('ItemGroups', InventoryCycles, ItemGroups_1.ItemGroups);
+    InventoryCycles.ITEM_GROUPS = new core_1.OneToManyLink('ItemGroups', InventoryCycles, ItemGroups_1.ItemGroups);
     /**
      * Static representation of the one-to-many navigation property [[items]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryCycles.ITEMS = new v4_1.OneToManyLink('Items', InventoryCycles, Items_1.Items);
+    InventoryCycles.ITEMS = new core_1.OneToManyLink('Items', InventoryCycles, Items_1.Items);
     /**
      * All fields of the InventoryCycles entity.
      */
     InventoryCycles._allFields = [
         InventoryCycles.CYCLE_CODE,
         InventoryCycles.CYCLE_NAME,
+        InventoryCycles.FREQUENCY,
         InventoryCycles.DAY,
         InventoryCycles.HOUR,
         InventoryCycles.NEXT_COUNTING_DATE,
         InventoryCycles.INTERVAL,
+        InventoryCycles.SUNDAY,
+        InventoryCycles.MONDAY,
+        InventoryCycles.TUESDAY,
+        InventoryCycles.WEDNESDAY,
+        InventoryCycles.THURSDAY,
+        InventoryCycles.FRIDAY,
+        InventoryCycles.SATURDAY,
+        InventoryCycles.REPEAT_OPTION,
+        InventoryCycles.RECURRENCE_SEQUENCE_SPECIFIER,
         InventoryCycles.RECURRENCE_DAY_IN_MONTH,
         InventoryCycles.RECURRENCE_MONTH,
+        InventoryCycles.RECURRENCE_DAY_OF_WEEK,
+        InventoryCycles.END_TYPE,
         InventoryCycles.MAX_OCCURRENCE,
         InventoryCycles.SERIES_END_DATE,
         InventoryCycles.ITEM_GROUPS,
@@ -168,7 +235,7 @@ var Items_1 = require("./Items");
     /**
      * All fields selector.
      */
-    InventoryCycles.ALL_FIELDS = new v4_1.AllFields('*', InventoryCycles);
+    InventoryCycles.ALL_FIELDS = new core_1.AllFields('*', InventoryCycles);
     /**
      * All key fields of the InventoryCycles entity.
      */

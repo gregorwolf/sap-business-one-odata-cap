@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { CustomsGroups } from './CustomsGroups';
 
 /**
@@ -15,16 +15,16 @@ export class CustomsGroupsRequestBuilder extends RequestBuilder<CustomsGroups> {
    * @param code Key property. See [[CustomsGroups.code]].
    * @returns A request builder for creating requests to retrieve one `CustomsGroups` entity based on its keys.
    */
-  getByKey(code: number): GetByKeyRequestBuilder<CustomsGroups> {
-    return new GetByKeyRequestBuilder(CustomsGroups, { Code: code });
+  getByKey(code: number): GetByKeyRequestBuilderV4<CustomsGroups> {
+    return new GetByKeyRequestBuilderV4(CustomsGroups, { Code: code });
   }
 
   /**
    * Returns a request builder for querying all `CustomsGroups` entities.
    * @returns A request builder for creating requests to retrieve all `CustomsGroups` entities.
    */
-  getAll(): GetAllRequestBuilder<CustomsGroups> {
-    return new GetAllRequestBuilder(CustomsGroups);
+  getAll(): GetAllRequestBuilderV4<CustomsGroups> {
+    return new GetAllRequestBuilderV4(CustomsGroups);
   }
 
   /**
@@ -32,8 +32,8 @@ export class CustomsGroupsRequestBuilder extends RequestBuilder<CustomsGroups> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `CustomsGroups`.
    */
-  create(entity: CustomsGroups): CreateRequestBuilder<CustomsGroups> {
-    return new CreateRequestBuilder(CustomsGroups, entity);
+  create(entity: CustomsGroups): CreateRequestBuilderV4<CustomsGroups> {
+    return new CreateRequestBuilderV4(CustomsGroups, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class CustomsGroupsRequestBuilder extends RequestBuilder<CustomsGroups> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `CustomsGroups`.
    */
-  update(entity: CustomsGroups): UpdateRequestBuilder<CustomsGroups> {
-    return new UpdateRequestBuilder(CustomsGroups, entity);
+  update(entity: CustomsGroups): UpdateRequestBuilderV4<CustomsGroups> {
+    return new UpdateRequestBuilderV4(CustomsGroups, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class CustomsGroupsRequestBuilder extends RequestBuilder<CustomsGroups> {
    * @param code Key property. See [[CustomsGroups.code]].
    * @returns A request builder for creating requests that delete an entity of type `CustomsGroups`.
    */
-  delete(code: number): DeleteRequestBuilder<CustomsGroups>;
+  delete(code: number): DeleteRequestBuilderV4<CustomsGroups>;
   /**
    * Returns a request builder for deleting an entity of type `CustomsGroups`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `CustomsGroups` by taking the entity as a parameter.
    */
-  delete(entity: CustomsGroups): DeleteRequestBuilder<CustomsGroups>;
-  delete(codeOrEntity: any): DeleteRequestBuilder<CustomsGroups> {
-    return new DeleteRequestBuilder(CustomsGroups, codeOrEntity instanceof CustomsGroups ? codeOrEntity : { Code: codeOrEntity! });
+  delete(entity: CustomsGroups): DeleteRequestBuilderV4<CustomsGroups>;
+  delete(codeOrEntity: any): DeleteRequestBuilderV4<CustomsGroups> {
+    return new DeleteRequestBuilderV4(CustomsGroups, codeOrEntity instanceof CustomsGroups ? codeOrEntity : { Code: codeOrEntity! });
   }
 }

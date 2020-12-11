@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.TerminationReason = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var TerminationReasonRequestBuilder_1 = require("./TerminationReasonRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "TerminationReason" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var TerminationReason = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `TerminationReason`.
+     * Returns an entity builder to construct instances of `TerminationReason`.
      * @returns A builder that constructs instances of entity type `TerminationReason`.
      */
     TerminationReason.builder = function () {
-        return v4_1.Entity.entityBuilder(TerminationReason);
+        return core_1.EntityV4.entityBuilder(TerminationReason);
     };
     /**
      * Returns a request builder to construct requests for operations on the `TerminationReason` entity type.
@@ -60,7 +60,7 @@ var TerminationReason = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `TerminationReason`.
      */
     TerminationReason.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, TerminationReason);
+        return core_1.EntityV4.customFieldSelector(fieldName, TerminationReason);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var TerminationReason = /** @class */ (function (_super) {
      */
     TerminationReason._entityName = 'TerminationReason';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for TerminationReason.
-     */
-    TerminationReason._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    TerminationReason._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    TerminationReason._defaultServicePath = '/b1s/v2/';
     return TerminationReason;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.TerminationReason = TerminationReason;
 var EmployeesInfo_1 = require("./EmployeesInfo");
 (function (TerminationReason) {
@@ -91,22 +86,22 @@ var EmployeesInfo_1 = require("./EmployeesInfo");
      * Static representation of the [[reasonId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TerminationReason.REASON_ID = new v4_1.NumberField('ReasonID', TerminationReason, 'Edm.Int32');
+    TerminationReason.REASON_ID = new core_1.NumberField('ReasonID', TerminationReason, 'Edm.Int32');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TerminationReason.NAME = new v4_1.StringField('Name', TerminationReason, 'Edm.String');
+    TerminationReason.NAME = new core_1.StringField('Name', TerminationReason, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TerminationReason.DESCRIPTION = new v4_1.StringField('Description', TerminationReason, 'Edm.String');
+    TerminationReason.DESCRIPTION = new core_1.StringField('Description', TerminationReason, 'Edm.String');
     /**
      * Static representation of the one-to-many navigation property [[employeesInfo]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TerminationReason.EMPLOYEES_INFO = new v4_1.OneToManyLink('EmployeesInfo', TerminationReason, EmployeesInfo_1.EmployeesInfo);
+    TerminationReason.EMPLOYEES_INFO = new core_1.OneToManyLink('EmployeesInfo', TerminationReason, EmployeesInfo_1.EmployeesInfo);
     /**
      * All fields of the TerminationReason entity.
      */
@@ -119,7 +114,7 @@ var EmployeesInfo_1 = require("./EmployeesInfo");
     /**
      * All fields selector.
      */
-    TerminationReason.ALL_FIELDS = new v4_1.AllFields('*', TerminationReason);
+    TerminationReason.ALL_FIELDS = new core_1.AllFields('*', TerminationReason);
     /**
      * All key fields of the TerminationReason entity.
      */

@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, Entity, FieldType, Time } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, Time } from '@sap-cloud-sdk/core';
 /**
  * PmTimeSheetLineData
  */
@@ -89,6 +90,11 @@ export interface PmTimeSheetLineData {
      * @nullable
      */
     billableTime?: Time;
+    /**
+     * Full Day.
+     * @nullable
+     */
+    fullDay?: BoYesNoEnum;
 }
 /**
  * @deprecated Since v1.6.0. Use [[PmTimeSheetLineData.build]] instead.
@@ -98,7 +104,7 @@ export declare function createPmTimeSheetLineData(json: any): PmTimeSheetLineDat
  * PmTimeSheetLineDataField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class PmTimeSheetLineDataField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class PmTimeSheetLineDataField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PmTimeSheetLineData> {
     /**
      * Representation of the [[PmTimeSheetLineData.lineId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -184,8 +190,27 @@ export declare class PmTimeSheetLineDataField<EntityT extends Entity> extends Co
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     billableTime: ComplexTypeTimePropertyField<EntityT>;
+    /**
+     * Representation of the [[PmTimeSheetLineData.fullDay]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    fullDay: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Creates an instance of PmTimeSheetLineDataField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace PmTimeSheetLineData {
+    /**
+     * Metadata information on all properties of the `PmTimeSheetLineData` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<PmTimeSheetLineData>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): PmTimeSheetLineData;

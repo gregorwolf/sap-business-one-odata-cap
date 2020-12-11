@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { ServiceCalls } from './ServiceCalls';
 
 /**
@@ -15,16 +15,16 @@ export class ServiceCallsRequestBuilder extends RequestBuilder<ServiceCalls> {
    * @param serviceCallId Key property. See [[ServiceCalls.serviceCallId]].
    * @returns A request builder for creating requests to retrieve one `ServiceCalls` entity based on its keys.
    */
-  getByKey(serviceCallId: number): GetByKeyRequestBuilder<ServiceCalls> {
-    return new GetByKeyRequestBuilder(ServiceCalls, { ServiceCallID: serviceCallId });
+  getByKey(serviceCallId: number): GetByKeyRequestBuilderV4<ServiceCalls> {
+    return new GetByKeyRequestBuilderV4(ServiceCalls, { ServiceCallID: serviceCallId });
   }
 
   /**
    * Returns a request builder for querying all `ServiceCalls` entities.
    * @returns A request builder for creating requests to retrieve all `ServiceCalls` entities.
    */
-  getAll(): GetAllRequestBuilder<ServiceCalls> {
-    return new GetAllRequestBuilder(ServiceCalls);
+  getAll(): GetAllRequestBuilderV4<ServiceCalls> {
+    return new GetAllRequestBuilderV4(ServiceCalls);
   }
 
   /**
@@ -32,8 +32,8 @@ export class ServiceCallsRequestBuilder extends RequestBuilder<ServiceCalls> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `ServiceCalls`.
    */
-  create(entity: ServiceCalls): CreateRequestBuilder<ServiceCalls> {
-    return new CreateRequestBuilder(ServiceCalls, entity);
+  create(entity: ServiceCalls): CreateRequestBuilderV4<ServiceCalls> {
+    return new CreateRequestBuilderV4(ServiceCalls, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class ServiceCallsRequestBuilder extends RequestBuilder<ServiceCalls> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `ServiceCalls`.
    */
-  update(entity: ServiceCalls): UpdateRequestBuilder<ServiceCalls> {
-    return new UpdateRequestBuilder(ServiceCalls, entity);
+  update(entity: ServiceCalls): UpdateRequestBuilderV4<ServiceCalls> {
+    return new UpdateRequestBuilderV4(ServiceCalls, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class ServiceCallsRequestBuilder extends RequestBuilder<ServiceCalls> {
    * @param serviceCallId Key property. See [[ServiceCalls.serviceCallId]].
    * @returns A request builder for creating requests that delete an entity of type `ServiceCalls`.
    */
-  delete(serviceCallId: number): DeleteRequestBuilder<ServiceCalls>;
+  delete(serviceCallId: number): DeleteRequestBuilderV4<ServiceCalls>;
   /**
    * Returns a request builder for deleting an entity of type `ServiceCalls`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `ServiceCalls` by taking the entity as a parameter.
    */
-  delete(entity: ServiceCalls): DeleteRequestBuilder<ServiceCalls>;
-  delete(serviceCallIdOrEntity: any): DeleteRequestBuilder<ServiceCalls> {
-    return new DeleteRequestBuilder(ServiceCalls, serviceCallIdOrEntity instanceof ServiceCalls ? serviceCallIdOrEntity : { ServiceCallID: serviceCallIdOrEntity! });
+  delete(entity: ServiceCalls): DeleteRequestBuilderV4<ServiceCalls>;
+  delete(serviceCallIdOrEntity: any): DeleteRequestBuilderV4<ServiceCalls> {
+    return new DeleteRequestBuilderV4(ServiceCalls, serviceCallIdOrEntity instanceof ServiceCalls ? serviceCallIdOrEntity : { ServiceCallID: serviceCallIdOrEntity! });
   }
 }

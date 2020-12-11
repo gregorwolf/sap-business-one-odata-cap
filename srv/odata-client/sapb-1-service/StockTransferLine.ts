@@ -3,10 +3,13 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { SerialNumber, SerialNumberField } from './SerialNumber';
-import { BatchNumber, BatchNumberField } from './BatchNumber';
-import { StockTransferLinesBinAllocation, StockTransferLinesBinAllocationField } from './StockTransferLinesBinAllocation';
-import { CollectionField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { SerialNumber } from './SerialNumber';
+import { BatchNumber } from './BatchNumber';
+import { StockTransferLinesBinAllocation } from './StockTransferLinesBinAllocation';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { InvBaseDocTypeEnum } from './InvBaseDocTypeEnum';
+import { BoStatus } from './BoStatus';
+import { CollectionField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * StockTransferLine
@@ -128,6 +131,11 @@ export interface StockTransferLine {
    */
   distributionRule5?: string;
   /**
+   * Use Base Units.
+   * @nullable
+   */
+  useBaseUnits?: BoYesNoEnum;
+  /**
    * Measure Unit.
    * @nullable
    */
@@ -137,6 +145,11 @@ export interface StockTransferLine {
    * @nullable
    */
   unitsOfMeasurment?: number;
+  /**
+   * Base Type.
+   * @nullable
+   */
+  baseType?: InvBaseDocTypeEnum;
   /**
    * Base Line.
    * @nullable
@@ -178,20 +191,25 @@ export interface StockTransferLine {
    */
   remainingOpenInventoryQuantity?: number;
   /**
+   * Line Status.
+   * @nullable
+   */
+  lineStatus?: BoStatus;
+  /**
    * Serial Numbers.
    * @nullable
    */
-  serialNumbers?: SerialNumber;
+  serialNumbers?: SerialNumber[];
   /**
    * Batch Numbers.
    * @nullable
    */
-  batchNumbers?: BatchNumber;
+  batchNumbers?: BatchNumber[];
   /**
    * Stock Transfer Lines Bin Allocations.
    * @nullable
    */
-  stockTransferLinesBinAllocations?: StockTransferLinesBinAllocation;
+  stockTransferLinesBinAllocations?: StockTransferLinesBinAllocation[];
 }
 
 /**
@@ -205,7 +223,7 @@ export function createStockTransferLine(json: any): StockTransferLine {
  * StockTransferLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class StockTransferLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class StockTransferLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, StockTransferLine> {
   /**
    * Representation of the [[StockTransferLine.lineNum]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -322,6 +340,11 @@ export class StockTransferLineField<EntityT extends Entity> extends ComplexTypeF
    */
   distributionRule5: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('DistributionRule5', this, 'Edm.String');
   /**
+   * Representation of the [[StockTransferLine.useBaseUnits]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  useBaseUnits: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('UseBaseUnits', this);
+  /**
    * Representation of the [[StockTransferLine.measureUnit]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -331,6 +354,11 @@ export class StockTransferLineField<EntityT extends Entity> extends ComplexTypeF
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   unitsOfMeasurment: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('UnitsOfMeasurment', this, 'Edm.Double');
+  /**
+   * Representation of the [[StockTransferLine.baseType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  baseType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BaseType', this);
   /**
    * Representation of the [[StockTransferLine.baseLine]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -372,61 +400,242 @@ export class StockTransferLineField<EntityT extends Entity> extends ComplexTypeF
    */
   remainingOpenInventoryQuantity: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('RemainingOpenInventoryQuantity', this, 'Edm.Double');
   /**
+   * Representation of the [[StockTransferLine.lineStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  lineStatus: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('LineStatus', this);
+  /**
    * Representation of the [[StockTransferLine.serialNumbers]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  serialNumbers: SerialNumberField<EntityT> = new SerialNumberField('SerialNumbers', this);
+  serialNumbers: CollectionField<EntityT, SerialNumber> = new CollectionField('SerialNumbers', this, SerialNumber);
   /**
    * Representation of the [[StockTransferLine.batchNumbers]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  batchNumbers: BatchNumberField<EntityT> = new BatchNumberField('BatchNumbers', this);
+  batchNumbers: CollectionField<EntityT, BatchNumber> = new CollectionField('BatchNumbers', this, BatchNumber);
   /**
    * Representation of the [[StockTransferLine.stockTransferLinesBinAllocations]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  stockTransferLinesBinAllocations: StockTransferLinesBinAllocationField<EntityT> = new StockTransferLinesBinAllocationField('StockTransferLinesBinAllocations', this);
+  stockTransferLinesBinAllocations: CollectionField<EntityT, StockTransferLinesBinAllocation> = new CollectionField('StockTransferLinesBinAllocations', this, StockTransferLinesBinAllocation);
+
+  /**
+   * Creates an instance of StockTransferLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, StockTransferLine);
+  }
 }
 
 export namespace StockTransferLine {
+  /**
+   * Metadata information on all properties of the `StockTransferLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<StockTransferLine>[] = [{
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DocEntry',
+    name: 'docEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ItemCode',
+    name: 'itemCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemDescription',
+    name: 'itemDescription',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Quantity',
+    name: 'quantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Price',
+    name: 'price',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Currency',
+    name: 'currency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Rate',
+    name: 'rate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DiscountPercent',
+    name: 'discountPercent',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'VendorNum',
+    name: 'vendorNum',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SerialNumber',
+    name: 'serialNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WarehouseCode',
+    name: 'warehouseCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FromWarehouseCode',
+    name: 'fromWarehouseCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ProjectCode',
+    name: 'projectCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Factor',
+    name: 'factor',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Factor2',
+    name: 'factor2',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Factor3',
+    name: 'factor3',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Factor4',
+    name: 'factor4',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule',
+    name: 'distributionRule',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule2',
+    name: 'distributionRule2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule3',
+    name: 'distributionRule3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule4',
+    name: 'distributionRule4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule5',
+    name: 'distributionRule5',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UseBaseUnits',
+    name: 'useBaseUnits',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'MeasureUnit',
+    name: 'measureUnit',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UnitsOfMeasurment',
+    name: 'unitsOfMeasurment',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BaseType',
+    name: 'baseType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BaseLine',
+    name: 'baseLine',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseEntry',
+    name: 'baseEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'UnitPrice',
+    name: 'unitPrice',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'UoMEntry',
+    name: 'uoMEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'UoMCode',
+    name: 'uoMCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InventoryQuantity',
+    name: 'inventoryQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'RemainingOpenQuantity',
+    name: 'remainingOpenQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'RemainingOpenInventoryQuantity',
+    name: 'remainingOpenInventoryQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'LineStatus',
+    name: 'lineStatus',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SerialNumbers',
+    name: 'serialNumbers',
+    type: SerialNumber,
+    isCollection: true
+  }, {
+    originalName: 'BatchNumbers',
+    name: 'batchNumbers',
+    type: BatchNumber,
+    isCollection: true
+  }, {
+    originalName: 'StockTransferLinesBinAllocations',
+    name: 'stockTransferLinesBinAllocations',
+    type: StockTransferLinesBinAllocation,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | BatchNumber | SerialNumber | StockTransferLinesBinAllocation }): StockTransferLine {
-    return createComplexType(json, {
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      DocEntry: (docEntry: number) => ({ docEntry: edmToTs(docEntry, 'Edm.Int32') }),
-      ItemCode: (itemCode: string) => ({ itemCode: edmToTs(itemCode, 'Edm.String') }),
-      ItemDescription: (itemDescription: string) => ({ itemDescription: edmToTs(itemDescription, 'Edm.String') }),
-      Quantity: (quantity: number) => ({ quantity: edmToTs(quantity, 'Edm.Double') }),
-      Price: (price: number) => ({ price: edmToTs(price, 'Edm.Double') }),
-      Currency: (currency: string) => ({ currency: edmToTs(currency, 'Edm.String') }),
-      Rate: (rate: number) => ({ rate: edmToTs(rate, 'Edm.Double') }),
-      DiscountPercent: (discountPercent: number) => ({ discountPercent: edmToTs(discountPercent, 'Edm.Double') }),
-      VendorNum: (vendorNum: string) => ({ vendorNum: edmToTs(vendorNum, 'Edm.String') }),
-      SerialNumber: (serialNumber: string) => ({ serialNumber: edmToTs(serialNumber, 'Edm.String') }),
-      WarehouseCode: (warehouseCode: string) => ({ warehouseCode: edmToTs(warehouseCode, 'Edm.String') }),
-      FromWarehouseCode: (fromWarehouseCode: string) => ({ fromWarehouseCode: edmToTs(fromWarehouseCode, 'Edm.String') }),
-      ProjectCode: (projectCode: string) => ({ projectCode: edmToTs(projectCode, 'Edm.String') }),
-      Factor: (factor: number) => ({ factor: edmToTs(factor, 'Edm.Double') }),
-      Factor2: (factor2: number) => ({ factor2: edmToTs(factor2, 'Edm.Double') }),
-      Factor3: (factor3: number) => ({ factor3: edmToTs(factor3, 'Edm.Double') }),
-      Factor4: (factor4: number) => ({ factor4: edmToTs(factor4, 'Edm.Double') }),
-      DistributionRule: (distributionRule: string) => ({ distributionRule: edmToTs(distributionRule, 'Edm.String') }),
-      DistributionRule2: (distributionRule2: string) => ({ distributionRule2: edmToTs(distributionRule2, 'Edm.String') }),
-      DistributionRule3: (distributionRule3: string) => ({ distributionRule3: edmToTs(distributionRule3, 'Edm.String') }),
-      DistributionRule4: (distributionRule4: string) => ({ distributionRule4: edmToTs(distributionRule4, 'Edm.String') }),
-      DistributionRule5: (distributionRule5: string) => ({ distributionRule5: edmToTs(distributionRule5, 'Edm.String') }),
-      MeasureUnit: (measureUnit: string) => ({ measureUnit: edmToTs(measureUnit, 'Edm.String') }),
-      UnitsOfMeasurment: (unitsOfMeasurment: number) => ({ unitsOfMeasurment: edmToTs(unitsOfMeasurment, 'Edm.Double') }),
-      BaseLine: (baseLine: number) => ({ baseLine: edmToTs(baseLine, 'Edm.Int32') }),
-      BaseEntry: (baseEntry: number) => ({ baseEntry: edmToTs(baseEntry, 'Edm.Int32') }),
-      UnitPrice: (unitPrice: number) => ({ unitPrice: edmToTs(unitPrice, 'Edm.Double') }),
-      UoMEntry: (uoMEntry: number) => ({ uoMEntry: edmToTs(uoMEntry, 'Edm.Int32') }),
-      UoMCode: (uoMCode: string) => ({ uoMCode: edmToTs(uoMCode, 'Edm.String') }),
-      InventoryQuantity: (inventoryQuantity: number) => ({ inventoryQuantity: edmToTs(inventoryQuantity, 'Edm.Double') }),
-      RemainingOpenQuantity: (remainingOpenQuantity: number) => ({ remainingOpenQuantity: edmToTs(remainingOpenQuantity, 'Edm.Double') }),
-      RemainingOpenInventoryQuantity: (remainingOpenInventoryQuantity: number) => ({ remainingOpenInventoryQuantity: edmToTs(remainingOpenInventoryQuantity, 'Edm.Double') }),
-      SerialNumbers: (serialNumbers: SerialNumber) => ({ serialNumbers: SerialNumber.build(serialNumbers) }),
-      BatchNumbers: (batchNumbers: BatchNumber) => ({ batchNumbers: BatchNumber.build(batchNumbers) }),
-      StockTransferLinesBinAllocations: (stockTransferLinesBinAllocations: StockTransferLinesBinAllocation) => ({ stockTransferLinesBinAllocations: StockTransferLinesBinAllocation.build(stockTransferLinesBinAllocations) })
-    });
+    return deserializeComplexTypeV4(json, StockTransferLine);
   }
 }

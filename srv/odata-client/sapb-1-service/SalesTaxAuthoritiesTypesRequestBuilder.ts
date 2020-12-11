@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { SalesTaxAuthoritiesTypes } from './SalesTaxAuthoritiesTypes';
 
 /**
@@ -15,16 +15,16 @@ export class SalesTaxAuthoritiesTypesRequestBuilder extends RequestBuilder<Sales
    * @param numerator Key property. See [[SalesTaxAuthoritiesTypes.numerator]].
    * @returns A request builder for creating requests to retrieve one `SalesTaxAuthoritiesTypes` entity based on its keys.
    */
-  getByKey(numerator: number): GetByKeyRequestBuilder<SalesTaxAuthoritiesTypes> {
-    return new GetByKeyRequestBuilder(SalesTaxAuthoritiesTypes, { Numerator: numerator });
+  getByKey(numerator: number): GetByKeyRequestBuilderV4<SalesTaxAuthoritiesTypes> {
+    return new GetByKeyRequestBuilderV4(SalesTaxAuthoritiesTypes, { Numerator: numerator });
   }
 
   /**
    * Returns a request builder for querying all `SalesTaxAuthoritiesTypes` entities.
    * @returns A request builder for creating requests to retrieve all `SalesTaxAuthoritiesTypes` entities.
    */
-  getAll(): GetAllRequestBuilder<SalesTaxAuthoritiesTypes> {
-    return new GetAllRequestBuilder(SalesTaxAuthoritiesTypes);
+  getAll(): GetAllRequestBuilderV4<SalesTaxAuthoritiesTypes> {
+    return new GetAllRequestBuilderV4(SalesTaxAuthoritiesTypes);
   }
 
   /**
@@ -32,8 +32,8 @@ export class SalesTaxAuthoritiesTypesRequestBuilder extends RequestBuilder<Sales
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `SalesTaxAuthoritiesTypes`.
    */
-  create(entity: SalesTaxAuthoritiesTypes): CreateRequestBuilder<SalesTaxAuthoritiesTypes> {
-    return new CreateRequestBuilder(SalesTaxAuthoritiesTypes, entity);
+  create(entity: SalesTaxAuthoritiesTypes): CreateRequestBuilderV4<SalesTaxAuthoritiesTypes> {
+    return new CreateRequestBuilderV4(SalesTaxAuthoritiesTypes, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class SalesTaxAuthoritiesTypesRequestBuilder extends RequestBuilder<Sales
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `SalesTaxAuthoritiesTypes`.
    */
-  update(entity: SalesTaxAuthoritiesTypes): UpdateRequestBuilder<SalesTaxAuthoritiesTypes> {
-    return new UpdateRequestBuilder(SalesTaxAuthoritiesTypes, entity);
+  update(entity: SalesTaxAuthoritiesTypes): UpdateRequestBuilderV4<SalesTaxAuthoritiesTypes> {
+    return new UpdateRequestBuilderV4(SalesTaxAuthoritiesTypes, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class SalesTaxAuthoritiesTypesRequestBuilder extends RequestBuilder<Sales
    * @param numerator Key property. See [[SalesTaxAuthoritiesTypes.numerator]].
    * @returns A request builder for creating requests that delete an entity of type `SalesTaxAuthoritiesTypes`.
    */
-  delete(numerator: number): DeleteRequestBuilder<SalesTaxAuthoritiesTypes>;
+  delete(numerator: number): DeleteRequestBuilderV4<SalesTaxAuthoritiesTypes>;
   /**
    * Returns a request builder for deleting an entity of type `SalesTaxAuthoritiesTypes`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `SalesTaxAuthoritiesTypes` by taking the entity as a parameter.
    */
-  delete(entity: SalesTaxAuthoritiesTypes): DeleteRequestBuilder<SalesTaxAuthoritiesTypes>;
-  delete(numeratorOrEntity: any): DeleteRequestBuilder<SalesTaxAuthoritiesTypes> {
-    return new DeleteRequestBuilder(SalesTaxAuthoritiesTypes, numeratorOrEntity instanceof SalesTaxAuthoritiesTypes ? numeratorOrEntity : { Numerator: numeratorOrEntity! });
+  delete(entity: SalesTaxAuthoritiesTypes): DeleteRequestBuilderV4<SalesTaxAuthoritiesTypes>;
+  delete(numeratorOrEntity: any): DeleteRequestBuilderV4<SalesTaxAuthoritiesTypes> {
+    return new DeleteRequestBuilderV4(SalesTaxAuthoritiesTypes, numeratorOrEntity instanceof SalesTaxAuthoritiesTypes ? numeratorOrEntity : { Numerator: numeratorOrEntity! });
   }
 }

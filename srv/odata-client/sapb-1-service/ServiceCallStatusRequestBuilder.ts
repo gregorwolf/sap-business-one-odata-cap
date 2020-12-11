@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { ServiceCallStatus } from './ServiceCallStatus';
 
 /**
@@ -15,16 +15,16 @@ export class ServiceCallStatusRequestBuilder extends RequestBuilder<ServiceCallS
    * @param statusId Key property. See [[ServiceCallStatus.statusId]].
    * @returns A request builder for creating requests to retrieve one `ServiceCallStatus` entity based on its keys.
    */
-  getByKey(statusId: number): GetByKeyRequestBuilder<ServiceCallStatus> {
-    return new GetByKeyRequestBuilder(ServiceCallStatus, { StatusId: statusId });
+  getByKey(statusId: number): GetByKeyRequestBuilderV4<ServiceCallStatus> {
+    return new GetByKeyRequestBuilderV4(ServiceCallStatus, { StatusId: statusId });
   }
 
   /**
    * Returns a request builder for querying all `ServiceCallStatus` entities.
    * @returns A request builder for creating requests to retrieve all `ServiceCallStatus` entities.
    */
-  getAll(): GetAllRequestBuilder<ServiceCallStatus> {
-    return new GetAllRequestBuilder(ServiceCallStatus);
+  getAll(): GetAllRequestBuilderV4<ServiceCallStatus> {
+    return new GetAllRequestBuilderV4(ServiceCallStatus);
   }
 
   /**
@@ -32,8 +32,8 @@ export class ServiceCallStatusRequestBuilder extends RequestBuilder<ServiceCallS
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `ServiceCallStatus`.
    */
-  create(entity: ServiceCallStatus): CreateRequestBuilder<ServiceCallStatus> {
-    return new CreateRequestBuilder(ServiceCallStatus, entity);
+  create(entity: ServiceCallStatus): CreateRequestBuilderV4<ServiceCallStatus> {
+    return new CreateRequestBuilderV4(ServiceCallStatus, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class ServiceCallStatusRequestBuilder extends RequestBuilder<ServiceCallS
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `ServiceCallStatus`.
    */
-  update(entity: ServiceCallStatus): UpdateRequestBuilder<ServiceCallStatus> {
-    return new UpdateRequestBuilder(ServiceCallStatus, entity);
+  update(entity: ServiceCallStatus): UpdateRequestBuilderV4<ServiceCallStatus> {
+    return new UpdateRequestBuilderV4(ServiceCallStatus, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class ServiceCallStatusRequestBuilder extends RequestBuilder<ServiceCallS
    * @param statusId Key property. See [[ServiceCallStatus.statusId]].
    * @returns A request builder for creating requests that delete an entity of type `ServiceCallStatus`.
    */
-  delete(statusId: number): DeleteRequestBuilder<ServiceCallStatus>;
+  delete(statusId: number): DeleteRequestBuilderV4<ServiceCallStatus>;
   /**
    * Returns a request builder for deleting an entity of type `ServiceCallStatus`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `ServiceCallStatus` by taking the entity as a parameter.
    */
-  delete(entity: ServiceCallStatus): DeleteRequestBuilder<ServiceCallStatus>;
-  delete(statusIdOrEntity: any): DeleteRequestBuilder<ServiceCallStatus> {
-    return new DeleteRequestBuilder(ServiceCallStatus, statusIdOrEntity instanceof ServiceCallStatus ? statusIdOrEntity : { StatusId: statusIdOrEntity! });
+  delete(entity: ServiceCallStatus): DeleteRequestBuilderV4<ServiceCallStatus>;
+  delete(statusIdOrEntity: any): DeleteRequestBuilderV4<ServiceCallStatus> {
+    return new DeleteRequestBuilderV4(ServiceCallStatus, statusIdOrEntity instanceof ServiceCallStatus ? statusIdOrEntity : { StatusId: statusIdOrEntity! });
   }
 }

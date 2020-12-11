@@ -1,18 +1,17 @@
 import { DepreciationAreasRequestBuilder } from './DepreciationAreasRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { PostingOfDepreciationEnum } from './PostingOfDepreciationEnum';
+import { RetirementMethodEnum } from './RetirementMethodEnum';
+import { AreaTypeEnum } from './AreaTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "DepreciationAreas" of service "SAPB1".
  */
-export declare class DepreciationAreas extends Entity implements DepreciationAreasType {
+export declare class DepreciationAreas extends EntityV4 implements DepreciationAreasType {
     /**
      * Technical entity name for DepreciationAreas.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for DepreciationAreas.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -28,10 +27,40 @@ export declare class DepreciationAreas extends Entity implements DepreciationAre
      */
     description?: string;
     /**
+     * Posting Of Depreciation.
+     * @nullable
+     */
+    postingOfDepreciation?: PostingOfDepreciationEnum;
+    /**
+     * Retirement Method.
+     * @nullable
+     */
+    retirementMethod?: RetirementMethodEnum;
+    /**
+     * Area Type.
+     * @nullable
+     */
+    areaType?: AreaTypeEnum;
+    /**
      * Derived Area.
      * @nullable
      */
     derivedArea?: string;
+    /**
+     * Main Booking Area.
+     * @nullable
+     */
+    mainBookingArea?: BoYesNoEnum;
+    /**
+     * Direct Revenue Posting.
+     * @nullable
+     */
+    directRevenuePosting?: BoYesNoEnum;
+    /**
+     * Tax Credit Control.
+     * @nullable
+     */
+    taxCreditControl?: BoYesNoEnum;
     /**
      * Tax Type.
      * @nullable
@@ -85,10 +114,10 @@ export declare class DepreciationAreas extends Entity implements DepreciationAre
      */
     assetManualDepreciation: AssetManualDepreciation[];
     /**
-     * Returns an entity builder to construct instances `DepreciationAreas`.
+     * Returns an entity builder to construct instances of `DepreciationAreas`.
      * @returns A builder that constructs instances of entity type `DepreciationAreas`.
      */
-    static builder(): EntityBuilderType<DepreciationAreas, DepreciationAreasTypeForceMandatory>;
+    static builder(): EntityBuilderType<DepreciationAreas, DepreciationAreasType>;
     /**
      * Returns a request builder to construct requests for operations on the `DepreciationAreas` entity type.
      * @returns A `DepreciationAreas` request builder.
@@ -99,7 +128,7 @@ export declare class DepreciationAreas extends Entity implements DepreciationAre
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `DepreciationAreas`.
      */
-    static customField(fieldName: string): CustomField<DepreciationAreas>;
+    static customField(fieldName: string): CustomFieldV4<DepreciationAreas>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -117,30 +146,19 @@ import { Items, ItemsType } from './Items';
 import { AssetCapitalization, AssetCapitalizationType } from './AssetCapitalization';
 import { AssetManualDepreciation, AssetManualDepreciationType } from './AssetManualDepreciation';
 export interface DepreciationAreasType {
-    code?: string;
-    description?: string;
-    derivedArea?: string;
-    taxType?: number;
-    bpForTaxCorrection?: string;
-    itemForTaxCorrection?: string;
-    usageForTaxCorrection?: number;
-    assetTransfer: AssetTransferType[];
-    assetRetirement: AssetRetirementType[];
-    assetCapitalizationCreditMemo: AssetCapitalizationCreditMemoType[];
-    salesTaxAuthoritiesType: SalesTaxAuthoritiesTypesType;
-    businessPartner: BusinessPartnersType;
-    item: ItemsType;
-    assetCapitalization: AssetCapitalizationType[];
-    assetManualDepreciation: AssetManualDepreciationType[];
-}
-export interface DepreciationAreasTypeForceMandatory {
-    code: string;
-    description: string;
-    derivedArea: string;
-    taxType: number;
-    bpForTaxCorrection: string;
-    itemForTaxCorrection: string;
-    usageForTaxCorrection: number;
+    code?: string | null;
+    description?: string | null;
+    postingOfDepreciation?: PostingOfDepreciationEnum | null;
+    retirementMethod?: RetirementMethodEnum | null;
+    areaType?: AreaTypeEnum | null;
+    derivedArea?: string | null;
+    mainBookingArea?: BoYesNoEnum | null;
+    directRevenuePosting?: BoYesNoEnum | null;
+    taxCreditControl?: BoYesNoEnum | null;
+    taxType?: number | null;
+    bpForTaxCorrection?: string | null;
+    itemForTaxCorrection?: string | null;
+    usageForTaxCorrection?: number | null;
     assetTransfer: AssetTransferType[];
     assetRetirement: AssetRetirementType[];
     assetCapitalizationCreditMemo: AssetCapitalizationCreditMemoType[];
@@ -162,10 +180,40 @@ export declare namespace DepreciationAreas {
      */
     const DESCRIPTION: StringField<DepreciationAreas>;
     /**
+     * Static representation of the [[postingOfDepreciation]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const POSTING_OF_DEPRECIATION: EnumField<DepreciationAreas>;
+    /**
+     * Static representation of the [[retirementMethod]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RETIREMENT_METHOD: EnumField<DepreciationAreas>;
+    /**
+     * Static representation of the [[areaType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const AREA_TYPE: EnumField<DepreciationAreas>;
+    /**
      * Static representation of the [[derivedArea]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DERIVED_AREA: StringField<DepreciationAreas>;
+    /**
+     * Static representation of the [[mainBookingArea]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const MAIN_BOOKING_AREA: EnumField<DepreciationAreas>;
+    /**
+     * Static representation of the [[directRevenuePosting]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DIRECT_REVENUE_POSTING: EnumField<DepreciationAreas>;
+    /**
+     * Static representation of the [[taxCreditControl]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TAX_CREDIT_CONTROL: EnumField<DepreciationAreas>;
     /**
      * Static representation of the [[taxType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -229,7 +277,7 @@ export declare namespace DepreciationAreas {
     /**
      * All fields of the DepreciationAreas entity.
      */
-    const _allFields: Array<StringField<DepreciationAreas> | NumberField<DepreciationAreas> | OneToManyLink<DepreciationAreas, AssetTransfer> | OneToManyLink<DepreciationAreas, AssetRetirement> | OneToManyLink<DepreciationAreas, AssetCapitalizationCreditMemo> | OneToOneLink<DepreciationAreas, SalesTaxAuthoritiesTypes> | OneToOneLink<DepreciationAreas, BusinessPartners> | OneToOneLink<DepreciationAreas, Items> | OneToManyLink<DepreciationAreas, AssetCapitalization> | OneToManyLink<DepreciationAreas, AssetManualDepreciation>>;
+    const _allFields: Array<StringField<DepreciationAreas> | EnumField<DepreciationAreas> | NumberField<DepreciationAreas> | OneToManyLink<DepreciationAreas, AssetTransfer> | OneToManyLink<DepreciationAreas, AssetRetirement> | OneToManyLink<DepreciationAreas, AssetCapitalizationCreditMemo> | OneToOneLink<DepreciationAreas, SalesTaxAuthoritiesTypes> | OneToOneLink<DepreciationAreas, BusinessPartners> | OneToOneLink<DepreciationAreas, Items> | OneToManyLink<DepreciationAreas, AssetCapitalization> | OneToManyLink<DepreciationAreas, AssetManualDepreciation>>;
     /**
      * All fields selector.
      */

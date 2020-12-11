@@ -5,28 +5,36 @@
  */
 import { BillOfExchangeTransactionsRequestBuilder } from './BillOfExchangeTransactionsRequestBuilder';
 import { Moment } from 'moment';
-import { BillOfExchangeTransactionLine, BillOfExchangeTransactionLineField } from './BillOfExchangeTransactionLine';
-import { BillOfExchangeTransDeposit, BillOfExchangeTransDepositField } from './BillOfExchangeTransDeposit';
-import { BillOfExchangeTransBankPage, BillOfExchangeTransBankPageField } from './BillOfExchangeTransBankPage';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BillOfExchangeTransactionLine } from './BillOfExchangeTransactionLine';
+import { BillOfExchangeTransDeposit } from './BillOfExchangeTransDeposit';
+import { BillOfExchangeTransBankPage } from './BillOfExchangeTransBankPage';
+import { BoBotFromStatus } from './BoBotFromStatus';
+import { BoBotToStatus } from './BoBotToStatus';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, Time, TimeField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "BillOfExchangeTransactions" of service "SAPB1".
  */
-export class BillOfExchangeTransactions extends Entity implements BillOfExchangeTransactionsType {
+export class BillOfExchangeTransactions extends EntityV4 implements BillOfExchangeTransactionsType {
   /**
    * Technical entity name for BillOfExchangeTransactions.
    */
   static _entityName = 'BillOfExchangeTransactions';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for BillOfExchangeTransactions.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
+  /**
+   * Status From.
+   * @nullable
+   */
+  statusFrom?: BoBotFromStatus;
+  /**
+   * Status To.
+   * @nullable
+   */
+  statusTo?: BoBotToStatus;
   /**
    * Transaction Date.
    * @nullable
@@ -37,6 +45,11 @@ export class BillOfExchangeTransactions extends Entity implements BillOfExchange
    * @nullable
    */
   transactionTime?: Time;
+  /**
+   * Is Boe Reconciled.
+   * @nullable
+   */
+  isBoeReconciled?: BoYesNoEnum;
   /**
    * Transaction Number.
    * @nullable
@@ -78,11 +91,11 @@ export class BillOfExchangeTransactions extends Entity implements BillOfExchange
   journalEntry!: JournalEntries;
 
   /**
-   * Returns an entity builder to construct instances `BillOfExchangeTransactions`.
+   * Returns an entity builder to construct instances of `BillOfExchangeTransactions`.
    * @returns A builder that constructs instances of entity type `BillOfExchangeTransactions`.
    */
-  static builder(): EntityBuilderType<BillOfExchangeTransactions, BillOfExchangeTransactionsTypeForceMandatory> {
-    return Entity.entityBuilder(BillOfExchangeTransactions);
+  static builder(): EntityBuilderType<BillOfExchangeTransactions, BillOfExchangeTransactionsType> {
+    return EntityV4.entityBuilder(BillOfExchangeTransactions);
   }
 
   /**
@@ -98,8 +111,8 @@ export class BillOfExchangeTransactions extends Entity implements BillOfExchange
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `BillOfExchangeTransactions`.
    */
-  static customField(fieldName: string): CustomField<BillOfExchangeTransactions> {
-    return Entity.customFieldSelector(fieldName, BillOfExchangeTransactions);
+  static customField(fieldName: string): CustomFieldV4<BillOfExchangeTransactions> {
+    return EntityV4.customFieldSelector(fieldName, BillOfExchangeTransactions);
   }
 
   /**
@@ -114,32 +127,32 @@ export class BillOfExchangeTransactions extends Entity implements BillOfExchange
 import { JournalEntries, JournalEntriesType } from './JournalEntries';
 
 export interface BillOfExchangeTransactionsType {
-  transactionDate?: Moment;
-  transactionTime?: Time;
-  transactionNumber?: number;
-  postingDate?: Moment;
-  taxDate?: Moment;
-  boeTransactionkey?: number;
-  billOfExchangeTransactionLines?: BillOfExchangeTransactionLine[];
-  billOfExchangeTransDeposits?: BillOfExchangeTransDeposit[];
-  billOfExchangeTransBankPages?: BillOfExchangeTransBankPage[];
-  journalEntry: JournalEntriesType;
-}
-
-export interface BillOfExchangeTransactionsTypeForceMandatory {
-  transactionDate: Moment;
-  transactionTime: Time;
-  transactionNumber: number;
-  postingDate: Moment;
-  taxDate: Moment;
-  boeTransactionkey: number;
-  billOfExchangeTransactionLines: BillOfExchangeTransactionLine[];
-  billOfExchangeTransDeposits: BillOfExchangeTransDeposit[];
-  billOfExchangeTransBankPages: BillOfExchangeTransBankPage[];
+  statusFrom?: BoBotFromStatus | null;
+  statusTo?: BoBotToStatus | null;
+  transactionDate?: Moment | null;
+  transactionTime?: Time | null;
+  isBoeReconciled?: BoYesNoEnum | null;
+  transactionNumber?: number | null;
+  postingDate?: Moment | null;
+  taxDate?: Moment | null;
+  boeTransactionkey?: number | null;
+  billOfExchangeTransactionLines?: BillOfExchangeTransactionLine[] | null;
+  billOfExchangeTransDeposits?: BillOfExchangeTransDeposit[] | null;
+  billOfExchangeTransBankPages?: BillOfExchangeTransBankPage[] | null;
   journalEntry: JournalEntriesType;
 }
 
 export namespace BillOfExchangeTransactions {
+  /**
+   * Static representation of the [[statusFrom]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const STATUS_FROM: EnumField<BillOfExchangeTransactions> = new EnumField('StatusFrom', BillOfExchangeTransactions);
+  /**
+   * Static representation of the [[statusTo]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const STATUS_TO: EnumField<BillOfExchangeTransactions> = new EnumField('StatusTo', BillOfExchangeTransactions);
   /**
    * Static representation of the [[transactionDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -150,6 +163,11 @@ export namespace BillOfExchangeTransactions {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const TRANSACTION_TIME: TimeField<BillOfExchangeTransactions> = new TimeField('TransactionTime', BillOfExchangeTransactions, 'Edm.TimeOfDay');
+  /**
+   * Static representation of the [[isBoeReconciled]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_BOE_RECONCILED: EnumField<BillOfExchangeTransactions> = new EnumField('IsBoeReconciled', BillOfExchangeTransactions);
   /**
    * Static representation of the [[transactionNumber]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -174,17 +192,17 @@ export namespace BillOfExchangeTransactions {
    * Static representation of the [[billOfExchangeTransactionLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const BILL_OF_EXCHANGE_TRANSACTION_LINES: CollectionField<BillOfExchangeTransactions> = new CollectionField('BillOfExchangeTransactionLines', BillOfExchangeTransactions, new BillOfExchangeTransactionLineField('', BillOfExchangeTransactions));
+  export const BILL_OF_EXCHANGE_TRANSACTION_LINES: CollectionField<BillOfExchangeTransactions, BillOfExchangeTransactionLine> = new CollectionField('BillOfExchangeTransactionLines', BillOfExchangeTransactions, BillOfExchangeTransactionLine);
   /**
    * Static representation of the [[billOfExchangeTransDeposits]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const BILL_OF_EXCHANGE_TRANS_DEPOSITS: CollectionField<BillOfExchangeTransactions> = new CollectionField('BillOfExchangeTransDeposits', BillOfExchangeTransactions, new BillOfExchangeTransDepositField('', BillOfExchangeTransactions));
+  export const BILL_OF_EXCHANGE_TRANS_DEPOSITS: CollectionField<BillOfExchangeTransactions, BillOfExchangeTransDeposit> = new CollectionField('BillOfExchangeTransDeposits', BillOfExchangeTransactions, BillOfExchangeTransDeposit);
   /**
    * Static representation of the [[billOfExchangeTransBankPages]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const BILL_OF_EXCHANGE_TRANS_BANK_PAGES: CollectionField<BillOfExchangeTransactions> = new CollectionField('BillOfExchangeTransBankPages', BillOfExchangeTransactions, new BillOfExchangeTransBankPageField('', BillOfExchangeTransactions));
+  export const BILL_OF_EXCHANGE_TRANS_BANK_PAGES: CollectionField<BillOfExchangeTransactions, BillOfExchangeTransBankPage> = new CollectionField('BillOfExchangeTransBankPages', BillOfExchangeTransactions, BillOfExchangeTransBankPage);
   /**
    * Static representation of the one-to-one navigation property [[journalEntry]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -193,9 +211,12 @@ export namespace BillOfExchangeTransactions {
   /**
    * All fields of the BillOfExchangeTransactions entity.
    */
-  export const _allFields: Array<DateField<BillOfExchangeTransactions> | TimeField<BillOfExchangeTransactions> | NumberField<BillOfExchangeTransactions> | CollectionField<BillOfExchangeTransactions> | OneToOneLink<BillOfExchangeTransactions, JournalEntries>> = [
+  export const _allFields: Array<EnumField<BillOfExchangeTransactions> | DateField<BillOfExchangeTransactions> | TimeField<BillOfExchangeTransactions> | NumberField<BillOfExchangeTransactions> | CollectionField<BillOfExchangeTransactions, BillOfExchangeTransactionLine> | CollectionField<BillOfExchangeTransactions, BillOfExchangeTransDeposit> | CollectionField<BillOfExchangeTransactions, BillOfExchangeTransBankPage> | OneToOneLink<BillOfExchangeTransactions, JournalEntries>> = [
+    BillOfExchangeTransactions.STATUS_FROM,
+    BillOfExchangeTransactions.STATUS_TO,
     BillOfExchangeTransactions.TRANSACTION_DATE,
     BillOfExchangeTransactions.TRANSACTION_TIME,
+    BillOfExchangeTransactions.IS_BOE_RECONCILED,
     BillOfExchangeTransactions.TRANSACTION_NUMBER,
     BillOfExchangeTransactions.POSTING_DATE,
     BillOfExchangeTransactions.TAX_DATE,

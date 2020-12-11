@@ -2,20 +2,15 @@ import { BudgetsRequestBuilder } from './BudgetsRequestBuilder';
 import { Moment } from 'moment';
 import { BudgetLine } from './BudgetLine';
 import { BudgetCostAccountingLine } from './BudgetCostAccountingLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "Budgets" of service "SAPB1".
  */
-export declare class Budgets extends Entity implements BudgetsType {
+export declare class Budgets extends EntityV4 implements BudgetsType {
     /**
      * Technical entity name for Budgets.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Budgets.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -154,10 +149,10 @@ export declare class Budgets extends Entity implements BudgetsType {
      */
     budgetScenario2: BudgetScenarios;
     /**
-     * Returns an entity builder to construct instances `Budgets`.
+     * Returns an entity builder to construct instances of `Budgets`.
      * @returns A builder that constructs instances of entity type `Budgets`.
      */
-    static builder(): EntityBuilderType<Budgets, BudgetsTypeForceMandatory>;
+    static builder(): EntityBuilderType<Budgets, BudgetsType>;
     /**
      * Returns a request builder to construct requests for operations on the `Budgets` entity type.
      * @returns A `Budgets` request builder.
@@ -168,7 +163,7 @@ export declare class Budgets extends Entity implements BudgetsType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `Budgets`.
      */
-    static customField(fieldName: string): CustomField<Budgets>;
+    static customField(fieldName: string): CustomFieldV4<Budgets>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -180,60 +175,31 @@ export declare class Budgets extends Entity implements BudgetsType {
 import { BudgetDistributions, BudgetDistributionsType } from './BudgetDistributions';
 import { BudgetScenarios, BudgetScenariosType } from './BudgetScenarios';
 export interface BudgetsType {
-    futureAnnualExpensesCreditSys?: number;
-    futureAnnualExpensesCreditLoc?: number;
-    futureAnnualExpensesDebitSys?: number;
-    futureAnnualExpensesDebitLoc?: number;
-    futureAnnualRevenuesCredit?: number;
-    futureAnnualRevenuesDebit?: number;
-    futureRevenuesDebitSys?: number;
-    futureRevenuesDebitLoc?: number;
-    parentAccPercent?: number;
-    startofFiscalYear?: Moment;
-    parentAccountKey?: string;
-    totalAnnualBudgetDebitSys?: number;
-    budgetBalanceDebitSys?: number;
-    budgetBalanceDebitLoc?: number;
-    totalAnnualBudgetDebitLoc?: number;
-    totalAnnualBudgetCreditSys?: number;
-    totalAnnualBudgetCreditLoc?: number;
-    budgetBalanceCreditSys?: number;
-    budgetBalanceCreditLoc?: number;
-    divisionCode?: number;
-    accountCode?: string;
-    numerator?: number;
-    budgetScenario?: number;
-    budgetLines?: BudgetLine[];
-    budgetCostAccountingLines?: BudgetCostAccountingLine[];
-    budgetDistribution: BudgetDistributionsType;
-    budgetScenario2: BudgetScenariosType;
-}
-export interface BudgetsTypeForceMandatory {
-    futureAnnualExpensesCreditSys: number;
-    futureAnnualExpensesCreditLoc: number;
-    futureAnnualExpensesDebitSys: number;
-    futureAnnualExpensesDebitLoc: number;
-    futureAnnualRevenuesCredit: number;
-    futureAnnualRevenuesDebit: number;
-    futureRevenuesDebitSys: number;
-    futureRevenuesDebitLoc: number;
-    parentAccPercent: number;
-    startofFiscalYear: Moment;
-    parentAccountKey: string;
-    totalAnnualBudgetDebitSys: number;
-    budgetBalanceDebitSys: number;
-    budgetBalanceDebitLoc: number;
-    totalAnnualBudgetDebitLoc: number;
-    totalAnnualBudgetCreditSys: number;
-    totalAnnualBudgetCreditLoc: number;
-    budgetBalanceCreditSys: number;
-    budgetBalanceCreditLoc: number;
-    divisionCode: number;
-    accountCode: string;
-    numerator: number;
-    budgetScenario: number;
-    budgetLines: BudgetLine[];
-    budgetCostAccountingLines: BudgetCostAccountingLine[];
+    futureAnnualExpensesCreditSys?: number | null;
+    futureAnnualExpensesCreditLoc?: number | null;
+    futureAnnualExpensesDebitSys?: number | null;
+    futureAnnualExpensesDebitLoc?: number | null;
+    futureAnnualRevenuesCredit?: number | null;
+    futureAnnualRevenuesDebit?: number | null;
+    futureRevenuesDebitSys?: number | null;
+    futureRevenuesDebitLoc?: number | null;
+    parentAccPercent?: number | null;
+    startofFiscalYear?: Moment | null;
+    parentAccountKey?: string | null;
+    totalAnnualBudgetDebitSys?: number | null;
+    budgetBalanceDebitSys?: number | null;
+    budgetBalanceDebitLoc?: number | null;
+    totalAnnualBudgetDebitLoc?: number | null;
+    totalAnnualBudgetCreditSys?: number | null;
+    totalAnnualBudgetCreditLoc?: number | null;
+    budgetBalanceCreditSys?: number | null;
+    budgetBalanceCreditLoc?: number | null;
+    divisionCode?: number | null;
+    accountCode?: string | null;
+    numerator?: number | null;
+    budgetScenario?: number | null;
+    budgetLines?: BudgetLine[] | null;
+    budgetCostAccountingLines?: BudgetCostAccountingLine[] | null;
     budgetDistribution: BudgetDistributionsType;
     budgetScenario2: BudgetScenariosType;
 }
@@ -357,12 +323,12 @@ export declare namespace Budgets {
      * Static representation of the [[budgetLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const BUDGET_LINES: CollectionField<Budgets>;
+    const BUDGET_LINES: CollectionField<Budgets, BudgetLine>;
     /**
      * Static representation of the [[budgetCostAccountingLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const BUDGET_COST_ACCOUNTING_LINES: CollectionField<Budgets>;
+    const BUDGET_COST_ACCOUNTING_LINES: CollectionField<Budgets, BudgetCostAccountingLine>;
     /**
      * Static representation of the one-to-one navigation property [[budgetDistribution]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -376,7 +342,7 @@ export declare namespace Budgets {
     /**
      * All fields of the Budgets entity.
      */
-    const _allFields: Array<NumberField<Budgets> | DateField<Budgets> | StringField<Budgets> | CollectionField<Budgets> | OneToOneLink<Budgets, BudgetDistributions> | OneToOneLink<Budgets, BudgetScenarios>>;
+    const _allFields: Array<NumberField<Budgets> | DateField<Budgets> | StringField<Budgets> | CollectionField<Budgets, BudgetLine> | CollectionField<Budgets, BudgetCostAccountingLine> | OneToOneLink<Budgets, BudgetDistributions> | OneToOneLink<Budgets, BudgetScenarios>>;
     /**
      * All fields selector.
      */

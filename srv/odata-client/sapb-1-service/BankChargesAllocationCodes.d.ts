@@ -1,18 +1,13 @@
 import { BankChargesAllocationCodesRequestBuilder } from './BankChargesAllocationCodesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "BankChargesAllocationCodes" of service "SAPB1".
  */
-export declare class BankChargesAllocationCodes extends Entity implements BankChargesAllocationCodesType {
+export declare class BankChargesAllocationCodes extends EntityV4 implements BankChargesAllocationCodesType {
     /**
      * Technical entity name for BankChargesAllocationCodes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BankChargesAllocationCodes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -36,10 +31,10 @@ export declare class BankChargesAllocationCodes extends Entity implements BankCh
      */
     paymentRunExport: PaymentRunExport[];
     /**
-     * Returns an entity builder to construct instances `BankChargesAllocationCodes`.
+     * Returns an entity builder to construct instances of `BankChargesAllocationCodes`.
      * @returns A builder that constructs instances of entity type `BankChargesAllocationCodes`.
      */
-    static builder(): EntityBuilderType<BankChargesAllocationCodes, BankChargesAllocationCodesTypeForceMandatory>;
+    static builder(): EntityBuilderType<BankChargesAllocationCodes, BankChargesAllocationCodesType>;
     /**
      * Returns a request builder to construct requests for operations on the `BankChargesAllocationCodes` entity type.
      * @returns A `BankChargesAllocationCodes` request builder.
@@ -50,7 +45,7 @@ export declare class BankChargesAllocationCodes extends Entity implements BankCh
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `BankChargesAllocationCodes`.
      */
-    static customField(fieldName: string): CustomField<BankChargesAllocationCodes>;
+    static customField(fieldName: string): CustomFieldV4<BankChargesAllocationCodes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -62,14 +57,8 @@ export declare class BankChargesAllocationCodes extends Entity implements BankCh
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 import { PaymentRunExport, PaymentRunExportType } from './PaymentRunExport';
 export interface BankChargesAllocationCodesType {
-    code?: string;
-    description?: string;
-    businessPartners: BusinessPartnersType[];
-    paymentRunExport: PaymentRunExportType[];
-}
-export interface BankChargesAllocationCodesTypeForceMandatory {
-    code: string;
-    description: string;
+    code?: string | null;
+    description?: string | null;
     businessPartners: BusinessPartnersType[];
     paymentRunExport: PaymentRunExportType[];
 }

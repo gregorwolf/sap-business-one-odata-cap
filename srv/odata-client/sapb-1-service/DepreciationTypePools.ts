@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { DepreciationTypePoolsRequestBuilder } from './DepreciationTypePoolsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "DepreciationTypePools" of service "SAPB1".
  */
-export class DepreciationTypePools extends Entity implements DepreciationTypePoolsType {
+export class DepreciationTypePools extends EntityV4 implements DepreciationTypePoolsType {
   /**
    * Technical entity name for DepreciationTypePools.
    */
   static _entityName = 'DepreciationTypePools';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for DepreciationTypePools.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -39,11 +34,11 @@ export class DepreciationTypePools extends Entity implements DepreciationTypePoo
   depreciationTypes!: DepreciationTypes[];
 
   /**
-   * Returns an entity builder to construct instances `DepreciationTypePools`.
+   * Returns an entity builder to construct instances of `DepreciationTypePools`.
    * @returns A builder that constructs instances of entity type `DepreciationTypePools`.
    */
-  static builder(): EntityBuilderType<DepreciationTypePools, DepreciationTypePoolsTypeForceMandatory> {
-    return Entity.entityBuilder(DepreciationTypePools);
+  static builder(): EntityBuilderType<DepreciationTypePools, DepreciationTypePoolsType> {
+    return EntityV4.entityBuilder(DepreciationTypePools);
   }
 
   /**
@@ -59,8 +54,8 @@ export class DepreciationTypePools extends Entity implements DepreciationTypePoo
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `DepreciationTypePools`.
    */
-  static customField(fieldName: string): CustomField<DepreciationTypePools> {
-    return Entity.customFieldSelector(fieldName, DepreciationTypePools);
+  static customField(fieldName: string): CustomFieldV4<DepreciationTypePools> {
+    return EntityV4.customFieldSelector(fieldName, DepreciationTypePools);
   }
 
   /**
@@ -75,14 +70,8 @@ export class DepreciationTypePools extends Entity implements DepreciationTypePoo
 import { DepreciationTypes, DepreciationTypesType } from './DepreciationTypes';
 
 export interface DepreciationTypePoolsType {
-  code?: string;
-  description?: string;
-  depreciationTypes: DepreciationTypesType[];
-}
-
-export interface DepreciationTypePoolsTypeForceMandatory {
-  code: string;
-  description: string;
+  code?: string | null;
+  description?: string | null;
   depreciationTypes: DepreciationTypesType[];
 }
 

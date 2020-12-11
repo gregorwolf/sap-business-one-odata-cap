@@ -3,8 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { UoMPrice, UoMPriceField } from './UoMPrice';
-import { CollectionField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { UoMPrice } from './UoMPrice';
+import { CollectionField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ItemPrice
@@ -59,7 +59,7 @@ export interface ItemPrice {
    * Uo M Prices.
    * @nullable
    */
-  uoMPrices?: UoMPrice;
+  uoMPrices?: UoMPrice[];
 }
 
 /**
@@ -73,7 +73,7 @@ export function createItemPrice(json: any): ItemPrice {
  * ItemPriceField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ItemPriceField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ItemPriceField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ItemPrice> {
   /**
    * Representation of the [[ItemPrice.priceList]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -123,22 +123,79 @@ export class ItemPriceField<EntityT extends Entity> extends ComplexTypeField<Ent
    * Representation of the [[ItemPrice.uoMPrices]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  uoMPrices: UoMPriceField<EntityT> = new UoMPriceField('UoMPrices', this);
+  uoMPrices: CollectionField<EntityT, UoMPrice> = new CollectionField('UoMPrices', this, UoMPrice);
+
+  /**
+   * Creates an instance of ItemPriceField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ItemPrice);
+  }
 }
 
 export namespace ItemPrice {
+  /**
+   * Metadata information on all properties of the `ItemPrice` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ItemPrice>[] = [{
+    originalName: 'PriceList',
+    name: 'priceList',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Price',
+    name: 'price',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Currency',
+    name: 'currency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalPrice1',
+    name: 'additionalPrice1',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalCurrency1',
+    name: 'additionalCurrency1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalPrice2',
+    name: 'additionalPrice2',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalCurrency2',
+    name: 'additionalCurrency2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BasePriceList',
+    name: 'basePriceList',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Factor',
+    name: 'factor',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'UoMPrices',
+    name: 'uoMPrices',
+    type: UoMPrice,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | UoMPrice }): ItemPrice {
-    return createComplexType(json, {
-      PriceList: (priceList: number) => ({ priceList: edmToTs(priceList, 'Edm.Int32') }),
-      Price: (price: number) => ({ price: edmToTs(price, 'Edm.Double') }),
-      Currency: (currency: string) => ({ currency: edmToTs(currency, 'Edm.String') }),
-      AdditionalPrice1: (additionalPrice1: number) => ({ additionalPrice1: edmToTs(additionalPrice1, 'Edm.Double') }),
-      AdditionalCurrency1: (additionalCurrency1: string) => ({ additionalCurrency1: edmToTs(additionalCurrency1, 'Edm.String') }),
-      AdditionalPrice2: (additionalPrice2: number) => ({ additionalPrice2: edmToTs(additionalPrice2, 'Edm.Double') }),
-      AdditionalCurrency2: (additionalCurrency2: string) => ({ additionalCurrency2: edmToTs(additionalCurrency2, 'Edm.String') }),
-      BasePriceList: (basePriceList: number) => ({ basePriceList: edmToTs(basePriceList, 'Edm.Int32') }),
-      Factor: (factor: number) => ({ factor: edmToTs(factor, 'Edm.Double') }),
-      UoMPrices: (uoMPrices: UoMPrice) => ({ uoMPrices: UoMPrice.build(uoMPrices) })
-    });
+    return deserializeComplexTypeV4(json, ItemPrice);
   }
 }

@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ReconciliationAccountTypeEnum } from './ReconciliationAccountTypeEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * ExternalReconciliationFilterParams
  */
@@ -34,6 +35,11 @@ export interface ExternalReconciliationFilterParams {
      * @nullable
      */
     reconciliationNoTo?: number;
+    /**
+     * Reconciliation Account Type.
+     * @nullable
+     */
+    reconciliationAccountType?: ReconciliationAccountTypeEnum;
 }
 /**
  * @deprecated Since v1.6.0. Use [[ExternalReconciliationFilterParams.build]] instead.
@@ -43,7 +49,7 @@ export declare function createExternalReconciliationFilterParams(json: any): Ext
  * ExternalReconciliationFilterParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class ExternalReconciliationFilterParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class ExternalReconciliationFilterParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ExternalReconciliationFilterParams> {
     /**
      * Representation of the [[ExternalReconciliationFilterParams.accountCodeFrom]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -74,8 +80,27 @@ export declare class ExternalReconciliationFilterParamsField<EntityT extends Ent
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     reconciliationNoTo: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[ExternalReconciliationFilterParams.reconciliationAccountType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    reconciliationAccountType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Creates an instance of ExternalReconciliationFilterParamsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace ExternalReconciliationFilterParams {
+    /**
+     * Metadata information on all properties of the `ExternalReconciliationFilterParams` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<ExternalReconciliationFilterParams>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): ExternalReconciliationFilterParams;

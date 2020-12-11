@@ -4,7 +4,9 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { PeriodStatusEnum } from './PeriodStatusEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * FinancePeriod
@@ -56,6 +58,21 @@ export interface FinancePeriod {
    */
   taxDateTo?: Moment;
   /**
+   * Activefor Feed.
+   * @nullable
+   */
+  activeforFeed?: BoYesNoEnum;
+  /**
+   * Locked.
+   * @nullable
+   */
+  locked?: BoYesNoEnum;
+  /**
+   * Additional Sub Periods.
+   * @nullable
+   */
+  additionalSubPeriods?: BoYesNoEnum;
+  /**
    * Period Indicator.
    * @nullable
    */
@@ -65,6 +82,11 @@ export interface FinancePeriod {
    * @nullable
    */
   subNum?: number;
+  /**
+   * Period Status.
+   * @nullable
+   */
+  periodStatus?: PeriodStatusEnum;
 }
 
 /**
@@ -78,7 +100,7 @@ export function createFinancePeriod(json: any): FinancePeriod {
  * FinancePeriodField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class FinancePeriodField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class FinancePeriodField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, FinancePeriod> {
   /**
    * Representation of the [[FinancePeriod.absoluteEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -125,6 +147,21 @@ export class FinancePeriodField<EntityT extends Entity> extends ComplexTypeField
    */
   taxDateTo: ComplexTypeDatePropertyField<EntityT> = new ComplexTypeDatePropertyField('TaxDateTo', this, 'Edm.DateTimeOffset');
   /**
+   * Representation of the [[FinancePeriod.activeforFeed]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  activeforFeed: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ActiveforFeed', this);
+  /**
+   * Representation of the [[FinancePeriod.locked]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  locked: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Locked', this);
+  /**
+   * Representation of the [[FinancePeriod.additionalSubPeriods]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  additionalSubPeriods: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AdditionalSubPeriods', this);
+  /**
    * Representation of the [[FinancePeriod.periodIndicator]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -134,22 +171,108 @@ export class FinancePeriodField<EntityT extends Entity> extends ComplexTypeField
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   subNum: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('SubNum', this, 'Edm.Int32');
+  /**
+   * Representation of the [[FinancePeriod.periodStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  periodStatus: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('PeriodStatus', this);
+
+  /**
+   * Creates an instance of FinancePeriodField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, FinancePeriod);
+  }
 }
 
 export namespace FinancePeriod {
+  /**
+   * Metadata information on all properties of the `FinancePeriod` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<FinancePeriod>[] = [{
+    originalName: 'AbsoluteEntry',
+    name: 'absoluteEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PeriodCode',
+    name: 'periodCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PeriodName',
+    name: 'periodName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PostingDateFrom',
+    name: 'postingDateFrom',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'PostingDateTo',
+    name: 'postingDateTo',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ValueDateFrom',
+    name: 'valueDateFrom',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ValueDateTo',
+    name: 'valueDateTo',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'TaxDateFrom',
+    name: 'taxDateFrom',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'TaxDateTo',
+    name: 'taxDateTo',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ActiveforFeed',
+    name: 'activeforFeed',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Locked',
+    name: 'locked',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalSubPeriods',
+    name: 'additionalSubPeriods',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'PeriodIndicator',
+    name: 'periodIndicator',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SubNum',
+    name: 'subNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PeriodStatus',
+    name: 'periodStatus',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): FinancePeriod {
-    return createComplexType(json, {
-      AbsoluteEntry: (absoluteEntry: number) => ({ absoluteEntry: edmToTs(absoluteEntry, 'Edm.Int32') }),
-      PeriodCode: (periodCode: string) => ({ periodCode: edmToTs(periodCode, 'Edm.String') }),
-      PeriodName: (periodName: string) => ({ periodName: edmToTs(periodName, 'Edm.String') }),
-      PostingDateFrom: (postingDateFrom: Moment) => ({ postingDateFrom: edmToTs(postingDateFrom, 'Edm.DateTimeOffset') }),
-      PostingDateTo: (postingDateTo: Moment) => ({ postingDateTo: edmToTs(postingDateTo, 'Edm.DateTimeOffset') }),
-      ValueDateFrom: (valueDateFrom: Moment) => ({ valueDateFrom: edmToTs(valueDateFrom, 'Edm.DateTimeOffset') }),
-      ValueDateTo: (valueDateTo: Moment) => ({ valueDateTo: edmToTs(valueDateTo, 'Edm.DateTimeOffset') }),
-      TaxDateFrom: (taxDateFrom: Moment) => ({ taxDateFrom: edmToTs(taxDateFrom, 'Edm.DateTimeOffset') }),
-      TaxDateTo: (taxDateTo: Moment) => ({ taxDateTo: edmToTs(taxDateTo, 'Edm.DateTimeOffset') }),
-      PeriodIndicator: (periodIndicator: string) => ({ periodIndicator: edmToTs(periodIndicator, 'Edm.String') }),
-      SubNum: (subNum: number) => ({ subNum: edmToTs(subNum, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, FinancePeriod);
   }
 }

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { LandedCosts } from './LandedCosts';
 
 /**
@@ -15,16 +15,16 @@ export class LandedCostsRequestBuilder extends RequestBuilder<LandedCosts> {
    * @param docEntry Key property. See [[LandedCosts.docEntry]].
    * @returns A request builder for creating requests to retrieve one `LandedCosts` entity based on its keys.
    */
-  getByKey(docEntry: number): GetByKeyRequestBuilder<LandedCosts> {
-    return new GetByKeyRequestBuilder(LandedCosts, { DocEntry: docEntry });
+  getByKey(docEntry: number): GetByKeyRequestBuilderV4<LandedCosts> {
+    return new GetByKeyRequestBuilderV4(LandedCosts, { DocEntry: docEntry });
   }
 
   /**
    * Returns a request builder for querying all `LandedCosts` entities.
    * @returns A request builder for creating requests to retrieve all `LandedCosts` entities.
    */
-  getAll(): GetAllRequestBuilder<LandedCosts> {
-    return new GetAllRequestBuilder(LandedCosts);
+  getAll(): GetAllRequestBuilderV4<LandedCosts> {
+    return new GetAllRequestBuilderV4(LandedCosts);
   }
 
   /**
@@ -32,8 +32,8 @@ export class LandedCostsRequestBuilder extends RequestBuilder<LandedCosts> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `LandedCosts`.
    */
-  create(entity: LandedCosts): CreateRequestBuilder<LandedCosts> {
-    return new CreateRequestBuilder(LandedCosts, entity);
+  create(entity: LandedCosts): CreateRequestBuilderV4<LandedCosts> {
+    return new CreateRequestBuilderV4(LandedCosts, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class LandedCostsRequestBuilder extends RequestBuilder<LandedCosts> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `LandedCosts`.
    */
-  update(entity: LandedCosts): UpdateRequestBuilder<LandedCosts> {
-    return new UpdateRequestBuilder(LandedCosts, entity);
+  update(entity: LandedCosts): UpdateRequestBuilderV4<LandedCosts> {
+    return new UpdateRequestBuilderV4(LandedCosts, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class LandedCostsRequestBuilder extends RequestBuilder<LandedCosts> {
    * @param docEntry Key property. See [[LandedCosts.docEntry]].
    * @returns A request builder for creating requests that delete an entity of type `LandedCosts`.
    */
-  delete(docEntry: number): DeleteRequestBuilder<LandedCosts>;
+  delete(docEntry: number): DeleteRequestBuilderV4<LandedCosts>;
   /**
    * Returns a request builder for deleting an entity of type `LandedCosts`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `LandedCosts` by taking the entity as a parameter.
    */
-  delete(entity: LandedCosts): DeleteRequestBuilder<LandedCosts>;
-  delete(docEntryOrEntity: any): DeleteRequestBuilder<LandedCosts> {
-    return new DeleteRequestBuilder(LandedCosts, docEntryOrEntity instanceof LandedCosts ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
+  delete(entity: LandedCosts): DeleteRequestBuilderV4<LandedCosts>;
+  delete(docEntryOrEntity: any): DeleteRequestBuilderV4<LandedCosts> {
+    return new DeleteRequestBuilderV4(LandedCosts, docEntryOrEntity instanceof LandedCosts ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
   }
 }

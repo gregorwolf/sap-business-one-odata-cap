@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { UserMenuItemTypeEnum } from './UserMenuItemTypeEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * UserMenuItem
@@ -19,6 +20,11 @@ export interface UserMenuItem {
    * @nullable
    */
   position?: number;
+  /**
+   * Type.
+   * @nullable
+   */
+  type?: UserMenuItemTypeEnum;
   /**
    * Linked Obj Type.
    * @nullable
@@ -57,7 +63,7 @@ export function createUserMenuItem(json: any): UserMenuItem {
  * UserMenuItemField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class UserMenuItemField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class UserMenuItemField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, UserMenuItem> {
   /**
    * Representation of the [[UserMenuItem.name]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -68,6 +74,11 @@ export class UserMenuItemField<EntityT extends Entity> extends ComplexTypeField<
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   position: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('Position', this, 'Edm.Int32');
+  /**
+   * Representation of the [[UserMenuItem.type]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  type: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Type', this);
   /**
    * Representation of the [[UserMenuItem.linkedObjType]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -93,18 +104,68 @@ export class UserMenuItemField<EntityT extends Entity> extends ComplexTypeField<
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   reportPath: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('ReportPath', this, 'Edm.String');
+
+  /**
+   * Creates an instance of UserMenuItemField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, UserMenuItem);
+  }
 }
 
 export namespace UserMenuItem {
+  /**
+   * Metadata information on all properties of the `UserMenuItem` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<UserMenuItem>[] = [{
+    originalName: 'Name',
+    name: 'name',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Position',
+    name: 'position',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Type',
+    name: 'type',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'LinkedObjType',
+    name: 'linkedObjType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LinkedObjKey',
+    name: 'linkedObjKey',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LinkedFormMenuID',
+    name: 'linkedFormMenuId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LinkedFormNum',
+    name: 'linkedFormNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ReportPath',
+    name: 'reportPath',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): UserMenuItem {
-    return createComplexType(json, {
-      Name: (name: string) => ({ name: edmToTs(name, 'Edm.String') }),
-      Position: (position: number) => ({ position: edmToTs(position, 'Edm.Int32') }),
-      LinkedObjType: (linkedObjType: string) => ({ linkedObjType: edmToTs(linkedObjType, 'Edm.String') }),
-      LinkedObjKey: (linkedObjKey: string) => ({ linkedObjKey: edmToTs(linkedObjKey, 'Edm.String') }),
-      LinkedFormMenuID: (linkedFormMenuId: number) => ({ linkedFormMenuId: edmToTs(linkedFormMenuId, 'Edm.Int32') }),
-      LinkedFormNum: (linkedFormNum: number) => ({ linkedFormNum: edmToTs(linkedFormNum, 'Edm.Int32') }),
-      ReportPath: (reportPath: string) => ({ reportPath: edmToTs(reportPath, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, UserMenuItem);
   }
 }

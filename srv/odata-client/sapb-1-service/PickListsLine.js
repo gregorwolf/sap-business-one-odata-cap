@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -22,7 +22,7 @@ exports.PickListsLine = exports.PickListsLineField = exports.createPickListsLine
 var SerialNumber_1 = require("./SerialNumber");
 var BatchNumber_1 = require("./BatchNumber");
 var DocumentLinesBinAllocation_1 = require("./DocumentLinesBinAllocation");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[PickListsLine.build]] instead.
  */
@@ -36,84 +36,150 @@ exports.createPickListsLine = createPickListsLine;
  */
 var PickListsLineField = /** @class */ (function (_super) {
     __extends(PickListsLineField, _super);
-    function PickListsLineField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of PickListsLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function PickListsLineField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, PickListsLine) || this;
         /**
          * Representation of the [[PickListsLine.absoluteEntry]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.absoluteEntry = new v4_1.ComplexTypeNumberPropertyField('AbsoluteEntry', _this, 'Edm.Int32');
+        _this.absoluteEntry = new core_1.ComplexTypeNumberPropertyField('AbsoluteEntry', _this, 'Edm.Int32');
         /**
          * Representation of the [[PickListsLine.lineNumber]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.lineNumber = new v4_1.ComplexTypeNumberPropertyField('LineNumber', _this, 'Edm.Int32');
+        _this.lineNumber = new core_1.ComplexTypeNumberPropertyField('LineNumber', _this, 'Edm.Int32');
         /**
          * Representation of the [[PickListsLine.orderEntry]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.orderEntry = new v4_1.ComplexTypeNumberPropertyField('OrderEntry', _this, 'Edm.Int32');
+        _this.orderEntry = new core_1.ComplexTypeNumberPropertyField('OrderEntry', _this, 'Edm.Int32');
         /**
          * Representation of the [[PickListsLine.orderRowId]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.orderRowId = new v4_1.ComplexTypeNumberPropertyField('OrderRowID', _this, 'Edm.Int32');
+        _this.orderRowId = new core_1.ComplexTypeNumberPropertyField('OrderRowID', _this, 'Edm.Int32');
         /**
          * Representation of the [[PickListsLine.pickedQuantity]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.pickedQuantity = new v4_1.ComplexTypeNumberPropertyField('PickedQuantity', _this, 'Edm.Double');
+        _this.pickedQuantity = new core_1.ComplexTypeNumberPropertyField('PickedQuantity', _this, 'Edm.Double');
+        /**
+         * Representation of the [[PickListsLine.pickStatus]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.pickStatus = new core_1.ComplexTypeEnumPropertyField('PickStatus', _this);
         /**
          * Representation of the [[PickListsLine.releasedQuantity]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.releasedQuantity = new v4_1.ComplexTypeNumberPropertyField('ReleasedQuantity', _this, 'Edm.Double');
+        _this.releasedQuantity = new core_1.ComplexTypeNumberPropertyField('ReleasedQuantity', _this, 'Edm.Double');
         /**
          * Representation of the [[PickListsLine.previouslyReleasedQuantity]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.previouslyReleasedQuantity = new v4_1.ComplexTypeNumberPropertyField('PreviouslyReleasedQuantity', _this, 'Edm.Double');
+        _this.previouslyReleasedQuantity = new core_1.ComplexTypeNumberPropertyField('PreviouslyReleasedQuantity', _this, 'Edm.Double');
         /**
          * Representation of the [[PickListsLine.baseObjectType]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.baseObjectType = new v4_1.ComplexTypeNumberPropertyField('BaseObjectType', _this, 'Edm.Int32');
+        _this.baseObjectType = new core_1.ComplexTypeNumberPropertyField('BaseObjectType', _this, 'Edm.Int32');
         /**
          * Representation of the [[PickListsLine.serialNumbers]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.serialNumbers = new SerialNumber_1.SerialNumberField('SerialNumbers', _this);
+        _this.serialNumbers = new core_1.CollectionField('SerialNumbers', _this, SerialNumber_1.SerialNumber);
         /**
          * Representation of the [[PickListsLine.batchNumbers]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.batchNumbers = new BatchNumber_1.BatchNumberField('BatchNumbers', _this);
+        _this.batchNumbers = new core_1.CollectionField('BatchNumbers', _this, BatchNumber_1.BatchNumber);
         /**
          * Representation of the [[PickListsLine.documentLinesBinAllocations]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.documentLinesBinAllocations = new DocumentLinesBinAllocation_1.DocumentLinesBinAllocationField('DocumentLinesBinAllocations', _this);
+        _this.documentLinesBinAllocations = new core_1.CollectionField('DocumentLinesBinAllocations', _this, DocumentLinesBinAllocation_1.DocumentLinesBinAllocation);
         return _this;
     }
     return PickListsLineField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.PickListsLineField = PickListsLineField;
 var PickListsLine;
 (function (PickListsLine) {
+    /**
+     * Metadata information on all properties of the `PickListsLine` complex type.
+     */
+    PickListsLine._propertyMetadata = [{
+            originalName: 'AbsoluteEntry',
+            name: 'absoluteEntry',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'LineNumber',
+            name: 'lineNumber',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'OrderEntry',
+            name: 'orderEntry',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'OrderRowID',
+            name: 'orderRowId',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'PickedQuantity',
+            name: 'pickedQuantity',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'PickStatus',
+            name: 'pickStatus',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'ReleasedQuantity',
+            name: 'releasedQuantity',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'PreviouslyReleasedQuantity',
+            name: 'previouslyReleasedQuantity',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'BaseObjectType',
+            name: 'baseObjectType',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'SerialNumbers',
+            name: 'serialNumbers',
+            type: SerialNumber_1.SerialNumber,
+            isCollection: true
+        }, {
+            originalName: 'BatchNumbers',
+            name: 'batchNumbers',
+            type: BatchNumber_1.BatchNumber,
+            isCollection: true
+        }, {
+            originalName: 'DocumentLinesBinAllocations',
+            name: 'documentLinesBinAllocations',
+            type: DocumentLinesBinAllocation_1.DocumentLinesBinAllocation,
+            isCollection: true
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            AbsoluteEntry: function (absoluteEntry) { return ({ absoluteEntry: v4_1.edmToTs(absoluteEntry, 'Edm.Int32') }); },
-            LineNumber: function (lineNumber) { return ({ lineNumber: v4_1.edmToTs(lineNumber, 'Edm.Int32') }); },
-            OrderEntry: function (orderEntry) { return ({ orderEntry: v4_1.edmToTs(orderEntry, 'Edm.Int32') }); },
-            OrderRowID: function (orderRowId) { return ({ orderRowId: v4_1.edmToTs(orderRowId, 'Edm.Int32') }); },
-            PickedQuantity: function (pickedQuantity) { return ({ pickedQuantity: v4_1.edmToTs(pickedQuantity, 'Edm.Double') }); },
-            ReleasedQuantity: function (releasedQuantity) { return ({ releasedQuantity: v4_1.edmToTs(releasedQuantity, 'Edm.Double') }); },
-            PreviouslyReleasedQuantity: function (previouslyReleasedQuantity) { return ({ previouslyReleasedQuantity: v4_1.edmToTs(previouslyReleasedQuantity, 'Edm.Double') }); },
-            BaseObjectType: function (baseObjectType) { return ({ baseObjectType: v4_1.edmToTs(baseObjectType, 'Edm.Int32') }); },
-            SerialNumbers: function (serialNumbers) { return ({ serialNumbers: SerialNumber_1.SerialNumber.build(serialNumbers) }); },
-            BatchNumbers: function (batchNumbers) { return ({ batchNumbers: BatchNumber_1.BatchNumber.build(batchNumbers) }); },
-            DocumentLinesBinAllocations: function (documentLinesBinAllocations) { return ({ documentLinesBinAllocations: DocumentLinesBinAllocation_1.DocumentLinesBinAllocation.build(documentLinesBinAllocations) }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, PickListsLine);
     }
     PickListsLine.build = build;
 })(PickListsLine = exports.PickListsLine || (exports.PickListsLine = {}));

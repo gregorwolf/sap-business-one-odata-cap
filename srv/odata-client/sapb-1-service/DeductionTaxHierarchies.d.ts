@@ -1,20 +1,15 @@
 import { DeductionTaxHierarchiesRequestBuilder } from './DeductionTaxHierarchiesRequestBuilder';
 import { Moment } from 'moment';
 import { DeductionTaxHierarchiesLine } from './DeductionTaxHierarchiesLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "DeductionTaxHierarchies" of service "SAPB1".
  */
-export declare class DeductionTaxHierarchies extends Entity implements DeductionTaxHierarchiesType {
+export declare class DeductionTaxHierarchies extends EntityV4 implements DeductionTaxHierarchiesType {
     /**
      * Technical entity name for DeductionTaxHierarchies.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for DeductionTaxHierarchies.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -74,10 +69,10 @@ export declare class DeductionTaxHierarchies extends Entity implements Deduction
      */
     businessPartner: BusinessPartners;
     /**
-     * Returns an entity builder to construct instances `DeductionTaxHierarchies`.
+     * Returns an entity builder to construct instances of `DeductionTaxHierarchies`.
      * @returns A builder that constructs instances of entity type `DeductionTaxHierarchies`.
      */
-    static builder(): EntityBuilderType<DeductionTaxHierarchies, DeductionTaxHierarchiesTypeForceMandatory>;
+    static builder(): EntityBuilderType<DeductionTaxHierarchies, DeductionTaxHierarchiesType>;
     /**
      * Returns a request builder to construct requests for operations on the `DeductionTaxHierarchies` entity type.
      * @returns A `DeductionTaxHierarchies` request builder.
@@ -88,7 +83,7 @@ export declare class DeductionTaxHierarchies extends Entity implements Deduction
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `DeductionTaxHierarchies`.
      */
-    static customField(fieldName: string): CustomField<DeductionTaxHierarchies>;
+    static customField(fieldName: string): CustomFieldV4<DeductionTaxHierarchies>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -99,29 +94,16 @@ export declare class DeductionTaxHierarchies extends Entity implements Deduction
 }
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 export interface DeductionTaxHierarchiesType {
-    absEntry?: number;
-    bpCode?: string;
-    hierarchyCode?: string;
-    hierarchyName?: string;
-    validFrom?: Moment;
-    validUntil?: Moment;
-    deductionPercent?: number;
-    maximumTotal?: number;
-    lastUpdated?: Moment;
-    deductionTaxHierarchiesLines?: DeductionTaxHierarchiesLine[];
-    businessPartner: BusinessPartnersType;
-}
-export interface DeductionTaxHierarchiesTypeForceMandatory {
-    absEntry: number;
-    bpCode: string;
-    hierarchyCode: string;
-    hierarchyName: string;
-    validFrom: Moment;
-    validUntil: Moment;
-    deductionPercent: number;
-    maximumTotal: number;
-    lastUpdated: Moment;
-    deductionTaxHierarchiesLines: DeductionTaxHierarchiesLine[];
+    absEntry?: number | null;
+    bpCode?: string | null;
+    hierarchyCode?: string | null;
+    hierarchyName?: string | null;
+    validFrom?: Moment | null;
+    validUntil?: Moment | null;
+    deductionPercent?: number | null;
+    maximumTotal?: number | null;
+    lastUpdated?: Moment | null;
+    deductionTaxHierarchiesLines?: DeductionTaxHierarchiesLine[] | null;
     businessPartner: BusinessPartnersType;
 }
 export declare namespace DeductionTaxHierarchies {
@@ -174,7 +156,7 @@ export declare namespace DeductionTaxHierarchies {
      * Static representation of the [[deductionTaxHierarchiesLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const DEDUCTION_TAX_HIERARCHIES_LINES: CollectionField<DeductionTaxHierarchies>;
+    const DEDUCTION_TAX_HIERARCHIES_LINES: CollectionField<DeductionTaxHierarchies, DeductionTaxHierarchiesLine>;
     /**
      * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -183,7 +165,7 @@ export declare namespace DeductionTaxHierarchies {
     /**
      * All fields of the DeductionTaxHierarchies entity.
      */
-    const _allFields: Array<NumberField<DeductionTaxHierarchies> | StringField<DeductionTaxHierarchies> | DateField<DeductionTaxHierarchies> | CollectionField<DeductionTaxHierarchies> | OneToOneLink<DeductionTaxHierarchies, BusinessPartners>>;
+    const _allFields: Array<NumberField<DeductionTaxHierarchies> | StringField<DeductionTaxHierarchies> | DateField<DeductionTaxHierarchies> | CollectionField<DeductionTaxHierarchies, DeductionTaxHierarchiesLine> | OneToOneLink<DeductionTaxHierarchies, BusinessPartners>>;
     /**
      * All fields selector.
      */

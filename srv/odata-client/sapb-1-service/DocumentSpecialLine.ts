@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoDocSpecialLineType } from './BoDocSpecialLineType';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * DocumentSpecialLine
@@ -24,6 +25,11 @@ export interface DocumentSpecialLine {
    * @nullable
    */
   orderNumber?: number;
+  /**
+   * Line Type.
+   * @nullable
+   */
+  lineType?: BoDocSpecialLineType;
   /**
    * Subtotal.
    * @nullable
@@ -132,7 +138,7 @@ export function createDocumentSpecialLine(json: any): DocumentSpecialLine {
  * DocumentSpecialLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class DocumentSpecialLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class DocumentSpecialLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, DocumentSpecialLine> {
   /**
    * Representation of the [[DocumentSpecialLine.lineNum]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -148,6 +154,11 @@ export class DocumentSpecialLineField<EntityT extends Entity> extends ComplexTyp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   orderNumber: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('OrderNumber', this, 'Edm.Int32');
+  /**
+   * Representation of the [[DocumentSpecialLine.lineType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  lineType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('LineType', this);
   /**
    * Representation of the [[DocumentSpecialLine.subtotal]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -243,33 +254,143 @@ export class DocumentSpecialLineField<EntityT extends Entity> extends ComplexTyp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   grossTotalSc: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('GrossTotalSC', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of DocumentSpecialLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, DocumentSpecialLine);
+  }
 }
 
 export namespace DocumentSpecialLine {
+  /**
+   * Metadata information on all properties of the `DocumentSpecialLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<DocumentSpecialLine>[] = [{
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AfterLineNumber',
+    name: 'afterLineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'OrderNumber',
+    name: 'orderNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineType',
+    name: 'lineType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Subtotal',
+    name: 'subtotal',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'LineText',
+    name: 'lineText',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SubtotalFC',
+    name: 'subtotalFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SubtotalSC',
+    name: 'subtotalSc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxAmount',
+    name: 'taxAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxAmountFC',
+    name: 'taxAmountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxAmountSC',
+    name: 'taxAmountSc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Freight1',
+    name: 'freight1',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Freight1FC',
+    name: 'freight1Fc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Freight1SC',
+    name: 'freight1Sc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Freight2',
+    name: 'freight2',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Freight2FC',
+    name: 'freight2Fc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Freight2SC',
+    name: 'freight2Sc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Freight3',
+    name: 'freight3',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Freight3FC',
+    name: 'freight3Fc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Freight3SC',
+    name: 'freight3Sc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'GrossTotal',
+    name: 'grossTotal',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'GrossTotalFC',
+    name: 'grossTotalFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'GrossTotalSC',
+    name: 'grossTotalSc',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): DocumentSpecialLine {
-    return createComplexType(json, {
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      AfterLineNumber: (afterLineNumber: number) => ({ afterLineNumber: edmToTs(afterLineNumber, 'Edm.Int32') }),
-      OrderNumber: (orderNumber: number) => ({ orderNumber: edmToTs(orderNumber, 'Edm.Int32') }),
-      Subtotal: (subtotal: number) => ({ subtotal: edmToTs(subtotal, 'Edm.Double') }),
-      LineText: (lineText: string) => ({ lineText: edmToTs(lineText, 'Edm.String') }),
-      SubtotalFC: (subtotalFc: number) => ({ subtotalFc: edmToTs(subtotalFc, 'Edm.Double') }),
-      SubtotalSC: (subtotalSc: number) => ({ subtotalSc: edmToTs(subtotalSc, 'Edm.Double') }),
-      TaxAmount: (taxAmount: number) => ({ taxAmount: edmToTs(taxAmount, 'Edm.Double') }),
-      TaxAmountFC: (taxAmountFc: number) => ({ taxAmountFc: edmToTs(taxAmountFc, 'Edm.Double') }),
-      TaxAmountSC: (taxAmountSc: number) => ({ taxAmountSc: edmToTs(taxAmountSc, 'Edm.Double') }),
-      Freight1: (freight1: number) => ({ freight1: edmToTs(freight1, 'Edm.Double') }),
-      Freight1FC: (freight1Fc: number) => ({ freight1Fc: edmToTs(freight1Fc, 'Edm.Double') }),
-      Freight1SC: (freight1Sc: number) => ({ freight1Sc: edmToTs(freight1Sc, 'Edm.Double') }),
-      Freight2: (freight2: number) => ({ freight2: edmToTs(freight2, 'Edm.Double') }),
-      Freight2FC: (freight2Fc: number) => ({ freight2Fc: edmToTs(freight2Fc, 'Edm.Double') }),
-      Freight2SC: (freight2Sc: number) => ({ freight2Sc: edmToTs(freight2Sc, 'Edm.Double') }),
-      Freight3: (freight3: number) => ({ freight3: edmToTs(freight3, 'Edm.Double') }),
-      Freight3FC: (freight3Fc: number) => ({ freight3Fc: edmToTs(freight3Fc, 'Edm.Double') }),
-      Freight3SC: (freight3Sc: number) => ({ freight3Sc: edmToTs(freight3Sc, 'Edm.Double') }),
-      GrossTotal: (grossTotal: number) => ({ grossTotal: edmToTs(grossTotal, 'Edm.Double') }),
-      GrossTotalFC: (grossTotalFc: number) => ({ grossTotalFc: edmToTs(grossTotalFc, 'Edm.Double') }),
-      GrossTotalSC: (grossTotalSc: number) => ({ grossTotalSc: edmToTs(grossTotalSc, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, DocumentSpecialLine);
   }
 }

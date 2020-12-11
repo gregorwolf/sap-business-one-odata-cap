@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.BatchNumberDetails = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var BatchNumberDetailsRequestBuilder_1 = require("./BatchNumberDetailsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "BatchNumberDetails" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var BatchNumberDetails = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `BatchNumberDetails`.
+     * Returns an entity builder to construct instances of `BatchNumberDetails`.
      * @returns A builder that constructs instances of entity type `BatchNumberDetails`.
      */
     BatchNumberDetails.builder = function () {
-        return v4_1.Entity.entityBuilder(BatchNumberDetails);
+        return core_1.EntityV4.entityBuilder(BatchNumberDetails);
     };
     /**
      * Returns a request builder to construct requests for operations on the `BatchNumberDetails` entity type.
@@ -60,7 +60,7 @@ var BatchNumberDetails = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `BatchNumberDetails`.
      */
     BatchNumberDetails.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, BatchNumberDetails);
+        return core_1.EntityV4.customFieldSelector(fieldName, BatchNumberDetails);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var BatchNumberDetails = /** @class */ (function (_super) {
      */
     BatchNumberDetails._entityName = 'BatchNumberDetails';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BatchNumberDetails.
-     */
-    BatchNumberDetails._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    BatchNumberDetails._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    BatchNumberDetails._defaultServicePath = '/b1s/v2/';
     return BatchNumberDetails;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.BatchNumberDetails = BatchNumberDetails;
 var Items_1 = require("./Items");
 (function (BatchNumberDetails) {
@@ -91,62 +86,67 @@ var Items_1 = require("./Items");
      * Static representation of the [[docEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BatchNumberDetails.DOC_ENTRY = new v4_1.NumberField('DocEntry', BatchNumberDetails, 'Edm.Int32');
+    BatchNumberDetails.DOC_ENTRY = new core_1.NumberField('DocEntry', BatchNumberDetails, 'Edm.Int32');
     /**
      * Static representation of the [[itemCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BatchNumberDetails.ITEM_CODE = new v4_1.StringField('ItemCode', BatchNumberDetails, 'Edm.String');
+    BatchNumberDetails.ITEM_CODE = new core_1.StringField('ItemCode', BatchNumberDetails, 'Edm.String');
     /**
      * Static representation of the [[itemDescription]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BatchNumberDetails.ITEM_DESCRIPTION = new v4_1.StringField('ItemDescription', BatchNumberDetails, 'Edm.String');
+    BatchNumberDetails.ITEM_DESCRIPTION = new core_1.StringField('ItemDescription', BatchNumberDetails, 'Edm.String');
+    /**
+     * Static representation of the [[status]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    BatchNumberDetails.STATUS = new core_1.EnumField('Status', BatchNumberDetails);
     /**
      * Static representation of the [[batch]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BatchNumberDetails.BATCH = new v4_1.StringField('Batch', BatchNumberDetails, 'Edm.String');
+    BatchNumberDetails.BATCH = new core_1.StringField('Batch', BatchNumberDetails, 'Edm.String');
     /**
      * Static representation of the [[batchAttribute1]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BatchNumberDetails.BATCH_ATTRIBUTE_1 = new v4_1.StringField('BatchAttribute1', BatchNumberDetails, 'Edm.String');
+    BatchNumberDetails.BATCH_ATTRIBUTE_1 = new core_1.StringField('BatchAttribute1', BatchNumberDetails, 'Edm.String');
     /**
      * Static representation of the [[batchAttribute2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BatchNumberDetails.BATCH_ATTRIBUTE_2 = new v4_1.StringField('BatchAttribute2', BatchNumberDetails, 'Edm.String');
+    BatchNumberDetails.BATCH_ATTRIBUTE_2 = new core_1.StringField('BatchAttribute2', BatchNumberDetails, 'Edm.String');
     /**
      * Static representation of the [[admissionDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BatchNumberDetails.ADMISSION_DATE = new v4_1.DateField('AdmissionDate', BatchNumberDetails, 'Edm.DateTimeOffset');
+    BatchNumberDetails.ADMISSION_DATE = new core_1.DateField('AdmissionDate', BatchNumberDetails, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[manufacturingDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BatchNumberDetails.MANUFACTURING_DATE = new v4_1.DateField('ManufacturingDate', BatchNumberDetails, 'Edm.DateTimeOffset');
+    BatchNumberDetails.MANUFACTURING_DATE = new core_1.DateField('ManufacturingDate', BatchNumberDetails, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[expirationDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BatchNumberDetails.EXPIRATION_DATE = new v4_1.DateField('ExpirationDate', BatchNumberDetails, 'Edm.DateTimeOffset');
+    BatchNumberDetails.EXPIRATION_DATE = new core_1.DateField('ExpirationDate', BatchNumberDetails, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[details]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BatchNumberDetails.DETAILS = new v4_1.StringField('Details', BatchNumberDetails, 'Edm.String');
+    BatchNumberDetails.DETAILS = new core_1.StringField('Details', BatchNumberDetails, 'Edm.String');
     /**
      * Static representation of the [[systemNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BatchNumberDetails.SYSTEM_NUMBER = new v4_1.NumberField('SystemNumber', BatchNumberDetails, 'Edm.Int32');
+    BatchNumberDetails.SYSTEM_NUMBER = new core_1.NumberField('SystemNumber', BatchNumberDetails, 'Edm.Int32');
     /**
      * Static representation of the one-to-one navigation property [[item]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BatchNumberDetails.ITEM = new v4_1.OneToOneLink('Item', BatchNumberDetails, Items_1.Items);
+    BatchNumberDetails.ITEM = new core_1.OneToOneLink('Item', BatchNumberDetails, Items_1.Items);
     /**
      * All fields of the BatchNumberDetails entity.
      */
@@ -154,6 +154,7 @@ var Items_1 = require("./Items");
         BatchNumberDetails.DOC_ENTRY,
         BatchNumberDetails.ITEM_CODE,
         BatchNumberDetails.ITEM_DESCRIPTION,
+        BatchNumberDetails.STATUS,
         BatchNumberDetails.BATCH,
         BatchNumberDetails.BATCH_ATTRIBUTE_1,
         BatchNumberDetails.BATCH_ATTRIBUTE_2,
@@ -167,7 +168,7 @@ var Items_1 = require("./Items");
     /**
      * All fields selector.
      */
-    BatchNumberDetails.ALL_FIELDS = new v4_1.AllFields('*', BatchNumberDetails);
+    BatchNumberDetails.ALL_FIELDS = new core_1.AllFields('*', BatchNumberDetails);
     /**
      * All key fields of the BatchNumberDetails entity.
      */

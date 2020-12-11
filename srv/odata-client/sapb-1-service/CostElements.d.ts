@@ -1,18 +1,14 @@
 import { CostElementsRequestBuilder } from './CostElementsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "CostElements" of service "SAPB1".
  */
-export declare class CostElements extends Entity implements CostElementsType {
+export declare class CostElements extends EntityV4 implements CostElementsType {
     /**
      * Technical entity name for CostElements.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for CostElements.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -28,14 +24,19 @@ export declare class CostElements extends Entity implements CostElementsType {
      */
     description?: string;
     /**
+     * Is Active.
+     * @nullable
+     */
+    isActive?: BoYesNoEnum;
+    /**
      * One-to-many navigation property to the [[ChartOfAccounts]] entity.
      */
     chartOfAccounts: ChartOfAccounts[];
     /**
-     * Returns an entity builder to construct instances `CostElements`.
+     * Returns an entity builder to construct instances of `CostElements`.
      * @returns A builder that constructs instances of entity type `CostElements`.
      */
-    static builder(): EntityBuilderType<CostElements, CostElementsTypeForceMandatory>;
+    static builder(): EntityBuilderType<CostElements, CostElementsType>;
     /**
      * Returns a request builder to construct requests for operations on the `CostElements` entity type.
      * @returns A `CostElements` request builder.
@@ -46,7 +47,7 @@ export declare class CostElements extends Entity implements CostElementsType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `CostElements`.
      */
-    static customField(fieldName: string): CustomField<CostElements>;
+    static customField(fieldName: string): CustomFieldV4<CostElements>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -57,13 +58,9 @@ export declare class CostElements extends Entity implements CostElementsType {
 }
 import { ChartOfAccounts, ChartOfAccountsType } from './ChartOfAccounts';
 export interface CostElementsType {
-    code?: string;
-    description?: string;
-    chartOfAccounts: ChartOfAccountsType[];
-}
-export interface CostElementsTypeForceMandatory {
-    code: string;
-    description: string;
+    code?: string | null;
+    description?: string | null;
+    isActive?: BoYesNoEnum | null;
     chartOfAccounts: ChartOfAccountsType[];
 }
 export declare namespace CostElements {
@@ -78,6 +75,11 @@ export declare namespace CostElements {
      */
     const DESCRIPTION: StringField<CostElements>;
     /**
+     * Static representation of the [[isActive]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IS_ACTIVE: EnumField<CostElements>;
+    /**
      * Static representation of the one-to-many navigation property [[chartOfAccounts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -85,7 +87,7 @@ export declare namespace CostElements {
     /**
      * All fields of the CostElements entity.
      */
-    const _allFields: Array<StringField<CostElements> | OneToManyLink<CostElements, ChartOfAccounts>>;
+    const _allFields: Array<StringField<CostElements> | EnumField<CostElements> | OneToManyLink<CostElements, ChartOfAccounts>>;
     /**
      * All fields selector.
      */

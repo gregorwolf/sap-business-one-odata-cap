@@ -1,4 +1,5 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoAddressType } from './BoAddressType';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * BpFiscalTaxId
  */
@@ -79,6 +80,11 @@ export interface BpFiscalTaxId {
      */
     bpCode?: string;
     /**
+     * Addr Type.
+     * @nullable
+     */
+    addrType?: BoAddressType;
+    /**
      * Tax Id 12.
      * @nullable
      */
@@ -97,7 +103,7 @@ export declare function createBpFiscalTaxId(json: any): BpFiscalTaxId;
  * BpFiscalTaxIdField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class BpFiscalTaxIdField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class BpFiscalTaxIdField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BpFiscalTaxId> {
     /**
      * Representation of the [[BpFiscalTaxId.address]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -174,6 +180,11 @@ export declare class BpFiscalTaxIdField<EntityT extends Entity> extends ComplexT
      */
     bpCode: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[BpFiscalTaxId.addrType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    addrType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[BpFiscalTaxId.taxId12]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -183,8 +194,22 @@ export declare class BpFiscalTaxIdField<EntityT extends Entity> extends ComplexT
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     taxId13: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Creates an instance of BpFiscalTaxIdField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace BpFiscalTaxId {
+    /**
+     * Metadata information on all properties of the `BpFiscalTaxId` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<BpFiscalTaxId>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): BpFiscalTaxId;

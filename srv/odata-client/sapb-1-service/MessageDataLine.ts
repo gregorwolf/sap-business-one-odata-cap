@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * MessageDataLine
@@ -37,7 +37,7 @@ export function createMessageDataLine(json: any): MessageDataLine {
  * MessageDataLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class MessageDataLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class MessageDataLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, MessageDataLine> {
   /**
    * Representation of the [[MessageDataLine.value]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -53,14 +53,43 @@ export class MessageDataLineField<EntityT extends Entity> extends ComplexTypeFie
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   objectKey: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('ObjectKey', this, 'Edm.String');
+
+  /**
+   * Creates an instance of MessageDataLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, MessageDataLine);
+  }
 }
 
 export namespace MessageDataLine {
+  /**
+   * Metadata information on all properties of the `MessageDataLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<MessageDataLine>[] = [{
+    originalName: 'Value',
+    name: 'value',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Object',
+    name: 'object',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ObjectKey',
+    name: 'objectKey',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): MessageDataLine {
-    return createComplexType(json, {
-      Value: (value: string) => ({ value: edmToTs(value, 'Edm.String') }),
-      Object: (object: string) => ({ object: edmToTs(object, 'Edm.String') }),
-      ObjectKey: (objectKey: string) => ({ objectKey: edmToTs(objectKey, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, MessageDataLine);
   }
 }

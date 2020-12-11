@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.ResourceCapacities = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var ResourceCapacitiesRequestBuilder_1 = require("./ResourceCapacitiesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "ResourceCapacities" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var ResourceCapacities = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `ResourceCapacities`.
+     * Returns an entity builder to construct instances of `ResourceCapacities`.
      * @returns A builder that constructs instances of entity type `ResourceCapacities`.
      */
     ResourceCapacities.builder = function () {
-        return v4_1.Entity.entityBuilder(ResourceCapacities);
+        return core_1.EntityV4.entityBuilder(ResourceCapacities);
     };
     /**
      * Returns a request builder to construct requests for operations on the `ResourceCapacities` entity type.
@@ -60,7 +60,7 @@ var ResourceCapacities = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `ResourceCapacities`.
      */
     ResourceCapacities.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, ResourceCapacities);
+        return core_1.EntityV4.customFieldSelector(fieldName, ResourceCapacities);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var ResourceCapacities = /** @class */ (function (_super) {
      */
     ResourceCapacities._entityName = 'ResourceCapacities';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ResourceCapacities.
-     */
-    ResourceCapacities._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    ResourceCapacities._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    ResourceCapacities._defaultServicePath = '/b1s/v2/';
     return ResourceCapacities;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.ResourceCapacities = ResourceCapacities;
 var Resources_1 = require("./Resources");
 var Warehouses_1 = require("./Warehouses");
@@ -92,92 +87,132 @@ var Warehouses_1 = require("./Warehouses");
      * Static representation of the [[id]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.ID = new v4_1.NumberField('Id', ResourceCapacities, 'Edm.Int32');
+    ResourceCapacities.ID = new core_1.NumberField('Id', ResourceCapacities, 'Edm.Int32');
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.CODE = new v4_1.StringField('Code', ResourceCapacities, 'Edm.String');
+    ResourceCapacities.CODE = new core_1.StringField('Code', ResourceCapacities, 'Edm.String');
     /**
      * Static representation of the [[warehouse]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.WAREHOUSE = new v4_1.StringField('Warehouse', ResourceCapacities, 'Edm.String');
+    ResourceCapacities.WAREHOUSE = new core_1.StringField('Warehouse', ResourceCapacities, 'Edm.String');
     /**
      * Static representation of the [[date]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.DATE = new v4_1.DateField('Date', ResourceCapacities, 'Edm.DateTimeOffset');
+    ResourceCapacities.DATE = new core_1.DateField('Date', ResourceCapacities, 'Edm.DateTimeOffset');
+    /**
+     * Static representation of the [[type]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ResourceCapacities.TYPE = new core_1.EnumField('Type', ResourceCapacities);
     /**
      * Static representation of the [[capacity]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.CAPACITY = new v4_1.NumberField('Capacity', ResourceCapacities, 'Edm.Double');
+    ResourceCapacities.CAPACITY = new core_1.NumberField('Capacity', ResourceCapacities, 'Edm.Double');
+    /**
+     * Static representation of the [[sourceType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ResourceCapacities.SOURCE_TYPE = new core_1.EnumField('SourceType', ResourceCapacities);
     /**
      * Static representation of the [[sourceEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.SOURCE_ENTRY = new v4_1.NumberField('SourceEntry', ResourceCapacities, 'Edm.Int32');
+    ResourceCapacities.SOURCE_ENTRY = new core_1.NumberField('SourceEntry', ResourceCapacities, 'Edm.Int32');
     /**
      * Static representation of the [[sourceLineNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.SOURCE_LINE_NUM = new v4_1.NumberField('SourceLineNum', ResourceCapacities, 'Edm.Int32');
+    ResourceCapacities.SOURCE_LINE_NUM = new core_1.NumberField('SourceLineNum', ResourceCapacities, 'Edm.Int32');
+    /**
+     * Static representation of the [[baseType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ResourceCapacities.BASE_TYPE = new core_1.EnumField('BaseType', ResourceCapacities);
     /**
      * Static representation of the [[baseEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.BASE_ENTRY = new v4_1.NumberField('BaseEntry', ResourceCapacities, 'Edm.Int32');
+    ResourceCapacities.BASE_ENTRY = new core_1.NumberField('BaseEntry', ResourceCapacities, 'Edm.Int32');
     /**
      * Static representation of the [[baseLineNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.BASE_LINE_NUM = new v4_1.NumberField('BaseLineNum', ResourceCapacities, 'Edm.Int32');
+    ResourceCapacities.BASE_LINE_NUM = new core_1.NumberField('BaseLineNum', ResourceCapacities, 'Edm.Int32');
+    /**
+     * Static representation of the [[action]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ResourceCapacities.ACTION = new core_1.EnumField('Action', ResourceCapacities);
+    /**
+     * Static representation of the [[owningType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ResourceCapacities.OWNING_TYPE = new core_1.EnumField('OwningType', ResourceCapacities);
     /**
      * Static representation of the [[owningEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.OWNING_ENTRY = new v4_1.NumberField('OwningEntry', ResourceCapacities, 'Edm.Int32');
+    ResourceCapacities.OWNING_ENTRY = new core_1.NumberField('OwningEntry', ResourceCapacities, 'Edm.Int32');
     /**
      * Static representation of the [[owningLineNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.OWNING_LINE_NUM = new v4_1.NumberField('OwningLineNum', ResourceCapacities, 'Edm.Int32');
+    ResourceCapacities.OWNING_LINE_NUM = new core_1.NumberField('OwningLineNum', ResourceCapacities, 'Edm.Int32');
+    /**
+     * Static representation of the [[revertedType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ResourceCapacities.REVERTED_TYPE = new core_1.EnumField('RevertedType', ResourceCapacities);
     /**
      * Static representation of the [[revertedEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.REVERTED_ENTRY = new v4_1.NumberField('RevertedEntry', ResourceCapacities, 'Edm.Int32');
+    ResourceCapacities.REVERTED_ENTRY = new core_1.NumberField('RevertedEntry', ResourceCapacities, 'Edm.Int32');
     /**
      * Static representation of the [[revertedLineNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.REVERTED_LINE_NUM = new v4_1.NumberField('RevertedLineNum', ResourceCapacities, 'Edm.Int32');
+    ResourceCapacities.REVERTED_LINE_NUM = new core_1.NumberField('RevertedLineNum', ResourceCapacities, 'Edm.Int32');
+    /**
+     * Static representation of the [[memoSource]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ResourceCapacities.MEMO_SOURCE = new core_1.EnumField('MemoSource', ResourceCapacities);
     /**
      * Static representation of the [[memo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.MEMO = new v4_1.StringField('Memo', ResourceCapacities, 'Edm.String');
+    ResourceCapacities.MEMO = new core_1.StringField('Memo', ResourceCapacities, 'Edm.String');
     /**
      * Static representation of the [[singleRunCapacity]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.SINGLE_RUN_CAPACITY = new v4_1.NumberField('SingleRunCapacity', ResourceCapacities, 'Edm.Double');
+    ResourceCapacities.SINGLE_RUN_CAPACITY = new core_1.NumberField('SingleRunCapacity', ResourceCapacities, 'Edm.Double');
+    /**
+     * Static representation of the [[singleRunMemoSource]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ResourceCapacities.SINGLE_RUN_MEMO_SOURCE = new core_1.EnumField('SingleRunMemoSource', ResourceCapacities);
     /**
      * Static representation of the [[singleRunMemo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.SINGLE_RUN_MEMO = new v4_1.StringField('SingleRunMemo', ResourceCapacities, 'Edm.String');
+    ResourceCapacities.SINGLE_RUN_MEMO = new core_1.StringField('SingleRunMemo', ResourceCapacities, 'Edm.String');
     /**
      * Static representation of the one-to-one navigation property [[resource]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.RESOURCE = new v4_1.OneToOneLink('Resource', ResourceCapacities, Resources_1.Resources);
+    ResourceCapacities.RESOURCE = new core_1.OneToOneLink('Resource', ResourceCapacities, Resources_1.Resources);
     /**
      * Static representation of the one-to-one navigation property [[warehouse2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ResourceCapacities.WAREHOUSE_2 = new v4_1.OneToOneLink('Warehouse2', ResourceCapacities, Warehouses_1.Warehouses);
+    ResourceCapacities.WAREHOUSE_2 = new core_1.OneToOneLink('Warehouse2', ResourceCapacities, Warehouses_1.Warehouses);
     /**
      * All fields of the ResourceCapacities entity.
      */
@@ -186,17 +221,25 @@ var Warehouses_1 = require("./Warehouses");
         ResourceCapacities.CODE,
         ResourceCapacities.WAREHOUSE,
         ResourceCapacities.DATE,
+        ResourceCapacities.TYPE,
         ResourceCapacities.CAPACITY,
+        ResourceCapacities.SOURCE_TYPE,
         ResourceCapacities.SOURCE_ENTRY,
         ResourceCapacities.SOURCE_LINE_NUM,
+        ResourceCapacities.BASE_TYPE,
         ResourceCapacities.BASE_ENTRY,
         ResourceCapacities.BASE_LINE_NUM,
+        ResourceCapacities.ACTION,
+        ResourceCapacities.OWNING_TYPE,
         ResourceCapacities.OWNING_ENTRY,
         ResourceCapacities.OWNING_LINE_NUM,
+        ResourceCapacities.REVERTED_TYPE,
         ResourceCapacities.REVERTED_ENTRY,
         ResourceCapacities.REVERTED_LINE_NUM,
+        ResourceCapacities.MEMO_SOURCE,
         ResourceCapacities.MEMO,
         ResourceCapacities.SINGLE_RUN_CAPACITY,
+        ResourceCapacities.SINGLE_RUN_MEMO_SOURCE,
         ResourceCapacities.SINGLE_RUN_MEMO,
         ResourceCapacities.RESOURCE,
         ResourceCapacities.WAREHOUSE_2
@@ -204,7 +247,7 @@ var Warehouses_1 = require("./Warehouses");
     /**
      * All fields selector.
      */
-    ResourceCapacities.ALL_FIELDS = new v4_1.AllFields('*', ResourceCapacities);
+    ResourceCapacities.ALL_FIELDS = new core_1.AllFields('*', ResourceCapacities);
     /**
      * All key fields of the ResourceCapacities entity.
      */

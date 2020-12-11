@@ -5,25 +5,21 @@
  */
 import { UserGroupsRequestBuilder } from './UserGroupsRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { UserGroupCategoryEnum } from './UserGroupCategoryEnum';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "UserGroups" of service "SAPB1".
  */
-export class UserGroups extends Entity implements UserGroupsType {
+export class UserGroups extends EntityV4 implements UserGroupsType {
   /**
    * Technical entity name for UserGroups.
    */
   static _entityName = 'UserGroups';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for UserGroups.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * User Group Id.
    * @nullable
@@ -54,13 +50,18 @@ export class UserGroups extends Entity implements UserGroupsType {
    * @nullable
    */
   dueDate?: Moment;
+  /**
+   * User Group Type.
+   * @nullable
+   */
+  userGroupType?: UserGroupCategoryEnum;
 
   /**
-   * Returns an entity builder to construct instances `UserGroups`.
+   * Returns an entity builder to construct instances of `UserGroups`.
    * @returns A builder that constructs instances of entity type `UserGroups`.
    */
-  static builder(): EntityBuilderType<UserGroups, UserGroupsTypeForceMandatory> {
-    return Entity.entityBuilder(UserGroups);
+  static builder(): EntityBuilderType<UserGroups, UserGroupsType> {
+    return EntityV4.entityBuilder(UserGroups);
   }
 
   /**
@@ -76,8 +77,8 @@ export class UserGroups extends Entity implements UserGroupsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `UserGroups`.
    */
-  static customField(fieldName: string): CustomField<UserGroups> {
-    return Entity.customFieldSelector(fieldName, UserGroups);
+  static customField(fieldName: string): CustomFieldV4<UserGroups> {
+    return EntityV4.customFieldSelector(fieldName, UserGroups);
   }
 
   /**
@@ -90,21 +91,13 @@ export class UserGroups extends Entity implements UserGroupsType {
 }
 
 export interface UserGroupsType {
-  userGroupId?: number;
-  userGroupName?: string;
-  userGroupDec?: string;
-  tplId?: number;
-  startDate?: Moment;
-  dueDate?: Moment;
-}
-
-export interface UserGroupsTypeForceMandatory {
-  userGroupId: number;
-  userGroupName: string;
-  userGroupDec: string;
-  tplId: number;
-  startDate: Moment;
-  dueDate: Moment;
+  userGroupId?: number | null;
+  userGroupName?: string | null;
+  userGroupDec?: string | null;
+  tplId?: number | null;
+  startDate?: Moment | null;
+  dueDate?: Moment | null;
+  userGroupType?: UserGroupCategoryEnum | null;
 }
 
 export namespace UserGroups {
@@ -139,15 +132,21 @@ export namespace UserGroups {
    */
   export const DUE_DATE: DateField<UserGroups> = new DateField('DueDate', UserGroups, 'Edm.DateTimeOffset');
   /**
+   * Static representation of the [[userGroupType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const USER_GROUP_TYPE: EnumField<UserGroups> = new EnumField('UserGroupType', UserGroups);
+  /**
    * All fields of the UserGroups entity.
    */
-  export const _allFields: Array<NumberField<UserGroups> | StringField<UserGroups> | DateField<UserGroups>> = [
+  export const _allFields: Array<NumberField<UserGroups> | StringField<UserGroups> | DateField<UserGroups> | EnumField<UserGroups>> = [
     UserGroups.USER_GROUP_ID,
     UserGroups.USER_GROUP_NAME,
     UserGroups.USER_GROUP_DEC,
     UserGroups.TPL_ID,
     UserGroups.START_DATE,
-    UserGroups.DUE_DATE
+    UserGroups.DUE_DATE,
+    UserGroups.USER_GROUP_TYPE
   ];
   /**
    * All fields selector.

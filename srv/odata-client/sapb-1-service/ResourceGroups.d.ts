@@ -1,18 +1,14 @@
 import { ResourceGroupsRequestBuilder } from './ResourceGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { ResourceTypeEnum } from './ResourceTypeEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ResourceGroups" of service "SAPB1".
  */
-export declare class ResourceGroups extends Entity implements ResourceGroupsType {
+export declare class ResourceGroups extends EntityV4 implements ResourceGroupsType {
     /**
      * Technical entity name for ResourceGroups.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ResourceGroups.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -27,6 +23,11 @@ export declare class ResourceGroups extends Entity implements ResourceGroupsType
      * @nullable
      */
     name?: string;
+    /**
+     * Type.
+     * @nullable
+     */
+    type?: ResourceTypeEnum;
     /**
      * Cost Name 1.
      * @nullable
@@ -137,10 +138,10 @@ export declare class ResourceGroups extends Entity implements ResourceGroupsType
      */
     resources: Resources[];
     /**
-     * Returns an entity builder to construct instances `ResourceGroups`.
+     * Returns an entity builder to construct instances of `ResourceGroups`.
      * @returns A builder that constructs instances of entity type `ResourceGroups`.
      */
-    static builder(): EntityBuilderType<ResourceGroups, ResourceGroupsTypeForceMandatory>;
+    static builder(): EntityBuilderType<ResourceGroups, ResourceGroupsType>;
     /**
      * Returns a request builder to construct requests for operations on the `ResourceGroups` entity type.
      * @returns A `ResourceGroups` request builder.
@@ -151,7 +152,7 @@ export declare class ResourceGroups extends Entity implements ResourceGroupsType
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ResourceGroups`.
      */
-    static customField(fieldName: string): CustomField<ResourceGroups>;
+    static customField(fieldName: string): CustomFieldV4<ResourceGroups>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -162,55 +163,30 @@ export declare class ResourceGroups extends Entity implements ResourceGroupsType
 }
 import { Resources, ResourcesType } from './Resources';
 export interface ResourceGroupsType {
-    code?: number;
-    name?: string;
-    costName1?: string;
-    cost1?: number;
-    costName2?: string;
-    cost2?: number;
-    costName3?: string;
-    cost3?: number;
-    costName4?: string;
-    cost4?: number;
-    costName5?: string;
-    cost5?: number;
-    costName6?: string;
-    cost6?: number;
-    costName7?: string;
-    cost7?: number;
-    costName8?: string;
-    cost8?: number;
-    costName9?: string;
-    cost9?: number;
-    costName10?: string;
-    cost10?: number;
-    numOfUnitsText?: string;
-    resources: ResourcesType[];
-}
-export interface ResourceGroupsTypeForceMandatory {
-    code: number;
-    name: string;
-    costName1: string;
-    cost1: number;
-    costName2: string;
-    cost2: number;
-    costName3: string;
-    cost3: number;
-    costName4: string;
-    cost4: number;
-    costName5: string;
-    cost5: number;
-    costName6: string;
-    cost6: number;
-    costName7: string;
-    cost7: number;
-    costName8: string;
-    cost8: number;
-    costName9: string;
-    cost9: number;
-    costName10: string;
-    cost10: number;
-    numOfUnitsText: string;
+    code?: number | null;
+    name?: string | null;
+    type?: ResourceTypeEnum | null;
+    costName1?: string | null;
+    cost1?: number | null;
+    costName2?: string | null;
+    cost2?: number | null;
+    costName3?: string | null;
+    cost3?: number | null;
+    costName4?: string | null;
+    cost4?: number | null;
+    costName5?: string | null;
+    cost5?: number | null;
+    costName6?: string | null;
+    cost6?: number | null;
+    costName7?: string | null;
+    cost7?: number | null;
+    costName8?: string | null;
+    cost8?: number | null;
+    costName9?: string | null;
+    cost9?: number | null;
+    costName10?: string | null;
+    cost10?: number | null;
+    numOfUnitsText?: string | null;
     resources: ResourcesType[];
 }
 export declare namespace ResourceGroups {
@@ -224,6 +200,11 @@ export declare namespace ResourceGroups {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const NAME: StringField<ResourceGroups>;
+    /**
+     * Static representation of the [[type]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TYPE: EnumField<ResourceGroups>;
     /**
      * Static representation of the [[costName1]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -337,7 +318,7 @@ export declare namespace ResourceGroups {
     /**
      * All fields of the ResourceGroups entity.
      */
-    const _allFields: Array<NumberField<ResourceGroups> | StringField<ResourceGroups> | OneToManyLink<ResourceGroups, Resources>>;
+    const _allFields: Array<NumberField<ResourceGroups> | StringField<ResourceGroups> | EnumField<ResourceGroups> | OneToManyLink<ResourceGroups, Resources>>;
     /**
      * All fields selector.
      */

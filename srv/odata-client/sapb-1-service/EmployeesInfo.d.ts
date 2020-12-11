@@ -7,20 +7,22 @@ import { EmployeePreviousEmpoymentInfo } from './EmployeePreviousEmpoymentInfo';
 import { EmployeeRolesInfo } from './EmployeeRolesInfo';
 import { EmployeeSavingsPaymentInfo } from './EmployeeSavingsPaymentInfo';
 import { EmployeeBranchAssignmentItem } from './EmployeeBranchAssignmentItem';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoGenderTypes } from './BoGenderTypes';
+import { BoSalaryCostUnits } from './BoSalaryCostUnits';
+import { BoMeritalStatuses } from './BoMeritalStatuses';
+import { EmployeeExemptionUnitEnum } from './EmployeeExemptionUnitEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { EmployeePaymentMethodEnum } from './EmployeePaymentMethodEnum';
+import { SpedContabilQualificationCodeEnum } from './SpedContabilQualificationCodeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "EmployeesInfo" of service "SAPB1".
  */
-export declare class EmployeesInfo extends Entity implements EmployeesInfoType {
+export declare class EmployeesInfo extends EntityV4 implements EmployeesInfoType {
     /**
      * Technical entity name for EmployeesInfo.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for EmployeesInfo.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -45,6 +47,11 @@ export declare class EmployeesInfo extends Entity implements EmployeesInfoType {
      * @nullable
      */
     middleName?: string;
+    /**
+     * Gender.
+     * @nullable
+     */
+    gender?: BoGenderTypes;
     /**
      * Job Title.
      * @nullable
@@ -166,10 +173,20 @@ export declare class EmployeesInfo extends Entity implements EmployeesInfoType {
      */
     salary?: number;
     /**
+     * Salary Unit.
+     * @nullable
+     */
+    salaryUnit?: BoSalaryCostUnits;
+    /**
      * Employee Costs.
      * @nullable
      */
     employeeCosts?: number;
+    /**
+     * Employee Cost Unit.
+     * @nullable
+     */
+    employeeCostUnit?: BoSalaryCostUnits;
     /**
      * Termination Date.
      * @nullable
@@ -245,6 +262,11 @@ export declare class EmployeesInfo extends Entity implements EmployeesInfoType {
      * @nullable
      */
     countryOfBirth?: string;
+    /**
+     * Martial Status.
+     * @nullable
+     */
+    martialStatus?: BoMeritalStatuses;
     /**
      * Num Of Children.
      * @nullable
@@ -361,6 +383,11 @@ export declare class EmployeesInfo extends Entity implements EmployeesInfoType {
      */
     exemptionAmount?: number;
     /**
+     * Exemption Unit.
+     * @nullable
+     */
+    exemptionUnit?: EmployeeExemptionUnitEnum;
+    /**
      * Exemption Currency.
      * @nullable
      */
@@ -370,6 +397,11 @@ export declare class EmployeesInfo extends Entity implements EmployeesInfoType {
      * @nullable
      */
     additionalAmount?: number;
+    /**
+     * Additional Unit.
+     * @nullable
+     */
+    additionalUnit?: EmployeeExemptionUnitEnum;
     /**
      * Additional Currency.
      * @nullable
@@ -431,6 +463,11 @@ export declare class EmployeesInfo extends Entity implements EmployeesInfoType {
      */
     bankCodeForDatev?: string;
     /**
+     * Deviating Bank Account Owner.
+     * @nullable
+     */
+    deviatingBankAccountOwner?: BoYesNoEnum;
+    /**
      * Spouse First Name.
      * @nullable
      */
@@ -451,6 +488,11 @@ export declare class EmployeesInfo extends Entity implements EmployeesInfoType {
      */
     birthPlace?: string;
     /**
+     * Payment Method.
+     * @nullable
+     */
+    paymentMethod?: EmployeePaymentMethodEnum;
+    /**
      * Std Code.
      * @nullable
      */
@@ -466,10 +508,30 @@ export declare class EmployeesInfo extends Entity implements EmployeesInfoType {
      */
     crcNumber?: string;
     /**
+     * Accountant Responsible.
+     * @nullable
+     */
+    accountantResponsible?: BoYesNoEnum;
+    /**
+     * Legal Representative.
+     * @nullable
+     */
+    legalRepresentative?: BoYesNoEnum;
+    /**
+     * Dirf Responsible.
+     * @nullable
+     */
+    dirfResponsible?: BoYesNoEnum;
+    /**
      * Crc State.
      * @nullable
      */
     crcState?: string;
+    /**
+     * Active.
+     * @nullable
+     */
+    active?: BoYesNoEnum;
     /**
      * Id Type.
      * @nullable
@@ -490,6 +552,21 @@ export declare class EmployeesInfo extends Entity implements EmployeesInfoType {
      * @nullable
      */
     passportIssuer?: string;
+    /**
+     * Qualification Code.
+     * @nullable
+     */
+    qualificationCode?: SpedContabilQualificationCodeEnum;
+    /**
+     * Pr Web Access.
+     * @nullable
+     */
+    prWebAccess?: BoYesNoEnum;
+    /**
+     * Previous Pr Web Access.
+     * @nullable
+     */
+    previousPrWebAccess?: BoYesNoEnum;
     /**
      * Work Street Number.
      * @nullable
@@ -741,10 +818,10 @@ export declare class EmployeesInfo extends Entity implements EmployeesInfoType {
      */
     goodsReturnRequest: GoodsReturnRequest[];
     /**
-     * Returns an entity builder to construct instances `EmployeesInfo`.
+     * Returns an entity builder to construct instances of `EmployeesInfo`.
      * @returns A builder that constructs instances of entity type `EmployeesInfo`.
      */
-    static builder(): EntityBuilderType<EmployeesInfo, EmployeesInfoTypeForceMandatory>;
+    static builder(): EntityBuilderType<EmployeesInfo, EmployeesInfoType>;
     /**
      * Returns a request builder to construct requests for operations on the `EmployeesInfo` entity type.
      * @returns A `EmployeesInfo` request builder.
@@ -755,7 +832,7 @@ export declare class EmployeesInfo extends Entity implements EmployeesInfoType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `EmployeesInfo`.
      */
-    static customField(fieldName: string): CustomField<EmployeesInfo>;
+    static customField(fieldName: string): CustomFieldV4<EmployeesInfo>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -813,264 +890,124 @@ import { PurchaseOrders, PurchaseOrdersType } from './PurchaseOrders';
 import { ProjectManagements, ProjectManagementsType } from './ProjectManagements';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 export interface EmployeesInfoType {
-    employeeId?: number;
-    lastName?: string;
-    firstName?: string;
-    middleName?: string;
-    jobTitle?: string;
-    employeeType?: number;
-    department?: number;
-    branch?: number;
-    workStreet?: string;
-    workBlock?: string;
-    workZipCode?: string;
-    workCity?: string;
-    workCounty?: string;
-    workCountryCode?: string;
-    workStateCode?: string;
-    manager?: number;
-    applicationUserId?: number;
-    salesPersonCode?: number;
-    officePhone?: string;
-    officeExtension?: string;
-    mobilePhone?: string;
-    pager?: string;
-    homePhone?: string;
-    fax?: string;
-    eMail?: string;
-    startDate?: Moment;
-    statusCode?: number;
-    salary?: number;
-    employeeCosts?: number;
-    terminationDate?: Moment;
-    treminationReason?: number;
-    bankCode?: string;
-    bankBranch?: string;
-    bankBranchNum?: string;
-    bankAccount?: string;
-    homeStreet?: string;
-    homeBlock?: string;
-    homeZipCode?: string;
-    homeCity?: string;
-    homeCounty?: string;
-    homeCountry?: string;
-    homeState?: string;
-    dateOfBirth?: Moment;
-    countryOfBirth?: string;
-    numOfChildren?: number;
-    idNumber?: string;
-    citizenshipCountryCode?: string;
-    passportNumber?: string;
-    passportExpirationDate?: Moment;
-    picture?: string;
-    remarks?: string;
-    salaryCurrency?: string;
-    employeeCostsCurrency?: string;
-    workBuildingFloorRoom?: string;
-    homeBuildingFloorRoom?: string;
-    position?: number;
-    attachmentEntry?: number;
-    costCenterCode?: string;
-    companyNumber?: string;
-    vacationPreviousYear?: number;
-    vacationCurrentYear?: number;
-    municipalityKey?: string;
-    taxClass?: string;
-    incomeTaxLiability?: string;
-    religion?: string;
-    partnerReligion?: string;
-    exemptionAmount?: number;
-    exemptionCurrency?: string;
-    additionalAmount?: number;
-    additionalCurrency?: string;
-    taxOfficeName?: string;
-    taxOfficeNumber?: string;
-    healthInsuranceName?: string;
-    healthInsuranceCode?: string;
-    healthInsuranceType?: string;
-    socialInsuranceNumber?: string;
-    professionStatus?: string;
-    educationStatus?: string;
-    personGroup?: string;
-    jobTitleCode?: string;
-    bankCodeForDatev?: string;
-    spouseFirstName?: string;
-    spouseSurname?: string;
-    externalEmployeeNumber?: string;
-    birthPlace?: string;
-    stdCode?: number;
-    cpf?: string;
-    crcNumber?: string;
-    crcState?: string;
-    idType?: string;
-    bplid?: number;
-    passportIssueDate?: Moment;
-    passportIssuer?: string;
-    workStreetNumber?: string;
-    homeStreetNumber?: string;
-    linkedVendor?: string;
-    employeeAbsenceInfoLines?: EmployeeAbsenceInfo[];
-    employeeEducationInfoLines?: EmployeeEducationInfo[];
-    employeeReviewsInfoLines?: EmployeeReviewsInfo[];
-    employeePreviousEmpoymentInfoLines?: EmployeePreviousEmpoymentInfo[];
-    employeeRolesInfoLines?: EmployeeRolesInfo[];
-    employeeSavingsPaymentInfoLines?: EmployeeSavingsPaymentInfo[];
-    employeeBranchAssignment?: EmployeeBranchAssignmentItem[];
-    salesOpportunities: SalesOpportunitiesType[];
-    warehouses: WarehousesType[];
-    profitCenters: ProfitCentersType[];
-    inventoryGenEntries: InventoryGenEntriesType[];
-    purchaseQuotations: PurchaseQuotationsType[];
-    items: ItemsType[];
-    deliveryNotes: DeliveryNotesType[];
-    businessPartners: BusinessPartnersType[];
-    quotations: QuotationsType[];
-    campaigns: CampaignsType[];
-    inventoryGenExits: InventoryGenExitsType[];
-    purchaseRequests: PurchaseRequestsType[];
-    returnRequest: ReturnRequestType[];
-    blanketAgreements: BlanketAgreementsType[];
-    purchaseReturns: PurchaseReturnsType[];
-    invoices: InvoicesType[];
-    creditNotes: CreditNotesType[];
-    orders: OrdersType[];
-    activities: ActivitiesType[];
-    downPayments: DownPaymentsType[];
-    drafts: DraftsType[];
-    returns: ReturnsType[];
-    correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-    correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-    correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-    customerEquipmentCards: CustomerEquipmentCardsType[];
-    purchaseInvoices: PurchaseInvoicesType[];
-    purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-    correctionInvoice: CorrectionInvoiceType[];
-    purchaseCreditNotes: PurchaseCreditNotesType[];
-    serviceCalls: ServiceCallsType[];
-    purchaseDownPayments: PurchaseDownPaymentsType[];
-    employeeRoleSetup: EmployeeRolesSetupType;
-    department2: DepartmentsType;
-    branch2: BranchesType;
-    country: CountriesType;
-    user: UsersType;
-    salesPerson: SalesPersonsType;
-    employeeStatus: EmployeeStatusType;
-    terminationReason: TerminationReasonType;
-    bank: BanksType;
-    employeePosition: EmployeePositionType;
-    profitCenter: ProfitCentersType;
-    employeeIdType: EmployeeIdTypeType;
-    businessPlace: BusinessPlacesType;
-    businessPartner: BusinessPartnersType;
-    projectManagementTimeSheet: ProjectManagementTimeSheetType[];
-    purchaseOrders: PurchaseOrdersType[];
-    projectManagements: ProjectManagementsType[];
-    goodsReturnRequest: GoodsReturnRequestType[];
-}
-export interface EmployeesInfoTypeForceMandatory {
-    employeeId: number;
-    lastName: string;
-    firstName: string;
-    middleName: string;
-    jobTitle: string;
-    employeeType: number;
-    department: number;
-    branch: number;
-    workStreet: string;
-    workBlock: string;
-    workZipCode: string;
-    workCity: string;
-    workCounty: string;
-    workCountryCode: string;
-    workStateCode: string;
-    manager: number;
-    applicationUserId: number;
-    salesPersonCode: number;
-    officePhone: string;
-    officeExtension: string;
-    mobilePhone: string;
-    pager: string;
-    homePhone: string;
-    fax: string;
-    eMail: string;
-    startDate: Moment;
-    statusCode: number;
-    salary: number;
-    employeeCosts: number;
-    terminationDate: Moment;
-    treminationReason: number;
-    bankCode: string;
-    bankBranch: string;
-    bankBranchNum: string;
-    bankAccount: string;
-    homeStreet: string;
-    homeBlock: string;
-    homeZipCode: string;
-    homeCity: string;
-    homeCounty: string;
-    homeCountry: string;
-    homeState: string;
-    dateOfBirth: Moment;
-    countryOfBirth: string;
-    numOfChildren: number;
-    idNumber: string;
-    citizenshipCountryCode: string;
-    passportNumber: string;
-    passportExpirationDate: Moment;
-    picture: string;
-    remarks: string;
-    salaryCurrency: string;
-    employeeCostsCurrency: string;
-    workBuildingFloorRoom: string;
-    homeBuildingFloorRoom: string;
-    position: number;
-    attachmentEntry: number;
-    costCenterCode: string;
-    companyNumber: string;
-    vacationPreviousYear: number;
-    vacationCurrentYear: number;
-    municipalityKey: string;
-    taxClass: string;
-    incomeTaxLiability: string;
-    religion: string;
-    partnerReligion: string;
-    exemptionAmount: number;
-    exemptionCurrency: string;
-    additionalAmount: number;
-    additionalCurrency: string;
-    taxOfficeName: string;
-    taxOfficeNumber: string;
-    healthInsuranceName: string;
-    healthInsuranceCode: string;
-    healthInsuranceType: string;
-    socialInsuranceNumber: string;
-    professionStatus: string;
-    educationStatus: string;
-    personGroup: string;
-    jobTitleCode: string;
-    bankCodeForDatev: string;
-    spouseFirstName: string;
-    spouseSurname: string;
-    externalEmployeeNumber: string;
-    birthPlace: string;
-    stdCode: number;
-    cpf: string;
-    crcNumber: string;
-    crcState: string;
-    idType: string;
-    bplid: number;
-    passportIssueDate: Moment;
-    passportIssuer: string;
-    workStreetNumber: string;
-    homeStreetNumber: string;
-    linkedVendor: string;
-    employeeAbsenceInfoLines: EmployeeAbsenceInfo[];
-    employeeEducationInfoLines: EmployeeEducationInfo[];
-    employeeReviewsInfoLines: EmployeeReviewsInfo[];
-    employeePreviousEmpoymentInfoLines: EmployeePreviousEmpoymentInfo[];
-    employeeRolesInfoLines: EmployeeRolesInfo[];
-    employeeSavingsPaymentInfoLines: EmployeeSavingsPaymentInfo[];
-    employeeBranchAssignment: EmployeeBranchAssignmentItem[];
+    employeeId?: number | null;
+    lastName?: string | null;
+    firstName?: string | null;
+    middleName?: string | null;
+    gender?: BoGenderTypes | null;
+    jobTitle?: string | null;
+    employeeType?: number | null;
+    department?: number | null;
+    branch?: number | null;
+    workStreet?: string | null;
+    workBlock?: string | null;
+    workZipCode?: string | null;
+    workCity?: string | null;
+    workCounty?: string | null;
+    workCountryCode?: string | null;
+    workStateCode?: string | null;
+    manager?: number | null;
+    applicationUserId?: number | null;
+    salesPersonCode?: number | null;
+    officePhone?: string | null;
+    officeExtension?: string | null;
+    mobilePhone?: string | null;
+    pager?: string | null;
+    homePhone?: string | null;
+    fax?: string | null;
+    eMail?: string | null;
+    startDate?: Moment | null;
+    statusCode?: number | null;
+    salary?: number | null;
+    salaryUnit?: BoSalaryCostUnits | null;
+    employeeCosts?: number | null;
+    employeeCostUnit?: BoSalaryCostUnits | null;
+    terminationDate?: Moment | null;
+    treminationReason?: number | null;
+    bankCode?: string | null;
+    bankBranch?: string | null;
+    bankBranchNum?: string | null;
+    bankAccount?: string | null;
+    homeStreet?: string | null;
+    homeBlock?: string | null;
+    homeZipCode?: string | null;
+    homeCity?: string | null;
+    homeCounty?: string | null;
+    homeCountry?: string | null;
+    homeState?: string | null;
+    dateOfBirth?: Moment | null;
+    countryOfBirth?: string | null;
+    martialStatus?: BoMeritalStatuses | null;
+    numOfChildren?: number | null;
+    idNumber?: string | null;
+    citizenshipCountryCode?: string | null;
+    passportNumber?: string | null;
+    passportExpirationDate?: Moment | null;
+    picture?: string | null;
+    remarks?: string | null;
+    salaryCurrency?: string | null;
+    employeeCostsCurrency?: string | null;
+    workBuildingFloorRoom?: string | null;
+    homeBuildingFloorRoom?: string | null;
+    position?: number | null;
+    attachmentEntry?: number | null;
+    costCenterCode?: string | null;
+    companyNumber?: string | null;
+    vacationPreviousYear?: number | null;
+    vacationCurrentYear?: number | null;
+    municipalityKey?: string | null;
+    taxClass?: string | null;
+    incomeTaxLiability?: string | null;
+    religion?: string | null;
+    partnerReligion?: string | null;
+    exemptionAmount?: number | null;
+    exemptionUnit?: EmployeeExemptionUnitEnum | null;
+    exemptionCurrency?: string | null;
+    additionalAmount?: number | null;
+    additionalUnit?: EmployeeExemptionUnitEnum | null;
+    additionalCurrency?: string | null;
+    taxOfficeName?: string | null;
+    taxOfficeNumber?: string | null;
+    healthInsuranceName?: string | null;
+    healthInsuranceCode?: string | null;
+    healthInsuranceType?: string | null;
+    socialInsuranceNumber?: string | null;
+    professionStatus?: string | null;
+    educationStatus?: string | null;
+    personGroup?: string | null;
+    jobTitleCode?: string | null;
+    bankCodeForDatev?: string | null;
+    deviatingBankAccountOwner?: BoYesNoEnum | null;
+    spouseFirstName?: string | null;
+    spouseSurname?: string | null;
+    externalEmployeeNumber?: string | null;
+    birthPlace?: string | null;
+    paymentMethod?: EmployeePaymentMethodEnum | null;
+    stdCode?: number | null;
+    cpf?: string | null;
+    crcNumber?: string | null;
+    accountantResponsible?: BoYesNoEnum | null;
+    legalRepresentative?: BoYesNoEnum | null;
+    dirfResponsible?: BoYesNoEnum | null;
+    crcState?: string | null;
+    active?: BoYesNoEnum | null;
+    idType?: string | null;
+    bplid?: number | null;
+    passportIssueDate?: Moment | null;
+    passportIssuer?: string | null;
+    qualificationCode?: SpedContabilQualificationCodeEnum | null;
+    prWebAccess?: BoYesNoEnum | null;
+    previousPrWebAccess?: BoYesNoEnum | null;
+    workStreetNumber?: string | null;
+    homeStreetNumber?: string | null;
+    linkedVendor?: string | null;
+    employeeAbsenceInfoLines?: EmployeeAbsenceInfo[] | null;
+    employeeEducationInfoLines?: EmployeeEducationInfo[] | null;
+    employeeReviewsInfoLines?: EmployeeReviewsInfo[] | null;
+    employeePreviousEmpoymentInfoLines?: EmployeePreviousEmpoymentInfo[] | null;
+    employeeRolesInfoLines?: EmployeeRolesInfo[] | null;
+    employeeSavingsPaymentInfoLines?: EmployeeSavingsPaymentInfo[] | null;
+    employeeBranchAssignment?: EmployeeBranchAssignmentItem[] | null;
     salesOpportunities: SalesOpportunitiesType[];
     warehouses: WarehousesType[];
     profitCenters: ProfitCentersType[];
@@ -1143,6 +1080,11 @@ export declare namespace EmployeesInfo {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const MIDDLE_NAME: StringField<EmployeesInfo>;
+    /**
+     * Static representation of the [[gender]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const GENDER: EnumField<EmployeesInfo>;
     /**
      * Static representation of the [[jobTitle]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1264,10 +1206,20 @@ export declare namespace EmployeesInfo {
      */
     const SALARY: NumberField<EmployeesInfo>;
     /**
+     * Static representation of the [[salaryUnit]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SALARY_UNIT: EnumField<EmployeesInfo>;
+    /**
      * Static representation of the [[employeeCosts]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const EMPLOYEE_COSTS: NumberField<EmployeesInfo>;
+    /**
+     * Static representation of the [[employeeCostUnit]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const EMPLOYEE_COST_UNIT: EnumField<EmployeesInfo>;
     /**
      * Static representation of the [[terminationDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1343,6 +1295,11 @@ export declare namespace EmployeesInfo {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const COUNTRY_OF_BIRTH: StringField<EmployeesInfo>;
+    /**
+     * Static representation of the [[martialStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const MARTIAL_STATUS: EnumField<EmployeesInfo>;
     /**
      * Static representation of the [[numOfChildren]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1459,6 +1416,11 @@ export declare namespace EmployeesInfo {
      */
     const EXEMPTION_AMOUNT: NumberField<EmployeesInfo>;
     /**
+     * Static representation of the [[exemptionUnit]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const EXEMPTION_UNIT: EnumField<EmployeesInfo>;
+    /**
      * Static representation of the [[exemptionCurrency]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -1468,6 +1430,11 @@ export declare namespace EmployeesInfo {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const ADDITIONAL_AMOUNT: NumberField<EmployeesInfo>;
+    /**
+     * Static representation of the [[additionalUnit]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ADDITIONAL_UNIT: EnumField<EmployeesInfo>;
     /**
      * Static representation of the [[additionalCurrency]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1529,6 +1496,11 @@ export declare namespace EmployeesInfo {
      */
     const BANK_CODE_FOR_DATEV: StringField<EmployeesInfo>;
     /**
+     * Static representation of the [[deviatingBankAccountOwner]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DEVIATING_BANK_ACCOUNT_OWNER: EnumField<EmployeesInfo>;
+    /**
      * Static representation of the [[spouseFirstName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -1549,6 +1521,11 @@ export declare namespace EmployeesInfo {
      */
     const BIRTH_PLACE: StringField<EmployeesInfo>;
     /**
+     * Static representation of the [[paymentMethod]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PAYMENT_METHOD: EnumField<EmployeesInfo>;
+    /**
      * Static representation of the [[stdCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -1564,10 +1541,30 @@ export declare namespace EmployeesInfo {
      */
     const CRC_NUMBER: StringField<EmployeesInfo>;
     /**
+     * Static representation of the [[accountantResponsible]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ACCOUNTANT_RESPONSIBLE: EnumField<EmployeesInfo>;
+    /**
+     * Static representation of the [[legalRepresentative]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const LEGAL_REPRESENTATIVE: EnumField<EmployeesInfo>;
+    /**
+     * Static representation of the [[dirfResponsible]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DIRF_RESPONSIBLE: EnumField<EmployeesInfo>;
+    /**
      * Static representation of the [[crcState]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const CRC_STATE: StringField<EmployeesInfo>;
+    /**
+     * Static representation of the [[active]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ACTIVE: EnumField<EmployeesInfo>;
     /**
      * Static representation of the [[idType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1589,6 +1586,21 @@ export declare namespace EmployeesInfo {
      */
     const PASSPORT_ISSUER: StringField<EmployeesInfo>;
     /**
+     * Static representation of the [[qualificationCode]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const QUALIFICATION_CODE: EnumField<EmployeesInfo>;
+    /**
+     * Static representation of the [[prWebAccess]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PR_WEB_ACCESS: EnumField<EmployeesInfo>;
+    /**
+     * Static representation of the [[previousPrWebAccess]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PREVIOUS_PR_WEB_ACCESS: EnumField<EmployeesInfo>;
+    /**
      * Static representation of the [[workStreetNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -1607,37 +1619,37 @@ export declare namespace EmployeesInfo {
      * Static representation of the [[employeeAbsenceInfoLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const EMPLOYEE_ABSENCE_INFO_LINES: CollectionField<EmployeesInfo>;
+    const EMPLOYEE_ABSENCE_INFO_LINES: CollectionField<EmployeesInfo, EmployeeAbsenceInfo>;
     /**
      * Static representation of the [[employeeEducationInfoLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const EMPLOYEE_EDUCATION_INFO_LINES: CollectionField<EmployeesInfo>;
+    const EMPLOYEE_EDUCATION_INFO_LINES: CollectionField<EmployeesInfo, EmployeeEducationInfo>;
     /**
      * Static representation of the [[employeeReviewsInfoLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const EMPLOYEE_REVIEWS_INFO_LINES: CollectionField<EmployeesInfo>;
+    const EMPLOYEE_REVIEWS_INFO_LINES: CollectionField<EmployeesInfo, EmployeeReviewsInfo>;
     /**
      * Static representation of the [[employeePreviousEmpoymentInfoLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const EMPLOYEE_PREVIOUS_EMPOYMENT_INFO_LINES: CollectionField<EmployeesInfo>;
+    const EMPLOYEE_PREVIOUS_EMPOYMENT_INFO_LINES: CollectionField<EmployeesInfo, EmployeePreviousEmpoymentInfo>;
     /**
      * Static representation of the [[employeeRolesInfoLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const EMPLOYEE_ROLES_INFO_LINES: CollectionField<EmployeesInfo>;
+    const EMPLOYEE_ROLES_INFO_LINES: CollectionField<EmployeesInfo, EmployeeRolesInfo>;
     /**
      * Static representation of the [[employeeSavingsPaymentInfoLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const EMPLOYEE_SAVINGS_PAYMENT_INFO_LINES: CollectionField<EmployeesInfo>;
+    const EMPLOYEE_SAVINGS_PAYMENT_INFO_LINES: CollectionField<EmployeesInfo, EmployeeSavingsPaymentInfo>;
     /**
      * Static representation of the [[employeeBranchAssignment]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const EMPLOYEE_BRANCH_ASSIGNMENT: CollectionField<EmployeesInfo>;
+    const EMPLOYEE_BRANCH_ASSIGNMENT: CollectionField<EmployeesInfo, EmployeeBranchAssignmentItem>;
     /**
      * Static representation of the one-to-many navigation property [[salesOpportunities]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1891,7 +1903,7 @@ export declare namespace EmployeesInfo {
     /**
      * All fields of the EmployeesInfo entity.
      */
-    const _allFields: Array<NumberField<EmployeesInfo> | StringField<EmployeesInfo> | DateField<EmployeesInfo> | CollectionField<EmployeesInfo> | OneToManyLink<EmployeesInfo, SalesOpportunities> | OneToManyLink<EmployeesInfo, Warehouses> | OneToManyLink<EmployeesInfo, ProfitCenters> | OneToManyLink<EmployeesInfo, InventoryGenEntries> | OneToManyLink<EmployeesInfo, PurchaseQuotations> | OneToManyLink<EmployeesInfo, Items> | OneToManyLink<EmployeesInfo, DeliveryNotes> | OneToManyLink<EmployeesInfo, BusinessPartners> | OneToManyLink<EmployeesInfo, Quotations> | OneToManyLink<EmployeesInfo, Campaigns> | OneToManyLink<EmployeesInfo, InventoryGenExits> | OneToManyLink<EmployeesInfo, PurchaseRequests> | OneToManyLink<EmployeesInfo, ReturnRequest> | OneToManyLink<EmployeesInfo, BlanketAgreements> | OneToManyLink<EmployeesInfo, PurchaseReturns> | OneToManyLink<EmployeesInfo, Invoices> | OneToManyLink<EmployeesInfo, CreditNotes> | OneToManyLink<EmployeesInfo, Orders> | OneToManyLink<EmployeesInfo, Activities> | OneToManyLink<EmployeesInfo, DownPayments> | OneToManyLink<EmployeesInfo, Drafts> | OneToManyLink<EmployeesInfo, Returns> | OneToManyLink<EmployeesInfo, CorrectionInvoiceReversal> | OneToManyLink<EmployeesInfo, CorrectionPurchaseInvoice> | OneToManyLink<EmployeesInfo, CorrectionPurchaseInvoiceReversal> | OneToManyLink<EmployeesInfo, CustomerEquipmentCards> | OneToManyLink<EmployeesInfo, PurchaseInvoices> | OneToManyLink<EmployeesInfo, PurchaseDeliveryNotes> | OneToManyLink<EmployeesInfo, CorrectionInvoice> | OneToManyLink<EmployeesInfo, PurchaseCreditNotes> | OneToManyLink<EmployeesInfo, ServiceCalls> | OneToManyLink<EmployeesInfo, PurchaseDownPayments> | OneToOneLink<EmployeesInfo, EmployeeRolesSetup> | OneToOneLink<EmployeesInfo, Departments> | OneToOneLink<EmployeesInfo, Branches> | OneToOneLink<EmployeesInfo, Countries> | OneToOneLink<EmployeesInfo, Users> | OneToOneLink<EmployeesInfo, SalesPersons> | OneToOneLink<EmployeesInfo, EmployeeStatus> | OneToOneLink<EmployeesInfo, TerminationReason> | OneToOneLink<EmployeesInfo, Banks> | OneToOneLink<EmployeesInfo, EmployeePosition> | OneToOneLink<EmployeesInfo, ProfitCenters> | OneToOneLink<EmployeesInfo, EmployeeIdType> | OneToOneLink<EmployeesInfo, BusinessPlaces> | OneToOneLink<EmployeesInfo, BusinessPartners> | OneToManyLink<EmployeesInfo, ProjectManagementTimeSheet> | OneToManyLink<EmployeesInfo, PurchaseOrders> | OneToManyLink<EmployeesInfo, ProjectManagements> | OneToManyLink<EmployeesInfo, GoodsReturnRequest>>;
+    const _allFields: Array<NumberField<EmployeesInfo> | StringField<EmployeesInfo> | EnumField<EmployeesInfo> | DateField<EmployeesInfo> | CollectionField<EmployeesInfo, EmployeeAbsenceInfo> | CollectionField<EmployeesInfo, EmployeeEducationInfo> | CollectionField<EmployeesInfo, EmployeeReviewsInfo> | CollectionField<EmployeesInfo, EmployeePreviousEmpoymentInfo> | CollectionField<EmployeesInfo, EmployeeRolesInfo> | CollectionField<EmployeesInfo, EmployeeSavingsPaymentInfo> | CollectionField<EmployeesInfo, EmployeeBranchAssignmentItem> | OneToManyLink<EmployeesInfo, SalesOpportunities> | OneToManyLink<EmployeesInfo, Warehouses> | OneToManyLink<EmployeesInfo, ProfitCenters> | OneToManyLink<EmployeesInfo, InventoryGenEntries> | OneToManyLink<EmployeesInfo, PurchaseQuotations> | OneToManyLink<EmployeesInfo, Items> | OneToManyLink<EmployeesInfo, DeliveryNotes> | OneToManyLink<EmployeesInfo, BusinessPartners> | OneToManyLink<EmployeesInfo, Quotations> | OneToManyLink<EmployeesInfo, Campaigns> | OneToManyLink<EmployeesInfo, InventoryGenExits> | OneToManyLink<EmployeesInfo, PurchaseRequests> | OneToManyLink<EmployeesInfo, ReturnRequest> | OneToManyLink<EmployeesInfo, BlanketAgreements> | OneToManyLink<EmployeesInfo, PurchaseReturns> | OneToManyLink<EmployeesInfo, Invoices> | OneToManyLink<EmployeesInfo, CreditNotes> | OneToManyLink<EmployeesInfo, Orders> | OneToManyLink<EmployeesInfo, Activities> | OneToManyLink<EmployeesInfo, DownPayments> | OneToManyLink<EmployeesInfo, Drafts> | OneToManyLink<EmployeesInfo, Returns> | OneToManyLink<EmployeesInfo, CorrectionInvoiceReversal> | OneToManyLink<EmployeesInfo, CorrectionPurchaseInvoice> | OneToManyLink<EmployeesInfo, CorrectionPurchaseInvoiceReversal> | OneToManyLink<EmployeesInfo, CustomerEquipmentCards> | OneToManyLink<EmployeesInfo, PurchaseInvoices> | OneToManyLink<EmployeesInfo, PurchaseDeliveryNotes> | OneToManyLink<EmployeesInfo, CorrectionInvoice> | OneToManyLink<EmployeesInfo, PurchaseCreditNotes> | OneToManyLink<EmployeesInfo, ServiceCalls> | OneToManyLink<EmployeesInfo, PurchaseDownPayments> | OneToOneLink<EmployeesInfo, EmployeeRolesSetup> | OneToOneLink<EmployeesInfo, Departments> | OneToOneLink<EmployeesInfo, Branches> | OneToOneLink<EmployeesInfo, Countries> | OneToOneLink<EmployeesInfo, Users> | OneToOneLink<EmployeesInfo, SalesPersons> | OneToOneLink<EmployeesInfo, EmployeeStatus> | OneToOneLink<EmployeesInfo, TerminationReason> | OneToOneLink<EmployeesInfo, Banks> | OneToOneLink<EmployeesInfo, EmployeePosition> | OneToOneLink<EmployeesInfo, ProfitCenters> | OneToOneLink<EmployeesInfo, EmployeeIdType> | OneToOneLink<EmployeesInfo, BusinessPlaces> | OneToOneLink<EmployeesInfo, BusinessPartners> | OneToManyLink<EmployeesInfo, ProjectManagementTimeSheet> | OneToManyLink<EmployeesInfo, PurchaseOrders> | OneToManyLink<EmployeesInfo, ProjectManagements> | OneToManyLink<EmployeesInfo, GoodsReturnRequest>>;
     /**
      * All fields selector.
      */

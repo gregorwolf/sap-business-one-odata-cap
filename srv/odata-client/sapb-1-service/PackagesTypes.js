@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.PackagesTypes = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var PackagesTypesRequestBuilder_1 = require("./PackagesTypesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "PackagesTypes" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var PackagesTypes = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `PackagesTypes`.
+     * Returns an entity builder to construct instances of `PackagesTypes`.
      * @returns A builder that constructs instances of entity type `PackagesTypes`.
      */
     PackagesTypes.builder = function () {
-        return v4_1.Entity.entityBuilder(PackagesTypes);
+        return core_1.EntityV4.entityBuilder(PackagesTypes);
     };
     /**
      * Returns a request builder to construct requests for operations on the `PackagesTypes` entity type.
@@ -60,7 +60,7 @@ var PackagesTypes = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `PackagesTypes`.
      */
     PackagesTypes.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, PackagesTypes);
+        return core_1.EntityV4.customFieldSelector(fieldName, PackagesTypes);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,118 +74,113 @@ var PackagesTypes = /** @class */ (function (_super) {
      */
     PackagesTypes._entityName = 'PackagesTypes';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for PackagesTypes.
-     */
-    PackagesTypes._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    PackagesTypes._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    PackagesTypes._defaultServicePath = '/b1s/v2/';
     return PackagesTypes;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.PackagesTypes = PackagesTypes;
 (function (PackagesTypes) {
     /**
      * Static representation of the [[type]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.TYPE = new v4_1.StringField('Type', PackagesTypes, 'Edm.String');
+    PackagesTypes.TYPE = new core_1.StringField('Type', PackagesTypes, 'Edm.String');
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.CODE = new v4_1.NumberField('Code', PackagesTypes, 'Edm.Int32');
+    PackagesTypes.CODE = new core_1.NumberField('Code', PackagesTypes, 'Edm.Int32');
     /**
      * Static representation of the [[length1]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.LENGTH_1 = new v4_1.NumberField('Length1', PackagesTypes, 'Edm.Double');
+    PackagesTypes.LENGTH_1 = new core_1.NumberField('Length1', PackagesTypes, 'Edm.Double');
     /**
      * Static representation of the [[length1Unit]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.LENGTH_1_UNIT = new v4_1.NumberField('Length1Unit', PackagesTypes, 'Edm.Int32');
+    PackagesTypes.LENGTH_1_UNIT = new core_1.NumberField('Length1Unit', PackagesTypes, 'Edm.Int32');
     /**
      * Static representation of the [[length2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.LENGTH_2 = new v4_1.NumberField('Length2', PackagesTypes, 'Edm.Double');
+    PackagesTypes.LENGTH_2 = new core_1.NumberField('Length2', PackagesTypes, 'Edm.Double');
     /**
      * Static representation of the [[length2Unit]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.LENGTH_2_UNIT = new v4_1.NumberField('Length2Unit', PackagesTypes, 'Edm.Int32');
+    PackagesTypes.LENGTH_2_UNIT = new core_1.NumberField('Length2Unit', PackagesTypes, 'Edm.Int32');
     /**
      * Static representation of the [[width1]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.WIDTH_1 = new v4_1.NumberField('Width1', PackagesTypes, 'Edm.Double');
+    PackagesTypes.WIDTH_1 = new core_1.NumberField('Width1', PackagesTypes, 'Edm.Double');
     /**
      * Static representation of the [[width1Unit]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.WIDTH_1_UNIT = new v4_1.NumberField('Width1Unit', PackagesTypes, 'Edm.Int32');
+    PackagesTypes.WIDTH_1_UNIT = new core_1.NumberField('Width1Unit', PackagesTypes, 'Edm.Int32');
     /**
      * Static representation of the [[width2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.WIDTH_2 = new v4_1.NumberField('Width2', PackagesTypes, 'Edm.Double');
+    PackagesTypes.WIDTH_2 = new core_1.NumberField('Width2', PackagesTypes, 'Edm.Double');
     /**
      * Static representation of the [[width2Unit]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.WIDTH_2_UNIT = new v4_1.NumberField('Width2Unit', PackagesTypes, 'Edm.Int32');
+    PackagesTypes.WIDTH_2_UNIT = new core_1.NumberField('Width2Unit', PackagesTypes, 'Edm.Int32');
     /**
      * Static representation of the [[height1]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.HEIGHT_1 = new v4_1.NumberField('Height1', PackagesTypes, 'Edm.Double');
+    PackagesTypes.HEIGHT_1 = new core_1.NumberField('Height1', PackagesTypes, 'Edm.Double');
     /**
      * Static representation of the [[height1Unit]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.HEIGHT_1_UNIT = new v4_1.NumberField('Height1Unit', PackagesTypes, 'Edm.Int32');
+    PackagesTypes.HEIGHT_1_UNIT = new core_1.NumberField('Height1Unit', PackagesTypes, 'Edm.Int32');
     /**
      * Static representation of the [[height2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.HEIGHT_2 = new v4_1.NumberField('Height2', PackagesTypes, 'Edm.Double');
+    PackagesTypes.HEIGHT_2 = new core_1.NumberField('Height2', PackagesTypes, 'Edm.Double');
     /**
      * Static representation of the [[height2Unit]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.HEIGHT_2_UNIT = new v4_1.NumberField('Height2Unit', PackagesTypes, 'Edm.Int32');
+    PackagesTypes.HEIGHT_2_UNIT = new core_1.NumberField('Height2Unit', PackagesTypes, 'Edm.Int32');
     /**
      * Static representation of the [[volume]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.VOLUME = new v4_1.NumberField('Volume', PackagesTypes, 'Edm.Double');
+    PackagesTypes.VOLUME = new core_1.NumberField('Volume', PackagesTypes, 'Edm.Double');
     /**
      * Static representation of the [[volumeUnit]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.VOLUME_UNIT = new v4_1.NumberField('VolumeUnit', PackagesTypes, 'Edm.Int32');
+    PackagesTypes.VOLUME_UNIT = new core_1.NumberField('VolumeUnit', PackagesTypes, 'Edm.Int32');
     /**
      * Static representation of the [[weight1]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.WEIGHT_1 = new v4_1.NumberField('Weight1', PackagesTypes, 'Edm.Double');
+    PackagesTypes.WEIGHT_1 = new core_1.NumberField('Weight1', PackagesTypes, 'Edm.Double');
     /**
      * Static representation of the [[weight1Unit]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.WEIGHT_1_UNIT = new v4_1.NumberField('Weight1Unit', PackagesTypes, 'Edm.Int32');
+    PackagesTypes.WEIGHT_1_UNIT = new core_1.NumberField('Weight1Unit', PackagesTypes, 'Edm.Int32');
     /**
      * Static representation of the [[weight2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.WEIGHT_2 = new v4_1.NumberField('Weight2', PackagesTypes, 'Edm.Double');
+    PackagesTypes.WEIGHT_2 = new core_1.NumberField('Weight2', PackagesTypes, 'Edm.Double');
     /**
      * Static representation of the [[weight2Unit]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    PackagesTypes.WEIGHT_2_UNIT = new v4_1.NumberField('Weight2Unit', PackagesTypes, 'Edm.Int32');
+    PackagesTypes.WEIGHT_2_UNIT = new core_1.NumberField('Weight2Unit', PackagesTypes, 'Edm.Int32');
     /**
      * All fields of the PackagesTypes entity.
      */
@@ -214,7 +209,7 @@ exports.PackagesTypes = PackagesTypes;
     /**
      * All fields selector.
      */
-    PackagesTypes.ALL_FIELDS = new v4_1.AllFields('*', PackagesTypes);
+    PackagesTypes.ALL_FIELDS = new core_1.AllFields('*', PackagesTypes);
     /**
      * All key fields of the PackagesTypes entity.
      */

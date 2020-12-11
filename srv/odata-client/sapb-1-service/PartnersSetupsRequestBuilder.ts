@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { PartnersSetups } from './PartnersSetups';
 
 /**
@@ -15,16 +15,16 @@ export class PartnersSetupsRequestBuilder extends RequestBuilder<PartnersSetups>
    * @param name Key property. See [[PartnersSetups.name]].
    * @returns A request builder for creating requests to retrieve one `PartnersSetups` entity based on its keys.
    */
-  getByKey(name: string): GetByKeyRequestBuilder<PartnersSetups> {
-    return new GetByKeyRequestBuilder(PartnersSetups, { Name: name });
+  getByKey(name: string): GetByKeyRequestBuilderV4<PartnersSetups> {
+    return new GetByKeyRequestBuilderV4(PartnersSetups, { Name: name });
   }
 
   /**
    * Returns a request builder for querying all `PartnersSetups` entities.
    * @returns A request builder for creating requests to retrieve all `PartnersSetups` entities.
    */
-  getAll(): GetAllRequestBuilder<PartnersSetups> {
-    return new GetAllRequestBuilder(PartnersSetups);
+  getAll(): GetAllRequestBuilderV4<PartnersSetups> {
+    return new GetAllRequestBuilderV4(PartnersSetups);
   }
 
   /**
@@ -32,8 +32,8 @@ export class PartnersSetupsRequestBuilder extends RequestBuilder<PartnersSetups>
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `PartnersSetups`.
    */
-  create(entity: PartnersSetups): CreateRequestBuilder<PartnersSetups> {
-    return new CreateRequestBuilder(PartnersSetups, entity);
+  create(entity: PartnersSetups): CreateRequestBuilderV4<PartnersSetups> {
+    return new CreateRequestBuilderV4(PartnersSetups, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class PartnersSetupsRequestBuilder extends RequestBuilder<PartnersSetups>
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `PartnersSetups`.
    */
-  update(entity: PartnersSetups): UpdateRequestBuilder<PartnersSetups> {
-    return new UpdateRequestBuilder(PartnersSetups, entity);
+  update(entity: PartnersSetups): UpdateRequestBuilderV4<PartnersSetups> {
+    return new UpdateRequestBuilderV4(PartnersSetups, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class PartnersSetupsRequestBuilder extends RequestBuilder<PartnersSetups>
    * @param name Key property. See [[PartnersSetups.name]].
    * @returns A request builder for creating requests that delete an entity of type `PartnersSetups`.
    */
-  delete(name: string): DeleteRequestBuilder<PartnersSetups>;
+  delete(name: string): DeleteRequestBuilderV4<PartnersSetups>;
   /**
    * Returns a request builder for deleting an entity of type `PartnersSetups`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `PartnersSetups` by taking the entity as a parameter.
    */
-  delete(entity: PartnersSetups): DeleteRequestBuilder<PartnersSetups>;
-  delete(nameOrEntity: any): DeleteRequestBuilder<PartnersSetups> {
-    return new DeleteRequestBuilder(PartnersSetups, nameOrEntity instanceof PartnersSetups ? nameOrEntity : { Name: nameOrEntity! });
+  delete(entity: PartnersSetups): DeleteRequestBuilderV4<PartnersSetups>;
+  delete(nameOrEntity: any): DeleteRequestBuilderV4<PartnersSetups> {
+    return new DeleteRequestBuilderV4(PartnersSetups, nameOrEntity instanceof PartnersSetups ? nameOrEntity : { Name: nameOrEntity! });
   }
 }

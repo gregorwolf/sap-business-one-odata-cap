@@ -3,7 +3,9 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoBoeStatus } from './BoBoeStatus';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * OccurenceCodeParams
@@ -29,6 +31,16 @@ export interface OccurenceCodeParams {
    * @nullable
    */
   note?: string;
+  /**
+   * Requested Boe Status.
+   * @nullable
+   */
+  requestedBoeStatus?: BoBoeStatus;
+  /**
+   * Is Movement.
+   * @nullable
+   */
+  isMovement?: BoYesNoEnum;
 }
 
 /**
@@ -42,7 +54,7 @@ export function createOccurenceCodeParams(json: any): OccurenceCodeParams {
  * OccurenceCodeParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class OccurenceCodeParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class OccurenceCodeParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, OccurenceCodeParams> {
   /**
    * Representation of the [[OccurenceCodeParams.absEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -63,15 +75,68 @@ export class OccurenceCodeParamsField<EntityT extends Entity> extends ComplexTyp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   note: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Note', this, 'Edm.String');
+  /**
+   * Representation of the [[OccurenceCodeParams.requestedBoeStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  requestedBoeStatus: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('RequestedBoeStatus', this);
+  /**
+   * Representation of the [[OccurenceCodeParams.isMovement]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  isMovement: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IsMovement', this);
+
+  /**
+   * Creates an instance of OccurenceCodeParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, OccurenceCodeParams);
+  }
 }
 
 export namespace OccurenceCodeParams {
+  /**
+   * Metadata information on all properties of the `OccurenceCodeParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<OccurenceCodeParams>[] = [{
+    originalName: 'AbsEntry',
+    name: 'absEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Code',
+    name: 'code',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Description',
+    name: 'description',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Note',
+    name: 'note',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'RequestedBoeStatus',
+    name: 'requestedBoeStatus',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'IsMovement',
+    name: 'isMovement',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): OccurenceCodeParams {
-    return createComplexType(json, {
-      AbsEntry: (absEntry: number) => ({ absEntry: edmToTs(absEntry, 'Edm.Int32') }),
-      Code: (code: string) => ({ code: edmToTs(code, 'Edm.String') }),
-      Description: (description: string) => ({ description: edmToTs(description, 'Edm.String') }),
-      Note: (note: string) => ({ note: edmToTs(note, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, OccurenceCodeParams);
   }
 }

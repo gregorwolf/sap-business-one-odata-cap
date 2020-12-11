@@ -1,7 +1,7 @@
 import { Moment } from 'moment';
-import { ProgressiveTaxLine, ProgressiveTaxLineField } from './ProgressiveTaxLine';
-import { WithholdingTaxCodesValueRange_Line, WithholdingTaxCodesValueRange_LineField } from './WithholdingTaxCodesValueRange_Line';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ProgressiveTaxLine } from './ProgressiveTaxLine';
+import { WithholdingTaxCodesValueRange_Line } from './WithholdingTaxCodesValueRange_Line';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * WithholdingTaxCodesLine
  */
@@ -70,12 +70,12 @@ export interface WithholdingTaxCodesLine {
      * Progressive Tax Lines.
      * @nullable
      */
-    progressiveTaxLines?: ProgressiveTaxLine;
+    progressiveTaxLines?: ProgressiveTaxLine[];
     /**
      * Withholding Tax Codes Value Range Lines.
      * @nullable
      */
-    withholdingTaxCodesValueRangeLines?: WithholdingTaxCodesValueRange_Line;
+    withholdingTaxCodesValueRangeLines?: WithholdingTaxCodesValueRange_Line[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[WithholdingTaxCodesLine.build]] instead.
@@ -85,7 +85,7 @@ export declare function createWithholdingTaxCodesLine(json: any): WithholdingTax
  * WithholdingTaxCodesLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class WithholdingTaxCodesLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class WithholdingTaxCodesLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, WithholdingTaxCodesLine> {
     /**
      * Representation of the [[WithholdingTaxCodesLine.effectivefrom]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -150,14 +150,28 @@ export declare class WithholdingTaxCodesLineField<EntityT extends Entity> extend
      * Representation of the [[WithholdingTaxCodesLine.progressiveTaxLines]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    progressiveTaxLines: ProgressiveTaxLineField<EntityT>;
+    progressiveTaxLines: CollectionField<EntityT, ProgressiveTaxLine>;
     /**
      * Representation of the [[WithholdingTaxCodesLine.withholdingTaxCodesValueRangeLines]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    withholdingTaxCodesValueRangeLines: WithholdingTaxCodesValueRange_LineField<EntityT>;
+    withholdingTaxCodesValueRangeLines: CollectionField<EntityT, WithholdingTaxCodesValueRange_Line>;
+    /**
+     * Creates an instance of WithholdingTaxCodesLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace WithholdingTaxCodesLine {
+    /**
+     * Metadata information on all properties of the `WithholdingTaxCodesLine` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<WithholdingTaxCodesLine>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | ProgressiveTaxLine | WithholdingTaxCodesValueRange_Line;
     }): WithholdingTaxCodesLine;

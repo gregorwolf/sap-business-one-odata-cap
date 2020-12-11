@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ReconciliationJournalEntryLine
@@ -73,7 +73,7 @@ export function createReconciliationJournalEntryLine(json: any): ReconciliationJ
  * ReconciliationJournalEntryLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ReconciliationJournalEntryLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ReconciliationJournalEntryLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ReconciliationJournalEntryLine> {
   /**
    * Representation of the [[ReconciliationJournalEntryLine.transactionNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -124,21 +124,78 @@ export class ReconciliationJournalEntryLineField<EntityT extends Entity> extends
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   details: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Details', this, 'Edm.String');
+
+  /**
+   * Creates an instance of ReconciliationJournalEntryLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ReconciliationJournalEntryLine);
+  }
 }
 
 export namespace ReconciliationJournalEntryLine {
+  /**
+   * Metadata information on all properties of the `ReconciliationJournalEntryLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ReconciliationJournalEntryLine>[] = [{
+    originalName: 'TransactionNumber',
+    name: 'transactionNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PostingDate',
+    name: 'postingDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'DueDate',
+    name: 'dueDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Ref1',
+    name: 'ref1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Ref2',
+    name: 'ref2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Ref3',
+    name: 'ref3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DebitAmount',
+    name: 'debitAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CreditAmount',
+    name: 'creditAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Details',
+    name: 'details',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ReconciliationJournalEntryLine {
-    return createComplexType(json, {
-      TransactionNumber: (transactionNumber: number) => ({ transactionNumber: edmToTs(transactionNumber, 'Edm.Int32') }),
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      PostingDate: (postingDate: Moment) => ({ postingDate: edmToTs(postingDate, 'Edm.DateTimeOffset') }),
-      DueDate: (dueDate: Moment) => ({ dueDate: edmToTs(dueDate, 'Edm.DateTimeOffset') }),
-      Ref1: (ref1: string) => ({ ref1: edmToTs(ref1, 'Edm.String') }),
-      Ref2: (ref2: string) => ({ ref2: edmToTs(ref2, 'Edm.String') }),
-      Ref3: (ref3: string) => ({ ref3: edmToTs(ref3, 'Edm.String') }),
-      DebitAmount: (debitAmount: number) => ({ debitAmount: edmToTs(debitAmount, 'Edm.Double') }),
-      CreditAmount: (creditAmount: number) => ({ creditAmount: edmToTs(creditAmount, 'Edm.Double') }),
-      Details: (details: string) => ({ details: edmToTs(details, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, ReconciliationJournalEntryLine);
   }
 }

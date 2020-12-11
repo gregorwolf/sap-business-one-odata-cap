@@ -4,26 +4,22 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { DistributionRulesRequestBuilder } from './DistributionRulesRequestBuilder';
-import { DistributionRuleLine, DistributionRuleLineField } from './DistributionRuleLine';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { DistributionRuleLine } from './DistributionRuleLine';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "DistributionRules" of service "SAPB1".
  */
-export class DistributionRules extends Entity implements DistributionRulesType {
+export class DistributionRules extends EntityV4 implements DistributionRulesType {
   /**
    * Technical entity name for DistributionRules.
    */
   static _entityName = 'DistributionRules';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for DistributionRules.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Factor Code.
    * @nullable
@@ -49,6 +45,16 @@ export class DistributionRules extends Entity implements DistributionRulesType {
    * @nullable
    */
   inWhichDimension?: number;
+  /**
+   * Active.
+   * @nullable
+   */
+  active?: BoYesNoEnum;
+  /**
+   * Is Fixed Amount.
+   * @nullable
+   */
+  isFixedAmount?: BoYesNoEnum;
   /**
    * Distribution Rule Lines.
    * @nullable
@@ -84,11 +90,11 @@ export class DistributionRules extends Entity implements DistributionRulesType {
   deposits!: Deposits[];
 
   /**
-   * Returns an entity builder to construct instances `DistributionRules`.
+   * Returns an entity builder to construct instances of `DistributionRules`.
    * @returns A builder that constructs instances of entity type `DistributionRules`.
    */
-  static builder(): EntityBuilderType<DistributionRules, DistributionRulesTypeForceMandatory> {
-    return Entity.entityBuilder(DistributionRules);
+  static builder(): EntityBuilderType<DistributionRules, DistributionRulesType> {
+    return EntityV4.entityBuilder(DistributionRules);
   }
 
   /**
@@ -104,8 +110,8 @@ export class DistributionRules extends Entity implements DistributionRulesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `DistributionRules`.
    */
-  static customField(fieldName: string): CustomField<DistributionRules> {
-    return Entity.customFieldSelector(fieldName, DistributionRules);
+  static customField(fieldName: string): CustomFieldV4<DistributionRules> {
+    return EntityV4.customFieldSelector(fieldName, DistributionRules);
   }
 
   /**
@@ -126,28 +132,14 @@ import { Dimensions, DimensionsType } from './Dimensions';
 import { Deposits, DepositsType } from './Deposits';
 
 export interface DistributionRulesType {
-  factorCode?: string;
-  factorDescription?: string;
-  totalFactor?: number;
-  direct?: string;
-  inWhichDimension?: number;
-  distributionRuleLines?: DistributionRuleLine[];
-  productionOrders: ProductionOrdersType[];
-  productTrees: ProductTreesType[];
-  chartOfAccounts: ChartOfAccountsType[];
-  budgetScenarios: BudgetScenariosType[];
-  additionalExpenses: AdditionalExpensesType[];
-  dimension: DimensionsType;
-  deposits: DepositsType[];
-}
-
-export interface DistributionRulesTypeForceMandatory {
-  factorCode: string;
-  factorDescription: string;
-  totalFactor: number;
-  direct: string;
-  inWhichDimension: number;
-  distributionRuleLines: DistributionRuleLine[];
+  factorCode?: string | null;
+  factorDescription?: string | null;
+  totalFactor?: number | null;
+  direct?: string | null;
+  inWhichDimension?: number | null;
+  active?: BoYesNoEnum | null;
+  isFixedAmount?: BoYesNoEnum | null;
+  distributionRuleLines?: DistributionRuleLine[] | null;
   productionOrders: ProductionOrdersType[];
   productTrees: ProductTreesType[];
   chartOfAccounts: ChartOfAccountsType[];
@@ -184,10 +176,20 @@ export namespace DistributionRules {
    */
   export const IN_WHICH_DIMENSION: NumberField<DistributionRules> = new NumberField('InWhichDimension', DistributionRules, 'Edm.Int32');
   /**
+   * Static representation of the [[active]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ACTIVE: EnumField<DistributionRules> = new EnumField('Active', DistributionRules);
+  /**
+   * Static representation of the [[isFixedAmount]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_FIXED_AMOUNT: EnumField<DistributionRules> = new EnumField('IsFixedAmount', DistributionRules);
+  /**
    * Static representation of the [[distributionRuleLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DISTRIBUTION_RULE_LINES: CollectionField<DistributionRules> = new CollectionField('DistributionRuleLines', DistributionRules, new DistributionRuleLineField('', DistributionRules));
+  export const DISTRIBUTION_RULE_LINES: CollectionField<DistributionRules, DistributionRuleLine> = new CollectionField('DistributionRuleLines', DistributionRules, DistributionRuleLine);
   /**
    * Static representation of the one-to-many navigation property [[productionOrders]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -226,12 +228,14 @@ export namespace DistributionRules {
   /**
    * All fields of the DistributionRules entity.
    */
-  export const _allFields: Array<StringField<DistributionRules> | NumberField<DistributionRules> | CollectionField<DistributionRules> | OneToManyLink<DistributionRules, ProductionOrders> | OneToManyLink<DistributionRules, ProductTrees> | OneToManyLink<DistributionRules, ChartOfAccounts> | OneToManyLink<DistributionRules, BudgetScenarios> | OneToManyLink<DistributionRules, AdditionalExpenses> | OneToOneLink<DistributionRules, Dimensions> | OneToManyLink<DistributionRules, Deposits>> = [
+  export const _allFields: Array<StringField<DistributionRules> | NumberField<DistributionRules> | EnumField<DistributionRules> | CollectionField<DistributionRules, DistributionRuleLine> | OneToManyLink<DistributionRules, ProductionOrders> | OneToManyLink<DistributionRules, ProductTrees> | OneToManyLink<DistributionRules, ChartOfAccounts> | OneToManyLink<DistributionRules, BudgetScenarios> | OneToManyLink<DistributionRules, AdditionalExpenses> | OneToOneLink<DistributionRules, Dimensions> | OneToManyLink<DistributionRules, Deposits>> = [
     DistributionRules.FACTOR_CODE,
     DistributionRules.FACTOR_DESCRIPTION,
     DistributionRules.TOTAL_FACTOR,
     DistributionRules.DIRECT,
     DistributionRules.IN_WHICH_DIMENSION,
+    DistributionRules.ACTIVE,
+    DistributionRules.IS_FIXED_AMOUNT,
     DistributionRules.DISTRIBUTION_RULE_LINES,
     DistributionRules.PRODUCTION_ORDERS,
     DistributionRules.PRODUCT_TREES,

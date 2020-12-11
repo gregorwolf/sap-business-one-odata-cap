@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * WtdItem
@@ -43,7 +43,7 @@ export function createWtdItem(json: any): WtdItem {
  * WtdItemField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class WtdItemField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class WtdItemField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, WtdItem> {
   /**
    * Representation of the [[WtdItem.itemCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -64,15 +64,48 @@ export class WtdItemField<EntityT extends Entity> extends ComplexTypeField<Entit
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   effectiveDateTo: ComplexTypeDatePropertyField<EntityT> = new ComplexTypeDatePropertyField('EffectiveDateTo', this, 'Edm.DateTimeOffset');
+
+  /**
+   * Creates an instance of WtdItemField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, WtdItem);
+  }
 }
 
 export namespace WtdItem {
+  /**
+   * Metadata information on all properties of the `WtdItem` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<WtdItem>[] = [{
+    originalName: 'ItemCode',
+    name: 'itemCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WTaxCode',
+    name: 'wTaxCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'EffectiveDateFrom',
+    name: 'effectiveDateFrom',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'EffectiveDateTo',
+    name: 'effectiveDateTo',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): WtdItem {
-    return createComplexType(json, {
-      ItemCode: (itemCode: string) => ({ itemCode: edmToTs(itemCode, 'Edm.String') }),
-      WTaxCode: (wTaxCode: string) => ({ wTaxCode: edmToTs(wTaxCode, 'Edm.String') }),
-      EffectiveDateFrom: (effectiveDateFrom: Moment) => ({ effectiveDateFrom: edmToTs(effectiveDateFrom, 'Edm.DateTimeOffset') }),
-      EffectiveDateTo: (effectiveDateTo: Moment) => ({ effectiveDateTo: edmToTs(effectiveDateTo, 'Edm.DateTimeOffset') })
-    });
+    return deserializeComplexTypeV4(json, WtdItem);
   }
 }

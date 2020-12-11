@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ContractSequenceEnum } from './ContractSequenceEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * EmployeeSavingsPaymentInfo
@@ -64,6 +65,11 @@ export interface EmployeeSavingsPaymentInfo {
    * @nullable
    */
   bankAccount?: string;
+  /**
+   * Sequence.
+   * @nullable
+   */
+  sequence?: ContractSequenceEnum;
 }
 
 /**
@@ -77,7 +83,7 @@ export function createEmployeeSavingsPaymentInfo(json: any): EmployeeSavingsPaym
  * EmployeeSavingsPaymentInfoField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class EmployeeSavingsPaymentInfoField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class EmployeeSavingsPaymentInfoField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, EmployeeSavingsPaymentInfo> {
   /**
    * Representation of the [[EmployeeSavingsPaymentInfo.employeeId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -133,22 +139,93 @@ export class EmployeeSavingsPaymentInfoField<EntityT extends Entity> extends Com
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   bankAccount: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('BankAccount', this, 'Edm.String');
+  /**
+   * Representation of the [[EmployeeSavingsPaymentInfo.sequence]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  sequence: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Sequence', this);
+
+  /**
+   * Creates an instance of EmployeeSavingsPaymentInfoField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, EmployeeSavingsPaymentInfo);
+  }
 }
 
 export namespace EmployeeSavingsPaymentInfo {
+  /**
+   * Metadata information on all properties of the `EmployeeSavingsPaymentInfo` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<EmployeeSavingsPaymentInfo>[] = [{
+    originalName: 'EmployeeID',
+    name: 'employeeId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ContractName',
+    name: 'contractName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PaymentNotes',
+    name: 'paymentNotes',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AN',
+    name: 'an',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ANcurrency',
+    name: 'aNcurrency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AG',
+    name: 'ag',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AGcurrency',
+    name: 'aGcurrency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BankName',
+    name: 'bankName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BankCode',
+    name: 'bankCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BankAccount',
+    name: 'bankAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Sequence',
+    name: 'sequence',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): EmployeeSavingsPaymentInfo {
-    return createComplexType(json, {
-      EmployeeID: (employeeId: number) => ({ employeeId: edmToTs(employeeId, 'Edm.Int32') }),
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      ContractName: (contractName: string) => ({ contractName: edmToTs(contractName, 'Edm.String') }),
-      PaymentNotes: (paymentNotes: string) => ({ paymentNotes: edmToTs(paymentNotes, 'Edm.String') }),
-      AN: (an: number) => ({ an: edmToTs(an, 'Edm.Double') }),
-      ANcurrency: (aNcurrency: string) => ({ aNcurrency: edmToTs(aNcurrency, 'Edm.String') }),
-      AG: (ag: number) => ({ ag: edmToTs(ag, 'Edm.Double') }),
-      AGcurrency: (aGcurrency: string) => ({ aGcurrency: edmToTs(aGcurrency, 'Edm.String') }),
-      BankName: (bankName: string) => ({ bankName: edmToTs(bankName, 'Edm.String') }),
-      BankCode: (bankCode: string) => ({ bankCode: edmToTs(bankCode, 'Edm.String') }),
-      BankAccount: (bankAccount: string) => ({ bankAccount: edmToTs(bankAccount, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, EmployeeSavingsPaymentInfo);
   }
 }

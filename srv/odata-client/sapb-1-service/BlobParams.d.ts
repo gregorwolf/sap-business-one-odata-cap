@@ -1,5 +1,5 @@
-import { BlobTableKeySegment, BlobTableKeySegmentField } from './BlobTableKeySegment';
-import { ComplexTypeField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BlobTableKeySegment } from './BlobTableKeySegment';
+import { CollectionField, ComplexTypeField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * BlobParams
  */
@@ -23,7 +23,7 @@ export interface BlobParams {
      * Blob Table Key Segments.
      * @nullable
      */
-    blobTableKeySegments?: BlobTableKeySegment;
+    blobTableKeySegments?: BlobTableKeySegment[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[BlobParams.build]] instead.
@@ -33,7 +33,7 @@ export declare function createBlobParams(json: any): BlobParams;
  * BlobParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class BlobParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class BlobParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BlobParams> {
     /**
      * Representation of the [[BlobParams.table]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -53,9 +53,23 @@ export declare class BlobParamsField<EntityT extends Entity> extends ComplexType
      * Representation of the [[BlobParams.blobTableKeySegments]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    blobTableKeySegments: BlobTableKeySegmentField<EntityT>;
+    blobTableKeySegments: CollectionField<EntityT, BlobTableKeySegment>;
+    /**
+     * Creates an instance of BlobParamsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace BlobParams {
+    /**
+     * Metadata information on all properties of the `BlobParams` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<BlobParams>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | BlobTableKeySegment;
     }): BlobParams;

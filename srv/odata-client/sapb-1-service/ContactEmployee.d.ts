@@ -1,6 +1,8 @@
 import { Moment } from 'moment';
-import { ContactEmployeeBlockSendingMarketingContent, ContactEmployeeBlockSendingMarketingContentField } from './ContactEmployeeBlockSendingMarketingContent';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ContactEmployeeBlockSendingMarketingContent } from './ContactEmployeeBlockSendingMarketingContent';
+import { BoGenderTypes } from './BoGenderTypes';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * ContactEmployee
  */
@@ -86,6 +88,11 @@ export interface ContactEmployee {
      */
     dateOfBirth?: Moment;
     /**
+     * Gender.
+     * @nullable
+     */
+    gender?: BoGenderTypes;
+    /**
      * Profession.
      * @nullable
      */
@@ -100,6 +107,11 @@ export interface ContactEmployee {
      * @nullable
      */
     cityOfBirth?: string;
+    /**
+     * Active.
+     * @nullable
+     */
+    active?: BoYesNoEnum;
     /**
      * First Name.
      * @nullable
@@ -121,10 +133,15 @@ export interface ContactEmployee {
      */
     emailGroupCode?: string;
     /**
+     * Block Sending Marketing Content.
+     * @nullable
+     */
+    blockSendingMarketingContent?: BoYesNoEnum;
+    /**
      * Contact Employee Block Sending Marketing Contents.
      * @nullable
      */
-    contactEmployeeBlockSendingMarketingContents?: ContactEmployeeBlockSendingMarketingContent;
+    contactEmployeeBlockSendingMarketingContents?: ContactEmployeeBlockSendingMarketingContent[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[ContactEmployee.build]] instead.
@@ -134,7 +151,7 @@ export declare function createContactEmployee(json: any): ContactEmployee;
  * ContactEmployeeField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class ContactEmployeeField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class ContactEmployeeField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ContactEmployee> {
     /**
      * Representation of the [[ContactEmployee.cardCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -216,6 +233,11 @@ export declare class ContactEmployeeField<EntityT extends Entity> extends Comple
      */
     dateOfBirth: ComplexTypeDatePropertyField<EntityT>;
     /**
+     * Representation of the [[ContactEmployee.gender]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    gender: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ContactEmployee.profession]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -230,6 +252,11 @@ export declare class ContactEmployeeField<EntityT extends Entity> extends Comple
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     cityOfBirth: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[ContactEmployee.active]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    active: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[ContactEmployee.firstName]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -251,12 +278,31 @@ export declare class ContactEmployeeField<EntityT extends Entity> extends Comple
      */
     emailGroupCode: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[ContactEmployee.blockSendingMarketingContent]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    blockSendingMarketingContent: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ContactEmployee.contactEmployeeBlockSendingMarketingContents]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    contactEmployeeBlockSendingMarketingContents: ContactEmployeeBlockSendingMarketingContentField<EntityT>;
+    contactEmployeeBlockSendingMarketingContents: CollectionField<EntityT, ContactEmployeeBlockSendingMarketingContent>;
+    /**
+     * Creates an instance of ContactEmployeeField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace ContactEmployee {
+    /**
+     * Metadata information on all properties of the `ContactEmployee` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<ContactEmployee>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | ContactEmployeeBlockSendingMarketingContent;
     }): ContactEmployee;

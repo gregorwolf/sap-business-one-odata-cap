@@ -1,18 +1,13 @@
 import { EmailGroupsRequestBuilder } from './EmailGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "EmailGroups" of service "SAPB1".
  */
-export declare class EmailGroups extends Entity implements EmailGroupsType {
+export declare class EmailGroups extends EntityV4 implements EmailGroupsType {
     /**
      * Technical entity name for EmailGroups.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for EmailGroups.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -28,10 +23,10 @@ export declare class EmailGroups extends Entity implements EmailGroupsType {
      */
     emailGroupName?: string;
     /**
-     * Returns an entity builder to construct instances `EmailGroups`.
+     * Returns an entity builder to construct instances of `EmailGroups`.
      * @returns A builder that constructs instances of entity type `EmailGroups`.
      */
-    static builder(): EntityBuilderType<EmailGroups, EmailGroupsTypeForceMandatory>;
+    static builder(): EntityBuilderType<EmailGroups, EmailGroupsType>;
     /**
      * Returns a request builder to construct requests for operations on the `EmailGroups` entity type.
      * @returns A `EmailGroups` request builder.
@@ -42,7 +37,7 @@ export declare class EmailGroups extends Entity implements EmailGroupsType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `EmailGroups`.
      */
-    static customField(fieldName: string): CustomField<EmailGroups>;
+    static customField(fieldName: string): CustomFieldV4<EmailGroups>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -52,12 +47,8 @@ export declare class EmailGroups extends Entity implements EmailGroupsType {
     };
 }
 export interface EmailGroupsType {
-    emailGroupCode?: string;
-    emailGroupName?: string;
-}
-export interface EmailGroupsTypeForceMandatory {
-    emailGroupCode: string;
-    emailGroupName: string;
+    emailGroupCode?: string | null;
+    emailGroupName?: string | null;
 }
 export declare namespace EmailGroups {
     /**

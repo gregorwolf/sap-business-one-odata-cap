@@ -1,4 +1,5 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { UserMenuItemTypeEnum } from './UserMenuItemTypeEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * UserMenuItem
  */
@@ -13,6 +14,11 @@ export interface UserMenuItem {
      * @nullable
      */
     position?: number;
+    /**
+     * Type.
+     * @nullable
+     */
+    type?: UserMenuItemTypeEnum;
     /**
      * Linked Obj Type.
      * @nullable
@@ -47,7 +53,7 @@ export declare function createUserMenuItem(json: any): UserMenuItem;
  * UserMenuItemField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class UserMenuItemField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class UserMenuItemField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, UserMenuItem> {
     /**
      * Representation of the [[UserMenuItem.name]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -58,6 +64,11 @@ export declare class UserMenuItemField<EntityT extends Entity> extends ComplexTy
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     position: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[UserMenuItem.type]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    type: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[UserMenuItem.linkedObjType]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -83,8 +94,22 @@ export declare class UserMenuItemField<EntityT extends Entity> extends ComplexTy
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     reportPath: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Creates an instance of UserMenuItemField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace UserMenuItem {
+    /**
+     * Metadata information on all properties of the `UserMenuItem` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<UserMenuItem>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): UserMenuItem;

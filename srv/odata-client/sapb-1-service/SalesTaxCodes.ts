@@ -4,26 +4,32 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { SalesTaxCodesRequestBuilder } from './SalesTaxCodesRequestBuilder';
-import { SalesTaxCodesLine, SalesTaxCodesLineField } from './SalesTaxCodesLine';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { SalesTaxCodesLine } from './SalesTaxCodesLine';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "SalesTaxCodes" of service "SAPB1".
  */
-export class SalesTaxCodes extends Entity implements SalesTaxCodesType {
+export class SalesTaxCodes extends EntityV4 implements SalesTaxCodesType {
   /**
    * Technical entity name for SalesTaxCodes.
    */
   static _entityName = 'SalesTaxCodes';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for SalesTaxCodes.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
+  /**
+   * Valid For Ar.
+   * @nullable
+   */
+  validForAr?: BoYesNoEnum;
+  /**
+   * Valid For Ap.
+   * @nullable
+   */
+  validForAp?: BoYesNoEnum;
   /**
    * User Signature.
    * @nullable
@@ -40,10 +46,30 @@ export class SalesTaxCodes extends Entity implements SalesTaxCodesType {
    */
   name?: string;
   /**
+   * Freight.
+   * @nullable
+   */
+  freight?: BoYesNoEnum;
+  /**
    * Code.
    * @nullable
    */
   code?: string;
+  /**
+   * Is Item Level.
+   * @nullable
+   */
+  isItemLevel?: BoYesNoEnum;
+  /**
+   * Inactive.
+   * @nullable
+   */
+  inactive?: BoYesNoEnum;
+  /**
+   * Fa Debit.
+   * @nullable
+   */
+  faDebit?: BoYesNoEnum;
   /**
    * Sales Tax Codes Lines.
    * @nullable
@@ -75,11 +101,11 @@ export class SalesTaxCodes extends Entity implements SalesTaxCodesType {
   expenseTypes!: ExpenseTypes[];
 
   /**
-   * Returns an entity builder to construct instances `SalesTaxCodes`.
+   * Returns an entity builder to construct instances of `SalesTaxCodes`.
    * @returns A builder that constructs instances of entity type `SalesTaxCodes`.
    */
-  static builder(): EntityBuilderType<SalesTaxCodes, SalesTaxCodesTypeForceMandatory> {
-    return Entity.entityBuilder(SalesTaxCodes);
+  static builder(): EntityBuilderType<SalesTaxCodes, SalesTaxCodesType> {
+    return EntityV4.entityBuilder(SalesTaxCodes);
   }
 
   /**
@@ -95,8 +121,8 @@ export class SalesTaxCodes extends Entity implements SalesTaxCodesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `SalesTaxCodes`.
    */
-  static customField(fieldName: string): CustomField<SalesTaxCodes> {
-    return Entity.customFieldSelector(fieldName, SalesTaxCodes);
+  static customField(fieldName: string): CustomFieldV4<SalesTaxCodes> {
+    return EntityV4.customFieldSelector(fieldName, SalesTaxCodes);
   }
 
   /**
@@ -116,25 +142,17 @@ import { Users, UsersType } from './Users';
 import { ExpenseTypes, ExpenseTypesType } from './ExpenseTypes';
 
 export interface SalesTaxCodesType {
-  userSignature?: number;
-  rate?: number;
-  name?: string;
-  code?: string;
-  salesTaxCodesLines?: SalesTaxCodesLine[];
-  userDefaultGroups: UserDefaultGroupsType[];
-  warehouses: WarehousesType[];
-  items: ItemsType[];
-  businessPartners: BusinessPartnersType[];
-  user: UsersType;
-  expenseTypes: ExpenseTypesType[];
-}
-
-export interface SalesTaxCodesTypeForceMandatory {
-  userSignature: number;
-  rate: number;
-  name: string;
-  code: string;
-  salesTaxCodesLines: SalesTaxCodesLine[];
+  validForAr?: BoYesNoEnum | null;
+  validForAp?: BoYesNoEnum | null;
+  userSignature?: number | null;
+  rate?: number | null;
+  name?: string | null;
+  freight?: BoYesNoEnum | null;
+  code?: string | null;
+  isItemLevel?: BoYesNoEnum | null;
+  inactive?: BoYesNoEnum | null;
+  faDebit?: BoYesNoEnum | null;
+  salesTaxCodesLines?: SalesTaxCodesLine[] | null;
   userDefaultGroups: UserDefaultGroupsType[];
   warehouses: WarehousesType[];
   items: ItemsType[];
@@ -144,6 +162,16 @@ export interface SalesTaxCodesTypeForceMandatory {
 }
 
 export namespace SalesTaxCodes {
+  /**
+   * Static representation of the [[validForAr]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const VALID_FOR_AR: EnumField<SalesTaxCodes> = new EnumField('ValidForAR', SalesTaxCodes);
+  /**
+   * Static representation of the [[validForAp]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const VALID_FOR_AP: EnumField<SalesTaxCodes> = new EnumField('ValidForAP', SalesTaxCodes);
   /**
    * Static representation of the [[userSignature]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -160,15 +188,35 @@ export namespace SalesTaxCodes {
    */
   export const NAME: StringField<SalesTaxCodes> = new StringField('Name', SalesTaxCodes, 'Edm.String');
   /**
+   * Static representation of the [[freight]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const FREIGHT: EnumField<SalesTaxCodes> = new EnumField('Freight', SalesTaxCodes);
+  /**
    * Static representation of the [[code]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CODE: StringField<SalesTaxCodes> = new StringField('Code', SalesTaxCodes, 'Edm.String');
   /**
+   * Static representation of the [[isItemLevel]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_ITEM_LEVEL: EnumField<SalesTaxCodes> = new EnumField('IsItemLevel', SalesTaxCodes);
+  /**
+   * Static representation of the [[inactive]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INACTIVE: EnumField<SalesTaxCodes> = new EnumField('Inactive', SalesTaxCodes);
+  /**
+   * Static representation of the [[faDebit]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const FA_DEBIT: EnumField<SalesTaxCodes> = new EnumField('FADebit', SalesTaxCodes);
+  /**
    * Static representation of the [[salesTaxCodesLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const SALES_TAX_CODES_LINES: CollectionField<SalesTaxCodes> = new CollectionField('SalesTaxCodes_Lines', SalesTaxCodes, new SalesTaxCodesLineField('', SalesTaxCodes));
+  export const SALES_TAX_CODES_LINES: CollectionField<SalesTaxCodes, SalesTaxCodesLine> = new CollectionField('SalesTaxCodes_Lines', SalesTaxCodes, SalesTaxCodesLine);
   /**
    * Static representation of the one-to-many navigation property [[userDefaultGroups]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -202,11 +250,17 @@ export namespace SalesTaxCodes {
   /**
    * All fields of the SalesTaxCodes entity.
    */
-  export const _allFields: Array<NumberField<SalesTaxCodes> | StringField<SalesTaxCodes> | CollectionField<SalesTaxCodes> | OneToManyLink<SalesTaxCodes, UserDefaultGroups> | OneToManyLink<SalesTaxCodes, Warehouses> | OneToManyLink<SalesTaxCodes, Items> | OneToManyLink<SalesTaxCodes, BusinessPartners> | OneToOneLink<SalesTaxCodes, Users> | OneToManyLink<SalesTaxCodes, ExpenseTypes>> = [
+  export const _allFields: Array<EnumField<SalesTaxCodes> | NumberField<SalesTaxCodes> | StringField<SalesTaxCodes> | CollectionField<SalesTaxCodes, SalesTaxCodesLine> | OneToManyLink<SalesTaxCodes, UserDefaultGroups> | OneToManyLink<SalesTaxCodes, Warehouses> | OneToManyLink<SalesTaxCodes, Items> | OneToManyLink<SalesTaxCodes, BusinessPartners> | OneToOneLink<SalesTaxCodes, Users> | OneToManyLink<SalesTaxCodes, ExpenseTypes>> = [
+    SalesTaxCodes.VALID_FOR_AR,
+    SalesTaxCodes.VALID_FOR_AP,
     SalesTaxCodes.USER_SIGNATURE,
     SalesTaxCodes.RATE,
     SalesTaxCodes.NAME,
+    SalesTaxCodes.FREIGHT,
     SalesTaxCodes.CODE,
+    SalesTaxCodes.IS_ITEM_LEVEL,
+    SalesTaxCodes.INACTIVE,
+    SalesTaxCodes.FA_DEBIT,
     SalesTaxCodes.SALES_TAX_CODES_LINES,
     SalesTaxCodes.USER_DEFAULT_GROUPS,
     SalesTaxCodes.WAREHOUSES,

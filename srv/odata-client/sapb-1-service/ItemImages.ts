@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ItemImagesRequestBuilder } from './ItemImagesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ItemImages" of service "SAPB1".
  */
-export class ItemImages extends Entity implements ItemImagesType {
+export class ItemImages extends EntityV4 implements ItemImagesType {
   /**
    * Technical entity name for ItemImages.
    */
   static _entityName = 'ItemImages';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ItemImages.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Item Code.
    */
@@ -33,11 +28,11 @@ export class ItemImages extends Entity implements ItemImagesType {
   picture!: string;
 
   /**
-   * Returns an entity builder to construct instances `ItemImages`.
+   * Returns an entity builder to construct instances of `ItemImages`.
    * @returns A builder that constructs instances of entity type `ItemImages`.
    */
-  static builder(): EntityBuilderType<ItemImages, ItemImagesTypeForceMandatory> {
-    return Entity.entityBuilder(ItemImages);
+  static builder(): EntityBuilderType<ItemImages, ItemImagesType> {
+    return EntityV4.entityBuilder(ItemImages);
   }
 
   /**
@@ -53,8 +48,8 @@ export class ItemImages extends Entity implements ItemImagesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ItemImages`.
    */
-  static customField(fieldName: string): CustomField<ItemImages> {
-    return Entity.customFieldSelector(fieldName, ItemImages);
+  static customField(fieldName: string): CustomFieldV4<ItemImages> {
+    return EntityV4.customFieldSelector(fieldName, ItemImages);
   }
 
   /**
@@ -67,11 +62,6 @@ export class ItemImages extends Entity implements ItemImagesType {
 }
 
 export interface ItemImagesType {
-  itemCode: string;
-  picture: string;
-}
-
-export interface ItemImagesTypeForceMandatory {
   itemCode: string;
   picture: string;
 }

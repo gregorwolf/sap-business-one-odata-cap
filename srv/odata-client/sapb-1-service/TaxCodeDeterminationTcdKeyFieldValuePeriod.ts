@@ -4,8 +4,8 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { TaxCodeDeterminationTcdKeyFieldValuePeriodByUsage, TaxCodeDeterminationTcdKeyFieldValuePeriodByUsageField } from './TaxCodeDeterminationTcdKeyFieldValuePeriodByUsage';
-import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { TaxCodeDeterminationTcdKeyFieldValuePeriodByUsage } from './TaxCodeDeterminationTcdKeyFieldValuePeriodByUsage';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * TaxCodeDeterminationTcdKeyFieldValuePeriod
@@ -35,7 +35,7 @@ export interface TaxCodeDeterminationTcdKeyFieldValuePeriod {
    * Tax Code Determination Tcd Key Field Value Period By Usages.
    * @nullable
    */
-  taxCodeDeterminationTcdKeyFieldValuePeriodByUsages?: TaxCodeDeterminationTcdKeyFieldValuePeriodByUsage;
+  taxCodeDeterminationTcdKeyFieldValuePeriodByUsages?: TaxCodeDeterminationTcdKeyFieldValuePeriodByUsage[];
 }
 
 /**
@@ -49,7 +49,7 @@ export function createTaxCodeDeterminationTcdKeyFieldValuePeriod(json: any): Tax
  * TaxCodeDeterminationTcdKeyFieldValuePeriodField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class TaxCodeDeterminationTcdKeyFieldValuePeriodField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class TaxCodeDeterminationTcdKeyFieldValuePeriodField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, TaxCodeDeterminationTcdKeyFieldValuePeriod> {
   /**
    * Representation of the [[TaxCodeDeterminationTcdKeyFieldValuePeriod.absId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -74,17 +74,54 @@ export class TaxCodeDeterminationTcdKeyFieldValuePeriodField<EntityT extends Ent
    * Representation of the [[TaxCodeDeterminationTcdKeyFieldValuePeriod.taxCodeDeterminationTcdKeyFieldValuePeriodByUsages]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  taxCodeDeterminationTcdKeyFieldValuePeriodByUsages: TaxCodeDeterminationTcdKeyFieldValuePeriodByUsageField<EntityT> = new TaxCodeDeterminationTcdKeyFieldValuePeriodByUsageField('TaxCodeDeterminationTCDKeyFieldValuePeriodByUsages', this);
+  taxCodeDeterminationTcdKeyFieldValuePeriodByUsages: CollectionField<EntityT, TaxCodeDeterminationTcdKeyFieldValuePeriodByUsage> = new CollectionField('TaxCodeDeterminationTCDKeyFieldValuePeriodByUsages', this, TaxCodeDeterminationTcdKeyFieldValuePeriodByUsage);
+
+  /**
+   * Creates an instance of TaxCodeDeterminationTcdKeyFieldValuePeriodField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, TaxCodeDeterminationTcdKeyFieldValuePeriod);
+  }
 }
 
 export namespace TaxCodeDeterminationTcdKeyFieldValuePeriod {
+  /**
+   * Metadata information on all properties of the `TaxCodeDeterminationTcdKeyFieldValuePeriod` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<TaxCodeDeterminationTcdKeyFieldValuePeriod>[] = [{
+    originalName: 'AbsId',
+    name: 'absId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'EfctFrom',
+    name: 'efctFrom',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'EfctTo',
+    name: 'efctTo',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'TaxCode',
+    name: 'taxCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxCodeDeterminationTCDKeyFieldValuePeriodByUsages',
+    name: 'taxCodeDeterminationTcdKeyFieldValuePeriodByUsages',
+    type: TaxCodeDeterminationTcdKeyFieldValuePeriodByUsage,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | TaxCodeDeterminationTcdKeyFieldValuePeriodByUsage }): TaxCodeDeterminationTcdKeyFieldValuePeriod {
-    return createComplexType(json, {
-      AbsId: (absId: number) => ({ absId: edmToTs(absId, 'Edm.Int32') }),
-      EfctFrom: (efctFrom: Moment) => ({ efctFrom: edmToTs(efctFrom, 'Edm.DateTimeOffset') }),
-      EfctTo: (efctTo: Moment) => ({ efctTo: edmToTs(efctTo, 'Edm.DateTimeOffset') }),
-      TaxCode: (taxCode: string) => ({ taxCode: edmToTs(taxCode, 'Edm.String') }),
-      TaxCodeDeterminationTCDKeyFieldValuePeriodByUsages: (taxCodeDeterminationTcdKeyFieldValuePeriodByUsages: TaxCodeDeterminationTcdKeyFieldValuePeriodByUsage) => ({ taxCodeDeterminationTcdKeyFieldValuePeriodByUsages: TaxCodeDeterminationTcdKeyFieldValuePeriodByUsage.build(taxCodeDeterminationTcdKeyFieldValuePeriodByUsages) })
-    });
+    return deserializeComplexTypeV4(json, TaxCodeDeterminationTcdKeyFieldValuePeriod);
   }
 }

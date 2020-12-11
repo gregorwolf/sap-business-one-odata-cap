@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { RclRecurringTransactionStatusEnum } from './RclRecurringTransactionStatusEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * RclRecurringTransaction
  */
@@ -25,6 +26,11 @@ export interface RclRecurringTransaction {
      */
     plannedDate?: Moment;
     /**
+     * Status.
+     * @nullable
+     */
+    status?: RclRecurringTransactionStatusEnum;
+    /**
      * Doc Type.
      * @nullable
      */
@@ -43,7 +49,7 @@ export declare function createRclRecurringTransaction(json: any): RclRecurringTr
  * RclRecurringTransactionField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class RclRecurringTransactionField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class RclRecurringTransactionField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, RclRecurringTransaction> {
     /**
      * Representation of the [[RclRecurringTransaction.transactionId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -65,6 +71,11 @@ export declare class RclRecurringTransactionField<EntityT extends Entity> extend
      */
     plannedDate: ComplexTypeDatePropertyField<EntityT>;
     /**
+     * Representation of the [[RclRecurringTransaction.status]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    status: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[RclRecurringTransaction.docType]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -74,8 +85,22 @@ export declare class RclRecurringTransactionField<EntityT extends Entity> extend
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     docEntry: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of RclRecurringTransactionField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace RclRecurringTransaction {
+    /**
+     * Metadata information on all properties of the `RclRecurringTransaction` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<RclRecurringTransaction>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): RclRecurringTransaction;

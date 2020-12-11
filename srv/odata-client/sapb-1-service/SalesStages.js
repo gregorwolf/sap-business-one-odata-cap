@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.SalesStages = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var SalesStagesRequestBuilder_1 = require("./SalesStagesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "SalesStages" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var SalesStages = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `SalesStages`.
+     * Returns an entity builder to construct instances of `SalesStages`.
      * @returns A builder that constructs instances of entity type `SalesStages`.
      */
     SalesStages.builder = function () {
-        return v4_1.Entity.entityBuilder(SalesStages);
+        return core_1.EntityV4.entityBuilder(SalesStages);
     };
     /**
      * Returns a request builder to construct requests for operations on the `SalesStages` entity type.
@@ -60,7 +60,7 @@ var SalesStages = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `SalesStages`.
      */
     SalesStages.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, SalesStages);
+        return core_1.EntityV4.customFieldSelector(fieldName, SalesStages);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var SalesStages = /** @class */ (function (_super) {
      */
     SalesStages._entityName = 'SalesStages';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for SalesStages.
-     */
-    SalesStages._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    SalesStages._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    SalesStages._defaultServicePath = '/b1s/v2/';
     return SalesStages;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.SalesStages = SalesStages;
 var SalesOpportunities_1 = require("./SalesOpportunities");
 (function (SalesStages) {
@@ -91,27 +86,42 @@ var SalesOpportunities_1 = require("./SalesOpportunities");
      * Static representation of the [[sequenceNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesStages.SEQUENCE_NO = new v4_1.NumberField('SequenceNo', SalesStages, 'Edm.Int32');
+    SalesStages.SEQUENCE_NO = new core_1.NumberField('SequenceNo', SalesStages, 'Edm.Int32');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesStages.NAME = new v4_1.StringField('Name', SalesStages, 'Edm.String');
+    SalesStages.NAME = new core_1.StringField('Name', SalesStages, 'Edm.String');
     /**
      * Static representation of the [[stageno]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesStages.STAGENO = new v4_1.NumberField('Stageno', SalesStages, 'Edm.Int32');
+    SalesStages.STAGENO = new core_1.NumberField('Stageno', SalesStages, 'Edm.Int32');
     /**
      * Static representation of the [[closingPercentage]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesStages.CLOSING_PERCENTAGE = new v4_1.NumberField('ClosingPercentage', SalesStages, 'Edm.Double');
+    SalesStages.CLOSING_PERCENTAGE = new core_1.NumberField('ClosingPercentage', SalesStages, 'Edm.Double');
+    /**
+     * Static representation of the [[cancelled]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    SalesStages.CANCELLED = new core_1.EnumField('Cancelled', SalesStages);
+    /**
+     * Static representation of the [[isSales]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    SalesStages.IS_SALES = new core_1.EnumField('IsSales', SalesStages);
+    /**
+     * Static representation of the [[isPurchasing]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    SalesStages.IS_PURCHASING = new core_1.EnumField('IsPurchasing', SalesStages);
     /**
      * Static representation of the one-to-many navigation property [[salesOpportunities]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesStages.SALES_OPPORTUNITIES = new v4_1.OneToManyLink('SalesOpportunities', SalesStages, SalesOpportunities_1.SalesOpportunities);
+    SalesStages.SALES_OPPORTUNITIES = new core_1.OneToManyLink('SalesOpportunities', SalesStages, SalesOpportunities_1.SalesOpportunities);
     /**
      * All fields of the SalesStages entity.
      */
@@ -120,12 +130,15 @@ var SalesOpportunities_1 = require("./SalesOpportunities");
         SalesStages.NAME,
         SalesStages.STAGENO,
         SalesStages.CLOSING_PERCENTAGE,
+        SalesStages.CANCELLED,
+        SalesStages.IS_SALES,
+        SalesStages.IS_PURCHASING,
         SalesStages.SALES_OPPORTUNITIES
     ];
     /**
      * All fields selector.
      */
-    SalesStages.ALL_FIELDS = new v4_1.AllFields('*', SalesStages);
+    SalesStages.ALL_FIELDS = new core_1.AllFields('*', SalesStages);
     /**
      * All key fields of the SalesStages entity.
      */

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.CycleCountDeterminationsRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var CycleCountDeterminations_1 = require("./CycleCountDeterminations");
 /**
  * Request builder class for operations supported on the [[CycleCountDeterminations]] entity.
@@ -35,14 +35,14 @@ var CycleCountDeterminationsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `CycleCountDeterminations` entity based on its keys.
      */
     CycleCountDeterminationsRequestBuilder.prototype.getByKey = function (warehouseCode) {
-        return new v4_1.GetByKeyRequestBuilder(CycleCountDeterminations_1.CycleCountDeterminations, { WarehouseCode: warehouseCode });
+        return new core_1.GetByKeyRequestBuilderV4(CycleCountDeterminations_1.CycleCountDeterminations, { WarehouseCode: warehouseCode });
     };
     /**
      * Returns a request builder for querying all `CycleCountDeterminations` entities.
      * @returns A request builder for creating requests to retrieve all `CycleCountDeterminations` entities.
      */
     CycleCountDeterminationsRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(CycleCountDeterminations_1.CycleCountDeterminations);
+        return new core_1.GetAllRequestBuilderV4(CycleCountDeterminations_1.CycleCountDeterminations);
     };
     /**
      * Returns a request builder for creating a `CycleCountDeterminations` entity.
@@ -50,7 +50,7 @@ var CycleCountDeterminationsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `CycleCountDeterminations`.
      */
     CycleCountDeterminationsRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(CycleCountDeterminations_1.CycleCountDeterminations, entity);
+        return new core_1.CreateRequestBuilderV4(CycleCountDeterminations_1.CycleCountDeterminations, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `CycleCountDeterminations`.
@@ -58,12 +58,12 @@ var CycleCountDeterminationsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `CycleCountDeterminations`.
      */
     CycleCountDeterminationsRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(CycleCountDeterminations_1.CycleCountDeterminations, entity);
+        return new core_1.UpdateRequestBuilderV4(CycleCountDeterminations_1.CycleCountDeterminations, entity);
     };
     CycleCountDeterminationsRequestBuilder.prototype.delete = function (warehouseCodeOrEntity) {
-        return new v4_1.DeleteRequestBuilder(CycleCountDeterminations_1.CycleCountDeterminations, warehouseCodeOrEntity instanceof CycleCountDeterminations_1.CycleCountDeterminations ? warehouseCodeOrEntity : { WarehouseCode: warehouseCodeOrEntity });
+        return new core_1.DeleteRequestBuilderV4(CycleCountDeterminations_1.CycleCountDeterminations, warehouseCodeOrEntity instanceof CycleCountDeterminations_1.CycleCountDeterminations ? warehouseCodeOrEntity : { WarehouseCode: warehouseCodeOrEntity });
     };
     return CycleCountDeterminationsRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.CycleCountDeterminationsRequestBuilder = CycleCountDeterminationsRequestBuilder;
 //# sourceMappingURL=CycleCountDeterminationsRequestBuilder.js.map

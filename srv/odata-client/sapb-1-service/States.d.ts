@@ -1,18 +1,13 @@
 import { StatesRequestBuilder } from './StatesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "States" of service "SAPB1".
  */
-export declare class States extends Entity implements StatesType {
+export declare class States extends EntityV4 implements StatesType {
     /**
      * Technical entity name for States.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for States.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -37,10 +32,10 @@ export declare class States extends Entity implements StatesType {
      */
     country2: Countries;
     /**
-     * Returns an entity builder to construct instances `States`.
+     * Returns an entity builder to construct instances of `States`.
      * @returns A builder that constructs instances of entity type `States`.
      */
-    static builder(): EntityBuilderType<States, StatesTypeForceMandatory>;
+    static builder(): EntityBuilderType<States, StatesType>;
     /**
      * Returns a request builder to construct requests for operations on the `States` entity type.
      * @returns A `States` request builder.
@@ -51,7 +46,7 @@ export declare class States extends Entity implements StatesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `States`.
      */
-    static customField(fieldName: string): CustomField<States>;
+    static customField(fieldName: string): CustomFieldV4<States>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -62,15 +57,9 @@ export declare class States extends Entity implements StatesType {
 }
 import { Countries, CountriesType } from './Countries';
 export interface StatesType {
-    code?: string;
-    country?: string;
-    name?: string;
-    country2: CountriesType;
-}
-export interface StatesTypeForceMandatory {
-    code: string;
-    country: string;
-    name: string;
+    code?: string | null;
+    country?: string | null;
+    name?: string | null;
     country2: CountriesType;
 }
 export declare namespace States {

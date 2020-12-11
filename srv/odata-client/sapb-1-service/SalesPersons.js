@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.SalesPersons = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var SalesPersonsRequestBuilder_1 = require("./SalesPersonsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "SalesPersons" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var SalesPersons = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `SalesPersons`.
+     * Returns an entity builder to construct instances of `SalesPersons`.
      * @returns A builder that constructs instances of entity type `SalesPersons`.
      */
     SalesPersons.builder = function () {
-        return v4_1.Entity.entityBuilder(SalesPersons);
+        return core_1.EntityV4.entityBuilder(SalesPersons);
     };
     /**
      * Returns a request builder to construct requests for operations on the `SalesPersons` entity type.
@@ -60,7 +60,7 @@ var SalesPersons = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `SalesPersons`.
      */
     SalesPersons.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, SalesPersons);
+        return core_1.EntityV4.customFieldSelector(fieldName, SalesPersons);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var SalesPersons = /** @class */ (function (_super) {
      */
     SalesPersons._entityName = 'SalesPersons';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for SalesPersons.
-     */
-    SalesPersons._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    SalesPersons._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    SalesPersons._defaultServicePath = '/b1s/v2/';
     return SalesPersons;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.SalesPersons = SalesPersons;
 var SalesOpportunities_1 = require("./SalesOpportunities");
 var UserDefaultGroups_1 = require("./UserDefaultGroups");
@@ -125,207 +120,217 @@ var GoodsReturnRequest_1 = require("./GoodsReturnRequest");
      * Static representation of the [[salesEmployeeCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.SALES_EMPLOYEE_CODE = new v4_1.NumberField('SalesEmployeeCode', SalesPersons, 'Edm.Int32');
+    SalesPersons.SALES_EMPLOYEE_CODE = new core_1.NumberField('SalesEmployeeCode', SalesPersons, 'Edm.Int32');
     /**
      * Static representation of the [[salesEmployeeName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.SALES_EMPLOYEE_NAME = new v4_1.StringField('SalesEmployeeName', SalesPersons, 'Edm.String');
+    SalesPersons.SALES_EMPLOYEE_NAME = new core_1.StringField('SalesEmployeeName', SalesPersons, 'Edm.String');
     /**
      * Static representation of the [[remarks]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.REMARKS = new v4_1.StringField('Remarks', SalesPersons, 'Edm.String');
+    SalesPersons.REMARKS = new core_1.StringField('Remarks', SalesPersons, 'Edm.String');
     /**
      * Static representation of the [[commissionForSalesEmployee]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.COMMISSION_FOR_SALES_EMPLOYEE = new v4_1.NumberField('CommissionForSalesEmployee', SalesPersons, 'Edm.Double');
+    SalesPersons.COMMISSION_FOR_SALES_EMPLOYEE = new core_1.NumberField('CommissionForSalesEmployee', SalesPersons, 'Edm.Double');
     /**
      * Static representation of the [[commissionGroup]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.COMMISSION_GROUP = new v4_1.NumberField('CommissionGroup', SalesPersons, 'Edm.Int32');
+    SalesPersons.COMMISSION_GROUP = new core_1.NumberField('CommissionGroup', SalesPersons, 'Edm.Int32');
+    /**
+     * Static representation of the [[locked]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    SalesPersons.LOCKED = new core_1.EnumField('Locked', SalesPersons);
     /**
      * Static representation of the [[employeeId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.EMPLOYEE_ID = new v4_1.NumberField('EmployeeID', SalesPersons, 'Edm.Int32');
+    SalesPersons.EMPLOYEE_ID = new core_1.NumberField('EmployeeID', SalesPersons, 'Edm.Int32');
+    /**
+     * Static representation of the [[active]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    SalesPersons.ACTIVE = new core_1.EnumField('Active', SalesPersons);
     /**
      * Static representation of the one-to-many navigation property [[salesOpportunities]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.SALES_OPPORTUNITIES = new v4_1.OneToManyLink('SalesOpportunities', SalesPersons, SalesOpportunities_1.SalesOpportunities);
+    SalesPersons.SALES_OPPORTUNITIES = new core_1.OneToManyLink('SalesOpportunities', SalesPersons, SalesOpportunities_1.SalesOpportunities);
     /**
      * Static representation of the one-to-many navigation property [[userDefaultGroups]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.USER_DEFAULT_GROUPS = new v4_1.OneToManyLink('UserDefaultGroups', SalesPersons, UserDefaultGroups_1.UserDefaultGroups);
+    SalesPersons.USER_DEFAULT_GROUPS = new core_1.OneToManyLink('UserDefaultGroups', SalesPersons, UserDefaultGroups_1.UserDefaultGroups);
     /**
      * Static representation of the one-to-many navigation property [[inventoryGenEntries]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.INVENTORY_GEN_ENTRIES = new v4_1.OneToManyLink('InventoryGenEntries', SalesPersons, InventoryGenEntries_1.InventoryGenEntries);
+    SalesPersons.INVENTORY_GEN_ENTRIES = new core_1.OneToManyLink('InventoryGenEntries', SalesPersons, InventoryGenEntries_1.InventoryGenEntries);
     /**
      * Static representation of the one-to-many navigation property [[purchaseQuotations]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.PURCHASE_QUOTATIONS = new v4_1.OneToManyLink('PurchaseQuotations', SalesPersons, PurchaseQuotations_1.PurchaseQuotations);
+    SalesPersons.PURCHASE_QUOTATIONS = new core_1.OneToManyLink('PurchaseQuotations', SalesPersons, PurchaseQuotations_1.PurchaseQuotations);
     /**
      * Static representation of the one-to-one navigation property [[commissionGroup2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.COMMISSION_GROUP_2 = new v4_1.OneToOneLink('CommissionGroup2', SalesPersons, CommissionGroups_1.CommissionGroups);
+    SalesPersons.COMMISSION_GROUP_2 = new core_1.OneToOneLink('CommissionGroup2', SalesPersons, CommissionGroups_1.CommissionGroups);
     /**
      * Static representation of the one-to-many navigation property [[contacts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.CONTACTS = new v4_1.OneToManyLink('Contacts', SalesPersons, Contacts_1.Contacts);
+    SalesPersons.CONTACTS = new core_1.OneToManyLink('Contacts', SalesPersons, Contacts_1.Contacts);
     /**
      * Static representation of the one-to-many navigation property [[deliveryNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.DELIVERY_NOTES = new v4_1.OneToManyLink('DeliveryNotes', SalesPersons, DeliveryNotes_1.DeliveryNotes);
+    SalesPersons.DELIVERY_NOTES = new core_1.OneToManyLink('DeliveryNotes', SalesPersons, DeliveryNotes_1.DeliveryNotes);
     /**
      * Static representation of the one-to-many navigation property [[businessPartners]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.BUSINESS_PARTNERS = new v4_1.OneToManyLink('BusinessPartners', SalesPersons, BusinessPartners_1.BusinessPartners);
+    SalesPersons.BUSINESS_PARTNERS = new core_1.OneToManyLink('BusinessPartners', SalesPersons, BusinessPartners_1.BusinessPartners);
     /**
      * Static representation of the one-to-many navigation property [[quotations]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.QUOTATIONS = new v4_1.OneToManyLink('Quotations', SalesPersons, Quotations_1.Quotations);
+    SalesPersons.QUOTATIONS = new core_1.OneToManyLink('Quotations', SalesPersons, Quotations_1.Quotations);
     /**
      * Static representation of the one-to-many navigation property [[inventoryGenExits]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.INVENTORY_GEN_EXITS = new v4_1.OneToManyLink('InventoryGenExits', SalesPersons, InventoryGenExits_1.InventoryGenExits);
+    SalesPersons.INVENTORY_GEN_EXITS = new core_1.OneToManyLink('InventoryGenExits', SalesPersons, InventoryGenExits_1.InventoryGenExits);
     /**
      * Static representation of the one-to-many navigation property [[purchaseRequests]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.PURCHASE_REQUESTS = new v4_1.OneToManyLink('PurchaseRequests', SalesPersons, PurchaseRequests_1.PurchaseRequests);
+    SalesPersons.PURCHASE_REQUESTS = new core_1.OneToManyLink('PurchaseRequests', SalesPersons, PurchaseRequests_1.PurchaseRequests);
     /**
      * Static representation of the one-to-many navigation property [[returnRequest]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.RETURN_REQUEST = new v4_1.OneToManyLink('ReturnRequest', SalesPersons, ReturnRequest_1.ReturnRequest);
+    SalesPersons.RETURN_REQUEST = new core_1.OneToManyLink('ReturnRequest', SalesPersons, ReturnRequest_1.ReturnRequest);
     /**
      * Static representation of the one-to-many navigation property [[purchaseReturns]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.PURCHASE_RETURNS = new v4_1.OneToManyLink('PurchaseReturns', SalesPersons, PurchaseReturns_1.PurchaseReturns);
+    SalesPersons.PURCHASE_RETURNS = new core_1.OneToManyLink('PurchaseReturns', SalesPersons, PurchaseReturns_1.PurchaseReturns);
     /**
      * Static representation of the one-to-many navigation property [[invoices]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.INVOICES = new v4_1.OneToManyLink('Invoices', SalesPersons, Invoices_1.Invoices);
+    SalesPersons.INVOICES = new core_1.OneToManyLink('Invoices', SalesPersons, Invoices_1.Invoices);
     /**
      * Static representation of the one-to-many navigation property [[creditNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.CREDIT_NOTES = new v4_1.OneToManyLink('CreditNotes', SalesPersons, CreditNotes_1.CreditNotes);
+    SalesPersons.CREDIT_NOTES = new core_1.OneToManyLink('CreditNotes', SalesPersons, CreditNotes_1.CreditNotes);
     /**
      * Static representation of the one-to-many navigation property [[stockTransfers]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.STOCK_TRANSFERS = new v4_1.OneToManyLink('StockTransfers', SalesPersons, StockTransfers_1.StockTransfers);
+    SalesPersons.STOCK_TRANSFERS = new core_1.OneToManyLink('StockTransfers', SalesPersons, StockTransfers_1.StockTransfers);
     /**
      * Static representation of the one-to-many navigation property [[orders]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.ORDERS = new v4_1.OneToManyLink('Orders', SalesPersons, Orders_1.Orders);
+    SalesPersons.ORDERS = new core_1.OneToManyLink('Orders', SalesPersons, Orders_1.Orders);
     /**
      * Static representation of the one-to-many navigation property [[inventoryTransferRequests]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.INVENTORY_TRANSFER_REQUESTS = new v4_1.OneToManyLink('InventoryTransferRequests', SalesPersons, InventoryTransferRequests_1.InventoryTransferRequests);
+    SalesPersons.INVENTORY_TRANSFER_REQUESTS = new core_1.OneToManyLink('InventoryTransferRequests', SalesPersons, InventoryTransferRequests_1.InventoryTransferRequests);
     /**
      * Static representation of the one-to-many navigation property [[activities]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.ACTIVITIES = new v4_1.OneToManyLink('Activities', SalesPersons, Activities_1.Activities);
+    SalesPersons.ACTIVITIES = new core_1.OneToManyLink('Activities', SalesPersons, Activities_1.Activities);
     /**
      * Static representation of the one-to-many navigation property [[downPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.DOWN_PAYMENTS = new v4_1.OneToManyLink('DownPayments', SalesPersons, DownPayments_1.DownPayments);
+    SalesPersons.DOWN_PAYMENTS = new core_1.OneToManyLink('DownPayments', SalesPersons, DownPayments_1.DownPayments);
     /**
      * Static representation of the one-to-many navigation property [[drafts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.DRAFTS = new v4_1.OneToManyLink('Drafts', SalesPersons, Drafts_1.Drafts);
+    SalesPersons.DRAFTS = new core_1.OneToManyLink('Drafts', SalesPersons, Drafts_1.Drafts);
     /**
      * Static representation of the one-to-many navigation property [[stockTransferDrafts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.STOCK_TRANSFER_DRAFTS = new v4_1.OneToManyLink('StockTransferDrafts', SalesPersons, StockTransferDrafts_1.StockTransferDrafts);
+    SalesPersons.STOCK_TRANSFER_DRAFTS = new core_1.OneToManyLink('StockTransferDrafts', SalesPersons, StockTransferDrafts_1.StockTransferDrafts);
     /**
      * Static representation of the one-to-many navigation property [[returns]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.RETURNS = new v4_1.OneToManyLink('Returns', SalesPersons, Returns_1.Returns);
+    SalesPersons.RETURNS = new core_1.OneToManyLink('Returns', SalesPersons, Returns_1.Returns);
     /**
      * Static representation of the one-to-many navigation property [[correctionInvoiceReversal]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.CORRECTION_INVOICE_REVERSAL = new v4_1.OneToManyLink('CorrectionInvoiceReversal', SalesPersons, CorrectionInvoiceReversal_1.CorrectionInvoiceReversal);
+    SalesPersons.CORRECTION_INVOICE_REVERSAL = new core_1.OneToManyLink('CorrectionInvoiceReversal', SalesPersons, CorrectionInvoiceReversal_1.CorrectionInvoiceReversal);
     /**
      * Static representation of the one-to-many navigation property [[correctionPurchaseInvoice]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.CORRECTION_PURCHASE_INVOICE = new v4_1.OneToManyLink('CorrectionPurchaseInvoice', SalesPersons, CorrectionPurchaseInvoice_1.CorrectionPurchaseInvoice);
+    SalesPersons.CORRECTION_PURCHASE_INVOICE = new core_1.OneToManyLink('CorrectionPurchaseInvoice', SalesPersons, CorrectionPurchaseInvoice_1.CorrectionPurchaseInvoice);
     /**
      * Static representation of the one-to-many navigation property [[correctionPurchaseInvoiceReversal]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.CORRECTION_PURCHASE_INVOICE_REVERSAL = new v4_1.OneToManyLink('CorrectionPurchaseInvoiceReversal', SalesPersons, CorrectionPurchaseInvoiceReversal_1.CorrectionPurchaseInvoiceReversal);
+    SalesPersons.CORRECTION_PURCHASE_INVOICE_REVERSAL = new core_1.OneToManyLink('CorrectionPurchaseInvoiceReversal', SalesPersons, CorrectionPurchaseInvoiceReversal_1.CorrectionPurchaseInvoiceReversal);
     /**
      * Static representation of the one-to-many navigation property [[purchaseInvoices]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.PURCHASE_INVOICES = new v4_1.OneToManyLink('PurchaseInvoices', SalesPersons, PurchaseInvoices_1.PurchaseInvoices);
+    SalesPersons.PURCHASE_INVOICES = new core_1.OneToManyLink('PurchaseInvoices', SalesPersons, PurchaseInvoices_1.PurchaseInvoices);
     /**
      * Static representation of the one-to-many navigation property [[purchaseDeliveryNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.PURCHASE_DELIVERY_NOTES = new v4_1.OneToManyLink('PurchaseDeliveryNotes', SalesPersons, PurchaseDeliveryNotes_1.PurchaseDeliveryNotes);
+    SalesPersons.PURCHASE_DELIVERY_NOTES = new core_1.OneToManyLink('PurchaseDeliveryNotes', SalesPersons, PurchaseDeliveryNotes_1.PurchaseDeliveryNotes);
     /**
      * Static representation of the one-to-many navigation property [[correctionInvoice]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.CORRECTION_INVOICE = new v4_1.OneToManyLink('CorrectionInvoice', SalesPersons, CorrectionInvoice_1.CorrectionInvoice);
+    SalesPersons.CORRECTION_INVOICE = new core_1.OneToManyLink('CorrectionInvoice', SalesPersons, CorrectionInvoice_1.CorrectionInvoice);
     /**
      * Static representation of the one-to-many navigation property [[purchaseCreditNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.PURCHASE_CREDIT_NOTES = new v4_1.OneToManyLink('PurchaseCreditNotes', SalesPersons, PurchaseCreditNotes_1.PurchaseCreditNotes);
+    SalesPersons.PURCHASE_CREDIT_NOTES = new core_1.OneToManyLink('PurchaseCreditNotes', SalesPersons, PurchaseCreditNotes_1.PurchaseCreditNotes);
     /**
      * Static representation of the one-to-many navigation property [[purchaseDownPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.PURCHASE_DOWN_PAYMENTS = new v4_1.OneToManyLink('PurchaseDownPayments', SalesPersons, PurchaseDownPayments_1.PurchaseDownPayments);
+    SalesPersons.PURCHASE_DOWN_PAYMENTS = new core_1.OneToManyLink('PurchaseDownPayments', SalesPersons, PurchaseDownPayments_1.PurchaseDownPayments);
     /**
      * Static representation of the one-to-many navigation property [[employeesInfo]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.EMPLOYEES_INFO = new v4_1.OneToManyLink('EmployeesInfo', SalesPersons, EmployeesInfo_1.EmployeesInfo);
+    SalesPersons.EMPLOYEES_INFO = new core_1.OneToManyLink('EmployeesInfo', SalesPersons, EmployeesInfo_1.EmployeesInfo);
     /**
      * Static representation of the one-to-many navigation property [[purchaseOrders]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.PURCHASE_ORDERS = new v4_1.OneToManyLink('PurchaseOrders', SalesPersons, PurchaseOrders_1.PurchaseOrders);
+    SalesPersons.PURCHASE_ORDERS = new core_1.OneToManyLink('PurchaseOrders', SalesPersons, PurchaseOrders_1.PurchaseOrders);
     /**
      * Static representation of the one-to-many navigation property [[projectManagements]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.PROJECT_MANAGEMENTS = new v4_1.OneToManyLink('ProjectManagements', SalesPersons, ProjectManagements_1.ProjectManagements);
+    SalesPersons.PROJECT_MANAGEMENTS = new core_1.OneToManyLink('ProjectManagements', SalesPersons, ProjectManagements_1.ProjectManagements);
     /**
      * Static representation of the one-to-many navigation property [[goodsReturnRequest]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesPersons.GOODS_RETURN_REQUEST = new v4_1.OneToManyLink('GoodsReturnRequest', SalesPersons, GoodsReturnRequest_1.GoodsReturnRequest);
+    SalesPersons.GOODS_RETURN_REQUEST = new core_1.OneToManyLink('GoodsReturnRequest', SalesPersons, GoodsReturnRequest_1.GoodsReturnRequest);
     /**
      * All fields of the SalesPersons entity.
      */
@@ -335,7 +340,9 @@ var GoodsReturnRequest_1 = require("./GoodsReturnRequest");
         SalesPersons.REMARKS,
         SalesPersons.COMMISSION_FOR_SALES_EMPLOYEE,
         SalesPersons.COMMISSION_GROUP,
+        SalesPersons.LOCKED,
         SalesPersons.EMPLOYEE_ID,
+        SalesPersons.ACTIVE,
         SalesPersons.SALES_OPPORTUNITIES,
         SalesPersons.USER_DEFAULT_GROUPS,
         SalesPersons.INVENTORY_GEN_ENTRIES,
@@ -375,7 +382,7 @@ var GoodsReturnRequest_1 = require("./GoodsReturnRequest");
     /**
      * All fields selector.
      */
-    SalesPersons.ALL_FIELDS = new v4_1.AllFields('*', SalesPersons);
+    SalesPersons.ALL_FIELDS = new core_1.AllFields('*', SalesPersons);
     /**
      * All key fields of the SalesPersons entity.
      */

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.States = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var StatesRequestBuilder_1 = require("./StatesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "States" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var States = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `States`.
+     * Returns an entity builder to construct instances of `States`.
      * @returns A builder that constructs instances of entity type `States`.
      */
     States.builder = function () {
-        return v4_1.Entity.entityBuilder(States);
+        return core_1.EntityV4.entityBuilder(States);
     };
     /**
      * Returns a request builder to construct requests for operations on the `States` entity type.
@@ -60,7 +60,7 @@ var States = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `States`.
      */
     States.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, States);
+        return core_1.EntityV4.customFieldSelector(fieldName, States);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var States = /** @class */ (function (_super) {
      */
     States._entityName = 'States';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for States.
-     */
-    States._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    States._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    States._defaultServicePath = '/b1s/v2/';
     return States;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.States = States;
 var Countries_1 = require("./Countries");
 (function (States) {
@@ -91,22 +86,22 @@ var Countries_1 = require("./Countries");
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    States.CODE = new v4_1.StringField('Code', States, 'Edm.String');
+    States.CODE = new core_1.StringField('Code', States, 'Edm.String');
     /**
      * Static representation of the [[country]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    States.COUNTRY = new v4_1.StringField('Country', States, 'Edm.String');
+    States.COUNTRY = new core_1.StringField('Country', States, 'Edm.String');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    States.NAME = new v4_1.StringField('Name', States, 'Edm.String');
+    States.NAME = new core_1.StringField('Name', States, 'Edm.String');
     /**
      * Static representation of the one-to-one navigation property [[country2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    States.COUNTRY_2 = new v4_1.OneToOneLink('Country2', States, Countries_1.Countries);
+    States.COUNTRY_2 = new core_1.OneToOneLink('Country2', States, Countries_1.Countries);
     /**
      * All fields of the States entity.
      */
@@ -119,7 +114,7 @@ var Countries_1 = require("./Countries");
     /**
      * All fields selector.
      */
-    States.ALL_FIELDS = new v4_1.AllFields('*', States);
+    States.ALL_FIELDS = new core_1.AllFields('*', States);
     /**
      * All key fields of the States entity.
      */

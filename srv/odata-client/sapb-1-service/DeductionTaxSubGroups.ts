@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { DeductionTaxSubGroupsRequestBuilder } from './DeductionTaxSubGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "DeductionTaxSubGroups" of service "SAPB1".
  */
-export class DeductionTaxSubGroups extends Entity implements DeductionTaxSubGroupsType {
+export class DeductionTaxSubGroups extends EntityV4 implements DeductionTaxSubGroupsType {
   /**
    * Technical entity name for DeductionTaxSubGroups.
    */
   static _entityName = 'DeductionTaxSubGroups';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for DeductionTaxSubGroups.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Group Code.
    * @nullable
@@ -39,11 +34,11 @@ export class DeductionTaxSubGroups extends Entity implements DeductionTaxSubGrou
   deductionTaxGroups!: DeductionTaxGroups[];
 
   /**
-   * Returns an entity builder to construct instances `DeductionTaxSubGroups`.
+   * Returns an entity builder to construct instances of `DeductionTaxSubGroups`.
    * @returns A builder that constructs instances of entity type `DeductionTaxSubGroups`.
    */
-  static builder(): EntityBuilderType<DeductionTaxSubGroups, DeductionTaxSubGroupsTypeForceMandatory> {
-    return Entity.entityBuilder(DeductionTaxSubGroups);
+  static builder(): EntityBuilderType<DeductionTaxSubGroups, DeductionTaxSubGroupsType> {
+    return EntityV4.entityBuilder(DeductionTaxSubGroups);
   }
 
   /**
@@ -59,8 +54,8 @@ export class DeductionTaxSubGroups extends Entity implements DeductionTaxSubGrou
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `DeductionTaxSubGroups`.
    */
-  static customField(fieldName: string): CustomField<DeductionTaxSubGroups> {
-    return Entity.customFieldSelector(fieldName, DeductionTaxSubGroups);
+  static customField(fieldName: string): CustomFieldV4<DeductionTaxSubGroups> {
+    return EntityV4.customFieldSelector(fieldName, DeductionTaxSubGroups);
   }
 
   /**
@@ -75,14 +70,8 @@ export class DeductionTaxSubGroups extends Entity implements DeductionTaxSubGrou
 import { DeductionTaxGroups, DeductionTaxGroupsType } from './DeductionTaxGroups';
 
 export interface DeductionTaxSubGroupsType {
-  groupCode?: string;
-  groupName?: string;
-  deductionTaxGroups: DeductionTaxGroupsType[];
-}
-
-export interface DeductionTaxSubGroupsTypeForceMandatory {
-  groupCode: string;
-  groupName: string;
+  groupCode?: string | null;
+  groupName?: string | null;
   deductionTaxGroups: DeductionTaxGroupsType[];
 }
 

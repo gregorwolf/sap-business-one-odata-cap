@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { EmployeeIdType } from './EmployeeIdType';
 
 /**
@@ -15,16 +15,16 @@ export class EmployeeIdTypeRequestBuilder extends RequestBuilder<EmployeeIdType>
    * @param idType Key property. See [[EmployeeIdType.idType]].
    * @returns A request builder for creating requests to retrieve one `EmployeeIdType` entity based on its keys.
    */
-  getByKey(idType: string): GetByKeyRequestBuilder<EmployeeIdType> {
-    return new GetByKeyRequestBuilder(EmployeeIdType, { IDType: idType });
+  getByKey(idType: string): GetByKeyRequestBuilderV4<EmployeeIdType> {
+    return new GetByKeyRequestBuilderV4(EmployeeIdType, { IDType: idType });
   }
 
   /**
    * Returns a request builder for querying all `EmployeeIdType` entities.
    * @returns A request builder for creating requests to retrieve all `EmployeeIdType` entities.
    */
-  getAll(): GetAllRequestBuilder<EmployeeIdType> {
-    return new GetAllRequestBuilder(EmployeeIdType);
+  getAll(): GetAllRequestBuilderV4<EmployeeIdType> {
+    return new GetAllRequestBuilderV4(EmployeeIdType);
   }
 
   /**
@@ -32,8 +32,8 @@ export class EmployeeIdTypeRequestBuilder extends RequestBuilder<EmployeeIdType>
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `EmployeeIdType`.
    */
-  create(entity: EmployeeIdType): CreateRequestBuilder<EmployeeIdType> {
-    return new CreateRequestBuilder(EmployeeIdType, entity);
+  create(entity: EmployeeIdType): CreateRequestBuilderV4<EmployeeIdType> {
+    return new CreateRequestBuilderV4(EmployeeIdType, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class EmployeeIdTypeRequestBuilder extends RequestBuilder<EmployeeIdType>
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `EmployeeIdType`.
    */
-  update(entity: EmployeeIdType): UpdateRequestBuilder<EmployeeIdType> {
-    return new UpdateRequestBuilder(EmployeeIdType, entity);
+  update(entity: EmployeeIdType): UpdateRequestBuilderV4<EmployeeIdType> {
+    return new UpdateRequestBuilderV4(EmployeeIdType, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class EmployeeIdTypeRequestBuilder extends RequestBuilder<EmployeeIdType>
    * @param idType Key property. See [[EmployeeIdType.idType]].
    * @returns A request builder for creating requests that delete an entity of type `EmployeeIdType`.
    */
-  delete(idType: string): DeleteRequestBuilder<EmployeeIdType>;
+  delete(idType: string): DeleteRequestBuilderV4<EmployeeIdType>;
   /**
    * Returns a request builder for deleting an entity of type `EmployeeIdType`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `EmployeeIdType` by taking the entity as a parameter.
    */
-  delete(entity: EmployeeIdType): DeleteRequestBuilder<EmployeeIdType>;
-  delete(idTypeOrEntity: any): DeleteRequestBuilder<EmployeeIdType> {
-    return new DeleteRequestBuilder(EmployeeIdType, idTypeOrEntity instanceof EmployeeIdType ? idTypeOrEntity : { IDType: idTypeOrEntity! });
+  delete(entity: EmployeeIdType): DeleteRequestBuilderV4<EmployeeIdType>;
+  delete(idTypeOrEntity: any): DeleteRequestBuilderV4<EmployeeIdType> {
+    return new DeleteRequestBuilderV4(EmployeeIdType, idTypeOrEntity instanceof EmployeeIdType ? idTypeOrEntity : { IDType: idTypeOrEntity! });
   }
 }

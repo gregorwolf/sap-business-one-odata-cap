@@ -1,13 +1,14 @@
 import { Moment } from 'moment';
-import { PmsStageData, PmsStageDataField } from './PmsStageData';
-import { PmsOpenIssueData, PmsOpenIssueDataField } from './PmsOpenIssueData';
-import { PmsDocumentData, PmsDocumentDataField } from './PmsDocumentData';
-import { PmsActivityData, PmsActivityDataField } from './PmsActivityData';
-import { PmsWorkOrderData, PmsWorkOrderDataField } from './PmsWorkOrderData';
+import { PmsStageData } from './PmsStageData';
+import { PmsOpenIssueData } from './PmsOpenIssueData';
+import { PmsDocumentData } from './PmsDocumentData';
+import { PmsActivityData } from './PmsActivityData';
+import { PmsWorkOrderData } from './PmsWorkOrderData';
 import { PmsSummaryData, PmsSummaryDataField } from './PmsSummaryData';
-import { PmsDocAttachement, PmsDocAttachementField } from './PmsDocAttachement';
-import { PmsStageAttachement, PmsStageAttachementField } from './PmsStageAttachement';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { PmsDocAttachement } from './PmsDocAttachement';
+import { PmsStageAttachement } from './PmsStageAttachement';
+import { SubprojectStatusTypeEnum } from './SubprojectStatusTypeEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * PmSubprojectDocumentData
  */
@@ -63,6 +64,11 @@ export interface PmSubprojectDocumentData {
      */
     subprojectContribution?: number;
     /**
+     * Subproject Status.
+     * @nullable
+     */
+    subprojectStatus?: SubprojectStatusTypeEnum;
+    /**
      * Subproject End Date.
      * @nullable
      */
@@ -91,27 +97,27 @@ export interface PmSubprojectDocumentData {
      * Pms Stages Collection.
      * @nullable
      */
-    pmsStagesCollection?: PmsStageData;
+    pmsStagesCollection?: PmsStageData[];
     /**
      * Pms Open Issues Collection.
      * @nullable
      */
-    pmsOpenIssuesCollection?: PmsOpenIssueData;
+    pmsOpenIssuesCollection?: PmsOpenIssueData[];
     /**
      * Pms Documents Collection.
      * @nullable
      */
-    pmsDocumentsCollection?: PmsDocumentData;
+    pmsDocumentsCollection?: PmsDocumentData[];
     /**
      * Pms Activities Collection.
      * @nullable
      */
-    pmsActivitiesCollection?: PmsActivityData;
+    pmsActivitiesCollection?: PmsActivityData[];
     /**
      * Pms Work Orders Collection.
      * @nullable
      */
-    pmsWorkOrdersCollection?: PmsWorkOrderData;
+    pmsWorkOrdersCollection?: PmsWorkOrderData[];
     /**
      * Pms Summary Data.
      * @nullable
@@ -121,12 +127,12 @@ export interface PmSubprojectDocumentData {
      * Pms Doc Attachements.
      * @nullable
      */
-    pmsDocAttachements?: PmsDocAttachement;
+    pmsDocAttachements?: PmsDocAttachement[];
     /**
      * Pms Stage Attachements.
      * @nullable
      */
-    pmsStageAttachements?: PmsStageAttachement;
+    pmsStageAttachements?: PmsStageAttachement[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[PmSubprojectDocumentData.build]] instead.
@@ -136,7 +142,7 @@ export declare function createPmSubprojectDocumentData(json: any): PmSubprojectD
  * PmSubprojectDocumentDataField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class PmSubprojectDocumentDataField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class PmSubprojectDocumentDataField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PmSubprojectDocumentData> {
     /**
      * Representation of the [[PmSubprojectDocumentData.absEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -188,6 +194,11 @@ export declare class PmSubprojectDocumentDataField<EntityT extends Entity> exten
      */
     subprojectContribution: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[PmSubprojectDocumentData.subprojectStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    subprojectStatus: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[PmSubprojectDocumentData.subprojectEndDate]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -216,27 +227,27 @@ export declare class PmSubprojectDocumentDataField<EntityT extends Entity> exten
      * Representation of the [[PmSubprojectDocumentData.pmsStagesCollection]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    pmsStagesCollection: PmsStageDataField<EntityT>;
+    pmsStagesCollection: CollectionField<EntityT, PmsStageData>;
     /**
      * Representation of the [[PmSubprojectDocumentData.pmsOpenIssuesCollection]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    pmsOpenIssuesCollection: PmsOpenIssueDataField<EntityT>;
+    pmsOpenIssuesCollection: CollectionField<EntityT, PmsOpenIssueData>;
     /**
      * Representation of the [[PmSubprojectDocumentData.pmsDocumentsCollection]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    pmsDocumentsCollection: PmsDocumentDataField<EntityT>;
+    pmsDocumentsCollection: CollectionField<EntityT, PmsDocumentData>;
     /**
      * Representation of the [[PmSubprojectDocumentData.pmsActivitiesCollection]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    pmsActivitiesCollection: PmsActivityDataField<EntityT>;
+    pmsActivitiesCollection: CollectionField<EntityT, PmsActivityData>;
     /**
      * Representation of the [[PmSubprojectDocumentData.pmsWorkOrdersCollection]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    pmsWorkOrdersCollection: PmsWorkOrderDataField<EntityT>;
+    pmsWorkOrdersCollection: CollectionField<EntityT, PmsWorkOrderData>;
     /**
      * Representation of the [[PmSubprojectDocumentData.pmsSummaryData]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -246,14 +257,28 @@ export declare class PmSubprojectDocumentDataField<EntityT extends Entity> exten
      * Representation of the [[PmSubprojectDocumentData.pmsDocAttachements]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    pmsDocAttachements: PmsDocAttachementField<EntityT>;
+    pmsDocAttachements: CollectionField<EntityT, PmsDocAttachement>;
     /**
      * Representation of the [[PmSubprojectDocumentData.pmsStageAttachements]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    pmsStageAttachements: PmsStageAttachementField<EntityT>;
+    pmsStageAttachements: CollectionField<EntityT, PmsStageAttachement>;
+    /**
+     * Creates an instance of PmSubprojectDocumentDataField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace PmSubprojectDocumentData {
+    /**
+     * Metadata information on all properties of the `PmSubprojectDocumentData` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<PmSubprojectDocumentData>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | PmsActivityData | PmsDocAttachement | PmsDocumentData | PmsOpenIssueData | PmsStageAttachement | PmsStageData | PmsSummaryData | PmsWorkOrderData;
     }): PmSubprojectDocumentData;

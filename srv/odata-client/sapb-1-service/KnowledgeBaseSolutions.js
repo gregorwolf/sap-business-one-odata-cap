@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.KnowledgeBaseSolutions = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var KnowledgeBaseSolutionsRequestBuilder_1 = require("./KnowledgeBaseSolutionsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "KnowledgeBaseSolutions" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var KnowledgeBaseSolutions = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `KnowledgeBaseSolutions`.
+     * Returns an entity builder to construct instances of `KnowledgeBaseSolutions`.
      * @returns A builder that constructs instances of entity type `KnowledgeBaseSolutions`.
      */
     KnowledgeBaseSolutions.builder = function () {
-        return v4_1.Entity.entityBuilder(KnowledgeBaseSolutions);
+        return core_1.EntityV4.entityBuilder(KnowledgeBaseSolutions);
     };
     /**
      * Returns a request builder to construct requests for operations on the `KnowledgeBaseSolutions` entity type.
@@ -60,7 +60,7 @@ var KnowledgeBaseSolutions = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `KnowledgeBaseSolutions`.
      */
     KnowledgeBaseSolutions.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, KnowledgeBaseSolutions);
+        return core_1.EntityV4.customFieldSelector(fieldName, KnowledgeBaseSolutions);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var KnowledgeBaseSolutions = /** @class */ (function (_super) {
      */
     KnowledgeBaseSolutions._entityName = 'KnowledgeBaseSolutions';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for KnowledgeBaseSolutions.
-     */
-    KnowledgeBaseSolutions._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    KnowledgeBaseSolutions._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    KnowledgeBaseSolutions._defaultServicePath = '/b1s/v2/';
     return KnowledgeBaseSolutions;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.KnowledgeBaseSolutions = KnowledgeBaseSolutions;
 var Items_1 = require("./Items");
 var ServiceCallSolutionStatus_1 = require("./ServiceCallSolutionStatus");
@@ -93,82 +88,82 @@ var Users_1 = require("./Users");
      * Static representation of the [[itemCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KnowledgeBaseSolutions.ITEM_CODE = new v4_1.StringField('ItemCode', KnowledgeBaseSolutions, 'Edm.String');
+    KnowledgeBaseSolutions.ITEM_CODE = new core_1.StringField('ItemCode', KnowledgeBaseSolutions, 'Edm.String');
     /**
      * Static representation of the [[status]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KnowledgeBaseSolutions.STATUS = new v4_1.NumberField('Status', KnowledgeBaseSolutions, 'Edm.Int32');
+    KnowledgeBaseSolutions.STATUS = new core_1.NumberField('Status', KnowledgeBaseSolutions, 'Edm.Int32');
     /**
      * Static representation of the [[owner]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KnowledgeBaseSolutions.OWNER = new v4_1.NumberField('Owner', KnowledgeBaseSolutions, 'Edm.Int32');
+    KnowledgeBaseSolutions.OWNER = new core_1.NumberField('Owner', KnowledgeBaseSolutions, 'Edm.Int32');
     /**
      * Static representation of the [[createdBy]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KnowledgeBaseSolutions.CREATED_BY = new v4_1.NumberField('CreatedBy', KnowledgeBaseSolutions, 'Edm.Int32');
+    KnowledgeBaseSolutions.CREATED_BY = new core_1.NumberField('CreatedBy', KnowledgeBaseSolutions, 'Edm.Int32');
     /**
      * Static representation of the [[creationDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KnowledgeBaseSolutions.CREATION_DATE = new v4_1.DateField('CreationDate', KnowledgeBaseSolutions, 'Edm.DateTimeOffset');
+    KnowledgeBaseSolutions.CREATION_DATE = new core_1.DateField('CreationDate', KnowledgeBaseSolutions, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[lastUpdatedBy]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KnowledgeBaseSolutions.LAST_UPDATED_BY = new v4_1.NumberField('LastUpdatedBy', KnowledgeBaseSolutions, 'Edm.Int32');
+    KnowledgeBaseSolutions.LAST_UPDATED_BY = new core_1.NumberField('LastUpdatedBy', KnowledgeBaseSolutions, 'Edm.Int32');
     /**
      * Static representation of the [[lastUpdateDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KnowledgeBaseSolutions.LAST_UPDATE_DATE = new v4_1.DateField('LastUpdateDate', KnowledgeBaseSolutions, 'Edm.DateTimeOffset');
+    KnowledgeBaseSolutions.LAST_UPDATE_DATE = new core_1.DateField('LastUpdateDate', KnowledgeBaseSolutions, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[solution]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KnowledgeBaseSolutions.SOLUTION = new v4_1.StringField('Solution', KnowledgeBaseSolutions, 'Edm.String');
+    KnowledgeBaseSolutions.SOLUTION = new core_1.StringField('Solution', KnowledgeBaseSolutions, 'Edm.String');
     /**
      * Static representation of the [[symptom]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KnowledgeBaseSolutions.SYMPTOM = new v4_1.StringField('Symptom', KnowledgeBaseSolutions, 'Edm.String');
+    KnowledgeBaseSolutions.SYMPTOM = new core_1.StringField('Symptom', KnowledgeBaseSolutions, 'Edm.String');
     /**
      * Static representation of the [[cause]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KnowledgeBaseSolutions.CAUSE = new v4_1.StringField('Cause', KnowledgeBaseSolutions, 'Edm.String');
+    KnowledgeBaseSolutions.CAUSE = new core_1.StringField('Cause', KnowledgeBaseSolutions, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KnowledgeBaseSolutions.DESCRIPTION = new v4_1.StringField('Description', KnowledgeBaseSolutions, 'Edm.String');
+    KnowledgeBaseSolutions.DESCRIPTION = new core_1.StringField('Description', KnowledgeBaseSolutions, 'Edm.String');
     /**
      * Static representation of the [[solutionCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KnowledgeBaseSolutions.SOLUTION_CODE = new v4_1.NumberField('SolutionCode', KnowledgeBaseSolutions, 'Edm.Int32');
+    KnowledgeBaseSolutions.SOLUTION_CODE = new core_1.NumberField('SolutionCode', KnowledgeBaseSolutions, 'Edm.Int32');
     /**
      * Static representation of the [[attachmentEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KnowledgeBaseSolutions.ATTACHMENT_ENTRY = new v4_1.NumberField('AttachmentEntry', KnowledgeBaseSolutions, 'Edm.Int32');
+    KnowledgeBaseSolutions.ATTACHMENT_ENTRY = new core_1.NumberField('AttachmentEntry', KnowledgeBaseSolutions, 'Edm.Int32');
     /**
      * Static representation of the one-to-one navigation property [[item]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KnowledgeBaseSolutions.ITEM = new v4_1.OneToOneLink('Item', KnowledgeBaseSolutions, Items_1.Items);
+    KnowledgeBaseSolutions.ITEM = new core_1.OneToOneLink('Item', KnowledgeBaseSolutions, Items_1.Items);
     /**
      * Static representation of the one-to-one navigation property [[serviceCallSolutionStatus]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KnowledgeBaseSolutions.SERVICE_CALL_SOLUTION_STATUS = new v4_1.OneToOneLink('ServiceCallSolutionStatus', KnowledgeBaseSolutions, ServiceCallSolutionStatus_1.ServiceCallSolutionStatus);
+    KnowledgeBaseSolutions.SERVICE_CALL_SOLUTION_STATUS = new core_1.OneToOneLink('ServiceCallSolutionStatus', KnowledgeBaseSolutions, ServiceCallSolutionStatus_1.ServiceCallSolutionStatus);
     /**
      * Static representation of the one-to-one navigation property [[user]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KnowledgeBaseSolutions.USER = new v4_1.OneToOneLink('User', KnowledgeBaseSolutions, Users_1.Users);
+    KnowledgeBaseSolutions.USER = new core_1.OneToOneLink('User', KnowledgeBaseSolutions, Users_1.Users);
     /**
      * All fields of the KnowledgeBaseSolutions entity.
      */
@@ -193,7 +188,7 @@ var Users_1 = require("./Users");
     /**
      * All fields selector.
      */
-    KnowledgeBaseSolutions.ALL_FIELDS = new v4_1.AllFields('*', KnowledgeBaseSolutions);
+    KnowledgeBaseSolutions.ALL_FIELDS = new core_1.AllFields('*', KnowledgeBaseSolutions);
     /**
      * All key fields of the KnowledgeBaseSolutions entity.
      */

@@ -1,18 +1,14 @@
 import { DimensionsRequestBuilder } from './DimensionsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "Dimensions" of service "SAPB1".
  */
-export declare class Dimensions extends Entity implements DimensionsType {
+export declare class Dimensions extends EntityV4 implements DimensionsType {
     /**
      * Technical entity name for Dimensions.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Dimensions.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -28,6 +24,11 @@ export declare class Dimensions extends Entity implements DimensionsType {
      */
     dimensionName?: string;
     /**
+     * Is Active.
+     * @nullable
+     */
+    isActive?: BoYesNoEnum;
+    /**
      * Dimension Description.
      * @nullable
      */
@@ -41,10 +42,10 @@ export declare class Dimensions extends Entity implements DimensionsType {
      */
     distributionRules: DistributionRules[];
     /**
-     * Returns an entity builder to construct instances `Dimensions`.
+     * Returns an entity builder to construct instances of `Dimensions`.
      * @returns A builder that constructs instances of entity type `Dimensions`.
      */
-    static builder(): EntityBuilderType<Dimensions, DimensionsTypeForceMandatory>;
+    static builder(): EntityBuilderType<Dimensions, DimensionsType>;
     /**
      * Returns a request builder to construct requests for operations on the `Dimensions` entity type.
      * @returns A `Dimensions` request builder.
@@ -55,7 +56,7 @@ export declare class Dimensions extends Entity implements DimensionsType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `Dimensions`.
      */
-    static customField(fieldName: string): CustomField<Dimensions>;
+    static customField(fieldName: string): CustomFieldV4<Dimensions>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -67,16 +68,10 @@ export declare class Dimensions extends Entity implements DimensionsType {
 import { ProfitCenters, ProfitCentersType } from './ProfitCenters';
 import { DistributionRules, DistributionRulesType } from './DistributionRules';
 export interface DimensionsType {
-    dimensionCode?: number;
-    dimensionName?: string;
-    dimensionDescription?: string;
-    profitCenters: ProfitCentersType[];
-    distributionRules: DistributionRulesType[];
-}
-export interface DimensionsTypeForceMandatory {
-    dimensionCode: number;
-    dimensionName: string;
-    dimensionDescription: string;
+    dimensionCode?: number | null;
+    dimensionName?: string | null;
+    isActive?: BoYesNoEnum | null;
+    dimensionDescription?: string | null;
     profitCenters: ProfitCentersType[];
     distributionRules: DistributionRulesType[];
 }
@@ -91,6 +86,11 @@ export declare namespace Dimensions {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DIMENSION_NAME: StringField<Dimensions>;
+    /**
+     * Static representation of the [[isActive]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IS_ACTIVE: EnumField<Dimensions>;
     /**
      * Static representation of the [[dimensionDescription]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -109,7 +109,7 @@ export declare namespace Dimensions {
     /**
      * All fields of the Dimensions entity.
      */
-    const _allFields: Array<NumberField<Dimensions> | StringField<Dimensions> | OneToManyLink<Dimensions, ProfitCenters> | OneToManyLink<Dimensions, DistributionRules>>;
+    const _allFields: Array<NumberField<Dimensions> | StringField<Dimensions> | EnumField<Dimensions> | OneToManyLink<Dimensions, ProfitCenters> | OneToManyLink<Dimensions, DistributionRules>>;
     /**
      * All fields selector.
      */

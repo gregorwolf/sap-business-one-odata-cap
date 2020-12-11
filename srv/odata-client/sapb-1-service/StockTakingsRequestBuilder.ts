@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { StockTakings } from './StockTakings';
 
 /**
@@ -16,8 +16,8 @@ export class StockTakingsRequestBuilder extends RequestBuilder<StockTakings> {
    * @param warehouseCode Key property. See [[StockTakings.warehouseCode]].
    * @returns A request builder for creating requests to retrieve one `StockTakings` entity based on its keys.
    */
-  getByKey(itemCode: string, warehouseCode: string): GetByKeyRequestBuilder<StockTakings> {
-    return new GetByKeyRequestBuilder(StockTakings, {
+  getByKey(itemCode: string, warehouseCode: string): GetByKeyRequestBuilderV4<StockTakings> {
+    return new GetByKeyRequestBuilderV4(StockTakings, {
       ItemCode: itemCode,
       WarehouseCode: warehouseCode
     });
@@ -27,8 +27,8 @@ export class StockTakingsRequestBuilder extends RequestBuilder<StockTakings> {
    * Returns a request builder for querying all `StockTakings` entities.
    * @returns A request builder for creating requests to retrieve all `StockTakings` entities.
    */
-  getAll(): GetAllRequestBuilder<StockTakings> {
-    return new GetAllRequestBuilder(StockTakings);
+  getAll(): GetAllRequestBuilderV4<StockTakings> {
+    return new GetAllRequestBuilderV4(StockTakings);
   }
 
   /**
@@ -36,8 +36,8 @@ export class StockTakingsRequestBuilder extends RequestBuilder<StockTakings> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `StockTakings`.
    */
-  create(entity: StockTakings): CreateRequestBuilder<StockTakings> {
-    return new CreateRequestBuilder(StockTakings, entity);
+  create(entity: StockTakings): CreateRequestBuilderV4<StockTakings> {
+    return new CreateRequestBuilderV4(StockTakings, entity);
   }
 
   /**
@@ -45,8 +45,8 @@ export class StockTakingsRequestBuilder extends RequestBuilder<StockTakings> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `StockTakings`.
    */
-  update(entity: StockTakings): UpdateRequestBuilder<StockTakings> {
-    return new UpdateRequestBuilder(StockTakings, entity);
+  update(entity: StockTakings): UpdateRequestBuilderV4<StockTakings> {
+    return new UpdateRequestBuilderV4(StockTakings, entity);
   }
 
   /**
@@ -55,15 +55,15 @@ export class StockTakingsRequestBuilder extends RequestBuilder<StockTakings> {
    * @param warehouseCode Key property. See [[StockTakings.warehouseCode]].
    * @returns A request builder for creating requests that delete an entity of type `StockTakings`.
    */
-  delete(itemCode: string, warehouseCode: string): DeleteRequestBuilder<StockTakings>;
+  delete(itemCode: string, warehouseCode: string): DeleteRequestBuilderV4<StockTakings>;
   /**
    * Returns a request builder for deleting an entity of type `StockTakings`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `StockTakings` by taking the entity as a parameter.
    */
-  delete(entity: StockTakings): DeleteRequestBuilder<StockTakings>;
-  delete(itemCodeOrEntity: any, warehouseCode?: string): DeleteRequestBuilder<StockTakings> {
-    return new DeleteRequestBuilder(StockTakings, itemCodeOrEntity instanceof StockTakings ? itemCodeOrEntity : {
+  delete(entity: StockTakings): DeleteRequestBuilderV4<StockTakings>;
+  delete(itemCodeOrEntity: any, warehouseCode?: string): DeleteRequestBuilderV4<StockTakings> {
+    return new DeleteRequestBuilderV4(StockTakings, itemCodeOrEntity instanceof StockTakings ? itemCodeOrEntity : {
       ItemCode: itemCodeOrEntity!,
       WarehouseCode: warehouseCode!
     });

@@ -5,25 +5,22 @@
  */
 import { BankPagesRequestBuilder } from './BankPagesRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoBpsDocTypes } from './BoBpsDocTypes';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "BankPages" of service "SAPB1".
  */
-export class BankPages extends Entity implements BankPagesType {
+export class BankPages extends EntityV4 implements BankPagesType {
   /**
    * Technical entity name for BankPages.
    */
   static _entityName = 'BankPages';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for BankPages.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Account Code.
    * @nullable
@@ -105,10 +102,20 @@ export class BankPages extends Entity implements BankPagesType {
    */
   invoiceNumber?: string;
   /**
+   * Payment Created.
+   * @nullable
+   */
+  paymentCreated?: BoYesNoEnum;
+  /**
    * Visual Order.
    * @nullable
    */
   visualOrder?: number;
+  /**
+   * Doc Number Type.
+   * @nullable
+   */
+  docNumberType?: BoBpsDocTypes;
   /**
    * Payment Reference.
    * @nullable
@@ -138,11 +145,11 @@ export class BankPages extends Entity implements BankPagesType {
   businessPartner!: BusinessPartners;
 
   /**
-   * Returns an entity builder to construct instances `BankPages`.
+   * Returns an entity builder to construct instances of `BankPages`.
    * @returns A builder that constructs instances of entity type `BankPages`.
    */
-  static builder(): EntityBuilderType<BankPages, BankPagesTypeForceMandatory> {
-    return Entity.entityBuilder(BankPages);
+  static builder(): EntityBuilderType<BankPages, BankPagesType> {
+    return EntityV4.entityBuilder(BankPages);
   }
 
   /**
@@ -158,8 +165,8 @@ export class BankPages extends Entity implements BankPagesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `BankPages`.
    */
-  static customField(fieldName: string): CustomField<BankPages> {
-    return Entity.customFieldSelector(fieldName, BankPages);
+  static customField(fieldName: string): CustomFieldV4<BankPages> {
+    return EntityV4.customFieldSelector(fieldName, BankPages);
   }
 
   /**
@@ -176,52 +183,28 @@ import { Users, UsersType } from './Users';
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 
 export interface BankPagesType {
-  accountCode?: string;
-  sequence?: number;
-  accountName?: string;
-  reference?: string;
-  dueDate?: Moment;
-  memo?: string;
-  debitAmount?: number;
-  creditAmount?: number;
-  bankMatch?: number;
-  dataSource?: string;
-  userSignature?: number;
-  externalCode?: string;
-  cardCode?: string;
-  cardName?: string;
-  statementNumber?: number;
-  invoiceNumber?: string;
-  visualOrder?: number;
-  paymentReference?: string;
-  invoiceNumberEx?: string;
-  bicSwiftCode?: string;
-  chartOfAccount: ChartOfAccountsType;
-  user: UsersType;
-  businessPartner: BusinessPartnersType;
-}
-
-export interface BankPagesTypeForceMandatory {
-  accountCode: string;
-  sequence: number;
-  accountName: string;
-  reference: string;
-  dueDate: Moment;
-  memo: string;
-  debitAmount: number;
-  creditAmount: number;
-  bankMatch: number;
-  dataSource: string;
-  userSignature: number;
-  externalCode: string;
-  cardCode: string;
-  cardName: string;
-  statementNumber: number;
-  invoiceNumber: string;
-  visualOrder: number;
-  paymentReference: string;
-  invoiceNumberEx: string;
-  bicSwiftCode: string;
+  accountCode?: string | null;
+  sequence?: number | null;
+  accountName?: string | null;
+  reference?: string | null;
+  dueDate?: Moment | null;
+  memo?: string | null;
+  debitAmount?: number | null;
+  creditAmount?: number | null;
+  bankMatch?: number | null;
+  dataSource?: string | null;
+  userSignature?: number | null;
+  externalCode?: string | null;
+  cardCode?: string | null;
+  cardName?: string | null;
+  statementNumber?: number | null;
+  invoiceNumber?: string | null;
+  paymentCreated?: BoYesNoEnum | null;
+  visualOrder?: number | null;
+  docNumberType?: BoBpsDocTypes | null;
+  paymentReference?: string | null;
+  invoiceNumberEx?: string | null;
+  bicSwiftCode?: string | null;
   chartOfAccount: ChartOfAccountsType;
   user: UsersType;
   businessPartner: BusinessPartnersType;
@@ -309,10 +292,20 @@ export namespace BankPages {
    */
   export const INVOICE_NUMBER: StringField<BankPages> = new StringField('InvoiceNumber', BankPages, 'Edm.String');
   /**
+   * Static representation of the [[paymentCreated]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PAYMENT_CREATED: EnumField<BankPages> = new EnumField('PaymentCreated', BankPages);
+  /**
    * Static representation of the [[visualOrder]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const VISUAL_ORDER: NumberField<BankPages> = new NumberField('VisualOrder', BankPages, 'Edm.Int32');
+  /**
+   * Static representation of the [[docNumberType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOC_NUMBER_TYPE: EnumField<BankPages> = new EnumField('DocNumberType', BankPages);
   /**
    * Static representation of the [[paymentReference]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -346,7 +339,7 @@ export namespace BankPages {
   /**
    * All fields of the BankPages entity.
    */
-  export const _allFields: Array<StringField<BankPages> | NumberField<BankPages> | DateField<BankPages> | OneToOneLink<BankPages, ChartOfAccounts> | OneToOneLink<BankPages, Users> | OneToOneLink<BankPages, BusinessPartners>> = [
+  export const _allFields: Array<StringField<BankPages> | NumberField<BankPages> | DateField<BankPages> | EnumField<BankPages> | OneToOneLink<BankPages, ChartOfAccounts> | OneToOneLink<BankPages, Users> | OneToOneLink<BankPages, BusinessPartners>> = [
     BankPages.ACCOUNT_CODE,
     BankPages.SEQUENCE,
     BankPages.ACCOUNT_NAME,
@@ -363,7 +356,9 @@ export namespace BankPages {
     BankPages.CARD_NAME,
     BankPages.STATEMENT_NUMBER,
     BankPages.INVOICE_NUMBER,
+    BankPages.PAYMENT_CREATED,
     BankPages.VISUAL_ORDER,
+    BankPages.DOC_NUMBER_TYPE,
     BankPages.PAYMENT_REFERENCE,
     BankPages.INVOICE_NUMBER_EX,
     BankPages.BIC_SWIFT_CODE,

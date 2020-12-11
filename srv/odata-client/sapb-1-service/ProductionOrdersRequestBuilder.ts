@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { ProductionOrders } from './ProductionOrders';
 
 /**
@@ -15,16 +15,16 @@ export class ProductionOrdersRequestBuilder extends RequestBuilder<ProductionOrd
    * @param absoluteEntry Key property. See [[ProductionOrders.absoluteEntry]].
    * @returns A request builder for creating requests to retrieve one `ProductionOrders` entity based on its keys.
    */
-  getByKey(absoluteEntry: number): GetByKeyRequestBuilder<ProductionOrders> {
-    return new GetByKeyRequestBuilder(ProductionOrders, { AbsoluteEntry: absoluteEntry });
+  getByKey(absoluteEntry: number): GetByKeyRequestBuilderV4<ProductionOrders> {
+    return new GetByKeyRequestBuilderV4(ProductionOrders, { AbsoluteEntry: absoluteEntry });
   }
 
   /**
    * Returns a request builder for querying all `ProductionOrders` entities.
    * @returns A request builder for creating requests to retrieve all `ProductionOrders` entities.
    */
-  getAll(): GetAllRequestBuilder<ProductionOrders> {
-    return new GetAllRequestBuilder(ProductionOrders);
+  getAll(): GetAllRequestBuilderV4<ProductionOrders> {
+    return new GetAllRequestBuilderV4(ProductionOrders);
   }
 
   /**
@@ -32,8 +32,8 @@ export class ProductionOrdersRequestBuilder extends RequestBuilder<ProductionOrd
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `ProductionOrders`.
    */
-  create(entity: ProductionOrders): CreateRequestBuilder<ProductionOrders> {
-    return new CreateRequestBuilder(ProductionOrders, entity);
+  create(entity: ProductionOrders): CreateRequestBuilderV4<ProductionOrders> {
+    return new CreateRequestBuilderV4(ProductionOrders, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class ProductionOrdersRequestBuilder extends RequestBuilder<ProductionOrd
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `ProductionOrders`.
    */
-  update(entity: ProductionOrders): UpdateRequestBuilder<ProductionOrders> {
-    return new UpdateRequestBuilder(ProductionOrders, entity);
+  update(entity: ProductionOrders): UpdateRequestBuilderV4<ProductionOrders> {
+    return new UpdateRequestBuilderV4(ProductionOrders, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class ProductionOrdersRequestBuilder extends RequestBuilder<ProductionOrd
    * @param absoluteEntry Key property. See [[ProductionOrders.absoluteEntry]].
    * @returns A request builder for creating requests that delete an entity of type `ProductionOrders`.
    */
-  delete(absoluteEntry: number): DeleteRequestBuilder<ProductionOrders>;
+  delete(absoluteEntry: number): DeleteRequestBuilderV4<ProductionOrders>;
   /**
    * Returns a request builder for deleting an entity of type `ProductionOrders`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `ProductionOrders` by taking the entity as a parameter.
    */
-  delete(entity: ProductionOrders): DeleteRequestBuilder<ProductionOrders>;
-  delete(absoluteEntryOrEntity: any): DeleteRequestBuilder<ProductionOrders> {
-    return new DeleteRequestBuilder(ProductionOrders, absoluteEntryOrEntity instanceof ProductionOrders ? absoluteEntryOrEntity : { AbsoluteEntry: absoluteEntryOrEntity! });
+  delete(entity: ProductionOrders): DeleteRequestBuilderV4<ProductionOrders>;
+  delete(absoluteEntryOrEntity: any): DeleteRequestBuilderV4<ProductionOrders> {
+    return new DeleteRequestBuilderV4(ProductionOrders, absoluteEntryOrEntity instanceof ProductionOrders ? absoluteEntryOrEntity : { AbsoluteEntry: absoluteEntryOrEntity! });
   }
 }

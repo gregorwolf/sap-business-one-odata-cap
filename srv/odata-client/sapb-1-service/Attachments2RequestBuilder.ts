@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { Attachments2 } from './Attachments2';
 
 /**
@@ -15,16 +15,16 @@ export class Attachments2RequestBuilder extends RequestBuilder<Attachments2> {
    * @param absoluteEntry Key property. See [[Attachments2.absoluteEntry]].
    * @returns A request builder for creating requests to retrieve one `Attachments2` entity based on its keys.
    */
-  getByKey(absoluteEntry: number): GetByKeyRequestBuilder<Attachments2> {
-    return new GetByKeyRequestBuilder(Attachments2, { AbsoluteEntry: absoluteEntry });
+  getByKey(absoluteEntry: number): GetByKeyRequestBuilderV4<Attachments2> {
+    return new GetByKeyRequestBuilderV4(Attachments2, { AbsoluteEntry: absoluteEntry });
   }
 
   /**
    * Returns a request builder for querying all `Attachments2` entities.
    * @returns A request builder for creating requests to retrieve all `Attachments2` entities.
    */
-  getAll(): GetAllRequestBuilder<Attachments2> {
-    return new GetAllRequestBuilder(Attachments2);
+  getAll(): GetAllRequestBuilderV4<Attachments2> {
+    return new GetAllRequestBuilderV4(Attachments2);
   }
 
   /**
@@ -32,8 +32,8 @@ export class Attachments2RequestBuilder extends RequestBuilder<Attachments2> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `Attachments2`.
    */
-  create(entity: Attachments2): CreateRequestBuilder<Attachments2> {
-    return new CreateRequestBuilder(Attachments2, entity);
+  create(entity: Attachments2): CreateRequestBuilderV4<Attachments2> {
+    return new CreateRequestBuilderV4(Attachments2, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class Attachments2RequestBuilder extends RequestBuilder<Attachments2> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `Attachments2`.
    */
-  update(entity: Attachments2): UpdateRequestBuilder<Attachments2> {
-    return new UpdateRequestBuilder(Attachments2, entity);
+  update(entity: Attachments2): UpdateRequestBuilderV4<Attachments2> {
+    return new UpdateRequestBuilderV4(Attachments2, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class Attachments2RequestBuilder extends RequestBuilder<Attachments2> {
    * @param absoluteEntry Key property. See [[Attachments2.absoluteEntry]].
    * @returns A request builder for creating requests that delete an entity of type `Attachments2`.
    */
-  delete(absoluteEntry: number): DeleteRequestBuilder<Attachments2>;
+  delete(absoluteEntry: number): DeleteRequestBuilderV4<Attachments2>;
   /**
    * Returns a request builder for deleting an entity of type `Attachments2`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `Attachments2` by taking the entity as a parameter.
    */
-  delete(entity: Attachments2): DeleteRequestBuilder<Attachments2>;
-  delete(absoluteEntryOrEntity: any): DeleteRequestBuilder<Attachments2> {
-    return new DeleteRequestBuilder(Attachments2, absoluteEntryOrEntity instanceof Attachments2 ? absoluteEntryOrEntity : { AbsoluteEntry: absoluteEntryOrEntity! });
+  delete(entity: Attachments2): DeleteRequestBuilderV4<Attachments2>;
+  delete(absoluteEntryOrEntity: any): DeleteRequestBuilderV4<Attachments2> {
+    return new DeleteRequestBuilderV4(Attachments2, absoluteEntryOrEntity instanceof Attachments2 ? absoluteEntryOrEntity : { AbsoluteEntry: absoluteEntryOrEntity! });
   }
 }

@@ -5,25 +5,21 @@
  */
 import { CockpitsRequestBuilder } from './CockpitsRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoCockpitTypeEnum } from './BoCockpitTypeEnum';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "Cockpits" of service "SAPB1".
  */
-export class Cockpits extends Entity implements CockpitsType {
+export class Cockpits extends EntityV4 implements CockpitsType {
   /**
    * Technical entity name for Cockpits.
    */
   static _entityName = 'Cockpits';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for Cockpits.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Abs Entry.
    * @nullable
@@ -70,16 +66,21 @@ export class Cockpits extends Entity implements CockpitsType {
    */
   publisher?: string;
   /**
+   * Cockpit Type.
+   * @nullable
+   */
+  cockpitType?: BoCockpitTypeEnum;
+  /**
    * One-to-one navigation property to the [[Users]] entity.
    */
   user!: Users;
 
   /**
-   * Returns an entity builder to construct instances `Cockpits`.
+   * Returns an entity builder to construct instances of `Cockpits`.
    * @returns A builder that constructs instances of entity type `Cockpits`.
    */
-  static builder(): EntityBuilderType<Cockpits, CockpitsTypeForceMandatory> {
-    return Entity.entityBuilder(Cockpits);
+  static builder(): EntityBuilderType<Cockpits, CockpitsType> {
+    return EntityV4.entityBuilder(Cockpits);
   }
 
   /**
@@ -95,8 +96,8 @@ export class Cockpits extends Entity implements CockpitsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `Cockpits`.
    */
-  static customField(fieldName: string): CustomField<Cockpits> {
-    return Entity.customFieldSelector(fieldName, Cockpits);
+  static customField(fieldName: string): CustomFieldV4<Cockpits> {
+    return EntityV4.customFieldSelector(fieldName, Cockpits);
   }
 
   /**
@@ -111,28 +112,16 @@ export class Cockpits extends Entity implements CockpitsType {
 import { Users, UsersType } from './Users';
 
 export interface CockpitsType {
-  absEntry?: number;
-  code?: number;
-  name?: string;
-  description?: string;
-  userSignature?: number;
-  date?: Moment;
-  time?: Time;
-  manufacturer?: string;
-  publisher?: string;
-  user: UsersType;
-}
-
-export interface CockpitsTypeForceMandatory {
-  absEntry: number;
-  code: number;
-  name: string;
-  description: string;
-  userSignature: number;
-  date: Moment;
-  time: Time;
-  manufacturer: string;
-  publisher: string;
+  absEntry?: number | null;
+  code?: number | null;
+  name?: string | null;
+  description?: string | null;
+  userSignature?: number | null;
+  date?: Moment | null;
+  time?: Time | null;
+  manufacturer?: string | null;
+  publisher?: string | null;
+  cockpitType?: BoCockpitTypeEnum | null;
   user: UsersType;
 }
 
@@ -183,6 +172,11 @@ export namespace Cockpits {
    */
   export const PUBLISHER: StringField<Cockpits> = new StringField('Publisher', Cockpits, 'Edm.String');
   /**
+   * Static representation of the [[cockpitType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const COCKPIT_TYPE: EnumField<Cockpits> = new EnumField('CockpitType', Cockpits);
+  /**
    * Static representation of the one-to-one navigation property [[user]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -190,7 +184,7 @@ export namespace Cockpits {
   /**
    * All fields of the Cockpits entity.
    */
-  export const _allFields: Array<NumberField<Cockpits> | StringField<Cockpits> | DateField<Cockpits> | TimeField<Cockpits> | OneToOneLink<Cockpits, Users>> = [
+  export const _allFields: Array<NumberField<Cockpits> | StringField<Cockpits> | DateField<Cockpits> | TimeField<Cockpits> | EnumField<Cockpits> | OneToOneLink<Cockpits, Users>> = [
     Cockpits.ABS_ENTRY,
     Cockpits.CODE,
     Cockpits.NAME,
@@ -200,6 +194,7 @@ export namespace Cockpits {
     Cockpits.TIME,
     Cockpits.MANUFACTURER,
     Cockpits.PUBLISHER,
+    Cockpits.COCKPIT_TYPE,
     Cockpits.USER
   ];
   /**

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { CorrectionPurchaseInvoiceReversal } from './CorrectionPurchaseInvoiceReversal';
 
 /**
@@ -15,16 +15,16 @@ export class CorrectionPurchaseInvoiceReversalRequestBuilder extends RequestBuil
    * @param docEntry Key property. See [[CorrectionPurchaseInvoiceReversal.docEntry]].
    * @returns A request builder for creating requests to retrieve one `CorrectionPurchaseInvoiceReversal` entity based on its keys.
    */
-  getByKey(docEntry: number): GetByKeyRequestBuilder<CorrectionPurchaseInvoiceReversal> {
-    return new GetByKeyRequestBuilder(CorrectionPurchaseInvoiceReversal, { DocEntry: docEntry });
+  getByKey(docEntry: number): GetByKeyRequestBuilderV4<CorrectionPurchaseInvoiceReversal> {
+    return new GetByKeyRequestBuilderV4(CorrectionPurchaseInvoiceReversal, { DocEntry: docEntry });
   }
 
   /**
    * Returns a request builder for querying all `CorrectionPurchaseInvoiceReversal` entities.
    * @returns A request builder for creating requests to retrieve all `CorrectionPurchaseInvoiceReversal` entities.
    */
-  getAll(): GetAllRequestBuilder<CorrectionPurchaseInvoiceReversal> {
-    return new GetAllRequestBuilder(CorrectionPurchaseInvoiceReversal);
+  getAll(): GetAllRequestBuilderV4<CorrectionPurchaseInvoiceReversal> {
+    return new GetAllRequestBuilderV4(CorrectionPurchaseInvoiceReversal);
   }
 
   /**
@@ -32,8 +32,8 @@ export class CorrectionPurchaseInvoiceReversalRequestBuilder extends RequestBuil
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `CorrectionPurchaseInvoiceReversal`.
    */
-  create(entity: CorrectionPurchaseInvoiceReversal): CreateRequestBuilder<CorrectionPurchaseInvoiceReversal> {
-    return new CreateRequestBuilder(CorrectionPurchaseInvoiceReversal, entity);
+  create(entity: CorrectionPurchaseInvoiceReversal): CreateRequestBuilderV4<CorrectionPurchaseInvoiceReversal> {
+    return new CreateRequestBuilderV4(CorrectionPurchaseInvoiceReversal, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class CorrectionPurchaseInvoiceReversalRequestBuilder extends RequestBuil
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `CorrectionPurchaseInvoiceReversal`.
    */
-  update(entity: CorrectionPurchaseInvoiceReversal): UpdateRequestBuilder<CorrectionPurchaseInvoiceReversal> {
-    return new UpdateRequestBuilder(CorrectionPurchaseInvoiceReversal, entity);
+  update(entity: CorrectionPurchaseInvoiceReversal): UpdateRequestBuilderV4<CorrectionPurchaseInvoiceReversal> {
+    return new UpdateRequestBuilderV4(CorrectionPurchaseInvoiceReversal, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class CorrectionPurchaseInvoiceReversalRequestBuilder extends RequestBuil
    * @param docEntry Key property. See [[CorrectionPurchaseInvoiceReversal.docEntry]].
    * @returns A request builder for creating requests that delete an entity of type `CorrectionPurchaseInvoiceReversal`.
    */
-  delete(docEntry: number): DeleteRequestBuilder<CorrectionPurchaseInvoiceReversal>;
+  delete(docEntry: number): DeleteRequestBuilderV4<CorrectionPurchaseInvoiceReversal>;
   /**
    * Returns a request builder for deleting an entity of type `CorrectionPurchaseInvoiceReversal`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `CorrectionPurchaseInvoiceReversal` by taking the entity as a parameter.
    */
-  delete(entity: CorrectionPurchaseInvoiceReversal): DeleteRequestBuilder<CorrectionPurchaseInvoiceReversal>;
-  delete(docEntryOrEntity: any): DeleteRequestBuilder<CorrectionPurchaseInvoiceReversal> {
-    return new DeleteRequestBuilder(CorrectionPurchaseInvoiceReversal, docEntryOrEntity instanceof CorrectionPurchaseInvoiceReversal ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
+  delete(entity: CorrectionPurchaseInvoiceReversal): DeleteRequestBuilderV4<CorrectionPurchaseInvoiceReversal>;
+  delete(docEntryOrEntity: any): DeleteRequestBuilderV4<CorrectionPurchaseInvoiceReversal> {
+    return new DeleteRequestBuilderV4(CorrectionPurchaseInvoiceReversal, docEntryOrEntity instanceof CorrectionPurchaseInvoiceReversal ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
   }
 }

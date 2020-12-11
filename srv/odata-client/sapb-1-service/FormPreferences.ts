@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { FormPreferencesRequestBuilder } from './FormPreferencesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "FormPreferences" of service "SAPB1".
  */
-export class FormPreferences extends Entity implements FormPreferencesType {
+export class FormPreferences extends EntityV4 implements FormPreferencesType {
   /**
    * Technical entity name for FormPreferences.
    */
   static _entityName = 'FormPreferences';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for FormPreferences.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * User.
    * @nullable
@@ -49,26 +45,46 @@ export class FormPreferences extends Entity implements FormPreferencesType {
    */
   width?: number;
   /**
+   * Visible In Form.
+   * @nullable
+   */
+  visibleInForm?: BoYesNoEnum;
+  /**
    * Tabs Layout.
    * @nullable
    */
   tabsLayout?: number;
+  /**
+   * Editable In Form.
+   * @nullable
+   */
+  editableInForm?: BoYesNoEnum;
+  /**
+   * Visible In Expanded.
+   * @nullable
+   */
+  visibleInExpanded?: BoYesNoEnum;
   /**
    * Expanded Index.
    * @nullable
    */
   expandedIndex?: number;
   /**
+   * Editable In Expanded.
+   * @nullable
+   */
+  editableInExpanded?: BoYesNoEnum;
+  /**
    * One-to-one navigation property to the [[Users]] entity.
    */
   user2!: Users;
 
   /**
-   * Returns an entity builder to construct instances `FormPreferences`.
+   * Returns an entity builder to construct instances of `FormPreferences`.
    * @returns A builder that constructs instances of entity type `FormPreferences`.
    */
-  static builder(): EntityBuilderType<FormPreferences, FormPreferencesTypeForceMandatory> {
-    return Entity.entityBuilder(FormPreferences);
+  static builder(): EntityBuilderType<FormPreferences, FormPreferencesType> {
+    return EntityV4.entityBuilder(FormPreferences);
   }
 
   /**
@@ -84,8 +100,8 @@ export class FormPreferences extends Entity implements FormPreferencesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `FormPreferences`.
    */
-  static customField(fieldName: string): CustomField<FormPreferences> {
-    return Entity.customFieldSelector(fieldName, FormPreferences);
+  static customField(fieldName: string): CustomFieldV4<FormPreferences> {
+    return EntityV4.customFieldSelector(fieldName, FormPreferences);
   }
 
   /**
@@ -100,24 +116,17 @@ export class FormPreferences extends Entity implements FormPreferencesType {
 import { Users, UsersType } from './Users';
 
 export interface FormPreferencesType {
-  user?: number;
-  formId?: string;
-  itemNumber?: string;
-  column?: string;
-  width?: number;
-  tabsLayout?: number;
-  expandedIndex?: number;
-  user2: UsersType;
-}
-
-export interface FormPreferencesTypeForceMandatory {
-  user: number;
-  formId: string;
-  itemNumber: string;
-  column: string;
-  width: number;
-  tabsLayout: number;
-  expandedIndex: number;
+  user?: number | null;
+  formId?: string | null;
+  itemNumber?: string | null;
+  column?: string | null;
+  width?: number | null;
+  visibleInForm?: BoYesNoEnum | null;
+  tabsLayout?: number | null;
+  editableInForm?: BoYesNoEnum | null;
+  visibleInExpanded?: BoYesNoEnum | null;
+  expandedIndex?: number | null;
+  editableInExpanded?: BoYesNoEnum | null;
   user2: UsersType;
 }
 
@@ -148,15 +157,35 @@ export namespace FormPreferences {
    */
   export const WIDTH: NumberField<FormPreferences> = new NumberField('Width', FormPreferences, 'Edm.Int32');
   /**
+   * Static representation of the [[visibleInForm]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const VISIBLE_IN_FORM: EnumField<FormPreferences> = new EnumField('VisibleInForm', FormPreferences);
+  /**
    * Static representation of the [[tabsLayout]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const TABS_LAYOUT: NumberField<FormPreferences> = new NumberField('TabsLayout', FormPreferences, 'Edm.Int32');
   /**
+   * Static representation of the [[editableInForm]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const EDITABLE_IN_FORM: EnumField<FormPreferences> = new EnumField('EditableInForm', FormPreferences);
+  /**
+   * Static representation of the [[visibleInExpanded]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const VISIBLE_IN_EXPANDED: EnumField<FormPreferences> = new EnumField('VisibleInExpanded', FormPreferences);
+  /**
    * Static representation of the [[expandedIndex]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const EXPANDED_INDEX: NumberField<FormPreferences> = new NumberField('ExpandedIndex', FormPreferences, 'Edm.Int32');
+  /**
+   * Static representation of the [[editableInExpanded]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const EDITABLE_IN_EXPANDED: EnumField<FormPreferences> = new EnumField('EditableInExpanded', FormPreferences);
   /**
    * Static representation of the one-to-one navigation property [[user2]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -165,14 +194,18 @@ export namespace FormPreferences {
   /**
    * All fields of the FormPreferences entity.
    */
-  export const _allFields: Array<NumberField<FormPreferences> | StringField<FormPreferences> | OneToOneLink<FormPreferences, Users>> = [
+  export const _allFields: Array<NumberField<FormPreferences> | StringField<FormPreferences> | EnumField<FormPreferences> | OneToOneLink<FormPreferences, Users>> = [
     FormPreferences.USER,
     FormPreferences.FORM_ID,
     FormPreferences.ITEM_NUMBER,
     FormPreferences.COLUMN,
     FormPreferences.WIDTH,
+    FormPreferences.VISIBLE_IN_FORM,
     FormPreferences.TABS_LAYOUT,
+    FormPreferences.EDITABLE_IN_FORM,
+    FormPreferences.VISIBLE_IN_EXPANDED,
     FormPreferences.EXPANDED_INDEX,
+    FormPreferences.EDITABLE_IN_EXPANDED,
     FormPreferences.USER_2
   ];
   /**

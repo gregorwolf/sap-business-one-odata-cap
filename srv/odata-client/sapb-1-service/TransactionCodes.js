@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.TransactionCodes = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var TransactionCodesRequestBuilder_1 = require("./TransactionCodesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "TransactionCodes" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var TransactionCodes = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `TransactionCodes`.
+     * Returns an entity builder to construct instances of `TransactionCodes`.
      * @returns A builder that constructs instances of entity type `TransactionCodes`.
      */
     TransactionCodes.builder = function () {
-        return v4_1.Entity.entityBuilder(TransactionCodes);
+        return core_1.EntityV4.entityBuilder(TransactionCodes);
     };
     /**
      * Returns a request builder to construct requests for operations on the `TransactionCodes` entity type.
@@ -60,7 +60,7 @@ var TransactionCodes = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `TransactionCodes`.
      */
     TransactionCodes.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, TransactionCodes);
+        return core_1.EntityV4.customFieldSelector(fieldName, TransactionCodes);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var TransactionCodes = /** @class */ (function (_super) {
      */
     TransactionCodes._entityName = 'TransactionCodes';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for TransactionCodes.
-     */
-    TransactionCodes._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    TransactionCodes._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    TransactionCodes._defaultServicePath = '/b1s/v2/';
     return TransactionCodes;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.TransactionCodes = TransactionCodes;
 var VendorPayments_1 = require("./VendorPayments");
 var JournalEntries_1 = require("./JournalEntries");
@@ -95,37 +90,37 @@ var IncomingPayments_1 = require("./IncomingPayments");
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TransactionCodes.CODE = new v4_1.StringField('Code', TransactionCodes, 'Edm.String');
+    TransactionCodes.CODE = new core_1.StringField('Code', TransactionCodes, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TransactionCodes.DESCRIPTION = new v4_1.StringField('Description', TransactionCodes, 'Edm.String');
+    TransactionCodes.DESCRIPTION = new core_1.StringField('Description', TransactionCodes, 'Edm.String');
     /**
      * Static representation of the one-to-many navigation property [[vendorPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TransactionCodes.VENDOR_PAYMENTS = new v4_1.OneToManyLink('VendorPayments', TransactionCodes, VendorPayments_1.VendorPayments);
+    TransactionCodes.VENDOR_PAYMENTS = new core_1.OneToManyLink('VendorPayments', TransactionCodes, VendorPayments_1.VendorPayments);
     /**
      * Static representation of the one-to-many navigation property [[journalEntries]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TransactionCodes.JOURNAL_ENTRIES = new v4_1.OneToManyLink('JournalEntries', TransactionCodes, JournalEntries_1.JournalEntries);
+    TransactionCodes.JOURNAL_ENTRIES = new core_1.OneToManyLink('JournalEntries', TransactionCodes, JournalEntries_1.JournalEntries);
     /**
      * Static representation of the one-to-many navigation property [[chartOfAccounts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TransactionCodes.CHART_OF_ACCOUNTS = new v4_1.OneToManyLink('ChartOfAccounts', TransactionCodes, ChartOfAccounts_1.ChartOfAccounts);
+    TransactionCodes.CHART_OF_ACCOUNTS = new core_1.OneToManyLink('ChartOfAccounts', TransactionCodes, ChartOfAccounts_1.ChartOfAccounts);
     /**
      * Static representation of the one-to-many navigation property [[paymentDrafts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TransactionCodes.PAYMENT_DRAFTS = new v4_1.OneToManyLink('PaymentDrafts', TransactionCodes, PaymentDrafts_1.PaymentDrafts);
+    TransactionCodes.PAYMENT_DRAFTS = new core_1.OneToManyLink('PaymentDrafts', TransactionCodes, PaymentDrafts_1.PaymentDrafts);
     /**
      * Static representation of the one-to-many navigation property [[incomingPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TransactionCodes.INCOMING_PAYMENTS = new v4_1.OneToManyLink('IncomingPayments', TransactionCodes, IncomingPayments_1.IncomingPayments);
+    TransactionCodes.INCOMING_PAYMENTS = new core_1.OneToManyLink('IncomingPayments', TransactionCodes, IncomingPayments_1.IncomingPayments);
     /**
      * All fields of the TransactionCodes entity.
      */
@@ -141,7 +136,7 @@ var IncomingPayments_1 = require("./IncomingPayments");
     /**
      * All fields selector.
      */
-    TransactionCodes.ALL_FIELDS = new v4_1.AllFields('*', TransactionCodes);
+    TransactionCodes.ALL_FIELDS = new core_1.AllFields('*', TransactionCodes);
     /**
      * All key fields of the TransactionCodes entity.
      */

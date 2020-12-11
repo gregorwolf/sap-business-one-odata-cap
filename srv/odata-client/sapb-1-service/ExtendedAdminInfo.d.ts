@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * ExtendedAdminInfo
  */
@@ -65,6 +66,11 @@ export interface ExtendedAdminInfo {
      */
     declarerTypeCode?: number;
     /**
+     * Ipi Tax Contributor.
+     * @nullable
+     */
+    ipiTaxContributor?: BoYesNoEnum;
+    /**
      * Commercial Register.
      * @nullable
      */
@@ -85,6 +91,11 @@ export interface ExtendedAdminInfo {
      */
     environmentType?: number;
     /**
+     * Opting 4 Icms.
+     * @nullable
+     */
+    opting4Icms?: BoYesNoEnum;
+    /**
      * Okdp Number.
      * @nullable
      */
@@ -94,6 +105,11 @@ export interface ExtendedAdminInfo {
      * @nullable
      */
     globalLocationNumber?: string;
+    /**
+     * Enable Intrastat.
+     * @nullable
+     */
+    enableIntrastat?: BoYesNoEnum;
     /**
      * Authority User.
      * @nullable
@@ -114,6 +130,31 @@ export interface ExtendedAdminInfo {
      * @nullable
      */
     urLforInvoiceTypeService?: string;
+    /**
+     * Electronic Approval For Goods Trans Enabled.
+     * @nullable
+     */
+    electronicApprovalForGoodsTransEnabled?: BoYesNoEnum;
+    /**
+     * Electronic Approval For Invoice Enabled.
+     * @nullable
+     */
+    electronicApprovalForInvoiceEnabled?: BoYesNoEnum;
+    /**
+     * Allow Inactive Items In Inventory Opening Balance.
+     * @nullable
+     */
+    allowInactiveItemsInInventoryOpeningBalance?: BoYesNoEnum;
+    /**
+     * Allow Inactive Items In Inventory Counting And Posting.
+     * @nullable
+     */
+    allowInactiveItemsInInventoryCountingAndPosting?: BoYesNoEnum;
+    /**
+     * Auto Assign New Branch To Bp.
+     * @nullable
+     */
+    autoAssignNewBranchToBp?: BoYesNoEnum;
 }
 /**
  * @deprecated Since v1.6.0. Use [[ExtendedAdminInfo.build]] instead.
@@ -123,7 +164,7 @@ export declare function createExtendedAdminInfo(json: any): ExtendedAdminInfo;
  * ExtendedAdminInfoField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class ExtendedAdminInfoField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class ExtendedAdminInfoField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ExtendedAdminInfo> {
     /**
      * Representation of the [[ExtendedAdminInfo.addressType]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -185,6 +226,11 @@ export declare class ExtendedAdminInfoField<EntityT extends Entity> extends Comp
      */
     declarerTypeCode: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[ExtendedAdminInfo.ipiTaxContributor]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    ipiTaxContributor: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ExtendedAdminInfo.commercialRegister]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -205,6 +251,11 @@ export declare class ExtendedAdminInfoField<EntityT extends Entity> extends Comp
      */
     environmentType: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[ExtendedAdminInfo.opting4Icms]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    opting4Icms: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ExtendedAdminInfo.okdpNumber]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -214,6 +265,11 @@ export declare class ExtendedAdminInfoField<EntityT extends Entity> extends Comp
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     globalLocationNumber: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[ExtendedAdminInfo.enableIntrastat]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    enableIntrastat: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[ExtendedAdminInfo.authorityUser]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -234,8 +290,47 @@ export declare class ExtendedAdminInfoField<EntityT extends Entity> extends Comp
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     urLforInvoiceTypeService: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[ExtendedAdminInfo.electronicApprovalForGoodsTransEnabled]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    electronicApprovalForGoodsTransEnabled: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ExtendedAdminInfo.electronicApprovalForInvoiceEnabled]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    electronicApprovalForInvoiceEnabled: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ExtendedAdminInfo.allowInactiveItemsInInventoryOpeningBalance]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    allowInactiveItemsInInventoryOpeningBalance: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ExtendedAdminInfo.allowInactiveItemsInInventoryCountingAndPosting]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    allowInactiveItemsInInventoryCountingAndPosting: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ExtendedAdminInfo.autoAssignNewBranchToBp]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    autoAssignNewBranchToBp: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Creates an instance of ExtendedAdminInfoField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace ExtendedAdminInfo {
+    /**
+     * Metadata information on all properties of the `ExtendedAdminInfo` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<ExtendedAdminInfo>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): ExtendedAdminInfo;

@@ -5,26 +5,22 @@
  */
 import { SalesForecastRequestBuilder } from './SalesForecastRequestBuilder';
 import { Moment } from 'moment';
-import { SalesForecastLine, SalesForecastLineField } from './SalesForecastLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { SalesForecastLine } from './SalesForecastLine';
+import { BoForecastViewType } from './BoForecastViewType';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "SalesForecast" of service "SAPB1".
  */
-export class SalesForecast extends Entity implements SalesForecastType {
+export class SalesForecast extends EntityV4 implements SalesForecastType {
   /**
    * Technical entity name for SalesForecast.
    */
   static _entityName = 'SalesForecast';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for SalesForecast.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Forecast Start Date.
    * @nullable
@@ -51,17 +47,22 @@ export class SalesForecast extends Entity implements SalesForecastType {
    */
   numerator?: number;
   /**
+   * View.
+   * @nullable
+   */
+  view?: BoForecastViewType;
+  /**
    * Sales Forecast Lines.
    * @nullable
    */
   salesForecastLines?: SalesForecastLine[];
 
   /**
-   * Returns an entity builder to construct instances `SalesForecast`.
+   * Returns an entity builder to construct instances of `SalesForecast`.
    * @returns A builder that constructs instances of entity type `SalesForecast`.
    */
-  static builder(): EntityBuilderType<SalesForecast, SalesForecastTypeForceMandatory> {
-    return Entity.entityBuilder(SalesForecast);
+  static builder(): EntityBuilderType<SalesForecast, SalesForecastType> {
+    return EntityV4.entityBuilder(SalesForecast);
   }
 
   /**
@@ -77,8 +78,8 @@ export class SalesForecast extends Entity implements SalesForecastType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `SalesForecast`.
    */
-  static customField(fieldName: string): CustomField<SalesForecast> {
-    return Entity.customFieldSelector(fieldName, SalesForecast);
+  static customField(fieldName: string): CustomFieldV4<SalesForecast> {
+    return EntityV4.customFieldSelector(fieldName, SalesForecast);
   }
 
   /**
@@ -91,21 +92,13 @@ export class SalesForecast extends Entity implements SalesForecastType {
 }
 
 export interface SalesForecastType {
-  forecastStartDate?: Moment;
-  forecastEndDate?: Moment;
-  forecastCode?: string;
-  forecastName?: string;
-  numerator?: number;
-  salesForecastLines?: SalesForecastLine[];
-}
-
-export interface SalesForecastTypeForceMandatory {
-  forecastStartDate: Moment;
-  forecastEndDate: Moment;
-  forecastCode: string;
-  forecastName: string;
-  numerator: number;
-  salesForecastLines: SalesForecastLine[];
+  forecastStartDate?: Moment | null;
+  forecastEndDate?: Moment | null;
+  forecastCode?: string | null;
+  forecastName?: string | null;
+  numerator?: number | null;
+  view?: BoForecastViewType | null;
+  salesForecastLines?: SalesForecastLine[] | null;
 }
 
 export namespace SalesForecast {
@@ -135,19 +128,25 @@ export namespace SalesForecast {
    */
   export const NUMERATOR: NumberField<SalesForecast> = new NumberField('Numerator', SalesForecast, 'Edm.Int32');
   /**
+   * Static representation of the [[view]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const VIEW: EnumField<SalesForecast> = new EnumField('View', SalesForecast);
+  /**
    * Static representation of the [[salesForecastLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const SALES_FORECAST_LINES: CollectionField<SalesForecast> = new CollectionField('SalesForecastLines', SalesForecast, new SalesForecastLineField('', SalesForecast));
+  export const SALES_FORECAST_LINES: CollectionField<SalesForecast, SalesForecastLine> = new CollectionField('SalesForecastLines', SalesForecast, SalesForecastLine);
   /**
    * All fields of the SalesForecast entity.
    */
-  export const _allFields: Array<DateField<SalesForecast> | StringField<SalesForecast> | NumberField<SalesForecast> | CollectionField<SalesForecast>> = [
+  export const _allFields: Array<DateField<SalesForecast> | StringField<SalesForecast> | NumberField<SalesForecast> | EnumField<SalesForecast> | CollectionField<SalesForecast, SalesForecastLine>> = [
     SalesForecast.FORECAST_START_DATE,
     SalesForecast.FORECAST_END_DATE,
     SalesForecast.FORECAST_CODE,
     SalesForecast.FORECAST_NAME,
     SalesForecast.NUMERATOR,
+    SalesForecast.VIEW,
     SalesForecast.SALES_FORECAST_LINES
   ];
   /**

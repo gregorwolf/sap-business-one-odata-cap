@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { InternalReconciliations } from './InternalReconciliations';
 
 /**
@@ -15,16 +15,16 @@ export class InternalReconciliationsRequestBuilder extends RequestBuilder<Intern
    * @param reconNum Key property. See [[InternalReconciliations.reconNum]].
    * @returns A request builder for creating requests to retrieve one `InternalReconciliations` entity based on its keys.
    */
-  getByKey(reconNum: number): GetByKeyRequestBuilder<InternalReconciliations> {
-    return new GetByKeyRequestBuilder(InternalReconciliations, { ReconNum: reconNum });
+  getByKey(reconNum: number): GetByKeyRequestBuilderV4<InternalReconciliations> {
+    return new GetByKeyRequestBuilderV4(InternalReconciliations, { ReconNum: reconNum });
   }
 
   /**
    * Returns a request builder for querying all `InternalReconciliations` entities.
    * @returns A request builder for creating requests to retrieve all `InternalReconciliations` entities.
    */
-  getAll(): GetAllRequestBuilder<InternalReconciliations> {
-    return new GetAllRequestBuilder(InternalReconciliations);
+  getAll(): GetAllRequestBuilderV4<InternalReconciliations> {
+    return new GetAllRequestBuilderV4(InternalReconciliations);
   }
 
   /**
@@ -32,8 +32,8 @@ export class InternalReconciliationsRequestBuilder extends RequestBuilder<Intern
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `InternalReconciliations`.
    */
-  create(entity: InternalReconciliations): CreateRequestBuilder<InternalReconciliations> {
-    return new CreateRequestBuilder(InternalReconciliations, entity);
+  create(entity: InternalReconciliations): CreateRequestBuilderV4<InternalReconciliations> {
+    return new CreateRequestBuilderV4(InternalReconciliations, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class InternalReconciliationsRequestBuilder extends RequestBuilder<Intern
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `InternalReconciliations`.
    */
-  update(entity: InternalReconciliations): UpdateRequestBuilder<InternalReconciliations> {
-    return new UpdateRequestBuilder(InternalReconciliations, entity);
+  update(entity: InternalReconciliations): UpdateRequestBuilderV4<InternalReconciliations> {
+    return new UpdateRequestBuilderV4(InternalReconciliations, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class InternalReconciliationsRequestBuilder extends RequestBuilder<Intern
    * @param reconNum Key property. See [[InternalReconciliations.reconNum]].
    * @returns A request builder for creating requests that delete an entity of type `InternalReconciliations`.
    */
-  delete(reconNum: number): DeleteRequestBuilder<InternalReconciliations>;
+  delete(reconNum: number): DeleteRequestBuilderV4<InternalReconciliations>;
   /**
    * Returns a request builder for deleting an entity of type `InternalReconciliations`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `InternalReconciliations` by taking the entity as a parameter.
    */
-  delete(entity: InternalReconciliations): DeleteRequestBuilder<InternalReconciliations>;
-  delete(reconNumOrEntity: any): DeleteRequestBuilder<InternalReconciliations> {
-    return new DeleteRequestBuilder(InternalReconciliations, reconNumOrEntity instanceof InternalReconciliations ? reconNumOrEntity : { ReconNum: reconNumOrEntity! });
+  delete(entity: InternalReconciliations): DeleteRequestBuilderV4<InternalReconciliations>;
+  delete(reconNumOrEntity: any): DeleteRequestBuilderV4<InternalReconciliations> {
+    return new DeleteRequestBuilderV4(InternalReconciliations, reconNumOrEntity instanceof InternalReconciliations ? reconNumOrEntity : { ReconNum: reconNumOrEntity! });
   }
 }

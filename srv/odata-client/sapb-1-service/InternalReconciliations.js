@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.InternalReconciliations = void 0;
  */
 var InternalReconciliationsRequestBuilder_1 = require("./InternalReconciliationsRequestBuilder");
 var InternalReconciliationRow_1 = require("./InternalReconciliationRow");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "InternalReconciliations" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var InternalReconciliations = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `InternalReconciliations`.
+     * Returns an entity builder to construct instances of `InternalReconciliations`.
      * @returns A builder that constructs instances of entity type `InternalReconciliations`.
      */
     InternalReconciliations.builder = function () {
-        return v4_1.Entity.entityBuilder(InternalReconciliations);
+        return core_1.EntityV4.entityBuilder(InternalReconciliations);
     };
     /**
      * Returns a request builder to construct requests for operations on the `InternalReconciliations` entity type.
@@ -61,7 +61,7 @@ var InternalReconciliations = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `InternalReconciliations`.
      */
     InternalReconciliations.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, InternalReconciliations);
+        return core_1.EntityV4.customFieldSelector(fieldName, InternalReconciliations);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,49 +75,56 @@ var InternalReconciliations = /** @class */ (function (_super) {
      */
     InternalReconciliations._entityName = 'InternalReconciliations';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for InternalReconciliations.
-     */
-    InternalReconciliations._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    InternalReconciliations._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    InternalReconciliations._defaultServicePath = '/b1s/v2/';
     return InternalReconciliations;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.InternalReconciliations = InternalReconciliations;
 (function (InternalReconciliations) {
     /**
      * Static representation of the [[reconNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InternalReconciliations.RECON_NUM = new v4_1.NumberField('ReconNum', InternalReconciliations, 'Edm.Int32');
+    InternalReconciliations.RECON_NUM = new core_1.NumberField('ReconNum', InternalReconciliations, 'Edm.Int32');
     /**
      * Static representation of the [[reconDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InternalReconciliations.RECON_DATE = new v4_1.DateField('ReconDate', InternalReconciliations, 'Edm.DateTimeOffset');
+    InternalReconciliations.RECON_DATE = new core_1.DateField('ReconDate', InternalReconciliations, 'Edm.DateTimeOffset');
+    /**
+     * Static representation of the [[cardOrAccount]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    InternalReconciliations.CARD_OR_ACCOUNT = new core_1.EnumField('CardOrAccount', InternalReconciliations);
+    /**
+     * Static representation of the [[reconType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    InternalReconciliations.RECON_TYPE = new core_1.EnumField('ReconType', InternalReconciliations);
     /**
      * Static representation of the [[total]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InternalReconciliations.TOTAL = new v4_1.NumberField('Total', InternalReconciliations, 'Edm.Double');
+    InternalReconciliations.TOTAL = new core_1.NumberField('Total', InternalReconciliations, 'Edm.Double');
     /**
      * Static representation of the [[cancelAbs]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InternalReconciliations.CANCEL_ABS = new v4_1.NumberField('CancelAbs', InternalReconciliations, 'Edm.Int32');
+    InternalReconciliations.CANCEL_ABS = new core_1.NumberField('CancelAbs', InternalReconciliations, 'Edm.Int32');
     /**
      * Static representation of the [[internalReconciliationRows]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InternalReconciliations.INTERNAL_RECONCILIATION_ROWS = new v4_1.CollectionField('InternalReconciliationRows', InternalReconciliations, new InternalReconciliationRow_1.InternalReconciliationRowField('', InternalReconciliations));
+    InternalReconciliations.INTERNAL_RECONCILIATION_ROWS = new core_1.CollectionField('InternalReconciliationRows', InternalReconciliations, InternalReconciliationRow_1.InternalReconciliationRow);
     /**
      * All fields of the InternalReconciliations entity.
      */
     InternalReconciliations._allFields = [
         InternalReconciliations.RECON_NUM,
         InternalReconciliations.RECON_DATE,
+        InternalReconciliations.CARD_OR_ACCOUNT,
+        InternalReconciliations.RECON_TYPE,
         InternalReconciliations.TOTAL,
         InternalReconciliations.CANCEL_ABS,
         InternalReconciliations.INTERNAL_RECONCILIATION_ROWS
@@ -125,7 +132,7 @@ exports.InternalReconciliations = InternalReconciliations;
     /**
      * All fields selector.
      */
-    InternalReconciliations.ALL_FIELDS = new v4_1.AllFields('*', InternalReconciliations);
+    InternalReconciliations.ALL_FIELDS = new core_1.AllFields('*', InternalReconciliations);
     /**
      * All key fields of the InternalReconciliations entity.
      */

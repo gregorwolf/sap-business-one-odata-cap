@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { QueryAuthGroups } from './QueryAuthGroups';
 
 /**
@@ -15,16 +15,16 @@ export class QueryAuthGroupsRequestBuilder extends RequestBuilder<QueryAuthGroup
    * @param authGroupId Key property. See [[QueryAuthGroups.authGroupId]].
    * @returns A request builder for creating requests to retrieve one `QueryAuthGroups` entity based on its keys.
    */
-  getByKey(authGroupId: number): GetByKeyRequestBuilder<QueryAuthGroups> {
-    return new GetByKeyRequestBuilder(QueryAuthGroups, { AuthGroupId: authGroupId });
+  getByKey(authGroupId: number): GetByKeyRequestBuilderV4<QueryAuthGroups> {
+    return new GetByKeyRequestBuilderV4(QueryAuthGroups, { AuthGroupId: authGroupId });
   }
 
   /**
    * Returns a request builder for querying all `QueryAuthGroups` entities.
    * @returns A request builder for creating requests to retrieve all `QueryAuthGroups` entities.
    */
-  getAll(): GetAllRequestBuilder<QueryAuthGroups> {
-    return new GetAllRequestBuilder(QueryAuthGroups);
+  getAll(): GetAllRequestBuilderV4<QueryAuthGroups> {
+    return new GetAllRequestBuilderV4(QueryAuthGroups);
   }
 
   /**
@@ -32,8 +32,8 @@ export class QueryAuthGroupsRequestBuilder extends RequestBuilder<QueryAuthGroup
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `QueryAuthGroups`.
    */
-  create(entity: QueryAuthGroups): CreateRequestBuilder<QueryAuthGroups> {
-    return new CreateRequestBuilder(QueryAuthGroups, entity);
+  create(entity: QueryAuthGroups): CreateRequestBuilderV4<QueryAuthGroups> {
+    return new CreateRequestBuilderV4(QueryAuthGroups, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class QueryAuthGroupsRequestBuilder extends RequestBuilder<QueryAuthGroup
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `QueryAuthGroups`.
    */
-  update(entity: QueryAuthGroups): UpdateRequestBuilder<QueryAuthGroups> {
-    return new UpdateRequestBuilder(QueryAuthGroups, entity);
+  update(entity: QueryAuthGroups): UpdateRequestBuilderV4<QueryAuthGroups> {
+    return new UpdateRequestBuilderV4(QueryAuthGroups, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class QueryAuthGroupsRequestBuilder extends RequestBuilder<QueryAuthGroup
    * @param authGroupId Key property. See [[QueryAuthGroups.authGroupId]].
    * @returns A request builder for creating requests that delete an entity of type `QueryAuthGroups`.
    */
-  delete(authGroupId: number): DeleteRequestBuilder<QueryAuthGroups>;
+  delete(authGroupId: number): DeleteRequestBuilderV4<QueryAuthGroups>;
   /**
    * Returns a request builder for deleting an entity of type `QueryAuthGroups`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `QueryAuthGroups` by taking the entity as a parameter.
    */
-  delete(entity: QueryAuthGroups): DeleteRequestBuilder<QueryAuthGroups>;
-  delete(authGroupIdOrEntity: any): DeleteRequestBuilder<QueryAuthGroups> {
-    return new DeleteRequestBuilder(QueryAuthGroups, authGroupIdOrEntity instanceof QueryAuthGroups ? authGroupIdOrEntity : { AuthGroupId: authGroupIdOrEntity! });
+  delete(entity: QueryAuthGroups): DeleteRequestBuilderV4<QueryAuthGroups>;
+  delete(authGroupIdOrEntity: any): DeleteRequestBuilderV4<QueryAuthGroups> {
+    return new DeleteRequestBuilderV4(QueryAuthGroups, authGroupIdOrEntity instanceof QueryAuthGroups ? authGroupIdOrEntity : { AuthGroupId: authGroupIdOrEntity! });
   }
 }

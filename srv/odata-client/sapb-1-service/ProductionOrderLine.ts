@@ -4,9 +4,12 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { SerialNumber, SerialNumberField } from './SerialNumber';
-import { BatchNumber, BatchNumberField } from './BatchNumber';
-import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { SerialNumber } from './SerialNumber';
+import { BatchNumber } from './BatchNumber';
+import { BoIssueMethod } from './BoIssueMethod';
+import { ProductionItemType } from './ProductionItemType';
+import { ResourceAllocationEnum } from './ResourceAllocationEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ProductionOrderLine
@@ -42,6 +45,11 @@ export interface ProductionOrderLine {
    * @nullable
    */
   issuedQuantity?: number;
+  /**
+   * Production Order Issue Type.
+   * @nullable
+   */
+  productionOrderIssueType?: BoIssueMethod;
   /**
    * Warehouse.
    * @nullable
@@ -103,6 +111,11 @@ export interface ProductionOrderLine {
    */
   wipAccount?: string;
   /**
+   * Item Type.
+   * @nullable
+   */
+  itemType?: ProductionItemType;
+  /**
    * Line Text.
    * @nullable
    */
@@ -112,6 +125,11 @@ export interface ProductionOrderLine {
    * @nullable
    */
   additionalQuantity?: number;
+  /**
+   * Resource Allocation.
+   * @nullable
+   */
+  resourceAllocation?: ResourceAllocationEnum;
   /**
    * Start Date.
    * @nullable
@@ -136,12 +154,12 @@ export interface ProductionOrderLine {
    * Serial Numbers.
    * @nullable
    */
-  serialNumbers?: SerialNumber;
+  serialNumbers?: SerialNumber[];
   /**
    * Batch Numbers.
    * @nullable
    */
-  batchNumbers?: BatchNumber;
+  batchNumbers?: BatchNumber[];
 }
 
 /**
@@ -155,7 +173,7 @@ export function createProductionOrderLine(json: any): ProductionOrderLine {
  * ProductionOrderLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ProductionOrderLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ProductionOrderLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ProductionOrderLine> {
   /**
    * Representation of the [[ProductionOrderLine.documentAbsoluteEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -186,6 +204,11 @@ export class ProductionOrderLineField<EntityT extends Entity> extends ComplexTyp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   issuedQuantity: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('IssuedQuantity', this, 'Edm.Double');
+  /**
+   * Representation of the [[ProductionOrderLine.productionOrderIssueType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  productionOrderIssueType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ProductionOrderIssueType', this);
   /**
    * Representation of the [[ProductionOrderLine.warehouse]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -247,6 +270,11 @@ export class ProductionOrderLineField<EntityT extends Entity> extends ComplexTyp
    */
   wipAccount: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('WipAccount', this, 'Edm.String');
   /**
+   * Representation of the [[ProductionOrderLine.itemType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  itemType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ItemType', this);
+  /**
    * Representation of the [[ProductionOrderLine.lineText]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -256,6 +284,11 @@ export class ProductionOrderLineField<EntityT extends Entity> extends ComplexTyp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   additionalQuantity: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('AdditionalQuantity', this, 'Edm.Double');
+  /**
+   * Representation of the [[ProductionOrderLine.resourceAllocation]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  resourceAllocation: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ResourceAllocation', this);
   /**
    * Representation of the [[ProductionOrderLine.startDate]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -280,43 +313,179 @@ export class ProductionOrderLineField<EntityT extends Entity> extends ComplexTyp
    * Representation of the [[ProductionOrderLine.serialNumbers]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  serialNumbers: SerialNumberField<EntityT> = new SerialNumberField('SerialNumbers', this);
+  serialNumbers: CollectionField<EntityT, SerialNumber> = new CollectionField('SerialNumbers', this, SerialNumber);
   /**
    * Representation of the [[ProductionOrderLine.batchNumbers]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  batchNumbers: BatchNumberField<EntityT> = new BatchNumberField('BatchNumbers', this);
+  batchNumbers: CollectionField<EntityT, BatchNumber> = new CollectionField('BatchNumbers', this, BatchNumber);
+
+  /**
+   * Creates an instance of ProductionOrderLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ProductionOrderLine);
+  }
 }
 
 export namespace ProductionOrderLine {
+  /**
+   * Metadata information on all properties of the `ProductionOrderLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ProductionOrderLine>[] = [{
+    originalName: 'DocumentAbsoluteEntry',
+    name: 'documentAbsoluteEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ItemNo',
+    name: 'itemNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BaseQuantity',
+    name: 'baseQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PlannedQuantity',
+    name: 'plannedQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'IssuedQuantity',
+    name: 'issuedQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ProductionOrderIssueType',
+    name: 'productionOrderIssueType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Warehouse',
+    name: 'warehouse',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'VisualOrder',
+    name: 'visualOrder',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule',
+    name: 'distributionRule',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LocationCode',
+    name: 'locationCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Project',
+    name: 'project',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule2',
+    name: 'distributionRule2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule3',
+    name: 'distributionRule3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule4',
+    name: 'distributionRule4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule5',
+    name: 'distributionRule5',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UoMEntry',
+    name: 'uoMEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'UoMCode',
+    name: 'uoMCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'WipAccount',
+    name: 'wipAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemType',
+    name: 'itemType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'LineText',
+    name: 'lineText',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalQuantity',
+    name: 'additionalQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ResourceAllocation',
+    name: 'resourceAllocation',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'StartDate',
+    name: 'startDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'EndDate',
+    name: 'endDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'StageID',
+    name: 'stageId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'RequiredDays',
+    name: 'requiredDays',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SerialNumbers',
+    name: 'serialNumbers',
+    type: SerialNumber,
+    isCollection: true
+  }, {
+    originalName: 'BatchNumbers',
+    name: 'batchNumbers',
+    type: BatchNumber,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | BatchNumber | SerialNumber }): ProductionOrderLine {
-    return createComplexType(json, {
-      DocumentAbsoluteEntry: (documentAbsoluteEntry: number) => ({ documentAbsoluteEntry: edmToTs(documentAbsoluteEntry, 'Edm.Int32') }),
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      ItemNo: (itemNo: string) => ({ itemNo: edmToTs(itemNo, 'Edm.String') }),
-      BaseQuantity: (baseQuantity: number) => ({ baseQuantity: edmToTs(baseQuantity, 'Edm.Double') }),
-      PlannedQuantity: (plannedQuantity: number) => ({ plannedQuantity: edmToTs(plannedQuantity, 'Edm.Double') }),
-      IssuedQuantity: (issuedQuantity: number) => ({ issuedQuantity: edmToTs(issuedQuantity, 'Edm.Double') }),
-      Warehouse: (warehouse: string) => ({ warehouse: edmToTs(warehouse, 'Edm.String') }),
-      VisualOrder: (visualOrder: number) => ({ visualOrder: edmToTs(visualOrder, 'Edm.Int32') }),
-      DistributionRule: (distributionRule: string) => ({ distributionRule: edmToTs(distributionRule, 'Edm.String') }),
-      LocationCode: (locationCode: number) => ({ locationCode: edmToTs(locationCode, 'Edm.Int32') }),
-      Project: (project: string) => ({ project: edmToTs(project, 'Edm.String') }),
-      DistributionRule2: (distributionRule2: string) => ({ distributionRule2: edmToTs(distributionRule2, 'Edm.String') }),
-      DistributionRule3: (distributionRule3: string) => ({ distributionRule3: edmToTs(distributionRule3, 'Edm.String') }),
-      DistributionRule4: (distributionRule4: string) => ({ distributionRule4: edmToTs(distributionRule4, 'Edm.String') }),
-      DistributionRule5: (distributionRule5: string) => ({ distributionRule5: edmToTs(distributionRule5, 'Edm.String') }),
-      UoMEntry: (uoMEntry: number) => ({ uoMEntry: edmToTs(uoMEntry, 'Edm.Int32') }),
-      UoMCode: (uoMCode: number) => ({ uoMCode: edmToTs(uoMCode, 'Edm.Int32') }),
-      WipAccount: (wipAccount: string) => ({ wipAccount: edmToTs(wipAccount, 'Edm.String') }),
-      LineText: (lineText: string) => ({ lineText: edmToTs(lineText, 'Edm.String') }),
-      AdditionalQuantity: (additionalQuantity: number) => ({ additionalQuantity: edmToTs(additionalQuantity, 'Edm.Double') }),
-      StartDate: (startDate: Moment) => ({ startDate: edmToTs(startDate, 'Edm.DateTimeOffset') }),
-      EndDate: (endDate: Moment) => ({ endDate: edmToTs(endDate, 'Edm.DateTimeOffset') }),
-      StageID: (stageId: number) => ({ stageId: edmToTs(stageId, 'Edm.Int32') }),
-      RequiredDays: (requiredDays: number) => ({ requiredDays: edmToTs(requiredDays, 'Edm.Double') }),
-      SerialNumbers: (serialNumbers: SerialNumber) => ({ serialNumbers: SerialNumber.build(serialNumbers) }),
-      BatchNumbers: (batchNumbers: BatchNumber) => ({ batchNumbers: BatchNumber.build(batchNumbers) })
-    });
+    return deserializeComplexTypeV4(json, ProductionOrderLine);
   }
 }

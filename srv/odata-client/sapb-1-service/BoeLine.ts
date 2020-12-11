@@ -4,7 +4,9 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoBoeStatus } from './BoBoeStatus';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * BoeLine
@@ -45,6 +47,16 @@ export interface BoeLine {
    * @nullable
    */
   amount?: number;
+  /**
+   * Boe Status.
+   * @nullable
+   */
+  boeStatus?: BoBoeStatus;
+  /**
+   * Transferred.
+   * @nullable
+   */
+  transferred?: BoYesNoEnum;
 }
 
 /**
@@ -58,7 +70,7 @@ export function createBoeLine(json: any): BoeLine {
  * BoeLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class BoeLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class BoeLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BoeLine> {
   /**
    * Representation of the [[BoeLine.boeKey]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -94,18 +106,83 @@ export class BoeLineField<EntityT extends Entity> extends ComplexTypeField<Entit
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   amount: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('Amount', this, 'Edm.Double');
+  /**
+   * Representation of the [[BoeLine.boeStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  boeStatus: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BOEStatus', this);
+  /**
+   * Representation of the [[BoeLine.transferred]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  transferred: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Transferred', this);
+
+  /**
+   * Creates an instance of BoeLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, BoeLine);
+  }
 }
 
 export namespace BoeLine {
+  /**
+   * Metadata information on all properties of the `BoeLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<BoeLine>[] = [{
+    originalName: 'BOEKey',
+    name: 'boeKey',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BOENumber',
+    name: 'boeNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DueDate',
+    name: 'dueDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Bank',
+    name: 'bank',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Branch',
+    name: 'branch',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AccountNumber',
+    name: 'accountNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Amount',
+    name: 'amount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BOEStatus',
+    name: 'boeStatus',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Transferred',
+    name: 'transferred',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): BoeLine {
-    return createComplexType(json, {
-      BOEKey: (boeKey: number) => ({ boeKey: edmToTs(boeKey, 'Edm.Int32') }),
-      BOENumber: (boeNumber: number) => ({ boeNumber: edmToTs(boeNumber, 'Edm.Int32') }),
-      DueDate: (dueDate: Moment) => ({ dueDate: edmToTs(dueDate, 'Edm.DateTimeOffset') }),
-      Bank: (bank: string) => ({ bank: edmToTs(bank, 'Edm.String') }),
-      Branch: (branch: string) => ({ branch: edmToTs(branch, 'Edm.String') }),
-      AccountNumber: (accountNumber: string) => ({ accountNumber: edmToTs(accountNumber, 'Edm.String') }),
-      Amount: (amount: number) => ({ amount: edmToTs(amount, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, BoeLine);
   }
 }

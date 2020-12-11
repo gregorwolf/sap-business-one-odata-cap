@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { AssetGroups } from './AssetGroups';
 
 /**
@@ -15,16 +15,16 @@ export class AssetGroupsRequestBuilder extends RequestBuilder<AssetGroups> {
    * @param code Key property. See [[AssetGroups.code]].
    * @returns A request builder for creating requests to retrieve one `AssetGroups` entity based on its keys.
    */
-  getByKey(code: string): GetByKeyRequestBuilder<AssetGroups> {
-    return new GetByKeyRequestBuilder(AssetGroups, { Code: code });
+  getByKey(code: string): GetByKeyRequestBuilderV4<AssetGroups> {
+    return new GetByKeyRequestBuilderV4(AssetGroups, { Code: code });
   }
 
   /**
    * Returns a request builder for querying all `AssetGroups` entities.
    * @returns A request builder for creating requests to retrieve all `AssetGroups` entities.
    */
-  getAll(): GetAllRequestBuilder<AssetGroups> {
-    return new GetAllRequestBuilder(AssetGroups);
+  getAll(): GetAllRequestBuilderV4<AssetGroups> {
+    return new GetAllRequestBuilderV4(AssetGroups);
   }
 
   /**
@@ -32,8 +32,8 @@ export class AssetGroupsRequestBuilder extends RequestBuilder<AssetGroups> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `AssetGroups`.
    */
-  create(entity: AssetGroups): CreateRequestBuilder<AssetGroups> {
-    return new CreateRequestBuilder(AssetGroups, entity);
+  create(entity: AssetGroups): CreateRequestBuilderV4<AssetGroups> {
+    return new CreateRequestBuilderV4(AssetGroups, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class AssetGroupsRequestBuilder extends RequestBuilder<AssetGroups> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `AssetGroups`.
    */
-  update(entity: AssetGroups): UpdateRequestBuilder<AssetGroups> {
-    return new UpdateRequestBuilder(AssetGroups, entity);
+  update(entity: AssetGroups): UpdateRequestBuilderV4<AssetGroups> {
+    return new UpdateRequestBuilderV4(AssetGroups, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class AssetGroupsRequestBuilder extends RequestBuilder<AssetGroups> {
    * @param code Key property. See [[AssetGroups.code]].
    * @returns A request builder for creating requests that delete an entity of type `AssetGroups`.
    */
-  delete(code: string): DeleteRequestBuilder<AssetGroups>;
+  delete(code: string): DeleteRequestBuilderV4<AssetGroups>;
   /**
    * Returns a request builder for deleting an entity of type `AssetGroups`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `AssetGroups` by taking the entity as a parameter.
    */
-  delete(entity: AssetGroups): DeleteRequestBuilder<AssetGroups>;
-  delete(codeOrEntity: any): DeleteRequestBuilder<AssetGroups> {
-    return new DeleteRequestBuilder(AssetGroups, codeOrEntity instanceof AssetGroups ? codeOrEntity : { Code: codeOrEntity! });
+  delete(entity: AssetGroups): DeleteRequestBuilderV4<AssetGroups>;
+  delete(codeOrEntity: any): DeleteRequestBuilderV4<AssetGroups> {
+    return new DeleteRequestBuilderV4(AssetGroups, codeOrEntity instanceof AssetGroups ? codeOrEntity : { Code: codeOrEntity! });
   }
 }

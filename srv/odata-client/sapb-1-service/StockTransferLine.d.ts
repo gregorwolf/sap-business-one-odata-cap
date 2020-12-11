@@ -1,7 +1,10 @@
-import { SerialNumber, SerialNumberField } from './SerialNumber';
-import { BatchNumber, BatchNumberField } from './BatchNumber';
-import { StockTransferLinesBinAllocation, StockTransferLinesBinAllocationField } from './StockTransferLinesBinAllocation';
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { SerialNumber } from './SerialNumber';
+import { BatchNumber } from './BatchNumber';
+import { StockTransferLinesBinAllocation } from './StockTransferLinesBinAllocation';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { InvBaseDocTypeEnum } from './InvBaseDocTypeEnum';
+import { BoStatus } from './BoStatus';
+import { CollectionField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * StockTransferLine
  */
@@ -122,6 +125,11 @@ export interface StockTransferLine {
      */
     distributionRule5?: string;
     /**
+     * Use Base Units.
+     * @nullable
+     */
+    useBaseUnits?: BoYesNoEnum;
+    /**
      * Measure Unit.
      * @nullable
      */
@@ -131,6 +139,11 @@ export interface StockTransferLine {
      * @nullable
      */
     unitsOfMeasurment?: number;
+    /**
+     * Base Type.
+     * @nullable
+     */
+    baseType?: InvBaseDocTypeEnum;
     /**
      * Base Line.
      * @nullable
@@ -172,20 +185,25 @@ export interface StockTransferLine {
      */
     remainingOpenInventoryQuantity?: number;
     /**
+     * Line Status.
+     * @nullable
+     */
+    lineStatus?: BoStatus;
+    /**
      * Serial Numbers.
      * @nullable
      */
-    serialNumbers?: SerialNumber;
+    serialNumbers?: SerialNumber[];
     /**
      * Batch Numbers.
      * @nullable
      */
-    batchNumbers?: BatchNumber;
+    batchNumbers?: BatchNumber[];
     /**
      * Stock Transfer Lines Bin Allocations.
      * @nullable
      */
-    stockTransferLinesBinAllocations?: StockTransferLinesBinAllocation;
+    stockTransferLinesBinAllocations?: StockTransferLinesBinAllocation[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[StockTransferLine.build]] instead.
@@ -195,7 +213,7 @@ export declare function createStockTransferLine(json: any): StockTransferLine;
  * StockTransferLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class StockTransferLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class StockTransferLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, StockTransferLine> {
     /**
      * Representation of the [[StockTransferLine.lineNum]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -312,6 +330,11 @@ export declare class StockTransferLineField<EntityT extends Entity> extends Comp
      */
     distributionRule5: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[StockTransferLine.useBaseUnits]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    useBaseUnits: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[StockTransferLine.measureUnit]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -321,6 +344,11 @@ export declare class StockTransferLineField<EntityT extends Entity> extends Comp
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     unitsOfMeasurment: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[StockTransferLine.baseType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    baseType: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[StockTransferLine.baseLine]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -362,22 +390,41 @@ export declare class StockTransferLineField<EntityT extends Entity> extends Comp
      */
     remainingOpenInventoryQuantity: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[StockTransferLine.lineStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    lineStatus: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[StockTransferLine.serialNumbers]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    serialNumbers: SerialNumberField<EntityT>;
+    serialNumbers: CollectionField<EntityT, SerialNumber>;
     /**
      * Representation of the [[StockTransferLine.batchNumbers]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    batchNumbers: BatchNumberField<EntityT>;
+    batchNumbers: CollectionField<EntityT, BatchNumber>;
     /**
      * Representation of the [[StockTransferLine.stockTransferLinesBinAllocations]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    stockTransferLinesBinAllocations: StockTransferLinesBinAllocationField<EntityT>;
+    stockTransferLinesBinAllocations: CollectionField<EntityT, StockTransferLinesBinAllocation>;
+    /**
+     * Creates an instance of StockTransferLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace StockTransferLine {
+    /**
+     * Metadata information on all properties of the `StockTransferLine` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<StockTransferLine>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | BatchNumber | SerialNumber | StockTransferLinesBinAllocation;
     }): StockTransferLine;

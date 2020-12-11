@@ -1,18 +1,14 @@
 import { SalesPersonsRequestBuilder } from './SalesPersonsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "SalesPersons" of service "SAPB1".
  */
-export declare class SalesPersons extends Entity implements SalesPersonsType {
+export declare class SalesPersons extends EntityV4 implements SalesPersonsType {
     /**
      * Technical entity name for SalesPersons.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for SalesPersons.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -43,10 +39,20 @@ export declare class SalesPersons extends Entity implements SalesPersonsType {
      */
     commissionGroup?: number;
     /**
+     * Locked.
+     * @nullable
+     */
+    locked?: BoYesNoEnum;
+    /**
      * Employee Id.
      * @nullable
      */
     employeeId?: number;
+    /**
+     * Active.
+     * @nullable
+     */
+    active?: BoYesNoEnum;
     /**
      * One-to-many navigation property to the [[SalesOpportunities]] entity.
      */
@@ -188,10 +194,10 @@ export declare class SalesPersons extends Entity implements SalesPersonsType {
      */
     goodsReturnRequest: GoodsReturnRequest[];
     /**
-     * Returns an entity builder to construct instances `SalesPersons`.
+     * Returns an entity builder to construct instances of `SalesPersons`.
      * @returns A builder that constructs instances of entity type `SalesPersons`.
      */
-    static builder(): EntityBuilderType<SalesPersons, SalesPersonsTypeForceMandatory>;
+    static builder(): EntityBuilderType<SalesPersons, SalesPersonsType>;
     /**
      * Returns a request builder to construct requests for operations on the `SalesPersons` entity type.
      * @returns A `SalesPersons` request builder.
@@ -202,7 +208,7 @@ export declare class SalesPersons extends Entity implements SalesPersonsType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `SalesPersons`.
      */
-    static customField(fieldName: string): CustomField<SalesPersons>;
+    static customField(fieldName: string): CustomFieldV4<SalesPersons>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -247,55 +253,14 @@ import { PurchaseOrders, PurchaseOrdersType } from './PurchaseOrders';
 import { ProjectManagements, ProjectManagementsType } from './ProjectManagements';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 export interface SalesPersonsType {
-    salesEmployeeCode?: number;
-    salesEmployeeName?: string;
-    remarks?: string;
-    commissionForSalesEmployee?: number;
-    commissionGroup?: number;
-    employeeId?: number;
-    salesOpportunities: SalesOpportunitiesType[];
-    userDefaultGroups: UserDefaultGroupsType[];
-    inventoryGenEntries: InventoryGenEntriesType[];
-    purchaseQuotations: PurchaseQuotationsType[];
-    commissionGroup2: CommissionGroupsType;
-    contacts: ContactsType[];
-    deliveryNotes: DeliveryNotesType[];
-    businessPartners: BusinessPartnersType[];
-    quotations: QuotationsType[];
-    inventoryGenExits: InventoryGenExitsType[];
-    purchaseRequests: PurchaseRequestsType[];
-    returnRequest: ReturnRequestType[];
-    purchaseReturns: PurchaseReturnsType[];
-    invoices: InvoicesType[];
-    creditNotes: CreditNotesType[];
-    stockTransfers: StockTransfersType[];
-    orders: OrdersType[];
-    inventoryTransferRequests: InventoryTransferRequestsType[];
-    activities: ActivitiesType[];
-    downPayments: DownPaymentsType[];
-    drafts: DraftsType[];
-    stockTransferDrafts: StockTransferDraftsType[];
-    returns: ReturnsType[];
-    correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-    correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-    correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-    purchaseInvoices: PurchaseInvoicesType[];
-    purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-    correctionInvoice: CorrectionInvoiceType[];
-    purchaseCreditNotes: PurchaseCreditNotesType[];
-    purchaseDownPayments: PurchaseDownPaymentsType[];
-    employeesInfo: EmployeesInfoType[];
-    purchaseOrders: PurchaseOrdersType[];
-    projectManagements: ProjectManagementsType[];
-    goodsReturnRequest: GoodsReturnRequestType[];
-}
-export interface SalesPersonsTypeForceMandatory {
-    salesEmployeeCode: number;
-    salesEmployeeName: string;
-    remarks: string;
-    commissionForSalesEmployee: number;
-    commissionGroup: number;
-    employeeId: number;
+    salesEmployeeCode?: number | null;
+    salesEmployeeName?: string | null;
+    remarks?: string | null;
+    commissionForSalesEmployee?: number | null;
+    commissionGroup?: number | null;
+    locked?: BoYesNoEnum | null;
+    employeeId?: number | null;
+    active?: BoYesNoEnum | null;
     salesOpportunities: SalesOpportunitiesType[];
     userDefaultGroups: UserDefaultGroupsType[];
     inventoryGenEntries: InventoryGenEntriesType[];
@@ -359,10 +324,20 @@ export declare namespace SalesPersons {
      */
     const COMMISSION_GROUP: NumberField<SalesPersons>;
     /**
+     * Static representation of the [[locked]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const LOCKED: EnumField<SalesPersons>;
+    /**
      * Static representation of the [[employeeId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const EMPLOYEE_ID: NumberField<SalesPersons>;
+    /**
+     * Static representation of the [[active]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ACTIVE: EnumField<SalesPersons>;
     /**
      * Static representation of the one-to-many navigation property [[salesOpportunities]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -541,7 +516,7 @@ export declare namespace SalesPersons {
     /**
      * All fields of the SalesPersons entity.
      */
-    const _allFields: Array<NumberField<SalesPersons> | StringField<SalesPersons> | OneToManyLink<SalesPersons, SalesOpportunities> | OneToManyLink<SalesPersons, UserDefaultGroups> | OneToManyLink<SalesPersons, InventoryGenEntries> | OneToManyLink<SalesPersons, PurchaseQuotations> | OneToOneLink<SalesPersons, CommissionGroups> | OneToManyLink<SalesPersons, Contacts> | OneToManyLink<SalesPersons, DeliveryNotes> | OneToManyLink<SalesPersons, BusinessPartners> | OneToManyLink<SalesPersons, Quotations> | OneToManyLink<SalesPersons, InventoryGenExits> | OneToManyLink<SalesPersons, PurchaseRequests> | OneToManyLink<SalesPersons, ReturnRequest> | OneToManyLink<SalesPersons, PurchaseReturns> | OneToManyLink<SalesPersons, Invoices> | OneToManyLink<SalesPersons, CreditNotes> | OneToManyLink<SalesPersons, StockTransfers> | OneToManyLink<SalesPersons, Orders> | OneToManyLink<SalesPersons, InventoryTransferRequests> | OneToManyLink<SalesPersons, Activities> | OneToManyLink<SalesPersons, DownPayments> | OneToManyLink<SalesPersons, Drafts> | OneToManyLink<SalesPersons, StockTransferDrafts> | OneToManyLink<SalesPersons, Returns> | OneToManyLink<SalesPersons, CorrectionInvoiceReversal> | OneToManyLink<SalesPersons, CorrectionPurchaseInvoice> | OneToManyLink<SalesPersons, CorrectionPurchaseInvoiceReversal> | OneToManyLink<SalesPersons, PurchaseInvoices> | OneToManyLink<SalesPersons, PurchaseDeliveryNotes> | OneToManyLink<SalesPersons, CorrectionInvoice> | OneToManyLink<SalesPersons, PurchaseCreditNotes> | OneToManyLink<SalesPersons, PurchaseDownPayments> | OneToManyLink<SalesPersons, EmployeesInfo> | OneToManyLink<SalesPersons, PurchaseOrders> | OneToManyLink<SalesPersons, ProjectManagements> | OneToManyLink<SalesPersons, GoodsReturnRequest>>;
+    const _allFields: Array<NumberField<SalesPersons> | StringField<SalesPersons> | EnumField<SalesPersons> | OneToManyLink<SalesPersons, SalesOpportunities> | OneToManyLink<SalesPersons, UserDefaultGroups> | OneToManyLink<SalesPersons, InventoryGenEntries> | OneToManyLink<SalesPersons, PurchaseQuotations> | OneToOneLink<SalesPersons, CommissionGroups> | OneToManyLink<SalesPersons, Contacts> | OneToManyLink<SalesPersons, DeliveryNotes> | OneToManyLink<SalesPersons, BusinessPartners> | OneToManyLink<SalesPersons, Quotations> | OneToManyLink<SalesPersons, InventoryGenExits> | OneToManyLink<SalesPersons, PurchaseRequests> | OneToManyLink<SalesPersons, ReturnRequest> | OneToManyLink<SalesPersons, PurchaseReturns> | OneToManyLink<SalesPersons, Invoices> | OneToManyLink<SalesPersons, CreditNotes> | OneToManyLink<SalesPersons, StockTransfers> | OneToManyLink<SalesPersons, Orders> | OneToManyLink<SalesPersons, InventoryTransferRequests> | OneToManyLink<SalesPersons, Activities> | OneToManyLink<SalesPersons, DownPayments> | OneToManyLink<SalesPersons, Drafts> | OneToManyLink<SalesPersons, StockTransferDrafts> | OneToManyLink<SalesPersons, Returns> | OneToManyLink<SalesPersons, CorrectionInvoiceReversal> | OneToManyLink<SalesPersons, CorrectionPurchaseInvoice> | OneToManyLink<SalesPersons, CorrectionPurchaseInvoiceReversal> | OneToManyLink<SalesPersons, PurchaseInvoices> | OneToManyLink<SalesPersons, PurchaseDeliveryNotes> | OneToManyLink<SalesPersons, CorrectionInvoice> | OneToManyLink<SalesPersons, PurchaseCreditNotes> | OneToManyLink<SalesPersons, PurchaseDownPayments> | OneToManyLink<SalesPersons, EmployeesInfo> | OneToManyLink<SalesPersons, PurchaseOrders> | OneToManyLink<SalesPersons, ProjectManagements> | OneToManyLink<SalesPersons, GoodsReturnRequest>>;
     /**
      * All fields selector.
      */

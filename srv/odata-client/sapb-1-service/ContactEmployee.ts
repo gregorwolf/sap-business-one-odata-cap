@@ -4,8 +4,10 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ContactEmployeeBlockSendingMarketingContent, ContactEmployeeBlockSendingMarketingContentField } from './ContactEmployeeBlockSendingMarketingContent';
-import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ContactEmployeeBlockSendingMarketingContent } from './ContactEmployeeBlockSendingMarketingContent';
+import { BoGenderTypes } from './BoGenderTypes';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ContactEmployee
@@ -92,6 +94,11 @@ export interface ContactEmployee {
    */
   dateOfBirth?: Moment;
   /**
+   * Gender.
+   * @nullable
+   */
+  gender?: BoGenderTypes;
+  /**
    * Profession.
    * @nullable
    */
@@ -106,6 +113,11 @@ export interface ContactEmployee {
    * @nullable
    */
   cityOfBirth?: string;
+  /**
+   * Active.
+   * @nullable
+   */
+  active?: BoYesNoEnum;
   /**
    * First Name.
    * @nullable
@@ -127,10 +139,15 @@ export interface ContactEmployee {
    */
   emailGroupCode?: string;
   /**
+   * Block Sending Marketing Content.
+   * @nullable
+   */
+  blockSendingMarketingContent?: BoYesNoEnum;
+  /**
    * Contact Employee Block Sending Marketing Contents.
    * @nullable
    */
-  contactEmployeeBlockSendingMarketingContents?: ContactEmployeeBlockSendingMarketingContent;
+  contactEmployeeBlockSendingMarketingContents?: ContactEmployeeBlockSendingMarketingContent[];
 }
 
 /**
@@ -144,7 +161,7 @@ export function createContactEmployee(json: any): ContactEmployee {
  * ContactEmployeeField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ContactEmployeeField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ContactEmployeeField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ContactEmployee> {
   /**
    * Representation of the [[ContactEmployee.cardCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -226,6 +243,11 @@ export class ContactEmployeeField<EntityT extends Entity> extends ComplexTypeFie
    */
   dateOfBirth: ComplexTypeDatePropertyField<EntityT> = new ComplexTypeDatePropertyField('DateOfBirth', this, 'Edm.DateTimeOffset');
   /**
+   * Representation of the [[ContactEmployee.gender]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  gender: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Gender', this);
+  /**
    * Representation of the [[ContactEmployee.profession]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -240,6 +262,11 @@ export class ContactEmployeeField<EntityT extends Entity> extends ComplexTypeFie
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   cityOfBirth: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('CityOfBirth', this, 'Edm.String');
+  /**
+   * Representation of the [[ContactEmployee.active]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  active: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Active', this);
   /**
    * Representation of the [[ContactEmployee.firstName]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -261,39 +288,172 @@ export class ContactEmployeeField<EntityT extends Entity> extends ComplexTypeFie
    */
   emailGroupCode: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('EmailGroupCode', this, 'Edm.String');
   /**
+   * Representation of the [[ContactEmployee.blockSendingMarketingContent]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  blockSendingMarketingContent: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BlockSendingMarketingContent', this);
+  /**
    * Representation of the [[ContactEmployee.contactEmployeeBlockSendingMarketingContents]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  contactEmployeeBlockSendingMarketingContents: ContactEmployeeBlockSendingMarketingContentField<EntityT> = new ContactEmployeeBlockSendingMarketingContentField('ContactEmployeeBlockSendingMarketingContents', this);
+  contactEmployeeBlockSendingMarketingContents: CollectionField<EntityT, ContactEmployeeBlockSendingMarketingContent> = new CollectionField('ContactEmployeeBlockSendingMarketingContents', this, ContactEmployeeBlockSendingMarketingContent);
+
+  /**
+   * Creates an instance of ContactEmployeeField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ContactEmployee);
+  }
 }
 
 export namespace ContactEmployee {
+  /**
+   * Metadata information on all properties of the `ContactEmployee` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ContactEmployee>[] = [{
+    originalName: 'CardCode',
+    name: 'cardCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Name',
+    name: 'name',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Position',
+    name: 'position',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Address',
+    name: 'address',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Phone1',
+    name: 'phone1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Phone2',
+    name: 'phone2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'MobilePhone',
+    name: 'mobilePhone',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Fax',
+    name: 'fax',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'E_Mail',
+    name: 'eMail',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Pager',
+    name: 'pager',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Remarks1',
+    name: 'remarks1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Remarks2',
+    name: 'remarks2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Password',
+    name: 'password',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InternalCode',
+    name: 'internalCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PlaceOfBirth',
+    name: 'placeOfBirth',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DateOfBirth',
+    name: 'dateOfBirth',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Gender',
+    name: 'gender',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Profession',
+    name: 'profession',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Title',
+    name: 'title',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CityOfBirth',
+    name: 'cityOfBirth',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Active',
+    name: 'active',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'FirstName',
+    name: 'firstName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'MiddleName',
+    name: 'middleName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LastName',
+    name: 'lastName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'EmailGroupCode',
+    name: 'emailGroupCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BlockSendingMarketingContent',
+    name: 'blockSendingMarketingContent',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ContactEmployeeBlockSendingMarketingContents',
+    name: 'contactEmployeeBlockSendingMarketingContents',
+    type: ContactEmployeeBlockSendingMarketingContent,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | ContactEmployeeBlockSendingMarketingContent }): ContactEmployee {
-    return createComplexType(json, {
-      CardCode: (cardCode: string) => ({ cardCode: edmToTs(cardCode, 'Edm.String') }),
-      Name: (name: string) => ({ name: edmToTs(name, 'Edm.String') }),
-      Position: (position: string) => ({ position: edmToTs(position, 'Edm.String') }),
-      Address: (address: string) => ({ address: edmToTs(address, 'Edm.String') }),
-      Phone1: (phone1: string) => ({ phone1: edmToTs(phone1, 'Edm.String') }),
-      Phone2: (phone2: string) => ({ phone2: edmToTs(phone2, 'Edm.String') }),
-      MobilePhone: (mobilePhone: string) => ({ mobilePhone: edmToTs(mobilePhone, 'Edm.String') }),
-      Fax: (fax: string) => ({ fax: edmToTs(fax, 'Edm.String') }),
-      E_Mail: (eMail: string) => ({ eMail: edmToTs(eMail, 'Edm.String') }),
-      Pager: (pager: string) => ({ pager: edmToTs(pager, 'Edm.String') }),
-      Remarks1: (remarks1: string) => ({ remarks1: edmToTs(remarks1, 'Edm.String') }),
-      Remarks2: (remarks2: string) => ({ remarks2: edmToTs(remarks2, 'Edm.String') }),
-      Password: (password: string) => ({ password: edmToTs(password, 'Edm.String') }),
-      InternalCode: (internalCode: number) => ({ internalCode: edmToTs(internalCode, 'Edm.Int32') }),
-      PlaceOfBirth: (placeOfBirth: string) => ({ placeOfBirth: edmToTs(placeOfBirth, 'Edm.String') }),
-      DateOfBirth: (dateOfBirth: Moment) => ({ dateOfBirth: edmToTs(dateOfBirth, 'Edm.DateTimeOffset') }),
-      Profession: (profession: string) => ({ profession: edmToTs(profession, 'Edm.String') }),
-      Title: (title: string) => ({ title: edmToTs(title, 'Edm.String') }),
-      CityOfBirth: (cityOfBirth: string) => ({ cityOfBirth: edmToTs(cityOfBirth, 'Edm.String') }),
-      FirstName: (firstName: string) => ({ firstName: edmToTs(firstName, 'Edm.String') }),
-      MiddleName: (middleName: string) => ({ middleName: edmToTs(middleName, 'Edm.String') }),
-      LastName: (lastName: string) => ({ lastName: edmToTs(lastName, 'Edm.String') }),
-      EmailGroupCode: (emailGroupCode: string) => ({ emailGroupCode: edmToTs(emailGroupCode, 'Edm.String') }),
-      ContactEmployeeBlockSendingMarketingContents: (contactEmployeeBlockSendingMarketingContents: ContactEmployeeBlockSendingMarketingContent) => ({ contactEmployeeBlockSendingMarketingContents: ContactEmployeeBlockSendingMarketingContent.build(contactEmployeeBlockSendingMarketingContents) })
-    });
+    return deserializeComplexTypeV4(json, ContactEmployee);
   }
 }

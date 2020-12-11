@@ -1,18 +1,13 @@
 import { QueryCategoriesRequestBuilder } from './QueryCategoriesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "QueryCategories" of service "SAPB1".
  */
-export declare class QueryCategories extends Entity implements QueryCategoriesType {
+export declare class QueryCategories extends EntityV4 implements QueryCategoriesType {
     /**
      * Technical entity name for QueryCategories.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for QueryCategories.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -37,10 +32,10 @@ export declare class QueryCategories extends Entity implements QueryCategoriesTy
      */
     userQueries: UserQueries[];
     /**
-     * Returns an entity builder to construct instances `QueryCategories`.
+     * Returns an entity builder to construct instances of `QueryCategories`.
      * @returns A builder that constructs instances of entity type `QueryCategories`.
      */
-    static builder(): EntityBuilderType<QueryCategories, QueryCategoriesTypeForceMandatory>;
+    static builder(): EntityBuilderType<QueryCategories, QueryCategoriesType>;
     /**
      * Returns a request builder to construct requests for operations on the `QueryCategories` entity type.
      * @returns A `QueryCategories` request builder.
@@ -51,7 +46,7 @@ export declare class QueryCategories extends Entity implements QueryCategoriesTy
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `QueryCategories`.
      */
-    static customField(fieldName: string): CustomField<QueryCategories>;
+    static customField(fieldName: string): CustomFieldV4<QueryCategories>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -62,15 +57,9 @@ export declare class QueryCategories extends Entity implements QueryCategoriesTy
 }
 import { UserQueries, UserQueriesType } from './UserQueries';
 export interface QueryCategoriesType {
-    code?: number;
-    name?: string;
-    permissions?: string;
-    userQueries: UserQueriesType[];
-}
-export interface QueryCategoriesTypeForceMandatory {
-    code: number;
-    name: string;
-    permissions: string;
+    code?: number | null;
+    name?: string | null;
+    permissions?: string | null;
     userQueries: UserQueriesType[];
 }
 export declare namespace QueryCategories {

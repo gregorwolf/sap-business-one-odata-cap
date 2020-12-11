@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoRcptInvTypes } from './BoRcptInvTypes';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * PaymentInvoice
  */
@@ -39,6 +40,11 @@ export interface PaymentInvoice {
      * @nullable
      */
     docLine?: number;
+    /**
+     * Invoice Type.
+     * @nullable
+     */
+    invoiceType?: BoRcptInvTypes;
     /**
      * Discount Percent.
      * @nullable
@@ -123,7 +129,7 @@ export declare function createPaymentInvoice(json: any): PaymentInvoice;
  * PaymentInvoiceField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class PaymentInvoiceField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class PaymentInvoiceField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PaymentInvoice> {
     /**
      * Representation of the [[PaymentInvoice.lineNum]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -159,6 +165,11 @@ export declare class PaymentInvoiceField<EntityT extends Entity> extends Complex
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     docLine: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[PaymentInvoice.invoiceType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    invoiceType: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[PaymentInvoice.discountPercent]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -234,8 +245,22 @@ export declare class PaymentInvoiceField<EntityT extends Entity> extends Complex
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     totalDiscountSc: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of PaymentInvoiceField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace PaymentInvoice {
+    /**
+     * Metadata information on all properties of the `PaymentInvoice` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<PaymentInvoice>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): PaymentInvoice;

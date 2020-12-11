@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * AlternateCatNumParams
@@ -37,7 +37,7 @@ export function createAlternateCatNumParams(json: any): AlternateCatNumParams {
  * AlternateCatNumParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class AlternateCatNumParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class AlternateCatNumParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, AlternateCatNumParams> {
   /**
    * Representation of the [[AlternateCatNumParams.itemCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -53,14 +53,43 @@ export class AlternateCatNumParamsField<EntityT extends Entity> extends ComplexT
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   substitute: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Substitute', this, 'Edm.String');
+
+  /**
+   * Creates an instance of AlternateCatNumParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, AlternateCatNumParams);
+  }
 }
 
 export namespace AlternateCatNumParams {
+  /**
+   * Metadata information on all properties of the `AlternateCatNumParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<AlternateCatNumParams>[] = [{
+    originalName: 'ItemCode',
+    name: 'itemCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CardCode',
+    name: 'cardCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Substitute',
+    name: 'substitute',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): AlternateCatNumParams {
-    return createComplexType(json, {
-      ItemCode: (itemCode: string) => ({ itemCode: edmToTs(itemCode, 'Edm.String') }),
-      CardCode: (cardCode: string) => ({ cardCode: edmToTs(cardCode, 'Edm.String') }),
-      Substitute: (substitute: string) => ({ substitute: edmToTs(substitute, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, AlternateCatNumParams);
   }
 }

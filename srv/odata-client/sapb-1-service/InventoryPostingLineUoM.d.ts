@@ -1,4 +1,4 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * InventoryPostingLineUoM
  */
@@ -52,7 +52,7 @@ export declare function createInventoryPostingLineUoM(json: any): InventoryPosti
  * InventoryPostingLineUoMField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class InventoryPostingLineUoMField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class InventoryPostingLineUoMField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, InventoryPostingLineUoM> {
     /**
      * Representation of the [[InventoryPostingLineUoM.documentEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -93,8 +93,22 @@ export declare class InventoryPostingLineUoMField<EntityT extends Entity> extend
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     barCode: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Creates an instance of InventoryPostingLineUoMField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace InventoryPostingLineUoM {
+    /**
+     * Metadata information on all properties of the `InventoryPostingLineUoM` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<InventoryPostingLineUoM>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): InventoryPostingLineUoM;

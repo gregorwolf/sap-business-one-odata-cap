@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.Industries = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var IndustriesRequestBuilder_1 = require("./IndustriesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "Industries" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var Industries = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `Industries`.
+     * Returns an entity builder to construct instances of `Industries`.
      * @returns A builder that constructs instances of entity type `Industries`.
      */
     Industries.builder = function () {
-        return v4_1.Entity.entityBuilder(Industries);
+        return core_1.EntityV4.entityBuilder(Industries);
     };
     /**
      * Returns a request builder to construct requests for operations on the `Industries` entity type.
@@ -60,7 +60,7 @@ var Industries = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `Industries`.
      */
     Industries.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, Industries);
+        return core_1.EntityV4.customFieldSelector(fieldName, Industries);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var Industries = /** @class */ (function (_super) {
      */
     Industries._entityName = 'Industries';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Industries.
-     */
-    Industries._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    Industries._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    Industries._defaultServicePath = '/b1s/v2/';
     return Industries;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.Industries = Industries;
 var SalesOpportunities_1 = require("./SalesOpportunities");
 var BusinessPartners_1 = require("./BusinessPartners");
@@ -93,32 +88,32 @@ var ProjectManagements_1 = require("./ProjectManagements");
      * Static representation of the [[industryDescription]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Industries.INDUSTRY_DESCRIPTION = new v4_1.StringField('IndustryDescription', Industries, 'Edm.String');
+    Industries.INDUSTRY_DESCRIPTION = new core_1.StringField('IndustryDescription', Industries, 'Edm.String');
     /**
      * Static representation of the [[industryName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Industries.INDUSTRY_NAME = new v4_1.StringField('IndustryName', Industries, 'Edm.String');
+    Industries.INDUSTRY_NAME = new core_1.StringField('IndustryName', Industries, 'Edm.String');
     /**
      * Static representation of the [[industryCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Industries.INDUSTRY_CODE = new v4_1.NumberField('IndustryCode', Industries, 'Edm.Int32');
+    Industries.INDUSTRY_CODE = new core_1.NumberField('IndustryCode', Industries, 'Edm.Int32');
     /**
      * Static representation of the one-to-many navigation property [[salesOpportunities]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Industries.SALES_OPPORTUNITIES = new v4_1.OneToManyLink('SalesOpportunities', Industries, SalesOpportunities_1.SalesOpportunities);
+    Industries.SALES_OPPORTUNITIES = new core_1.OneToManyLink('SalesOpportunities', Industries, SalesOpportunities_1.SalesOpportunities);
     /**
      * Static representation of the one-to-many navigation property [[businessPartners]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Industries.BUSINESS_PARTNERS = new v4_1.OneToManyLink('BusinessPartners', Industries, BusinessPartners_1.BusinessPartners);
+    Industries.BUSINESS_PARTNERS = new core_1.OneToManyLink('BusinessPartners', Industries, BusinessPartners_1.BusinessPartners);
     /**
      * Static representation of the one-to-many navigation property [[projectManagements]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Industries.PROJECT_MANAGEMENTS = new v4_1.OneToManyLink('ProjectManagements', Industries, ProjectManagements_1.ProjectManagements);
+    Industries.PROJECT_MANAGEMENTS = new core_1.OneToManyLink('ProjectManagements', Industries, ProjectManagements_1.ProjectManagements);
     /**
      * All fields of the Industries entity.
      */
@@ -133,7 +128,7 @@ var ProjectManagements_1 = require("./ProjectManagements");
     /**
      * All fields selector.
      */
-    Industries.ALL_FIELDS = new v4_1.AllFields('*', Industries);
+    Industries.ALL_FIELDS = new core_1.AllFields('*', Industries);
     /**
      * All key fields of the Industries entity.
      */

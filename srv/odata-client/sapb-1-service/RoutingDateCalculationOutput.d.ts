@@ -1,5 +1,5 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * RoutingDateCalculationOutput
  */
@@ -23,7 +23,7 @@ export declare function createRoutingDateCalculationOutput(json: any): RoutingDa
  * RoutingDateCalculationOutputField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class RoutingDateCalculationOutputField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class RoutingDateCalculationOutputField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, RoutingDateCalculationOutput> {
     /**
      * Representation of the [[RoutingDateCalculationOutput.resultDate]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -34,8 +34,22 @@ export declare class RoutingDateCalculationOutputField<EntityT extends Entity> e
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     proportion: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of RoutingDateCalculationOutputField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace RoutingDateCalculationOutput {
+    /**
+     * Metadata information on all properties of the `RoutingDateCalculationOutput` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<RoutingDateCalculationOutput>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): RoutingDateCalculationOutput;

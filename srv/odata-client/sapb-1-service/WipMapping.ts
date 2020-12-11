@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * WipMapping
@@ -42,7 +42,7 @@ export function createWipMapping(json: any): WipMapping {
  * WipMappingField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class WipMappingField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class WipMappingField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, WipMapping> {
   /**
    * Representation of the [[WipMapping.absoluteEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -63,15 +63,48 @@ export class WipMappingField<EntityT extends Entity> extends ComplexTypeField<En
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   accountTo: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('AccountTo', this, 'Edm.String');
+
+  /**
+   * Creates an instance of WipMappingField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, WipMapping);
+  }
 }
 
 export namespace WipMapping {
+  /**
+   * Metadata information on all properties of the `WipMapping` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<WipMapping>[] = [{
+    originalName: 'AbsoluteEntry',
+    name: 'absoluteEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AccountFrom',
+    name: 'accountFrom',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AccountTo',
+    name: 'accountTo',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): WipMapping {
-    return createComplexType(json, {
-      AbsoluteEntry: (absoluteEntry: number) => ({ absoluteEntry: edmToTs(absoluteEntry, 'Edm.Int32') }),
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      AccountFrom: (accountFrom: string) => ({ accountFrom: edmToTs(accountFrom, 'Edm.String') }),
-      AccountTo: (accountTo: string) => ({ accountTo: edmToTs(accountTo, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, WipMapping);
   }
 }

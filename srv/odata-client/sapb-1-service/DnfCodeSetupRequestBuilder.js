@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.DnfCodeSetupRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var DnfCodeSetup_1 = require("./DnfCodeSetup");
 /**
  * Request builder class for operations supported on the [[DnfCodeSetup]] entity.
@@ -35,14 +35,14 @@ var DnfCodeSetupRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `DnfCodeSetup` entity based on its keys.
      */
     DnfCodeSetupRequestBuilder.prototype.getByKey = function (absEntry) {
-        return new v4_1.GetByKeyRequestBuilder(DnfCodeSetup_1.DnfCodeSetup, { AbsEntry: absEntry });
+        return new core_1.GetByKeyRequestBuilderV4(DnfCodeSetup_1.DnfCodeSetup, { AbsEntry: absEntry });
     };
     /**
      * Returns a request builder for querying all `DnfCodeSetup` entities.
      * @returns A request builder for creating requests to retrieve all `DnfCodeSetup` entities.
      */
     DnfCodeSetupRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(DnfCodeSetup_1.DnfCodeSetup);
+        return new core_1.GetAllRequestBuilderV4(DnfCodeSetup_1.DnfCodeSetup);
     };
     /**
      * Returns a request builder for creating a `DnfCodeSetup` entity.
@@ -50,7 +50,7 @@ var DnfCodeSetupRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `DnfCodeSetup`.
      */
     DnfCodeSetupRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(DnfCodeSetup_1.DnfCodeSetup, entity);
+        return new core_1.CreateRequestBuilderV4(DnfCodeSetup_1.DnfCodeSetup, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `DnfCodeSetup`.
@@ -58,12 +58,12 @@ var DnfCodeSetupRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `DnfCodeSetup`.
      */
     DnfCodeSetupRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(DnfCodeSetup_1.DnfCodeSetup, entity);
+        return new core_1.UpdateRequestBuilderV4(DnfCodeSetup_1.DnfCodeSetup, entity);
     };
     DnfCodeSetupRequestBuilder.prototype.delete = function (absEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(DnfCodeSetup_1.DnfCodeSetup, absEntryOrEntity instanceof DnfCodeSetup_1.DnfCodeSetup ? absEntryOrEntity : { AbsEntry: absEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(DnfCodeSetup_1.DnfCodeSetup, absEntryOrEntity instanceof DnfCodeSetup_1.DnfCodeSetup ? absEntryOrEntity : { AbsEntry: absEntryOrEntity });
     };
     return DnfCodeSetupRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.DnfCodeSetupRequestBuilder = DnfCodeSetupRequestBuilder;
 //# sourceMappingURL=DnfCodeSetupRequestBuilder.js.map

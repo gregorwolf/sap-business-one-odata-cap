@@ -1,19 +1,15 @@
 import { UserGroupsRequestBuilder } from './UserGroupsRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { UserGroupCategoryEnum } from './UserGroupCategoryEnum';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "UserGroups" of service "SAPB1".
  */
-export declare class UserGroups extends Entity implements UserGroupsType {
+export declare class UserGroups extends EntityV4 implements UserGroupsType {
     /**
      * Technical entity name for UserGroups.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for UserGroups.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -49,10 +45,15 @@ export declare class UserGroups extends Entity implements UserGroupsType {
      */
     dueDate?: Moment;
     /**
-     * Returns an entity builder to construct instances `UserGroups`.
+     * User Group Type.
+     * @nullable
+     */
+    userGroupType?: UserGroupCategoryEnum;
+    /**
+     * Returns an entity builder to construct instances of `UserGroups`.
      * @returns A builder that constructs instances of entity type `UserGroups`.
      */
-    static builder(): EntityBuilderType<UserGroups, UserGroupsTypeForceMandatory>;
+    static builder(): EntityBuilderType<UserGroups, UserGroupsType>;
     /**
      * Returns a request builder to construct requests for operations on the `UserGroups` entity type.
      * @returns A `UserGroups` request builder.
@@ -63,7 +64,7 @@ export declare class UserGroups extends Entity implements UserGroupsType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `UserGroups`.
      */
-    static customField(fieldName: string): CustomField<UserGroups>;
+    static customField(fieldName: string): CustomFieldV4<UserGroups>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -73,20 +74,13 @@ export declare class UserGroups extends Entity implements UserGroupsType {
     };
 }
 export interface UserGroupsType {
-    userGroupId?: number;
-    userGroupName?: string;
-    userGroupDec?: string;
-    tplId?: number;
-    startDate?: Moment;
-    dueDate?: Moment;
-}
-export interface UserGroupsTypeForceMandatory {
-    userGroupId: number;
-    userGroupName: string;
-    userGroupDec: string;
-    tplId: number;
-    startDate: Moment;
-    dueDate: Moment;
+    userGroupId?: number | null;
+    userGroupName?: string | null;
+    userGroupDec?: string | null;
+    tplId?: number | null;
+    startDate?: Moment | null;
+    dueDate?: Moment | null;
+    userGroupType?: UserGroupCategoryEnum | null;
 }
 export declare namespace UserGroups {
     /**
@@ -120,9 +114,14 @@ export declare namespace UserGroups {
      */
     const DUE_DATE: DateField<UserGroups>;
     /**
+     * Static representation of the [[userGroupType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const USER_GROUP_TYPE: EnumField<UserGroups>;
+    /**
      * All fields of the UserGroups entity.
      */
-    const _allFields: Array<NumberField<UserGroups> | StringField<UserGroups> | DateField<UserGroups>>;
+    const _allFields: Array<NumberField<UserGroups> | StringField<UserGroups> | DateField<UserGroups> | EnumField<UserGroups>>;
     /**
      * All fields selector.
      */

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -15,7 +15,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InternalReconciliationOpenTransParams = exports.InternalReconciliationOpenTransParamsField = exports.createInternalReconciliationOpenTransParams = void 0;
 var InternalReconciliationBp_1 = require("./InternalReconciliationBp");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[InternalReconciliationOpenTransParams.build]] instead.
  */
@@ -29,48 +29,100 @@ exports.createInternalReconciliationOpenTransParams = createInternalReconciliati
  */
 var InternalReconciliationOpenTransParamsField = /** @class */ (function (_super) {
     __extends(InternalReconciliationOpenTransParamsField, _super);
-    function InternalReconciliationOpenTransParamsField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of InternalReconciliationOpenTransParamsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function InternalReconciliationOpenTransParamsField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, InternalReconciliationOpenTransParams) || this;
         /**
          * Representation of the [[InternalReconciliationOpenTransParams.reconDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.reconDate = new v4_1.ComplexTypeDatePropertyField('ReconDate', _this, 'Edm.DateTimeOffset');
+        _this.reconDate = new core_1.ComplexTypeDatePropertyField('ReconDate', _this, 'Edm.DateTimeOffset');
+        /**
+         * Representation of the [[InternalReconciliationOpenTransParams.cardOrAccount]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.cardOrAccount = new core_1.ComplexTypeEnumPropertyField('CardOrAccount', _this);
         /**
          * Representation of the [[InternalReconciliationOpenTransParams.accountNo]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.accountNo = new v4_1.ComplexTypeStringPropertyField('AccountNo', _this, 'Edm.String');
+        _this.accountNo = new core_1.ComplexTypeStringPropertyField('AccountNo', _this, 'Edm.String');
+        /**
+         * Representation of the [[InternalReconciliationOpenTransParams.dateType]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.dateType = new core_1.ComplexTypeEnumPropertyField('DateType', _this);
         /**
          * Representation of the [[InternalReconciliationOpenTransParams.fromDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.fromDate = new v4_1.ComplexTypeDatePropertyField('FromDate', _this, 'Edm.DateTimeOffset');
+        _this.fromDate = new core_1.ComplexTypeDatePropertyField('FromDate', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[InternalReconciliationOpenTransParams.toDate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.toDate = new v4_1.ComplexTypeDatePropertyField('ToDate', _this, 'Edm.DateTimeOffset');
+        _this.toDate = new core_1.ComplexTypeDatePropertyField('ToDate', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[InternalReconciliationOpenTransParams.internalReconciliationBPs]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.internalReconciliationBPs = new InternalReconciliationBp_1.InternalReconciliationBpField('InternalReconciliationBPs', _this);
+        _this.internalReconciliationBPs = new core_1.CollectionField('InternalReconciliationBPs', _this, InternalReconciliationBp_1.InternalReconciliationBp);
         return _this;
     }
     return InternalReconciliationOpenTransParamsField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.InternalReconciliationOpenTransParamsField = InternalReconciliationOpenTransParamsField;
 var InternalReconciliationOpenTransParams;
 (function (InternalReconciliationOpenTransParams) {
+    /**
+     * Metadata information on all properties of the `InternalReconciliationOpenTransParams` complex type.
+     */
+    InternalReconciliationOpenTransParams._propertyMetadata = [{
+            originalName: 'ReconDate',
+            name: 'reconDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'CardOrAccount',
+            name: 'cardOrAccount',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'AccountNo',
+            name: 'accountNo',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'DateType',
+            name: 'dateType',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'FromDate',
+            name: 'fromDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'ToDate',
+            name: 'toDate',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'InternalReconciliationBPs',
+            name: 'internalReconciliationBPs',
+            type: InternalReconciliationBp_1.InternalReconciliationBp,
+            isCollection: true
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            ReconDate: function (reconDate) { return ({ reconDate: v4_1.edmToTs(reconDate, 'Edm.DateTimeOffset') }); },
-            AccountNo: function (accountNo) { return ({ accountNo: v4_1.edmToTs(accountNo, 'Edm.String') }); },
-            FromDate: function (fromDate) { return ({ fromDate: v4_1.edmToTs(fromDate, 'Edm.DateTimeOffset') }); },
-            ToDate: function (toDate) { return ({ toDate: v4_1.edmToTs(toDate, 'Edm.DateTimeOffset') }); },
-            InternalReconciliationBPs: function (internalReconciliationBPs) { return ({ internalReconciliationBPs: InternalReconciliationBp_1.InternalReconciliationBp.build(internalReconciliationBPs) }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, InternalReconciliationOpenTransParams);
     }
     InternalReconciliationOpenTransParams.build = build;
 })(InternalReconciliationOpenTransParams = exports.InternalReconciliationOpenTransParams || (exports.InternalReconciliationOpenTransParams = {}));

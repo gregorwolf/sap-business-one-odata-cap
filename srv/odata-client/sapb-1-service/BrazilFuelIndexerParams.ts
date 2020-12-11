@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * BrazilFuelIndexerParams
@@ -42,7 +42,7 @@ export function createBrazilFuelIndexerParams(json: any): BrazilFuelIndexerParam
  * BrazilFuelIndexerParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class BrazilFuelIndexerParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class BrazilFuelIndexerParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BrazilFuelIndexerParams> {
   /**
    * Representation of the [[BrazilFuelIndexerParams.fuelId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -63,15 +63,48 @@ export class BrazilFuelIndexerParamsField<EntityT extends Entity> extends Comple
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   description: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Description', this, 'Edm.String');
+
+  /**
+   * Creates an instance of BrazilFuelIndexerParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, BrazilFuelIndexerParams);
+  }
 }
 
 export namespace BrazilFuelIndexerParams {
+  /**
+   * Metadata information on all properties of the `BrazilFuelIndexerParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<BrazilFuelIndexerParams>[] = [{
+    originalName: 'FuelID',
+    name: 'fuelId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'FuelGroupCode',
+    name: 'fuelGroupCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'FuelCode',
+    name: 'fuelCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Description',
+    name: 'description',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): BrazilFuelIndexerParams {
-    return createComplexType(json, {
-      FuelID: (fuelId: number) => ({ fuelId: edmToTs(fuelId, 'Edm.Int32') }),
-      FuelGroupCode: (fuelGroupCode: number) => ({ fuelGroupCode: edmToTs(fuelGroupCode, 'Edm.Int32') }),
-      FuelCode: (fuelCode: string) => ({ fuelCode: edmToTs(fuelCode, 'Edm.String') }),
-      Description: (description: string) => ({ description: edmToTs(description, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, BrazilFuelIndexerParams);
   }
 }

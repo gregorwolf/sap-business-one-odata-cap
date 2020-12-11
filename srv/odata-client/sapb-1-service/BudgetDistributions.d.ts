@@ -1,18 +1,13 @@
 import { BudgetDistributionsRequestBuilder } from './BudgetDistributionsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "BudgetDistributions" of service "SAPB1".
  */
-export declare class BudgetDistributions extends Entity implements BudgetDistributionsType {
+export declare class BudgetDistributions extends EntityV4 implements BudgetDistributionsType {
     /**
      * Technical entity name for BudgetDistributions.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BudgetDistributions.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -97,10 +92,10 @@ export declare class BudgetDistributions extends Entity implements BudgetDistrib
      */
     budgets: Budgets[];
     /**
-     * Returns an entity builder to construct instances `BudgetDistributions`.
+     * Returns an entity builder to construct instances of `BudgetDistributions`.
      * @returns A builder that constructs instances of entity type `BudgetDistributions`.
      */
-    static builder(): EntityBuilderType<BudgetDistributions, BudgetDistributionsTypeForceMandatory>;
+    static builder(): EntityBuilderType<BudgetDistributions, BudgetDistributionsType>;
     /**
      * Returns a request builder to construct requests for operations on the `BudgetDistributions` entity type.
      * @returns A `BudgetDistributions` request builder.
@@ -111,7 +106,7 @@ export declare class BudgetDistributions extends Entity implements BudgetDistrib
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `BudgetDistributions`.
      */
-    static customField(fieldName: string): CustomField<BudgetDistributions>;
+    static customField(fieldName: string): CustomFieldV4<BudgetDistributions>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -122,39 +117,21 @@ export declare class BudgetDistributions extends Entity implements BudgetDistrib
 }
 import { Budgets, BudgetsType } from './Budgets';
 export interface BudgetDistributionsType {
-    september?: number;
-    august?: number;
-    july?: number;
-    june?: number;
-    may?: number;
-    april?: number;
-    march?: number;
-    february?: number;
-    december?: number;
-    november?: number;
-    october?: number;
-    january?: number;
-    budgetAmount?: number;
-    description?: string;
-    divisionCode?: number;
-    budgets: BudgetsType[];
-}
-export interface BudgetDistributionsTypeForceMandatory {
-    september: number;
-    august: number;
-    july: number;
-    june: number;
-    may: number;
-    april: number;
-    march: number;
-    february: number;
-    december: number;
-    november: number;
-    october: number;
-    january: number;
-    budgetAmount: number;
-    description: string;
-    divisionCode: number;
+    september?: number | null;
+    august?: number | null;
+    july?: number | null;
+    june?: number | null;
+    may?: number | null;
+    april?: number | null;
+    march?: number | null;
+    february?: number | null;
+    december?: number | null;
+    november?: number | null;
+    october?: number | null;
+    january?: number | null;
+    budgetAmount?: number | null;
+    description?: string | null;
+    divisionCode?: number | null;
     budgets: BudgetsType[];
 }
 export declare namespace BudgetDistributions {

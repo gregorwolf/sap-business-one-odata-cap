@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * QueryAuthGroupParams
@@ -32,7 +32,7 @@ export function createQueryAuthGroupParams(json: any): QueryAuthGroupParams {
  * QueryAuthGroupParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class QueryAuthGroupParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class QueryAuthGroupParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, QueryAuthGroupParams> {
   /**
    * Representation of the [[QueryAuthGroupParams.authGroupId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -43,13 +43,38 @@ export class QueryAuthGroupParamsField<EntityT extends Entity> extends ComplexTy
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   authGroupCode: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('AuthGroupCode', this, 'Edm.String');
+
+  /**
+   * Creates an instance of QueryAuthGroupParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, QueryAuthGroupParams);
+  }
 }
 
 export namespace QueryAuthGroupParams {
+  /**
+   * Metadata information on all properties of the `QueryAuthGroupParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<QueryAuthGroupParams>[] = [{
+    originalName: 'AuthGroupId',
+    name: 'authGroupId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AuthGroupCode',
+    name: 'authGroupCode',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): QueryAuthGroupParams {
-    return createComplexType(json, {
-      AuthGroupId: (authGroupId: number) => ({ authGroupId: edmToTs(authGroupId, 'Edm.Int32') }),
-      AuthGroupCode: (authGroupCode: string) => ({ authGroupCode: edmToTs(authGroupCode, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, QueryAuthGroupParams);
   }
 }

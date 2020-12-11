@@ -6,7 +6,7 @@ exports.functionImports = exports.sboBobServiceGetSystemCurrency = exports.userM
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var MessageHeader_1 = require("./MessageHeader");
 var PathAdmin_1 = require("./PathAdmin");
 var AdminInfo_1 = require("./AdminInfo");
@@ -20,7 +20,7 @@ var UserMenuItem_1 = require("./UserMenuItem");
  */
 function licenseServiceGetInstallationNumber(parameters) {
     var params = {};
-    return new v4_1.FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'LicenseService_GetInstallationNumber', function (data) { return v4_1.transformReturnValueForEdmType(data, function (val) { return v4_1.edmToTs(val, 'Edm.String'); }); }, params);
+    return new core_1.FunctionImportRequestBuilderV4('/b1s/v2/', 'LicenseService_GetInstallationNumber', function (data) { return core_1.transformReturnValueForEdmTypeV4(data, function (val) { return core_1.edmToTsV4(val.value, 'Edm.String'); }); }, params);
 }
 exports.licenseServiceGetInstallationNumber = licenseServiceGetInstallationNumber;
 /**
@@ -31,10 +31,10 @@ exports.licenseServiceGetInstallationNumber = licenseServiceGetInstallationNumbe
  */
 function sboBobServiceFormatMoneyToString(parameters) {
     var params = {
-        inMoney: new v4_1.FunctionImportParameter('InMoney', 'Edm.Double', parameters.inMoney),
-        inPrecision: new v4_1.FunctionImportParameter('InPrecision', 'Edm.String', parameters.inPrecision)
+        inMoney: new core_1.FunctionImportParameter('InMoney', 'Edm.Double', parameters.inMoney),
+        inPrecision: new core_1.FunctionImportParameter('InPrecision', 'Edm.String', parameters.inPrecision)
     };
-    return new v4_1.FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'SBOBobService_Format_MoneyToString', function (data) { return v4_1.transformReturnValueForEdmType(data, function (val) { return v4_1.edmToTs(val, 'Edm.String'); }); }, params);
+    return new core_1.FunctionImportRequestBuilderV4('/b1s/v2/', 'SBOBobService_Format_MoneyToString', function (data) { return core_1.transformReturnValueForEdmTypeV4(data, function (val) { return core_1.edmToTsV4(val.value, 'Edm.String'); }); }, params);
 }
 exports.sboBobServiceFormatMoneyToString = sboBobServiceFormatMoneyToString;
 /**
@@ -45,10 +45,10 @@ exports.sboBobServiceFormatMoneyToString = sboBobServiceFormatMoneyToString;
  */
 function sboBobServiceGetIndexRate(parameters) {
     var params = {
-        index: new v4_1.FunctionImportParameter('Index', 'Edm.String', parameters.index),
-        date: new v4_1.FunctionImportParameter('Date', 'Edm.String', parameters.date)
+        index: new core_1.FunctionImportParameter('Index', 'Edm.String', parameters.index),
+        date: new core_1.FunctionImportParameter('Date', 'Edm.String', parameters.date)
     };
-    return new v4_1.FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'SBOBobService_GetIndexRate', function (data) { return v4_1.transformReturnValueForEdmType(data, function (val) { return v4_1.edmToTs(val, 'Edm.Double'); }); }, params);
+    return new core_1.FunctionImportRequestBuilderV4('/b1s/v2/', 'SBOBobService_GetIndexRate', function (data) { return core_1.transformReturnValueForEdmTypeV4(data, function (val) { return core_1.edmToTsV4(val.value, 'Edm.Double'); }); }, params);
 }
 exports.sboBobServiceGetIndexRate = sboBobServiceGetIndexRate;
 /**
@@ -59,10 +59,10 @@ exports.sboBobServiceGetIndexRate = sboBobServiceGetIndexRate;
  */
 function sboBobServiceGetCurrencyRate(parameters) {
     var params = {
-        currency: new v4_1.FunctionImportParameter('Currency', 'Edm.String', parameters.currency),
-        date: new v4_1.FunctionImportParameter('Date', 'Edm.String', parameters.date)
+        currency: new core_1.FunctionImportParameter('Currency', 'Edm.String', parameters.currency),
+        date: new core_1.FunctionImportParameter('Date', 'Edm.String', parameters.date)
     };
-    return new v4_1.FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'SBOBobService_GetCurrencyRate', function (data) { return v4_1.transformReturnValueForEdmType(data, function (val) { return v4_1.edmToTs(val, 'Edm.Double'); }); }, params);
+    return new core_1.FunctionImportRequestBuilderV4('/b1s/v2/', 'SBOBobService_GetCurrencyRate', function (data) { return core_1.transformReturnValueForEdmTypeV4(data, function (val) { return core_1.edmToTsV4(val.value, 'Edm.Double'); }); }, params);
 }
 exports.sboBobServiceGetCurrencyRate = sboBobServiceGetCurrencyRate;
 /**
@@ -73,7 +73,7 @@ exports.sboBobServiceGetCurrencyRate = sboBobServiceGetCurrencyRate;
  */
 function sboBobServiceGetLocalCurrency(parameters) {
     var params = {};
-    return new v4_1.FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'SBOBobService_GetLocalCurrency', function (data) { return v4_1.transformReturnValueForEdmType(data, function (val) { return v4_1.edmToTs(val, 'Edm.String'); }); }, params);
+    return new core_1.FunctionImportRequestBuilderV4('/b1s/v2/', 'SBOBobService_GetLocalCurrency', function (data) { return core_1.transformReturnValueForEdmTypeV4(data, function (val) { return core_1.edmToTsV4(val.value, 'Edm.String'); }); }, params);
 }
 exports.sboBobServiceGetLocalCurrency = sboBobServiceGetLocalCurrency;
 /**
@@ -84,10 +84,10 @@ exports.sboBobServiceGetLocalCurrency = sboBobServiceGetLocalCurrency;
  */
 function sboBobServiceGetDueDate(parameters) {
     var params = {
-        cardCode: new v4_1.FunctionImportParameter('CardCode', 'Edm.String', parameters.cardCode),
-        refDate: new v4_1.FunctionImportParameter('RefDate', 'Edm.String', parameters.refDate)
+        cardCode: new core_1.FunctionImportParameter('CardCode', 'Edm.String', parameters.cardCode),
+        refDate: new core_1.FunctionImportParameter('RefDate', 'Edm.String', parameters.refDate)
     };
-    return new v4_1.FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'SBOBobService_GetDueDate', function (data) { return v4_1.transformReturnValueForEdmType(data, function (val) { return v4_1.edmToTs(val, 'Edm.String'); }); }, params);
+    return new core_1.FunctionImportRequestBuilderV4('/b1s/v2/', 'SBOBobService_GetDueDate', function (data) { return core_1.transformReturnValueForEdmTypeV4(data, function (val) { return core_1.edmToTsV4(val.value, 'Edm.String'); }); }, params);
 }
 exports.sboBobServiceGetDueDate = sboBobServiceGetDueDate;
 /**
@@ -98,7 +98,7 @@ exports.sboBobServiceGetDueDate = sboBobServiceGetDueDate;
  */
 function messagesServiceGetOutbox(parameters) {
     var params = {};
-    return new v4_1.FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'MessagesService_GetOutbox', function (data) { return v4_1.transformReturnValueForComplexTypeList(data, MessageHeader_1.MessageHeader.build); }, params);
+    return new core_1.FunctionImportRequestBuilderV4('/b1s/v2/', 'MessagesService_GetOutbox', function (data) { return core_1.transformReturnValueForComplexTypeListV4(data, function (data) { return core_1.deserializeComplexTypeV4(data, MessageHeader_1.MessageHeader); }); }, params);
 }
 exports.messagesServiceGetOutbox = messagesServiceGetOutbox;
 /**
@@ -109,7 +109,7 @@ exports.messagesServiceGetOutbox = messagesServiceGetOutbox;
  */
 function messagesServiceGetInbox(parameters) {
     var params = {};
-    return new v4_1.FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'MessagesService_GetInbox', function (data) { return v4_1.transformReturnValueForComplexTypeList(data, MessageHeader_1.MessageHeader.build); }, params);
+    return new core_1.FunctionImportRequestBuilderV4('/b1s/v2/', 'MessagesService_GetInbox', function (data) { return core_1.transformReturnValueForComplexTypeListV4(data, function (data) { return core_1.deserializeComplexTypeV4(data, MessageHeader_1.MessageHeader); }); }, params);
 }
 exports.messagesServiceGetInbox = messagesServiceGetInbox;
 /**
@@ -120,7 +120,7 @@ exports.messagesServiceGetInbox = messagesServiceGetInbox;
  */
 function companyServiceGetPathAdmin(parameters) {
     var params = {};
-    return new v4_1.FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'CompanyService_GetPathAdmin', function (data) { return v4_1.transformReturnValueForComplexType(data, PathAdmin_1.PathAdmin.build); }, params);
+    return new core_1.FunctionImportRequestBuilderV4('/b1s/v2/', 'CompanyService_GetPathAdmin', function (data) { return core_1.transformReturnValueForComplexTypeV4(data, function (data) { return core_1.deserializeComplexTypeV4(data, PathAdmin_1.PathAdmin); }); }, params);
 }
 exports.companyServiceGetPathAdmin = companyServiceGetPathAdmin;
 /**
@@ -131,7 +131,7 @@ exports.companyServiceGetPathAdmin = companyServiceGetPathAdmin;
  */
 function companyServiceGetAdminInfo(parameters) {
     var params = {};
-    return new v4_1.FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'CompanyService_GetAdminInfo', function (data) { return v4_1.transformReturnValueForComplexType(data, AdminInfo_1.AdminInfo.build); }, params);
+    return new core_1.FunctionImportRequestBuilderV4('/b1s/v2/', 'CompanyService_GetAdminInfo', function (data) { return core_1.transformReturnValueForComplexTypeV4(data, function (data) { return core_1.deserializeComplexTypeV4(data, AdminInfo_1.AdminInfo); }); }, params);
 }
 exports.companyServiceGetAdminInfo = companyServiceGetAdminInfo;
 /**
@@ -142,7 +142,7 @@ exports.companyServiceGetAdminInfo = companyServiceGetAdminInfo;
  */
 function companyServiceGetCompanyInfo(parameters) {
     var params = {};
-    return new v4_1.FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'CompanyService_GetCompanyInfo', function (data) { return v4_1.transformReturnValueForComplexType(data, CompanyInfo_1.CompanyInfo.build); }, params);
+    return new core_1.FunctionImportRequestBuilderV4('/b1s/v2/', 'CompanyService_GetCompanyInfo', function (data) { return core_1.transformReturnValueForComplexTypeV4(data, function (data) { return core_1.deserializeComplexTypeV4(data, CompanyInfo_1.CompanyInfo); }); }, params);
 }
 exports.companyServiceGetCompanyInfo = companyServiceGetCompanyInfo;
 /**
@@ -153,10 +153,10 @@ exports.companyServiceGetCompanyInfo = companyServiceGetCompanyInfo;
  */
 function sboBobServiceGetSystemPermission(parameters) {
     var params = {
-        userCode: new v4_1.FunctionImportParameter('UserCode', 'Edm.String', parameters.userCode),
-        permissionId: new v4_1.FunctionImportParameter('PermissionID', 'Edm.String', parameters.permissionId)
+        userCode: new core_1.FunctionImportParameter('UserCode', 'Edm.String', parameters.userCode),
+        permissionId: new core_1.FunctionImportParameter('PermissionID', 'Edm.String', parameters.permissionId)
     };
-    return new v4_1.FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'SBOBobService_GetSystemPermission', function (data) { return v4_1.transformReturnValueForEdmType(data, function (val) { return v4_1.edmToTs(val, 'Edm.Int32'); }); }, params);
+    return new core_1.FunctionImportRequestBuilderV4('/b1s/v2/', 'SBOBobService_GetSystemPermission', function (data) { return core_1.transformReturnValueForEdmTypeV4(data, function (val) { return core_1.edmToTsV4(val.value, 'Edm.Int32'); }); }, params);
 }
 exports.sboBobServiceGetSystemPermission = sboBobServiceGetSystemPermission;
 /**
@@ -167,7 +167,7 @@ exports.sboBobServiceGetSystemPermission = sboBobServiceGetSystemPermission;
  */
 function userMenuServiceGetCurrentUserMenu(parameters) {
     var params = {};
-    return new v4_1.FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'UserMenuService_GetCurrentUserMenu', function (data) { return v4_1.transformReturnValueForComplexTypeList(data, UserMenuItem_1.UserMenuItem.build); }, params);
+    return new core_1.FunctionImportRequestBuilderV4('/b1s/v2/', 'UserMenuService_GetCurrentUserMenu', function (data) { return core_1.transformReturnValueForComplexTypeListV4(data, function (data) { return core_1.deserializeComplexTypeV4(data, UserMenuItem_1.UserMenuItem); }); }, params);
 }
 exports.userMenuServiceGetCurrentUserMenu = userMenuServiceGetCurrentUserMenu;
 /**
@@ -178,7 +178,7 @@ exports.userMenuServiceGetCurrentUserMenu = userMenuServiceGetCurrentUserMenu;
  */
 function sboBobServiceGetSystemCurrency(parameters) {
     var params = {};
-    return new v4_1.FunctionImportRequestBuilder('get', 'VALUE_IS_UNDEFINED', 'SBOBobService_GetSystemCurrency', function (data) { return v4_1.transformReturnValueForEdmType(data, function (val) { return v4_1.edmToTs(val, 'Edm.String'); }); }, params);
+    return new core_1.FunctionImportRequestBuilderV4('/b1s/v2/', 'SBOBobService_GetSystemCurrency', function (data) { return core_1.transformReturnValueForEdmTypeV4(data, function (val) { return core_1.edmToTsV4(val.value, 'Edm.String'); }); }, params);
 }
 exports.sboBobServiceGetSystemCurrency = sboBobServiceGetSystemCurrency;
 exports.functionImports = {

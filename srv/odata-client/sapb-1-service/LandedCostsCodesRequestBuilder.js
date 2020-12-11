@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.LandedCostsCodesRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var LandedCostsCodes_1 = require("./LandedCostsCodes");
 /**
  * Request builder class for operations supported on the [[LandedCostsCodes]] entity.
@@ -35,14 +35,14 @@ var LandedCostsCodesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `LandedCostsCodes` entity based on its keys.
      */
     LandedCostsCodesRequestBuilder.prototype.getByKey = function (code) {
-        return new v4_1.GetByKeyRequestBuilder(LandedCostsCodes_1.LandedCostsCodes, { Code: code });
+        return new core_1.GetByKeyRequestBuilderV4(LandedCostsCodes_1.LandedCostsCodes, { Code: code });
     };
     /**
      * Returns a request builder for querying all `LandedCostsCodes` entities.
      * @returns A request builder for creating requests to retrieve all `LandedCostsCodes` entities.
      */
     LandedCostsCodesRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(LandedCostsCodes_1.LandedCostsCodes);
+        return new core_1.GetAllRequestBuilderV4(LandedCostsCodes_1.LandedCostsCodes);
     };
     /**
      * Returns a request builder for creating a `LandedCostsCodes` entity.
@@ -50,7 +50,7 @@ var LandedCostsCodesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `LandedCostsCodes`.
      */
     LandedCostsCodesRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(LandedCostsCodes_1.LandedCostsCodes, entity);
+        return new core_1.CreateRequestBuilderV4(LandedCostsCodes_1.LandedCostsCodes, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `LandedCostsCodes`.
@@ -58,12 +58,12 @@ var LandedCostsCodesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `LandedCostsCodes`.
      */
     LandedCostsCodesRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(LandedCostsCodes_1.LandedCostsCodes, entity);
+        return new core_1.UpdateRequestBuilderV4(LandedCostsCodes_1.LandedCostsCodes, entity);
     };
     LandedCostsCodesRequestBuilder.prototype.delete = function (codeOrEntity) {
-        return new v4_1.DeleteRequestBuilder(LandedCostsCodes_1.LandedCostsCodes, codeOrEntity instanceof LandedCostsCodes_1.LandedCostsCodes ? codeOrEntity : { Code: codeOrEntity });
+        return new core_1.DeleteRequestBuilderV4(LandedCostsCodes_1.LandedCostsCodes, codeOrEntity instanceof LandedCostsCodes_1.LandedCostsCodes ? codeOrEntity : { Code: codeOrEntity });
     };
     return LandedCostsCodesRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.LandedCostsCodesRequestBuilder = LandedCostsCodesRequestBuilder;
 //# sourceMappingURL=LandedCostsCodesRequestBuilder.js.map

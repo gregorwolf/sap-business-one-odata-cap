@@ -5,30 +5,28 @@
  */
 import { SalesOpportunitiesRequestBuilder } from './SalesOpportunitiesRequestBuilder';
 import { Moment } from 'moment';
-import { SalesOpportunitiesLine, SalesOpportunitiesLineField } from './SalesOpportunitiesLine';
-import { SalesOpportunitiesCompetitionItem, SalesOpportunitiesCompetitionItemField } from './SalesOpportunitiesCompetitionItem';
-import { SalesOpportunitiesPartner, SalesOpportunitiesPartnerField } from './SalesOpportunitiesPartner';
-import { SalesOpportunitiesInterest, SalesOpportunitiesInterestField } from './SalesOpportunitiesInterest';
-import { SalesOpportunitiesReason, SalesOpportunitiesReasonField } from './SalesOpportunitiesReason';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { SalesOpportunitiesLine } from './SalesOpportunitiesLine';
+import { SalesOpportunitiesCompetitionItem } from './SalesOpportunitiesCompetitionItem';
+import { SalesOpportunitiesPartner } from './SalesOpportunitiesPartner';
+import { SalesOpportunitiesInterest } from './SalesOpportunitiesInterest';
+import { SalesOpportunitiesReason } from './SalesOpportunitiesReason';
+import { BoSoOsStatus } from './BoSoOsStatus';
+import { BoSoClosedInTypes } from './BoSoClosedInTypes';
+import { OpportunityTypeEnum } from './OpportunityTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "SalesOpportunities" of service "SAPB1".
  */
-export class SalesOpportunities extends Entity implements SalesOpportunitiesType {
+export class SalesOpportunities extends EntityV4 implements SalesOpportunitiesType {
   /**
    * Technical entity name for SalesOpportunities.
    */
   static _entityName = 'SalesOpportunities';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for SalesOpportunities.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Sequential No.
    * @nullable
@@ -124,6 +122,11 @@ export class SalesOpportunities extends Entity implements SalesOpportunitiesType
    * @nullable
    */
   remarks?: string;
+  /**
+   * Status.
+   * @nullable
+   */
+  status?: BoSoOsStatus;
   /**
    * Reason For Closing.
    * @nullable
@@ -240,10 +243,20 @@ export class SalesOpportunities extends Entity implements SalesOpportunitiesType
    */
   bpChanelCode?: string;
   /**
+   * Closing Type.
+   * @nullable
+   */
+  closingType?: BoSoClosedInTypes;
+  /**
    * Attachment Entry.
    * @nullable
    */
   attachmentEntry?: number;
+  /**
+   * Opportunity Type.
+   * @nullable
+   */
+  opportunityType?: OpportunityTypeEnum;
   /**
    * Update Date.
    * @nullable
@@ -325,11 +338,11 @@ export class SalesOpportunities extends Entity implements SalesOpportunitiesType
   territory2!: Territories;
 
   /**
-   * Returns an entity builder to construct instances `SalesOpportunities`.
+   * Returns an entity builder to construct instances of `SalesOpportunities`.
    * @returns A builder that constructs instances of entity type `SalesOpportunities`.
    */
-  static builder(): EntityBuilderType<SalesOpportunities, SalesOpportunitiesTypeForceMandatory> {
-    return Entity.entityBuilder(SalesOpportunities);
+  static builder(): EntityBuilderType<SalesOpportunities, SalesOpportunitiesType> {
+    return EntityV4.entityBuilder(SalesOpportunities);
   }
 
   /**
@@ -345,8 +358,8 @@ export class SalesOpportunities extends Entity implements SalesOpportunitiesType
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `SalesOpportunities`.
    */
-  static customField(fieldName: string): CustomField<SalesOpportunities> {
-    return Entity.customFieldSelector(fieldName, SalesOpportunities);
+  static customField(fieldName: string): CustomFieldV4<SalesOpportunities> {
+    return EntityV4.customFieldSelector(fieldName, SalesOpportunities);
   }
 
   /**
@@ -371,120 +384,59 @@ import { Users, UsersType } from './Users';
 import { Territories, TerritoriesType } from './Territories';
 
 export interface SalesOpportunitiesType {
-  sequentialNo?: number;
-  cardCode?: string;
-  salesPerson?: number;
-  contactPerson?: number;
-  source?: number;
-  interestField1?: number;
-  interestField2?: number;
-  interestField3?: number;
-  interestLevel?: number;
-  startDate?: Moment;
-  predictedClosingDate?: Moment;
-  maxLocalTotal?: number;
-  maxSystemTotal?: number;
-  weightedSumLc?: number;
-  weightedSumSc?: number;
-  grossProfit?: number;
-  grossProfitTotalLocal?: number;
-  grossProfitTotalSystem?: number;
-  remarks?: string;
-  reasonForClosing?: number;
-  totalAmountLocal?: number;
-  totalAmounSystem?: number;
-  closingGrossProfitLocal?: number;
-  closingGrossProfitSystem?: number;
-  closingPercentage?: number;
-  currentStageNo?: number;
-  currentStageNumber?: number;
-  opportunityName?: string;
-  industry?: number;
-  linkedDocumentType?: string;
-  dataOwnershipfield?: number;
-  statusRemarks?: string;
-  projectCode?: string;
-  bpChanelName?: string;
-  userSignature?: number;
-  customerName?: string;
-  documentCheckbox?: string;
-  linkedDocumentNumber?: number;
-  territory?: number;
-  closingDate?: Moment;
-  bpChannelContact?: number;
-  bpChanelCode?: string;
-  attachmentEntry?: number;
-  updateDate?: Moment;
-  updateTime?: Time;
-  salesOpportunitiesLines?: SalesOpportunitiesLine[];
-  salesOpportunitiesCompetition?: SalesOpportunitiesCompetitionItem[];
-  salesOpportunitiesPartners?: SalesOpportunitiesPartner[];
-  salesOpportunitiesInterests?: SalesOpportunitiesInterest[];
-  salesOpportunitiesReasons?: SalesOpportunitiesReason[];
-  businessPartner: BusinessPartnersType;
-  salesPerson2: SalesPersonsType;
-  salesOpportunitySourceSetup: SalesOpportunitySourcesSetupType;
-  salesOpportunityInterestSetup: SalesOpportunityInterestsSetupType;
-  salesOpportunityReasonSetup: SalesOpportunityReasonsSetupType;
-  salesStage: SalesStagesType;
-  industry2: IndustriesType;
-  employeeInfo: EmployeesInfoType;
-  project: ProjectsType;
-  user: UsersType;
-  territory2: TerritoriesType;
-}
-
-export interface SalesOpportunitiesTypeForceMandatory {
-  sequentialNo: number;
-  cardCode: string;
-  salesPerson: number;
-  contactPerson: number;
-  source: number;
-  interestField1: number;
-  interestField2: number;
-  interestField3: number;
-  interestLevel: number;
-  startDate: Moment;
-  predictedClosingDate: Moment;
-  maxLocalTotal: number;
-  maxSystemTotal: number;
-  weightedSumLc: number;
-  weightedSumSc: number;
-  grossProfit: number;
-  grossProfitTotalLocal: number;
-  grossProfitTotalSystem: number;
-  remarks: string;
-  reasonForClosing: number;
-  totalAmountLocal: number;
-  totalAmounSystem: number;
-  closingGrossProfitLocal: number;
-  closingGrossProfitSystem: number;
-  closingPercentage: number;
-  currentStageNo: number;
-  currentStageNumber: number;
-  opportunityName: string;
-  industry: number;
-  linkedDocumentType: string;
-  dataOwnershipfield: number;
-  statusRemarks: string;
-  projectCode: string;
-  bpChanelName: string;
-  userSignature: number;
-  customerName: string;
-  documentCheckbox: string;
-  linkedDocumentNumber: number;
-  territory: number;
-  closingDate: Moment;
-  bpChannelContact: number;
-  bpChanelCode: string;
-  attachmentEntry: number;
-  updateDate: Moment;
-  updateTime: Time;
-  salesOpportunitiesLines: SalesOpportunitiesLine[];
-  salesOpportunitiesCompetition: SalesOpportunitiesCompetitionItem[];
-  salesOpportunitiesPartners: SalesOpportunitiesPartner[];
-  salesOpportunitiesInterests: SalesOpportunitiesInterest[];
-  salesOpportunitiesReasons: SalesOpportunitiesReason[];
+  sequentialNo?: number | null;
+  cardCode?: string | null;
+  salesPerson?: number | null;
+  contactPerson?: number | null;
+  source?: number | null;
+  interestField1?: number | null;
+  interestField2?: number | null;
+  interestField3?: number | null;
+  interestLevel?: number | null;
+  startDate?: Moment | null;
+  predictedClosingDate?: Moment | null;
+  maxLocalTotal?: number | null;
+  maxSystemTotal?: number | null;
+  weightedSumLc?: number | null;
+  weightedSumSc?: number | null;
+  grossProfit?: number | null;
+  grossProfitTotalLocal?: number | null;
+  grossProfitTotalSystem?: number | null;
+  remarks?: string | null;
+  status?: BoSoOsStatus | null;
+  reasonForClosing?: number | null;
+  totalAmountLocal?: number | null;
+  totalAmounSystem?: number | null;
+  closingGrossProfitLocal?: number | null;
+  closingGrossProfitSystem?: number | null;
+  closingPercentage?: number | null;
+  currentStageNo?: number | null;
+  currentStageNumber?: number | null;
+  opportunityName?: string | null;
+  industry?: number | null;
+  linkedDocumentType?: string | null;
+  dataOwnershipfield?: number | null;
+  statusRemarks?: string | null;
+  projectCode?: string | null;
+  bpChanelName?: string | null;
+  userSignature?: number | null;
+  customerName?: string | null;
+  documentCheckbox?: string | null;
+  linkedDocumentNumber?: number | null;
+  territory?: number | null;
+  closingDate?: Moment | null;
+  bpChannelContact?: number | null;
+  bpChanelCode?: string | null;
+  closingType?: BoSoClosedInTypes | null;
+  attachmentEntry?: number | null;
+  opportunityType?: OpportunityTypeEnum | null;
+  updateDate?: Moment | null;
+  updateTime?: Time | null;
+  salesOpportunitiesLines?: SalesOpportunitiesLine[] | null;
+  salesOpportunitiesCompetition?: SalesOpportunitiesCompetitionItem[] | null;
+  salesOpportunitiesPartners?: SalesOpportunitiesPartner[] | null;
+  salesOpportunitiesInterests?: SalesOpportunitiesInterest[] | null;
+  salesOpportunitiesReasons?: SalesOpportunitiesReason[] | null;
   businessPartner: BusinessPartnersType;
   salesPerson2: SalesPersonsType;
   salesOpportunitySourceSetup: SalesOpportunitySourcesSetupType;
@@ -594,6 +546,11 @@ export namespace SalesOpportunities {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const REMARKS: StringField<SalesOpportunities> = new StringField('Remarks', SalesOpportunities, 'Edm.String');
+  /**
+   * Static representation of the [[status]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const STATUS: EnumField<SalesOpportunities> = new EnumField('Status', SalesOpportunities);
   /**
    * Static representation of the [[reasonForClosing]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -710,10 +667,20 @@ export namespace SalesOpportunities {
    */
   export const BP_CHANEL_CODE: StringField<SalesOpportunities> = new StringField('BPChanelCode', SalesOpportunities, 'Edm.String');
   /**
+   * Static representation of the [[closingType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CLOSING_TYPE: EnumField<SalesOpportunities> = new EnumField('ClosingType', SalesOpportunities);
+  /**
    * Static representation of the [[attachmentEntry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const ATTACHMENT_ENTRY: NumberField<SalesOpportunities> = new NumberField('AttachmentEntry', SalesOpportunities, 'Edm.Int32');
+  /**
+   * Static representation of the [[opportunityType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const OPPORTUNITY_TYPE: EnumField<SalesOpportunities> = new EnumField('OpportunityType', SalesOpportunities);
   /**
    * Static representation of the [[updateDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -728,27 +695,27 @@ export namespace SalesOpportunities {
    * Static representation of the [[salesOpportunitiesLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const SALES_OPPORTUNITIES_LINES: CollectionField<SalesOpportunities> = new CollectionField('SalesOpportunitiesLines', SalesOpportunities, new SalesOpportunitiesLineField('', SalesOpportunities));
+  export const SALES_OPPORTUNITIES_LINES: CollectionField<SalesOpportunities, SalesOpportunitiesLine> = new CollectionField('SalesOpportunitiesLines', SalesOpportunities, SalesOpportunitiesLine);
   /**
    * Static representation of the [[salesOpportunitiesCompetition]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const SALES_OPPORTUNITIES_COMPETITION: CollectionField<SalesOpportunities> = new CollectionField('SalesOpportunitiesCompetition', SalesOpportunities, new SalesOpportunitiesCompetitionItemField('', SalesOpportunities));
+  export const SALES_OPPORTUNITIES_COMPETITION: CollectionField<SalesOpportunities, SalesOpportunitiesCompetitionItem> = new CollectionField('SalesOpportunitiesCompetition', SalesOpportunities, SalesOpportunitiesCompetitionItem);
   /**
    * Static representation of the [[salesOpportunitiesPartners]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const SALES_OPPORTUNITIES_PARTNERS: CollectionField<SalesOpportunities> = new CollectionField('SalesOpportunitiesPartners', SalesOpportunities, new SalesOpportunitiesPartnerField('', SalesOpportunities));
+  export const SALES_OPPORTUNITIES_PARTNERS: CollectionField<SalesOpportunities, SalesOpportunitiesPartner> = new CollectionField('SalesOpportunitiesPartners', SalesOpportunities, SalesOpportunitiesPartner);
   /**
    * Static representation of the [[salesOpportunitiesInterests]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const SALES_OPPORTUNITIES_INTERESTS: CollectionField<SalesOpportunities> = new CollectionField('SalesOpportunitiesInterests', SalesOpportunities, new SalesOpportunitiesInterestField('', SalesOpportunities));
+  export const SALES_OPPORTUNITIES_INTERESTS: CollectionField<SalesOpportunities, SalesOpportunitiesInterest> = new CollectionField('SalesOpportunitiesInterests', SalesOpportunities, SalesOpportunitiesInterest);
   /**
    * Static representation of the [[salesOpportunitiesReasons]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const SALES_OPPORTUNITIES_REASONS: CollectionField<SalesOpportunities> = new CollectionField('SalesOpportunitiesReasons', SalesOpportunities, new SalesOpportunitiesReasonField('', SalesOpportunities));
+  export const SALES_OPPORTUNITIES_REASONS: CollectionField<SalesOpportunities, SalesOpportunitiesReason> = new CollectionField('SalesOpportunitiesReasons', SalesOpportunities, SalesOpportunitiesReason);
   /**
    * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -807,7 +774,7 @@ export namespace SalesOpportunities {
   /**
    * All fields of the SalesOpportunities entity.
    */
-  export const _allFields: Array<NumberField<SalesOpportunities> | StringField<SalesOpportunities> | DateField<SalesOpportunities> | TimeField<SalesOpportunities> | CollectionField<SalesOpportunities> | OneToOneLink<SalesOpportunities, BusinessPartners> | OneToOneLink<SalesOpportunities, SalesPersons> | OneToOneLink<SalesOpportunities, SalesOpportunitySourcesSetup> | OneToOneLink<SalesOpportunities, SalesOpportunityInterestsSetup> | OneToOneLink<SalesOpportunities, SalesOpportunityReasonsSetup> | OneToOneLink<SalesOpportunities, SalesStages> | OneToOneLink<SalesOpportunities, Industries> | OneToOneLink<SalesOpportunities, EmployeesInfo> | OneToOneLink<SalesOpportunities, Projects> | OneToOneLink<SalesOpportunities, Users> | OneToOneLink<SalesOpportunities, Territories>> = [
+  export const _allFields: Array<NumberField<SalesOpportunities> | StringField<SalesOpportunities> | DateField<SalesOpportunities> | EnumField<SalesOpportunities> | TimeField<SalesOpportunities> | CollectionField<SalesOpportunities, SalesOpportunitiesLine> | CollectionField<SalesOpportunities, SalesOpportunitiesCompetitionItem> | CollectionField<SalesOpportunities, SalesOpportunitiesPartner> | CollectionField<SalesOpportunities, SalesOpportunitiesInterest> | CollectionField<SalesOpportunities, SalesOpportunitiesReason> | OneToOneLink<SalesOpportunities, BusinessPartners> | OneToOneLink<SalesOpportunities, SalesPersons> | OneToOneLink<SalesOpportunities, SalesOpportunitySourcesSetup> | OneToOneLink<SalesOpportunities, SalesOpportunityInterestsSetup> | OneToOneLink<SalesOpportunities, SalesOpportunityReasonsSetup> | OneToOneLink<SalesOpportunities, SalesStages> | OneToOneLink<SalesOpportunities, Industries> | OneToOneLink<SalesOpportunities, EmployeesInfo> | OneToOneLink<SalesOpportunities, Projects> | OneToOneLink<SalesOpportunities, Users> | OneToOneLink<SalesOpportunities, Territories>> = [
     SalesOpportunities.SEQUENTIAL_NO,
     SalesOpportunities.CARD_CODE,
     SalesOpportunities.SALES_PERSON,
@@ -827,6 +794,7 @@ export namespace SalesOpportunities {
     SalesOpportunities.GROSS_PROFIT_TOTAL_LOCAL,
     SalesOpportunities.GROSS_PROFIT_TOTAL_SYSTEM,
     SalesOpportunities.REMARKS,
+    SalesOpportunities.STATUS,
     SalesOpportunities.REASON_FOR_CLOSING,
     SalesOpportunities.TOTAL_AMOUNT_LOCAL,
     SalesOpportunities.TOTAL_AMOUN_SYSTEM,
@@ -850,7 +818,9 @@ export namespace SalesOpportunities {
     SalesOpportunities.CLOSING_DATE,
     SalesOpportunities.BP_CHANNEL_CONTACT,
     SalesOpportunities.BP_CHANEL_CODE,
+    SalesOpportunities.CLOSING_TYPE,
     SalesOpportunities.ATTACHMENT_ENTRY,
+    SalesOpportunities.OPPORTUNITY_TYPE,
     SalesOpportunities.UPDATE_DATE,
     SalesOpportunities.UPDATE_TIME,
     SalesOpportunities.SALES_OPPORTUNITIES_LINES,

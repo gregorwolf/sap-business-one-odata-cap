@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ItemPriceParams
@@ -73,7 +73,7 @@ export function createItemPriceParams(json: any): ItemPriceParams {
  * ItemPriceParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ItemPriceParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ItemPriceParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ItemPriceParams> {
   /**
    * Representation of the [[ItemPriceParams.date]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -124,21 +124,78 @@ export class ItemPriceParamsField<EntityT extends Entity> extends ComplexTypeFie
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   priceList: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('PriceList', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of ItemPriceParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ItemPriceParams);
+  }
 }
 
 export namespace ItemPriceParams {
+  /**
+   * Metadata information on all properties of the `ItemPriceParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ItemPriceParams>[] = [{
+    originalName: 'Date',
+    name: 'date',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'UoMEntry',
+    name: 'uoMEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BlanketAgreementNumber',
+    name: 'blanketAgreementNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BlanketAgreementLine',
+    name: 'blanketAgreementLine',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'UoMQuantity',
+    name: 'uoMQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'InventoryQuantity',
+    name: 'inventoryQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Currency',
+    name: 'currency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemCode',
+    name: 'itemCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CardCode',
+    name: 'cardCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PriceList',
+    name: 'priceList',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ItemPriceParams {
-    return createComplexType(json, {
-      Date: (date: Moment) => ({ date: edmToTs(date, 'Edm.DateTimeOffset') }),
-      UoMEntry: (uoMEntry: number) => ({ uoMEntry: edmToTs(uoMEntry, 'Edm.Int32') }),
-      BlanketAgreementNumber: (blanketAgreementNumber: number) => ({ blanketAgreementNumber: edmToTs(blanketAgreementNumber, 'Edm.Int32') }),
-      BlanketAgreementLine: (blanketAgreementLine: number) => ({ blanketAgreementLine: edmToTs(blanketAgreementLine, 'Edm.Int32') }),
-      UoMQuantity: (uoMQuantity: number) => ({ uoMQuantity: edmToTs(uoMQuantity, 'Edm.Double') }),
-      InventoryQuantity: (inventoryQuantity: number) => ({ inventoryQuantity: edmToTs(inventoryQuantity, 'Edm.Double') }),
-      Currency: (currency: string) => ({ currency: edmToTs(currency, 'Edm.String') }),
-      ItemCode: (itemCode: string) => ({ itemCode: edmToTs(itemCode, 'Edm.String') }),
-      CardCode: (cardCode: string) => ({ cardCode: edmToTs(cardCode, 'Edm.String') }),
-      PriceList: (priceList: number) => ({ priceList: edmToTs(priceList, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, ItemPriceParams);
   }
 }

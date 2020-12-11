@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { ActivityRecipientLists } from './ActivityRecipientLists';
 
 /**
@@ -15,16 +15,16 @@ export class ActivityRecipientListsRequestBuilder extends RequestBuilder<Activit
    * @param code Key property. See [[ActivityRecipientLists.code]].
    * @returns A request builder for creating requests to retrieve one `ActivityRecipientLists` entity based on its keys.
    */
-  getByKey(code: number): GetByKeyRequestBuilder<ActivityRecipientLists> {
-    return new GetByKeyRequestBuilder(ActivityRecipientLists, { Code: code });
+  getByKey(code: number): GetByKeyRequestBuilderV4<ActivityRecipientLists> {
+    return new GetByKeyRequestBuilderV4(ActivityRecipientLists, { Code: code });
   }
 
   /**
    * Returns a request builder for querying all `ActivityRecipientLists` entities.
    * @returns A request builder for creating requests to retrieve all `ActivityRecipientLists` entities.
    */
-  getAll(): GetAllRequestBuilder<ActivityRecipientLists> {
-    return new GetAllRequestBuilder(ActivityRecipientLists);
+  getAll(): GetAllRequestBuilderV4<ActivityRecipientLists> {
+    return new GetAllRequestBuilderV4(ActivityRecipientLists);
   }
 
   /**
@@ -32,8 +32,8 @@ export class ActivityRecipientListsRequestBuilder extends RequestBuilder<Activit
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `ActivityRecipientLists`.
    */
-  create(entity: ActivityRecipientLists): CreateRequestBuilder<ActivityRecipientLists> {
-    return new CreateRequestBuilder(ActivityRecipientLists, entity);
+  create(entity: ActivityRecipientLists): CreateRequestBuilderV4<ActivityRecipientLists> {
+    return new CreateRequestBuilderV4(ActivityRecipientLists, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class ActivityRecipientListsRequestBuilder extends RequestBuilder<Activit
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `ActivityRecipientLists`.
    */
-  update(entity: ActivityRecipientLists): UpdateRequestBuilder<ActivityRecipientLists> {
-    return new UpdateRequestBuilder(ActivityRecipientLists, entity);
+  update(entity: ActivityRecipientLists): UpdateRequestBuilderV4<ActivityRecipientLists> {
+    return new UpdateRequestBuilderV4(ActivityRecipientLists, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class ActivityRecipientListsRequestBuilder extends RequestBuilder<Activit
    * @param code Key property. See [[ActivityRecipientLists.code]].
    * @returns A request builder for creating requests that delete an entity of type `ActivityRecipientLists`.
    */
-  delete(code: number): DeleteRequestBuilder<ActivityRecipientLists>;
+  delete(code: number): DeleteRequestBuilderV4<ActivityRecipientLists>;
   /**
    * Returns a request builder for deleting an entity of type `ActivityRecipientLists`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `ActivityRecipientLists` by taking the entity as a parameter.
    */
-  delete(entity: ActivityRecipientLists): DeleteRequestBuilder<ActivityRecipientLists>;
-  delete(codeOrEntity: any): DeleteRequestBuilder<ActivityRecipientLists> {
-    return new DeleteRequestBuilder(ActivityRecipientLists, codeOrEntity instanceof ActivityRecipientLists ? codeOrEntity : { Code: codeOrEntity! });
+  delete(entity: ActivityRecipientLists): DeleteRequestBuilderV4<ActivityRecipientLists>;
+  delete(codeOrEntity: any): DeleteRequestBuilderV4<ActivityRecipientLists> {
+    return new DeleteRequestBuilderV4(ActivityRecipientLists, codeOrEntity instanceof ActivityRecipientLists ? codeOrEntity : { Code: codeOrEntity! });
   }
 }

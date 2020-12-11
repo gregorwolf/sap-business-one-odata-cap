@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { AccrualTypesRequestBuilder } from './AccrualTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "AccrualTypes" of service "SAPB1".
  */
-export class AccrualTypes extends Entity implements AccrualTypesType {
+export class AccrualTypes extends EntityV4 implements AccrualTypesType {
   /**
    * Technical entity name for AccrualTypes.
    */
   static _entityName = 'AccrualTypes';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for AccrualTypes.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -54,11 +49,11 @@ export class AccrualTypes extends Entity implements AccrualTypesType {
   chartOfAccount!: ChartOfAccounts;
 
   /**
-   * Returns an entity builder to construct instances `AccrualTypes`.
+   * Returns an entity builder to construct instances of `AccrualTypes`.
    * @returns A builder that constructs instances of entity type `AccrualTypes`.
    */
-  static builder(): EntityBuilderType<AccrualTypes, AccrualTypesTypeForceMandatory> {
-    return Entity.entityBuilder(AccrualTypes);
+  static builder(): EntityBuilderType<AccrualTypes, AccrualTypesType> {
+    return EntityV4.entityBuilder(AccrualTypes);
   }
 
   /**
@@ -74,8 +69,8 @@ export class AccrualTypes extends Entity implements AccrualTypesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `AccrualTypes`.
    */
-  static customField(fieldName: string): CustomField<AccrualTypes> {
-    return Entity.customFieldSelector(fieldName, AccrualTypes);
+  static customField(fieldName: string): CustomFieldV4<AccrualTypes> {
+    return EntityV4.customFieldSelector(fieldName, AccrualTypes);
   }
 
   /**
@@ -90,20 +85,11 @@ export class AccrualTypes extends Entity implements AccrualTypesType {
 import { ChartOfAccounts, ChartOfAccountsType } from './ChartOfAccounts';
 
 export interface AccrualTypesType {
-  code?: string;
-  name?: string;
-  postingAccount?: string;
-  calculationAccount?: string;
-  interimAccount?: string;
-  chartOfAccount: ChartOfAccountsType;
-}
-
-export interface AccrualTypesTypeForceMandatory {
-  code: string;
-  name: string;
-  postingAccount: string;
-  calculationAccount: string;
-  interimAccount: string;
+  code?: string | null;
+  name?: string | null;
+  postingAccount?: string | null;
+  calculationAccount?: string | null;
+  interimAccount?: string | null;
   chartOfAccount: ChartOfAccountsType;
 }
 

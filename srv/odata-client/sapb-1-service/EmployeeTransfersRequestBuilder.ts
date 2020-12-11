@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { EmployeeTransfers } from './EmployeeTransfers';
 
 /**
@@ -15,16 +15,16 @@ export class EmployeeTransfersRequestBuilder extends RequestBuilder<EmployeeTran
    * @param transferId Key property. See [[EmployeeTransfers.transferId]].
    * @returns A request builder for creating requests to retrieve one `EmployeeTransfers` entity based on its keys.
    */
-  getByKey(transferId: number): GetByKeyRequestBuilder<EmployeeTransfers> {
-    return new GetByKeyRequestBuilder(EmployeeTransfers, { TransferID: transferId });
+  getByKey(transferId: number): GetByKeyRequestBuilderV4<EmployeeTransfers> {
+    return new GetByKeyRequestBuilderV4(EmployeeTransfers, { TransferID: transferId });
   }
 
   /**
    * Returns a request builder for querying all `EmployeeTransfers` entities.
    * @returns A request builder for creating requests to retrieve all `EmployeeTransfers` entities.
    */
-  getAll(): GetAllRequestBuilder<EmployeeTransfers> {
-    return new GetAllRequestBuilder(EmployeeTransfers);
+  getAll(): GetAllRequestBuilderV4<EmployeeTransfers> {
+    return new GetAllRequestBuilderV4(EmployeeTransfers);
   }
 
   /**
@@ -32,8 +32,8 @@ export class EmployeeTransfersRequestBuilder extends RequestBuilder<EmployeeTran
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `EmployeeTransfers`.
    */
-  create(entity: EmployeeTransfers): CreateRequestBuilder<EmployeeTransfers> {
-    return new CreateRequestBuilder(EmployeeTransfers, entity);
+  create(entity: EmployeeTransfers): CreateRequestBuilderV4<EmployeeTransfers> {
+    return new CreateRequestBuilderV4(EmployeeTransfers, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class EmployeeTransfersRequestBuilder extends RequestBuilder<EmployeeTran
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `EmployeeTransfers`.
    */
-  update(entity: EmployeeTransfers): UpdateRequestBuilder<EmployeeTransfers> {
-    return new UpdateRequestBuilder(EmployeeTransfers, entity);
+  update(entity: EmployeeTransfers): UpdateRequestBuilderV4<EmployeeTransfers> {
+    return new UpdateRequestBuilderV4(EmployeeTransfers, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class EmployeeTransfersRequestBuilder extends RequestBuilder<EmployeeTran
    * @param transferId Key property. See [[EmployeeTransfers.transferId]].
    * @returns A request builder for creating requests that delete an entity of type `EmployeeTransfers`.
    */
-  delete(transferId: number): DeleteRequestBuilder<EmployeeTransfers>;
+  delete(transferId: number): DeleteRequestBuilderV4<EmployeeTransfers>;
   /**
    * Returns a request builder for deleting an entity of type `EmployeeTransfers`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `EmployeeTransfers` by taking the entity as a parameter.
    */
-  delete(entity: EmployeeTransfers): DeleteRequestBuilder<EmployeeTransfers>;
-  delete(transferIdOrEntity: any): DeleteRequestBuilder<EmployeeTransfers> {
-    return new DeleteRequestBuilder(EmployeeTransfers, transferIdOrEntity instanceof EmployeeTransfers ? transferIdOrEntity : { TransferID: transferIdOrEntity! });
+  delete(entity: EmployeeTransfers): DeleteRequestBuilderV4<EmployeeTransfers>;
+  delete(transferIdOrEntity: any): DeleteRequestBuilderV4<EmployeeTransfers> {
+    return new DeleteRequestBuilderV4(EmployeeTransfers, transferIdOrEntity instanceof EmployeeTransfers ? transferIdOrEntity : { TransferID: transferIdOrEntity! });
   }
 }

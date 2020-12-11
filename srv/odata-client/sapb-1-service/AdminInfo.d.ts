@@ -1,6 +1,25 @@
 import { Moment } from 'moment';
 import { ExtendedAdminInfo, ExtendedAdminInfoField } from './ExtendedAdminInfo';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoAlertTypeforWhStockEnum } from './BoAlertTypeforWhStockEnum';
+import { BoTimeTemplate } from './BoTimeTemplate';
+import { BoDateTemplate } from './BoDateTemplate';
+import { BoCurrencyCheck } from './BoCurrencyCheck';
+import { BoBlockBudget } from './BoBlockBudget';
+import { BoBudgetAlert } from './BoBudgetAlert';
+import { BoInventorySystem } from './BoInventorySystem';
+import { BoDefaultBatchStatus } from './BoDefaultBatchStatus';
+import { BoGlMethods } from './BoGlMethods';
+import { BoUniqueSerialNumber } from './BoUniqueSerialNumber';
+import { BoConsumptionMethod } from './BoConsumptionMethod';
+import { GtsResponseToExceedingEnum } from './GtsResponseToExceedingEnum';
+import { IssuePrimarilyByEnum } from './IssuePrimarilyByEnum';
+import { TaxRateDeterminationEnum } from './TaxRateDeterminationEnum';
+import { PriceProceedMethodEnum } from './PriceProceedMethodEnum';
+import { BaDivationAlertLevelEnum } from './BaDivationAlertLevelEnum';
+import { DisplayBatchQtyUoMByEnum } from './DisplayBatchQtyUoMByEnum';
+import { BoDataOwnershipManageMethodEnum } from './BoDataOwnershipManageMethodEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * AdminInfo
  */
@@ -71,6 +90,11 @@ export interface AdminInfo {
      */
     systemCurrency?: string;
     /**
+     * Credit Balancewith Minus Sign.
+     * @nullable
+     */
+    creditBalancewithMinusSign?: BoYesNoEnum;
+    /**
      * Standard Unitof Length.
      * @nullable
      */
@@ -81,10 +105,20 @@ export interface AdminInfo {
      */
     weightUnitDefault?: number;
     /**
+     * Direct Indirect Rate.
+     * @nullable
+     */
+    directIndirectRate?: BoYesNoEnum;
+    /**
      * Minimum Amountfor 347 Report.
      * @nullable
      */
     minimumAmountfor347Report?: number;
+    /**
+     * Set Items Warehouses.
+     * @nullable
+     */
+    setItemsWarehouses?: BoYesNoEnum;
     /**
      * Bank Country.
      * @nullable
@@ -106,6 +140,16 @@ export interface AdminInfo {
      */
     deductionFileNo?: string;
     /**
+     * Tax Collection.
+     * @nullable
+     */
+    taxCollection?: BoYesNoEnum;
+    /**
+     * Tax Definition.
+     * @nullable
+     */
+    taxDefinition?: BoYesNoEnum;
+    /**
      * Tax Percentage.
      * @nullable
      */
@@ -121,6 +165,16 @@ export interface AdminInfo {
      */
     withTax?: number;
     /**
+     * Withholding Tax Vendor Ddct.
+     * @nullable
+     */
+    withholdingTaxVendorDdct?: BoYesNoEnum;
+    /**
+     * Customers Deductionat Source.
+     * @nullable
+     */
+    customersDeductionatSource?: BoYesNoEnum;
+    /**
      * Withholding Tax Tdct Percnt.
      * @nullable
      */
@@ -135,6 +189,51 @@ export interface AdminInfo {
      * @nullable
      */
     withholdingTaxDdctOffice?: string;
+    /**
+     * Commitment Restriction.
+     * @nullable
+     */
+    commitmentRestriction?: BoYesNoEnum;
+    /**
+     * Credit Restriction.
+     * @nullable
+     */
+    creditRestriction?: BoYesNoEnum;
+    /**
+     * Restrict Sales.
+     * @nullable
+     */
+    restrictSales?: BoYesNoEnum;
+    /**
+     * Restrict Del Notes Po.
+     * @nullable
+     */
+    restrictDelNotesPo?: BoYesNoEnum;
+    /**
+     * Restrict Orders.
+     * @nullable
+     */
+    restrictOrders?: BoYesNoEnum;
+    /**
+     * Consider Del Notesin Sales R.
+     * @nullable
+     */
+    considerDelNotesinSalesR?: BoYesNoEnum;
+    /**
+     * Credit Deposit Type.
+     * @nullable
+     */
+    creditDepositType?: BoYesNoEnum;
+    /**
+     * Use Tax.
+     * @nullable
+     */
+    useTax?: BoYesNoEnum;
+    /**
+     * Split Po.
+     * @nullable
+     */
+    splitPo?: BoYesNoEnum;
     /**
      * Alt Name For Ap Invoice.
      * @nullable
@@ -161,6 +260,26 @@ export interface AdminInfo {
      */
     altNameForPurchase?: string;
     /**
+     * Alert Typefor Wh Stock.
+     * @nullable
+     */
+    alertTypeforWhStock?: BoAlertTypeforWhStockEnum;
+    /**
+     * Set Commissionby Customer.
+     * @nullable
+     */
+    setCommissionbyCustomer?: BoYesNoEnum;
+    /**
+     * Set Commissionby Item.
+     * @nullable
+     */
+    setCommissionbyItem?: BoYesNoEnum;
+    /**
+     * Set Commissionby Se.
+     * @nullable
+     */
+    setCommissionbySe?: BoYesNoEnum;
+    /**
      * Default Customer Payment Terms.
      * @nullable
      */
@@ -171,10 +290,45 @@ export interface AdminInfo {
      */
     defaultVendorPaymentTerms?: number;
     /**
+     * Calculate Gross Profitper Tra.
+     * @nullable
+     */
+    calculateGrossProfitperTra?: BoYesNoEnum;
+    /**
      * Price Listfor Cost Price.
      * @nullable
      */
     priceListforCostPrice?: number;
+    /**
+     * Gross Profit After Sale.
+     * @nullable
+     */
+    grossProfitAfterSale?: BoYesNoEnum;
+    /**
+     * Display Pricefor Price Only.
+     * @nullable
+     */
+    displayPriceforPriceOnly?: BoYesNoEnum;
+    /**
+     * Calculate Taxin Sales Quotati.
+     * @nullable
+     */
+    calculateTaxinSalesQuotati?: BoYesNoEnum;
+    /**
+     * Base Field.
+     * @nullable
+     */
+    baseField?: BoYesNoEnum;
+    /**
+     * Allow Closed Sales Quotations.
+     * @nullable
+     */
+    allowClosedSalesQuotations?: BoYesNoEnum;
+    /**
+     * User Conversion Code.
+     * @nullable
+     */
+    userConversionCode?: BoYesNoEnum;
     /**
      * Company Color.
      * @nullable
@@ -251,25 +405,70 @@ export interface AdminInfo {
      */
     managingDirectorForeignLan?: string;
     /**
+     * Time Template.
+     * @nullable
+     */
+    timeTemplate?: BoTimeTemplate;
+    /**
+     * Date Template.
+     * @nullable
+     */
+    dateTemplate?: BoDateTemplate;
+    /**
      * Date Separator.
      * @nullable
      */
     dateSeparator?: string;
+    /**
+     * Fc Check Account.
+     * @nullable
+     */
+    fcCheckAccount?: BoCurrencyCheck;
+    /**
+     * Changed Existing Orders.
+     * @nullable
+     */
+    changedExistingOrders?: BoYesNoEnum;
+    /**
+     * Multi Currency Check.
+     * @nullable
+     */
+    multiCurrencyCheck?: BoCurrencyCheck;
     /**
      * Isr Type.
      * @nullable
      */
     isrType?: number;
     /**
+     * Display Rounding Remark.
+     * @nullable
+     */
+    displayRoundingRemark?: BoYesNoEnum;
+    /**
      * Isr Biller Id.
      * @nullable
      */
     isrBillerId?: string;
     /**
+     * Block System Currency Editing.
+     * @nullable
+     */
+    blockSystemCurrencyEditing?: BoYesNoEnum;
+    /**
+     * Block Posting Date Editing.
+     * @nullable
+     */
+    blockPostingDateEditing?: BoYesNoEnum;
+    /**
      * Default Warehouse.
      * @nullable
      */
     defaultWarehouse?: string;
+    /**
+     * Block Tax Date.
+     * @nullable
+     */
+    blockTaxDate?: BoYesNoEnum;
     /**
      * Tax Definitionfor Vatitem.
      * @nullable
@@ -291,20 +490,70 @@ export interface AdminInfo {
      */
     taxGroupforServicePurchase?: string;
     /**
+     * Calculate Budget.
+     * @nullable
+     */
+    calculateBudget?: BoYesNoEnum;
+    /**
      * Customer Id Number.
      * @nullable
      */
     customerIdNumber?: string;
+    /**
+     * Block Budget.
+     * @nullable
+     */
+    blockBudget?: BoBlockBudget;
+    /**
+     * Budget Alert.
+     * @nullable
+     */
+    budgetAlert?: BoBudgetAlert;
+    /**
+     * Block Purchase Orders.
+     * @nullable
+     */
+    blockPurchaseOrders?: BoYesNoEnum;
+    /**
+     * Block Bookkeeping.
+     * @nullable
+     */
+    blockBookkeeping?: BoYesNoEnum;
     /**
      * Default Budget Cost Assess Mt.
      * @nullable
      */
     defaultBudgetCostAssessMt?: number;
     /**
+     * Continuous Stock Management.
+     * @nullable
+     */
+    continuousStockManagement?: BoYesNoEnum;
+    /**
+     * Continuous Stock System.
+     * @nullable
+     */
+    continuousStockSystem?: BoInventorySystem;
+    /**
+     * Round Tax Amounts.
+     * @nullable
+     */
+    roundTaxAmounts?: BoYesNoEnum;
+    /**
+     * Block Del Notesfor Purchase.
+     * @nullable
+     */
+    blockDelNotesforPurchase?: BoYesNoEnum;
+    /**
      * File Numberin Income Tax.
      * @nullable
      */
     fileNumberinIncomeTax?: string;
+    /**
+     * Deferred Tax.
+     * @nullable
+     */
+    deferredTax?: BoYesNoEnum;
     /**
      * Default Bank No.
      * @nullable
@@ -320,6 +569,11 @@ export interface AdminInfo {
      * @nullable
      */
     defaultBranch?: string;
+    /**
+     * Use Pa System.
+     * @nullable
+     */
+    usePaSystem?: BoYesNoEnum;
     /**
      * Service Code.
      * @nullable
@@ -361,10 +615,60 @@ export interface AdminInfo {
      */
     thousandsSeparator?: string;
     /**
+     * Display Currencyonthe Right.
+     * @nullable
+     */
+    displayCurrencyontheRight?: BoYesNoEnum;
+    /**
+     * Alertby Warehouse.
+     * @nullable
+     */
+    alertbyWarehouse?: BoYesNoEnum;
+    /**
+     * Price System.
+     * @nullable
+     */
+    priceSystem?: BoYesNoEnum;
+    /**
+     * Wholding Tax Ded Hierarchy.
+     * @nullable
+     */
+    wholdingTaxDedHierarchy?: BoYesNoEnum;
+    /**
+     * Doc Confirmation.
+     * @nullable
+     */
+    docConfirmation?: BoYesNoEnum;
+    /**
+     * Defaultfor Batch Status.
+     * @nullable
+     */
+    defaultforBatchStatus?: BoDefaultBatchStatus;
+    /**
+     * Gl Method.
+     * @nullable
+     */
+    glMethod?: BoGlMethods;
+    /**
+     * Unique Serial No.
+     * @nullable
+     */
+    uniqueSerialNo?: BoUniqueSerialNumber;
+    /**
      * Max History.
      * @nullable
      */
     maxHistory?: number;
+    /**
+     * Change Def Recon Ap Accounts.
+     * @nullable
+     */
+    changeDefReconApAccounts?: BoYesNoEnum;
+    /**
+     * Change Def Recon Ar Accounts.
+     * @nullable
+     */
+    changeDefReconArAccounts?: BoYesNoEnum;
     /**
      * Bp Type Code.
      * @nullable
@@ -391,6 +695,16 @@ export interface AdminInfo {
      */
     accountSegmentsSeparator?: string;
     /**
+     * Display Bookkeeping Window.
+     * @nullable
+     */
+    displayBookkeepingWindow?: BoYesNoEnum;
+    /**
+     * S Handle Wt.
+     * @nullable
+     */
+    sHandleWt?: BoYesNoEnum;
+    /**
      * S Default Wt Code.
      * @nullable
      */
@@ -406,6 +720,16 @@ export interface AdminInfo {
      */
     pDefaultWtCode?: string;
     /**
+     * Wt Liable Expense.
+     * @nullable
+     */
+    wtLiableExpense?: BoYesNoEnum;
+    /**
+     * Use Negative Amounts.
+     * @nullable
+     */
+    useNegativeAmounts?: BoYesNoEnum;
+    /**
      * Holidays Name.
      * @nullable
      */
@@ -415,6 +739,16 @@ export interface AdminInfo {
      * @nullable
      */
     orderBlock?: string;
+    /**
+     * Rounding Method.
+     * @nullable
+     */
+    roundingMethod?: BoYesNoEnum;
+    /**
+     * Adress From Wh.
+     * @nullable
+     */
+    adressFromWh?: BoYesNoEnum;
     /**
      * Ordering Party.
      * @nullable
@@ -436,6 +770,16 @@ export interface AdminInfo {
      */
     nationalInsuranceNo?: string;
     /**
+     * Sales Order Confirmed.
+     * @nullable
+     */
+    salesOrderConfirmed?: BoYesNoEnum;
+    /**
+     * Purchase Order Confirmed.
+     * @nullable
+     */
+    purchaseOrderConfirmed?: BoYesNoEnum;
+    /**
      * S Dflt Itwt.
      * @nullable
      */
@@ -445,6 +789,31 @@ export interface AdminInfo {
      * @nullable
      */
     pDfltItwt?: string;
+    /**
+     * Default Account Currency.
+     * @nullable
+     */
+    defaultAccountCurrency?: BoYesNoEnum;
+    /**
+     * Deferred Taxfor Vendors.
+     * @nullable
+     */
+    deferredTaxforVendors?: BoYesNoEnum;
+    /**
+     * Create Auto Vat Linein Jdt.
+     * @nullable
+     */
+    createAutoVatLineinJdt?: BoYesNoEnum;
+    /**
+     * Consume Forecast.
+     * @nullable
+     */
+    consumeForecast?: BoYesNoEnum;
+    /**
+     * Consumption Method.
+     * @nullable
+     */
+    consumptionMethod?: BoConsumptionMethod;
     /**
      * Days Backward.
      * @nullable
@@ -466,6 +835,16 @@ export interface AdminInfo {
      */
     defaultBankAccountKey?: number;
     /**
+     * Multi Language Support Enable.
+     * @nullable
+     */
+    multiLanguageSupportEnable?: BoYesNoEnum;
+    /**
+     * Allow Future Posting Date.
+     * @nullable
+     */
+    allowFuturePostingDate?: BoYesNoEnum;
+    /**
      * Additional Id Number.
      * @nullable
      */
@@ -476,6 +855,16 @@ export interface AdminInfo {
      */
     state?: string;
     /**
+     * Calculate Row Discount.
+     * @nullable
+     */
+    calculateRowDiscount?: BoYesNoEnum;
+    /**
+     * Bank Statement Installed.
+     * @nullable
+     */
+    bankStatementInstalled?: BoYesNoEnum;
+    /**
      * Unique Tax Payer Reference.
      * @nullable
      */
@@ -485,6 +874,11 @@ export interface AdminInfo {
      * @nullable
      */
     employerReference?: string;
+    /**
+     * Period Status Auto Change.
+     * @nullable
+     */
+    periodStatusAutoChange?: BoYesNoEnum;
     /**
      * Period Status Change Delay.
      * @nullable
@@ -501,6 +895,11 @@ export interface AdminInfo {
      */
     xmlFileFolderPath?: string;
     /**
+     * Pick List.
+     * @nullable
+     */
+    pickList?: BoYesNoEnum;
+    /**
      * General Manager.
      * @nullable
      */
@@ -511,6 +910,11 @@ export interface AdminInfo {
      */
     generalManagerForeignLanguage?: string;
     /**
+     * Use Production Profit And Loss Account.
+     * @nullable
+     */
+    useProductionProfitAndLossAccount?: BoYesNoEnum;
+    /**
      * Wt Accum Amount Ap.
      * @nullable
      */
@@ -520,6 +924,11 @@ export interface AdminInfo {
      * @nullable
      */
     wtAccumAmountAr?: number;
+    /**
+     * Copy Exchange Rate In Copy To.
+     * @nullable
+     */
+    copyExchangeRateInCopyTo?: BoYesNoEnum;
     /**
      * Gts Outbound Folder.
      * @nullable
@@ -551,6 +960,16 @@ export interface AdminInfo {
      */
     gtsMaxAmount?: number;
     /**
+     * Gts Response To Exceeding.
+     * @nullable
+     */
+    gtsResponseToExceeding?: GtsResponseToExceedingEnum;
+    /**
+     * Application Of Ifrs.
+     * @nullable
+     */
+    applicationOfIfrs?: BoYesNoEnum;
+    /**
      * Starting In Fiscal Year.
      * @nullable
      */
@@ -560,6 +979,66 @@ export interface AdminInfo {
      * @nullable
      */
     reportAccordingTo?: number;
+    /**
+     * Copy Open Rows To Delivery.
+     * @nullable
+     */
+    copyOpenRowsToDelivery?: BoYesNoEnum;
+    /**
+     * Enable Approval Procedure In Di.
+     * @nullable
+     */
+    enableApprovalProcedureInDi?: BoYesNoEnum;
+    /**
+     * Enable Update Doc After Approval.
+     * @nullable
+     */
+    enableUpdateDocAfterApproval?: BoYesNoEnum;
+    /**
+     * Enable Update Draft During Approval.
+     * @nullable
+     */
+    enableUpdateDraftDuringApproval?: BoYesNoEnum;
+    /**
+     * Issue Primarily By.
+     * @nullable
+     */
+    issuePrimarilyBy?: IssuePrimarilyByEnum;
+    /**
+     * Is Remove Unpriced Value.
+     * @nullable
+     */
+    isRemoveUnpricedValue?: BoYesNoEnum;
+    /**
+     * Enable Advanced Gl Account Determination.
+     * @nullable
+     */
+    enableAdvancedGlAccountDetermination?: BoYesNoEnum;
+    /**
+     * Create Online Quotation.
+     * @nullable
+     */
+    createOnlineQuotation?: BoYesNoEnum;
+    /**
+     * Is Printer Connected.
+     * @nullable
+     */
+    isPrinterConnected?: BoYesNoEnum;
+    /**
+     * Enable Branches.
+     * @nullable
+     */
+    enableBranches?: BoYesNoEnum;
+    /**
+     * Ie Mandatory Validation.
+     * @nullable
+     */
+    ieMandatoryValidation?: BoYesNoEnum;
+    /**
+     * Enable Payment Due Dates.
+     * @nullable
+     */
+    enablePaymentDueDates?: BoYesNoEnum;
     /**
      * Maximum Number Of Days For Due Date.
      * @nullable
@@ -571,15 +1050,110 @@ export interface AdminInfo {
      */
     aliasName?: string;
     /**
+     * Enable Centralized Incoming Payments.
+     * @nullable
+     */
+    enableCentralizedIncomingPayments?: BoYesNoEnum;
+    /**
+     * Enable Centralized Outgoing Payments.
+     * @nullable
+     */
+    enableCentralizedOutgoingPayments?: BoYesNoEnum;
+    /**
+     * Tax Rate Determination.
+     * @nullable
+     */
+    taxRateDetermination?: TaxRateDeterminationEnum;
+    /**
      * Boleto Folder Path.
      * @nullable
      */
     boletoFolderPath?: string;
     /**
+     * Allow Multiple Ba On Same Period.
+     * @nullable
+     */
+    allowMultipleBaOnSamePeriod?: BoYesNoEnum;
+    /**
+     * Block Multiple Ba On Same Ap Document.
+     * @nullable
+     */
+    blockMultipleBaOnSameApDocument?: BoYesNoEnum;
+    /**
+     * Block Multiple Ba On Same Ar Document.
+     * @nullable
+     */
+    blockMultipleBaOnSameArDocument?: BoYesNoEnum;
+    /**
+     * Display Cancel Doc In Report.
+     * @nullable
+     */
+    displayCancelDocInReport?: BoYesNoEnum;
+    /**
      * Max Days For Cancel.
      * @nullable
      */
     maxDaysForCancel?: number;
+    /**
+     * Reuse Document Num.
+     * @nullable
+     */
+    reuseDocumentNum?: BoYesNoEnum;
+    /**
+     * Reuse Nota Fiscal Num.
+     * @nullable
+     */
+    reuseNotaFiscalNum?: BoYesNoEnum;
+    /**
+     * Auto Add Uo M.
+     * @nullable
+     */
+    autoAddUoM?: BoYesNoEnum;
+    /**
+     * Auto Add Package.
+     * @nullable
+     */
+    autoAddPackage?: BoYesNoEnum;
+    /**
+     * Display Inactive Price List In Reports.
+     * @nullable
+     */
+    displayInactivePriceListInReports?: BoYesNoEnum;
+    /**
+     * Display Inactive Price List In Documents.
+     * @nullable
+     */
+    displayInactivePriceListInDocuments?: BoYesNoEnum;
+    /**
+     * Display Inactive Price List In Settings.
+     * @nullable
+     */
+    displayInactivePriceListInSettings?: BoYesNoEnum;
+    /**
+     * Apply Base Inactive Status To Special Prices.
+     * @nullable
+     */
+    applyBaseInactiveStatusToSpecialPrices?: BoYesNoEnum;
+    /**
+     * Apply Base Inactive Status To Period Volume Discounts.
+     * @nullable
+     */
+    applyBaseInactiveStatusToPeriodVolumeDiscounts?: BoYesNoEnum;
+    /**
+     * Apply Base Inactive Status To Price Lists.
+     * @nullable
+     */
+    applyBaseInactiveStatusToPriceLists?: BoYesNoEnum;
+    /**
+     * Price Proceed Method.
+     * @nullable
+     */
+    priceProceedMethod?: PriceProceedMethodEnum;
+    /**
+     * Remove Update Prices Based On Non Standard Price Lists.
+     * @nullable
+     */
+    removeUpdatePricesBasedOnNonStandardPriceLists?: BoYesNoEnum;
     /**
      * Siren No.
      * @nullable
@@ -590,6 +1164,51 @@ export interface AdminInfo {
      * @nullable
      */
     institutionCode?: string;
+    /**
+     * Set Resources Warehouses.
+     * @nullable
+     */
+    setResourcesWarehouses?: BoYesNoEnum;
+    /**
+     * Block Stock Negative Quantity.
+     * @nullable
+     */
+    blockStockNegativeQuantity?: BoYesNoEnum;
+    /**
+     * Use Parent Wip In Components.
+     * @nullable
+     */
+    useParentWipInComponents?: BoYesNoEnum;
+    /**
+     * Enable Update Ba Price And Planned Amount.
+     * @nullable
+     */
+    enableUpdateBaPriceAndPlannedAmount?: BoYesNoEnum;
+    /**
+     * Auto Assign Only Valid Apba.
+     * @nullable
+     */
+    autoAssignOnlyValidApba?: BoYesNoEnum;
+    /**
+     * Auto Assign Only Valid Arba.
+     * @nullable
+     */
+    autoAssignOnlyValidArba?: BoYesNoEnum;
+    /**
+     * Action When Deviate From Ba For Po.
+     * @nullable
+     */
+    actionWhenDeviateFromBaForPo?: BaDivationAlertLevelEnum;
+    /**
+     * Action When Deviate From Ba For Grpo.
+     * @nullable
+     */
+    actionWhenDeviateFromBaForGrpo?: BaDivationAlertLevelEnum;
+    /**
+     * Action When Deviate From Ba For Accounting.
+     * @nullable
+     */
+    actionWhenDeviateFromBaForAccounting?: BaDivationAlertLevelEnum;
     /**
      * Series.
      * @nullable
@@ -606,10 +1225,25 @@ export interface AdminInfo {
      */
     enableMultipleSchedulings?: string;
     /**
+     * Display Batch Qty Uo M By.
+     * @nullable
+     */
+    displayBatchQtyUoMBy?: DisplayBatchQtyUoMByEnum;
+    /**
+     * Allow In Bound Posting With Zero Price.
+     * @nullable
+     */
+    allowInBoundPostingWithZeroPrice?: BoYesNoEnum;
+    /**
      * Inventory Posting Highlight Variance.
      * @nullable
      */
     inventoryPostingHighlightVariance?: number;
+    /**
+     * Inventory Posting Release Only Serial And Batch.
+     * @nullable
+     */
+    inventoryPostingReleaseOnlySerialAndBatch?: BoYesNoEnum;
     /**
      * Inventory Counting Highlight Variance.
      * @nullable
@@ -626,10 +1260,50 @@ export interface AdminInfo {
      */
     inventoryCountingHighlightCountersDifference?: number;
     /**
+     * Copy Single Counter To Individual Counter.
+     * @nullable
+     */
+    copySingleCounterToIndividualCounter?: BoYesNoEnum;
+    /**
+     * Close Counted Rows With Zero Difference.
+     * @nullable
+     */
+    closeCountedRowsWithZeroDifference?: BoYesNoEnum;
+    /**
+     * Close Counted Rows Without Confirmation.
+     * @nullable
+     */
+    closeCountedRowsWithoutConfirmation?: BoYesNoEnum;
+    /**
+     * Calculate In Whse Qty Based On Posting Date.
+     * @nullable
+     */
+    calculateInWhseQtyBasedOnPostingDate?: BoYesNoEnum;
+    /**
+     * Refresh In Whse Qty In Di.
+     * @nullable
+     */
+    refreshInWhseQtyInDi?: BoYesNoEnum;
+    /**
      * Sepa Creditor Id.
      * @nullable
      */
     sepaCreditorId?: string;
+    /**
+     * Data Ownership Manage By.
+     * @nullable
+     */
+    dataOwnershipManageBy?: BoDataOwnershipManageMethodEnum;
+    /**
+     * Allow Bp With No Owner.
+     * @nullable
+     */
+    allowBpWithNoOwner?: BoYesNoEnum;
+    /**
+     * Enable Separate Price Mode.
+     * @nullable
+     */
+    enableSeparatePriceMode?: BoYesNoEnum;
     /**
      * Extended Admin Info.
      * @nullable
@@ -644,7 +1318,7 @@ export declare function createAdminInfo(json: any): AdminInfo;
  * AdminInfoField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class AdminInfoField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, AdminInfo> {
     /**
      * Representation of the [[AdminInfo.code]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -711,6 +1385,11 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     systemCurrency: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.creditBalancewithMinusSign]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    creditBalancewithMinusSign: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.standardUnitofLength]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -721,10 +1400,20 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     weightUnitDefault: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.directIndirectRate]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    directIndirectRate: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.minimumAmountfor347Report]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     minimumAmountfor347Report: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.setItemsWarehouses]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    setItemsWarehouses: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[AdminInfo.bankCountry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -746,6 +1435,16 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     deductionFileNo: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.taxCollection]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    taxCollection: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.taxDefinition]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    taxDefinition: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.taxPercentage]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -761,6 +1460,16 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     withTax: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.withholdingTaxVendorDdct]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    withholdingTaxVendorDdct: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.customersDeductionatSource]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    customersDeductionatSource: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.withholdingTaxTdctPercnt]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -775,6 +1484,51 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     withholdingTaxDdctOffice: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.commitmentRestriction]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    commitmentRestriction: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.creditRestriction]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    creditRestriction: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.restrictSales]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    restrictSales: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.restrictDelNotesPo]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    restrictDelNotesPo: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.restrictOrders]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    restrictOrders: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.considerDelNotesinSalesR]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    considerDelNotesinSalesR: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.creditDepositType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    creditDepositType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.useTax]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    useTax: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.splitPo]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    splitPo: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[AdminInfo.altNameForApInvoice]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -801,6 +1555,26 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     altNameForPurchase: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.alertTypeforWhStock]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    alertTypeforWhStock: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.setCommissionbyCustomer]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    setCommissionbyCustomer: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.setCommissionbyItem]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    setCommissionbyItem: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.setCommissionbySe]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    setCommissionbySe: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.defaultCustomerPaymentTerms]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -811,10 +1585,45 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     defaultVendorPaymentTerms: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.calculateGrossProfitperTra]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    calculateGrossProfitperTra: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.priceListforCostPrice]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     priceListforCostPrice: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.grossProfitAfterSale]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    grossProfitAfterSale: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.displayPriceforPriceOnly]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    displayPriceforPriceOnly: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.calculateTaxinSalesQuotati]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    calculateTaxinSalesQuotati: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.baseField]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    baseField: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.allowClosedSalesQuotations]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    allowClosedSalesQuotations: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.userConversionCode]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    userConversionCode: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[AdminInfo.companyColor]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -891,25 +1700,70 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     managingDirectorForeignLan: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.timeTemplate]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    timeTemplate: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.dateTemplate]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    dateTemplate: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.dateSeparator]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     dateSeparator: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.fcCheckAccount]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    fcCheckAccount: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.changedExistingOrders]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    changedExistingOrders: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.multiCurrencyCheck]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    multiCurrencyCheck: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[AdminInfo.isrType]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     isrType: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.displayRoundingRemark]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    displayRoundingRemark: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.isrBillerId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     isrBillerId: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.blockSystemCurrencyEditing]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    blockSystemCurrencyEditing: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.blockPostingDateEditing]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    blockPostingDateEditing: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.defaultWarehouse]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     defaultWarehouse: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.blockTaxDate]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    blockTaxDate: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[AdminInfo.taxDefinitionforVatitem]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -931,20 +1785,70 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     taxGroupforServicePurchase: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.calculateBudget]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    calculateBudget: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.customerIdNumber]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     customerIdNumber: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.blockBudget]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    blockBudget: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.budgetAlert]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    budgetAlert: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.blockPurchaseOrders]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    blockPurchaseOrders: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.blockBookkeeping]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    blockBookkeeping: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[AdminInfo.defaultBudgetCostAssessMt]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     defaultBudgetCostAssessMt: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.continuousStockManagement]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    continuousStockManagement: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.continuousStockSystem]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    continuousStockSystem: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.roundTaxAmounts]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    roundTaxAmounts: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.blockDelNotesforPurchase]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    blockDelNotesforPurchase: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.fileNumberinIncomeTax]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     fileNumberinIncomeTax: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.deferredTax]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    deferredTax: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[AdminInfo.defaultBankNo]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -960,6 +1864,11 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     defaultBranch: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.usePaSystem]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    usePaSystem: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[AdminInfo.serviceCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1001,10 +1910,60 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     thousandsSeparator: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.displayCurrencyontheRight]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    displayCurrencyontheRight: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.alertbyWarehouse]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    alertbyWarehouse: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.priceSystem]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    priceSystem: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.wholdingTaxDedHierarchy]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    wholdingTaxDedHierarchy: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.docConfirmation]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    docConfirmation: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.defaultforBatchStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    defaultforBatchStatus: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.glMethod]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    glMethod: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.uniqueSerialNo]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    uniqueSerialNo: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.maxHistory]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     maxHistory: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.changeDefReconApAccounts]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    changeDefReconApAccounts: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.changeDefReconArAccounts]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    changeDefReconArAccounts: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[AdminInfo.bpTypeCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1031,6 +1990,16 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     accountSegmentsSeparator: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.displayBookkeepingWindow]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    displayBookkeepingWindow: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.sHandleWt]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    sHandleWt: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.sDefaultWtCode]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -1046,6 +2015,16 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     pDefaultWtCode: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.wtLiableExpense]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    wtLiableExpense: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.useNegativeAmounts]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    useNegativeAmounts: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.holidaysName]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -1055,6 +2034,16 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     orderBlock: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.roundingMethod]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    roundingMethod: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.adressFromWh]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    adressFromWh: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[AdminInfo.orderingParty]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1076,6 +2065,16 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     nationalInsuranceNo: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.salesOrderConfirmed]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    salesOrderConfirmed: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.purchaseOrderConfirmed]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    purchaseOrderConfirmed: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.sDfltItwt]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -1085,6 +2084,31 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     pDfltItwt: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.defaultAccountCurrency]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    defaultAccountCurrency: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.deferredTaxforVendors]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    deferredTaxforVendors: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.createAutoVatLineinJdt]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    createAutoVatLineinJdt: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.consumeForecast]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    consumeForecast: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.consumptionMethod]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    consumptionMethod: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[AdminInfo.daysBackward]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1106,6 +2130,16 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     defaultBankAccountKey: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.multiLanguageSupportEnable]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    multiLanguageSupportEnable: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.allowFuturePostingDate]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    allowFuturePostingDate: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.additionalIdNumber]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -1116,6 +2150,16 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     state: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.calculateRowDiscount]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    calculateRowDiscount: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.bankStatementInstalled]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    bankStatementInstalled: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.uniqueTaxPayerReference]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -1125,6 +2169,11 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     employerReference: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.periodStatusAutoChange]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    periodStatusAutoChange: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[AdminInfo.periodStatusChangeDelay]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1141,6 +2190,11 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     xmlFileFolderPath: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.pickList]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    pickList: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.generalManager]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -1151,6 +2205,11 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     generalManagerForeignLanguage: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.useProductionProfitAndLossAccount]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    useProductionProfitAndLossAccount: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.wtAccumAmountAp]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -1160,6 +2219,11 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     wtAccumAmountAr: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.copyExchangeRateInCopyTo]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    copyExchangeRateInCopyTo: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[AdminInfo.gtsOutboundFolder]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1191,6 +2255,16 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     gtsMaxAmount: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.gtsResponseToExceeding]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    gtsResponseToExceeding: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.applicationOfIfrs]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    applicationOfIfrs: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.startingInFiscalYear]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -1200,6 +2274,66 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     reportAccordingTo: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.copyOpenRowsToDelivery]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    copyOpenRowsToDelivery: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.enableApprovalProcedureInDi]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    enableApprovalProcedureInDi: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.enableUpdateDocAfterApproval]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    enableUpdateDocAfterApproval: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.enableUpdateDraftDuringApproval]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    enableUpdateDraftDuringApproval: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.issuePrimarilyBy]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    issuePrimarilyBy: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.isRemoveUnpricedValue]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    isRemoveUnpricedValue: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.enableAdvancedGlAccountDetermination]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    enableAdvancedGlAccountDetermination: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.createOnlineQuotation]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    createOnlineQuotation: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.isPrinterConnected]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    isPrinterConnected: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.enableBranches]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    enableBranches: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.ieMandatoryValidation]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    ieMandatoryValidation: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.enablePaymentDueDates]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    enablePaymentDueDates: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[AdminInfo.maximumNumberOfDaysForDueDate]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1211,15 +2345,110 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     aliasName: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.enableCentralizedIncomingPayments]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    enableCentralizedIncomingPayments: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.enableCentralizedOutgoingPayments]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    enableCentralizedOutgoingPayments: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.taxRateDetermination]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    taxRateDetermination: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.boletoFolderPath]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     boletoFolderPath: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.allowMultipleBaOnSamePeriod]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    allowMultipleBaOnSamePeriod: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.blockMultipleBaOnSameApDocument]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    blockMultipleBaOnSameApDocument: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.blockMultipleBaOnSameArDocument]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    blockMultipleBaOnSameArDocument: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.displayCancelDocInReport]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    displayCancelDocInReport: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.maxDaysForCancel]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     maxDaysForCancel: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.reuseDocumentNum]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    reuseDocumentNum: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.reuseNotaFiscalNum]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    reuseNotaFiscalNum: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.autoAddUoM]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    autoAddUoM: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.autoAddPackage]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    autoAddPackage: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.displayInactivePriceListInReports]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    displayInactivePriceListInReports: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.displayInactivePriceListInDocuments]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    displayInactivePriceListInDocuments: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.displayInactivePriceListInSettings]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    displayInactivePriceListInSettings: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.applyBaseInactiveStatusToSpecialPrices]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    applyBaseInactiveStatusToSpecialPrices: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.applyBaseInactiveStatusToPeriodVolumeDiscounts]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    applyBaseInactiveStatusToPeriodVolumeDiscounts: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.applyBaseInactiveStatusToPriceLists]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    applyBaseInactiveStatusToPriceLists: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.priceProceedMethod]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    priceProceedMethod: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.removeUpdatePricesBasedOnNonStandardPriceLists]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    removeUpdatePricesBasedOnNonStandardPriceLists: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[AdminInfo.sirenNo]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1230,6 +2459,51 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     institutionCode: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.setResourcesWarehouses]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    setResourcesWarehouses: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.blockStockNegativeQuantity]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    blockStockNegativeQuantity: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.useParentWipInComponents]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    useParentWipInComponents: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.enableUpdateBaPriceAndPlannedAmount]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    enableUpdateBaPriceAndPlannedAmount: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.autoAssignOnlyValidApba]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    autoAssignOnlyValidApba: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.autoAssignOnlyValidArba]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    autoAssignOnlyValidArba: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.actionWhenDeviateFromBaForPo]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    actionWhenDeviateFromBaForPo: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.actionWhenDeviateFromBaForGrpo]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    actionWhenDeviateFromBaForGrpo: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.actionWhenDeviateFromBaForAccounting]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    actionWhenDeviateFromBaForAccounting: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[AdminInfo.series]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1246,10 +2520,25 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     enableMultipleSchedulings: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.displayBatchQtyUoMBy]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    displayBatchQtyUoMBy: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.allowInBoundPostingWithZeroPrice]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    allowInBoundPostingWithZeroPrice: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.inventoryPostingHighlightVariance]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     inventoryPostingHighlightVariance: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.inventoryPostingReleaseOnlySerialAndBatch]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    inventoryPostingReleaseOnlySerialAndBatch: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[AdminInfo.inventoryCountingHighlightVariance]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -1266,17 +2555,71 @@ export declare class AdminInfoField<EntityT extends Entity> extends ComplexTypeF
      */
     inventoryCountingHighlightCountersDifference: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.copySingleCounterToIndividualCounter]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    copySingleCounterToIndividualCounter: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.closeCountedRowsWithZeroDifference]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    closeCountedRowsWithZeroDifference: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.closeCountedRowsWithoutConfirmation]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    closeCountedRowsWithoutConfirmation: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.calculateInWhseQtyBasedOnPostingDate]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    calculateInWhseQtyBasedOnPostingDate: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.refreshInWhseQtyInDi]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    refreshInWhseQtyInDi: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.sepaCreditorId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     sepaCreditorId: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[AdminInfo.dataOwnershipManageBy]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    dataOwnershipManageBy: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.allowBpWithNoOwner]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    allowBpWithNoOwner: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[AdminInfo.enableSeparatePriceMode]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    enableSeparatePriceMode: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[AdminInfo.extendedAdminInfo]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     extendedAdminInfo: ExtendedAdminInfoField<EntityT>;
+    /**
+     * Creates an instance of AdminInfoField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace AdminInfo {
+    /**
+     * Metadata information on all properties of the `AdminInfo` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<AdminInfo>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | ExtendedAdminInfo;
     }): AdminInfo;

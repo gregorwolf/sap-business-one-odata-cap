@@ -4,7 +4,8 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * DocumentInstallment
@@ -45,6 +46,11 @@ export interface DocumentInstallment {
    * @nullable
    */
   installmentId?: number;
+  /**
+   * Payment Ordered.
+   * @nullable
+   */
+  paymentOrdered?: BoYesNoEnum;
 }
 
 /**
@@ -58,7 +64,7 @@ export function createDocumentInstallment(json: any): DocumentInstallment {
  * DocumentInstallmentField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class DocumentInstallmentField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class DocumentInstallmentField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, DocumentInstallment> {
   /**
    * Representation of the [[DocumentInstallment.dueDate]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -94,18 +100,73 @@ export class DocumentInstallmentField<EntityT extends Entity> extends ComplexTyp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   installmentId: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('InstallmentId', this, 'Edm.Int32');
+  /**
+   * Representation of the [[DocumentInstallment.paymentOrdered]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  paymentOrdered: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('PaymentOrdered', this);
+
+  /**
+   * Creates an instance of DocumentInstallmentField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, DocumentInstallment);
+  }
 }
 
 export namespace DocumentInstallment {
+  /**
+   * Metadata information on all properties of the `DocumentInstallment` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<DocumentInstallment>[] = [{
+    originalName: 'DueDate',
+    name: 'dueDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Percentage',
+    name: 'percentage',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Total',
+    name: 'total',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'LastDunningDate',
+    name: 'lastDunningDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'DunningLevel',
+    name: 'dunningLevel',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TotalFC',
+    name: 'totalFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'InstallmentId',
+    name: 'installmentId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PaymentOrdered',
+    name: 'paymentOrdered',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): DocumentInstallment {
-    return createComplexType(json, {
-      DueDate: (dueDate: Moment) => ({ dueDate: edmToTs(dueDate, 'Edm.DateTimeOffset') }),
-      Percentage: (percentage: number) => ({ percentage: edmToTs(percentage, 'Edm.Double') }),
-      Total: (total: number) => ({ total: edmToTs(total, 'Edm.Double') }),
-      LastDunningDate: (lastDunningDate: Moment) => ({ lastDunningDate: edmToTs(lastDunningDate, 'Edm.DateTimeOffset') }),
-      DunningLevel: (dunningLevel: number) => ({ dunningLevel: edmToTs(dunningLevel, 'Edm.Int32') }),
-      TotalFC: (totalFc: number) => ({ totalFc: edmToTs(totalFc, 'Edm.Double') }),
-      InstallmentId: (installmentId: number) => ({ installmentId: edmToTs(installmentId, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, DocumentInstallment);
   }
 }

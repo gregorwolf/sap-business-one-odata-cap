@@ -2,20 +2,18 @@ import { SalesTaxInvoicesRequestBuilder } from './SalesTaxInvoicesRequestBuilder
 import { Moment } from 'moment';
 import { SalesTaxInvoiceLine } from './SalesTaxInvoiceLine';
 import { SalesTaxInvoiceOperationCode } from './SalesTaxInvoiceOperationCode';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoTaxInvoiceTypes } from './BoTaxInvoiceTypes';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoCurrencySources } from './BoCurrencySources';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "SalesTaxInvoices" of service "SAPB1".
  */
-export declare class SalesTaxInvoices extends Entity implements SalesTaxInvoicesType {
+export declare class SalesTaxInvoices extends EntityV4 implements SalesTaxInvoicesType {
     /**
      * Technical entity name for SalesTaxInvoices.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for SalesTaxInvoices.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -30,6 +28,16 @@ export declare class SalesTaxInvoices extends Entity implements SalesTaxInvoices
      * @nullable
      */
     docNum?: number;
+    /**
+     * Doc Type.
+     * @nullable
+     */
+    docType?: BoTaxInvoiceTypes;
+    /**
+     * Printed.
+     * @nullable
+     */
+    printed?: BoYesNoEnum;
     /**
      * Doc Date.
      * @nullable
@@ -96,6 +104,11 @@ export declare class SalesTaxInvoices extends Entity implements SalesTaxInvoices
      */
     address2?: string;
     /**
+     * Currency Source.
+     * @nullable
+     */
+    currencySource?: BoCurrencySources;
+    /**
      * Doc Currency.
      * @nullable
      */
@@ -155,10 +168,10 @@ export declare class SalesTaxInvoices extends Entity implements SalesTaxInvoices
      */
     businessPartner: BusinessPartners;
     /**
-     * Returns an entity builder to construct instances `SalesTaxInvoices`.
+     * Returns an entity builder to construct instances of `SalesTaxInvoices`.
      * @returns A builder that constructs instances of entity type `SalesTaxInvoices`.
      */
-    static builder(): EntityBuilderType<SalesTaxInvoices, SalesTaxInvoicesTypeForceMandatory>;
+    static builder(): EntityBuilderType<SalesTaxInvoices, SalesTaxInvoicesType>;
     /**
      * Returns a request builder to construct requests for operations on the `SalesTaxInvoices` entity type.
      * @returns A `SalesTaxInvoices` request builder.
@@ -169,7 +182,7 @@ export declare class SalesTaxInvoices extends Entity implements SalesTaxInvoices
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `SalesTaxInvoices`.
      */
-    static customField(fieldName: string): CustomField<SalesTaxInvoices>;
+    static customField(fieldName: string): CustomFieldV4<SalesTaxInvoices>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -180,61 +193,35 @@ export declare class SalesTaxInvoices extends Entity implements SalesTaxInvoices
 }
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 export interface SalesTaxInvoicesType {
-    docEntry?: number;
-    docNum?: number;
-    docDate?: Moment;
-    cardCode?: string;
-    creationDate?: Moment;
-    updateDate?: Moment;
-    docDueDate?: Moment;
-    series?: number;
-    segment?: number;
-    contactPersonCode?: number;
-    taxDate?: Moment;
-    comments?: string;
-    shipToCode?: string;
-    address?: string;
-    address2?: string;
-    docCurrency?: string;
-    customerOrVendorRefNo?: string;
-    customerOrVendorName?: string;
-    cancelDate?: Moment;
-    documentTotal?: number;
-    taxTotal?: number;
-    paymentRefNo?: string;
-    paymentRefDate?: Moment;
-    alterationRevision?: number;
-    salesTaxInvoiceLines?: SalesTaxInvoiceLine[];
-    salesTaxInvoiceOperationCodes?: SalesTaxInvoiceOperationCode[];
-    businessPartner: BusinessPartnersType;
-}
-export interface SalesTaxInvoicesTypeForceMandatory {
-    docEntry: number;
-    docNum: number;
-    docDate: Moment;
-    cardCode: string;
-    creationDate: Moment;
-    updateDate: Moment;
-    docDueDate: Moment;
-    series: number;
-    segment: number;
-    contactPersonCode: number;
-    taxDate: Moment;
-    comments: string;
-    shipToCode: string;
-    address: string;
-    address2: string;
-    docCurrency: string;
-    customerOrVendorRefNo: string;
-    customerOrVendorName: string;
-    cancelDate: Moment;
-    documentTotal: number;
-    taxTotal: number;
-    paymentRefNo: string;
-    paymentRefDate: Moment;
-    alterationRevision: number;
-    salesTaxInvoiceLines: SalesTaxInvoiceLine[];
-    salesTaxInvoiceOperationCodes: SalesTaxInvoiceOperationCode[];
+    docEntry?: number | null;
+    docNum?: number | null;
+    docType?: BoTaxInvoiceTypes | null;
+    printed?: BoYesNoEnum | null;
+    docDate?: Moment | null;
+    cardCode?: string | null;
+    creationDate?: Moment | null;
+    updateDate?: Moment | null;
+    docDueDate?: Moment | null;
+    series?: number | null;
+    segment?: number | null;
+    contactPersonCode?: number | null;
+    taxDate?: Moment | null;
+    comments?: string | null;
+    shipToCode?: string | null;
+    address?: string | null;
+    address2?: string | null;
+    currencySource?: BoCurrencySources | null;
+    docCurrency?: string | null;
+    customerOrVendorRefNo?: string | null;
+    customerOrVendorName?: string | null;
+    cancelDate?: Moment | null;
+    documentTotal?: number | null;
+    taxTotal?: number | null;
+    paymentRefNo?: string | null;
+    paymentRefDate?: Moment | null;
+    alterationRevision?: number | null;
+    salesTaxInvoiceLines?: SalesTaxInvoiceLine[] | null;
+    salesTaxInvoiceOperationCodes?: SalesTaxInvoiceOperationCode[] | null;
     businessPartner: BusinessPartnersType;
 }
 export declare namespace SalesTaxInvoices {
@@ -248,6 +235,16 @@ export declare namespace SalesTaxInvoices {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DOC_NUM: NumberField<SalesTaxInvoices>;
+    /**
+     * Static representation of the [[docType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DOC_TYPE: EnumField<SalesTaxInvoices>;
+    /**
+     * Static representation of the [[printed]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PRINTED: EnumField<SalesTaxInvoices>;
     /**
      * Static representation of the [[docDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -314,6 +311,11 @@ export declare namespace SalesTaxInvoices {
      */
     const ADDRESS_2: StringField<SalesTaxInvoices>;
     /**
+     * Static representation of the [[currencySource]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CURRENCY_SOURCE: EnumField<SalesTaxInvoices>;
+    /**
      * Static representation of the [[docCurrency]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -362,12 +364,12 @@ export declare namespace SalesTaxInvoices {
      * Static representation of the [[salesTaxInvoiceLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const SALES_TAX_INVOICE_LINES: CollectionField<SalesTaxInvoices>;
+    const SALES_TAX_INVOICE_LINES: CollectionField<SalesTaxInvoices, SalesTaxInvoiceLine>;
     /**
      * Static representation of the [[salesTaxInvoiceOperationCodes]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const SALES_TAX_INVOICE_OPERATION_CODES: CollectionField<SalesTaxInvoices>;
+    const SALES_TAX_INVOICE_OPERATION_CODES: CollectionField<SalesTaxInvoices, SalesTaxInvoiceOperationCode>;
     /**
      * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -376,7 +378,7 @@ export declare namespace SalesTaxInvoices {
     /**
      * All fields of the SalesTaxInvoices entity.
      */
-    const _allFields: Array<NumberField<SalesTaxInvoices> | DateField<SalesTaxInvoices> | StringField<SalesTaxInvoices> | CollectionField<SalesTaxInvoices> | OneToOneLink<SalesTaxInvoices, BusinessPartners>>;
+    const _allFields: Array<NumberField<SalesTaxInvoices> | EnumField<SalesTaxInvoices> | DateField<SalesTaxInvoices> | StringField<SalesTaxInvoices> | CollectionField<SalesTaxInvoices, SalesTaxInvoiceLine> | CollectionField<SalesTaxInvoices, SalesTaxInvoiceOperationCode> | OneToOneLink<SalesTaxInvoices, BusinessPartners>>;
     /**
      * All fields selector.
      */

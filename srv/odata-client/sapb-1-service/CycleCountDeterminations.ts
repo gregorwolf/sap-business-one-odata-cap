@@ -4,31 +4,32 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { CycleCountDeterminationsRequestBuilder } from './CycleCountDeterminationsRequestBuilder';
-import { CycleCountDeterminationSetup, CycleCountDeterminationSetupField } from './CycleCountDeterminationSetup';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, StringField } from '@sap-cloud-sdk/core/v4';
+import { CycleCountDeterminationSetup } from './CycleCountDeterminationSetup';
+import { CycleCountDeterminationCycleByEnum } from './CycleCountDeterminationCycleByEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "CycleCountDeterminations" of service "SAPB1".
  */
-export class CycleCountDeterminations extends Entity implements CycleCountDeterminationsType {
+export class CycleCountDeterminations extends EntityV4 implements CycleCountDeterminationsType {
   /**
    * Technical entity name for CycleCountDeterminations.
    */
   static _entityName = 'CycleCountDeterminations';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for CycleCountDeterminations.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Warehouse Code.
    * @nullable
    */
   warehouseCode?: string;
+  /**
+   * Cycle By.
+   * @nullable
+   */
+  cycleBy?: CycleCountDeterminationCycleByEnum;
   /**
    * Cycle Count Determination Setup Collection.
    * @nullable
@@ -36,11 +37,11 @@ export class CycleCountDeterminations extends Entity implements CycleCountDeterm
   cycleCountDeterminationSetupCollection?: CycleCountDeterminationSetup[];
 
   /**
-   * Returns an entity builder to construct instances `CycleCountDeterminations`.
+   * Returns an entity builder to construct instances of `CycleCountDeterminations`.
    * @returns A builder that constructs instances of entity type `CycleCountDeterminations`.
    */
-  static builder(): EntityBuilderType<CycleCountDeterminations, CycleCountDeterminationsTypeForceMandatory> {
-    return Entity.entityBuilder(CycleCountDeterminations);
+  static builder(): EntityBuilderType<CycleCountDeterminations, CycleCountDeterminationsType> {
+    return EntityV4.entityBuilder(CycleCountDeterminations);
   }
 
   /**
@@ -56,8 +57,8 @@ export class CycleCountDeterminations extends Entity implements CycleCountDeterm
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `CycleCountDeterminations`.
    */
-  static customField(fieldName: string): CustomField<CycleCountDeterminations> {
-    return Entity.customFieldSelector(fieldName, CycleCountDeterminations);
+  static customField(fieldName: string): CustomFieldV4<CycleCountDeterminations> {
+    return EntityV4.customFieldSelector(fieldName, CycleCountDeterminations);
   }
 
   /**
@@ -70,13 +71,9 @@ export class CycleCountDeterminations extends Entity implements CycleCountDeterm
 }
 
 export interface CycleCountDeterminationsType {
-  warehouseCode?: string;
-  cycleCountDeterminationSetupCollection?: CycleCountDeterminationSetup[];
-}
-
-export interface CycleCountDeterminationsTypeForceMandatory {
-  warehouseCode: string;
-  cycleCountDeterminationSetupCollection: CycleCountDeterminationSetup[];
+  warehouseCode?: string | null;
+  cycleBy?: CycleCountDeterminationCycleByEnum | null;
+  cycleCountDeterminationSetupCollection?: CycleCountDeterminationSetup[] | null;
 }
 
 export namespace CycleCountDeterminations {
@@ -86,15 +83,21 @@ export namespace CycleCountDeterminations {
    */
   export const WAREHOUSE_CODE: StringField<CycleCountDeterminations> = new StringField('WarehouseCode', CycleCountDeterminations, 'Edm.String');
   /**
+   * Static representation of the [[cycleBy]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CYCLE_BY: EnumField<CycleCountDeterminations> = new EnumField('CycleBy', CycleCountDeterminations);
+  /**
    * Static representation of the [[cycleCountDeterminationSetupCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const CYCLE_COUNT_DETERMINATION_SETUP_COLLECTION: CollectionField<CycleCountDeterminations> = new CollectionField('CycleCountDeterminationSetupCollection', CycleCountDeterminations, new CycleCountDeterminationSetupField('', CycleCountDeterminations));
+  export const CYCLE_COUNT_DETERMINATION_SETUP_COLLECTION: CollectionField<CycleCountDeterminations, CycleCountDeterminationSetup> = new CollectionField('CycleCountDeterminationSetupCollection', CycleCountDeterminations, CycleCountDeterminationSetup);
   /**
    * All fields of the CycleCountDeterminations entity.
    */
-  export const _allFields: Array<StringField<CycleCountDeterminations> | CollectionField<CycleCountDeterminations>> = [
+  export const _allFields: Array<StringField<CycleCountDeterminations> | EnumField<CycleCountDeterminations> | CollectionField<CycleCountDeterminations, CycleCountDeterminationSetup>> = [
     CycleCountDeterminations.WAREHOUSE_CODE,
+    CycleCountDeterminations.CYCLE_BY,
     CycleCountDeterminations.CYCLE_COUNT_DETERMINATION_SETUP_COLLECTION
   ];
   /**

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.InventoryCyclesRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var InventoryCycles_1 = require("./InventoryCycles");
 /**
  * Request builder class for operations supported on the [[InventoryCycles]] entity.
@@ -35,14 +35,14 @@ var InventoryCyclesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `InventoryCycles` entity based on its keys.
      */
     InventoryCyclesRequestBuilder.prototype.getByKey = function (cycleCode) {
-        return new v4_1.GetByKeyRequestBuilder(InventoryCycles_1.InventoryCycles, { CycleCode: cycleCode });
+        return new core_1.GetByKeyRequestBuilderV4(InventoryCycles_1.InventoryCycles, { CycleCode: cycleCode });
     };
     /**
      * Returns a request builder for querying all `InventoryCycles` entities.
      * @returns A request builder for creating requests to retrieve all `InventoryCycles` entities.
      */
     InventoryCyclesRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(InventoryCycles_1.InventoryCycles);
+        return new core_1.GetAllRequestBuilderV4(InventoryCycles_1.InventoryCycles);
     };
     /**
      * Returns a request builder for creating a `InventoryCycles` entity.
@@ -50,7 +50,7 @@ var InventoryCyclesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `InventoryCycles`.
      */
     InventoryCyclesRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(InventoryCycles_1.InventoryCycles, entity);
+        return new core_1.CreateRequestBuilderV4(InventoryCycles_1.InventoryCycles, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `InventoryCycles`.
@@ -58,12 +58,12 @@ var InventoryCyclesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `InventoryCycles`.
      */
     InventoryCyclesRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(InventoryCycles_1.InventoryCycles, entity);
+        return new core_1.UpdateRequestBuilderV4(InventoryCycles_1.InventoryCycles, entity);
     };
     InventoryCyclesRequestBuilder.prototype.delete = function (cycleCodeOrEntity) {
-        return new v4_1.DeleteRequestBuilder(InventoryCycles_1.InventoryCycles, cycleCodeOrEntity instanceof InventoryCycles_1.InventoryCycles ? cycleCodeOrEntity : { CycleCode: cycleCodeOrEntity });
+        return new core_1.DeleteRequestBuilderV4(InventoryCycles_1.InventoryCycles, cycleCodeOrEntity instanceof InventoryCycles_1.InventoryCycles ? cycleCodeOrEntity : { CycleCode: cycleCodeOrEntity });
     };
     return InventoryCyclesRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.InventoryCyclesRequestBuilder = InventoryCyclesRequestBuilder;
 //# sourceMappingURL=InventoryCyclesRequestBuilder.js.map

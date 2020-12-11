@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.IntrastatConfigurationRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var IntrastatConfiguration_1 = require("./IntrastatConfiguration");
 /**
  * Request builder class for operations supported on the [[IntrastatConfiguration]] entity.
@@ -35,14 +35,14 @@ var IntrastatConfigurationRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `IntrastatConfiguration` entity based on its keys.
      */
     IntrastatConfigurationRequestBuilder.prototype.getByKey = function (absEntry) {
-        return new v4_1.GetByKeyRequestBuilder(IntrastatConfiguration_1.IntrastatConfiguration, { AbsEntry: absEntry });
+        return new core_1.GetByKeyRequestBuilderV4(IntrastatConfiguration_1.IntrastatConfiguration, { AbsEntry: absEntry });
     };
     /**
      * Returns a request builder for querying all `IntrastatConfiguration` entities.
      * @returns A request builder for creating requests to retrieve all `IntrastatConfiguration` entities.
      */
     IntrastatConfigurationRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(IntrastatConfiguration_1.IntrastatConfiguration);
+        return new core_1.GetAllRequestBuilderV4(IntrastatConfiguration_1.IntrastatConfiguration);
     };
     /**
      * Returns a request builder for creating a `IntrastatConfiguration` entity.
@@ -50,7 +50,7 @@ var IntrastatConfigurationRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `IntrastatConfiguration`.
      */
     IntrastatConfigurationRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(IntrastatConfiguration_1.IntrastatConfiguration, entity);
+        return new core_1.CreateRequestBuilderV4(IntrastatConfiguration_1.IntrastatConfiguration, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `IntrastatConfiguration`.
@@ -58,12 +58,12 @@ var IntrastatConfigurationRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `IntrastatConfiguration`.
      */
     IntrastatConfigurationRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(IntrastatConfiguration_1.IntrastatConfiguration, entity);
+        return new core_1.UpdateRequestBuilderV4(IntrastatConfiguration_1.IntrastatConfiguration, entity);
     };
     IntrastatConfigurationRequestBuilder.prototype.delete = function (absEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(IntrastatConfiguration_1.IntrastatConfiguration, absEntryOrEntity instanceof IntrastatConfiguration_1.IntrastatConfiguration ? absEntryOrEntity : { AbsEntry: absEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(IntrastatConfiguration_1.IntrastatConfiguration, absEntryOrEntity instanceof IntrastatConfiguration_1.IntrastatConfiguration ? absEntryOrEntity : { AbsEntry: absEntryOrEntity });
     };
     return IntrastatConfigurationRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.IntrastatConfigurationRequestBuilder = IntrastatConfigurationRequestBuilder;
 //# sourceMappingURL=IntrastatConfigurationRequestBuilder.js.map

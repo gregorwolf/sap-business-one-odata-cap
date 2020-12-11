@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { NfTaxCategoriesRequestBuilder } from './NfTaxCategoriesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "NFTaxCategories" of service "SAPB1".
  */
-export class NfTaxCategories extends Entity implements NfTaxCategoriesType {
+export class NfTaxCategories extends EntityV4 implements NfTaxCategoriesType {
   /**
    * Technical entity name for NfTaxCategories.
    */
   static _entityName = 'NFTaxCategories';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for NfTaxCategories.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Abs Id.
    * @nullable
@@ -34,6 +30,11 @@ export class NfTaxCategories extends Entity implements NfTaxCategoriesType {
    */
   code?: string;
   /**
+   * Locked.
+   * @nullable
+   */
+  locked?: BoYesNoEnum;
+  /**
    * Gpc Id.
    * @nullable
    */
@@ -44,11 +45,11 @@ export class NfTaxCategories extends Entity implements NfTaxCategoriesType {
   govPayCode!: GovPayCodes;
 
   /**
-   * Returns an entity builder to construct instances `NfTaxCategories`.
+   * Returns an entity builder to construct instances of `NfTaxCategories`.
    * @returns A builder that constructs instances of entity type `NfTaxCategories`.
    */
-  static builder(): EntityBuilderType<NfTaxCategories, NfTaxCategoriesTypeForceMandatory> {
-    return Entity.entityBuilder(NfTaxCategories);
+  static builder(): EntityBuilderType<NfTaxCategories, NfTaxCategoriesType> {
+    return EntityV4.entityBuilder(NfTaxCategories);
   }
 
   /**
@@ -64,8 +65,8 @@ export class NfTaxCategories extends Entity implements NfTaxCategoriesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `NfTaxCategories`.
    */
-  static customField(fieldName: string): CustomField<NfTaxCategories> {
-    return Entity.customFieldSelector(fieldName, NfTaxCategories);
+  static customField(fieldName: string): CustomFieldV4<NfTaxCategories> {
+    return EntityV4.customFieldSelector(fieldName, NfTaxCategories);
   }
 
   /**
@@ -80,16 +81,10 @@ export class NfTaxCategories extends Entity implements NfTaxCategoriesType {
 import { GovPayCodes, GovPayCodesType } from './GovPayCodes';
 
 export interface NfTaxCategoriesType {
-  absId?: number;
-  code?: string;
-  gpcId?: number;
-  govPayCode: GovPayCodesType;
-}
-
-export interface NfTaxCategoriesTypeForceMandatory {
-  absId: number;
-  code: string;
-  gpcId: number;
+  absId?: number | null;
+  code?: string | null;
+  locked?: BoYesNoEnum | null;
+  gpcId?: number | null;
   govPayCode: GovPayCodesType;
 }
 
@@ -105,6 +100,11 @@ export namespace NfTaxCategories {
    */
   export const CODE: StringField<NfTaxCategories> = new StringField('Code', NfTaxCategories, 'Edm.String');
   /**
+   * Static representation of the [[locked]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LOCKED: EnumField<NfTaxCategories> = new EnumField('Locked', NfTaxCategories);
+  /**
    * Static representation of the [[gpcId]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -117,9 +117,10 @@ export namespace NfTaxCategories {
   /**
    * All fields of the NfTaxCategories entity.
    */
-  export const _allFields: Array<NumberField<NfTaxCategories> | StringField<NfTaxCategories> | OneToOneLink<NfTaxCategories, GovPayCodes>> = [
+  export const _allFields: Array<NumberField<NfTaxCategories> | StringField<NfTaxCategories> | EnumField<NfTaxCategories> | OneToOneLink<NfTaxCategories, GovPayCodes>> = [
     NfTaxCategories.ABS_ID,
     NfTaxCategories.CODE,
+    NfTaxCategories.LOCKED,
     NfTaxCategories.GPC_ID,
     NfTaxCategories.GOV_PAY_CODE
   ];

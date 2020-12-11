@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ServiceCallBpAddressComponent
@@ -152,7 +152,7 @@ export function createServiceCallBpAddressComponent(json: any): ServiceCallBpAdd
  * ServiceCallBpAddressComponentField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ServiceCallBpAddressComponentField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ServiceCallBpAddressComponentField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ServiceCallBpAddressComponent> {
   /**
    * Representation of the [[ServiceCallBpAddressComponent.shipToStreet]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -283,37 +283,158 @@ export class ServiceCallBpAddressComponentField<EntityT extends Entity> extends 
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   billToGlobalLocationNumber: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('BillToGlobalLocationNumber', this, 'Edm.String');
+
+  /**
+   * Creates an instance of ServiceCallBpAddressComponentField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ServiceCallBpAddressComponent);
+  }
 }
 
 export namespace ServiceCallBpAddressComponent {
+  /**
+   * Metadata information on all properties of the `ServiceCallBpAddressComponent` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ServiceCallBpAddressComponent>[] = [{
+    originalName: 'ShipToStreet',
+    name: 'shipToStreet',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShipToStreetNo',
+    name: 'shipToStreetNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShipToBlock',
+    name: 'shipToBlock',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShipToBuilding',
+    name: 'shipToBuilding',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShipToCity',
+    name: 'shipToCity',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShipToZipCode',
+    name: 'shipToZipCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShipToState',
+    name: 'shipToState',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShipToCounty',
+    name: 'shipToCounty',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShipToCountry',
+    name: 'shipToCountry',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShipToAddressType',
+    name: 'shipToAddressType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShipToAddress2',
+    name: 'shipToAddress2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShipToAddress3',
+    name: 'shipToAddress3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShipToGlobalLocationNumber',
+    name: 'shipToGlobalLocationNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BillToStreet',
+    name: 'billToStreet',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BillToStreetNo',
+    name: 'billToStreetNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BillToBlock',
+    name: 'billToBlock',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BillToBuilding',
+    name: 'billToBuilding',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BillToCity',
+    name: 'billToCity',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BillToZipCode',
+    name: 'billToZipCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BillToState',
+    name: 'billToState',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BillToCounty',
+    name: 'billToCounty',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BillToCountry',
+    name: 'billToCountry',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BillToAddressType',
+    name: 'billToAddressType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BillToAddress2',
+    name: 'billToAddress2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BillToAddress3',
+    name: 'billToAddress3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BillToGlobalLocationNumber',
+    name: 'billToGlobalLocationNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ServiceCallBpAddressComponent {
-    return createComplexType(json, {
-      ShipToStreet: (shipToStreet: string) => ({ shipToStreet: edmToTs(shipToStreet, 'Edm.String') }),
-      ShipToStreetNo: (shipToStreetNo: string) => ({ shipToStreetNo: edmToTs(shipToStreetNo, 'Edm.String') }),
-      ShipToBlock: (shipToBlock: string) => ({ shipToBlock: edmToTs(shipToBlock, 'Edm.String') }),
-      ShipToBuilding: (shipToBuilding: string) => ({ shipToBuilding: edmToTs(shipToBuilding, 'Edm.String') }),
-      ShipToCity: (shipToCity: string) => ({ shipToCity: edmToTs(shipToCity, 'Edm.String') }),
-      ShipToZipCode: (shipToZipCode: string) => ({ shipToZipCode: edmToTs(shipToZipCode, 'Edm.String') }),
-      ShipToState: (shipToState: string) => ({ shipToState: edmToTs(shipToState, 'Edm.String') }),
-      ShipToCounty: (shipToCounty: string) => ({ shipToCounty: edmToTs(shipToCounty, 'Edm.String') }),
-      ShipToCountry: (shipToCountry: string) => ({ shipToCountry: edmToTs(shipToCountry, 'Edm.String') }),
-      ShipToAddressType: (shipToAddressType: string) => ({ shipToAddressType: edmToTs(shipToAddressType, 'Edm.String') }),
-      ShipToAddress2: (shipToAddress2: string) => ({ shipToAddress2: edmToTs(shipToAddress2, 'Edm.String') }),
-      ShipToAddress3: (shipToAddress3: string) => ({ shipToAddress3: edmToTs(shipToAddress3, 'Edm.String') }),
-      ShipToGlobalLocationNumber: (shipToGlobalLocationNumber: string) => ({ shipToGlobalLocationNumber: edmToTs(shipToGlobalLocationNumber, 'Edm.String') }),
-      BillToStreet: (billToStreet: string) => ({ billToStreet: edmToTs(billToStreet, 'Edm.String') }),
-      BillToStreetNo: (billToStreetNo: string) => ({ billToStreetNo: edmToTs(billToStreetNo, 'Edm.String') }),
-      BillToBlock: (billToBlock: string) => ({ billToBlock: edmToTs(billToBlock, 'Edm.String') }),
-      BillToBuilding: (billToBuilding: string) => ({ billToBuilding: edmToTs(billToBuilding, 'Edm.String') }),
-      BillToCity: (billToCity: string) => ({ billToCity: edmToTs(billToCity, 'Edm.String') }),
-      BillToZipCode: (billToZipCode: string) => ({ billToZipCode: edmToTs(billToZipCode, 'Edm.String') }),
-      BillToState: (billToState: string) => ({ billToState: edmToTs(billToState, 'Edm.String') }),
-      BillToCounty: (billToCounty: string) => ({ billToCounty: edmToTs(billToCounty, 'Edm.String') }),
-      BillToCountry: (billToCountry: string) => ({ billToCountry: edmToTs(billToCountry, 'Edm.String') }),
-      BillToAddressType: (billToAddressType: string) => ({ billToAddressType: edmToTs(billToAddressType, 'Edm.String') }),
-      BillToAddress2: (billToAddress2: string) => ({ billToAddress2: edmToTs(billToAddress2, 'Edm.String') }),
-      BillToAddress3: (billToAddress3: string) => ({ billToAddress3: edmToTs(billToAddress3, 'Edm.String') }),
-      BillToGlobalLocationNumber: (billToGlobalLocationNumber: string) => ({ billToGlobalLocationNumber: edmToTs(billToGlobalLocationNumber, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, ServiceCallBpAddressComponent);
   }
 }

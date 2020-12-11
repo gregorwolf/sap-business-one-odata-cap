@@ -4,7 +4,8 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, Entity, FieldType, Time, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, Time, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * PmTimeSheetLineData
@@ -95,6 +96,11 @@ export interface PmTimeSheetLineData {
    * @nullable
    */
   billableTime?: Time;
+  /**
+   * Full Day.
+   * @nullable
+   */
+  fullDay?: BoYesNoEnum;
 }
 
 /**
@@ -108,7 +114,7 @@ export function createPmTimeSheetLineData(json: any): PmTimeSheetLineData {
  * PmTimeSheetLineDataField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class PmTimeSheetLineDataField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class PmTimeSheetLineDataField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PmTimeSheetLineData> {
   /**
    * Representation of the [[PmTimeSheetLineData.lineId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -194,28 +200,123 @@ export class PmTimeSheetLineDataField<EntityT extends Entity> extends ComplexTyp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   billableTime: ComplexTypeTimePropertyField<EntityT> = new ComplexTypeTimePropertyField('BillableTime', this, 'Edm.TimeOfDay');
+  /**
+   * Representation of the [[PmTimeSheetLineData.fullDay]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  fullDay: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('FullDay', this);
+
+  /**
+   * Creates an instance of PmTimeSheetLineDataField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, PmTimeSheetLineData);
+  }
 }
 
 export namespace PmTimeSheetLineData {
+  /**
+   * Metadata information on all properties of the `PmTimeSheetLineData` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<PmTimeSheetLineData>[] = [{
+    originalName: 'LineID',
+    name: 'lineId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Date',
+    name: 'date',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ActivityType',
+    name: 'activityType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LaborItem',
+    name: 'laborItem',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StartTime',
+    name: 'startTime',
+    type: 'Edm.TimeOfDay',
+    isCollection: false
+  }, {
+    originalName: 'EndTime',
+    name: 'endTime',
+    type: 'Edm.TimeOfDay',
+    isCollection: false
+  }, {
+    originalName: 'Workorder',
+    name: 'workorder',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ServiceCall',
+    name: 'serviceCall',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CostCenter',
+    name: 'costCenter',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FinancialProject',
+    name: 'financialProject',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Location',
+    name: 'location',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'GPSData',
+    name: 'gpsData',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Branch',
+    name: 'branch',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Break',
+    name: 'break',
+    type: 'Edm.TimeOfDay',
+    isCollection: false
+  }, {
+    originalName: 'NonBillableTime',
+    name: 'nonBillableTime',
+    type: 'Edm.TimeOfDay',
+    isCollection: false
+  }, {
+    originalName: 'EffectiveTime',
+    name: 'effectiveTime',
+    type: 'Edm.TimeOfDay',
+    isCollection: false
+  }, {
+    originalName: 'BillableTime',
+    name: 'billableTime',
+    type: 'Edm.TimeOfDay',
+    isCollection: false
+  }, {
+    originalName: 'FullDay',
+    name: 'fullDay',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): PmTimeSheetLineData {
-    return createComplexType(json, {
-      LineID: (lineId: number) => ({ lineId: edmToTs(lineId, 'Edm.Int32') }),
-      Date: (date: Moment) => ({ date: edmToTs(date, 'Edm.DateTimeOffset') }),
-      ActivityType: (activityType: number) => ({ activityType: edmToTs(activityType, 'Edm.Int32') }),
-      LaborItem: (laborItem: string) => ({ laborItem: edmToTs(laborItem, 'Edm.String') }),
-      StartTime: (startTime: Time) => ({ startTime: edmToTs(startTime, 'Edm.TimeOfDay') }),
-      EndTime: (endTime: Time) => ({ endTime: edmToTs(endTime, 'Edm.TimeOfDay') }),
-      Workorder: (workorder: number) => ({ workorder: edmToTs(workorder, 'Edm.Int32') }),
-      ServiceCall: (serviceCall: number) => ({ serviceCall: edmToTs(serviceCall, 'Edm.Int32') }),
-      CostCenter: (costCenter: string) => ({ costCenter: edmToTs(costCenter, 'Edm.String') }),
-      FinancialProject: (financialProject: string) => ({ financialProject: edmToTs(financialProject, 'Edm.String') }),
-      Location: (location: number) => ({ location: edmToTs(location, 'Edm.Int32') }),
-      GPSData: (gpsData: string) => ({ gpsData: edmToTs(gpsData, 'Edm.String') }),
-      Branch: (branch: number) => ({ branch: edmToTs(branch, 'Edm.Int32') }),
-      Break: (break: Time) => ({ break: edmToTs(break, 'Edm.TimeOfDay') }),
-        NonBillableTime: (nonBillableTime: Time) => ({ nonBillableTime: edmToTs(nonBillableTime, 'Edm.TimeOfDay') }),
-          EffectiveTime: (effectiveTime: Time) => ({ effectiveTime: edmToTs(effectiveTime, 'Edm.TimeOfDay') }),
-            BillableTime: (billableTime: Time) => ({ billableTime: edmToTs(billableTime, 'Edm.TimeOfDay') })
-  });
-}
+    return deserializeComplexTypeV4(json, PmTimeSheetLineData);
+  }
 }

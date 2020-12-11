@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * BillOfExchange
@@ -158,7 +158,7 @@ export function createBillOfExchange(json: any): BillOfExchange {
  * BillOfExchangeField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class BillOfExchangeField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class BillOfExchangeField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BillOfExchange> {
   /**
    * Representation of the [[BillOfExchange.billOfExchangeNo]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -294,38 +294,163 @@ export class BillOfExchangeField<EntityT extends Entity> extends ComplexTypeFiel
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   otherIncomesAmount: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('OtherIncomesAmount', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of BillOfExchangeField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, BillOfExchange);
+  }
 }
 
 export namespace BillOfExchange {
+  /**
+   * Metadata information on all properties of the `BillOfExchange` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<BillOfExchange>[] = [{
+    originalName: 'BillOfExchangeNo',
+    name: 'billOfExchangeNo',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BillOfExchangeDueDate',
+    name: 'billOfExchangeDueDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Details',
+    name: 'details',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ReferenceNo',
+    name: 'referenceNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Remarks',
+    name: 'remarks',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PaymentMethodCode',
+    name: 'paymentMethodCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPBankCode',
+    name: 'bpBankCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPBankAct',
+    name: 'bpBankAct',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPBankCountry',
+    name: 'bpBankCountry',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ControlKey',
+    name: 'controlKey',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PaymentEngineStatus1',
+    name: 'paymentEngineStatus1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PaymentEngineStatus2',
+    name: 'paymentEngineStatus2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PaymentEngineStatus3',
+    name: 'paymentEngineStatus3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StampTaxCode',
+    name: 'stampTaxCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StampTaxAmount',
+    name: 'stampTaxAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FolioNumber',
+    name: 'folioNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'FolioPrefixString',
+    name: 'folioPrefixString',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InterestAmount',
+    name: 'interestAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DiscountAmount',
+    name: 'discountAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FineAmount',
+    name: 'fineAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'InterestDate',
+    name: 'interestDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'DiscountDate',
+    name: 'discountDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'FineDate',
+    name: 'fineDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'IOFAmount',
+    name: 'iofAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ServiceFeeAmount',
+    name: 'serviceFeeAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'OtherExpensesAmount',
+    name: 'otherExpensesAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'OtherIncomesAmount',
+    name: 'otherIncomesAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): BillOfExchange {
-    return createComplexType(json, {
-      BillOfExchangeNo: (billOfExchangeNo: number) => ({ billOfExchangeNo: edmToTs(billOfExchangeNo, 'Edm.Int32') }),
-      BillOfExchangeDueDate: (billOfExchangeDueDate: Moment) => ({ billOfExchangeDueDate: edmToTs(billOfExchangeDueDate, 'Edm.DateTimeOffset') }),
-      Details: (details: string) => ({ details: edmToTs(details, 'Edm.String') }),
-      ReferenceNo: (referenceNo: string) => ({ referenceNo: edmToTs(referenceNo, 'Edm.String') }),
-      Remarks: (remarks: string) => ({ remarks: edmToTs(remarks, 'Edm.String') }),
-      PaymentMethodCode: (paymentMethodCode: string) => ({ paymentMethodCode: edmToTs(paymentMethodCode, 'Edm.String') }),
-      BPBankCode: (bpBankCode: string) => ({ bpBankCode: edmToTs(bpBankCode, 'Edm.String') }),
-      BPBankAct: (bpBankAct: string) => ({ bpBankAct: edmToTs(bpBankAct, 'Edm.String') }),
-      BPBankCountry: (bpBankCountry: string) => ({ bpBankCountry: edmToTs(bpBankCountry, 'Edm.String') }),
-      ControlKey: (controlKey: string) => ({ controlKey: edmToTs(controlKey, 'Edm.String') }),
-      PaymentEngineStatus1: (paymentEngineStatus1: string) => ({ paymentEngineStatus1: edmToTs(paymentEngineStatus1, 'Edm.String') }),
-      PaymentEngineStatus2: (paymentEngineStatus2: string) => ({ paymentEngineStatus2: edmToTs(paymentEngineStatus2, 'Edm.String') }),
-      PaymentEngineStatus3: (paymentEngineStatus3: string) => ({ paymentEngineStatus3: edmToTs(paymentEngineStatus3, 'Edm.String') }),
-      StampTaxCode: (stampTaxCode: string) => ({ stampTaxCode: edmToTs(stampTaxCode, 'Edm.String') }),
-      StampTaxAmount: (stampTaxAmount: number) => ({ stampTaxAmount: edmToTs(stampTaxAmount, 'Edm.Double') }),
-      FolioNumber: (folioNumber: number) => ({ folioNumber: edmToTs(folioNumber, 'Edm.Int32') }),
-      FolioPrefixString: (folioPrefixString: string) => ({ folioPrefixString: edmToTs(folioPrefixString, 'Edm.String') }),
-      InterestAmount: (interestAmount: number) => ({ interestAmount: edmToTs(interestAmount, 'Edm.Double') }),
-      DiscountAmount: (discountAmount: number) => ({ discountAmount: edmToTs(discountAmount, 'Edm.Double') }),
-      FineAmount: (fineAmount: number) => ({ fineAmount: edmToTs(fineAmount, 'Edm.Double') }),
-      InterestDate: (interestDate: Moment) => ({ interestDate: edmToTs(interestDate, 'Edm.DateTimeOffset') }),
-      DiscountDate: (discountDate: Moment) => ({ discountDate: edmToTs(discountDate, 'Edm.DateTimeOffset') }),
-      FineDate: (fineDate: Moment) => ({ fineDate: edmToTs(fineDate, 'Edm.DateTimeOffset') }),
-      IOFAmount: (iofAmount: number) => ({ iofAmount: edmToTs(iofAmount, 'Edm.Double') }),
-      ServiceFeeAmount: (serviceFeeAmount: number) => ({ serviceFeeAmount: edmToTs(serviceFeeAmount, 'Edm.Double') }),
-      OtherExpensesAmount: (otherExpensesAmount: number) => ({ otherExpensesAmount: edmToTs(otherExpensesAmount, 'Edm.Double') }),
-      OtherIncomesAmount: (otherIncomesAmount: number) => ({ otherIncomesAmount: edmToTs(otherIncomesAmount, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, BillOfExchange);
   }
 }

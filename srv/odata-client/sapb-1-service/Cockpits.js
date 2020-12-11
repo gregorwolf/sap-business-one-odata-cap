@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.Cockpits = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var CockpitsRequestBuilder_1 = require("./CockpitsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "Cockpits" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var Cockpits = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `Cockpits`.
+     * Returns an entity builder to construct instances of `Cockpits`.
      * @returns A builder that constructs instances of entity type `Cockpits`.
      */
     Cockpits.builder = function () {
-        return v4_1.Entity.entityBuilder(Cockpits);
+        return core_1.EntityV4.entityBuilder(Cockpits);
     };
     /**
      * Returns a request builder to construct requests for operations on the `Cockpits` entity type.
@@ -60,7 +60,7 @@ var Cockpits = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `Cockpits`.
      */
     Cockpits.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, Cockpits);
+        return core_1.EntityV4.customFieldSelector(fieldName, Cockpits);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var Cockpits = /** @class */ (function (_super) {
      */
     Cockpits._entityName = 'Cockpits';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Cockpits.
-     */
-    Cockpits._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    Cockpits._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    Cockpits._defaultServicePath = '/b1s/v2/';
     return Cockpits;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.Cockpits = Cockpits;
 var Users_1 = require("./Users");
 (function (Cockpits) {
@@ -91,52 +86,57 @@ var Users_1 = require("./Users");
      * Static representation of the [[absEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Cockpits.ABS_ENTRY = new v4_1.NumberField('AbsEntry', Cockpits, 'Edm.Int32');
+    Cockpits.ABS_ENTRY = new core_1.NumberField('AbsEntry', Cockpits, 'Edm.Int32');
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Cockpits.CODE = new v4_1.NumberField('Code', Cockpits, 'Edm.Int32');
+    Cockpits.CODE = new core_1.NumberField('Code', Cockpits, 'Edm.Int32');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Cockpits.NAME = new v4_1.StringField('Name', Cockpits, 'Edm.String');
+    Cockpits.NAME = new core_1.StringField('Name', Cockpits, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Cockpits.DESCRIPTION = new v4_1.StringField('Description', Cockpits, 'Edm.String');
+    Cockpits.DESCRIPTION = new core_1.StringField('Description', Cockpits, 'Edm.String');
     /**
      * Static representation of the [[userSignature]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Cockpits.USER_SIGNATURE = new v4_1.NumberField('UserSignature', Cockpits, 'Edm.Int32');
+    Cockpits.USER_SIGNATURE = new core_1.NumberField('UserSignature', Cockpits, 'Edm.Int32');
     /**
      * Static representation of the [[date]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Cockpits.DATE = new v4_1.DateField('Date', Cockpits, 'Edm.DateTimeOffset');
+    Cockpits.DATE = new core_1.DateField('Date', Cockpits, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[time]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Cockpits.TIME = new v4_1.TimeField('Time', Cockpits, 'Edm.TimeOfDay');
+    Cockpits.TIME = new core_1.TimeField('Time', Cockpits, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[manufacturer]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Cockpits.MANUFACTURER = new v4_1.StringField('Manufacturer', Cockpits, 'Edm.String');
+    Cockpits.MANUFACTURER = new core_1.StringField('Manufacturer', Cockpits, 'Edm.String');
     /**
      * Static representation of the [[publisher]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Cockpits.PUBLISHER = new v4_1.StringField('Publisher', Cockpits, 'Edm.String');
+    Cockpits.PUBLISHER = new core_1.StringField('Publisher', Cockpits, 'Edm.String');
+    /**
+     * Static representation of the [[cockpitType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Cockpits.COCKPIT_TYPE = new core_1.EnumField('CockpitType', Cockpits);
     /**
      * Static representation of the one-to-one navigation property [[user]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Cockpits.USER = new v4_1.OneToOneLink('User', Cockpits, Users_1.Users);
+    Cockpits.USER = new core_1.OneToOneLink('User', Cockpits, Users_1.Users);
     /**
      * All fields of the Cockpits entity.
      */
@@ -150,12 +150,13 @@ var Users_1 = require("./Users");
         Cockpits.TIME,
         Cockpits.MANUFACTURER,
         Cockpits.PUBLISHER,
+        Cockpits.COCKPIT_TYPE,
         Cockpits.USER
     ];
     /**
      * All fields selector.
      */
-    Cockpits.ALL_FIELDS = new v4_1.AllFields('*', Cockpits);
+    Cockpits.ALL_FIELDS = new core_1.AllFields('*', Cockpits);
     /**
      * All key fields of the Cockpits entity.
      */

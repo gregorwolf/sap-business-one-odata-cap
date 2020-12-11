@@ -4,7 +4,8 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ExtendedAdminInfo
@@ -71,6 +72,11 @@ export interface ExtendedAdminInfo {
    */
   declarerTypeCode?: number;
   /**
+   * Ipi Tax Contributor.
+   * @nullable
+   */
+  ipiTaxContributor?: BoYesNoEnum;
+  /**
    * Commercial Register.
    * @nullable
    */
@@ -91,6 +97,11 @@ export interface ExtendedAdminInfo {
    */
   environmentType?: number;
   /**
+   * Opting 4 Icms.
+   * @nullable
+   */
+  opting4Icms?: BoYesNoEnum;
+  /**
    * Okdp Number.
    * @nullable
    */
@@ -100,6 +111,11 @@ export interface ExtendedAdminInfo {
    * @nullable
    */
   globalLocationNumber?: string;
+  /**
+   * Enable Intrastat.
+   * @nullable
+   */
+  enableIntrastat?: BoYesNoEnum;
   /**
    * Authority User.
    * @nullable
@@ -120,6 +136,31 @@ export interface ExtendedAdminInfo {
    * @nullable
    */
   urLforInvoiceTypeService?: string;
+  /**
+   * Electronic Approval For Goods Trans Enabled.
+   * @nullable
+   */
+  electronicApprovalForGoodsTransEnabled?: BoYesNoEnum;
+  /**
+   * Electronic Approval For Invoice Enabled.
+   * @nullable
+   */
+  electronicApprovalForInvoiceEnabled?: BoYesNoEnum;
+  /**
+   * Allow Inactive Items In Inventory Opening Balance.
+   * @nullable
+   */
+  allowInactiveItemsInInventoryOpeningBalance?: BoYesNoEnum;
+  /**
+   * Allow Inactive Items In Inventory Counting And Posting.
+   * @nullable
+   */
+  allowInactiveItemsInInventoryCountingAndPosting?: BoYesNoEnum;
+  /**
+   * Auto Assign New Branch To Bp.
+   * @nullable
+   */
+  autoAssignNewBranchToBp?: BoYesNoEnum;
 }
 
 /**
@@ -133,7 +174,7 @@ export function createExtendedAdminInfo(json: any): ExtendedAdminInfo {
  * ExtendedAdminInfoField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ExtendedAdminInfoField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ExtendedAdminInfoField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ExtendedAdminInfo> {
   /**
    * Representation of the [[ExtendedAdminInfo.addressType]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -195,6 +236,11 @@ export class ExtendedAdminInfoField<EntityT extends Entity> extends ComplexTypeF
    */
   declarerTypeCode: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DeclarerTypeCode', this, 'Edm.Int32');
   /**
+   * Representation of the [[ExtendedAdminInfo.ipiTaxContributor]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  ipiTaxContributor: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IPITaxContributor', this);
+  /**
    * Representation of the [[ExtendedAdminInfo.commercialRegister]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -215,6 +261,11 @@ export class ExtendedAdminInfoField<EntityT extends Entity> extends ComplexTypeF
    */
   environmentType: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('EnvironmentType', this, 'Edm.Int32');
   /**
+   * Representation of the [[ExtendedAdminInfo.opting4Icms]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  opting4Icms: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Opting4ICMS', this);
+  /**
    * Representation of the [[ExtendedAdminInfo.okdpNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -224,6 +275,11 @@ export class ExtendedAdminInfoField<EntityT extends Entity> extends ComplexTypeF
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   globalLocationNumber: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('GlobalLocationNumber', this, 'Edm.String');
+  /**
+   * Representation of the [[ExtendedAdminInfo.enableIntrastat]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  enableIntrastat: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('EnableIntrastat', this);
   /**
    * Representation of the [[ExtendedAdminInfo.authorityUser]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -244,33 +300,203 @@ export class ExtendedAdminInfoField<EntityT extends Entity> extends ComplexTypeF
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   urLforInvoiceTypeService: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('URLforInvoiceTypeService', this, 'Edm.String');
+  /**
+   * Representation of the [[ExtendedAdminInfo.electronicApprovalForGoodsTransEnabled]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  electronicApprovalForGoodsTransEnabled: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ElectronicApprovalForGoodsTransEnabled', this);
+  /**
+   * Representation of the [[ExtendedAdminInfo.electronicApprovalForInvoiceEnabled]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  electronicApprovalForInvoiceEnabled: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ElectronicApprovalForInvoiceEnabled', this);
+  /**
+   * Representation of the [[ExtendedAdminInfo.allowInactiveItemsInInventoryOpeningBalance]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  allowInactiveItemsInInventoryOpeningBalance: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AllowInactiveItemsInInventoryOpeningBalance', this);
+  /**
+   * Representation of the [[ExtendedAdminInfo.allowInactiveItemsInInventoryCountingAndPosting]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  allowInactiveItemsInInventoryCountingAndPosting: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AllowInactiveItemsInInventoryCountingAndPosting', this);
+  /**
+   * Representation of the [[ExtendedAdminInfo.autoAssignNewBranchToBp]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  autoAssignNewBranchToBp: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AutoAssignNewBranchToBP', this);
+
+  /**
+   * Creates an instance of ExtendedAdminInfoField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ExtendedAdminInfo);
+  }
 }
 
 export namespace ExtendedAdminInfo {
+  /**
+   * Metadata information on all properties of the `ExtendedAdminInfo` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ExtendedAdminInfo>[] = [{
+    originalName: 'AddressType',
+    name: 'addressType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StreetNo',
+    name: 'streetNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'STDCode',
+    name: 'stdCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'STDCodeForeign',
+    name: 'stdCodeForeign',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'NatureOfCompanyCode',
+    name: 'natureOfCompanyCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'EconomicActivityTypeCode',
+    name: 'economicActivityTypeCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CreditContributionOriginCode',
+    name: 'creditContributionOriginCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'IPIPeriodCode',
+    name: 'ipiPeriodCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CooperativeAssociationTypeCode',
+    name: 'cooperativeAssociationTypeCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ProfitTaxationCode',
+    name: 'profitTaxationCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CompanyQualificationCode',
+    name: 'companyQualificationCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DeclarerTypeCode',
+    name: 'declarerTypeCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'IPITaxContributor',
+    name: 'ipiTaxContributor',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CommercialRegister',
+    name: 'commercialRegister',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DateOfIncorporation',
+    name: 'dateOfIncorporation',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'SPEDProfile',
+    name: 'spedProfile',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'EnvironmentType',
+    name: 'environmentType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Opting4ICMS',
+    name: 'opting4Icms',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'OKDPNumber',
+    name: 'okdpNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GlobalLocationNumber',
+    name: 'globalLocationNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'EnableIntrastat',
+    name: 'enableIntrastat',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AuthorityUser',
+    name: 'authorityUser',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AuthorityPassword',
+    name: 'authorityPassword',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'URLforGoodsTransportService',
+    name: 'urLforGoodsTransportService',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'URLforInvoiceTypeService',
+    name: 'urLforInvoiceTypeService',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ElectronicApprovalForGoodsTransEnabled',
+    name: 'electronicApprovalForGoodsTransEnabled',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ElectronicApprovalForInvoiceEnabled',
+    name: 'electronicApprovalForInvoiceEnabled',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AllowInactiveItemsInInventoryOpeningBalance',
+    name: 'allowInactiveItemsInInventoryOpeningBalance',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AllowInactiveItemsInInventoryCountingAndPosting',
+    name: 'allowInactiveItemsInInventoryCountingAndPosting',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AutoAssignNewBranchToBP',
+    name: 'autoAssignNewBranchToBp',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ExtendedAdminInfo {
-    return createComplexType(json, {
-      AddressType: (addressType: string) => ({ addressType: edmToTs(addressType, 'Edm.String') }),
-      StreetNo: (streetNo: string) => ({ streetNo: edmToTs(streetNo, 'Edm.String') }),
-      STDCode: (stdCode: number) => ({ stdCode: edmToTs(stdCode, 'Edm.Int32') }),
-      STDCodeForeign: (stdCodeForeign: number) => ({ stdCodeForeign: edmToTs(stdCodeForeign, 'Edm.Int32') }),
-      NatureOfCompanyCode: (natureOfCompanyCode: number) => ({ natureOfCompanyCode: edmToTs(natureOfCompanyCode, 'Edm.Int32') }),
-      EconomicActivityTypeCode: (economicActivityTypeCode: number) => ({ economicActivityTypeCode: edmToTs(economicActivityTypeCode, 'Edm.Int32') }),
-      CreditContributionOriginCode: (creditContributionOriginCode: string) => ({ creditContributionOriginCode: edmToTs(creditContributionOriginCode, 'Edm.String') }),
-      IPIPeriodCode: (ipiPeriodCode: string) => ({ ipiPeriodCode: edmToTs(ipiPeriodCode, 'Edm.String') }),
-      CooperativeAssociationTypeCode: (cooperativeAssociationTypeCode: number) => ({ cooperativeAssociationTypeCode: edmToTs(cooperativeAssociationTypeCode, 'Edm.Int32') }),
-      ProfitTaxationCode: (profitTaxationCode: number) => ({ profitTaxationCode: edmToTs(profitTaxationCode, 'Edm.Int32') }),
-      CompanyQualificationCode: (companyQualificationCode: number) => ({ companyQualificationCode: edmToTs(companyQualificationCode, 'Edm.Int32') }),
-      DeclarerTypeCode: (declarerTypeCode: number) => ({ declarerTypeCode: edmToTs(declarerTypeCode, 'Edm.Int32') }),
-      CommercialRegister: (commercialRegister: string) => ({ commercialRegister: edmToTs(commercialRegister, 'Edm.String') }),
-      DateOfIncorporation: (dateOfIncorporation: Moment) => ({ dateOfIncorporation: edmToTs(dateOfIncorporation, 'Edm.DateTimeOffset') }),
-      SPEDProfile: (spedProfile: string) => ({ spedProfile: edmToTs(spedProfile, 'Edm.String') }),
-      EnvironmentType: (environmentType: number) => ({ environmentType: edmToTs(environmentType, 'Edm.Int32') }),
-      OKDPNumber: (okdpNumber: string) => ({ okdpNumber: edmToTs(okdpNumber, 'Edm.String') }),
-      GlobalLocationNumber: (globalLocationNumber: string) => ({ globalLocationNumber: edmToTs(globalLocationNumber, 'Edm.String') }),
-      AuthorityUser: (authorityUser: string) => ({ authorityUser: edmToTs(authorityUser, 'Edm.String') }),
-      AuthorityPassword: (authorityPassword: string) => ({ authorityPassword: edmToTs(authorityPassword, 'Edm.String') }),
-      URLforGoodsTransportService: (urLforGoodsTransportService: string) => ({ urLforGoodsTransportService: edmToTs(urLforGoodsTransportService, 'Edm.String') }),
-      URLforInvoiceTypeService: (urLforInvoiceTypeService: string) => ({ urLforInvoiceTypeService: edmToTs(urLforInvoiceTypeService, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, ExtendedAdminInfo);
   }
 }

@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { BoeInstructionsRequestBuilder } from './BoeInstructionsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "BOEInstructions" of service "SAPB1".
  */
-export class BoeInstructions extends Entity implements BoeInstructionsType {
+export class BoeInstructions extends EntityV4 implements BoeInstructionsType {
   /**
    * Technical entity name for BoeInstructions.
    */
   static _entityName = 'BOEInstructions';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for BoeInstructions.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Instruction Entry.
    * @nullable
@@ -38,13 +34,18 @@ export class BoeInstructions extends Entity implements BoeInstructionsType {
    * @nullable
    */
   instructionDesc?: string;
+  /**
+   * Is Cancel Instruction.
+   * @nullable
+   */
+  isCancelInstruction?: BoYesNoEnum;
 
   /**
-   * Returns an entity builder to construct instances `BoeInstructions`.
+   * Returns an entity builder to construct instances of `BoeInstructions`.
    * @returns A builder that constructs instances of entity type `BoeInstructions`.
    */
-  static builder(): EntityBuilderType<BoeInstructions, BoeInstructionsTypeForceMandatory> {
-    return Entity.entityBuilder(BoeInstructions);
+  static builder(): EntityBuilderType<BoeInstructions, BoeInstructionsType> {
+    return EntityV4.entityBuilder(BoeInstructions);
   }
 
   /**
@@ -60,8 +61,8 @@ export class BoeInstructions extends Entity implements BoeInstructionsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `BoeInstructions`.
    */
-  static customField(fieldName: string): CustomField<BoeInstructions> {
-    return Entity.customFieldSelector(fieldName, BoeInstructions);
+  static customField(fieldName: string): CustomFieldV4<BoeInstructions> {
+    return EntityV4.customFieldSelector(fieldName, BoeInstructions);
   }
 
   /**
@@ -74,15 +75,10 @@ export class BoeInstructions extends Entity implements BoeInstructionsType {
 }
 
 export interface BoeInstructionsType {
-  instructionEntry?: number;
-  instructionCode?: string;
-  instructionDesc?: string;
-}
-
-export interface BoeInstructionsTypeForceMandatory {
-  instructionEntry: number;
-  instructionCode: string;
-  instructionDesc: string;
+  instructionEntry?: number | null;
+  instructionCode?: string | null;
+  instructionDesc?: string | null;
+  isCancelInstruction?: BoYesNoEnum | null;
 }
 
 export namespace BoeInstructions {
@@ -102,12 +98,18 @@ export namespace BoeInstructions {
    */
   export const INSTRUCTION_DESC: StringField<BoeInstructions> = new StringField('InstructionDesc', BoeInstructions, 'Edm.String');
   /**
+   * Static representation of the [[isCancelInstruction]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_CANCEL_INSTRUCTION: EnumField<BoeInstructions> = new EnumField('IsCancelInstruction', BoeInstructions);
+  /**
    * All fields of the BoeInstructions entity.
    */
-  export const _allFields: Array<NumberField<BoeInstructions> | StringField<BoeInstructions>> = [
+  export const _allFields: Array<NumberField<BoeInstructions> | StringField<BoeInstructions> | EnumField<BoeInstructions>> = [
     BoeInstructions.INSTRUCTION_ENTRY,
     BoeInstructions.INSTRUCTION_CODE,
-    BoeInstructions.INSTRUCTION_DESC
+    BoeInstructions.INSTRUCTION_DESC,
+    BoeInstructions.IS_CANCEL_INSTRUCTION
   ];
   /**
    * All fields selector.

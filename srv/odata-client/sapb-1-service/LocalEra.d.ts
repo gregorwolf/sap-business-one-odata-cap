@@ -1,19 +1,14 @@
 import { LocalEraRequestBuilder } from './LocalEraRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, Field, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "LocalEra" of service "SAPB1".
  */
-export declare class LocalEra extends Entity implements LocalEraType {
+export declare class LocalEra extends EntityV4 implements LocalEraType {
     /**
      * Technical entity name for LocalEra.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for LocalEra.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -34,10 +29,10 @@ export declare class LocalEra extends Entity implements LocalEraType {
      */
     code?: string;
     /**
-     * Returns an entity builder to construct instances `LocalEra`.
+     * Returns an entity builder to construct instances of `LocalEra`.
      * @returns A builder that constructs instances of entity type `LocalEra`.
      */
-    static builder(): EntityBuilderType<LocalEra, LocalEraTypeForceMandatory>;
+    static builder(): EntityBuilderType<LocalEra, LocalEraType>;
     /**
      * Returns a request builder to construct requests for operations on the `LocalEra` entity type.
      * @returns A `LocalEra` request builder.
@@ -48,7 +43,7 @@ export declare class LocalEra extends Entity implements LocalEraType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `LocalEra`.
      */
-    static customField(fieldName: string): CustomField<LocalEra>;
+    static customField(fieldName: string): CustomFieldV4<LocalEra>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -58,14 +53,9 @@ export declare class LocalEra extends Entity implements LocalEraType {
     };
 }
 export interface LocalEraType {
-    eraName?: string;
-    startDate?: Moment;
-    code?: string;
-}
-export interface LocalEraTypeForceMandatory {
-    eraName: string;
-    startDate: Moment;
-    code: string;
+    eraName?: string | null;
+    startDate?: Moment | null;
+    code?: string | null;
 }
 export declare namespace LocalEra {
     /**

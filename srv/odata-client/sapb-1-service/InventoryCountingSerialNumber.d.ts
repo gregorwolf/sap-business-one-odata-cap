@@ -1,5 +1,7 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { CounterTypeEnum } from './CounterTypeEnum';
+import { MultipleCounterRoleEnum } from './MultipleCounterRoleEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * InventoryCountingSerialNumber
  */
@@ -75,10 +77,20 @@ export interface InventoryCountingSerialNumber {
      */
     documentEntry?: number;
     /**
+     * Counter Type.
+     * @nullable
+     */
+    counterType?: CounterTypeEnum;
+    /**
      * Counter Id.
      * @nullable
      */
     counterId?: number;
+    /**
+     * Multiple Counter Role.
+     * @nullable
+     */
+    multipleCounterRole?: MultipleCounterRoleEnum;
     /**
      * Tracking Note.
      * @nullable
@@ -98,7 +110,7 @@ export declare function createInventoryCountingSerialNumber(json: any): Inventor
  * InventoryCountingSerialNumberField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class InventoryCountingSerialNumberField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class InventoryCountingSerialNumberField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, InventoryCountingSerialNumber> {
     /**
      * Representation of the [[InventoryCountingSerialNumber.manufacturerSerialNumber]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -170,10 +182,20 @@ export declare class InventoryCountingSerialNumberField<EntityT extends Entity> 
      */
     documentEntry: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[InventoryCountingSerialNumber.counterType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    counterType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[InventoryCountingSerialNumber.counterId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     counterId: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[InventoryCountingSerialNumber.multipleCounterRole]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    multipleCounterRole: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[InventoryCountingSerialNumber.trackingNote]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -184,8 +206,22 @@ export declare class InventoryCountingSerialNumberField<EntityT extends Entity> 
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     trackingNoteLine: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of InventoryCountingSerialNumberField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace InventoryCountingSerialNumber {
+    /**
+     * Metadata information on all properties of the `InventoryCountingSerialNumber` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<InventoryCountingSerialNumber>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): InventoryCountingSerialNumber;

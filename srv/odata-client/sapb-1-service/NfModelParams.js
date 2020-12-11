@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.NfModelParams = exports.NfModelParamsField = exports.createNfModelParams
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[NfModelParams.build]] instead.
  */
@@ -33,42 +33,70 @@ exports.createNfModelParams = createNfModelParams;
  */
 var NfModelParamsField = /** @class */ (function (_super) {
     __extends(NfModelParamsField, _super);
-    function NfModelParamsField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of NfModelParamsField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function NfModelParamsField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, NfModelParams) || this;
         /**
          * Representation of the [[NfModelParams.absEntry]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.absEntry = new v4_1.ComplexTypeStringPropertyField('AbsEntry', _this, 'Edm.String');
+        _this.absEntry = new core_1.ComplexTypeStringPropertyField('AbsEntry', _this, 'Edm.String');
         /**
          * Representation of the [[NfModelParams.nfmName]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.nfmName = new v4_1.ComplexTypeStringPropertyField('NFMName', _this, 'Edm.String');
+        _this.nfmName = new core_1.ComplexTypeStringPropertyField('NFMName', _this, 'Edm.String');
         /**
          * Representation of the [[NfModelParams.nfmDescription]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.nfmDescription = new v4_1.ComplexTypeStringPropertyField('NFMDescription', _this, 'Edm.String');
+        _this.nfmDescription = new core_1.ComplexTypeStringPropertyField('NFMDescription', _this, 'Edm.String');
         /**
          * Representation of the [[NfModelParams.nfmCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.nfmCode = new v4_1.ComplexTypeStringPropertyField('NFMCode', _this, 'Edm.String');
+        _this.nfmCode = new core_1.ComplexTypeStringPropertyField('NFMCode', _this, 'Edm.String');
         return _this;
     }
     return NfModelParamsField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.NfModelParamsField = NfModelParamsField;
 var NfModelParams;
 (function (NfModelParams) {
+    /**
+     * Metadata information on all properties of the `NfModelParams` complex type.
+     */
+    NfModelParams._propertyMetadata = [{
+            originalName: 'AbsEntry',
+            name: 'absEntry',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'NFMName',
+            name: 'nfmName',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'NFMDescription',
+            name: 'nfmDescription',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'NFMCode',
+            name: 'nfmCode',
+            type: 'Edm.String',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            AbsEntry: function (absEntry) { return ({ absEntry: v4_1.edmToTs(absEntry, 'Edm.String') }); },
-            NFMName: function (nfmName) { return ({ nfmName: v4_1.edmToTs(nfmName, 'Edm.String') }); },
-            NFMDescription: function (nfmDescription) { return ({ nfmDescription: v4_1.edmToTs(nfmDescription, 'Edm.String') }); },
-            NFMCode: function (nfmCode) { return ({ nfmCode: v4_1.edmToTs(nfmCode, 'Edm.String') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, NfModelParams);
     }
     NfModelParams.build = build;
 })(NfModelParams = exports.NfModelParams || (exports.NfModelParams = {}));

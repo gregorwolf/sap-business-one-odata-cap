@@ -1,18 +1,15 @@
 import { FormattedSearchesRequestBuilder } from './FormattedSearchesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoFormattedSearchActionEnum } from './BoFormattedSearchActionEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "FormattedSearches" of service "SAPB1".
  */
-export declare class FormattedSearches extends Entity implements FormattedSearchesType {
+export declare class FormattedSearches extends EntityV4 implements FormattedSearchesType {
     /**
      * Technical entity name for FormattedSearches.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for FormattedSearches.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -33,6 +30,11 @@ export declare class FormattedSearches extends Entity implements FormattedSearch
      */
     columnId?: string;
     /**
+     * Action.
+     * @nullable
+     */
+    action?: BoFormattedSearchActionEnum;
+    /**
      * Query Id.
      * @nullable
      */
@@ -43,15 +45,30 @@ export declare class FormattedSearches extends Entity implements FormattedSearch
      */
     index?: number;
     /**
+     * Refresh.
+     * @nullable
+     */
+    refresh?: BoYesNoEnum;
+    /**
      * Field Id.
      * @nullable
      */
     fieldId?: string;
     /**
-     * Returns an entity builder to construct instances `FormattedSearches`.
+     * Force Refresh.
+     * @nullable
+     */
+    forceRefresh?: BoYesNoEnum;
+    /**
+     * By Field.
+     * @nullable
+     */
+    byField?: BoYesNoEnum;
+    /**
+     * Returns an entity builder to construct instances of `FormattedSearches`.
      * @returns A builder that constructs instances of entity type `FormattedSearches`.
      */
-    static builder(): EntityBuilderType<FormattedSearches, FormattedSearchesTypeForceMandatory>;
+    static builder(): EntityBuilderType<FormattedSearches, FormattedSearchesType>;
     /**
      * Returns a request builder to construct requests for operations on the `FormattedSearches` entity type.
      * @returns A `FormattedSearches` request builder.
@@ -62,7 +79,7 @@ export declare class FormattedSearches extends Entity implements FormattedSearch
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `FormattedSearches`.
      */
-    static customField(fieldName: string): CustomField<FormattedSearches>;
+    static customField(fieldName: string): CustomFieldV4<FormattedSearches>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -72,20 +89,16 @@ export declare class FormattedSearches extends Entity implements FormattedSearch
     };
 }
 export interface FormattedSearchesType {
-    formId?: string;
-    itemId?: string;
-    columnId?: string;
-    queryId?: number;
-    index?: number;
-    fieldId?: string;
-}
-export interface FormattedSearchesTypeForceMandatory {
-    formId: string;
-    itemId: string;
-    columnId: string;
-    queryId: number;
-    index: number;
-    fieldId: string;
+    formId?: string | null;
+    itemId?: string | null;
+    columnId?: string | null;
+    action?: BoFormattedSearchActionEnum | null;
+    queryId?: number | null;
+    index?: number | null;
+    refresh?: BoYesNoEnum | null;
+    fieldId?: string | null;
+    forceRefresh?: BoYesNoEnum | null;
+    byField?: BoYesNoEnum | null;
 }
 export declare namespace FormattedSearches {
     /**
@@ -104,6 +117,11 @@ export declare namespace FormattedSearches {
      */
     const COLUMN_ID: StringField<FormattedSearches>;
     /**
+     * Static representation of the [[action]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ACTION: EnumField<FormattedSearches>;
+    /**
      * Static representation of the [[queryId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -114,14 +132,29 @@ export declare namespace FormattedSearches {
      */
     const INDEX: NumberField<FormattedSearches>;
     /**
+     * Static representation of the [[refresh]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REFRESH: EnumField<FormattedSearches>;
+    /**
      * Static representation of the [[fieldId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const FIELD_ID: StringField<FormattedSearches>;
     /**
+     * Static representation of the [[forceRefresh]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const FORCE_REFRESH: EnumField<FormattedSearches>;
+    /**
+     * Static representation of the [[byField]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BY_FIELD: EnumField<FormattedSearches>;
+    /**
      * All fields of the FormattedSearches entity.
      */
-    const _allFields: Array<StringField<FormattedSearches> | NumberField<FormattedSearches>>;
+    const _allFields: Array<StringField<FormattedSearches> | EnumField<FormattedSearches> | NumberField<FormattedSearches>>;
     /**
      * All fields selector.
      */

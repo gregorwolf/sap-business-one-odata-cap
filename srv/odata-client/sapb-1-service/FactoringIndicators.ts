@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { FactoringIndicatorsRequestBuilder } from './FactoringIndicatorsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "FactoringIndicators" of service "SAPB1".
  */
-export class FactoringIndicators extends Entity implements FactoringIndicatorsType {
+export class FactoringIndicators extends EntityV4 implements FactoringIndicatorsType {
   /**
    * Technical entity name for FactoringIndicators.
    */
   static _entityName = 'FactoringIndicators';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for FactoringIndicators.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Indicator Code.
    * @nullable
@@ -139,11 +134,11 @@ export class FactoringIndicators extends Entity implements FactoringIndicatorsTy
   goodsReturnRequest!: GoodsReturnRequest[];
 
   /**
-   * Returns an entity builder to construct instances `FactoringIndicators`.
+   * Returns an entity builder to construct instances of `FactoringIndicators`.
    * @returns A builder that constructs instances of entity type `FactoringIndicators`.
    */
-  static builder(): EntityBuilderType<FactoringIndicators, FactoringIndicatorsTypeForceMandatory> {
-    return Entity.entityBuilder(FactoringIndicators);
+  static builder(): EntityBuilderType<FactoringIndicators, FactoringIndicatorsType> {
+    return EntityV4.entityBuilder(FactoringIndicators);
   }
 
   /**
@@ -159,8 +154,8 @@ export class FactoringIndicators extends Entity implements FactoringIndicatorsTy
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `FactoringIndicators`.
    */
-  static customField(fieldName: string): CustomField<FactoringIndicators> {
-    return Entity.customFieldSelector(fieldName, FactoringIndicators);
+  static customField(fieldName: string): CustomFieldV4<FactoringIndicators> {
+    return EntityV4.customFieldSelector(fieldName, FactoringIndicators);
   }
 
   /**
@@ -200,39 +195,8 @@ import { PurchaseOrders, PurchaseOrdersType } from './PurchaseOrders';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 
 export interface FactoringIndicatorsType {
-  indicatorCode?: string;
-  indicatorName?: string;
-  inventoryGenEntries: InventoryGenEntriesType[];
-  purchaseQuotations: PurchaseQuotationsType[];
-  journalEntries: JournalEntriesType[];
-  deliveryNotes: DeliveryNotesType[];
-  businessPartners: BusinessPartnersType[];
-  quotations: QuotationsType[];
-  inventoryGenExits: InventoryGenExitsType[];
-  purchaseRequests: PurchaseRequestsType[];
-  returnRequest: ReturnRequestType[];
-  purchaseReturns: PurchaseReturnsType[];
-  invoices: InvoicesType[];
-  creditNotes: CreditNotesType[];
-  orders: OrdersType[];
-  downPayments: DownPaymentsType[];
-  drafts: DraftsType[];
-  returns: ReturnsType[];
-  correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-  correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-  correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-  purchaseInvoices: PurchaseInvoicesType[];
-  purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-  correctionInvoice: CorrectionInvoiceType[];
-  purchaseCreditNotes: PurchaseCreditNotesType[];
-  purchaseDownPayments: PurchaseDownPaymentsType[];
-  purchaseOrders: PurchaseOrdersType[];
-  goodsReturnRequest: GoodsReturnRequestType[];
-}
-
-export interface FactoringIndicatorsTypeForceMandatory {
-  indicatorCode: string;
-  indicatorName: string;
+  indicatorCode?: string | null;
+  indicatorName?: string | null;
   inventoryGenEntries: InventoryGenEntriesType[];
   purchaseQuotations: PurchaseQuotationsType[];
   journalEntries: JournalEntriesType[];

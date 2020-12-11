@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.QueryCategories = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var QueryCategoriesRequestBuilder_1 = require("./QueryCategoriesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "QueryCategories" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var QueryCategories = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `QueryCategories`.
+     * Returns an entity builder to construct instances of `QueryCategories`.
      * @returns A builder that constructs instances of entity type `QueryCategories`.
      */
     QueryCategories.builder = function () {
-        return v4_1.Entity.entityBuilder(QueryCategories);
+        return core_1.EntityV4.entityBuilder(QueryCategories);
     };
     /**
      * Returns a request builder to construct requests for operations on the `QueryCategories` entity type.
@@ -60,7 +60,7 @@ var QueryCategories = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `QueryCategories`.
      */
     QueryCategories.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, QueryCategories);
+        return core_1.EntityV4.customFieldSelector(fieldName, QueryCategories);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var QueryCategories = /** @class */ (function (_super) {
      */
     QueryCategories._entityName = 'QueryCategories';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for QueryCategories.
-     */
-    QueryCategories._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    QueryCategories._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    QueryCategories._defaultServicePath = '/b1s/v2/';
     return QueryCategories;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.QueryCategories = QueryCategories;
 var UserQueries_1 = require("./UserQueries");
 (function (QueryCategories) {
@@ -91,22 +86,22 @@ var UserQueries_1 = require("./UserQueries");
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    QueryCategories.CODE = new v4_1.NumberField('Code', QueryCategories, 'Edm.Int32');
+    QueryCategories.CODE = new core_1.NumberField('Code', QueryCategories, 'Edm.Int32');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    QueryCategories.NAME = new v4_1.StringField('Name', QueryCategories, 'Edm.String');
+    QueryCategories.NAME = new core_1.StringField('Name', QueryCategories, 'Edm.String');
     /**
      * Static representation of the [[permissions]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    QueryCategories.PERMISSIONS = new v4_1.StringField('Permissions', QueryCategories, 'Edm.String');
+    QueryCategories.PERMISSIONS = new core_1.StringField('Permissions', QueryCategories, 'Edm.String');
     /**
      * Static representation of the one-to-many navigation property [[userQueries]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    QueryCategories.USER_QUERIES = new v4_1.OneToManyLink('UserQueries', QueryCategories, UserQueries_1.UserQueries);
+    QueryCategories.USER_QUERIES = new core_1.OneToManyLink('UserQueries', QueryCategories, UserQueries_1.UserQueries);
     /**
      * All fields of the QueryCategories entity.
      */
@@ -119,7 +114,7 @@ var UserQueries_1 = require("./UserQueries");
     /**
      * All fields selector.
      */
-    QueryCategories.ALL_FIELDS = new v4_1.AllFields('*', QueryCategories);
+    QueryCategories.ALL_FIELDS = new core_1.AllFields('*', QueryCategories);
     /**
      * All key fields of the QueryCategories entity.
      */

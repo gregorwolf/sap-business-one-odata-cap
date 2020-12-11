@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.InventoryPostings = void 0;
  */
 var InventoryPostingsRequestBuilder_1 = require("./InventoryPostingsRequestBuilder");
 var InventoryPostingLine_1 = require("./InventoryPostingLine");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "InventoryPostings" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var InventoryPostings = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `InventoryPostings`.
+     * Returns an entity builder to construct instances of `InventoryPostings`.
      * @returns A builder that constructs instances of entity type `InventoryPostings`.
      */
     InventoryPostings.builder = function () {
-        return v4_1.Entity.entityBuilder(InventoryPostings);
+        return core_1.EntityV4.entityBuilder(InventoryPostings);
     };
     /**
      * Returns a request builder to construct requests for operations on the `InventoryPostings` entity type.
@@ -61,7 +61,7 @@ var InventoryPostings = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `InventoryPostings`.
      */
     InventoryPostings.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, InventoryPostings);
+        return core_1.EntityV4.customFieldSelector(fieldName, InventoryPostings);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,16 +75,11 @@ var InventoryPostings = /** @class */ (function (_super) {
      */
     InventoryPostings._entityName = 'InventoryPostings';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for InventoryPostings.
-     */
-    InventoryPostings._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    InventoryPostings._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    InventoryPostings._defaultServicePath = '/b1s/v2/';
     return InventoryPostings;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.InventoryPostings = InventoryPostings;
 var BusinessPlaces_1 = require("./BusinessPlaces");
 (function (InventoryPostings) {
@@ -92,82 +87,87 @@ var BusinessPlaces_1 = require("./BusinessPlaces");
      * Static representation of the [[documentEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryPostings.DOCUMENT_ENTRY = new v4_1.NumberField('DocumentEntry', InventoryPostings, 'Edm.Int32');
+    InventoryPostings.DOCUMENT_ENTRY = new core_1.NumberField('DocumentEntry', InventoryPostings, 'Edm.Int32');
     /**
      * Static representation of the [[documentNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryPostings.DOCUMENT_NUMBER = new v4_1.NumberField('DocumentNumber', InventoryPostings, 'Edm.Int32');
+    InventoryPostings.DOCUMENT_NUMBER = new core_1.NumberField('DocumentNumber', InventoryPostings, 'Edm.Int32');
     /**
      * Static representation of the [[series]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryPostings.SERIES = new v4_1.NumberField('Series', InventoryPostings, 'Edm.Int32');
+    InventoryPostings.SERIES = new core_1.NumberField('Series', InventoryPostings, 'Edm.Int32');
     /**
      * Static representation of the [[postingDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryPostings.POSTING_DATE = new v4_1.DateField('PostingDate', InventoryPostings, 'Edm.DateTimeOffset');
+    InventoryPostings.POSTING_DATE = new core_1.DateField('PostingDate', InventoryPostings, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[countDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryPostings.COUNT_DATE = new v4_1.DateField('CountDate', InventoryPostings, 'Edm.DateTimeOffset');
+    InventoryPostings.COUNT_DATE = new core_1.DateField('CountDate', InventoryPostings, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[countTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryPostings.COUNT_TIME = new v4_1.TimeField('CountTime', InventoryPostings, 'Edm.TimeOfDay');
+    InventoryPostings.COUNT_TIME = new core_1.TimeField('CountTime', InventoryPostings, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[remarks]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryPostings.REMARKS = new v4_1.StringField('Remarks', InventoryPostings, 'Edm.String');
+    InventoryPostings.REMARKS = new core_1.StringField('Remarks', InventoryPostings, 'Edm.String');
     /**
      * Static representation of the [[reference2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryPostings.REFERENCE_2 = new v4_1.StringField('Reference2', InventoryPostings, 'Edm.String');
+    InventoryPostings.REFERENCE_2 = new core_1.StringField('Reference2', InventoryPostings, 'Edm.String');
     /**
      * Static representation of the [[branchId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryPostings.BRANCH_ID = new v4_1.NumberField('BranchID', InventoryPostings, 'Edm.Int32');
+    InventoryPostings.BRANCH_ID = new core_1.NumberField('BranchID', InventoryPostings, 'Edm.Int32');
+    /**
+     * Static representation of the [[priceSource]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    InventoryPostings.PRICE_SOURCE = new core_1.EnumField('PriceSource', InventoryPostings);
     /**
      * Static representation of the [[priceList]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryPostings.PRICE_LIST = new v4_1.NumberField('PriceList', InventoryPostings, 'Edm.Int32');
+    InventoryPostings.PRICE_LIST = new core_1.NumberField('PriceList', InventoryPostings, 'Edm.Int32');
     /**
      * Static representation of the [[journalRemark]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryPostings.JOURNAL_REMARK = new v4_1.StringField('JournalRemark', InventoryPostings, 'Edm.String');
+    InventoryPostings.JOURNAL_REMARK = new core_1.StringField('JournalRemark', InventoryPostings, 'Edm.String');
     /**
      * Static representation of the [[docObjectCodeEx]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryPostings.DOC_OBJECT_CODE_EX = new v4_1.StringField('DocObjectCodeEx', InventoryPostings, 'Edm.String');
+    InventoryPostings.DOC_OBJECT_CODE_EX = new core_1.StringField('DocObjectCodeEx', InventoryPostings, 'Edm.String');
     /**
      * Static representation of the [[financialPeriod]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryPostings.FINANCIAL_PERIOD = new v4_1.NumberField('FinancialPeriod', InventoryPostings, 'Edm.Int32');
+    InventoryPostings.FINANCIAL_PERIOD = new core_1.NumberField('FinancialPeriod', InventoryPostings, 'Edm.Int32');
     /**
      * Static representation of the [[periodIndicator]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryPostings.PERIOD_INDICATOR = new v4_1.StringField('PeriodIndicator', InventoryPostings, 'Edm.String');
+    InventoryPostings.PERIOD_INDICATOR = new core_1.StringField('PeriodIndicator', InventoryPostings, 'Edm.String');
     /**
      * Static representation of the [[inventoryPostingLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryPostings.INVENTORY_POSTING_LINES = new v4_1.CollectionField('InventoryPostingLines', InventoryPostings, new InventoryPostingLine_1.InventoryPostingLineField('', InventoryPostings));
+    InventoryPostings.INVENTORY_POSTING_LINES = new core_1.CollectionField('InventoryPostingLines', InventoryPostings, InventoryPostingLine_1.InventoryPostingLine);
     /**
      * Static representation of the one-to-one navigation property [[businessPlace]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    InventoryPostings.BUSINESS_PLACE = new v4_1.OneToOneLink('BusinessPlace', InventoryPostings, BusinessPlaces_1.BusinessPlaces);
+    InventoryPostings.BUSINESS_PLACE = new core_1.OneToOneLink('BusinessPlace', InventoryPostings, BusinessPlaces_1.BusinessPlaces);
     /**
      * All fields of the InventoryPostings entity.
      */
@@ -181,6 +181,7 @@ var BusinessPlaces_1 = require("./BusinessPlaces");
         InventoryPostings.REMARKS,
         InventoryPostings.REFERENCE_2,
         InventoryPostings.BRANCH_ID,
+        InventoryPostings.PRICE_SOURCE,
         InventoryPostings.PRICE_LIST,
         InventoryPostings.JOURNAL_REMARK,
         InventoryPostings.DOC_OBJECT_CODE_EX,
@@ -192,7 +193,7 @@ var BusinessPlaces_1 = require("./BusinessPlaces");
     /**
      * All fields selector.
      */
-    InventoryPostings.ALL_FIELDS = new v4_1.AllFields('*', InventoryPostings);
+    InventoryPostings.ALL_FIELDS = new core_1.AllFields('*', InventoryPostings);
     /**
      * All key fields of the InventoryPostings entity.
      */

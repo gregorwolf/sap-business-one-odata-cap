@@ -2,20 +2,16 @@ import { TrackingNotesRequestBuilder } from './TrackingNotesRequestBuilder';
 import { Moment } from 'moment';
 import { TrackingNoteItem } from './TrackingNoteItem';
 import { TrackingNoteBroker } from './TrackingNoteBroker';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "TrackingNotes" of service "SAPB1".
  */
-export declare class TrackingNotes extends Entity implements TrackingNotesType {
+export declare class TrackingNotes extends EntityV4 implements TrackingNotesType {
     /**
      * Technical entity name for TrackingNotes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for TrackingNotes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -46,6 +42,11 @@ export declare class TrackingNotes extends Entity implements TrackingNotesType {
      */
     countryOfOrigin?: string;
     /**
+     * Is Direct Import.
+     * @nullable
+     */
+    isDirectImport?: BoYesNoEnum;
+    /**
      * Tracking Note Item Collection.
      * @nullable
      */
@@ -56,10 +57,10 @@ export declare class TrackingNotes extends Entity implements TrackingNotesType {
      */
     trackingNoteBrokerCollection?: TrackingNoteBroker[];
     /**
-     * Returns an entity builder to construct instances `TrackingNotes`.
+     * Returns an entity builder to construct instances of `TrackingNotes`.
      * @returns A builder that constructs instances of entity type `TrackingNotes`.
      */
-    static builder(): EntityBuilderType<TrackingNotes, TrackingNotesTypeForceMandatory>;
+    static builder(): EntityBuilderType<TrackingNotes, TrackingNotesType>;
     /**
      * Returns a request builder to construct requests for operations on the `TrackingNotes` entity type.
      * @returns A `TrackingNotes` request builder.
@@ -70,7 +71,7 @@ export declare class TrackingNotes extends Entity implements TrackingNotesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `TrackingNotes`.
      */
-    static customField(fieldName: string): CustomField<TrackingNotes>;
+    static customField(fieldName: string): CustomFieldV4<TrackingNotes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -80,22 +81,14 @@ export declare class TrackingNotes extends Entity implements TrackingNotesType {
     };
 }
 export interface TrackingNotesType {
-    trackingNoteNumber?: number;
-    ccdNumber?: string;
-    date?: Moment;
-    customsTerminal?: string;
-    countryOfOrigin?: string;
-    trackingNoteItemCollection?: TrackingNoteItem[];
-    trackingNoteBrokerCollection?: TrackingNoteBroker[];
-}
-export interface TrackingNotesTypeForceMandatory {
-    trackingNoteNumber: number;
-    ccdNumber: string;
-    date: Moment;
-    customsTerminal: string;
-    countryOfOrigin: string;
-    trackingNoteItemCollection: TrackingNoteItem[];
-    trackingNoteBrokerCollection: TrackingNoteBroker[];
+    trackingNoteNumber?: number | null;
+    ccdNumber?: string | null;
+    date?: Moment | null;
+    customsTerminal?: string | null;
+    countryOfOrigin?: string | null;
+    isDirectImport?: BoYesNoEnum | null;
+    trackingNoteItemCollection?: TrackingNoteItem[] | null;
+    trackingNoteBrokerCollection?: TrackingNoteBroker[] | null;
 }
 export declare namespace TrackingNotes {
     /**
@@ -124,19 +117,24 @@ export declare namespace TrackingNotes {
      */
     const COUNTRY_OF_ORIGIN: StringField<TrackingNotes>;
     /**
+     * Static representation of the [[isDirectImport]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IS_DIRECT_IMPORT: EnumField<TrackingNotes>;
+    /**
      * Static representation of the [[trackingNoteItemCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const TRACKING_NOTE_ITEM_COLLECTION: CollectionField<TrackingNotes>;
+    const TRACKING_NOTE_ITEM_COLLECTION: CollectionField<TrackingNotes, TrackingNoteItem>;
     /**
      * Static representation of the [[trackingNoteBrokerCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const TRACKING_NOTE_BROKER_COLLECTION: CollectionField<TrackingNotes>;
+    const TRACKING_NOTE_BROKER_COLLECTION: CollectionField<TrackingNotes, TrackingNoteBroker>;
     /**
      * All fields of the TrackingNotes entity.
      */
-    const _allFields: Array<NumberField<TrackingNotes> | StringField<TrackingNotes> | DateField<TrackingNotes> | CollectionField<TrackingNotes>>;
+    const _allFields: Array<NumberField<TrackingNotes> | StringField<TrackingNotes> | DateField<TrackingNotes> | EnumField<TrackingNotes> | CollectionField<TrackingNotes, TrackingNoteItem> | CollectionField<TrackingNotes, TrackingNoteBroker>>;
     /**
      * All fields selector.
      */

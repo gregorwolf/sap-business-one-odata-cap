@@ -4,26 +4,27 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { DunningTermsRequestBuilder } from './DunningTermsRequestBuilder';
-import { DunningTermLine, DunningTermLineField } from './DunningTermLine';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { DunningTermLine } from './DunningTermLine';
+import { GroupingMethodEnum } from './GroupingMethodEnum';
+import { CalculateInterestMethodEnum } from './CalculateInterestMethodEnum';
+import { ExchangeRateSelectEnum } from './ExchangeRateSelectEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AutomaticPostingEnum } from './AutomaticPostingEnum';
+import { BaseDateSelectEnum } from './BaseDateSelectEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "DunningTerms" of service "SAPB1".
  */
-export class DunningTerms extends Entity implements DunningTermsType {
+export class DunningTerms extends EntityV4 implements DunningTermsType {
   /**
    * Technical entity name for DunningTerms.
    */
   static _entityName = 'DunningTerms';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for DunningTerms.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -35,6 +36,11 @@ export class DunningTerms extends Entity implements DunningTermsType {
    */
   name?: string;
   /**
+   * Grouping Method.
+   * @nullable
+   */
+  groupingMethod?: GroupingMethodEnum;
+  /**
    * Days In Year.
    * @nullable
    */
@@ -44,6 +50,16 @@ export class DunningTerms extends Entity implements DunningTermsType {
    * @nullable
    */
   daysInMonth?: number;
+  /**
+   * Calculate Interest Method.
+   * @nullable
+   */
+  calculateInterestMethod?: CalculateInterestMethodEnum;
+  /**
+   * Exchange Rate Select.
+   * @nullable
+   */
+  exchangeRateSelect?: ExchangeRateSelectEnum;
   /**
    * Yearly Interest Rate.
    * @nullable
@@ -70,6 +86,21 @@ export class DunningTerms extends Entity implements DunningTermsType {
    */
   minimumBalanceCurrency?: string;
   /**
+   * Include Interest.
+   * @nullable
+   */
+  includeInterest?: BoYesNoEnum;
+  /**
+   * Apply Highest Letter Template.
+   * @nullable
+   */
+  applyHighestLetterTemplate?: BoYesNoEnum;
+  /**
+   * Automatic Posting.
+   * @nullable
+   */
+  automaticPosting?: AutomaticPostingEnum;
+  /**
    * Interest Account.
    * @nullable
    */
@@ -79,6 +110,11 @@ export class DunningTerms extends Entity implements DunningTermsType {
    * @nullable
    */
   feeAccount?: string;
+  /**
+   * Base Date Select.
+   * @nullable
+   */
+  baseDateSelect?: BaseDateSelectEnum;
   /**
    * Dunning Term Lines.
    * @nullable
@@ -94,11 +130,11 @@ export class DunningTerms extends Entity implements DunningTermsType {
   chartOfAccount!: ChartOfAccounts;
 
   /**
-   * Returns an entity builder to construct instances `DunningTerms`.
+   * Returns an entity builder to construct instances of `DunningTerms`.
    * @returns A builder that constructs instances of entity type `DunningTerms`.
    */
-  static builder(): EntityBuilderType<DunningTerms, DunningTermsTypeForceMandatory> {
-    return Entity.entityBuilder(DunningTerms);
+  static builder(): EntityBuilderType<DunningTerms, DunningTermsType> {
+    return EntityV4.entityBuilder(DunningTerms);
   }
 
   /**
@@ -114,8 +150,8 @@ export class DunningTerms extends Entity implements DunningTermsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `DunningTerms`.
    */
-  static customField(fieldName: string): CustomField<DunningTerms> {
-    return Entity.customFieldSelector(fieldName, DunningTerms);
+  static customField(fieldName: string): CustomFieldV4<DunningTerms> {
+    return EntityV4.customFieldSelector(fieldName, DunningTerms);
   }
 
   /**
@@ -131,35 +167,25 @@ import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 import { ChartOfAccounts, ChartOfAccountsType } from './ChartOfAccounts';
 
 export interface DunningTermsType {
-  code?: string;
-  name?: string;
-  daysInYear?: number;
-  daysInMonth?: number;
-  yearlyInterestRate?: number;
-  letterFee?: number;
-  letterFeeCurrency?: string;
-  minimumBalance?: number;
-  minimumBalanceCurrency?: string;
-  interestAccount?: string;
-  feeAccount?: string;
-  dunningTermLines?: DunningTermLine[];
-  businessPartners: BusinessPartnersType[];
-  chartOfAccount: ChartOfAccountsType;
-}
-
-export interface DunningTermsTypeForceMandatory {
-  code: string;
-  name: string;
-  daysInYear: number;
-  daysInMonth: number;
-  yearlyInterestRate: number;
-  letterFee: number;
-  letterFeeCurrency: string;
-  minimumBalance: number;
-  minimumBalanceCurrency: string;
-  interestAccount: string;
-  feeAccount: string;
-  dunningTermLines: DunningTermLine[];
+  code?: string | null;
+  name?: string | null;
+  groupingMethod?: GroupingMethodEnum | null;
+  daysInYear?: number | null;
+  daysInMonth?: number | null;
+  calculateInterestMethod?: CalculateInterestMethodEnum | null;
+  exchangeRateSelect?: ExchangeRateSelectEnum | null;
+  yearlyInterestRate?: number | null;
+  letterFee?: number | null;
+  letterFeeCurrency?: string | null;
+  minimumBalance?: number | null;
+  minimumBalanceCurrency?: string | null;
+  includeInterest?: BoYesNoEnum | null;
+  applyHighestLetterTemplate?: BoYesNoEnum | null;
+  automaticPosting?: AutomaticPostingEnum | null;
+  interestAccount?: string | null;
+  feeAccount?: string | null;
+  baseDateSelect?: BaseDateSelectEnum | null;
+  dunningTermLines?: DunningTermLine[] | null;
   businessPartners: BusinessPartnersType[];
   chartOfAccount: ChartOfAccountsType;
 }
@@ -176,6 +202,11 @@ export namespace DunningTerms {
    */
   export const NAME: StringField<DunningTerms> = new StringField('Name', DunningTerms, 'Edm.String');
   /**
+   * Static representation of the [[groupingMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const GROUPING_METHOD: EnumField<DunningTerms> = new EnumField('GroupingMethod', DunningTerms);
+  /**
    * Static representation of the [[daysInYear]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -185,6 +216,16 @@ export namespace DunningTerms {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DAYS_IN_MONTH: NumberField<DunningTerms> = new NumberField('DaysInMonth', DunningTerms, 'Edm.Int32');
+  /**
+   * Static representation of the [[calculateInterestMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CALCULATE_INTEREST_METHOD: EnumField<DunningTerms> = new EnumField('CalculateInterestMethod', DunningTerms);
+  /**
+   * Static representation of the [[exchangeRateSelect]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const EXCHANGE_RATE_SELECT: EnumField<DunningTerms> = new EnumField('ExchangeRateSelect', DunningTerms);
   /**
    * Static representation of the [[yearlyInterestRate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -211,6 +252,21 @@ export namespace DunningTerms {
    */
   export const MINIMUM_BALANCE_CURRENCY: StringField<DunningTerms> = new StringField('MinimumBalanceCurrency', DunningTerms, 'Edm.String');
   /**
+   * Static representation of the [[includeInterest]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INCLUDE_INTEREST: EnumField<DunningTerms> = new EnumField('IncludeInterest', DunningTerms);
+  /**
+   * Static representation of the [[applyHighestLetterTemplate]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const APPLY_HIGHEST_LETTER_TEMPLATE: EnumField<DunningTerms> = new EnumField('ApplyHighestLetterTemplate', DunningTerms);
+  /**
+   * Static representation of the [[automaticPosting]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const AUTOMATIC_POSTING: EnumField<DunningTerms> = new EnumField('AutomaticPosting', DunningTerms);
+  /**
    * Static representation of the [[interestAccount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -221,10 +277,15 @@ export namespace DunningTerms {
    */
   export const FEE_ACCOUNT: StringField<DunningTerms> = new StringField('FeeAccount', DunningTerms, 'Edm.String');
   /**
+   * Static representation of the [[baseDateSelect]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BASE_DATE_SELECT: EnumField<DunningTerms> = new EnumField('BaseDateSelect', DunningTerms);
+  /**
    * Static representation of the [[dunningTermLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DUNNING_TERM_LINES: CollectionField<DunningTerms> = new CollectionField('DunningTermLines', DunningTerms, new DunningTermLineField('', DunningTerms));
+  export const DUNNING_TERM_LINES: CollectionField<DunningTerms, DunningTermLine> = new CollectionField('DunningTermLines', DunningTerms, DunningTermLine);
   /**
    * Static representation of the one-to-many navigation property [[businessPartners]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -238,18 +299,25 @@ export namespace DunningTerms {
   /**
    * All fields of the DunningTerms entity.
    */
-  export const _allFields: Array<StringField<DunningTerms> | NumberField<DunningTerms> | CollectionField<DunningTerms> | OneToManyLink<DunningTerms, BusinessPartners> | OneToOneLink<DunningTerms, ChartOfAccounts>> = [
+  export const _allFields: Array<StringField<DunningTerms> | EnumField<DunningTerms> | NumberField<DunningTerms> | CollectionField<DunningTerms, DunningTermLine> | OneToManyLink<DunningTerms, BusinessPartners> | OneToOneLink<DunningTerms, ChartOfAccounts>> = [
     DunningTerms.CODE,
     DunningTerms.NAME,
+    DunningTerms.GROUPING_METHOD,
     DunningTerms.DAYS_IN_YEAR,
     DunningTerms.DAYS_IN_MONTH,
+    DunningTerms.CALCULATE_INTEREST_METHOD,
+    DunningTerms.EXCHANGE_RATE_SELECT,
     DunningTerms.YEARLY_INTEREST_RATE,
     DunningTerms.LETTER_FEE,
     DunningTerms.LETTER_FEE_CURRENCY,
     DunningTerms.MINIMUM_BALANCE,
     DunningTerms.MINIMUM_BALANCE_CURRENCY,
+    DunningTerms.INCLUDE_INTEREST,
+    DunningTerms.APPLY_HIGHEST_LETTER_TEMPLATE,
+    DunningTerms.AUTOMATIC_POSTING,
     DunningTerms.INTEREST_ACCOUNT,
     DunningTerms.FEE_ACCOUNT,
+    DunningTerms.BASE_DATE_SELECT,
     DunningTerms.DUNNING_TERM_LINES,
     DunningTerms.BUSINESS_PARTNERS,
     DunningTerms.CHART_OF_ACCOUNT

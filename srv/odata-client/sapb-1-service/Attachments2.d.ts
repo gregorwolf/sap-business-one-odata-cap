@@ -1,19 +1,14 @@
 import { Attachments2RequestBuilder } from './Attachments2RequestBuilder';
 import { Attachments2Line } from './Attachments2Line';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "Attachments2" of service "SAPB1".
  */
-export declare class Attachments2 extends Entity implements Attachments2Type {
+export declare class Attachments2 extends EntityV4 implements Attachments2Type {
     /**
      * Technical entity name for Attachments2.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Attachments2.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -49,10 +44,10 @@ export declare class Attachments2 extends Entity implements Attachments2Type {
      */
     projectManagements: ProjectManagements[];
     /**
-     * Returns an entity builder to construct instances `Attachments2`.
+     * Returns an entity builder to construct instances of `Attachments2`.
      * @returns A builder that constructs instances of entity type `Attachments2`.
      */
-    static builder(): EntityBuilderType<Attachments2, Attachments2TypeForceMandatory>;
+    static builder(): EntityBuilderType<Attachments2, Attachments2Type>;
     /**
      * Returns a request builder to construct requests for operations on the `Attachments2` entity type.
      * @returns A `Attachments2` request builder.
@@ -63,7 +58,7 @@ export declare class Attachments2 extends Entity implements Attachments2Type {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `Attachments2`.
      */
-    static customField(fieldName: string): CustomField<Attachments2>;
+    static customField(fieldName: string): CustomFieldV4<Attachments2>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -78,17 +73,8 @@ import { BlanketAgreements, BlanketAgreementsType } from './BlanketAgreements';
 import { CustomerEquipmentCards, CustomerEquipmentCardsType } from './CustomerEquipmentCards';
 import { ProjectManagements, ProjectManagementsType } from './ProjectManagements';
 export interface Attachments2Type {
-    absoluteEntry?: number;
-    attachments2Lines?: Attachments2Line[];
-    serviceContracts: ServiceContractsType[];
-    campaigns: CampaignsType[];
-    blanketAgreements: BlanketAgreementsType[];
-    customerEquipmentCards: CustomerEquipmentCardsType[];
-    projectManagements: ProjectManagementsType[];
-}
-export interface Attachments2TypeForceMandatory {
-    absoluteEntry: number;
-    attachments2Lines: Attachments2Line[];
+    absoluteEntry?: number | null;
+    attachments2Lines?: Attachments2Line[] | null;
     serviceContracts: ServiceContractsType[];
     campaigns: CampaignsType[];
     blanketAgreements: BlanketAgreementsType[];
@@ -105,7 +91,7 @@ export declare namespace Attachments2 {
      * Static representation of the [[attachments2Lines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const ATTACHMENTS_2_LINES: CollectionField<Attachments2>;
+    const ATTACHMENTS_2_LINES: CollectionField<Attachments2, Attachments2Line>;
     /**
      * Static representation of the one-to-many navigation property [[serviceContracts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -134,7 +120,7 @@ export declare namespace Attachments2 {
     /**
      * All fields of the Attachments2 entity.
      */
-    const _allFields: Array<NumberField<Attachments2> | CollectionField<Attachments2> | OneToManyLink<Attachments2, ServiceContracts> | OneToManyLink<Attachments2, Campaigns> | OneToManyLink<Attachments2, BlanketAgreements> | OneToManyLink<Attachments2, CustomerEquipmentCards> | OneToManyLink<Attachments2, ProjectManagements>>;
+    const _allFields: Array<NumberField<Attachments2> | CollectionField<Attachments2, Attachments2Line> | OneToManyLink<Attachments2, ServiceContracts> | OneToManyLink<Attachments2, Campaigns> | OneToManyLink<Attachments2, BlanketAgreements> | OneToManyLink<Attachments2, CustomerEquipmentCards> | OneToManyLink<Attachments2, ProjectManagements>>;
     /**
      * All fields selector.
      */

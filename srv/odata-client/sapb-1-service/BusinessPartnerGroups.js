@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.BusinessPartnerGroups = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var BusinessPartnerGroupsRequestBuilder_1 = require("./BusinessPartnerGroupsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "BusinessPartnerGroups" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var BusinessPartnerGroups = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `BusinessPartnerGroups`.
+     * Returns an entity builder to construct instances of `BusinessPartnerGroups`.
      * @returns A builder that constructs instances of entity type `BusinessPartnerGroups`.
      */
     BusinessPartnerGroups.builder = function () {
-        return v4_1.Entity.entityBuilder(BusinessPartnerGroups);
+        return core_1.EntityV4.entityBuilder(BusinessPartnerGroups);
     };
     /**
      * Returns a request builder to construct requests for operations on the `BusinessPartnerGroups` entity type.
@@ -60,7 +60,7 @@ var BusinessPartnerGroups = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `BusinessPartnerGroups`.
      */
     BusinessPartnerGroups.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, BusinessPartnerGroups);
+        return core_1.EntityV4.customFieldSelector(fieldName, BusinessPartnerGroups);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var BusinessPartnerGroups = /** @class */ (function (_super) {
      */
     BusinessPartnerGroups._entityName = 'BusinessPartnerGroups';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BusinessPartnerGroups.
-     */
-    BusinessPartnerGroups._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    BusinessPartnerGroups._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    BusinessPartnerGroups._defaultServicePath = '/b1s/v2/';
     return BusinessPartnerGroups;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.BusinessPartnerGroups = BusinessPartnerGroups;
 var BusinessPartners_1 = require("./BusinessPartners");
 var GlAccountAdvancedRules_1 = require("./GlAccountAdvancedRules");
@@ -92,35 +87,41 @@ var GlAccountAdvancedRules_1 = require("./GlAccountAdvancedRules");
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPartnerGroups.CODE = new v4_1.NumberField('Code', BusinessPartnerGroups, 'Edm.Int32');
+    BusinessPartnerGroups.CODE = new core_1.NumberField('Code', BusinessPartnerGroups, 'Edm.Int32');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPartnerGroups.NAME = new v4_1.StringField('Name', BusinessPartnerGroups, 'Edm.String');
+    BusinessPartnerGroups.NAME = new core_1.StringField('Name', BusinessPartnerGroups, 'Edm.String');
+    /**
+     * Static representation of the [[type]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    BusinessPartnerGroups.TYPE = new core_1.EnumField('Type', BusinessPartnerGroups);
     /**
      * Static representation of the one-to-many navigation property [[businessPartners]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPartnerGroups.BUSINESS_PARTNERS = new v4_1.OneToManyLink('BusinessPartners', BusinessPartnerGroups, BusinessPartners_1.BusinessPartners);
+    BusinessPartnerGroups.BUSINESS_PARTNERS = new core_1.OneToManyLink('BusinessPartners', BusinessPartnerGroups, BusinessPartners_1.BusinessPartners);
     /**
      * Static representation of the one-to-many navigation property [[glAccountAdvancedRules]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BusinessPartnerGroups.GL_ACCOUNT_ADVANCED_RULES = new v4_1.OneToManyLink('GLAccountAdvancedRules', BusinessPartnerGroups, GlAccountAdvancedRules_1.GlAccountAdvancedRules);
+    BusinessPartnerGroups.GL_ACCOUNT_ADVANCED_RULES = new core_1.OneToManyLink('GLAccountAdvancedRules', BusinessPartnerGroups, GlAccountAdvancedRules_1.GlAccountAdvancedRules);
     /**
      * All fields of the BusinessPartnerGroups entity.
      */
     BusinessPartnerGroups._allFields = [
         BusinessPartnerGroups.CODE,
         BusinessPartnerGroups.NAME,
+        BusinessPartnerGroups.TYPE,
         BusinessPartnerGroups.BUSINESS_PARTNERS,
         BusinessPartnerGroups.GL_ACCOUNT_ADVANCED_RULES
     ];
     /**
      * All fields selector.
      */
-    BusinessPartnerGroups.ALL_FIELDS = new v4_1.AllFields('*', BusinessPartnerGroups);
+    BusinessPartnerGroups.ALL_FIELDS = new core_1.AllFields('*', BusinessPartnerGroups);
     /**
      * All key fields of the BusinessPartnerGroups entity.
      */

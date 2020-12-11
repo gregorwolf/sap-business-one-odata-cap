@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { SalesTaxAuthoritiesTypesRequestBuilder } from './SalesTaxAuthoritiesTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "SalesTaxAuthoritiesTypes" of service "SAPB1".
  */
-export class SalesTaxAuthoritiesTypes extends Entity implements SalesTaxAuthoritiesTypesType {
+export class SalesTaxAuthoritiesTypes extends EntityV4 implements SalesTaxAuthoritiesTypesType {
   /**
    * Technical entity name for SalesTaxAuthoritiesTypes.
    */
   static _entityName = 'SalesTaxAuthoritiesTypes';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for SalesTaxAuthoritiesTypes.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * User Signature.
    * @nullable
@@ -34,10 +30,20 @@ export class SalesTaxAuthoritiesTypes extends Entity implements SalesTaxAuthorit
    */
   name?: string;
   /**
+   * Vat.
+   * @nullable
+   */
+  vat?: BoYesNoEnum;
+  /**
    * Numerator.
    * @nullable
    */
   numerator?: number;
+  /**
+   * Tax Credit Control.
+   * @nullable
+   */
+  taxCreditControl?: BoYesNoEnum;
   /**
    * One-to-many navigation property to the [[DepreciationAreas]] entity.
    */
@@ -52,11 +58,11 @@ export class SalesTaxAuthoritiesTypes extends Entity implements SalesTaxAuthorit
   user!: Users;
 
   /**
-   * Returns an entity builder to construct instances `SalesTaxAuthoritiesTypes`.
+   * Returns an entity builder to construct instances of `SalesTaxAuthoritiesTypes`.
    * @returns A builder that constructs instances of entity type `SalesTaxAuthoritiesTypes`.
    */
-  static builder(): EntityBuilderType<SalesTaxAuthoritiesTypes, SalesTaxAuthoritiesTypesTypeForceMandatory> {
-    return Entity.entityBuilder(SalesTaxAuthoritiesTypes);
+  static builder(): EntityBuilderType<SalesTaxAuthoritiesTypes, SalesTaxAuthoritiesTypesType> {
+    return EntityV4.entityBuilder(SalesTaxAuthoritiesTypes);
   }
 
   /**
@@ -72,8 +78,8 @@ export class SalesTaxAuthoritiesTypes extends Entity implements SalesTaxAuthorit
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `SalesTaxAuthoritiesTypes`.
    */
-  static customField(fieldName: string): CustomField<SalesTaxAuthoritiesTypes> {
-    return Entity.customFieldSelector(fieldName, SalesTaxAuthoritiesTypes);
+  static customField(fieldName: string): CustomFieldV4<SalesTaxAuthoritiesTypes> {
+    return EntityV4.customFieldSelector(fieldName, SalesTaxAuthoritiesTypes);
   }
 
   /**
@@ -90,18 +96,11 @@ import { SalesTaxAuthorities, SalesTaxAuthoritiesType } from './SalesTaxAuthorit
 import { Users, UsersType } from './Users';
 
 export interface SalesTaxAuthoritiesTypesType {
-  userSignature?: number;
-  name?: string;
-  numerator?: number;
-  depreciationAreas: DepreciationAreasType[];
-  salesTaxAuthorities: SalesTaxAuthoritiesType[];
-  user: UsersType;
-}
-
-export interface SalesTaxAuthoritiesTypesTypeForceMandatory {
-  userSignature: number;
-  name: string;
-  numerator: number;
+  userSignature?: number | null;
+  name?: string | null;
+  vat?: BoYesNoEnum | null;
+  numerator?: number | null;
+  taxCreditControl?: BoYesNoEnum | null;
   depreciationAreas: DepreciationAreasType[];
   salesTaxAuthorities: SalesTaxAuthoritiesType[];
   user: UsersType;
@@ -119,10 +118,20 @@ export namespace SalesTaxAuthoritiesTypes {
    */
   export const NAME: StringField<SalesTaxAuthoritiesTypes> = new StringField('Name', SalesTaxAuthoritiesTypes, 'Edm.String');
   /**
+   * Static representation of the [[vat]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const VAT: EnumField<SalesTaxAuthoritiesTypes> = new EnumField('VAT', SalesTaxAuthoritiesTypes);
+  /**
    * Static representation of the [[numerator]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const NUMERATOR: NumberField<SalesTaxAuthoritiesTypes> = new NumberField('Numerator', SalesTaxAuthoritiesTypes, 'Edm.Int32');
+  /**
+   * Static representation of the [[taxCreditControl]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TAX_CREDIT_CONTROL: EnumField<SalesTaxAuthoritiesTypes> = new EnumField('TaxCreditControl', SalesTaxAuthoritiesTypes);
   /**
    * Static representation of the one-to-many navigation property [[depreciationAreas]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -141,10 +150,12 @@ export namespace SalesTaxAuthoritiesTypes {
   /**
    * All fields of the SalesTaxAuthoritiesTypes entity.
    */
-  export const _allFields: Array<NumberField<SalesTaxAuthoritiesTypes> | StringField<SalesTaxAuthoritiesTypes> | OneToManyLink<SalesTaxAuthoritiesTypes, DepreciationAreas> | OneToManyLink<SalesTaxAuthoritiesTypes, SalesTaxAuthorities> | OneToOneLink<SalesTaxAuthoritiesTypes, Users>> = [
+  export const _allFields: Array<NumberField<SalesTaxAuthoritiesTypes> | StringField<SalesTaxAuthoritiesTypes> | EnumField<SalesTaxAuthoritiesTypes> | OneToManyLink<SalesTaxAuthoritiesTypes, DepreciationAreas> | OneToManyLink<SalesTaxAuthoritiesTypes, SalesTaxAuthorities> | OneToOneLink<SalesTaxAuthoritiesTypes, Users>> = [
     SalesTaxAuthoritiesTypes.USER_SIGNATURE,
     SalesTaxAuthoritiesTypes.NAME,
+    SalesTaxAuthoritiesTypes.VAT,
     SalesTaxAuthoritiesTypes.NUMERATOR,
+    SalesTaxAuthoritiesTypes.TAX_CREDIT_CONTROL,
     SalesTaxAuthoritiesTypes.DEPRECIATION_AREAS,
     SalesTaxAuthoritiesTypes.SALES_TAX_AUTHORITIES,
     SalesTaxAuthoritiesTypes.USER

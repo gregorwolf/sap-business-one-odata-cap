@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { CreditCardsRequestBuilder } from './CreditCardsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "CreditCards" of service "SAPB1".
  */
-export class CreditCards extends Entity implements CreditCardsType {
+export class CreditCards extends EntityV4 implements CreditCardsType {
   /**
    * Technical entity name for CreditCards.
    */
   static _entityName = 'CreditCards';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for CreditCards.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Credit Card Code.
    * @nullable
@@ -71,11 +66,11 @@ export class CreditCards extends Entity implements CreditCardsType {
   businessPartners!: BusinessPartners[];
 
   /**
-   * Returns an entity builder to construct instances `CreditCards`.
+   * Returns an entity builder to construct instances of `CreditCards`.
    * @returns A builder that constructs instances of entity type `CreditCards`.
    */
-  static builder(): EntityBuilderType<CreditCards, CreditCardsTypeForceMandatory> {
-    return Entity.entityBuilder(CreditCards);
+  static builder(): EntityBuilderType<CreditCards, CreditCardsType> {
+    return EntityV4.entityBuilder(CreditCards);
   }
 
   /**
@@ -91,8 +86,8 @@ export class CreditCards extends Entity implements CreditCardsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `CreditCards`.
    */
-  static customField(fieldName: string): CustomField<CreditCards> {
-    return Entity.customFieldSelector(fieldName, CreditCards);
+  static customField(fieldName: string): CustomFieldV4<CreditCards> {
+    return EntityV4.customFieldSelector(fieldName, CreditCards);
   }
 
   /**
@@ -110,25 +105,12 @@ import { Countries, CountriesType } from './Countries';
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 
 export interface CreditCardsType {
-  creditCardCode?: number;
-  creditCardName?: string;
-  glAccount?: string;
-  telephone?: string;
-  companyId?: string;
-  countryCode?: string;
-  creditPaymentMethods: CreditPaymentMethodsType[];
-  chartOfAccount: ChartOfAccountsType;
-  country: CountriesType;
-  businessPartners: BusinessPartnersType[];
-}
-
-export interface CreditCardsTypeForceMandatory {
-  creditCardCode: number;
-  creditCardName: string;
-  glAccount: string;
-  telephone: string;
-  companyId: string;
-  countryCode: string;
+  creditCardCode?: number | null;
+  creditCardName?: string | null;
+  glAccount?: string | null;
+  telephone?: string | null;
+  companyId?: string | null;
+  countryCode?: string | null;
   creditPaymentMethods: CreditPaymentMethodsType[];
   chartOfAccount: ChartOfAccountsType;
   country: CountriesType;

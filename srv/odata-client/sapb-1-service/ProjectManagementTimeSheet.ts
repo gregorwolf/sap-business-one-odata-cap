@@ -5,26 +5,22 @@
  */
 import { ProjectManagementTimeSheetRequestBuilder } from './ProjectManagementTimeSheetRequestBuilder';
 import { Moment } from 'moment';
-import { PmTimeSheetLineData, PmTimeSheetLineDataField } from './PmTimeSheetLineData';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { PmTimeSheetLineData } from './PmTimeSheetLineData';
+import { TimeSheetTypeEnum } from './TimeSheetTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ProjectManagementTimeSheet" of service "SAPB1".
  */
-export class ProjectManagementTimeSheet extends Entity implements ProjectManagementTimeSheetType {
+export class ProjectManagementTimeSheet extends EntityV4 implements ProjectManagementTimeSheetType {
   /**
    * Technical entity name for ProjectManagementTimeSheet.
    */
   static _entityName = 'ProjectManagementTimeSheet';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ProjectManagementTimeSheet.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Abs Entry.
    * @nullable
@@ -35,6 +31,11 @@ export class ProjectManagementTimeSheet extends Entity implements ProjectManagem
    * @nullable
    */
   docNumber?: number;
+  /**
+   * Time Sheet Type.
+   * @nullable
+   */
+  timeSheetType?: TimeSheetTypeEnum;
   /**
    * User Id.
    * @nullable
@@ -76,11 +77,11 @@ export class ProjectManagementTimeSheet extends Entity implements ProjectManagem
   employeeInfo!: EmployeesInfo;
 
   /**
-   * Returns an entity builder to construct instances `ProjectManagementTimeSheet`.
+   * Returns an entity builder to construct instances of `ProjectManagementTimeSheet`.
    * @returns A builder that constructs instances of entity type `ProjectManagementTimeSheet`.
    */
-  static builder(): EntityBuilderType<ProjectManagementTimeSheet, ProjectManagementTimeSheetTypeForceMandatory> {
-    return Entity.entityBuilder(ProjectManagementTimeSheet);
+  static builder(): EntityBuilderType<ProjectManagementTimeSheet, ProjectManagementTimeSheetType> {
+    return EntityV4.entityBuilder(ProjectManagementTimeSheet);
   }
 
   /**
@@ -96,8 +97,8 @@ export class ProjectManagementTimeSheet extends Entity implements ProjectManagem
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ProjectManagementTimeSheet`.
    */
-  static customField(fieldName: string): CustomField<ProjectManagementTimeSheet> {
-    return Entity.customFieldSelector(fieldName, ProjectManagementTimeSheet);
+  static customField(fieldName: string): CustomFieldV4<ProjectManagementTimeSheet> {
+    return EntityV4.customFieldSelector(fieldName, ProjectManagementTimeSheet);
   }
 
   /**
@@ -112,28 +113,16 @@ export class ProjectManagementTimeSheet extends Entity implements ProjectManagem
 import { EmployeesInfo, EmployeesInfoType } from './EmployeesInfo';
 
 export interface ProjectManagementTimeSheetType {
-  absEntry?: number;
-  docNumber?: number;
-  userId?: number;
-  lastName?: string;
-  firstName?: string;
-  department?: number;
-  dateFrom?: Moment;
-  dateTo?: Moment;
-  pmTimeSheetLineDataCollection?: PmTimeSheetLineData[];
-  employeeInfo: EmployeesInfoType;
-}
-
-export interface ProjectManagementTimeSheetTypeForceMandatory {
-  absEntry: number;
-  docNumber: number;
-  userId: number;
-  lastName: string;
-  firstName: string;
-  department: number;
-  dateFrom: Moment;
-  dateTo: Moment;
-  pmTimeSheetLineDataCollection: PmTimeSheetLineData[];
+  absEntry?: number | null;
+  docNumber?: number | null;
+  timeSheetType?: TimeSheetTypeEnum | null;
+  userId?: number | null;
+  lastName?: string | null;
+  firstName?: string | null;
+  department?: number | null;
+  dateFrom?: Moment | null;
+  dateTo?: Moment | null;
+  pmTimeSheetLineDataCollection?: PmTimeSheetLineData[] | null;
   employeeInfo: EmployeesInfoType;
 }
 
@@ -148,6 +137,11 @@ export namespace ProjectManagementTimeSheet {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOC_NUMBER: NumberField<ProjectManagementTimeSheet> = new NumberField('DocNumber', ProjectManagementTimeSheet, 'Edm.Int32');
+  /**
+   * Static representation of the [[timeSheetType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TIME_SHEET_TYPE: EnumField<ProjectManagementTimeSheet> = new EnumField('TimeSheetType', ProjectManagementTimeSheet);
   /**
    * Static representation of the [[userId]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -182,7 +176,7 @@ export namespace ProjectManagementTimeSheet {
    * Static representation of the [[pmTimeSheetLineDataCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const PM_TIME_SHEET_LINE_DATA_COLLECTION: CollectionField<ProjectManagementTimeSheet> = new CollectionField('PM_TimeSheetLineDataCollection', ProjectManagementTimeSheet, new PmTimeSheetLineDataField('', ProjectManagementTimeSheet));
+  export const PM_TIME_SHEET_LINE_DATA_COLLECTION: CollectionField<ProjectManagementTimeSheet, PmTimeSheetLineData> = new CollectionField('PM_TimeSheetLineDataCollection', ProjectManagementTimeSheet, PmTimeSheetLineData);
   /**
    * Static representation of the one-to-one navigation property [[employeeInfo]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -191,9 +185,10 @@ export namespace ProjectManagementTimeSheet {
   /**
    * All fields of the ProjectManagementTimeSheet entity.
    */
-  export const _allFields: Array<NumberField<ProjectManagementTimeSheet> | StringField<ProjectManagementTimeSheet> | DateField<ProjectManagementTimeSheet> | CollectionField<ProjectManagementTimeSheet> | OneToOneLink<ProjectManagementTimeSheet, EmployeesInfo>> = [
+  export const _allFields: Array<NumberField<ProjectManagementTimeSheet> | EnumField<ProjectManagementTimeSheet> | StringField<ProjectManagementTimeSheet> | DateField<ProjectManagementTimeSheet> | CollectionField<ProjectManagementTimeSheet, PmTimeSheetLineData> | OneToOneLink<ProjectManagementTimeSheet, EmployeesInfo>> = [
     ProjectManagementTimeSheet.ABS_ENTRY,
     ProjectManagementTimeSheet.DOC_NUMBER,
+    ProjectManagementTimeSheet.TIME_SHEET_TYPE,
     ProjectManagementTimeSheet.USER_ID,
     ProjectManagementTimeSheet.LAST_NAME,
     ProjectManagementTimeSheet.FIRST_NAME,

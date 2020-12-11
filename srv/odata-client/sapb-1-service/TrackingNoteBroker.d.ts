@@ -1,4 +1,4 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * TrackingNoteBroker
  */
@@ -32,7 +32,7 @@ export declare function createTrackingNoteBroker(json: any): TrackingNoteBroker;
  * TrackingNoteBrokerField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class TrackingNoteBrokerField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class TrackingNoteBrokerField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, TrackingNoteBroker> {
     /**
      * Representation of the [[TrackingNoteBroker.trackingNoteNumber]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -53,8 +53,22 @@ export declare class TrackingNoteBrokerField<EntityT extends Entity> extends Com
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     agreementNumber: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of TrackingNoteBrokerField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace TrackingNoteBroker {
+    /**
+     * Metadata information on all properties of the `TrackingNoteBroker` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<TrackingNoteBroker>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): TrackingNoteBroker;

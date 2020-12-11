@@ -4,26 +4,27 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ItemGroupsRequestBuilder } from './ItemGroupsRequestBuilder';
-import { ItemGroupsWarehouseInfo, ItemGroupsWarehouseInfoField } from './ItemGroupsWarehouseInfo';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { ItemGroupsWarehouseInfo } from './ItemGroupsWarehouseInfo';
+import { BoProcurementMethod } from './BoProcurementMethod';
+import { BoMrpComponentWarehouse } from './BoMrpComponentWarehouse';
+import { BoInventorySystem } from './BoInventorySystem';
+import { BoPlanningSystem } from './BoPlanningSystem';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ItemClassEnum } from './ItemClassEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ItemGroups" of service "SAPB1".
  */
-export class ItemGroups extends Entity implements ItemGroupsType {
+export class ItemGroups extends EntityV4 implements ItemGroupsType {
   /**
    * Technical entity name for ItemGroups.
    */
   static _entityName = 'ItemGroups';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ItemGroups.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Price Differences Account.
    * @nullable
@@ -60,15 +61,35 @@ export class ItemGroups extends Entity implements ItemGroupsType {
    */
   stockInflationOffsetAccount?: string;
   /**
+   * Procurement Method.
+   * @nullable
+   */
+  procurementMethod?: BoProcurementMethod;
+  /**
+   * Component Warehouse.
+   * @nullable
+   */
+  componentWarehouse?: BoMrpComponentWarehouse;
+  /**
    * Purchase Offset Account.
    * @nullable
    */
   purchaseOffsetAccount?: string;
   /**
+   * Inventory System.
+   * @nullable
+   */
+  inventorySystem?: BoInventorySystem;
+  /**
    * Wip Material Variance Account.
    * @nullable
    */
   wipMaterialVarianceAccount?: string;
+  /**
+   * Planning System.
+   * @nullable
+   */
+  planningSystem?: BoPlanningSystem;
   /**
    * Purchase Account.
    * @nullable
@@ -144,6 +165,11 @@ export class ItemGroups extends Entity implements ItemGroupsType {
    * @nullable
    */
   foreignRevenuesAccount?: string;
+  /**
+   * Alert.
+   * @nullable
+   */
+  alert?: BoYesNoEnum;
   /**
    * Wip Material Account.
    * @nullable
@@ -305,6 +331,11 @@ export class ItemGroups extends Entity implements ItemGroupsType {
    */
   purchaseBalanceAccount?: string;
   /**
+   * Item Class.
+   * @nullable
+   */
+  itemClass?: ItemClassEnum;
+  /**
    * Item Groups Warehouse Infos.
    * @nullable
    */
@@ -343,11 +374,11 @@ export class ItemGroups extends Entity implements ItemGroupsType {
   serviceCalls!: ServiceCalls[];
 
   /**
-   * Returns an entity builder to construct instances `ItemGroups`.
+   * Returns an entity builder to construct instances of `ItemGroups`.
    * @returns A builder that constructs instances of entity type `ItemGroups`.
    */
-  static builder(): EntityBuilderType<ItemGroups, ItemGroupsTypeForceMandatory> {
-    return Entity.entityBuilder(ItemGroups);
+  static builder(): EntityBuilderType<ItemGroups, ItemGroupsType> {
+    return EntityV4.entityBuilder(ItemGroups);
   }
 
   /**
@@ -363,8 +394,8 @@ export class ItemGroups extends Entity implements ItemGroupsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ItemGroups`.
    */
-  static customField(fieldName: string): CustomField<ItemGroups> {
-    return Entity.customFieldSelector(fieldName, ItemGroups);
+  static customField(fieldName: string): CustomFieldV4<ItemGroups> {
+    return EntityV4.customFieldSelector(fieldName, ItemGroups);
   }
 
   /**
@@ -386,131 +417,69 @@ import { BinLocations, BinLocationsType } from './BinLocations';
 import { ServiceCalls, ServiceCallsType } from './ServiceCalls';
 
 export interface ItemGroupsType {
-  priceDifferencesAccount?: string;
-  stockInflationAdjustAccount?: string;
-  minimumOrderQuantity?: number;
-  orderInterval?: number;
-  exchangeRateDifferencesAccount?: string;
-  increasingAccount?: string;
-  stockInflationOffsetAccount?: string;
-  purchaseOffsetAccount?: string;
-  wipMaterialVarianceAccount?: string;
-  purchaseAccount?: string;
-  returningAccount?: string;
-  costInflationAccount?: string;
-  expensesAccount?: string;
-  revenuesAccount?: string;
-  transfersAccount?: string;
-  leadTime?: number;
-  orderMultiple?: number;
-  costInflationOffsetAccount?: string;
-  inventoryAccount?: string;
-  decreaseGlAccount?: string;
-  number?: number;
-  goodsClearingAccount?: string;
-  increaseGlAccount?: string;
-  foreignRevenuesAccount?: string;
-  wipMaterialAccount?: string;
-  shippedGoodsAccount?: string;
-  exemptRevenuesAccount?: string;
-  decreasingAccount?: string;
-  vatInRevenueAccount?: string;
-  varianceAccount?: string;
-  euExpensesAccount?: string;
-  foreignExpensesAccount?: string;
-  cycleCode?: number;
-  costAccount?: string;
-  euRevenuesAccount?: string;
-  paReturnAccount?: string;
-  groupName?: string;
-  expenseClearingAct?: string;
-  purchaseCreditAcc?: string;
-  euPurchaseCreditAcc?: string;
-  foreignPurchaseCreditAcc?: string;
-  salesCreditAcc?: string;
-  salesCreditEuAcc?: string;
-  exemptedCredits?: string;
-  salesCreditForeignAcc?: string;
-  expenseOffsetAccount?: string;
-  negativeInventoryAdjustmentAccount?: string;
-  whIncomingCenvatAccount?: string;
-  whOutgoingCenvatAccount?: string;
-  stockInTransitAccount?: string;
-  wipOffsetProfitAndLossAccount?: string;
-  inventoryOffsetProfitAndLossAccount?: string;
-  toleranceDays?: number;
-  defaultUoMGroup?: number;
-  defaultInventoryUoM?: number;
-  purchaseBalanceAccount?: string;
-  itemGroupsWarehouseInfos?: ItemGroupsWarehouseInfo[];
-  chartOfAccount: ChartOfAccountsType;
-  inventoryCycles: InventoryCyclesType;
-  unitOfMeasurementGroup: UnitOfMeasurementGroupsType;
-  unitOfMeasurement: UnitOfMeasurementsType;
-  items: ItemsType[];
-  glAccountAdvancedRules: GlAccountAdvancedRulesType[];
-  binLocations: BinLocationsType[];
-  serviceCalls: ServiceCallsType[];
-}
-
-export interface ItemGroupsTypeForceMandatory {
-  priceDifferencesAccount: string;
-  stockInflationAdjustAccount: string;
-  minimumOrderQuantity: number;
-  orderInterval: number;
-  exchangeRateDifferencesAccount: string;
-  increasingAccount: string;
-  stockInflationOffsetAccount: string;
-  purchaseOffsetAccount: string;
-  wipMaterialVarianceAccount: string;
-  purchaseAccount: string;
-  returningAccount: string;
-  costInflationAccount: string;
-  expensesAccount: string;
-  revenuesAccount: string;
-  transfersAccount: string;
-  leadTime: number;
-  orderMultiple: number;
-  costInflationOffsetAccount: string;
-  inventoryAccount: string;
-  decreaseGlAccount: string;
-  number: number;
-  goodsClearingAccount: string;
-  increaseGlAccount: string;
-  foreignRevenuesAccount: string;
-  wipMaterialAccount: string;
-  shippedGoodsAccount: string;
-  exemptRevenuesAccount: string;
-  decreasingAccount: string;
-  vatInRevenueAccount: string;
-  varianceAccount: string;
-  euExpensesAccount: string;
-  foreignExpensesAccount: string;
-  cycleCode: number;
-  costAccount: string;
-  euRevenuesAccount: string;
-  paReturnAccount: string;
-  groupName: string;
-  expenseClearingAct: string;
-  purchaseCreditAcc: string;
-  euPurchaseCreditAcc: string;
-  foreignPurchaseCreditAcc: string;
-  salesCreditAcc: string;
-  salesCreditEuAcc: string;
-  exemptedCredits: string;
-  salesCreditForeignAcc: string;
-  expenseOffsetAccount: string;
-  negativeInventoryAdjustmentAccount: string;
-  whIncomingCenvatAccount: string;
-  whOutgoingCenvatAccount: string;
-  stockInTransitAccount: string;
-  wipOffsetProfitAndLossAccount: string;
-  inventoryOffsetProfitAndLossAccount: string;
-  toleranceDays: number;
-  defaultUoMGroup: number;
-  defaultInventoryUoM: number;
-  purchaseBalanceAccount: string;
-  itemGroupsWarehouseInfos: ItemGroupsWarehouseInfo[];
+  priceDifferencesAccount?: string | null;
+  stockInflationAdjustAccount?: string | null;
+  minimumOrderQuantity?: number | null;
+  orderInterval?: number | null;
+  exchangeRateDifferencesAccount?: string | null;
+  increasingAccount?: string | null;
+  stockInflationOffsetAccount?: string | null;
+  procurementMethod?: BoProcurementMethod | null;
+  componentWarehouse?: BoMrpComponentWarehouse | null;
+  purchaseOffsetAccount?: string | null;
+  inventorySystem?: BoInventorySystem | null;
+  wipMaterialVarianceAccount?: string | null;
+  planningSystem?: BoPlanningSystem | null;
+  purchaseAccount?: string | null;
+  returningAccount?: string | null;
+  costInflationAccount?: string | null;
+  expensesAccount?: string | null;
+  revenuesAccount?: string | null;
+  transfersAccount?: string | null;
+  leadTime?: number | null;
+  orderMultiple?: number | null;
+  costInflationOffsetAccount?: string | null;
+  inventoryAccount?: string | null;
+  decreaseGlAccount?: string | null;
+  number?: number | null;
+  goodsClearingAccount?: string | null;
+  increaseGlAccount?: string | null;
+  foreignRevenuesAccount?: string | null;
+  alert?: BoYesNoEnum | null;
+  wipMaterialAccount?: string | null;
+  shippedGoodsAccount?: string | null;
+  exemptRevenuesAccount?: string | null;
+  decreasingAccount?: string | null;
+  vatInRevenueAccount?: string | null;
+  varianceAccount?: string | null;
+  euExpensesAccount?: string | null;
+  foreignExpensesAccount?: string | null;
+  cycleCode?: number | null;
+  costAccount?: string | null;
+  euRevenuesAccount?: string | null;
+  paReturnAccount?: string | null;
+  groupName?: string | null;
+  expenseClearingAct?: string | null;
+  purchaseCreditAcc?: string | null;
+  euPurchaseCreditAcc?: string | null;
+  foreignPurchaseCreditAcc?: string | null;
+  salesCreditAcc?: string | null;
+  salesCreditEuAcc?: string | null;
+  exemptedCredits?: string | null;
+  salesCreditForeignAcc?: string | null;
+  expenseOffsetAccount?: string | null;
+  negativeInventoryAdjustmentAccount?: string | null;
+  whIncomingCenvatAccount?: string | null;
+  whOutgoingCenvatAccount?: string | null;
+  stockInTransitAccount?: string | null;
+  wipOffsetProfitAndLossAccount?: string | null;
+  inventoryOffsetProfitAndLossAccount?: string | null;
+  toleranceDays?: number | null;
+  defaultUoMGroup?: number | null;
+  defaultInventoryUoM?: number | null;
+  purchaseBalanceAccount?: string | null;
+  itemClass?: ItemClassEnum | null;
+  itemGroupsWarehouseInfos?: ItemGroupsWarehouseInfo[] | null;
   chartOfAccount: ChartOfAccountsType;
   inventoryCycles: InventoryCyclesType;
   unitOfMeasurementGroup: UnitOfMeasurementGroupsType;
@@ -558,15 +527,35 @@ export namespace ItemGroups {
    */
   export const STOCK_INFLATION_OFFSET_ACCOUNT: StringField<ItemGroups> = new StringField('StockInflationOffsetAccount', ItemGroups, 'Edm.String');
   /**
+   * Static representation of the [[procurementMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PROCUREMENT_METHOD: EnumField<ItemGroups> = new EnumField('ProcurementMethod', ItemGroups);
+  /**
+   * Static representation of the [[componentWarehouse]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const COMPONENT_WAREHOUSE: EnumField<ItemGroups> = new EnumField('ComponentWarehouse', ItemGroups);
+  /**
    * Static representation of the [[purchaseOffsetAccount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const PURCHASE_OFFSET_ACCOUNT: StringField<ItemGroups> = new StringField('PurchaseOffsetAccount', ItemGroups, 'Edm.String');
   /**
+   * Static representation of the [[inventorySystem]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INVENTORY_SYSTEM: EnumField<ItemGroups> = new EnumField('InventorySystem', ItemGroups);
+  /**
    * Static representation of the [[wipMaterialVarianceAccount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const WIP_MATERIAL_VARIANCE_ACCOUNT: StringField<ItemGroups> = new StringField('WIPMaterialVarianceAccount', ItemGroups, 'Edm.String');
+  /**
+   * Static representation of the [[planningSystem]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PLANNING_SYSTEM: EnumField<ItemGroups> = new EnumField('PlanningSystem', ItemGroups);
   /**
    * Static representation of the [[purchaseAccount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -642,6 +631,11 @@ export namespace ItemGroups {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const FOREIGN_REVENUES_ACCOUNT: StringField<ItemGroups> = new StringField('ForeignRevenuesAccount', ItemGroups, 'Edm.String');
+  /**
+   * Static representation of the [[alert]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ALERT: EnumField<ItemGroups> = new EnumField('Alert', ItemGroups);
   /**
    * Static representation of the [[wipMaterialAccount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -803,10 +797,15 @@ export namespace ItemGroups {
    */
   export const PURCHASE_BALANCE_ACCOUNT: StringField<ItemGroups> = new StringField('PurchaseBalanceAccount', ItemGroups, 'Edm.String');
   /**
+   * Static representation of the [[itemClass]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ITEM_CLASS: EnumField<ItemGroups> = new EnumField('ItemClass', ItemGroups);
+  /**
    * Static representation of the [[itemGroupsWarehouseInfos]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ITEM_GROUPS_WAREHOUSE_INFOS: CollectionField<ItemGroups> = new CollectionField('ItemGroupsWarehouseInfos', ItemGroups, new ItemGroupsWarehouseInfoField('', ItemGroups));
+  export const ITEM_GROUPS_WAREHOUSE_INFOS: CollectionField<ItemGroups, ItemGroupsWarehouseInfo> = new CollectionField('ItemGroupsWarehouseInfos', ItemGroups, ItemGroupsWarehouseInfo);
   /**
    * Static representation of the one-to-one navigation property [[chartOfAccount]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -850,7 +849,7 @@ export namespace ItemGroups {
   /**
    * All fields of the ItemGroups entity.
    */
-  export const _allFields: Array<StringField<ItemGroups> | NumberField<ItemGroups> | CollectionField<ItemGroups> | OneToOneLink<ItemGroups, ChartOfAccounts> | OneToOneLink<ItemGroups, InventoryCycles> | OneToOneLink<ItemGroups, UnitOfMeasurementGroups> | OneToOneLink<ItemGroups, UnitOfMeasurements> | OneToManyLink<ItemGroups, Items> | OneToManyLink<ItemGroups, GlAccountAdvancedRules> | OneToManyLink<ItemGroups, BinLocations> | OneToManyLink<ItemGroups, ServiceCalls>> = [
+  export const _allFields: Array<StringField<ItemGroups> | NumberField<ItemGroups> | EnumField<ItemGroups> | CollectionField<ItemGroups, ItemGroupsWarehouseInfo> | OneToOneLink<ItemGroups, ChartOfAccounts> | OneToOneLink<ItemGroups, InventoryCycles> | OneToOneLink<ItemGroups, UnitOfMeasurementGroups> | OneToOneLink<ItemGroups, UnitOfMeasurements> | OneToManyLink<ItemGroups, Items> | OneToManyLink<ItemGroups, GlAccountAdvancedRules> | OneToManyLink<ItemGroups, BinLocations> | OneToManyLink<ItemGroups, ServiceCalls>> = [
     ItemGroups.PRICE_DIFFERENCES_ACCOUNT,
     ItemGroups.STOCK_INFLATION_ADJUST_ACCOUNT,
     ItemGroups.MINIMUM_ORDER_QUANTITY,
@@ -858,8 +857,12 @@ export namespace ItemGroups {
     ItemGroups.EXCHANGE_RATE_DIFFERENCES_ACCOUNT,
     ItemGroups.INCREASING_ACCOUNT,
     ItemGroups.STOCK_INFLATION_OFFSET_ACCOUNT,
+    ItemGroups.PROCUREMENT_METHOD,
+    ItemGroups.COMPONENT_WAREHOUSE,
     ItemGroups.PURCHASE_OFFSET_ACCOUNT,
+    ItemGroups.INVENTORY_SYSTEM,
     ItemGroups.WIP_MATERIAL_VARIANCE_ACCOUNT,
+    ItemGroups.PLANNING_SYSTEM,
     ItemGroups.PURCHASE_ACCOUNT,
     ItemGroups.RETURNING_ACCOUNT,
     ItemGroups.COST_INFLATION_ACCOUNT,
@@ -875,6 +878,7 @@ export namespace ItemGroups {
     ItemGroups.GOODS_CLEARING_ACCOUNT,
     ItemGroups.INCREASE_GL_ACCOUNT,
     ItemGroups.FOREIGN_REVENUES_ACCOUNT,
+    ItemGroups.ALERT,
     ItemGroups.WIP_MATERIAL_ACCOUNT,
     ItemGroups.SHIPPED_GOODS_ACCOUNT,
     ItemGroups.EXEMPT_REVENUES_ACCOUNT,
@@ -907,6 +911,7 @@ export namespace ItemGroups {
     ItemGroups.DEFAULT_UO_M_GROUP,
     ItemGroups.DEFAULT_INVENTORY_UO_M,
     ItemGroups.PURCHASE_BALANCE_ACCOUNT,
+    ItemGroups.ITEM_CLASS,
     ItemGroups.ITEM_GROUPS_WAREHOUSE_INFOS,
     ItemGroups.CHART_OF_ACCOUNT,
     ItemGroups.INVENTORY_CYCLES,

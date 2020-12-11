@@ -3,7 +3,11 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoDocumentTypes } from './BoDocumentTypes';
+import { BoServiceSupplyMethods } from './BoServiceSupplyMethods';
+import { BoServicePaymentMethods } from './BoServicePaymentMethods';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ItemIntrastatExtension
@@ -70,6 +74,21 @@ export interface ItemIntrastatExtension {
    */
   serviceCode?: number;
   /**
+   * Type.
+   * @nullable
+   */
+  type?: BoDocumentTypes;
+  /**
+   * Service Supply Method.
+   * @nullable
+   */
+  serviceSupplyMethod?: BoServiceSupplyMethods;
+  /**
+   * Service Payment Method.
+   * @nullable
+   */
+  servicePaymentMethod?: BoServicePaymentMethods;
+  /**
    * Import Region Country.
    * @nullable
    */
@@ -79,6 +98,16 @@ export interface ItemIntrastatExtension {
    * @nullable
    */
   exportRegionCountry?: string;
+  /**
+   * Use Weight In Calculation.
+   * @nullable
+   */
+  useWeightInCalculation?: BoYesNoEnum;
+  /**
+   * Intrastat Relevant.
+   * @nullable
+   */
+  intrastatRelevant?: BoYesNoEnum;
   /**
    * Statistical Code.
    * @nullable
@@ -97,7 +126,7 @@ export function createItemIntrastatExtension(json: any): ItemIntrastatExtension 
  * ItemIntrastatExtensionField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ItemIntrastatExtensionField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ItemIntrastatExtensionField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ItemIntrastatExtension> {
   /**
    * Representation of the [[ItemIntrastatExtension.itemCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -159,6 +188,21 @@ export class ItemIntrastatExtensionField<EntityT extends Entity> extends Complex
    */
   serviceCode: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('ServiceCode', this, 'Edm.Int32');
   /**
+   * Representation of the [[ItemIntrastatExtension.type]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  type: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Type', this);
+  /**
+   * Representation of the [[ItemIntrastatExtension.serviceSupplyMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  serviceSupplyMethod: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ServiceSupplyMethod', this);
+  /**
+   * Representation of the [[ItemIntrastatExtension.servicePaymentMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  servicePaymentMethod: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ServicePaymentMethod', this);
+  /**
    * Representation of the [[ItemIntrastatExtension.importRegionCountry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -169,30 +213,142 @@ export class ItemIntrastatExtensionField<EntityT extends Entity> extends Complex
    */
   exportRegionCountry: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('ExportRegionCountry', this, 'Edm.String');
   /**
+   * Representation of the [[ItemIntrastatExtension.useWeightInCalculation]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  useWeightInCalculation: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('UseWeightInCalculation', this);
+  /**
+   * Representation of the [[ItemIntrastatExtension.intrastatRelevant]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  intrastatRelevant: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IntrastatRelevant', this);
+  /**
    * Representation of the [[ItemIntrastatExtension.statisticalCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   statisticalCode: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('StatisticalCode', this, 'Edm.String');
+
+  /**
+   * Creates an instance of ItemIntrastatExtensionField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ItemIntrastatExtension);
+  }
 }
 
 export namespace ItemIntrastatExtension {
+  /**
+   * Metadata information on all properties of the `ItemIntrastatExtension` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ItemIntrastatExtension>[] = [{
+    originalName: 'ItemCode',
+    name: 'itemCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CommodityCode',
+    name: 'commodityCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SupplementaryUnit',
+    name: 'supplementaryUnit',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'FactorOfSupplementaryUnit',
+    name: 'factorOfSupplementaryUnit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ImportRegionState',
+    name: 'importRegionState',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ExportRegionState',
+    name: 'exportRegionState',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ImportNatureOfTransaction',
+    name: 'importNatureOfTransaction',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ExportNatureOfTransaction',
+    name: 'exportNatureOfTransaction',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ImportStatisticalProcedure',
+    name: 'importStatisticalProcedure',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ExportStatisticalProcedure',
+    name: 'exportStatisticalProcedure',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CountryOfOrigin',
+    name: 'countryOfOrigin',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ServiceCode',
+    name: 'serviceCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Type',
+    name: 'type',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ServiceSupplyMethod',
+    name: 'serviceSupplyMethod',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ServicePaymentMethod',
+    name: 'servicePaymentMethod',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ImportRegionCountry',
+    name: 'importRegionCountry',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ExportRegionCountry',
+    name: 'exportRegionCountry',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UseWeightInCalculation',
+    name: 'useWeightInCalculation',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'IntrastatRelevant',
+    name: 'intrastatRelevant',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'StatisticalCode',
+    name: 'statisticalCode',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ItemIntrastatExtension {
-    return createComplexType(json, {
-      ItemCode: (itemCode: string) => ({ itemCode: edmToTs(itemCode, 'Edm.String') }),
-      CommodityCode: (commodityCode: number) => ({ commodityCode: edmToTs(commodityCode, 'Edm.Int32') }),
-      SupplementaryUnit: (supplementaryUnit: number) => ({ supplementaryUnit: edmToTs(supplementaryUnit, 'Edm.Int32') }),
-      FactorOfSupplementaryUnit: (factorOfSupplementaryUnit: number) => ({ factorOfSupplementaryUnit: edmToTs(factorOfSupplementaryUnit, 'Edm.Double') }),
-      ImportRegionState: (importRegionState: number) => ({ importRegionState: edmToTs(importRegionState, 'Edm.Int32') }),
-      ExportRegionState: (exportRegionState: number) => ({ exportRegionState: edmToTs(exportRegionState, 'Edm.Int32') }),
-      ImportNatureOfTransaction: (importNatureOfTransaction: number) => ({ importNatureOfTransaction: edmToTs(importNatureOfTransaction, 'Edm.Int32') }),
-      ExportNatureOfTransaction: (exportNatureOfTransaction: number) => ({ exportNatureOfTransaction: edmToTs(exportNatureOfTransaction, 'Edm.Int32') }),
-      ImportStatisticalProcedure: (importStatisticalProcedure: number) => ({ importStatisticalProcedure: edmToTs(importStatisticalProcedure, 'Edm.Int32') }),
-      ExportStatisticalProcedure: (exportStatisticalProcedure: number) => ({ exportStatisticalProcedure: edmToTs(exportStatisticalProcedure, 'Edm.Int32') }),
-      CountryOfOrigin: (countryOfOrigin: string) => ({ countryOfOrigin: edmToTs(countryOfOrigin, 'Edm.String') }),
-      ServiceCode: (serviceCode: number) => ({ serviceCode: edmToTs(serviceCode, 'Edm.Int32') }),
-      ImportRegionCountry: (importRegionCountry: string) => ({ importRegionCountry: edmToTs(importRegionCountry, 'Edm.String') }),
-      ExportRegionCountry: (exportRegionCountry: string) => ({ exportRegionCountry: edmToTs(exportRegionCountry, 'Edm.String') }),
-      StatisticalCode: (statisticalCode: string) => ({ statisticalCode: edmToTs(statisticalCode, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, ItemIntrastatExtension);
   }
 }

@@ -4,32 +4,34 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ProductTreesRequestBuilder } from './ProductTreesRequestBuilder';
-import { ProductTreeLine, ProductTreeLineField } from './ProductTreeLine';
-import { ProductTreeStage, ProductTreeStageField } from './ProductTreeStage';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { ProductTreeLine } from './ProductTreeLine';
+import { ProductTreeStage } from './ProductTreeStage';
+import { BoItemTreeTypes } from './BoItemTreeTypes';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ProductTrees" of service "SAPB1".
  */
-export class ProductTrees extends Entity implements ProductTreesType {
+export class ProductTrees extends EntityV4 implements ProductTreesType {
   /**
    * Technical entity name for ProductTrees.
    */
   static _entityName = 'ProductTrees';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ProductTrees.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Tree Code.
    * @nullable
    */
   treeCode?: string;
+  /**
+   * Tree Type.
+   * @nullable
+   */
+  treeType?: BoItemTreeTypes;
   /**
    * Quantity.
    * @nullable
@@ -81,6 +83,11 @@ export class ProductTrees extends Entity implements ProductTreesType {
    */
   planAvgProdSize?: number;
   /**
+   * Hide Bom Components In Printout.
+   * @nullable
+   */
+  hideBomComponentsInPrintout?: BoYesNoEnum;
+  /**
    * Product Description.
    * @nullable
    */
@@ -117,11 +124,11 @@ export class ProductTrees extends Entity implements ProductTreesType {
   priceList2!: PriceLists;
 
   /**
-   * Returns an entity builder to construct instances `ProductTrees`.
+   * Returns an entity builder to construct instances of `ProductTrees`.
    * @returns A builder that constructs instances of entity type `ProductTrees`.
    */
-  static builder(): EntityBuilderType<ProductTrees, ProductTreesTypeForceMandatory> {
-    return Entity.entityBuilder(ProductTrees);
+  static builder(): EntityBuilderType<ProductTrees, ProductTreesType> {
+    return EntityV4.entityBuilder(ProductTrees);
   }
 
   /**
@@ -137,8 +144,8 @@ export class ProductTrees extends Entity implements ProductTreesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ProductTrees`.
    */
-  static customField(fieldName: string): CustomField<ProductTrees> {
-    return Entity.customFieldSelector(fieldName, ProductTrees);
+  static customField(fieldName: string): CustomFieldV4<ProductTrees> {
+    return EntityV4.customFieldSelector(fieldName, ProductTrees);
   }
 
   /**
@@ -157,42 +164,22 @@ import { Projects, ProjectsType } from './Projects';
 import { PriceLists, PriceListsType } from './PriceLists';
 
 export interface ProductTreesType {
-  treeCode?: string;
-  quantity?: number;
-  distributionRule?: string;
-  project?: string;
-  distributionRule2?: string;
-  distributionRule3?: string;
-  distributionRule4?: string;
-  distributionRule5?: string;
-  priceList?: number;
-  warehouse?: string;
-  planAvgProdSize?: number;
-  productDescription?: string;
-  productTreeLines?: ProductTreeLine[];
-  productTreeStages?: ProductTreeStage[];
-  productionOrders: ProductionOrdersType[];
-  item: ItemsType;
-  distributionRule6: DistributionRulesType;
-  project2: ProjectsType;
-  priceList2: PriceListsType;
-}
-
-export interface ProductTreesTypeForceMandatory {
-  treeCode: string;
-  quantity: number;
-  distributionRule: string;
-  project: string;
-  distributionRule2: string;
-  distributionRule3: string;
-  distributionRule4: string;
-  distributionRule5: string;
-  priceList: number;
-  warehouse: string;
-  planAvgProdSize: number;
-  productDescription: string;
-  productTreeLines: ProductTreeLine[];
-  productTreeStages: ProductTreeStage[];
+  treeCode?: string | null;
+  treeType?: BoItemTreeTypes | null;
+  quantity?: number | null;
+  distributionRule?: string | null;
+  project?: string | null;
+  distributionRule2?: string | null;
+  distributionRule3?: string | null;
+  distributionRule4?: string | null;
+  distributionRule5?: string | null;
+  priceList?: number | null;
+  warehouse?: string | null;
+  planAvgProdSize?: number | null;
+  hideBomComponentsInPrintout?: BoYesNoEnum | null;
+  productDescription?: string | null;
+  productTreeLines?: ProductTreeLine[] | null;
+  productTreeStages?: ProductTreeStage[] | null;
   productionOrders: ProductionOrdersType[];
   item: ItemsType;
   distributionRule6: DistributionRulesType;
@@ -206,6 +193,11 @@ export namespace ProductTrees {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const TREE_CODE: StringField<ProductTrees> = new StringField('TreeCode', ProductTrees, 'Edm.String');
+  /**
+   * Static representation of the [[treeType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TREE_TYPE: EnumField<ProductTrees> = new EnumField('TreeType', ProductTrees);
   /**
    * Static representation of the [[quantity]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -257,6 +249,11 @@ export namespace ProductTrees {
    */
   export const PLAN_AVG_PROD_SIZE: NumberField<ProductTrees> = new NumberField('PlanAvgProdSize', ProductTrees, 'Edm.Double');
   /**
+   * Static representation of the [[hideBomComponentsInPrintout]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const HIDE_BOM_COMPONENTS_IN_PRINTOUT: EnumField<ProductTrees> = new EnumField('HideBOMComponentsInPrintout', ProductTrees);
+  /**
    * Static representation of the [[productDescription]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -265,12 +262,12 @@ export namespace ProductTrees {
    * Static representation of the [[productTreeLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const PRODUCT_TREE_LINES: CollectionField<ProductTrees> = new CollectionField('ProductTreeLines', ProductTrees, new ProductTreeLineField('', ProductTrees));
+  export const PRODUCT_TREE_LINES: CollectionField<ProductTrees, ProductTreeLine> = new CollectionField('ProductTreeLines', ProductTrees, ProductTreeLine);
   /**
    * Static representation of the [[productTreeStages]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const PRODUCT_TREE_STAGES: CollectionField<ProductTrees> = new CollectionField('ProductTreeStages', ProductTrees, new ProductTreeStageField('', ProductTrees));
+  export const PRODUCT_TREE_STAGES: CollectionField<ProductTrees, ProductTreeStage> = new CollectionField('ProductTreeStages', ProductTrees, ProductTreeStage);
   /**
    * Static representation of the one-to-many navigation property [[productionOrders]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -299,8 +296,9 @@ export namespace ProductTrees {
   /**
    * All fields of the ProductTrees entity.
    */
-  export const _allFields: Array<StringField<ProductTrees> | NumberField<ProductTrees> | CollectionField<ProductTrees> | OneToManyLink<ProductTrees, ProductionOrders> | OneToOneLink<ProductTrees, Items> | OneToOneLink<ProductTrees, DistributionRules> | OneToOneLink<ProductTrees, Projects> | OneToOneLink<ProductTrees, PriceLists>> = [
+  export const _allFields: Array<StringField<ProductTrees> | EnumField<ProductTrees> | NumberField<ProductTrees> | CollectionField<ProductTrees, ProductTreeLine> | CollectionField<ProductTrees, ProductTreeStage> | OneToManyLink<ProductTrees, ProductionOrders> | OneToOneLink<ProductTrees, Items> | OneToOneLink<ProductTrees, DistributionRules> | OneToOneLink<ProductTrees, Projects> | OneToOneLink<ProductTrees, PriceLists>> = [
     ProductTrees.TREE_CODE,
+    ProductTrees.TREE_TYPE,
     ProductTrees.QUANTITY,
     ProductTrees.DISTRIBUTION_RULE,
     ProductTrees.PROJECT,
@@ -311,6 +309,7 @@ export namespace ProductTrees {
     ProductTrees.PRICE_LIST,
     ProductTrees.WAREHOUSE,
     ProductTrees.PLAN_AVG_PROD_SIZE,
+    ProductTrees.HIDE_BOM_COMPONENTS_IN_PRINTOUT,
     ProductTrees.PRODUCT_DESCRIPTION,
     ProductTrees.PRODUCT_TREE_LINES,
     ProductTrees.PRODUCT_TREE_STAGES,

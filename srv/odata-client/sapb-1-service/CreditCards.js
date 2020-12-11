@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.CreditCards = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var CreditCardsRequestBuilder_1 = require("./CreditCardsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "CreditCards" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var CreditCards = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `CreditCards`.
+     * Returns an entity builder to construct instances of `CreditCards`.
      * @returns A builder that constructs instances of entity type `CreditCards`.
      */
     CreditCards.builder = function () {
-        return v4_1.Entity.entityBuilder(CreditCards);
+        return core_1.EntityV4.entityBuilder(CreditCards);
     };
     /**
      * Returns a request builder to construct requests for operations on the `CreditCards` entity type.
@@ -60,7 +60,7 @@ var CreditCards = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `CreditCards`.
      */
     CreditCards.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, CreditCards);
+        return core_1.EntityV4.customFieldSelector(fieldName, CreditCards);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var CreditCards = /** @class */ (function (_super) {
      */
     CreditCards._entityName = 'CreditCards';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for CreditCards.
-     */
-    CreditCards._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    CreditCards._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    CreditCards._defaultServicePath = '/b1s/v2/';
     return CreditCards;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.CreditCards = CreditCards;
 var CreditPaymentMethods_1 = require("./CreditPaymentMethods");
 var ChartOfAccounts_1 = require("./ChartOfAccounts");
@@ -94,52 +89,52 @@ var BusinessPartners_1 = require("./BusinessPartners");
      * Static representation of the [[creditCardCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CreditCards.CREDIT_CARD_CODE = new v4_1.NumberField('CreditCardCode', CreditCards, 'Edm.Int32');
+    CreditCards.CREDIT_CARD_CODE = new core_1.NumberField('CreditCardCode', CreditCards, 'Edm.Int32');
     /**
      * Static representation of the [[creditCardName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CreditCards.CREDIT_CARD_NAME = new v4_1.StringField('CreditCardName', CreditCards, 'Edm.String');
+    CreditCards.CREDIT_CARD_NAME = new core_1.StringField('CreditCardName', CreditCards, 'Edm.String');
     /**
      * Static representation of the [[glAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CreditCards.GL_ACCOUNT = new v4_1.StringField('GLAccount', CreditCards, 'Edm.String');
+    CreditCards.GL_ACCOUNT = new core_1.StringField('GLAccount', CreditCards, 'Edm.String');
     /**
      * Static representation of the [[telephone]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CreditCards.TELEPHONE = new v4_1.StringField('Telephone', CreditCards, 'Edm.String');
+    CreditCards.TELEPHONE = new core_1.StringField('Telephone', CreditCards, 'Edm.String');
     /**
      * Static representation of the [[companyId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CreditCards.COMPANY_ID = new v4_1.StringField('CompanyID', CreditCards, 'Edm.String');
+    CreditCards.COMPANY_ID = new core_1.StringField('CompanyID', CreditCards, 'Edm.String');
     /**
      * Static representation of the [[countryCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CreditCards.COUNTRY_CODE = new v4_1.StringField('CountryCode', CreditCards, 'Edm.String');
+    CreditCards.COUNTRY_CODE = new core_1.StringField('CountryCode', CreditCards, 'Edm.String');
     /**
      * Static representation of the one-to-many navigation property [[creditPaymentMethods]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CreditCards.CREDIT_PAYMENT_METHODS = new v4_1.OneToManyLink('CreditPaymentMethods', CreditCards, CreditPaymentMethods_1.CreditPaymentMethods);
+    CreditCards.CREDIT_PAYMENT_METHODS = new core_1.OneToManyLink('CreditPaymentMethods', CreditCards, CreditPaymentMethods_1.CreditPaymentMethods);
     /**
      * Static representation of the one-to-one navigation property [[chartOfAccount]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CreditCards.CHART_OF_ACCOUNT = new v4_1.OneToOneLink('ChartOfAccount', CreditCards, ChartOfAccounts_1.ChartOfAccounts);
+    CreditCards.CHART_OF_ACCOUNT = new core_1.OneToOneLink('ChartOfAccount', CreditCards, ChartOfAccounts_1.ChartOfAccounts);
     /**
      * Static representation of the one-to-one navigation property [[country]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CreditCards.COUNTRY = new v4_1.OneToOneLink('Country', CreditCards, Countries_1.Countries);
+    CreditCards.COUNTRY = new core_1.OneToOneLink('Country', CreditCards, Countries_1.Countries);
     /**
      * Static representation of the one-to-many navigation property [[businessPartners]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    CreditCards.BUSINESS_PARTNERS = new v4_1.OneToManyLink('BusinessPartners', CreditCards, BusinessPartners_1.BusinessPartners);
+    CreditCards.BUSINESS_PARTNERS = new core_1.OneToManyLink('BusinessPartners', CreditCards, BusinessPartners_1.BusinessPartners);
     /**
      * All fields of the CreditCards entity.
      */
@@ -158,7 +153,7 @@ var BusinessPartners_1 = require("./BusinessPartners");
     /**
      * All fields selector.
      */
-    CreditCards.ALL_FIELDS = new v4_1.AllFields('*', CreditCards);
+    CreditCards.ALL_FIELDS = new core_1.AllFields('*', CreditCards);
     /**
      * All key fields of the CreditCards entity.
      */

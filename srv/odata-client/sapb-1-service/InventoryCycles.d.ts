@@ -1,19 +1,20 @@
 import { InventoryCyclesRequestBuilder } from './InventoryCyclesRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoFrequency } from './BoFrequency';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { RepeatOptionEnum } from './RepeatOptionEnum';
+import { RecurrenceSequenceEnum } from './RecurrenceSequenceEnum';
+import { RecurrenceDayOfWeekEnum } from './RecurrenceDayOfWeekEnum';
+import { EndTypeEnum } from './EndTypeEnum';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "InventoryCycles" of service "SAPB1".
  */
-export declare class InventoryCycles extends Entity implements InventoryCyclesType {
+export declare class InventoryCycles extends EntityV4 implements InventoryCyclesType {
     /**
      * Technical entity name for InventoryCycles.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for InventoryCycles.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -28,6 +29,11 @@ export declare class InventoryCycles extends Entity implements InventoryCyclesTy
      * @nullable
      */
     cycleName?: string;
+    /**
+     * Frequency.
+     * @nullable
+     */
+    frequency?: BoFrequency;
     /**
      * Day.
      * @nullable
@@ -49,6 +55,51 @@ export declare class InventoryCycles extends Entity implements InventoryCyclesTy
      */
     interval?: number;
     /**
+     * Sunday.
+     * @nullable
+     */
+    sunday?: BoYesNoEnum;
+    /**
+     * Monday.
+     * @nullable
+     */
+    monday?: BoYesNoEnum;
+    /**
+     * Tuesday.
+     * @nullable
+     */
+    tuesday?: BoYesNoEnum;
+    /**
+     * Wednesday.
+     * @nullable
+     */
+    wednesday?: BoYesNoEnum;
+    /**
+     * Thursday.
+     * @nullable
+     */
+    thursday?: BoYesNoEnum;
+    /**
+     * Friday.
+     * @nullable
+     */
+    friday?: BoYesNoEnum;
+    /**
+     * Saturday.
+     * @nullable
+     */
+    saturday?: BoYesNoEnum;
+    /**
+     * Repeat Option.
+     * @nullable
+     */
+    repeatOption?: RepeatOptionEnum;
+    /**
+     * Recurrence Sequence Specifier.
+     * @nullable
+     */
+    recurrenceSequenceSpecifier?: RecurrenceSequenceEnum;
+    /**
      * Recurrence Day In Month.
      * @nullable
      */
@@ -58,6 +109,16 @@ export declare class InventoryCycles extends Entity implements InventoryCyclesTy
      * @nullable
      */
     recurrenceMonth?: number;
+    /**
+     * Recurrence Day Of Week.
+     * @nullable
+     */
+    recurrenceDayOfWeek?: RecurrenceDayOfWeekEnum;
+    /**
+     * End Type.
+     * @nullable
+     */
+    endType?: EndTypeEnum;
     /**
      * Max Occurrence.
      * @nullable
@@ -77,10 +138,10 @@ export declare class InventoryCycles extends Entity implements InventoryCyclesTy
      */
     items: Items[];
     /**
-     * Returns an entity builder to construct instances `InventoryCycles`.
+     * Returns an entity builder to construct instances of `InventoryCycles`.
      * @returns A builder that constructs instances of entity type `InventoryCycles`.
      */
-    static builder(): EntityBuilderType<InventoryCycles, InventoryCyclesTypeForceMandatory>;
+    static builder(): EntityBuilderType<InventoryCycles, InventoryCyclesType>;
     /**
      * Returns a request builder to construct requests for operations on the `InventoryCycles` entity type.
      * @returns A `InventoryCycles` request builder.
@@ -91,7 +152,7 @@ export declare class InventoryCycles extends Entity implements InventoryCyclesTy
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `InventoryCycles`.
      */
-    static customField(fieldName: string): CustomField<InventoryCycles>;
+    static customField(fieldName: string): CustomFieldV4<InventoryCycles>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -103,30 +164,28 @@ export declare class InventoryCycles extends Entity implements InventoryCyclesTy
 import { ItemGroups, ItemGroupsType } from './ItemGroups';
 import { Items, ItemsType } from './Items';
 export interface InventoryCyclesType {
-    cycleCode?: number;
-    cycleName?: string;
-    day?: number;
-    hour?: Time;
-    nextCountingDate?: Moment;
-    interval?: number;
-    recurrenceDayInMonth?: number;
-    recurrenceMonth?: number;
-    maxOccurrence?: number;
-    seriesEndDate?: Moment;
-    itemGroups: ItemGroupsType[];
-    items: ItemsType[];
-}
-export interface InventoryCyclesTypeForceMandatory {
-    cycleCode: number;
-    cycleName: string;
-    day: number;
-    hour: Time;
-    nextCountingDate: Moment;
-    interval: number;
-    recurrenceDayInMonth: number;
-    recurrenceMonth: number;
-    maxOccurrence: number;
-    seriesEndDate: Moment;
+    cycleCode?: number | null;
+    cycleName?: string | null;
+    frequency?: BoFrequency | null;
+    day?: number | null;
+    hour?: Time | null;
+    nextCountingDate?: Moment | null;
+    interval?: number | null;
+    sunday?: BoYesNoEnum | null;
+    monday?: BoYesNoEnum | null;
+    tuesday?: BoYesNoEnum | null;
+    wednesday?: BoYesNoEnum | null;
+    thursday?: BoYesNoEnum | null;
+    friday?: BoYesNoEnum | null;
+    saturday?: BoYesNoEnum | null;
+    repeatOption?: RepeatOptionEnum | null;
+    recurrenceSequenceSpecifier?: RecurrenceSequenceEnum | null;
+    recurrenceDayInMonth?: number | null;
+    recurrenceMonth?: number | null;
+    recurrenceDayOfWeek?: RecurrenceDayOfWeekEnum | null;
+    endType?: EndTypeEnum | null;
+    maxOccurrence?: number | null;
+    seriesEndDate?: Moment | null;
     itemGroups: ItemGroupsType[];
     items: ItemsType[];
 }
@@ -141,6 +200,11 @@ export declare namespace InventoryCycles {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const CYCLE_NAME: StringField<InventoryCycles>;
+    /**
+     * Static representation of the [[frequency]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const FREQUENCY: EnumField<InventoryCycles>;
     /**
      * Static representation of the [[day]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -162,6 +226,51 @@ export declare namespace InventoryCycles {
      */
     const INTERVAL: NumberField<InventoryCycles>;
     /**
+     * Static representation of the [[sunday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SUNDAY: EnumField<InventoryCycles>;
+    /**
+     * Static representation of the [[monday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const MONDAY: EnumField<InventoryCycles>;
+    /**
+     * Static representation of the [[tuesday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TUESDAY: EnumField<InventoryCycles>;
+    /**
+     * Static representation of the [[wednesday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const WEDNESDAY: EnumField<InventoryCycles>;
+    /**
+     * Static representation of the [[thursday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const THURSDAY: EnumField<InventoryCycles>;
+    /**
+     * Static representation of the [[friday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const FRIDAY: EnumField<InventoryCycles>;
+    /**
+     * Static representation of the [[saturday]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SATURDAY: EnumField<InventoryCycles>;
+    /**
+     * Static representation of the [[repeatOption]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REPEAT_OPTION: EnumField<InventoryCycles>;
+    /**
+     * Static representation of the [[recurrenceSequenceSpecifier]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RECURRENCE_SEQUENCE_SPECIFIER: EnumField<InventoryCycles>;
+    /**
      * Static representation of the [[recurrenceDayInMonth]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -171,6 +280,16 @@ export declare namespace InventoryCycles {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const RECURRENCE_MONTH: NumberField<InventoryCycles>;
+    /**
+     * Static representation of the [[recurrenceDayOfWeek]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RECURRENCE_DAY_OF_WEEK: EnumField<InventoryCycles>;
+    /**
+     * Static representation of the [[endType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const END_TYPE: EnumField<InventoryCycles>;
     /**
      * Static representation of the [[maxOccurrence]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -194,7 +313,7 @@ export declare namespace InventoryCycles {
     /**
      * All fields of the InventoryCycles entity.
      */
-    const _allFields: Array<NumberField<InventoryCycles> | StringField<InventoryCycles> | TimeField<InventoryCycles> | DateField<InventoryCycles> | OneToManyLink<InventoryCycles, ItemGroups> | OneToManyLink<InventoryCycles, Items>>;
+    const _allFields: Array<NumberField<InventoryCycles> | StringField<InventoryCycles> | EnumField<InventoryCycles> | TimeField<InventoryCycles> | DateField<InventoryCycles> | OneToManyLink<InventoryCycles, ItemGroups> | OneToManyLink<InventoryCycles, Items>>;
     /**
      * All fields selector.
      */

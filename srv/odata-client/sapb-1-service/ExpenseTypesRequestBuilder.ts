@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { ExpenseTypes } from './ExpenseTypes';
 
 /**
@@ -15,16 +15,16 @@ export class ExpenseTypesRequestBuilder extends RequestBuilder<ExpenseTypes> {
    * @param expenseType Key property. See [[ExpenseTypes.expenseType]].
    * @returns A request builder for creating requests to retrieve one `ExpenseTypes` entity based on its keys.
    */
-  getByKey(expenseType: string): GetByKeyRequestBuilder<ExpenseTypes> {
-    return new GetByKeyRequestBuilder(ExpenseTypes, { ExpenseType: expenseType });
+  getByKey(expenseType: string): GetByKeyRequestBuilderV4<ExpenseTypes> {
+    return new GetByKeyRequestBuilderV4(ExpenseTypes, { ExpenseType: expenseType });
   }
 
   /**
    * Returns a request builder for querying all `ExpenseTypes` entities.
    * @returns A request builder for creating requests to retrieve all `ExpenseTypes` entities.
    */
-  getAll(): GetAllRequestBuilder<ExpenseTypes> {
-    return new GetAllRequestBuilder(ExpenseTypes);
+  getAll(): GetAllRequestBuilderV4<ExpenseTypes> {
+    return new GetAllRequestBuilderV4(ExpenseTypes);
   }
 
   /**
@@ -32,8 +32,8 @@ export class ExpenseTypesRequestBuilder extends RequestBuilder<ExpenseTypes> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `ExpenseTypes`.
    */
-  create(entity: ExpenseTypes): CreateRequestBuilder<ExpenseTypes> {
-    return new CreateRequestBuilder(ExpenseTypes, entity);
+  create(entity: ExpenseTypes): CreateRequestBuilderV4<ExpenseTypes> {
+    return new CreateRequestBuilderV4(ExpenseTypes, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class ExpenseTypesRequestBuilder extends RequestBuilder<ExpenseTypes> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `ExpenseTypes`.
    */
-  update(entity: ExpenseTypes): UpdateRequestBuilder<ExpenseTypes> {
-    return new UpdateRequestBuilder(ExpenseTypes, entity);
+  update(entity: ExpenseTypes): UpdateRequestBuilderV4<ExpenseTypes> {
+    return new UpdateRequestBuilderV4(ExpenseTypes, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class ExpenseTypesRequestBuilder extends RequestBuilder<ExpenseTypes> {
    * @param expenseType Key property. See [[ExpenseTypes.expenseType]].
    * @returns A request builder for creating requests that delete an entity of type `ExpenseTypes`.
    */
-  delete(expenseType: string): DeleteRequestBuilder<ExpenseTypes>;
+  delete(expenseType: string): DeleteRequestBuilderV4<ExpenseTypes>;
   /**
    * Returns a request builder for deleting an entity of type `ExpenseTypes`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `ExpenseTypes` by taking the entity as a parameter.
    */
-  delete(entity: ExpenseTypes): DeleteRequestBuilder<ExpenseTypes>;
-  delete(expenseTypeOrEntity: any): DeleteRequestBuilder<ExpenseTypes> {
-    return new DeleteRequestBuilder(ExpenseTypes, expenseTypeOrEntity instanceof ExpenseTypes ? expenseTypeOrEntity : { ExpenseType: expenseTypeOrEntity! });
+  delete(entity: ExpenseTypes): DeleteRequestBuilderV4<ExpenseTypes>;
+  delete(expenseTypeOrEntity: any): DeleteRequestBuilderV4<ExpenseTypes> {
+    return new DeleteRequestBuilderV4(ExpenseTypes, expenseTypeOrEntity instanceof ExpenseTypes ? expenseTypeOrEntity : { ExpenseType: expenseTypeOrEntity! });
   }
 }

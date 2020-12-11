@@ -3,7 +3,10 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoSeriesGroupEnum } from './BoSeriesGroupEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoSeriesTypeEnum } from './BoSeriesTypeEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * Series
@@ -50,6 +53,16 @@ export interface Series {
    */
   remarks?: string;
   /**
+   * Group Code.
+   * @nullable
+   */
+  groupCode?: BoSeriesGroupEnum;
+  /**
+   * Locked.
+   * @nullable
+   */
+  locked?: BoYesNoEnum;
+  /**
    * Period Indicator.
    * @nullable
    */
@@ -65,10 +78,25 @@ export interface Series {
    */
   series?: number;
   /**
+   * Is Digital Series.
+   * @nullable
+   */
+  isDigitalSeries?: BoYesNoEnum;
+  /**
    * Digit Number.
    * @nullable
    */
   digitNumber?: number;
+  /**
+   * Series Type.
+   * @nullable
+   */
+  seriesType?: BoSeriesTypeEnum;
+  /**
+   * Is Manual.
+   * @nullable
+   */
+  isManual?: BoYesNoEnum;
   /**
    * Bplid.
    * @nullable
@@ -79,6 +107,16 @@ export interface Series {
    * @nullable
    */
   atDocumentType?: string;
+  /**
+   * Is Electronic Comm Enabled.
+   * @nullable
+   */
+  isElectronicCommEnabled?: BoYesNoEnum;
+  /**
+   * Cost Account Only.
+   * @nullable
+   */
+  costAccountOnly?: BoYesNoEnum;
 }
 
 /**
@@ -92,7 +130,7 @@ export function createSeries(json: any): Series {
  * SeriesField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class SeriesField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class SeriesField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, Series> {
   /**
    * Representation of the [[Series.document]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -134,6 +172,16 @@ export class SeriesField<EntityT extends Entity> extends ComplexTypeField<Entity
    */
   remarks: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Remarks', this, 'Edm.String');
   /**
+   * Representation of the [[Series.groupCode]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  groupCode: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('GroupCode', this);
+  /**
+   * Representation of the [[Series.locked]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  locked: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Locked', this);
+  /**
    * Representation of the [[Series.periodIndicator]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -149,10 +197,25 @@ export class SeriesField<EntityT extends Entity> extends ComplexTypeField<Entity
    */
   series: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('Series', this, 'Edm.Int32');
   /**
+   * Representation of the [[Series.isDigitalSeries]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  isDigitalSeries: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IsDigitalSeries', this);
+  /**
    * Representation of the [[Series.digitNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   digitNumber: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DigitNumber', this, 'Edm.Int32');
+  /**
+   * Representation of the [[Series.seriesType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  seriesType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('SeriesType', this);
+  /**
+   * Representation of the [[Series.isManual]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  isManual: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IsManual', this);
   /**
    * Representation of the [[Series.bplid]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -163,25 +226,143 @@ export class SeriesField<EntityT extends Entity> extends ComplexTypeField<Entity
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   atDocumentType: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('ATDocumentType', this, 'Edm.String');
+  /**
+   * Representation of the [[Series.isElectronicCommEnabled]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  isElectronicCommEnabled: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IsElectronicCommEnabled', this);
+  /**
+   * Representation of the [[Series.costAccountOnly]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  costAccountOnly: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CostAccountOnly', this);
+
+  /**
+   * Creates an instance of SeriesField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, Series);
+  }
 }
 
 export namespace Series {
+  /**
+   * Metadata information on all properties of the `Series` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<Series>[] = [{
+    originalName: 'Document',
+    name: 'document',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DocumentSubType',
+    name: 'documentSubType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InitialNumber',
+    name: 'initialNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LastNumber',
+    name: 'lastNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'NextNumber',
+    name: 'nextNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Prefix',
+    name: 'prefix',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Suffix',
+    name: 'suffix',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Remarks',
+    name: 'remarks',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GroupCode',
+    name: 'groupCode',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Locked',
+    name: 'locked',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'PeriodIndicator',
+    name: 'periodIndicator',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Name',
+    name: 'name',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Series',
+    name: 'series',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'IsDigitalSeries',
+    name: 'isDigitalSeries',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DigitNumber',
+    name: 'digitNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SeriesType',
+    name: 'seriesType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'IsManual',
+    name: 'isManual',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BPLID',
+    name: 'bplid',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ATDocumentType',
+    name: 'atDocumentType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'IsElectronicCommEnabled',
+    name: 'isElectronicCommEnabled',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CostAccountOnly',
+    name: 'costAccountOnly',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): Series {
-    return createComplexType(json, {
-      Document: (document: string) => ({ document: edmToTs(document, 'Edm.String') }),
-      DocumentSubType: (documentSubType: string) => ({ documentSubType: edmToTs(documentSubType, 'Edm.String') }),
-      InitialNumber: (initialNumber: number) => ({ initialNumber: edmToTs(initialNumber, 'Edm.Int32') }),
-      LastNumber: (lastNumber: number) => ({ lastNumber: edmToTs(lastNumber, 'Edm.Int32') }),
-      NextNumber: (nextNumber: number) => ({ nextNumber: edmToTs(nextNumber, 'Edm.Int32') }),
-      Prefix: (prefix: string) => ({ prefix: edmToTs(prefix, 'Edm.String') }),
-      Suffix: (suffix: string) => ({ suffix: edmToTs(suffix, 'Edm.String') }),
-      Remarks: (remarks: string) => ({ remarks: edmToTs(remarks, 'Edm.String') }),
-      PeriodIndicator: (periodIndicator: string) => ({ periodIndicator: edmToTs(periodIndicator, 'Edm.String') }),
-      Name: (name: string) => ({ name: edmToTs(name, 'Edm.String') }),
-      Series: (series: number) => ({ series: edmToTs(series, 'Edm.Int32') }),
-      DigitNumber: (digitNumber: number) => ({ digitNumber: edmToTs(digitNumber, 'Edm.Int32') }),
-      BPLID: (bplid: number) => ({ bplid: edmToTs(bplid, 'Edm.Int32') }),
-      ATDocumentType: (atDocumentType: string) => ({ atDocumentType: edmToTs(atDocumentType, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, Series);
   }
 }

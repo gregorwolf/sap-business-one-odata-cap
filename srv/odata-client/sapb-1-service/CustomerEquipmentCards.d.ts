@@ -1,19 +1,16 @@
 import { CustomerEquipmentCardsRequestBuilder } from './CustomerEquipmentCardsRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoSerialNumberStatus } from './BoSerialNumberStatus';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "CustomerEquipmentCards" of service "SAPB1".
  */
-export declare class CustomerEquipmentCards extends Entity implements CustomerEquipmentCardsType {
+export declare class CustomerEquipmentCards extends EntityV4 implements CustomerEquipmentCardsType {
     /**
      * Technical entity name for CustomerEquipmentCards.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for CustomerEquipmentCards.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -33,6 +30,16 @@ export declare class CustomerEquipmentCards extends Entity implements CustomerEq
      * @nullable
      */
     customerName?: string;
+    /**
+     * Contact Employee Code.
+     * @nullable
+     */
+    contactEmployeeCode?: BoYesNoEnum;
+    /**
+     * Direct Customer Code.
+     * @nullable
+     */
+    directCustomerCode?: BoYesNoEnum;
     /**
      * Direct Customer Name.
      * @nullable
@@ -129,6 +136,11 @@ export declare class CustomerEquipmentCards extends Entity implements CustomerEq
      */
     deliveryNumber?: number;
     /**
+     * Status Of Serial Number.
+     * @nullable
+     */
+    statusOfSerialNumber?: BoSerialNumberStatus;
+    /**
      * Replace Sn.
      * @nullable
      */
@@ -183,10 +195,10 @@ export declare class CustomerEquipmentCards extends Entity implements CustomerEq
      */
     attachments2: Attachments2;
     /**
-     * Returns an entity builder to construct instances `CustomerEquipmentCards`.
+     * Returns an entity builder to construct instances of `CustomerEquipmentCards`.
      * @returns A builder that constructs instances of entity type `CustomerEquipmentCards`.
      */
-    static builder(): EntityBuilderType<CustomerEquipmentCards, CustomerEquipmentCardsTypeForceMandatory>;
+    static builder(): EntityBuilderType<CustomerEquipmentCards, CustomerEquipmentCardsType>;
     /**
      * Returns a request builder to construct requests for operations on the `CustomerEquipmentCards` entity type.
      * @returns A `CustomerEquipmentCards` request builder.
@@ -197,7 +209,7 @@ export declare class CustomerEquipmentCards extends Entity implements CustomerEq
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `CustomerEquipmentCards`.
      */
-    static customField(fieldName: string): CustomField<CustomerEquipmentCards>;
+    static customField(fieldName: string): CustomFieldV4<CustomerEquipmentCards>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -213,70 +225,37 @@ import { EmployeesInfo, EmployeesInfoType } from './EmployeesInfo';
 import { Territories, TerritoriesType } from './Territories';
 import { Attachments2, Attachments2Type } from './Attachments2';
 export interface CustomerEquipmentCardsType {
-    equipmentCardNum?: number;
-    customerCode?: string;
-    customerName?: string;
-    directCustomerName?: string;
-    manufacturerSerialNum?: string;
-    internalSerialNum?: string;
-    itemCode?: string;
-    itemDescription?: string;
-    invoiceCode?: number;
-    invoiceNumber?: number;
-    deliveryDate?: Moment;
-    contactPhone?: string;
-    street?: string;
-    block?: string;
-    zipCode?: string;
-    city?: string;
-    county?: string;
-    countryCode?: string;
-    stateCode?: string;
-    installLocation?: string;
-    deliveryCode?: number;
-    deliveryNumber?: number;
-    replaceSn?: number;
-    defaultTechnician?: number;
-    replacedBySn?: number;
-    defaultterritory?: number;
-    buildingFloorRoom?: string;
-    attachmentEntry?: number;
-    businessPartner: BusinessPartnersType;
-    item: ItemsType;
-    country: CountriesType;
-    employeeInfo: EmployeesInfoType;
-    territory: TerritoriesType;
-    attachments2: Attachments2Type;
-}
-export interface CustomerEquipmentCardsTypeForceMandatory {
-    equipmentCardNum: number;
-    customerCode: string;
-    customerName: string;
-    directCustomerName: string;
-    manufacturerSerialNum: string;
-    internalSerialNum: string;
-    itemCode: string;
-    itemDescription: string;
-    invoiceCode: number;
-    invoiceNumber: number;
-    deliveryDate: Moment;
-    contactPhone: string;
-    street: string;
-    block: string;
-    zipCode: string;
-    city: string;
-    county: string;
-    countryCode: string;
-    stateCode: string;
-    installLocation: string;
-    deliveryCode: number;
-    deliveryNumber: number;
-    replaceSn: number;
-    defaultTechnician: number;
-    replacedBySn: number;
-    defaultterritory: number;
-    buildingFloorRoom: string;
-    attachmentEntry: number;
+    equipmentCardNum?: number | null;
+    customerCode?: string | null;
+    customerName?: string | null;
+    contactEmployeeCode?: BoYesNoEnum | null;
+    directCustomerCode?: BoYesNoEnum | null;
+    directCustomerName?: string | null;
+    manufacturerSerialNum?: string | null;
+    internalSerialNum?: string | null;
+    itemCode?: string | null;
+    itemDescription?: string | null;
+    invoiceCode?: number | null;
+    invoiceNumber?: number | null;
+    deliveryDate?: Moment | null;
+    contactPhone?: string | null;
+    street?: string | null;
+    block?: string | null;
+    zipCode?: string | null;
+    city?: string | null;
+    county?: string | null;
+    countryCode?: string | null;
+    stateCode?: string | null;
+    installLocation?: string | null;
+    deliveryCode?: number | null;
+    deliveryNumber?: number | null;
+    statusOfSerialNumber?: BoSerialNumberStatus | null;
+    replaceSn?: number | null;
+    defaultTechnician?: number | null;
+    replacedBySn?: number | null;
+    defaultterritory?: number | null;
+    buildingFloorRoom?: string | null;
+    attachmentEntry?: number | null;
     businessPartner: BusinessPartnersType;
     item: ItemsType;
     country: CountriesType;
@@ -300,6 +279,16 @@ export declare namespace CustomerEquipmentCards {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const CUSTOMER_NAME: StringField<CustomerEquipmentCards>;
+    /**
+     * Static representation of the [[contactEmployeeCode]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CONTACT_EMPLOYEE_CODE: EnumField<CustomerEquipmentCards>;
+    /**
+     * Static representation of the [[directCustomerCode]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DIRECT_CUSTOMER_CODE: EnumField<CustomerEquipmentCards>;
     /**
      * Static representation of the [[directCustomerName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -396,6 +385,11 @@ export declare namespace CustomerEquipmentCards {
      */
     const DELIVERY_NUMBER: NumberField<CustomerEquipmentCards>;
     /**
+     * Static representation of the [[statusOfSerialNumber]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const STATUS_OF_SERIAL_NUMBER: EnumField<CustomerEquipmentCards>;
+    /**
      * Static representation of the [[replaceSn]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -458,7 +452,7 @@ export declare namespace CustomerEquipmentCards {
     /**
      * All fields of the CustomerEquipmentCards entity.
      */
-    const _allFields: Array<NumberField<CustomerEquipmentCards> | StringField<CustomerEquipmentCards> | DateField<CustomerEquipmentCards> | OneToOneLink<CustomerEquipmentCards, BusinessPartners> | OneToOneLink<CustomerEquipmentCards, Items> | OneToOneLink<CustomerEquipmentCards, Countries> | OneToOneLink<CustomerEquipmentCards, EmployeesInfo> | OneToOneLink<CustomerEquipmentCards, Territories> | OneToOneLink<CustomerEquipmentCards, Attachments2>>;
+    const _allFields: Array<NumberField<CustomerEquipmentCards> | StringField<CustomerEquipmentCards> | EnumField<CustomerEquipmentCards> | DateField<CustomerEquipmentCards> | OneToOneLink<CustomerEquipmentCards, BusinessPartners> | OneToOneLink<CustomerEquipmentCards, Items> | OneToOneLink<CustomerEquipmentCards, Countries> | OneToOneLink<CustomerEquipmentCards, EmployeesInfo> | OneToOneLink<CustomerEquipmentCards, Territories> | OneToOneLink<CustomerEquipmentCards, Attachments2>>;
     /**
      * All fields selector.
      */

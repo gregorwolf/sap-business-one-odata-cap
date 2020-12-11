@@ -2,20 +2,16 @@ import { ApprovalRequestsRequestBuilder } from './ApprovalRequestsRequestBuilder
 import { Moment } from 'moment';
 import { ApprovalRequestLine } from './ApprovalRequestLine';
 import { ApprovalRequestDecision } from './ApprovalRequestDecision';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoApprovalRequestStatusEnum } from './BoApprovalRequestStatusEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ApprovalRequests" of service "SAPB1".
  */
-export declare class ApprovalRequests extends Entity implements ApprovalRequestsType {
+export declare class ApprovalRequests extends EntityV4 implements ApprovalRequestsType {
     /**
      * Technical entity name for ApprovalRequests.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ApprovalRequests.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -45,6 +41,11 @@ export declare class ApprovalRequests extends Entity implements ApprovalRequests
      * @nullable
      */
     objectEntry?: number;
+    /**
+     * Status.
+     * @nullable
+     */
+    status?: BoApprovalRequestStatusEnum;
     /**
      * Remarks.
      * @nullable
@@ -103,10 +104,10 @@ export declare class ApprovalRequests extends Entity implements ApprovalRequests
      */
     user: Users;
     /**
-     * Returns an entity builder to construct instances `ApprovalRequests`.
+     * Returns an entity builder to construct instances of `ApprovalRequests`.
      * @returns A builder that constructs instances of entity type `ApprovalRequests`.
      */
-    static builder(): EntityBuilderType<ApprovalRequests, ApprovalRequestsTypeForceMandatory>;
+    static builder(): EntityBuilderType<ApprovalRequests, ApprovalRequestsType>;
     /**
      * Returns a request builder to construct requests for operations on the `ApprovalRequests` entity type.
      * @returns A `ApprovalRequests` request builder.
@@ -117,7 +118,7 @@ export declare class ApprovalRequests extends Entity implements ApprovalRequests
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ApprovalRequests`.
      */
-    static customField(fieldName: string): CustomField<ApprovalRequests>;
+    static customField(fieldName: string): CustomFieldV4<ApprovalRequests>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -130,39 +131,21 @@ import { ApprovalTemplates, ApprovalTemplatesType } from './ApprovalTemplates';
 import { ApprovalStages, ApprovalStagesType } from './ApprovalStages';
 import { Users, UsersType } from './Users';
 export interface ApprovalRequestsType {
-    code?: number;
-    approvalTemplatesId?: number;
-    objectType?: string;
-    isDraft?: string;
-    objectEntry?: number;
-    remarks?: string;
-    currentStage?: number;
-    originatorId?: number;
-    creationDate?: Moment;
-    creationTime?: Time;
-    draftEntry?: number;
-    draftType?: string;
-    approvalRequestLines?: ApprovalRequestLine[];
-    approvalRequestDecisions?: ApprovalRequestDecision[];
-    approvalTemplate: ApprovalTemplatesType;
-    approvalStage: ApprovalStagesType;
-    user: UsersType;
-}
-export interface ApprovalRequestsTypeForceMandatory {
-    code: number;
-    approvalTemplatesId: number;
-    objectType: string;
-    isDraft: string;
-    objectEntry: number;
-    remarks: string;
-    currentStage: number;
-    originatorId: number;
-    creationDate: Moment;
-    creationTime: Time;
-    draftEntry: number;
-    draftType: string;
-    approvalRequestLines: ApprovalRequestLine[];
-    approvalRequestDecisions: ApprovalRequestDecision[];
+    code?: number | null;
+    approvalTemplatesId?: number | null;
+    objectType?: string | null;
+    isDraft?: string | null;
+    objectEntry?: number | null;
+    status?: BoApprovalRequestStatusEnum | null;
+    remarks?: string | null;
+    currentStage?: number | null;
+    originatorId?: number | null;
+    creationDate?: Moment | null;
+    creationTime?: Time | null;
+    draftEntry?: number | null;
+    draftType?: string | null;
+    approvalRequestLines?: ApprovalRequestLine[] | null;
+    approvalRequestDecisions?: ApprovalRequestDecision[] | null;
     approvalTemplate: ApprovalTemplatesType;
     approvalStage: ApprovalStagesType;
     user: UsersType;
@@ -193,6 +176,11 @@ export declare namespace ApprovalRequests {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const OBJECT_ENTRY: NumberField<ApprovalRequests>;
+    /**
+     * Static representation of the [[status]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const STATUS: EnumField<ApprovalRequests>;
     /**
      * Static representation of the [[remarks]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -232,12 +220,12 @@ export declare namespace ApprovalRequests {
      * Static representation of the [[approvalRequestLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const APPROVAL_REQUEST_LINES: CollectionField<ApprovalRequests>;
+    const APPROVAL_REQUEST_LINES: CollectionField<ApprovalRequests, ApprovalRequestLine>;
     /**
      * Static representation of the [[approvalRequestDecisions]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const APPROVAL_REQUEST_DECISIONS: CollectionField<ApprovalRequests>;
+    const APPROVAL_REQUEST_DECISIONS: CollectionField<ApprovalRequests, ApprovalRequestDecision>;
     /**
      * Static representation of the one-to-one navigation property [[approvalTemplate]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -256,7 +244,7 @@ export declare namespace ApprovalRequests {
     /**
      * All fields of the ApprovalRequests entity.
      */
-    const _allFields: Array<NumberField<ApprovalRequests> | StringField<ApprovalRequests> | DateField<ApprovalRequests> | TimeField<ApprovalRequests> | CollectionField<ApprovalRequests> | OneToOneLink<ApprovalRequests, ApprovalTemplates> | OneToOneLink<ApprovalRequests, ApprovalStages> | OneToOneLink<ApprovalRequests, Users>>;
+    const _allFields: Array<NumberField<ApprovalRequests> | StringField<ApprovalRequests> | EnumField<ApprovalRequests> | DateField<ApprovalRequests> | TimeField<ApprovalRequests> | CollectionField<ApprovalRequests, ApprovalRequestLine> | CollectionField<ApprovalRequests, ApprovalRequestDecision> | OneToOneLink<ApprovalRequests, ApprovalTemplates> | OneToOneLink<ApprovalRequests, ApprovalStages> | OneToOneLink<ApprovalRequests, Users>>;
     /**
      * All fields selector.
      */

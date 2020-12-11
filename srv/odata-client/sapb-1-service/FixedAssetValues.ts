@@ -3,12 +3,18 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { AssetTransactionTypeEnum } from './AssetTransactionTypeEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * FixedAssetValues
  */
 export interface FixedAssetValues {
+  /**
+   * Transaction Type.
+   * @nullable
+   */
+  transactionType?: AssetTransactionTypeEnum;
   /**
    * Acquisition Cost.
    * @nullable
@@ -67,7 +73,12 @@ export function createFixedAssetValues(json: any): FixedAssetValues {
  * FixedAssetValuesField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class FixedAssetValuesField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class FixedAssetValuesField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, FixedAssetValues> {
+  /**
+   * Representation of the [[FixedAssetValues.transactionType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  transactionType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('TransactionType', this);
   /**
    * Representation of the [[FixedAssetValues.acquisitionCost]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -113,20 +124,78 @@ export class FixedAssetValuesField<EntityT extends Entity> extends ComplexTypeFi
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   appreciation: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('Appreciation', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of FixedAssetValuesField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, FixedAssetValues);
+  }
 }
 
 export namespace FixedAssetValues {
+  /**
+   * Metadata information on all properties of the `FixedAssetValues` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<FixedAssetValues>[] = [{
+    originalName: 'TransactionType',
+    name: 'transactionType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'AcquisitionCost',
+    name: 'acquisitionCost',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Quantity',
+    name: 'quantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DepreciationValue',
+    name: 'depreciationValue',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'NetBookValue',
+    name: 'netBookValue',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'OrdinaryDepreciationValue',
+    name: 'ordinaryDepreciationValue',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'UnplanedDepreciationValue',
+    name: 'unplanedDepreciationValue',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SpecialDepreciationValue',
+    name: 'specialDepreciationValue',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WriteUp',
+    name: 'writeUp',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Appreciation',
+    name: 'appreciation',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): FixedAssetValues {
-    return createComplexType(json, {
-      AcquisitionCost: (acquisitionCost: number) => ({ acquisitionCost: edmToTs(acquisitionCost, 'Edm.Double') }),
-      Quantity: (quantity: number) => ({ quantity: edmToTs(quantity, 'Edm.Double') }),
-      DepreciationValue: (depreciationValue: number) => ({ depreciationValue: edmToTs(depreciationValue, 'Edm.Double') }),
-      NetBookValue: (netBookValue: number) => ({ netBookValue: edmToTs(netBookValue, 'Edm.Double') }),
-      OrdinaryDepreciationValue: (ordinaryDepreciationValue: number) => ({ ordinaryDepreciationValue: edmToTs(ordinaryDepreciationValue, 'Edm.Double') }),
-      UnplanedDepreciationValue: (unplanedDepreciationValue: number) => ({ unplanedDepreciationValue: edmToTs(unplanedDepreciationValue, 'Edm.Double') }),
-      SpecialDepreciationValue: (specialDepreciationValue: number) => ({ specialDepreciationValue: edmToTs(specialDepreciationValue, 'Edm.Double') }),
-      WriteUp: (writeUp: number) => ({ writeUp: edmToTs(writeUp, 'Edm.Double') }),
-      Appreciation: (appreciation: number) => ({ appreciation: edmToTs(appreciation, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, FixedAssetValues);
   }
 }

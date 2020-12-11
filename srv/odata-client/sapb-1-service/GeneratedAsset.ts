@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { GeneratedAssetStatusEnum } from './GeneratedAssetStatusEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * GeneratedAsset
@@ -29,6 +30,11 @@ export interface GeneratedAsset {
    * @nullable
    */
   assetCode?: string;
+  /**
+   * Status.
+   * @nullable
+   */
+  status?: GeneratedAssetStatusEnum;
   /**
    * Remarks.
    * @nullable
@@ -62,7 +68,7 @@ export function createGeneratedAsset(json: any): GeneratedAsset {
  * GeneratedAssetField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class GeneratedAssetField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class GeneratedAssetField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, GeneratedAsset> {
   /**
    * Representation of the [[GeneratedAsset.docEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -84,6 +90,11 @@ export class GeneratedAssetField<EntityT extends Entity> extends ComplexTypeFiel
    */
   assetCode: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('AssetCode', this, 'Edm.String');
   /**
+   * Representation of the [[GeneratedAsset.status]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  status: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Status', this);
+  /**
    * Representation of the [[GeneratedAsset.remarks]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -103,19 +114,73 @@ export class GeneratedAssetField<EntityT extends Entity> extends ComplexTypeFiel
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   amountSc: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('amountSC', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of GeneratedAssetField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, GeneratedAsset);
+  }
 }
 
 export namespace GeneratedAsset {
+  /**
+   * Metadata information on all properties of the `GeneratedAsset` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<GeneratedAsset>[] = [{
+    originalName: 'DocEntry',
+    name: 'docEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'VisualOrder',
+    name: 'visualOrder',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AssetCode',
+    name: 'assetCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Status',
+    name: 'status',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Remarks',
+    name: 'remarks',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SerialNumber',
+    name: 'serialNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'amount',
+    name: 'amount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'amountSC',
+    name: 'amountSc',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): GeneratedAsset {
-    return createComplexType(json, {
-      DocEntry: (docEntry: number) => ({ docEntry: edmToTs(docEntry, 'Edm.Int32') }),
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      VisualOrder: (visualOrder: number) => ({ visualOrder: edmToTs(visualOrder, 'Edm.Int32') }),
-      AssetCode: (assetCode: string) => ({ assetCode: edmToTs(assetCode, 'Edm.String') }),
-      Remarks: (remarks: string) => ({ remarks: edmToTs(remarks, 'Edm.String') }),
-      SerialNumber: (serialNumber: string) => ({ serialNumber: edmToTs(serialNumber, 'Edm.String') }),
-      amount: (amount: number) => ({ amount: edmToTs(amount, 'Edm.Double') }),
-      amountSC: (amountSc: number) => ({ amountSc: edmToTs(amountSc, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, GeneratedAsset);
   }
 }

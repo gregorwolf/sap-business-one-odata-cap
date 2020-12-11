@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { BrazilBeverageIndexers } from './BrazilBeverageIndexers';
 
 /**
@@ -15,16 +15,16 @@ export class BrazilBeverageIndexersRequestBuilder extends RequestBuilder<BrazilB
    * @param beverageId Key property. See [[BrazilBeverageIndexers.beverageId]].
    * @returns A request builder for creating requests to retrieve one `BrazilBeverageIndexers` entity based on its keys.
    */
-  getByKey(beverageId: number): GetByKeyRequestBuilder<BrazilBeverageIndexers> {
-    return new GetByKeyRequestBuilder(BrazilBeverageIndexers, { BeverageID: beverageId });
+  getByKey(beverageId: number): GetByKeyRequestBuilderV4<BrazilBeverageIndexers> {
+    return new GetByKeyRequestBuilderV4(BrazilBeverageIndexers, { BeverageID: beverageId });
   }
 
   /**
    * Returns a request builder for querying all `BrazilBeverageIndexers` entities.
    * @returns A request builder for creating requests to retrieve all `BrazilBeverageIndexers` entities.
    */
-  getAll(): GetAllRequestBuilder<BrazilBeverageIndexers> {
-    return new GetAllRequestBuilder(BrazilBeverageIndexers);
+  getAll(): GetAllRequestBuilderV4<BrazilBeverageIndexers> {
+    return new GetAllRequestBuilderV4(BrazilBeverageIndexers);
   }
 
   /**
@@ -32,8 +32,8 @@ export class BrazilBeverageIndexersRequestBuilder extends RequestBuilder<BrazilB
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `BrazilBeverageIndexers`.
    */
-  create(entity: BrazilBeverageIndexers): CreateRequestBuilder<BrazilBeverageIndexers> {
-    return new CreateRequestBuilder(BrazilBeverageIndexers, entity);
+  create(entity: BrazilBeverageIndexers): CreateRequestBuilderV4<BrazilBeverageIndexers> {
+    return new CreateRequestBuilderV4(BrazilBeverageIndexers, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class BrazilBeverageIndexersRequestBuilder extends RequestBuilder<BrazilB
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `BrazilBeverageIndexers`.
    */
-  update(entity: BrazilBeverageIndexers): UpdateRequestBuilder<BrazilBeverageIndexers> {
-    return new UpdateRequestBuilder(BrazilBeverageIndexers, entity);
+  update(entity: BrazilBeverageIndexers): UpdateRequestBuilderV4<BrazilBeverageIndexers> {
+    return new UpdateRequestBuilderV4(BrazilBeverageIndexers, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class BrazilBeverageIndexersRequestBuilder extends RequestBuilder<BrazilB
    * @param beverageId Key property. See [[BrazilBeverageIndexers.beverageId]].
    * @returns A request builder for creating requests that delete an entity of type `BrazilBeverageIndexers`.
    */
-  delete(beverageId: number): DeleteRequestBuilder<BrazilBeverageIndexers>;
+  delete(beverageId: number): DeleteRequestBuilderV4<BrazilBeverageIndexers>;
   /**
    * Returns a request builder for deleting an entity of type `BrazilBeverageIndexers`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `BrazilBeverageIndexers` by taking the entity as a parameter.
    */
-  delete(entity: BrazilBeverageIndexers): DeleteRequestBuilder<BrazilBeverageIndexers>;
-  delete(beverageIdOrEntity: any): DeleteRequestBuilder<BrazilBeverageIndexers> {
-    return new DeleteRequestBuilder(BrazilBeverageIndexers, beverageIdOrEntity instanceof BrazilBeverageIndexers ? beverageIdOrEntity : { BeverageID: beverageIdOrEntity! });
+  delete(entity: BrazilBeverageIndexers): DeleteRequestBuilderV4<BrazilBeverageIndexers>;
+  delete(beverageIdOrEntity: any): DeleteRequestBuilderV4<BrazilBeverageIndexers> {
+    return new DeleteRequestBuilderV4(BrazilBeverageIndexers, beverageIdOrEntity instanceof BrazilBeverageIndexers ? beverageIdOrEntity : { BeverageID: beverageIdOrEntity! });
   }
 }

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { PaymentTermsTypes } from './PaymentTermsTypes';
 
 /**
@@ -15,16 +15,16 @@ export class PaymentTermsTypesRequestBuilder extends RequestBuilder<PaymentTerms
    * @param groupNumber Key property. See [[PaymentTermsTypes.groupNumber]].
    * @returns A request builder for creating requests to retrieve one `PaymentTermsTypes` entity based on its keys.
    */
-  getByKey(groupNumber: number): GetByKeyRequestBuilder<PaymentTermsTypes> {
-    return new GetByKeyRequestBuilder(PaymentTermsTypes, { GroupNumber: groupNumber });
+  getByKey(groupNumber: number): GetByKeyRequestBuilderV4<PaymentTermsTypes> {
+    return new GetByKeyRequestBuilderV4(PaymentTermsTypes, { GroupNumber: groupNumber });
   }
 
   /**
    * Returns a request builder for querying all `PaymentTermsTypes` entities.
    * @returns A request builder for creating requests to retrieve all `PaymentTermsTypes` entities.
    */
-  getAll(): GetAllRequestBuilder<PaymentTermsTypes> {
-    return new GetAllRequestBuilder(PaymentTermsTypes);
+  getAll(): GetAllRequestBuilderV4<PaymentTermsTypes> {
+    return new GetAllRequestBuilderV4(PaymentTermsTypes);
   }
 
   /**
@@ -32,8 +32,8 @@ export class PaymentTermsTypesRequestBuilder extends RequestBuilder<PaymentTerms
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `PaymentTermsTypes`.
    */
-  create(entity: PaymentTermsTypes): CreateRequestBuilder<PaymentTermsTypes> {
-    return new CreateRequestBuilder(PaymentTermsTypes, entity);
+  create(entity: PaymentTermsTypes): CreateRequestBuilderV4<PaymentTermsTypes> {
+    return new CreateRequestBuilderV4(PaymentTermsTypes, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class PaymentTermsTypesRequestBuilder extends RequestBuilder<PaymentTerms
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `PaymentTermsTypes`.
    */
-  update(entity: PaymentTermsTypes): UpdateRequestBuilder<PaymentTermsTypes> {
-    return new UpdateRequestBuilder(PaymentTermsTypes, entity);
+  update(entity: PaymentTermsTypes): UpdateRequestBuilderV4<PaymentTermsTypes> {
+    return new UpdateRequestBuilderV4(PaymentTermsTypes, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class PaymentTermsTypesRequestBuilder extends RequestBuilder<PaymentTerms
    * @param groupNumber Key property. See [[PaymentTermsTypes.groupNumber]].
    * @returns A request builder for creating requests that delete an entity of type `PaymentTermsTypes`.
    */
-  delete(groupNumber: number): DeleteRequestBuilder<PaymentTermsTypes>;
+  delete(groupNumber: number): DeleteRequestBuilderV4<PaymentTermsTypes>;
   /**
    * Returns a request builder for deleting an entity of type `PaymentTermsTypes`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `PaymentTermsTypes` by taking the entity as a parameter.
    */
-  delete(entity: PaymentTermsTypes): DeleteRequestBuilder<PaymentTermsTypes>;
-  delete(groupNumberOrEntity: any): DeleteRequestBuilder<PaymentTermsTypes> {
-    return new DeleteRequestBuilder(PaymentTermsTypes, groupNumberOrEntity instanceof PaymentTermsTypes ? groupNumberOrEntity : { GroupNumber: groupNumberOrEntity! });
+  delete(entity: PaymentTermsTypes): DeleteRequestBuilderV4<PaymentTermsTypes>;
+  delete(groupNumberOrEntity: any): DeleteRequestBuilderV4<PaymentTermsTypes> {
+    return new DeleteRequestBuilderV4(PaymentTermsTypes, groupNumberOrEntity instanceof PaymentTermsTypes ? groupNumberOrEntity : { GroupNumber: groupNumberOrEntity! });
   }
 }

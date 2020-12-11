@@ -1,4 +1,5 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { CounterTypeEnum } from './CounterTypeEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * TeamCounter
  */
@@ -13,6 +14,11 @@ export interface TeamCounter {
      * @nullable
      */
     counterId?: number;
+    /**
+     * Counter Type.
+     * @nullable
+     */
+    counterType?: CounterTypeEnum;
     /**
      * Counter Name.
      * @nullable
@@ -37,7 +43,7 @@ export declare function createTeamCounter(json: any): TeamCounter;
  * TeamCounterField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class TeamCounterField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class TeamCounterField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, TeamCounter> {
     /**
      * Representation of the [[TeamCounter.documentEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -48,6 +54,11 @@ export declare class TeamCounterField<EntityT extends Entity> extends ComplexTyp
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     counterId: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[TeamCounter.counterType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    counterType: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[TeamCounter.counterName]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -63,8 +74,22 @@ export declare class TeamCounterField<EntityT extends Entity> extends ComplexTyp
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     counterVisualOrder: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of TeamCounterField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace TeamCounter {
+    /**
+     * Metadata information on all properties of the `TeamCounter` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<TeamCounter>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): TeamCounter;

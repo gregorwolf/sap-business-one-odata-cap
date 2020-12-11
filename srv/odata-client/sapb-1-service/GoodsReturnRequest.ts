@@ -5,36 +5,54 @@
  */
 import { GoodsReturnRequestRequestBuilder } from './GoodsReturnRequestRequestBuilder';
 import { Moment } from 'moment';
-import { DocumentApprovalRequest, DocumentApprovalRequestField } from './DocumentApprovalRequest';
-import { DocumentLine, DocumentLineField } from './DocumentLine';
-import { DocumentAdditionalExpense, DocumentAdditionalExpenseField } from './DocumentAdditionalExpense';
-import { WithholdingTaxDataWtx, WithholdingTaxDataWtxField } from './WithholdingTaxDataWtx';
-import { WithholdingTaxData, WithholdingTaxDataField } from './WithholdingTaxData';
-import { DocumentPackage, DocumentPackageField } from './DocumentPackage';
-import { DocumentSpecialLine, DocumentSpecialLineField } from './DocumentSpecialLine';
-import { DocumentInstallment, DocumentInstallmentField } from './DocumentInstallment';
-import { DownPaymentToDraw, DownPaymentToDrawField } from './DownPaymentToDraw';
+import { DocumentApprovalRequest } from './DocumentApprovalRequest';
+import { DocumentLine } from './DocumentLine';
+import { DocumentAdditionalExpense } from './DocumentAdditionalExpense';
+import { WithholdingTaxDataWtx } from './WithholdingTaxDataWtx';
+import { WithholdingTaxData } from './WithholdingTaxData';
+import { DocumentPackage } from './DocumentPackage';
+import { DocumentSpecialLine } from './DocumentSpecialLine';
+import { DocumentInstallment } from './DocumentInstallment';
+import { DownPaymentToDraw } from './DownPaymentToDraw';
 import { TaxExtension, TaxExtensionField } from './TaxExtension';
 import { AddressExtension, AddressExtensionField } from './AddressExtension';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoDocumentTypes } from './BoDocumentTypes';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { PrintStatusEnum } from './PrintStatusEnum';
+import { BoDocSummaryTypes } from './BoDocSummaryTypes';
+import { BoObjectTypes } from './BoObjectTypes';
+import { BoDocWhsUpdateTypes } from './BoDocWhsUpdateTypes';
+import { BoDocumentSubType } from './BoDocumentSubType';
+import { BoStatus } from './BoStatus';
+import { DownPaymentTypeEnum } from './DownPaymentTypeEnum';
+import { BoPayTermDueTypes } from './BoPayTermDueTypes';
+import { EDocGenerationTypeEnum } from './EDocGenerationTypeEnum';
+import { EDocStatusEnum } from './EDocStatusEnum';
+import { BoSoStatus } from './BoSoStatus';
+import { ClosingOptionEnum } from './ClosingOptionEnum';
+import { DocumentAuthorizationStatusEnum } from './DocumentAuthorizationStatusEnum';
+import { CancelStatusEnum } from './CancelStatusEnum';
+import { DocumentDeliveryTypeEnum } from './DocumentDeliveryTypeEnum';
+import { ElecCommStatusEnum } from './ElecCommStatusEnum';
+import { FolioLetterEnum } from './FolioLetterEnum';
+import { BoInterimDocTypes } from './BoInterimDocTypes';
+import { PriceModeDocumentEnum } from './PriceModeDocumentEnum';
+import { GstTransactionTypeEnum } from './GstTransactionTypeEnum';
+import { CommissionTradeTypeEnum } from './CommissionTradeTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "GoodsReturnRequest" of service "SAPB1".
  */
-export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType {
+export class GoodsReturnRequest extends EntityV4 implements GoodsReturnRequestType {
   /**
    * Technical entity name for GoodsReturnRequest.
    */
   static _entityName = 'GoodsReturnRequest';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for GoodsReturnRequest.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Doc Entry.
    * @nullable
@@ -45,6 +63,21 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    * @nullable
    */
   docNum?: number;
+  /**
+   * Doc Type.
+   * @nullable
+   */
+  docType?: BoDocumentTypes;
+  /**
+   * Hand Written.
+   * @nullable
+   */
+  handWritten?: BoYesNoEnum;
+  /**
+   * Printed.
+   * @nullable
+   */
+  printed?: PrintStatusEnum;
   /**
    * Doc Date.
    * @nullable
@@ -136,15 +169,30 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   transportationCode?: number;
   /**
+   * Confirmed.
+   * @nullable
+   */
+  confirmed?: BoYesNoEnum;
+  /**
    * Import File Num.
    * @nullable
    */
   importFileNum?: number;
   /**
+   * Summery Type.
+   * @nullable
+   */
+  summeryType?: BoDocSummaryTypes;
+  /**
    * Contact Person Code.
    * @nullable
    */
   contactPersonCode?: number;
+  /**
+   * Show Scn.
+   * @nullable
+   */
+  showScn?: BoYesNoEnum;
   /**
    * Series.
    * @nullable
@@ -155,6 +203,16 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    * @nullable
    */
   taxDate?: Moment;
+  /**
+   * Partial Supply.
+   * @nullable
+   */
+  partialSupply?: BoYesNoEnum;
+  /**
+   * Doc Object Code.
+   * @nullable
+   */
+  docObjectCode?: BoObjectTypes;
   /**
    * Ship To Code.
    * @nullable
@@ -216,6 +274,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   vatSumFc?: number;
   /**
+   * Net Procedure.
+   * @nullable
+   */
+  netProcedure?: BoYesNoEnum;
+  /**
    * Doc Total Fc.
    * @nullable
    */
@@ -236,6 +299,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   box1099?: string;
   /**
+   * Revision Po.
+   * @nullable
+   */
+  revisionPo?: BoYesNoEnum;
+  /**
    * Requried Date.
    * @nullable
    */
@@ -246,15 +314,40 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   cancelDate?: Moment;
   /**
+   * Block Dunning.
+   * @nullable
+   */
+  blockDunning?: BoYesNoEnum;
+  /**
+   * Submitted.
+   * @nullable
+   */
+  submitted?: BoYesNoEnum;
+  /**
    * Segment.
    * @nullable
    */
   segment?: number;
   /**
+   * Pick Status.
+   * @nullable
+   */
+  pickStatus?: BoYesNoEnum;
+  /**
+   * Pick.
+   * @nullable
+   */
+  pick?: BoYesNoEnum;
+  /**
    * Payment Method.
    * @nullable
    */
   paymentMethod?: string;
+  /**
+   * Payment Block.
+   * @nullable
+   */
+  paymentBlock?: BoYesNoEnum;
   /**
    * Payment Block Entry.
    * @nullable
@@ -265,6 +358,16 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    * @nullable
    */
   centralBankIndicator?: string;
+  /**
+   * Maximum Cash Discount.
+   * @nullable
+   */
+  maximumCashDiscount?: BoYesNoEnum;
+  /**
+   * Reserve.
+   * @nullable
+   */
+  reserve?: BoYesNoEnum;
   /**
    * Project.
    * @nullable
@@ -281,6 +384,16 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   exemptionValidityDateTo?: Moment;
   /**
+   * Ware House Update Type.
+   * @nullable
+   */
+  wareHouseUpdateType?: BoDocWhsUpdateTypes;
+  /**
+   * Rounding.
+   * @nullable
+   */
+  rounding?: BoYesNoEnum;
+  /**
    * External Corrected Doc Num.
    * @nullable
    */
@@ -296,6 +409,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   nextCorrectingDocument?: number;
   /**
+   * Deferred Tax.
+   * @nullable
+   */
+  deferredTax?: BoYesNoEnum;
+  /**
    * Tax Exemption Letter Num.
    * @nullable
    */
@@ -310,6 +428,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    * @nullable
    */
   wtAppliedFc?: number;
+  /**
+   * Bill Of Exchange Reserved.
+   * @nullable
+   */
+  billOfExchangeReserved?: BoYesNoEnum;
   /**
    * Agent Code.
    * @nullable
@@ -340,6 +463,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    * @nullable
    */
   numberOfInstallments?: number;
+  /**
+   * Apply Tax On First Installment.
+   * @nullable
+   */
+  applyTaxOnFirstInstallment?: BoYesNoEnum;
   /**
    * Wt Non Subject Amount.
    * @nullable
@@ -421,6 +549,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   folioNumber?: number;
   /**
+   * Document Sub Type.
+   * @nullable
+   */
+  documentSubType?: BoDocumentSubType;
+  /**
    * Bp Channel Code.
    * @nullable
    */
@@ -436,6 +569,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   address2?: string;
   /**
+   * Document Status.
+   * @nullable
+   */
+  documentStatus?: BoStatus;
+  /**
    * Period Indicator.
    * @nullable
    */
@@ -450,6 +588,16 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    * @nullable
    */
   manualNumber?: string;
+  /**
+   * Use Shpd Goods Act.
+   * @nullable
+   */
+  useShpdGoodsAct?: BoYesNoEnum;
+  /**
+   * Is Pay To Bank.
+   * @nullable
+   */
+  isPayToBank?: BoYesNoEnum;
   /**
    * Pay To Bank Country.
    * @nullable
@@ -480,6 +628,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    * @nullable
    */
   downPayment?: number;
+  /**
+   * Reserve Invoice.
+   * @nullable
+   */
+  reserveInvoice?: BoYesNoEnum;
   /**
    * Language Code.
    * @nullable
@@ -526,6 +679,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   sequenceModel?: string;
   /**
+   * Use Correction Vat Group.
+   * @nullable
+   */
+  useCorrectionVatGroup?: BoYesNoEnum;
+  /**
    * Total Discount.
    * @nullable
    */
@@ -540,6 +698,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    * @nullable
    */
   downPaymentPercentage?: number;
+  /**
+   * Down Payment Type.
+   * @nullable
+   */
+  downPaymentType?: DownPaymentTypeEnum;
   /**
    * Down Payment Amount Sc.
    * @nullable
@@ -586,6 +749,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   roundingDiffAmountSc?: number;
   /**
+   * Cancelled.
+   * @nullable
+   */
+  cancelled?: BoYesNoEnum;
+  /**
    * Signature Input Message.
    * @nullable
    */
@@ -610,6 +778,16 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    * @nullable
    */
   controlAccount?: string;
+  /**
+   * Insurance Operation 347.
+   * @nullable
+   */
+  insuranceOperation347?: BoYesNoEnum;
+  /**
+   * Archive Nonremovable Sales Quotation.
+   * @nullable
+   */
+  archiveNonremovableSalesQuotation?: BoYesNoEnum;
   /**
    * Gts Checker.
    * @nullable
@@ -636,6 +814,16 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   cashDiscountDateOffset?: number;
   /**
+   * Start From.
+   * @nullable
+   */
+  startFrom?: BoPayTermDueTypes;
+  /**
+   * Nts Approved.
+   * @nullable
+   */
+  ntsApproved?: BoYesNoEnum;
+  /**
    * E Tax Web Site.
    * @nullable
    */
@@ -650,6 +838,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    * @nullable
    */
   ntsApprovedNumber?: string;
+  /**
+   * E Doc Generation Type.
+   * @nullable
+   */
+  eDocGenerationType?: EDocGenerationTypeEnum;
   /**
    * E Doc Series.
    * @nullable
@@ -666,6 +859,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   eDocExportFormat?: number;
   /**
+   * E Doc Status.
+   * @nullable
+   */
+  eDocStatus?: EDocStatusEnum;
+  /**
    * E Doc Error Code.
    * @nullable
    */
@@ -676,6 +874,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   eDocErrorMessage?: string;
   /**
+   * Down Payment Status.
+   * @nullable
+   */
+  downPaymentStatus?: BoSoStatus;
+  /**
    * Group Series.
    * @nullable
    */
@@ -685,6 +888,26 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    * @nullable
    */
   groupNumber?: number;
+  /**
+   * Group Hand Written.
+   * @nullable
+   */
+  groupHandWritten?: BoYesNoEnum;
+  /**
+   * Reopen Original Document.
+   * @nullable
+   */
+  reopenOriginalDocument?: BoYesNoEnum;
+  /**
+   * Reopen Manually Closed Or Canceled Document.
+   * @nullable
+   */
+  reopenManuallyClosedOrCanceledDocument?: BoYesNoEnum;
+  /**
+   * Create Online Quotation.
+   * @nullable
+   */
+  createOnlineQuotation?: BoYesNoEnum;
   /**
    * Pos Equipment Number.
    * @nullable
@@ -701,10 +924,30 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   posCashierNumber?: number;
   /**
+   * Apply Current Vat Rates For Down Payments To Draw.
+   * @nullable
+   */
+  applyCurrentVatRatesForDownPaymentsToDraw?: BoYesNoEnum;
+  /**
+   * Closing Option.
+   * @nullable
+   */
+  closingOption?: ClosingOptionEnum;
+  /**
    * Specified Closing Date.
    * @nullable
    */
   specifiedClosingDate?: Moment;
+  /**
+   * Open For Landed Costs.
+   * @nullable
+   */
+  openForLandedCosts?: BoYesNoEnum;
+  /**
+   * Authorization Status.
+   * @nullable
+   */
+  authorizationStatus?: DocumentAuthorizationStatusEnum;
   /**
    * Total Discount Fc.
    * @nullable
@@ -715,6 +958,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    * @nullable
    */
   totalDiscountSc?: number;
+  /**
+   * Relevant To Gts.
+   * @nullable
+   */
+  relevantToGts?: BoYesNoEnum;
   /**
    * Bpl Name.
    * @nullable
@@ -751,6 +999,16 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   blanketAgreementNumber?: number;
   /**
+   * Is Alteration.
+   * @nullable
+   */
+  isAlteration?: BoYesNoEnum;
+  /**
+   * Cancel Status.
+   * @nullable
+   */
+  cancelStatus?: CancelStatusEnum;
+  /**
    * Asset Value Date.
    * @nullable
    */
@@ -781,10 +1039,20 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   requesterEmail?: string;
   /**
+   * Send Notification.
+   * @nullable
+   */
+  sendNotification?: BoYesNoEnum;
+  /**
    * Req Type.
    * @nullable
    */
   reqType?: number;
+  /**
+   * Document Delivery.
+   * @nullable
+   */
+  documentDelivery?: DocumentDeliveryTypeEnum;
   /**
    * Authorization Code.
    * @nullable
@@ -821,10 +1089,30 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   atDocumentType?: string;
   /**
+   * Elec Comm Status.
+   * @nullable
+   */
+  elecCommStatus?: ElecCommStatusEnum;
+  /**
    * Elec Comm Message.
    * @nullable
    */
   elecCommMessage?: string;
+  /**
+   * Reuse Document Num.
+   * @nullable
+   */
+  reuseDocumentNum?: BoYesNoEnum;
+  /**
+   * Reuse Nota Fiscal Num.
+   * @nullable
+   */
+  reuseNotaFiscalNum?: BoYesNoEnum;
+  /**
+   * Print Sepa Direct.
+   * @nullable
+   */
+  printSepaDirect?: BoYesNoEnum;
   /**
    * Fiscal Doc Num.
    * @nullable
@@ -846,6 +1134,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   pointOfIssueCode?: string;
   /**
+   * Letter.
+   * @nullable
+   */
+  letter?: FolioLetterEnum;
+  /**
    * Folio Number From.
    * @nullable
    */
@@ -855,6 +1148,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    * @nullable
    */
   folioNumberTo?: number;
+  /**
+   * Interim Type.
+   * @nullable
+   */
+  interimType?: BoInterimDocTypes;
   /**
    * Related Type.
    * @nullable
@@ -881,6 +1179,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   reportingSectionControlStatementVat?: string;
   /**
+   * Exclude From Tax Report Control Statement Vat.
+   * @nullable
+   */
+  excludeFromTaxReportControlStatementVat?: BoYesNoEnum;
+  /**
    * Pos Cash Register.
    * @nullable
    */
@@ -891,10 +1194,20 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    */
   updateTime?: Time;
   /**
+   * Price Mode.
+   * @nullable
+   */
+  priceMode?: PriceModeDocumentEnum;
+  /**
    * Down Payment Trasaction Id.
    * @nullable
    */
   downPaymentTrasactionId?: string;
+  /**
+   * Revision.
+   * @nullable
+   */
+  revision?: BoYesNoEnum;
   /**
    * Original Ref No.
    * @nullable
@@ -905,6 +1218,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    * @nullable
    */
   originalRefDate?: Moment;
+  /**
+   * Gst Transaction Type.
+   * @nullable
+   */
+  gstTransactionType?: GstTransactionTypeEnum;
   /**
    * Original Credit Or Debit No.
    * @nullable
@@ -940,6 +1258,21 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    * @nullable
    */
   shipFrom?: string;
+  /**
+   * Commission Trade.
+   * @nullable
+   */
+  commissionTrade?: CommissionTradeTypeEnum;
+  /**
+   * Commission Trade Return.
+   * @nullable
+   */
+  commissionTradeReturn?: BoYesNoEnum;
+  /**
+   * Use Bill To Addr To Determine Tax.
+   * @nullable
+   */
+  useBillToAddrToDetermineTax?: BoYesNoEnum;
   /**
    * Issuing Reason.
    * @nullable
@@ -1091,11 +1424,11 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
   posDailySummary!: PosDailySummary;
 
   /**
-   * Returns an entity builder to construct instances `GoodsReturnRequest`.
+   * Returns an entity builder to construct instances of `GoodsReturnRequest`.
    * @returns A builder that constructs instances of entity type `GoodsReturnRequest`.
    */
-  static builder(): EntityBuilderType<GoodsReturnRequest, GoodsReturnRequestTypeForceMandatory> {
-    return Entity.entityBuilder(GoodsReturnRequest);
+  static builder(): EntityBuilderType<GoodsReturnRequest, GoodsReturnRequestType> {
+    return EntityV4.entityBuilder(GoodsReturnRequest);
   }
 
   /**
@@ -1111,8 +1444,8 @@ export class GoodsReturnRequest extends Entity implements GoodsReturnRequestType
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `GoodsReturnRequest`.
    */
-  static customField(fieldName: string): CustomField<GoodsReturnRequest> {
-    return Entity.customFieldSelector(fieldName, GoodsReturnRequest);
+  static customField(fieldName: string): CustomFieldV4<GoodsReturnRequest> {
+    return EntityV4.customFieldSelector(fieldName, GoodsReturnRequest);
   }
 
   /**
@@ -1147,418 +1480,263 @@ import { Departments, DepartmentsType } from './Departments';
 import { PosDailySummary, PosDailySummaryType } from './PosDailySummary';
 
 export interface GoodsReturnRequestType {
-  docEntry?: number;
-  docNum?: number;
-  docDate?: Moment;
-  docDueDate?: Moment;
-  cardCode?: string;
-  cardName?: string;
-  address?: string;
-  numAtCard?: string;
-  docTotal?: number;
-  attachmentEntry?: number;
-  docCurrency?: string;
-  docRate?: number;
-  reference1?: string;
-  reference2?: string;
-  comments?: string;
-  journalMemo?: string;
-  paymentGroupCode?: number;
-  docTime?: Time;
-  salesPersonCode?: number;
-  transportationCode?: number;
-  importFileNum?: number;
-  contactPersonCode?: number;
-  series?: number;
-  taxDate?: Moment;
-  shipToCode?: string;
-  indicator?: string;
-  federalTaxId?: string;
-  discountPercent?: number;
-  paymentReference?: string;
-  creationDate?: Moment;
-  updateDate?: Moment;
-  financialPeriod?: number;
-  transNum?: number;
-  vatSum?: number;
-  vatSumSys?: number;
-  vatSumFc?: number;
-  docTotalFc?: number;
-  docTotalSys?: number;
-  form1099?: number;
-  box1099?: string;
-  requriedDate?: Moment;
-  cancelDate?: Moment;
-  segment?: number;
-  paymentMethod?: string;
-  paymentBlockEntry?: number;
-  centralBankIndicator?: string;
-  project?: string;
-  exemptionValidityDateFrom?: Moment;
-  exemptionValidityDateTo?: Moment;
-  externalCorrectedDocNum?: string;
-  internalCorrectedDocNum?: number;
-  nextCorrectingDocument?: number;
-  taxExemptionLetterNum?: string;
-  wtApplied?: number;
-  wtAppliedFc?: number;
-  agentCode?: string;
-  wtAppliedSc?: number;
-  totalEqualizationTax?: number;
-  totalEqualizationTaxFc?: number;
-  totalEqualizationTaxSc?: number;
-  numberOfInstallments?: number;
-  wtNonSubjectAmount?: number;
-  wtNonSubjectAmountSc?: number;
-  wtNonSubjectAmountFc?: number;
-  wtExemptedAmount?: number;
-  wtExemptedAmountSc?: number;
-  wtExemptedAmountFc?: number;
-  baseAmount?: number;
-  baseAmountSc?: number;
-  baseAmountFc?: number;
-  wtAmount?: number;
-  wtAmountSc?: number;
-  wtAmountFc?: number;
-  vatDate?: Moment;
-  documentsOwner?: number;
-  folioPrefixString?: string;
-  folioNumber?: number;
-  bpChannelCode?: string;
-  bpChannelContact?: number;
-  address2?: string;
-  periodIndicator?: string;
-  payToCode?: string;
-  manualNumber?: string;
-  payToBankCountry?: string;
-  payToBankCode?: string;
-  payToBankAccountNo?: string;
-  payToBankBranch?: string;
-  bplIdAssignedToInvoice?: number;
-  downPayment?: number;
-  languageCode?: number;
-  trackingNumber?: string;
-  pickRemark?: string;
-  closingDate?: Moment;
-  sequenceCode?: number;
-  sequenceSerial?: number;
-  seriesString?: string;
-  subSeriesString?: string;
-  sequenceModel?: string;
-  totalDiscount?: number;
-  downPaymentAmount?: number;
-  downPaymentPercentage?: number;
-  downPaymentAmountSc?: number;
-  downPaymentAmountFc?: number;
-  vatPercent?: number;
-  serviceGrossProfitPercent?: number;
-  openingRemarks?: string;
-  closingRemarks?: string;
-  roundingDiffAmount?: number;
-  roundingDiffAmountFc?: number;
-  roundingDiffAmountSc?: number;
-  signatureInputMessage?: string;
-  signatureDigest?: string;
-  certificationNumber?: string;
-  privateKeyVersion?: number;
-  controlAccount?: string;
-  gtsChecker?: number;
-  gtsPayee?: number;
-  extraMonth?: number;
-  extraDays?: number;
-  cashDiscountDateOffset?: number;
-  eTaxWebSite?: number;
-  eTaxNumber?: string;
-  ntsApprovedNumber?: string;
-  eDocSeries?: number;
-  eDocNum?: string;
-  eDocExportFormat?: number;
-  eDocErrorCode?: string;
-  eDocErrorMessage?: string;
-  groupSeries?: number;
-  groupNumber?: number;
-  posEquipmentNumber?: string;
-  posManufacturerSerialNumber?: string;
-  posCashierNumber?: number;
-  specifiedClosingDate?: Moment;
-  totalDiscountFc?: number;
-  totalDiscountSc?: number;
-  bplName?: string;
-  vatRegNum?: string;
-  annualInvoiceDeclarationReference?: number;
-  supplier?: string;
-  releaser?: number;
-  receiver?: number;
-  blanketAgreementNumber?: number;
-  assetValueDate?: Moment;
-  requester?: string;
-  requesterName?: string;
-  requesterBranch?: number;
-  requesterDepartment?: number;
-  requesterEmail?: string;
-  reqType?: number;
-  authorizationCode?: string;
-  startDeliveryDate?: Moment;
-  startDeliveryTime?: Time;
-  endDeliveryDate?: Moment;
-  endDeliveryTime?: Time;
-  vehiclePlate?: string;
-  atDocumentType?: string;
-  elecCommMessage?: string;
-  fiscalDocNum?: string;
-  posDailySummaryNo?: number;
-  posReceiptNo?: number;
-  pointOfIssueCode?: string;
-  folioNumberFrom?: number;
-  folioNumberTo?: number;
-  relatedType?: number;
-  relatedEntry?: number;
-  documentTaxId?: string;
-  dateOfReportingControlStatementVat?: Moment;
-  reportingSectionControlStatementVat?: string;
-  posCashRegister?: number;
-  updateTime?: Time;
-  downPaymentTrasactionId?: string;
-  originalRefNo?: string;
-  originalRefDate?: Moment;
-  originalCreditOrDebitNo?: string;
-  originalCreditOrDebitDate?: Moment;
-  eCommerceOperator?: string;
-  eCommerceGstin?: string;
-  taxInvoiceNo?: string;
-  taxInvoiceDate?: Moment;
-  shipFrom?: string;
-  issuingReason?: number;
-  documentApprovalRequests?: DocumentApprovalRequest[];
-  documentLines?: DocumentLine[];
-  documentAdditionalExpenses?: DocumentAdditionalExpense[];
-  withholdingTaxDataWtxCollection?: WithholdingTaxDataWtx[];
-  withholdingTaxDataCollection?: WithholdingTaxData[];
-  documentPackages?: DocumentPackage[];
-  documentSpecialLines?: DocumentSpecialLine[];
-  documentInstallments?: DocumentInstallment[];
-  downPaymentsToDraw?: DownPaymentToDraw[];
-  taxExtension?: TaxExtension;
-  addressExtension?: AddressExtension;
-  soiWizardId?: number;
-  businessPartner: BusinessPartnersType;
-  currency: CurrenciesType;
-  paymentTermsType: PaymentTermsTypesType;
-  salesPerson: SalesPersonsType;
-  shippingType: ShippingTypesType;
-  factoringIndicator: FactoringIndicatorsType;
-  journalEntry: JournalEntriesType;
-  forms1099: Forms1099Type;
-  wizardPaymentMethod: WizardPaymentMethodsType;
-  paymentBlock2: PaymentBlocksType;
-  project2: ProjectsType;
-  employeeInfo: EmployeesInfoType;
-  country: CountriesType;
-  businessPlace: BusinessPlacesType;
-  userLanguage: UserLanguagesType;
-  nfModel: NfModelsType;
-  chartOfAccount: ChartOfAccountsType;
-  taxWebSite: TaxWebSitesType;
-  branch: BranchesType;
-  department: DepartmentsType;
-  posDailySummary: PosDailySummaryType;
-}
-
-export interface GoodsReturnRequestTypeForceMandatory {
-  docEntry: number;
-  docNum: number;
-  docDate: Moment;
-  docDueDate: Moment;
-  cardCode: string;
-  cardName: string;
-  address: string;
-  numAtCard: string;
-  docTotal: number;
-  attachmentEntry: number;
-  docCurrency: string;
-  docRate: number;
-  reference1: string;
-  reference2: string;
-  comments: string;
-  journalMemo: string;
-  paymentGroupCode: number;
-  docTime: Time;
-  salesPersonCode: number;
-  transportationCode: number;
-  importFileNum: number;
-  contactPersonCode: number;
-  series: number;
-  taxDate: Moment;
-  shipToCode: string;
-  indicator: string;
-  federalTaxId: string;
-  discountPercent: number;
-  paymentReference: string;
-  creationDate: Moment;
-  updateDate: Moment;
-  financialPeriod: number;
-  transNum: number;
-  vatSum: number;
-  vatSumSys: number;
-  vatSumFc: number;
-  docTotalFc: number;
-  docTotalSys: number;
-  form1099: number;
-  box1099: string;
-  requriedDate: Moment;
-  cancelDate: Moment;
-  segment: number;
-  paymentMethod: string;
-  paymentBlockEntry: number;
-  centralBankIndicator: string;
-  project: string;
-  exemptionValidityDateFrom: Moment;
-  exemptionValidityDateTo: Moment;
-  externalCorrectedDocNum: string;
-  internalCorrectedDocNum: number;
-  nextCorrectingDocument: number;
-  taxExemptionLetterNum: string;
-  wtApplied: number;
-  wtAppliedFc: number;
-  agentCode: string;
-  wtAppliedSc: number;
-  totalEqualizationTax: number;
-  totalEqualizationTaxFc: number;
-  totalEqualizationTaxSc: number;
-  numberOfInstallments: number;
-  wtNonSubjectAmount: number;
-  wtNonSubjectAmountSc: number;
-  wtNonSubjectAmountFc: number;
-  wtExemptedAmount: number;
-  wtExemptedAmountSc: number;
-  wtExemptedAmountFc: number;
-  baseAmount: number;
-  baseAmountSc: number;
-  baseAmountFc: number;
-  wtAmount: number;
-  wtAmountSc: number;
-  wtAmountFc: number;
-  vatDate: Moment;
-  documentsOwner: number;
-  folioPrefixString: string;
-  folioNumber: number;
-  bpChannelCode: string;
-  bpChannelContact: number;
-  address2: string;
-  periodIndicator: string;
-  payToCode: string;
-  manualNumber: string;
-  payToBankCountry: string;
-  payToBankCode: string;
-  payToBankAccountNo: string;
-  payToBankBranch: string;
-  bplIdAssignedToInvoice: number;
-  downPayment: number;
-  languageCode: number;
-  trackingNumber: string;
-  pickRemark: string;
-  closingDate: Moment;
-  sequenceCode: number;
-  sequenceSerial: number;
-  seriesString: string;
-  subSeriesString: string;
-  sequenceModel: string;
-  totalDiscount: number;
-  downPaymentAmount: number;
-  downPaymentPercentage: number;
-  downPaymentAmountSc: number;
-  downPaymentAmountFc: number;
-  vatPercent: number;
-  serviceGrossProfitPercent: number;
-  openingRemarks: string;
-  closingRemarks: string;
-  roundingDiffAmount: number;
-  roundingDiffAmountFc: number;
-  roundingDiffAmountSc: number;
-  signatureInputMessage: string;
-  signatureDigest: string;
-  certificationNumber: string;
-  privateKeyVersion: number;
-  controlAccount: string;
-  gtsChecker: number;
-  gtsPayee: number;
-  extraMonth: number;
-  extraDays: number;
-  cashDiscountDateOffset: number;
-  eTaxWebSite: number;
-  eTaxNumber: string;
-  ntsApprovedNumber: string;
-  eDocSeries: number;
-  eDocNum: string;
-  eDocExportFormat: number;
-  eDocErrorCode: string;
-  eDocErrorMessage: string;
-  groupSeries: number;
-  groupNumber: number;
-  posEquipmentNumber: string;
-  posManufacturerSerialNumber: string;
-  posCashierNumber: number;
-  specifiedClosingDate: Moment;
-  totalDiscountFc: number;
-  totalDiscountSc: number;
-  bplName: string;
-  vatRegNum: string;
-  annualInvoiceDeclarationReference: number;
-  supplier: string;
-  releaser: number;
-  receiver: number;
-  blanketAgreementNumber: number;
-  assetValueDate: Moment;
-  requester: string;
-  requesterName: string;
-  requesterBranch: number;
-  requesterDepartment: number;
-  requesterEmail: string;
-  reqType: number;
-  authorizationCode: string;
-  startDeliveryDate: Moment;
-  startDeliveryTime: Time;
-  endDeliveryDate: Moment;
-  endDeliveryTime: Time;
-  vehiclePlate: string;
-  atDocumentType: string;
-  elecCommMessage: string;
-  fiscalDocNum: string;
-  posDailySummaryNo: number;
-  posReceiptNo: number;
-  pointOfIssueCode: string;
-  folioNumberFrom: number;
-  folioNumberTo: number;
-  relatedType: number;
-  relatedEntry: number;
-  documentTaxId: string;
-  dateOfReportingControlStatementVat: Moment;
-  reportingSectionControlStatementVat: string;
-  posCashRegister: number;
-  updateTime: Time;
-  downPaymentTrasactionId: string;
-  originalRefNo: string;
-  originalRefDate: Moment;
-  originalCreditOrDebitNo: string;
-  originalCreditOrDebitDate: Moment;
-  eCommerceOperator: string;
-  eCommerceGstin: string;
-  taxInvoiceNo: string;
-  taxInvoiceDate: Moment;
-  shipFrom: string;
-  issuingReason: number;
-  documentApprovalRequests: DocumentApprovalRequest[];
-  documentLines: DocumentLine[];
-  documentAdditionalExpenses: DocumentAdditionalExpense[];
-  withholdingTaxDataWtxCollection: WithholdingTaxDataWtx[];
-  withholdingTaxDataCollection: WithholdingTaxData[];
-  documentPackages: DocumentPackage[];
-  documentSpecialLines: DocumentSpecialLine[];
-  documentInstallments: DocumentInstallment[];
-  downPaymentsToDraw: DownPaymentToDraw[];
-  taxExtension: TaxExtension;
-  addressExtension: AddressExtension;
-  soiWizardId: number;
+  docEntry?: number | null;
+  docNum?: number | null;
+  docType?: BoDocumentTypes | null;
+  handWritten?: BoYesNoEnum | null;
+  printed?: PrintStatusEnum | null;
+  docDate?: Moment | null;
+  docDueDate?: Moment | null;
+  cardCode?: string | null;
+  cardName?: string | null;
+  address?: string | null;
+  numAtCard?: string | null;
+  docTotal?: number | null;
+  attachmentEntry?: number | null;
+  docCurrency?: string | null;
+  docRate?: number | null;
+  reference1?: string | null;
+  reference2?: string | null;
+  comments?: string | null;
+  journalMemo?: string | null;
+  paymentGroupCode?: number | null;
+  docTime?: Time | null;
+  salesPersonCode?: number | null;
+  transportationCode?: number | null;
+  confirmed?: BoYesNoEnum | null;
+  importFileNum?: number | null;
+  summeryType?: BoDocSummaryTypes | null;
+  contactPersonCode?: number | null;
+  showScn?: BoYesNoEnum | null;
+  series?: number | null;
+  taxDate?: Moment | null;
+  partialSupply?: BoYesNoEnum | null;
+  docObjectCode?: BoObjectTypes | null;
+  shipToCode?: string | null;
+  indicator?: string | null;
+  federalTaxId?: string | null;
+  discountPercent?: number | null;
+  paymentReference?: string | null;
+  creationDate?: Moment | null;
+  updateDate?: Moment | null;
+  financialPeriod?: number | null;
+  transNum?: number | null;
+  vatSum?: number | null;
+  vatSumSys?: number | null;
+  vatSumFc?: number | null;
+  netProcedure?: BoYesNoEnum | null;
+  docTotalFc?: number | null;
+  docTotalSys?: number | null;
+  form1099?: number | null;
+  box1099?: string | null;
+  revisionPo?: BoYesNoEnum | null;
+  requriedDate?: Moment | null;
+  cancelDate?: Moment | null;
+  blockDunning?: BoYesNoEnum | null;
+  submitted?: BoYesNoEnum | null;
+  segment?: number | null;
+  pickStatus?: BoYesNoEnum | null;
+  pick?: BoYesNoEnum | null;
+  paymentMethod?: string | null;
+  paymentBlock?: BoYesNoEnum | null;
+  paymentBlockEntry?: number | null;
+  centralBankIndicator?: string | null;
+  maximumCashDiscount?: BoYesNoEnum | null;
+  reserve?: BoYesNoEnum | null;
+  project?: string | null;
+  exemptionValidityDateFrom?: Moment | null;
+  exemptionValidityDateTo?: Moment | null;
+  wareHouseUpdateType?: BoDocWhsUpdateTypes | null;
+  rounding?: BoYesNoEnum | null;
+  externalCorrectedDocNum?: string | null;
+  internalCorrectedDocNum?: number | null;
+  nextCorrectingDocument?: number | null;
+  deferredTax?: BoYesNoEnum | null;
+  taxExemptionLetterNum?: string | null;
+  wtApplied?: number | null;
+  wtAppliedFc?: number | null;
+  billOfExchangeReserved?: BoYesNoEnum | null;
+  agentCode?: string | null;
+  wtAppliedSc?: number | null;
+  totalEqualizationTax?: number | null;
+  totalEqualizationTaxFc?: number | null;
+  totalEqualizationTaxSc?: number | null;
+  numberOfInstallments?: number | null;
+  applyTaxOnFirstInstallment?: BoYesNoEnum | null;
+  wtNonSubjectAmount?: number | null;
+  wtNonSubjectAmountSc?: number | null;
+  wtNonSubjectAmountFc?: number | null;
+  wtExemptedAmount?: number | null;
+  wtExemptedAmountSc?: number | null;
+  wtExemptedAmountFc?: number | null;
+  baseAmount?: number | null;
+  baseAmountSc?: number | null;
+  baseAmountFc?: number | null;
+  wtAmount?: number | null;
+  wtAmountSc?: number | null;
+  wtAmountFc?: number | null;
+  vatDate?: Moment | null;
+  documentsOwner?: number | null;
+  folioPrefixString?: string | null;
+  folioNumber?: number | null;
+  documentSubType?: BoDocumentSubType | null;
+  bpChannelCode?: string | null;
+  bpChannelContact?: number | null;
+  address2?: string | null;
+  documentStatus?: BoStatus | null;
+  periodIndicator?: string | null;
+  payToCode?: string | null;
+  manualNumber?: string | null;
+  useShpdGoodsAct?: BoYesNoEnum | null;
+  isPayToBank?: BoYesNoEnum | null;
+  payToBankCountry?: string | null;
+  payToBankCode?: string | null;
+  payToBankAccountNo?: string | null;
+  payToBankBranch?: string | null;
+  bplIdAssignedToInvoice?: number | null;
+  downPayment?: number | null;
+  reserveInvoice?: BoYesNoEnum | null;
+  languageCode?: number | null;
+  trackingNumber?: string | null;
+  pickRemark?: string | null;
+  closingDate?: Moment | null;
+  sequenceCode?: number | null;
+  sequenceSerial?: number | null;
+  seriesString?: string | null;
+  subSeriesString?: string | null;
+  sequenceModel?: string | null;
+  useCorrectionVatGroup?: BoYesNoEnum | null;
+  totalDiscount?: number | null;
+  downPaymentAmount?: number | null;
+  downPaymentPercentage?: number | null;
+  downPaymentType?: DownPaymentTypeEnum | null;
+  downPaymentAmountSc?: number | null;
+  downPaymentAmountFc?: number | null;
+  vatPercent?: number | null;
+  serviceGrossProfitPercent?: number | null;
+  openingRemarks?: string | null;
+  closingRemarks?: string | null;
+  roundingDiffAmount?: number | null;
+  roundingDiffAmountFc?: number | null;
+  roundingDiffAmountSc?: number | null;
+  cancelled?: BoYesNoEnum | null;
+  signatureInputMessage?: string | null;
+  signatureDigest?: string | null;
+  certificationNumber?: string | null;
+  privateKeyVersion?: number | null;
+  controlAccount?: string | null;
+  insuranceOperation347?: BoYesNoEnum | null;
+  archiveNonremovableSalesQuotation?: BoYesNoEnum | null;
+  gtsChecker?: number | null;
+  gtsPayee?: number | null;
+  extraMonth?: number | null;
+  extraDays?: number | null;
+  cashDiscountDateOffset?: number | null;
+  startFrom?: BoPayTermDueTypes | null;
+  ntsApproved?: BoYesNoEnum | null;
+  eTaxWebSite?: number | null;
+  eTaxNumber?: string | null;
+  ntsApprovedNumber?: string | null;
+  eDocGenerationType?: EDocGenerationTypeEnum | null;
+  eDocSeries?: number | null;
+  eDocNum?: string | null;
+  eDocExportFormat?: number | null;
+  eDocStatus?: EDocStatusEnum | null;
+  eDocErrorCode?: string | null;
+  eDocErrorMessage?: string | null;
+  downPaymentStatus?: BoSoStatus | null;
+  groupSeries?: number | null;
+  groupNumber?: number | null;
+  groupHandWritten?: BoYesNoEnum | null;
+  reopenOriginalDocument?: BoYesNoEnum | null;
+  reopenManuallyClosedOrCanceledDocument?: BoYesNoEnum | null;
+  createOnlineQuotation?: BoYesNoEnum | null;
+  posEquipmentNumber?: string | null;
+  posManufacturerSerialNumber?: string | null;
+  posCashierNumber?: number | null;
+  applyCurrentVatRatesForDownPaymentsToDraw?: BoYesNoEnum | null;
+  closingOption?: ClosingOptionEnum | null;
+  specifiedClosingDate?: Moment | null;
+  openForLandedCosts?: BoYesNoEnum | null;
+  authorizationStatus?: DocumentAuthorizationStatusEnum | null;
+  totalDiscountFc?: number | null;
+  totalDiscountSc?: number | null;
+  relevantToGts?: BoYesNoEnum | null;
+  bplName?: string | null;
+  vatRegNum?: string | null;
+  annualInvoiceDeclarationReference?: number | null;
+  supplier?: string | null;
+  releaser?: number | null;
+  receiver?: number | null;
+  blanketAgreementNumber?: number | null;
+  isAlteration?: BoYesNoEnum | null;
+  cancelStatus?: CancelStatusEnum | null;
+  assetValueDate?: Moment | null;
+  requester?: string | null;
+  requesterName?: string | null;
+  requesterBranch?: number | null;
+  requesterDepartment?: number | null;
+  requesterEmail?: string | null;
+  sendNotification?: BoYesNoEnum | null;
+  reqType?: number | null;
+  documentDelivery?: DocumentDeliveryTypeEnum | null;
+  authorizationCode?: string | null;
+  startDeliveryDate?: Moment | null;
+  startDeliveryTime?: Time | null;
+  endDeliveryDate?: Moment | null;
+  endDeliveryTime?: Time | null;
+  vehiclePlate?: string | null;
+  atDocumentType?: string | null;
+  elecCommStatus?: ElecCommStatusEnum | null;
+  elecCommMessage?: string | null;
+  reuseDocumentNum?: BoYesNoEnum | null;
+  reuseNotaFiscalNum?: BoYesNoEnum | null;
+  printSepaDirect?: BoYesNoEnum | null;
+  fiscalDocNum?: string | null;
+  posDailySummaryNo?: number | null;
+  posReceiptNo?: number | null;
+  pointOfIssueCode?: string | null;
+  letter?: FolioLetterEnum | null;
+  folioNumberFrom?: number | null;
+  folioNumberTo?: number | null;
+  interimType?: BoInterimDocTypes | null;
+  relatedType?: number | null;
+  relatedEntry?: number | null;
+  documentTaxId?: string | null;
+  dateOfReportingControlStatementVat?: Moment | null;
+  reportingSectionControlStatementVat?: string | null;
+  excludeFromTaxReportControlStatementVat?: BoYesNoEnum | null;
+  posCashRegister?: number | null;
+  updateTime?: Time | null;
+  priceMode?: PriceModeDocumentEnum | null;
+  downPaymentTrasactionId?: string | null;
+  revision?: BoYesNoEnum | null;
+  originalRefNo?: string | null;
+  originalRefDate?: Moment | null;
+  gstTransactionType?: GstTransactionTypeEnum | null;
+  originalCreditOrDebitNo?: string | null;
+  originalCreditOrDebitDate?: Moment | null;
+  eCommerceOperator?: string | null;
+  eCommerceGstin?: string | null;
+  taxInvoiceNo?: string | null;
+  taxInvoiceDate?: Moment | null;
+  shipFrom?: string | null;
+  commissionTrade?: CommissionTradeTypeEnum | null;
+  commissionTradeReturn?: BoYesNoEnum | null;
+  useBillToAddrToDetermineTax?: BoYesNoEnum | null;
+  issuingReason?: number | null;
+  documentApprovalRequests?: DocumentApprovalRequest[] | null;
+  documentLines?: DocumentLine[] | null;
+  documentAdditionalExpenses?: DocumentAdditionalExpense[] | null;
+  withholdingTaxDataWtxCollection?: WithholdingTaxDataWtx[] | null;
+  withholdingTaxDataCollection?: WithholdingTaxData[] | null;
+  documentPackages?: DocumentPackage[] | null;
+  documentSpecialLines?: DocumentSpecialLine[] | null;
+  documentInstallments?: DocumentInstallment[] | null;
+  downPaymentsToDraw?: DownPaymentToDraw[] | null;
+  taxExtension?: TaxExtension | null;
+  addressExtension?: AddressExtension | null;
+  soiWizardId?: number | null;
   businessPartner: BusinessPartnersType;
   currency: CurrenciesType;
   paymentTermsType: PaymentTermsTypesType;
@@ -1593,6 +1771,21 @@ export namespace GoodsReturnRequest {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOC_NUM: NumberField<GoodsReturnRequest> = new NumberField('DocNum', GoodsReturnRequest, 'Edm.Int32');
+  /**
+   * Static representation of the [[docType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOC_TYPE: EnumField<GoodsReturnRequest> = new EnumField('DocType', GoodsReturnRequest);
+  /**
+   * Static representation of the [[handWritten]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const HAND_WRITTEN: EnumField<GoodsReturnRequest> = new EnumField('HandWritten', GoodsReturnRequest);
+  /**
+   * Static representation of the [[printed]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRINTED: EnumField<GoodsReturnRequest> = new EnumField('Printed', GoodsReturnRequest);
   /**
    * Static representation of the [[docDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1684,15 +1877,30 @@ export namespace GoodsReturnRequest {
    */
   export const TRANSPORTATION_CODE: NumberField<GoodsReturnRequest> = new NumberField('TransportationCode', GoodsReturnRequest, 'Edm.Int32');
   /**
+   * Static representation of the [[confirmed]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CONFIRMED: EnumField<GoodsReturnRequest> = new EnumField('Confirmed', GoodsReturnRequest);
+  /**
    * Static representation of the [[importFileNum]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const IMPORT_FILE_NUM: NumberField<GoodsReturnRequest> = new NumberField('ImportFileNum', GoodsReturnRequest, 'Edm.Int32');
   /**
+   * Static representation of the [[summeryType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SUMMERY_TYPE: EnumField<GoodsReturnRequest> = new EnumField('SummeryType', GoodsReturnRequest);
+  /**
    * Static representation of the [[contactPersonCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CONTACT_PERSON_CODE: NumberField<GoodsReturnRequest> = new NumberField('ContactPersonCode', GoodsReturnRequest, 'Edm.Int32');
+  /**
+   * Static representation of the [[showScn]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SHOW_SCN: EnumField<GoodsReturnRequest> = new EnumField('ShowSCN', GoodsReturnRequest);
   /**
    * Static representation of the [[series]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1703,6 +1911,16 @@ export namespace GoodsReturnRequest {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const TAX_DATE: DateField<GoodsReturnRequest> = new DateField('TaxDate', GoodsReturnRequest, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[partialSupply]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PARTIAL_SUPPLY: EnumField<GoodsReturnRequest> = new EnumField('PartialSupply', GoodsReturnRequest);
+  /**
+   * Static representation of the [[docObjectCode]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOC_OBJECT_CODE: EnumField<GoodsReturnRequest> = new EnumField('DocObjectCode', GoodsReturnRequest);
   /**
    * Static representation of the [[shipToCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1764,6 +1982,11 @@ export namespace GoodsReturnRequest {
    */
   export const VAT_SUM_FC: NumberField<GoodsReturnRequest> = new NumberField('VatSumFc', GoodsReturnRequest, 'Edm.Double');
   /**
+   * Static representation of the [[netProcedure]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const NET_PROCEDURE: EnumField<GoodsReturnRequest> = new EnumField('NetProcedure', GoodsReturnRequest);
+  /**
    * Static representation of the [[docTotalFc]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1784,6 +2007,11 @@ export namespace GoodsReturnRequest {
    */
   export const BOX_1099: StringField<GoodsReturnRequest> = new StringField('Box1099', GoodsReturnRequest, 'Edm.String');
   /**
+   * Static representation of the [[revisionPo]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REVISION_PO: EnumField<GoodsReturnRequest> = new EnumField('RevisionPo', GoodsReturnRequest);
+  /**
    * Static representation of the [[requriedDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1794,15 +2022,40 @@ export namespace GoodsReturnRequest {
    */
   export const CANCEL_DATE: DateField<GoodsReturnRequest> = new DateField('CancelDate', GoodsReturnRequest, 'Edm.DateTimeOffset');
   /**
+   * Static representation of the [[blockDunning]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BLOCK_DUNNING: EnumField<GoodsReturnRequest> = new EnumField('BlockDunning', GoodsReturnRequest);
+  /**
+   * Static representation of the [[submitted]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SUBMITTED: EnumField<GoodsReturnRequest> = new EnumField('Submitted', GoodsReturnRequest);
+  /**
    * Static representation of the [[segment]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const SEGMENT: NumberField<GoodsReturnRequest> = new NumberField('Segment', GoodsReturnRequest, 'Edm.Int32');
   /**
+   * Static representation of the [[pickStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PICK_STATUS: EnumField<GoodsReturnRequest> = new EnumField('PickStatus', GoodsReturnRequest);
+  /**
+   * Static representation of the [[pick]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PICK: EnumField<GoodsReturnRequest> = new EnumField('Pick', GoodsReturnRequest);
+  /**
    * Static representation of the [[paymentMethod]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const PAYMENT_METHOD: StringField<GoodsReturnRequest> = new StringField('PaymentMethod', GoodsReturnRequest, 'Edm.String');
+  /**
+   * Static representation of the [[paymentBlock]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PAYMENT_BLOCK: EnumField<GoodsReturnRequest> = new EnumField('PaymentBlock', GoodsReturnRequest);
   /**
    * Static representation of the [[paymentBlockEntry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1813,6 +2066,16 @@ export namespace GoodsReturnRequest {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CENTRAL_BANK_INDICATOR: StringField<GoodsReturnRequest> = new StringField('CentralBankIndicator', GoodsReturnRequest, 'Edm.String');
+  /**
+   * Static representation of the [[maximumCashDiscount]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const MAXIMUM_CASH_DISCOUNT: EnumField<GoodsReturnRequest> = new EnumField('MaximumCashDiscount', GoodsReturnRequest);
+  /**
+   * Static representation of the [[reserve]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RESERVE: EnumField<GoodsReturnRequest> = new EnumField('Reserve', GoodsReturnRequest);
   /**
    * Static representation of the [[project]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1829,6 +2092,16 @@ export namespace GoodsReturnRequest {
    */
   export const EXEMPTION_VALIDITY_DATE_TO: DateField<GoodsReturnRequest> = new DateField('ExemptionValidityDateTo', GoodsReturnRequest, 'Edm.DateTimeOffset');
   /**
+   * Static representation of the [[wareHouseUpdateType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const WARE_HOUSE_UPDATE_TYPE: EnumField<GoodsReturnRequest> = new EnumField('WareHouseUpdateType', GoodsReturnRequest);
+  /**
+   * Static representation of the [[rounding]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ROUNDING: EnumField<GoodsReturnRequest> = new EnumField('Rounding', GoodsReturnRequest);
+  /**
    * Static representation of the [[externalCorrectedDocNum]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1844,6 +2117,11 @@ export namespace GoodsReturnRequest {
    */
   export const NEXT_CORRECTING_DOCUMENT: NumberField<GoodsReturnRequest> = new NumberField('NextCorrectingDocument', GoodsReturnRequest, 'Edm.Int32');
   /**
+   * Static representation of the [[deferredTax]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DEFERRED_TAX: EnumField<GoodsReturnRequest> = new EnumField('DeferredTax', GoodsReturnRequest);
+  /**
    * Static representation of the [[taxExemptionLetterNum]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1858,6 +2136,11 @@ export namespace GoodsReturnRequest {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const WT_APPLIED_FC: NumberField<GoodsReturnRequest> = new NumberField('WTAppliedFC', GoodsReturnRequest, 'Edm.Double');
+  /**
+   * Static representation of the [[billOfExchangeReserved]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BILL_OF_EXCHANGE_RESERVED: EnumField<GoodsReturnRequest> = new EnumField('BillOfExchangeReserved', GoodsReturnRequest);
   /**
    * Static representation of the [[agentCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1888,6 +2171,11 @@ export namespace GoodsReturnRequest {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const NUMBER_OF_INSTALLMENTS: NumberField<GoodsReturnRequest> = new NumberField('NumberOfInstallments', GoodsReturnRequest, 'Edm.Int32');
+  /**
+   * Static representation of the [[applyTaxOnFirstInstallment]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const APPLY_TAX_ON_FIRST_INSTALLMENT: EnumField<GoodsReturnRequest> = new EnumField('ApplyTaxOnFirstInstallment', GoodsReturnRequest);
   /**
    * Static representation of the [[wtNonSubjectAmount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1969,6 +2257,11 @@ export namespace GoodsReturnRequest {
    */
   export const FOLIO_NUMBER: NumberField<GoodsReturnRequest> = new NumberField('FolioNumber', GoodsReturnRequest, 'Edm.Int32');
   /**
+   * Static representation of the [[documentSubType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_SUB_TYPE: EnumField<GoodsReturnRequest> = new EnumField('DocumentSubType', GoodsReturnRequest);
+  /**
    * Static representation of the [[bpChannelCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1984,6 +2277,11 @@ export namespace GoodsReturnRequest {
    */
   export const ADDRESS_2: StringField<GoodsReturnRequest> = new StringField('Address2', GoodsReturnRequest, 'Edm.String');
   /**
+   * Static representation of the [[documentStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_STATUS: EnumField<GoodsReturnRequest> = new EnumField('DocumentStatus', GoodsReturnRequest);
+  /**
    * Static representation of the [[periodIndicator]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -1998,6 +2296,16 @@ export namespace GoodsReturnRequest {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const MANUAL_NUMBER: StringField<GoodsReturnRequest> = new StringField('ManualNumber', GoodsReturnRequest, 'Edm.String');
+  /**
+   * Static representation of the [[useShpdGoodsAct]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const USE_SHPD_GOODS_ACT: EnumField<GoodsReturnRequest> = new EnumField('UseShpdGoodsAct', GoodsReturnRequest);
+  /**
+   * Static representation of the [[isPayToBank]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_PAY_TO_BANK: EnumField<GoodsReturnRequest> = new EnumField('IsPayToBank', GoodsReturnRequest);
   /**
    * Static representation of the [[payToBankCountry]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2028,6 +2336,11 @@ export namespace GoodsReturnRequest {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOWN_PAYMENT: NumberField<GoodsReturnRequest> = new NumberField('DownPayment', GoodsReturnRequest, 'Edm.Double');
+  /**
+   * Static representation of the [[reserveInvoice]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RESERVE_INVOICE: EnumField<GoodsReturnRequest> = new EnumField('ReserveInvoice', GoodsReturnRequest);
   /**
    * Static representation of the [[languageCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2074,6 +2387,11 @@ export namespace GoodsReturnRequest {
    */
   export const SEQUENCE_MODEL: StringField<GoodsReturnRequest> = new StringField('SequenceModel', GoodsReturnRequest, 'Edm.String');
   /**
+   * Static representation of the [[useCorrectionVatGroup]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const USE_CORRECTION_VAT_GROUP: EnumField<GoodsReturnRequest> = new EnumField('UseCorrectionVATGroup', GoodsReturnRequest);
+  /**
    * Static representation of the [[totalDiscount]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2088,6 +2406,11 @@ export namespace GoodsReturnRequest {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOWN_PAYMENT_PERCENTAGE: NumberField<GoodsReturnRequest> = new NumberField('DownPaymentPercentage', GoodsReturnRequest, 'Edm.Double');
+  /**
+   * Static representation of the [[downPaymentType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOWN_PAYMENT_TYPE: EnumField<GoodsReturnRequest> = new EnumField('DownPaymentType', GoodsReturnRequest);
   /**
    * Static representation of the [[downPaymentAmountSc]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2134,6 +2457,11 @@ export namespace GoodsReturnRequest {
    */
   export const ROUNDING_DIFF_AMOUNT_SC: NumberField<GoodsReturnRequest> = new NumberField('RoundingDiffAmountSC', GoodsReturnRequest, 'Edm.Double');
   /**
+   * Static representation of the [[cancelled]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CANCELLED: EnumField<GoodsReturnRequest> = new EnumField('Cancelled', GoodsReturnRequest);
+  /**
    * Static representation of the [[signatureInputMessage]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2158,6 +2486,16 @@ export namespace GoodsReturnRequest {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const CONTROL_ACCOUNT: StringField<GoodsReturnRequest> = new StringField('ControlAccount', GoodsReturnRequest, 'Edm.String');
+  /**
+   * Static representation of the [[insuranceOperation347]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INSURANCE_OPERATION_347: EnumField<GoodsReturnRequest> = new EnumField('InsuranceOperation347', GoodsReturnRequest);
+  /**
+   * Static representation of the [[archiveNonremovableSalesQuotation]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ARCHIVE_NONREMOVABLE_SALES_QUOTATION: EnumField<GoodsReturnRequest> = new EnumField('ArchiveNonremovableSalesQuotation', GoodsReturnRequest);
   /**
    * Static representation of the [[gtsChecker]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2184,6 +2522,16 @@ export namespace GoodsReturnRequest {
    */
   export const CASH_DISCOUNT_DATE_OFFSET: NumberField<GoodsReturnRequest> = new NumberField('CashDiscountDateOffset', GoodsReturnRequest, 'Edm.Int32');
   /**
+   * Static representation of the [[startFrom]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const START_FROM: EnumField<GoodsReturnRequest> = new EnumField('StartFrom', GoodsReturnRequest);
+  /**
+   * Static representation of the [[ntsApproved]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const NTS_APPROVED: EnumField<GoodsReturnRequest> = new EnumField('NTSApproved', GoodsReturnRequest);
+  /**
    * Static representation of the [[eTaxWebSite]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2198,6 +2546,11 @@ export namespace GoodsReturnRequest {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const NTS_APPROVED_NUMBER: StringField<GoodsReturnRequest> = new StringField('NTSApprovedNumber', GoodsReturnRequest, 'Edm.String');
+  /**
+   * Static representation of the [[eDocGenerationType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const E_DOC_GENERATION_TYPE: EnumField<GoodsReturnRequest> = new EnumField('EDocGenerationType', GoodsReturnRequest);
   /**
    * Static representation of the [[eDocSeries]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2214,6 +2567,11 @@ export namespace GoodsReturnRequest {
    */
   export const E_DOC_EXPORT_FORMAT: NumberField<GoodsReturnRequest> = new NumberField('EDocExportFormat', GoodsReturnRequest, 'Edm.Int32');
   /**
+   * Static representation of the [[eDocStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const E_DOC_STATUS: EnumField<GoodsReturnRequest> = new EnumField('EDocStatus', GoodsReturnRequest);
+  /**
    * Static representation of the [[eDocErrorCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2224,6 +2582,11 @@ export namespace GoodsReturnRequest {
    */
   export const E_DOC_ERROR_MESSAGE: StringField<GoodsReturnRequest> = new StringField('EDocErrorMessage', GoodsReturnRequest, 'Edm.String');
   /**
+   * Static representation of the [[downPaymentStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOWN_PAYMENT_STATUS: EnumField<GoodsReturnRequest> = new EnumField('DownPaymentStatus', GoodsReturnRequest);
+  /**
    * Static representation of the [[groupSeries]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2233,6 +2596,26 @@ export namespace GoodsReturnRequest {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const GROUP_NUMBER: NumberField<GoodsReturnRequest> = new NumberField('GroupNumber', GoodsReturnRequest, 'Edm.Int32');
+  /**
+   * Static representation of the [[groupHandWritten]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const GROUP_HAND_WRITTEN: EnumField<GoodsReturnRequest> = new EnumField('GroupHandWritten', GoodsReturnRequest);
+  /**
+   * Static representation of the [[reopenOriginalDocument]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REOPEN_ORIGINAL_DOCUMENT: EnumField<GoodsReturnRequest> = new EnumField('ReopenOriginalDocument', GoodsReturnRequest);
+  /**
+   * Static representation of the [[reopenManuallyClosedOrCanceledDocument]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REOPEN_MANUALLY_CLOSED_OR_CANCELED_DOCUMENT: EnumField<GoodsReturnRequest> = new EnumField('ReopenManuallyClosedOrCanceledDocument', GoodsReturnRequest);
+  /**
+   * Static representation of the [[createOnlineQuotation]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CREATE_ONLINE_QUOTATION: EnumField<GoodsReturnRequest> = new EnumField('CreateOnlineQuotation', GoodsReturnRequest);
   /**
    * Static representation of the [[posEquipmentNumber]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2249,10 +2632,30 @@ export namespace GoodsReturnRequest {
    */
   export const POS_CASHIER_NUMBER: NumberField<GoodsReturnRequest> = new NumberField('POSCashierNumber', GoodsReturnRequest, 'Edm.Int32');
   /**
+   * Static representation of the [[applyCurrentVatRatesForDownPaymentsToDraw]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const APPLY_CURRENT_VAT_RATES_FOR_DOWN_PAYMENTS_TO_DRAW: EnumField<GoodsReturnRequest> = new EnumField('ApplyCurrentVATRatesForDownPaymentsToDraw', GoodsReturnRequest);
+  /**
+   * Static representation of the [[closingOption]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CLOSING_OPTION: EnumField<GoodsReturnRequest> = new EnumField('ClosingOption', GoodsReturnRequest);
+  /**
    * Static representation of the [[specifiedClosingDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const SPECIFIED_CLOSING_DATE: DateField<GoodsReturnRequest> = new DateField('SpecifiedClosingDate', GoodsReturnRequest, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[openForLandedCosts]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const OPEN_FOR_LANDED_COSTS: EnumField<GoodsReturnRequest> = new EnumField('OpenForLandedCosts', GoodsReturnRequest);
+  /**
+   * Static representation of the [[authorizationStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const AUTHORIZATION_STATUS: EnumField<GoodsReturnRequest> = new EnumField('AuthorizationStatus', GoodsReturnRequest);
   /**
    * Static representation of the [[totalDiscountFc]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2263,6 +2666,11 @@ export namespace GoodsReturnRequest {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const TOTAL_DISCOUNT_SC: NumberField<GoodsReturnRequest> = new NumberField('TotalDiscountSC', GoodsReturnRequest, 'Edm.Double');
+  /**
+   * Static representation of the [[relevantToGts]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RELEVANT_TO_GTS: EnumField<GoodsReturnRequest> = new EnumField('RelevantToGTS', GoodsReturnRequest);
   /**
    * Static representation of the [[bplName]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2299,6 +2707,16 @@ export namespace GoodsReturnRequest {
    */
   export const BLANKET_AGREEMENT_NUMBER: NumberField<GoodsReturnRequest> = new NumberField('BlanketAgreementNumber', GoodsReturnRequest, 'Edm.Int32');
   /**
+   * Static representation of the [[isAlteration]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IS_ALTERATION: EnumField<GoodsReturnRequest> = new EnumField('IsAlteration', GoodsReturnRequest);
+  /**
+   * Static representation of the [[cancelStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CANCEL_STATUS: EnumField<GoodsReturnRequest> = new EnumField('CancelStatus', GoodsReturnRequest);
+  /**
    * Static representation of the [[assetValueDate]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2329,10 +2747,20 @@ export namespace GoodsReturnRequest {
    */
   export const REQUESTER_EMAIL: StringField<GoodsReturnRequest> = new StringField('RequesterEmail', GoodsReturnRequest, 'Edm.String');
   /**
+   * Static representation of the [[sendNotification]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const SEND_NOTIFICATION: EnumField<GoodsReturnRequest> = new EnumField('SendNotification', GoodsReturnRequest);
+  /**
    * Static representation of the [[reqType]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const REQ_TYPE: NumberField<GoodsReturnRequest> = new NumberField('ReqType', GoodsReturnRequest, 'Edm.Int32');
+  /**
+   * Static representation of the [[documentDelivery]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const DOCUMENT_DELIVERY: EnumField<GoodsReturnRequest> = new EnumField('DocumentDelivery', GoodsReturnRequest);
   /**
    * Static representation of the [[authorizationCode]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2369,10 +2797,30 @@ export namespace GoodsReturnRequest {
    */
   export const AT_DOCUMENT_TYPE: StringField<GoodsReturnRequest> = new StringField('ATDocumentType', GoodsReturnRequest, 'Edm.String');
   /**
+   * Static representation of the [[elecCommStatus]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const ELEC_COMM_STATUS: EnumField<GoodsReturnRequest> = new EnumField('ElecCommStatus', GoodsReturnRequest);
+  /**
    * Static representation of the [[elecCommMessage]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const ELEC_COMM_MESSAGE: StringField<GoodsReturnRequest> = new StringField('ElecCommMessage', GoodsReturnRequest, 'Edm.String');
+  /**
+   * Static representation of the [[reuseDocumentNum]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REUSE_DOCUMENT_NUM: EnumField<GoodsReturnRequest> = new EnumField('ReuseDocumentNum', GoodsReturnRequest);
+  /**
+   * Static representation of the [[reuseNotaFiscalNum]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REUSE_NOTA_FISCAL_NUM: EnumField<GoodsReturnRequest> = new EnumField('ReuseNotaFiscalNum', GoodsReturnRequest);
+  /**
+   * Static representation of the [[printSepaDirect]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRINT_SEPA_DIRECT: EnumField<GoodsReturnRequest> = new EnumField('PrintSEPADirect', GoodsReturnRequest);
   /**
    * Static representation of the [[fiscalDocNum]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2394,6 +2842,11 @@ export namespace GoodsReturnRequest {
    */
   export const POINT_OF_ISSUE_CODE: StringField<GoodsReturnRequest> = new StringField('PointOfIssueCode', GoodsReturnRequest, 'Edm.String');
   /**
+   * Static representation of the [[letter]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LETTER: EnumField<GoodsReturnRequest> = new EnumField('Letter', GoodsReturnRequest);
+  /**
    * Static representation of the [[folioNumberFrom]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2403,6 +2856,11 @@ export namespace GoodsReturnRequest {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const FOLIO_NUMBER_TO: NumberField<GoodsReturnRequest> = new NumberField('FolioNumberTo', GoodsReturnRequest, 'Edm.Int32');
+  /**
+   * Static representation of the [[interimType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INTERIM_TYPE: EnumField<GoodsReturnRequest> = new EnumField('InterimType', GoodsReturnRequest);
   /**
    * Static representation of the [[relatedType]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2429,6 +2887,11 @@ export namespace GoodsReturnRequest {
    */
   export const REPORTING_SECTION_CONTROL_STATEMENT_VAT: StringField<GoodsReturnRequest> = new StringField('ReportingSectionControlStatementVAT', GoodsReturnRequest, 'Edm.String');
   /**
+   * Static representation of the [[excludeFromTaxReportControlStatementVat]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const EXCLUDE_FROM_TAX_REPORT_CONTROL_STATEMENT_VAT: EnumField<GoodsReturnRequest> = new EnumField('ExcludeFromTaxReportControlStatementVAT', GoodsReturnRequest);
+  /**
    * Static representation of the [[posCashRegister]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2439,10 +2902,20 @@ export namespace GoodsReturnRequest {
    */
   export const UPDATE_TIME: TimeField<GoodsReturnRequest> = new TimeField('UpdateTime', GoodsReturnRequest, 'Edm.TimeOfDay');
   /**
+   * Static representation of the [[priceMode]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRICE_MODE: EnumField<GoodsReturnRequest> = new EnumField('PriceMode', GoodsReturnRequest);
+  /**
    * Static representation of the [[downPaymentTrasactionId]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOWN_PAYMENT_TRASACTION_ID: StringField<GoodsReturnRequest> = new StringField('DownPaymentTrasactionID', GoodsReturnRequest, 'Edm.String');
+  /**
+   * Static representation of the [[revision]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REVISION: EnumField<GoodsReturnRequest> = new EnumField('Revision', GoodsReturnRequest);
   /**
    * Static representation of the [[originalRefNo]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2453,6 +2926,11 @@ export namespace GoodsReturnRequest {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const ORIGINAL_REF_DATE: DateField<GoodsReturnRequest> = new DateField('OriginalRefDate', GoodsReturnRequest, 'Edm.DateTimeOffset');
+  /**
+   * Static representation of the [[gstTransactionType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const GST_TRANSACTION_TYPE: EnumField<GoodsReturnRequest> = new EnumField('GSTTransactionType', GoodsReturnRequest);
   /**
    * Static representation of the [[originalCreditOrDebitNo]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2489,6 +2967,21 @@ export namespace GoodsReturnRequest {
    */
   export const SHIP_FROM: StringField<GoodsReturnRequest> = new StringField('ShipFrom', GoodsReturnRequest, 'Edm.String');
   /**
+   * Static representation of the [[commissionTrade]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const COMMISSION_TRADE: EnumField<GoodsReturnRequest> = new EnumField('CommissionTrade', GoodsReturnRequest);
+  /**
+   * Static representation of the [[commissionTradeReturn]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const COMMISSION_TRADE_RETURN: EnumField<GoodsReturnRequest> = new EnumField('CommissionTradeReturn', GoodsReturnRequest);
+  /**
+   * Static representation of the [[useBillToAddrToDetermineTax]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const USE_BILL_TO_ADDR_TO_DETERMINE_TAX: EnumField<GoodsReturnRequest> = new EnumField('UseBillToAddrToDetermineTax', GoodsReturnRequest);
+  /**
    * Static representation of the [[issuingReason]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -2497,47 +2990,47 @@ export namespace GoodsReturnRequest {
    * Static representation of the [[documentApprovalRequests]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_APPROVAL_REQUESTS: CollectionField<GoodsReturnRequest> = new CollectionField('Document_ApprovalRequests', GoodsReturnRequest, new DocumentApprovalRequestField('', GoodsReturnRequest));
+  export const DOCUMENT_APPROVAL_REQUESTS: CollectionField<GoodsReturnRequest, DocumentApprovalRequest> = new CollectionField('Document_ApprovalRequests', GoodsReturnRequest, DocumentApprovalRequest);
   /**
    * Static representation of the [[documentLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_LINES: CollectionField<GoodsReturnRequest> = new CollectionField('DocumentLines', GoodsReturnRequest, new DocumentLineField('', GoodsReturnRequest));
+  export const DOCUMENT_LINES: CollectionField<GoodsReturnRequest, DocumentLine> = new CollectionField('DocumentLines', GoodsReturnRequest, DocumentLine);
   /**
    * Static representation of the [[documentAdditionalExpenses]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_ADDITIONAL_EXPENSES: CollectionField<GoodsReturnRequest> = new CollectionField('DocumentAdditionalExpenses', GoodsReturnRequest, new DocumentAdditionalExpenseField('', GoodsReturnRequest));
+  export const DOCUMENT_ADDITIONAL_EXPENSES: CollectionField<GoodsReturnRequest, DocumentAdditionalExpense> = new CollectionField('DocumentAdditionalExpenses', GoodsReturnRequest, DocumentAdditionalExpense);
   /**
    * Static representation of the [[withholdingTaxDataWtxCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const WITHHOLDING_TAX_DATA_WTX_COLLECTION: CollectionField<GoodsReturnRequest> = new CollectionField('WithholdingTaxDataWTXCollection', GoodsReturnRequest, new WithholdingTaxDataWtxField('', GoodsReturnRequest));
+  export const WITHHOLDING_TAX_DATA_WTX_COLLECTION: CollectionField<GoodsReturnRequest, WithholdingTaxDataWtx> = new CollectionField('WithholdingTaxDataWTXCollection', GoodsReturnRequest, WithholdingTaxDataWtx);
   /**
    * Static representation of the [[withholdingTaxDataCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const WITHHOLDING_TAX_DATA_COLLECTION: CollectionField<GoodsReturnRequest> = new CollectionField('WithholdingTaxDataCollection', GoodsReturnRequest, new WithholdingTaxDataField('', GoodsReturnRequest));
+  export const WITHHOLDING_TAX_DATA_COLLECTION: CollectionField<GoodsReturnRequest, WithholdingTaxData> = new CollectionField('WithholdingTaxDataCollection', GoodsReturnRequest, WithholdingTaxData);
   /**
    * Static representation of the [[documentPackages]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_PACKAGES: CollectionField<GoodsReturnRequest> = new CollectionField('DocumentPackages', GoodsReturnRequest, new DocumentPackageField('', GoodsReturnRequest));
+  export const DOCUMENT_PACKAGES: CollectionField<GoodsReturnRequest, DocumentPackage> = new CollectionField('DocumentPackages', GoodsReturnRequest, DocumentPackage);
   /**
    * Static representation of the [[documentSpecialLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_SPECIAL_LINES: CollectionField<GoodsReturnRequest> = new CollectionField('DocumentSpecialLines', GoodsReturnRequest, new DocumentSpecialLineField('', GoodsReturnRequest));
+  export const DOCUMENT_SPECIAL_LINES: CollectionField<GoodsReturnRequest, DocumentSpecialLine> = new CollectionField('DocumentSpecialLines', GoodsReturnRequest, DocumentSpecialLine);
   /**
    * Static representation of the [[documentInstallments]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOCUMENT_INSTALLMENTS: CollectionField<GoodsReturnRequest> = new CollectionField('DocumentInstallments', GoodsReturnRequest, new DocumentInstallmentField('', GoodsReturnRequest));
+  export const DOCUMENT_INSTALLMENTS: CollectionField<GoodsReturnRequest, DocumentInstallment> = new CollectionField('DocumentInstallments', GoodsReturnRequest, DocumentInstallment);
   /**
    * Static representation of the [[downPaymentsToDraw]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const DOWN_PAYMENTS_TO_DRAW: CollectionField<GoodsReturnRequest> = new CollectionField('DownPaymentsToDraw', GoodsReturnRequest, new DownPaymentToDrawField('', GoodsReturnRequest));
+  export const DOWN_PAYMENTS_TO_DRAW: CollectionField<GoodsReturnRequest, DownPaymentToDraw> = new CollectionField('DownPaymentsToDraw', GoodsReturnRequest, DownPaymentToDraw);
   /**
    * Static representation of the [[taxExtension]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2661,9 +3154,12 @@ export namespace GoodsReturnRequest {
   /**
    * All fields of the GoodsReturnRequest entity.
    */
-  export const _allFields: Array<NumberField<GoodsReturnRequest> | DateField<GoodsReturnRequest> | StringField<GoodsReturnRequest> | TimeField<GoodsReturnRequest> | CollectionField<GoodsReturnRequest> | TaxExtensionField<GoodsReturnRequest> | AddressExtensionField<GoodsReturnRequest> | OneToOneLink<GoodsReturnRequest, BusinessPartners> | OneToOneLink<GoodsReturnRequest, Currencies> | OneToOneLink<GoodsReturnRequest, PaymentTermsTypes> | OneToOneLink<GoodsReturnRequest, SalesPersons> | OneToOneLink<GoodsReturnRequest, ShippingTypes> | OneToOneLink<GoodsReturnRequest, FactoringIndicators> | OneToOneLink<GoodsReturnRequest, JournalEntries> | OneToOneLink<GoodsReturnRequest, Forms1099> | OneToOneLink<GoodsReturnRequest, WizardPaymentMethods> | OneToOneLink<GoodsReturnRequest, PaymentBlocks> | OneToOneLink<GoodsReturnRequest, Projects> | OneToOneLink<GoodsReturnRequest, EmployeesInfo> | OneToOneLink<GoodsReturnRequest, Countries> | OneToOneLink<GoodsReturnRequest, BusinessPlaces> | OneToOneLink<GoodsReturnRequest, UserLanguages> | OneToOneLink<GoodsReturnRequest, NfModels> | OneToOneLink<GoodsReturnRequest, ChartOfAccounts> | OneToOneLink<GoodsReturnRequest, TaxWebSites> | OneToOneLink<GoodsReturnRequest, Branches> | OneToOneLink<GoodsReturnRequest, Departments> | OneToOneLink<GoodsReturnRequest, PosDailySummary>> = [
+  export const _allFields: Array<NumberField<GoodsReturnRequest> | EnumField<GoodsReturnRequest> | DateField<GoodsReturnRequest> | StringField<GoodsReturnRequest> | TimeField<GoodsReturnRequest> | CollectionField<GoodsReturnRequest, DocumentApprovalRequest> | CollectionField<GoodsReturnRequest, DocumentLine> | CollectionField<GoodsReturnRequest, DocumentAdditionalExpense> | CollectionField<GoodsReturnRequest, WithholdingTaxDataWtx> | CollectionField<GoodsReturnRequest, WithholdingTaxData> | CollectionField<GoodsReturnRequest, DocumentPackage> | CollectionField<GoodsReturnRequest, DocumentSpecialLine> | CollectionField<GoodsReturnRequest, DocumentInstallment> | CollectionField<GoodsReturnRequest, DownPaymentToDraw> | TaxExtensionField<GoodsReturnRequest> | AddressExtensionField<GoodsReturnRequest> | OneToOneLink<GoodsReturnRequest, BusinessPartners> | OneToOneLink<GoodsReturnRequest, Currencies> | OneToOneLink<GoodsReturnRequest, PaymentTermsTypes> | OneToOneLink<GoodsReturnRequest, SalesPersons> | OneToOneLink<GoodsReturnRequest, ShippingTypes> | OneToOneLink<GoodsReturnRequest, FactoringIndicators> | OneToOneLink<GoodsReturnRequest, JournalEntries> | OneToOneLink<GoodsReturnRequest, Forms1099> | OneToOneLink<GoodsReturnRequest, WizardPaymentMethods> | OneToOneLink<GoodsReturnRequest, PaymentBlocks> | OneToOneLink<GoodsReturnRequest, Projects> | OneToOneLink<GoodsReturnRequest, EmployeesInfo> | OneToOneLink<GoodsReturnRequest, Countries> | OneToOneLink<GoodsReturnRequest, BusinessPlaces> | OneToOneLink<GoodsReturnRequest, UserLanguages> | OneToOneLink<GoodsReturnRequest, NfModels> | OneToOneLink<GoodsReturnRequest, ChartOfAccounts> | OneToOneLink<GoodsReturnRequest, TaxWebSites> | OneToOneLink<GoodsReturnRequest, Branches> | OneToOneLink<GoodsReturnRequest, Departments> | OneToOneLink<GoodsReturnRequest, PosDailySummary>> = [
     GoodsReturnRequest.DOC_ENTRY,
     GoodsReturnRequest.DOC_NUM,
+    GoodsReturnRequest.DOC_TYPE,
+    GoodsReturnRequest.HAND_WRITTEN,
+    GoodsReturnRequest.PRINTED,
     GoodsReturnRequest.DOC_DATE,
     GoodsReturnRequest.DOC_DUE_DATE,
     GoodsReturnRequest.CARD_CODE,
@@ -2682,10 +3178,15 @@ export namespace GoodsReturnRequest {
     GoodsReturnRequest.DOC_TIME,
     GoodsReturnRequest.SALES_PERSON_CODE,
     GoodsReturnRequest.TRANSPORTATION_CODE,
+    GoodsReturnRequest.CONFIRMED,
     GoodsReturnRequest.IMPORT_FILE_NUM,
+    GoodsReturnRequest.SUMMERY_TYPE,
     GoodsReturnRequest.CONTACT_PERSON_CODE,
+    GoodsReturnRequest.SHOW_SCN,
     GoodsReturnRequest.SERIES,
     GoodsReturnRequest.TAX_DATE,
+    GoodsReturnRequest.PARTIAL_SUPPLY,
+    GoodsReturnRequest.DOC_OBJECT_CODE,
     GoodsReturnRequest.SHIP_TO_CODE,
     GoodsReturnRequest.INDICATOR,
     GoodsReturnRequest.FEDERAL_TAX_ID,
@@ -2698,31 +3199,45 @@ export namespace GoodsReturnRequest {
     GoodsReturnRequest.VAT_SUM,
     GoodsReturnRequest.VAT_SUM_SYS,
     GoodsReturnRequest.VAT_SUM_FC,
+    GoodsReturnRequest.NET_PROCEDURE,
     GoodsReturnRequest.DOC_TOTAL_FC,
     GoodsReturnRequest.DOC_TOTAL_SYS,
     GoodsReturnRequest.FORM_1099,
     GoodsReturnRequest.BOX_1099,
+    GoodsReturnRequest.REVISION_PO,
     GoodsReturnRequest.REQURIED_DATE,
     GoodsReturnRequest.CANCEL_DATE,
+    GoodsReturnRequest.BLOCK_DUNNING,
+    GoodsReturnRequest.SUBMITTED,
     GoodsReturnRequest.SEGMENT,
+    GoodsReturnRequest.PICK_STATUS,
+    GoodsReturnRequest.PICK,
     GoodsReturnRequest.PAYMENT_METHOD,
+    GoodsReturnRequest.PAYMENT_BLOCK,
     GoodsReturnRequest.PAYMENT_BLOCK_ENTRY,
     GoodsReturnRequest.CENTRAL_BANK_INDICATOR,
+    GoodsReturnRequest.MAXIMUM_CASH_DISCOUNT,
+    GoodsReturnRequest.RESERVE,
     GoodsReturnRequest.PROJECT,
     GoodsReturnRequest.EXEMPTION_VALIDITY_DATE_FROM,
     GoodsReturnRequest.EXEMPTION_VALIDITY_DATE_TO,
+    GoodsReturnRequest.WARE_HOUSE_UPDATE_TYPE,
+    GoodsReturnRequest.ROUNDING,
     GoodsReturnRequest.EXTERNAL_CORRECTED_DOC_NUM,
     GoodsReturnRequest.INTERNAL_CORRECTED_DOC_NUM,
     GoodsReturnRequest.NEXT_CORRECTING_DOCUMENT,
+    GoodsReturnRequest.DEFERRED_TAX,
     GoodsReturnRequest.TAX_EXEMPTION_LETTER_NUM,
     GoodsReturnRequest.WT_APPLIED,
     GoodsReturnRequest.WT_APPLIED_FC,
+    GoodsReturnRequest.BILL_OF_EXCHANGE_RESERVED,
     GoodsReturnRequest.AGENT_CODE,
     GoodsReturnRequest.WT_APPLIED_SC,
     GoodsReturnRequest.TOTAL_EQUALIZATION_TAX,
     GoodsReturnRequest.TOTAL_EQUALIZATION_TAX_FC,
     GoodsReturnRequest.TOTAL_EQUALIZATION_TAX_SC,
     GoodsReturnRequest.NUMBER_OF_INSTALLMENTS,
+    GoodsReturnRequest.APPLY_TAX_ON_FIRST_INSTALLMENT,
     GoodsReturnRequest.WT_NON_SUBJECT_AMOUNT,
     GoodsReturnRequest.WT_NON_SUBJECT_AMOUNT_SC,
     GoodsReturnRequest.WT_NON_SUBJECT_AMOUNT_FC,
@@ -2739,18 +3254,23 @@ export namespace GoodsReturnRequest {
     GoodsReturnRequest.DOCUMENTS_OWNER,
     GoodsReturnRequest.FOLIO_PREFIX_STRING,
     GoodsReturnRequest.FOLIO_NUMBER,
+    GoodsReturnRequest.DOCUMENT_SUB_TYPE,
     GoodsReturnRequest.BP_CHANNEL_CODE,
     GoodsReturnRequest.BP_CHANNEL_CONTACT,
     GoodsReturnRequest.ADDRESS_2,
+    GoodsReturnRequest.DOCUMENT_STATUS,
     GoodsReturnRequest.PERIOD_INDICATOR,
     GoodsReturnRequest.PAY_TO_CODE,
     GoodsReturnRequest.MANUAL_NUMBER,
+    GoodsReturnRequest.USE_SHPD_GOODS_ACT,
+    GoodsReturnRequest.IS_PAY_TO_BANK,
     GoodsReturnRequest.PAY_TO_BANK_COUNTRY,
     GoodsReturnRequest.PAY_TO_BANK_CODE,
     GoodsReturnRequest.PAY_TO_BANK_ACCOUNT_NO,
     GoodsReturnRequest.PAY_TO_BANK_BRANCH,
     GoodsReturnRequest.BPL_ID_ASSIGNED_TO_INVOICE,
     GoodsReturnRequest.DOWN_PAYMENT,
+    GoodsReturnRequest.RESERVE_INVOICE,
     GoodsReturnRequest.LANGUAGE_CODE,
     GoodsReturnRequest.TRACKING_NUMBER,
     GoodsReturnRequest.PICK_REMARK,
@@ -2760,9 +3280,11 @@ export namespace GoodsReturnRequest {
     GoodsReturnRequest.SERIES_STRING,
     GoodsReturnRequest.SUB_SERIES_STRING,
     GoodsReturnRequest.SEQUENCE_MODEL,
+    GoodsReturnRequest.USE_CORRECTION_VAT_GROUP,
     GoodsReturnRequest.TOTAL_DISCOUNT,
     GoodsReturnRequest.DOWN_PAYMENT_AMOUNT,
     GoodsReturnRequest.DOWN_PAYMENT_PERCENTAGE,
+    GoodsReturnRequest.DOWN_PAYMENT_TYPE,
     GoodsReturnRequest.DOWN_PAYMENT_AMOUNT_SC,
     GoodsReturnRequest.DOWN_PAYMENT_AMOUNT_FC,
     GoodsReturnRequest.VAT_PERCENT,
@@ -2772,32 +3294,49 @@ export namespace GoodsReturnRequest {
     GoodsReturnRequest.ROUNDING_DIFF_AMOUNT,
     GoodsReturnRequest.ROUNDING_DIFF_AMOUNT_FC,
     GoodsReturnRequest.ROUNDING_DIFF_AMOUNT_SC,
+    GoodsReturnRequest.CANCELLED,
     GoodsReturnRequest.SIGNATURE_INPUT_MESSAGE,
     GoodsReturnRequest.SIGNATURE_DIGEST,
     GoodsReturnRequest.CERTIFICATION_NUMBER,
     GoodsReturnRequest.PRIVATE_KEY_VERSION,
     GoodsReturnRequest.CONTROL_ACCOUNT,
+    GoodsReturnRequest.INSURANCE_OPERATION_347,
+    GoodsReturnRequest.ARCHIVE_NONREMOVABLE_SALES_QUOTATION,
     GoodsReturnRequest.GTS_CHECKER,
     GoodsReturnRequest.GTS_PAYEE,
     GoodsReturnRequest.EXTRA_MONTH,
     GoodsReturnRequest.EXTRA_DAYS,
     GoodsReturnRequest.CASH_DISCOUNT_DATE_OFFSET,
+    GoodsReturnRequest.START_FROM,
+    GoodsReturnRequest.NTS_APPROVED,
     GoodsReturnRequest.E_TAX_WEB_SITE,
     GoodsReturnRequest.E_TAX_NUMBER,
     GoodsReturnRequest.NTS_APPROVED_NUMBER,
+    GoodsReturnRequest.E_DOC_GENERATION_TYPE,
     GoodsReturnRequest.E_DOC_SERIES,
     GoodsReturnRequest.E_DOC_NUM,
     GoodsReturnRequest.E_DOC_EXPORT_FORMAT,
+    GoodsReturnRequest.E_DOC_STATUS,
     GoodsReturnRequest.E_DOC_ERROR_CODE,
     GoodsReturnRequest.E_DOC_ERROR_MESSAGE,
+    GoodsReturnRequest.DOWN_PAYMENT_STATUS,
     GoodsReturnRequest.GROUP_SERIES,
     GoodsReturnRequest.GROUP_NUMBER,
+    GoodsReturnRequest.GROUP_HAND_WRITTEN,
+    GoodsReturnRequest.REOPEN_ORIGINAL_DOCUMENT,
+    GoodsReturnRequest.REOPEN_MANUALLY_CLOSED_OR_CANCELED_DOCUMENT,
+    GoodsReturnRequest.CREATE_ONLINE_QUOTATION,
     GoodsReturnRequest.POS_EQUIPMENT_NUMBER,
     GoodsReturnRequest.POS_MANUFACTURER_SERIAL_NUMBER,
     GoodsReturnRequest.POS_CASHIER_NUMBER,
+    GoodsReturnRequest.APPLY_CURRENT_VAT_RATES_FOR_DOWN_PAYMENTS_TO_DRAW,
+    GoodsReturnRequest.CLOSING_OPTION,
     GoodsReturnRequest.SPECIFIED_CLOSING_DATE,
+    GoodsReturnRequest.OPEN_FOR_LANDED_COSTS,
+    GoodsReturnRequest.AUTHORIZATION_STATUS,
     GoodsReturnRequest.TOTAL_DISCOUNT_FC,
     GoodsReturnRequest.TOTAL_DISCOUNT_SC,
+    GoodsReturnRequest.RELEVANT_TO_GTS,
     GoodsReturnRequest.BPL_NAME,
     GoodsReturnRequest.VAT_REG_NUM,
     GoodsReturnRequest.ANNUAL_INVOICE_DECLARATION_REFERENCE,
@@ -2805,13 +3344,17 @@ export namespace GoodsReturnRequest {
     GoodsReturnRequest.RELEASER,
     GoodsReturnRequest.RECEIVER,
     GoodsReturnRequest.BLANKET_AGREEMENT_NUMBER,
+    GoodsReturnRequest.IS_ALTERATION,
+    GoodsReturnRequest.CANCEL_STATUS,
     GoodsReturnRequest.ASSET_VALUE_DATE,
     GoodsReturnRequest.REQUESTER,
     GoodsReturnRequest.REQUESTER_NAME,
     GoodsReturnRequest.REQUESTER_BRANCH,
     GoodsReturnRequest.REQUESTER_DEPARTMENT,
     GoodsReturnRequest.REQUESTER_EMAIL,
+    GoodsReturnRequest.SEND_NOTIFICATION,
     GoodsReturnRequest.REQ_TYPE,
+    GoodsReturnRequest.DOCUMENT_DELIVERY,
     GoodsReturnRequest.AUTHORIZATION_CODE,
     GoodsReturnRequest.START_DELIVERY_DATE,
     GoodsReturnRequest.START_DELIVERY_TIME,
@@ -2819,23 +3362,33 @@ export namespace GoodsReturnRequest {
     GoodsReturnRequest.END_DELIVERY_TIME,
     GoodsReturnRequest.VEHICLE_PLATE,
     GoodsReturnRequest.AT_DOCUMENT_TYPE,
+    GoodsReturnRequest.ELEC_COMM_STATUS,
     GoodsReturnRequest.ELEC_COMM_MESSAGE,
+    GoodsReturnRequest.REUSE_DOCUMENT_NUM,
+    GoodsReturnRequest.REUSE_NOTA_FISCAL_NUM,
+    GoodsReturnRequest.PRINT_SEPA_DIRECT,
     GoodsReturnRequest.FISCAL_DOC_NUM,
     GoodsReturnRequest.POS_DAILY_SUMMARY_NO,
     GoodsReturnRequest.POS_RECEIPT_NO,
     GoodsReturnRequest.POINT_OF_ISSUE_CODE,
+    GoodsReturnRequest.LETTER,
     GoodsReturnRequest.FOLIO_NUMBER_FROM,
     GoodsReturnRequest.FOLIO_NUMBER_TO,
+    GoodsReturnRequest.INTERIM_TYPE,
     GoodsReturnRequest.RELATED_TYPE,
     GoodsReturnRequest.RELATED_ENTRY,
     GoodsReturnRequest.DOCUMENT_TAX_ID,
     GoodsReturnRequest.DATE_OF_REPORTING_CONTROL_STATEMENT_VAT,
     GoodsReturnRequest.REPORTING_SECTION_CONTROL_STATEMENT_VAT,
+    GoodsReturnRequest.EXCLUDE_FROM_TAX_REPORT_CONTROL_STATEMENT_VAT,
     GoodsReturnRequest.POS_CASH_REGISTER,
     GoodsReturnRequest.UPDATE_TIME,
+    GoodsReturnRequest.PRICE_MODE,
     GoodsReturnRequest.DOWN_PAYMENT_TRASACTION_ID,
+    GoodsReturnRequest.REVISION,
     GoodsReturnRequest.ORIGINAL_REF_NO,
     GoodsReturnRequest.ORIGINAL_REF_DATE,
+    GoodsReturnRequest.GST_TRANSACTION_TYPE,
     GoodsReturnRequest.ORIGINAL_CREDIT_OR_DEBIT_NO,
     GoodsReturnRequest.ORIGINAL_CREDIT_OR_DEBIT_DATE,
     GoodsReturnRequest.E_COMMERCE_OPERATOR,
@@ -2843,6 +3396,9 @@ export namespace GoodsReturnRequest {
     GoodsReturnRequest.TAX_INVOICE_NO,
     GoodsReturnRequest.TAX_INVOICE_DATE,
     GoodsReturnRequest.SHIP_FROM,
+    GoodsReturnRequest.COMMISSION_TRADE,
+    GoodsReturnRequest.COMMISSION_TRADE_RETURN,
+    GoodsReturnRequest.USE_BILL_TO_ADDR_TO_DETERMINE_TAX,
     GoodsReturnRequest.ISSUING_REASON,
     GoodsReturnRequest.DOCUMENT_APPROVAL_REQUESTS,
     GoodsReturnRequest.DOCUMENT_LINES,

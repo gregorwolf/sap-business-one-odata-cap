@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { SectionsRequestBuilder } from './SectionsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "Sections" of service "SAPB1".
  */
-export class Sections extends Entity implements SectionsType {
+export class Sections extends EntityV4 implements SectionsType {
   /**
    * Technical entity name for Sections.
    */
   static _entityName = 'Sections';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for Sections.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Abs Entry.
    * @nullable
@@ -53,11 +48,11 @@ export class Sections extends Entity implements SectionsType {
   withholdingTaxCodes!: WithholdingTaxCodes[];
 
   /**
-   * Returns an entity builder to construct instances `Sections`.
+   * Returns an entity builder to construct instances of `Sections`.
    * @returns A builder that constructs instances of entity type `Sections`.
    */
-  static builder(): EntityBuilderType<Sections, SectionsTypeForceMandatory> {
-    return Entity.entityBuilder(Sections);
+  static builder(): EntityBuilderType<Sections, SectionsType> {
+    return EntityV4.entityBuilder(Sections);
   }
 
   /**
@@ -73,8 +68,8 @@ export class Sections extends Entity implements SectionsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `Sections`.
    */
-  static customField(fieldName: string): CustomField<Sections> {
-    return Entity.customFieldSelector(fieldName, Sections);
+  static customField(fieldName: string): CustomFieldV4<Sections> {
+    return EntityV4.customFieldSelector(fieldName, Sections);
   }
 
   /**
@@ -90,19 +85,10 @@ import { CertificateSeries, CertificateSeriesType } from './CertificateSeries';
 import { WithholdingTaxCodes, WithholdingTaxCodesType } from './WithholdingTaxCodes';
 
 export interface SectionsType {
-  absEntry?: number;
-  code?: string;
-  description?: string;
-  eCode?: string;
-  certificateSeries: CertificateSeriesType[];
-  withholdingTaxCodes: WithholdingTaxCodesType[];
-}
-
-export interface SectionsTypeForceMandatory {
-  absEntry: number;
-  code: string;
-  description: string;
-  eCode: string;
+  absEntry?: number | null;
+  code?: string | null;
+  description?: string | null;
+  eCode?: string | null;
   certificateSeries: CertificateSeriesType[];
   withholdingTaxCodes: WithholdingTaxCodesType[];
 }

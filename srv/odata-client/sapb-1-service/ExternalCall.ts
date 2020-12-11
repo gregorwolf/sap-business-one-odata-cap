@@ -4,9 +4,10 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { CallArgument, CallArgumentField } from './CallArgument';
-import { CallMessage, CallMessageField } from './CallMessage';
-import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { CallArgument } from './CallArgument';
+import { CallMessage } from './CallMessage';
+import { ExternalCallStatusEnum } from './ExternalCallStatusEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ExternalCall
@@ -22,6 +23,11 @@ export interface ExternalCall {
    * @nullable
    */
   category?: number;
+  /**
+   * Status.
+   * @nullable
+   */
+  status?: ExternalCallStatusEnum;
   /**
    * Creation Date.
    * @nullable
@@ -51,12 +57,12 @@ export interface ExternalCall {
    * Call Arguments.
    * @nullable
    */
-  callArguments?: CallArgument;
+  callArguments?: CallArgument[];
   /**
    * Call Messages.
    * @nullable
    */
-  callMessages?: CallMessage;
+  callMessages?: CallMessage[];
 }
 
 /**
@@ -70,7 +76,7 @@ export function createExternalCall(json: any): ExternalCall {
  * ExternalCallField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ExternalCallField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ExternalCallField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ExternalCall> {
   /**
    * Representation of the [[ExternalCall.id]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -81,6 +87,11 @@ export class ExternalCallField<EntityT extends Entity> extends ComplexTypeField<
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   category: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('Category', this, 'Edm.Int32');
+  /**
+   * Representation of the [[ExternalCall.status]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  status: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Status', this);
   /**
    * Representation of the [[ExternalCall.creationDate]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -110,26 +121,84 @@ export class ExternalCallField<EntityT extends Entity> extends ComplexTypeField<
    * Representation of the [[ExternalCall.callArguments]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  callArguments: CallArgumentField<EntityT> = new CallArgumentField('CallArguments', this);
+  callArguments: CollectionField<EntityT, CallArgument> = new CollectionField('CallArguments', this, CallArgument);
   /**
    * Representation of the [[ExternalCall.callMessages]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  callMessages: CallMessageField<EntityT> = new CallMessageField('CallMessages', this);
+  callMessages: CollectionField<EntityT, CallMessage> = new CollectionField('CallMessages', this, CallMessage);
+
+  /**
+   * Creates an instance of ExternalCallField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ExternalCall);
+  }
 }
 
 export namespace ExternalCall {
+  /**
+   * Metadata information on all properties of the `ExternalCall` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ExternalCall>[] = [{
+    originalName: 'ID',
+    name: 'id',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Category',
+    name: 'category',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Status',
+    name: 'status',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CreationDate',
+    name: 'creationDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'CreationTime',
+    name: 'creationTime',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LastUpdateDate',
+    name: 'lastUpdateDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'LastUpdateTime',
+    name: 'lastUpdateTime',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LastUpdateUserCode',
+    name: 'lastUpdateUserCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CallArguments',
+    name: 'callArguments',
+    type: CallArgument,
+    isCollection: true
+  }, {
+    originalName: 'CallMessages',
+    name: 'callMessages',
+    type: CallMessage,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | CallArgument | CallMessage }): ExternalCall {
-    return createComplexType(json, {
-      ID: (id: number) => ({ id: edmToTs(id, 'Edm.Int32') }),
-      Category: (category: number) => ({ category: edmToTs(category, 'Edm.Int32') }),
-      CreationDate: (creationDate: Moment) => ({ creationDate: edmToTs(creationDate, 'Edm.DateTimeOffset') }),
-      CreationTime: (creationTime: number) => ({ creationTime: edmToTs(creationTime, 'Edm.Int32') }),
-      LastUpdateDate: (lastUpdateDate: Moment) => ({ lastUpdateDate: edmToTs(lastUpdateDate, 'Edm.DateTimeOffset') }),
-      LastUpdateTime: (lastUpdateTime: number) => ({ lastUpdateTime: edmToTs(lastUpdateTime, 'Edm.Int32') }),
-      LastUpdateUserCode: (lastUpdateUserCode: string) => ({ lastUpdateUserCode: edmToTs(lastUpdateUserCode, 'Edm.String') }),
-      CallArguments: (callArguments: CallArgument) => ({ callArguments: CallArgument.build(callArguments) }),
-      CallMessages: (callMessages: CallMessage) => ({ callMessages: CallMessage.build(callMessages) })
-    });
+    return deserializeComplexTypeV4(json, ExternalCall);
   }
 }

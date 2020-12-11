@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.ChooseFromList = void 0;
  */
 var ChooseFromListRequestBuilder_1 = require("./ChooseFromListRequestBuilder");
 var ChooseFromListLine_1 = require("./ChooseFromListLine");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "ChooseFromList" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var ChooseFromList = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `ChooseFromList`.
+     * Returns an entity builder to construct instances of `ChooseFromList`.
      * @returns A builder that constructs instances of entity type `ChooseFromList`.
      */
     ChooseFromList.builder = function () {
-        return v4_1.Entity.entityBuilder(ChooseFromList);
+        return core_1.EntityV4.entityBuilder(ChooseFromList);
     };
     /**
      * Returns a request builder to construct requests for operations on the `ChooseFromList` entity type.
@@ -61,7 +61,7 @@ var ChooseFromList = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `ChooseFromList`.
      */
     ChooseFromList.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, ChooseFromList);
+        return core_1.EntityV4.customFieldSelector(fieldName, ChooseFromList);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,28 +75,23 @@ var ChooseFromList = /** @class */ (function (_super) {
      */
     ChooseFromList._entityName = 'ChooseFromList';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ChooseFromList.
-     */
-    ChooseFromList._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    ChooseFromList._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    ChooseFromList._defaultServicePath = '/b1s/v2/';
     return ChooseFromList;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.ChooseFromList = ChooseFromList;
 (function (ChooseFromList) {
     /**
      * Static representation of the [[objectName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChooseFromList.OBJECT_NAME = new v4_1.StringField('ObjectName', ChooseFromList, 'Edm.String');
+    ChooseFromList.OBJECT_NAME = new core_1.StringField('ObjectName', ChooseFromList, 'Edm.String');
     /**
      * Static representation of the [[chooseFromListLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ChooseFromList.CHOOSE_FROM_LIST_LINES = new v4_1.CollectionField('ChooseFromList_Lines', ChooseFromList, new ChooseFromListLine_1.ChooseFromListLineField('', ChooseFromList));
+    ChooseFromList.CHOOSE_FROM_LIST_LINES = new core_1.CollectionField('ChooseFromList_Lines', ChooseFromList, ChooseFromListLine_1.ChooseFromListLine);
     /**
      * All fields of the ChooseFromList entity.
      */
@@ -107,7 +102,7 @@ exports.ChooseFromList = ChooseFromList;
     /**
      * All fields selector.
      */
-    ChooseFromList.ALL_FIELDS = new v4_1.AllFields('*', ChooseFromList);
+    ChooseFromList.ALL_FIELDS = new core_1.AllFields('*', ChooseFromList);
     /**
      * All key fields of the ChooseFromList entity.
      */

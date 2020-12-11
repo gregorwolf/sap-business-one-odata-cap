@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.SalesTaxCodesLine = exports.SalesTaxCodesLineField = exports.createSales
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[SalesTaxCodesLine.build]] instead.
  */
@@ -33,60 +33,100 @@ exports.createSalesTaxCodesLine = createSalesTaxCodesLine;
  */
 var SalesTaxCodesLineField = /** @class */ (function (_super) {
     __extends(SalesTaxCodesLineField, _super);
-    function SalesTaxCodesLineField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of SalesTaxCodesLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function SalesTaxCodesLineField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, SalesTaxCodesLine) || this;
         /**
          * Representation of the [[SalesTaxCodesLine.staTaxOnTaxType]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.staTaxOnTaxType = new v4_1.ComplexTypeNumberPropertyField('STATaxOnTaxType', _this, 'Edm.Int32');
+        _this.staTaxOnTaxType = new core_1.ComplexTypeNumberPropertyField('STATaxOnTaxType', _this, 'Edm.Int32');
         /**
          * Representation of the [[SalesTaxCodesLine.staTaxonTaxCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.staTaxonTaxCode = new v4_1.ComplexTypeStringPropertyField('STATaxonTaxCode', _this, 'Edm.String');
+        _this.staTaxonTaxCode = new core_1.ComplexTypeStringPropertyField('STATaxonTaxCode', _this, 'Edm.String');
         /**
          * Representation of the [[SalesTaxCodesLine.stcCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.stcCode = new v4_1.ComplexTypeStringPropertyField('STCCode', _this, 'Edm.String');
+        _this.stcCode = new core_1.ComplexTypeStringPropertyField('STCCode', _this, 'Edm.String');
         /**
          * Representation of the [[SalesTaxCodesLine.staType]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.staType = new v4_1.ComplexTypeNumberPropertyField('STAType', _this, 'Edm.Int32');
+        _this.staType = new core_1.ComplexTypeNumberPropertyField('STAType', _this, 'Edm.Int32');
         /**
          * Representation of the [[SalesTaxCodesLine.staCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.staCode = new v4_1.ComplexTypeStringPropertyField('STACode', _this, 'Edm.String');
+        _this.staCode = new core_1.ComplexTypeStringPropertyField('STACode', _this, 'Edm.String');
         /**
          * Representation of the [[SalesTaxCodesLine.rowNumber]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.rowNumber = new v4_1.ComplexTypeNumberPropertyField('RowNumber', _this, 'Edm.Int32');
+        _this.rowNumber = new core_1.ComplexTypeNumberPropertyField('RowNumber', _this, 'Edm.Int32');
         /**
          * Representation of the [[SalesTaxCodesLine.effectiveRate]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.effectiveRate = new v4_1.ComplexTypeNumberPropertyField('EffectiveRate', _this, 'Edm.Double');
+        _this.effectiveRate = new core_1.ComplexTypeNumberPropertyField('EffectiveRate', _this, 'Edm.Double');
         return _this;
     }
     return SalesTaxCodesLineField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.SalesTaxCodesLineField = SalesTaxCodesLineField;
 var SalesTaxCodesLine;
 (function (SalesTaxCodesLine) {
+    /**
+     * Metadata information on all properties of the `SalesTaxCodesLine` complex type.
+     */
+    SalesTaxCodesLine._propertyMetadata = [{
+            originalName: 'STATaxOnTaxType',
+            name: 'staTaxOnTaxType',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'STATaxonTaxCode',
+            name: 'staTaxonTaxCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'STCCode',
+            name: 'stcCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'STAType',
+            name: 'staType',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'STACode',
+            name: 'staCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'RowNumber',
+            name: 'rowNumber',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'EffectiveRate',
+            name: 'effectiveRate',
+            type: 'Edm.Double',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            STATaxOnTaxType: function (staTaxOnTaxType) { return ({ staTaxOnTaxType: v4_1.edmToTs(staTaxOnTaxType, 'Edm.Int32') }); },
-            STATaxonTaxCode: function (staTaxonTaxCode) { return ({ staTaxonTaxCode: v4_1.edmToTs(staTaxonTaxCode, 'Edm.String') }); },
-            STCCode: function (stcCode) { return ({ stcCode: v4_1.edmToTs(stcCode, 'Edm.String') }); },
-            STAType: function (staType) { return ({ staType: v4_1.edmToTs(staType, 'Edm.Int32') }); },
-            STACode: function (staCode) { return ({ staCode: v4_1.edmToTs(staCode, 'Edm.String') }); },
-            RowNumber: function (rowNumber) { return ({ rowNumber: v4_1.edmToTs(rowNumber, 'Edm.Int32') }); },
-            EffectiveRate: function (effectiveRate) { return ({ effectiveRate: v4_1.edmToTs(effectiveRate, 'Edm.Double') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, SalesTaxCodesLine);
     }
     SalesTaxCodesLine.build = build;
 })(SalesTaxCodesLine = exports.SalesTaxCodesLine || (exports.SalesTaxCodesLine = {}));

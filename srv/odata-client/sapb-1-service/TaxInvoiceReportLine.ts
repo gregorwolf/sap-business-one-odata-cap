@@ -4,7 +4,8 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { TaxInvoiceReportLineTypeEnum } from './TaxInvoiceReportLineTypeEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * TaxInvoiceReportLine
@@ -20,6 +21,11 @@ export interface TaxInvoiceReportLine {
    * @nullable
    */
   documentEntry?: number;
+  /**
+   * Line Type.
+   * @nullable
+   */
+  lineType?: TaxInvoiceReportLineTypeEnum;
   /**
    * Base Amount.
    * @nullable
@@ -108,7 +114,7 @@ export function createTaxInvoiceReportLine(json: any): TaxInvoiceReportLine {
  * TaxInvoiceReportLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class TaxInvoiceReportLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class TaxInvoiceReportLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, TaxInvoiceReportLine> {
   /**
    * Representation of the [[TaxInvoiceReportLine.documentType]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -119,6 +125,11 @@ export class TaxInvoiceReportLineField<EntityT extends Entity> extends ComplexTy
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   documentEntry: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DocumentEntry', this, 'Edm.Int32');
+  /**
+   * Representation of the [[TaxInvoiceReportLine.lineType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  lineType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('LineType', this);
   /**
    * Representation of the [[TaxInvoiceReportLine.baseAmount]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -194,28 +205,118 @@ export class TaxInvoiceReportLineField<EntityT extends Entity> extends ComplexTy
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   legacy: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Legacy', this, 'Edm.String');
+
+  /**
+   * Creates an instance of TaxInvoiceReportLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, TaxInvoiceReportLine);
+  }
 }
 
 export namespace TaxInvoiceReportLine {
+  /**
+   * Metadata information on all properties of the `TaxInvoiceReportLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<TaxInvoiceReportLine>[] = [{
+    originalName: 'DocumentType',
+    name: 'documentType',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DocumentEntry',
+    name: 'documentEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineType',
+    name: 'lineType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BaseAmount',
+    name: 'baseAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxAmount',
+    name: 'taxAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ItemQuantity',
+    name: 'itemQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ItemNo',
+    name: 'itemNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemDescription',
+    name: 'itemDescription',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxCode',
+    name: 'taxCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DocumentDate',
+    name: 'documentDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ItemPrice',
+    name: 'itemPrice',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Currency',
+    name: 'currency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BusinessPlace',
+    name: 'businessPlace',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TaxInvoiceReportNumber',
+    name: 'taxInvoiceReportNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPCode',
+    name: 'bpCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPName',
+    name: 'bpName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Legacy',
+    name: 'legacy',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): TaxInvoiceReportLine {
-    return createComplexType(json, {
-      DocumentType: (documentType: number) => ({ documentType: edmToTs(documentType, 'Edm.Int32') }),
-      DocumentEntry: (documentEntry: number) => ({ documentEntry: edmToTs(documentEntry, 'Edm.Int32') }),
-      BaseAmount: (baseAmount: number) => ({ baseAmount: edmToTs(baseAmount, 'Edm.Double') }),
-      TaxAmount: (taxAmount: number) => ({ taxAmount: edmToTs(taxAmount, 'Edm.Double') }),
-      ItemQuantity: (itemQuantity: number) => ({ itemQuantity: edmToTs(itemQuantity, 'Edm.Double') }),
-      ItemNo: (itemNo: string) => ({ itemNo: edmToTs(itemNo, 'Edm.String') }),
-      ItemDescription: (itemDescription: string) => ({ itemDescription: edmToTs(itemDescription, 'Edm.String') }),
-      TaxCode: (taxCode: string) => ({ taxCode: edmToTs(taxCode, 'Edm.String') }),
-      DocumentDate: (documentDate: Moment) => ({ documentDate: edmToTs(documentDate, 'Edm.DateTimeOffset') }),
-      ItemPrice: (itemPrice: number) => ({ itemPrice: edmToTs(itemPrice, 'Edm.Double') }),
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      Currency: (currency: string) => ({ currency: edmToTs(currency, 'Edm.String') }),
-      BusinessPlace: (businessPlace: number) => ({ businessPlace: edmToTs(businessPlace, 'Edm.Int32') }),
-      TaxInvoiceReportNumber: (taxInvoiceReportNumber: string) => ({ taxInvoiceReportNumber: edmToTs(taxInvoiceReportNumber, 'Edm.String') }),
-      BPCode: (bpCode: string) => ({ bpCode: edmToTs(bpCode, 'Edm.String') }),
-      BPName: (bpName: string) => ({ bpName: edmToTs(bpName, 'Edm.String') }),
-      Legacy: (legacy: string) => ({ legacy: edmToTs(legacy, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, TaxInvoiceReportLine);
   }
 }

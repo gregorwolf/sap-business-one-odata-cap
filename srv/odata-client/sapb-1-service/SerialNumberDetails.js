@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.SerialNumberDetails = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var SerialNumberDetailsRequestBuilder_1 = require("./SerialNumberDetailsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "SerialNumberDetails" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var SerialNumberDetails = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `SerialNumberDetails`.
+     * Returns an entity builder to construct instances of `SerialNumberDetails`.
      * @returns A builder that constructs instances of entity type `SerialNumberDetails`.
      */
     SerialNumberDetails.builder = function () {
-        return v4_1.Entity.entityBuilder(SerialNumberDetails);
+        return core_1.EntityV4.entityBuilder(SerialNumberDetails);
     };
     /**
      * Returns a request builder to construct requests for operations on the `SerialNumberDetails` entity type.
@@ -60,7 +60,7 @@ var SerialNumberDetails = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `SerialNumberDetails`.
      */
     SerialNumberDetails.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, SerialNumberDetails);
+        return core_1.EntityV4.customFieldSelector(fieldName, SerialNumberDetails);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var SerialNumberDetails = /** @class */ (function (_super) {
      */
     SerialNumberDetails._entityName = 'SerialNumberDetails';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for SerialNumberDetails.
-     */
-    SerialNumberDetails._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    SerialNumberDetails._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    SerialNumberDetails._defaultServicePath = '/b1s/v2/';
     return SerialNumberDetails;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.SerialNumberDetails = SerialNumberDetails;
 var Items_1 = require("./Items");
 (function (SerialNumberDetails) {
@@ -91,77 +86,77 @@ var Items_1 = require("./Items");
      * Static representation of the [[docEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SerialNumberDetails.DOC_ENTRY = new v4_1.NumberField('DocEntry', SerialNumberDetails, 'Edm.Int32');
+    SerialNumberDetails.DOC_ENTRY = new core_1.NumberField('DocEntry', SerialNumberDetails, 'Edm.Int32');
     /**
      * Static representation of the [[itemCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SerialNumberDetails.ITEM_CODE = new v4_1.StringField('ItemCode', SerialNumberDetails, 'Edm.String');
+    SerialNumberDetails.ITEM_CODE = new core_1.StringField('ItemCode', SerialNumberDetails, 'Edm.String');
     /**
      * Static representation of the [[itemDescription]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SerialNumberDetails.ITEM_DESCRIPTION = new v4_1.StringField('ItemDescription', SerialNumberDetails, 'Edm.String');
+    SerialNumberDetails.ITEM_DESCRIPTION = new core_1.StringField('ItemDescription', SerialNumberDetails, 'Edm.String');
     /**
      * Static representation of the [[mfrSerialNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SerialNumberDetails.MFR_SERIAL_NO = new v4_1.StringField('MfrSerialNo', SerialNumberDetails, 'Edm.String');
+    SerialNumberDetails.MFR_SERIAL_NO = new core_1.StringField('MfrSerialNo', SerialNumberDetails, 'Edm.String');
     /**
      * Static representation of the [[serialNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SerialNumberDetails.SERIAL_NUMBER = new v4_1.StringField('SerialNumber', SerialNumberDetails, 'Edm.String');
+    SerialNumberDetails.SERIAL_NUMBER = new core_1.StringField('SerialNumber', SerialNumberDetails, 'Edm.String');
     /**
      * Static representation of the [[lotNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SerialNumberDetails.LOT_NUMBER = new v4_1.StringField('LotNumber', SerialNumberDetails, 'Edm.String');
+    SerialNumberDetails.LOT_NUMBER = new core_1.StringField('LotNumber', SerialNumberDetails, 'Edm.String');
     /**
      * Static representation of the [[systemNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SerialNumberDetails.SYSTEM_NUMBER = new v4_1.NumberField('SystemNumber', SerialNumberDetails, 'Edm.Int32');
+    SerialNumberDetails.SYSTEM_NUMBER = new core_1.NumberField('SystemNumber', SerialNumberDetails, 'Edm.Int32');
     /**
      * Static representation of the [[admissionDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SerialNumberDetails.ADMISSION_DATE = new v4_1.DateField('AdmissionDate', SerialNumberDetails, 'Edm.DateTimeOffset');
+    SerialNumberDetails.ADMISSION_DATE = new core_1.DateField('AdmissionDate', SerialNumberDetails, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[manufacturingDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SerialNumberDetails.MANUFACTURING_DATE = new v4_1.DateField('ManufacturingDate', SerialNumberDetails, 'Edm.DateTimeOffset');
+    SerialNumberDetails.MANUFACTURING_DATE = new core_1.DateField('ManufacturingDate', SerialNumberDetails, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[expirationDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SerialNumberDetails.EXPIRATION_DATE = new v4_1.DateField('ExpirationDate', SerialNumberDetails, 'Edm.DateTimeOffset');
+    SerialNumberDetails.EXPIRATION_DATE = new core_1.DateField('ExpirationDate', SerialNumberDetails, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[mfrWarrantyStart]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SerialNumberDetails.MFR_WARRANTY_START = new v4_1.DateField('MfrWarrantyStart', SerialNumberDetails, 'Edm.DateTimeOffset');
+    SerialNumberDetails.MFR_WARRANTY_START = new core_1.DateField('MfrWarrantyStart', SerialNumberDetails, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[mFrWarrantyEnd]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SerialNumberDetails.M_FR_WARRANTY_END = new v4_1.DateField('MFrWarrantyEnd', SerialNumberDetails, 'Edm.DateTimeOffset');
+    SerialNumberDetails.M_FR_WARRANTY_END = new core_1.DateField('MFrWarrantyEnd', SerialNumberDetails, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[location]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SerialNumberDetails.LOCATION = new v4_1.StringField('Location', SerialNumberDetails, 'Edm.String');
+    SerialNumberDetails.LOCATION = new core_1.StringField('Location', SerialNumberDetails, 'Edm.String');
     /**
      * Static representation of the [[details]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SerialNumberDetails.DETAILS = new v4_1.StringField('Details', SerialNumberDetails, 'Edm.String');
+    SerialNumberDetails.DETAILS = new core_1.StringField('Details', SerialNumberDetails, 'Edm.String');
     /**
      * Static representation of the one-to-one navigation property [[item]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SerialNumberDetails.ITEM = new v4_1.OneToOneLink('Item', SerialNumberDetails, Items_1.Items);
+    SerialNumberDetails.ITEM = new core_1.OneToOneLink('Item', SerialNumberDetails, Items_1.Items);
     /**
      * All fields of the SerialNumberDetails entity.
      */
@@ -185,7 +180,7 @@ var Items_1 = require("./Items");
     /**
      * All fields selector.
      */
-    SerialNumberDetails.ALL_FIELDS = new v4_1.AllFields('*', SerialNumberDetails);
+    SerialNumberDetails.ALL_FIELDS = new core_1.AllFields('*', SerialNumberDetails);
     /**
      * All key fields of the SerialNumberDetails entity.
      */

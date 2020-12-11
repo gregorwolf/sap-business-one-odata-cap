@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { GoodsReturnRequest } from './GoodsReturnRequest';
 
 /**
@@ -15,16 +15,16 @@ export class GoodsReturnRequestRequestBuilder extends RequestBuilder<GoodsReturn
    * @param docEntry Key property. See [[GoodsReturnRequest.docEntry]].
    * @returns A request builder for creating requests to retrieve one `GoodsReturnRequest` entity based on its keys.
    */
-  getByKey(docEntry: number): GetByKeyRequestBuilder<GoodsReturnRequest> {
-    return new GetByKeyRequestBuilder(GoodsReturnRequest, { DocEntry: docEntry });
+  getByKey(docEntry: number): GetByKeyRequestBuilderV4<GoodsReturnRequest> {
+    return new GetByKeyRequestBuilderV4(GoodsReturnRequest, { DocEntry: docEntry });
   }
 
   /**
    * Returns a request builder for querying all `GoodsReturnRequest` entities.
    * @returns A request builder for creating requests to retrieve all `GoodsReturnRequest` entities.
    */
-  getAll(): GetAllRequestBuilder<GoodsReturnRequest> {
-    return new GetAllRequestBuilder(GoodsReturnRequest);
+  getAll(): GetAllRequestBuilderV4<GoodsReturnRequest> {
+    return new GetAllRequestBuilderV4(GoodsReturnRequest);
   }
 
   /**
@@ -32,8 +32,8 @@ export class GoodsReturnRequestRequestBuilder extends RequestBuilder<GoodsReturn
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `GoodsReturnRequest`.
    */
-  create(entity: GoodsReturnRequest): CreateRequestBuilder<GoodsReturnRequest> {
-    return new CreateRequestBuilder(GoodsReturnRequest, entity);
+  create(entity: GoodsReturnRequest): CreateRequestBuilderV4<GoodsReturnRequest> {
+    return new CreateRequestBuilderV4(GoodsReturnRequest, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class GoodsReturnRequestRequestBuilder extends RequestBuilder<GoodsReturn
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `GoodsReturnRequest`.
    */
-  update(entity: GoodsReturnRequest): UpdateRequestBuilder<GoodsReturnRequest> {
-    return new UpdateRequestBuilder(GoodsReturnRequest, entity);
+  update(entity: GoodsReturnRequest): UpdateRequestBuilderV4<GoodsReturnRequest> {
+    return new UpdateRequestBuilderV4(GoodsReturnRequest, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class GoodsReturnRequestRequestBuilder extends RequestBuilder<GoodsReturn
    * @param docEntry Key property. See [[GoodsReturnRequest.docEntry]].
    * @returns A request builder for creating requests that delete an entity of type `GoodsReturnRequest`.
    */
-  delete(docEntry: number): DeleteRequestBuilder<GoodsReturnRequest>;
+  delete(docEntry: number): DeleteRequestBuilderV4<GoodsReturnRequest>;
   /**
    * Returns a request builder for deleting an entity of type `GoodsReturnRequest`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `GoodsReturnRequest` by taking the entity as a parameter.
    */
-  delete(entity: GoodsReturnRequest): DeleteRequestBuilder<GoodsReturnRequest>;
-  delete(docEntryOrEntity: any): DeleteRequestBuilder<GoodsReturnRequest> {
-    return new DeleteRequestBuilder(GoodsReturnRequest, docEntryOrEntity instanceof GoodsReturnRequest ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
+  delete(entity: GoodsReturnRequest): DeleteRequestBuilderV4<GoodsReturnRequest>;
+  delete(docEntryOrEntity: any): DeleteRequestBuilderV4<GoodsReturnRequest> {
+    return new DeleteRequestBuilderV4(GoodsReturnRequest, docEntryOrEntity instanceof GoodsReturnRequest ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
   }
 }

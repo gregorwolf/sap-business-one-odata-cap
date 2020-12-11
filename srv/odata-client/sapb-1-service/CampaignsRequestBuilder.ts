@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { Campaigns } from './Campaigns';
 
 /**
@@ -15,16 +15,16 @@ export class CampaignsRequestBuilder extends RequestBuilder<Campaigns> {
    * @param campaignNumber Key property. See [[Campaigns.campaignNumber]].
    * @returns A request builder for creating requests to retrieve one `Campaigns` entity based on its keys.
    */
-  getByKey(campaignNumber: number): GetByKeyRequestBuilder<Campaigns> {
-    return new GetByKeyRequestBuilder(Campaigns, { CampaignNumber: campaignNumber });
+  getByKey(campaignNumber: number): GetByKeyRequestBuilderV4<Campaigns> {
+    return new GetByKeyRequestBuilderV4(Campaigns, { CampaignNumber: campaignNumber });
   }
 
   /**
    * Returns a request builder for querying all `Campaigns` entities.
    * @returns A request builder for creating requests to retrieve all `Campaigns` entities.
    */
-  getAll(): GetAllRequestBuilder<Campaigns> {
-    return new GetAllRequestBuilder(Campaigns);
+  getAll(): GetAllRequestBuilderV4<Campaigns> {
+    return new GetAllRequestBuilderV4(Campaigns);
   }
 
   /**
@@ -32,8 +32,8 @@ export class CampaignsRequestBuilder extends RequestBuilder<Campaigns> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `Campaigns`.
    */
-  create(entity: Campaigns): CreateRequestBuilder<Campaigns> {
-    return new CreateRequestBuilder(Campaigns, entity);
+  create(entity: Campaigns): CreateRequestBuilderV4<Campaigns> {
+    return new CreateRequestBuilderV4(Campaigns, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class CampaignsRequestBuilder extends RequestBuilder<Campaigns> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `Campaigns`.
    */
-  update(entity: Campaigns): UpdateRequestBuilder<Campaigns> {
-    return new UpdateRequestBuilder(Campaigns, entity);
+  update(entity: Campaigns): UpdateRequestBuilderV4<Campaigns> {
+    return new UpdateRequestBuilderV4(Campaigns, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class CampaignsRequestBuilder extends RequestBuilder<Campaigns> {
    * @param campaignNumber Key property. See [[Campaigns.campaignNumber]].
    * @returns A request builder for creating requests that delete an entity of type `Campaigns`.
    */
-  delete(campaignNumber: number): DeleteRequestBuilder<Campaigns>;
+  delete(campaignNumber: number): DeleteRequestBuilderV4<Campaigns>;
   /**
    * Returns a request builder for deleting an entity of type `Campaigns`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `Campaigns` by taking the entity as a parameter.
    */
-  delete(entity: Campaigns): DeleteRequestBuilder<Campaigns>;
-  delete(campaignNumberOrEntity: any): DeleteRequestBuilder<Campaigns> {
-    return new DeleteRequestBuilder(Campaigns, campaignNumberOrEntity instanceof Campaigns ? campaignNumberOrEntity : { CampaignNumber: campaignNumberOrEntity! });
+  delete(entity: Campaigns): DeleteRequestBuilderV4<Campaigns>;
+  delete(campaignNumberOrEntity: any): DeleteRequestBuilderV4<Campaigns> {
+    return new DeleteRequestBuilderV4(Campaigns, campaignNumberOrEntity instanceof Campaigns ? campaignNumberOrEntity : { CampaignNumber: campaignNumberOrEntity! });
   }
 }

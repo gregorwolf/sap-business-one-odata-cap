@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ServiceContractLine
@@ -73,7 +73,7 @@ export function createServiceContractLine(json: any): ServiceContractLine {
  * ServiceContractLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ServiceContractLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ServiceContractLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ServiceContractLine> {
   /**
    * Representation of the [[ServiceContractLine.lineNum]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -124,21 +124,78 @@ export class ServiceContractLineField<EntityT extends Entity> extends ComplexTyp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   terminationDate: ComplexTypeDatePropertyField<EntityT> = new ComplexTypeDatePropertyField('TerminationDate', this, 'Edm.DateTimeOffset');
+
+  /**
+   * Creates an instance of ServiceContractLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ServiceContractLine);
+  }
 }
 
 export namespace ServiceContractLine {
+  /**
+   * Metadata information on all properties of the `ServiceContractLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ServiceContractLine>[] = [{
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ManufacturerSerialNum',
+    name: 'manufacturerSerialNum',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'InternalSerialNum',
+    name: 'internalSerialNum',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemCode',
+    name: 'itemCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemName',
+    name: 'itemName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemGroup',
+    name: 'itemGroup',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'StartDate',
+    name: 'startDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'EndDate',
+    name: 'endDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ItemGroupName',
+    name: 'itemGroupName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TerminationDate',
+    name: 'terminationDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ServiceContractLine {
-    return createComplexType(json, {
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      ManufacturerSerialNum: (manufacturerSerialNum: string) => ({ manufacturerSerialNum: edmToTs(manufacturerSerialNum, 'Edm.String') }),
-      InternalSerialNum: (internalSerialNum: string) => ({ internalSerialNum: edmToTs(internalSerialNum, 'Edm.String') }),
-      ItemCode: (itemCode: string) => ({ itemCode: edmToTs(itemCode, 'Edm.String') }),
-      ItemName: (itemName: string) => ({ itemName: edmToTs(itemName, 'Edm.String') }),
-      ItemGroup: (itemGroup: number) => ({ itemGroup: edmToTs(itemGroup, 'Edm.Int32') }),
-      StartDate: (startDate: Moment) => ({ startDate: edmToTs(startDate, 'Edm.DateTimeOffset') }),
-      EndDate: (endDate: Moment) => ({ endDate: edmToTs(endDate, 'Edm.DateTimeOffset') }),
-      ItemGroupName: (itemGroupName: string) => ({ itemGroupName: edmToTs(itemGroupName, 'Edm.String') }),
-      TerminationDate: (terminationDate: Moment) => ({ terminationDate: edmToTs(terminationDate, 'Edm.DateTimeOffset') })
-    });
+    return deserializeComplexTypeV4(json, ServiceContractLine);
   }
 }

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { InventoryPostings } from './InventoryPostings';
 
 /**
@@ -15,16 +15,16 @@ export class InventoryPostingsRequestBuilder extends RequestBuilder<InventoryPos
    * @param documentEntry Key property. See [[InventoryPostings.documentEntry]].
    * @returns A request builder for creating requests to retrieve one `InventoryPostings` entity based on its keys.
    */
-  getByKey(documentEntry: number): GetByKeyRequestBuilder<InventoryPostings> {
-    return new GetByKeyRequestBuilder(InventoryPostings, { DocumentEntry: documentEntry });
+  getByKey(documentEntry: number): GetByKeyRequestBuilderV4<InventoryPostings> {
+    return new GetByKeyRequestBuilderV4(InventoryPostings, { DocumentEntry: documentEntry });
   }
 
   /**
    * Returns a request builder for querying all `InventoryPostings` entities.
    * @returns A request builder for creating requests to retrieve all `InventoryPostings` entities.
    */
-  getAll(): GetAllRequestBuilder<InventoryPostings> {
-    return new GetAllRequestBuilder(InventoryPostings);
+  getAll(): GetAllRequestBuilderV4<InventoryPostings> {
+    return new GetAllRequestBuilderV4(InventoryPostings);
   }
 
   /**
@@ -32,8 +32,8 @@ export class InventoryPostingsRequestBuilder extends RequestBuilder<InventoryPos
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `InventoryPostings`.
    */
-  create(entity: InventoryPostings): CreateRequestBuilder<InventoryPostings> {
-    return new CreateRequestBuilder(InventoryPostings, entity);
+  create(entity: InventoryPostings): CreateRequestBuilderV4<InventoryPostings> {
+    return new CreateRequestBuilderV4(InventoryPostings, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class InventoryPostingsRequestBuilder extends RequestBuilder<InventoryPos
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `InventoryPostings`.
    */
-  update(entity: InventoryPostings): UpdateRequestBuilder<InventoryPostings> {
-    return new UpdateRequestBuilder(InventoryPostings, entity);
+  update(entity: InventoryPostings): UpdateRequestBuilderV4<InventoryPostings> {
+    return new UpdateRequestBuilderV4(InventoryPostings, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class InventoryPostingsRequestBuilder extends RequestBuilder<InventoryPos
    * @param documentEntry Key property. See [[InventoryPostings.documentEntry]].
    * @returns A request builder for creating requests that delete an entity of type `InventoryPostings`.
    */
-  delete(documentEntry: number): DeleteRequestBuilder<InventoryPostings>;
+  delete(documentEntry: number): DeleteRequestBuilderV4<InventoryPostings>;
   /**
    * Returns a request builder for deleting an entity of type `InventoryPostings`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `InventoryPostings` by taking the entity as a parameter.
    */
-  delete(entity: InventoryPostings): DeleteRequestBuilder<InventoryPostings>;
-  delete(documentEntryOrEntity: any): DeleteRequestBuilder<InventoryPostings> {
-    return new DeleteRequestBuilder(InventoryPostings, documentEntryOrEntity instanceof InventoryPostings ? documentEntryOrEntity : { DocumentEntry: documentEntryOrEntity! });
+  delete(entity: InventoryPostings): DeleteRequestBuilderV4<InventoryPostings>;
+  delete(documentEntryOrEntity: any): DeleteRequestBuilderV4<InventoryPostings> {
+    return new DeleteRequestBuilderV4(InventoryPostings, documentEntryOrEntity instanceof InventoryPostings ? documentEntryOrEntity : { DocumentEntry: documentEntryOrEntity! });
   }
 }

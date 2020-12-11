@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.MaterialRevaluation = void 0;
  */
 var MaterialRevaluationRequestBuilder_1 = require("./MaterialRevaluationRequestBuilder");
 var MaterialRevaluationLine_1 = require("./MaterialRevaluationLine");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "MaterialRevaluation" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var MaterialRevaluation = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `MaterialRevaluation`.
+     * Returns an entity builder to construct instances of `MaterialRevaluation`.
      * @returns A builder that constructs instances of entity type `MaterialRevaluation`.
      */
     MaterialRevaluation.builder = function () {
-        return v4_1.Entity.entityBuilder(MaterialRevaluation);
+        return core_1.EntityV4.entityBuilder(MaterialRevaluation);
     };
     /**
      * Returns a request builder to construct requests for operations on the `MaterialRevaluation` entity type.
@@ -61,7 +61,7 @@ var MaterialRevaluation = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `MaterialRevaluation`.
      */
     MaterialRevaluation.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, MaterialRevaluation);
+        return core_1.EntityV4.customFieldSelector(fieldName, MaterialRevaluation);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,16 +75,11 @@ var MaterialRevaluation = /** @class */ (function (_super) {
      */
     MaterialRevaluation._entityName = 'MaterialRevaluation';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for MaterialRevaluation.
-     */
-    MaterialRevaluation._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    MaterialRevaluation._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    MaterialRevaluation._defaultServicePath = '/b1s/v2/';
     return MaterialRevaluation;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.MaterialRevaluation = MaterialRevaluation;
 var JournalEntries_1 = require("./JournalEntries");
 var Users_1 = require("./Users");
@@ -94,122 +89,127 @@ var BusinessPartners_1 = require("./BusinessPartners");
      * Static representation of the [[docNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.DOC_NUM = new v4_1.NumberField('DocNum', MaterialRevaluation, 'Edm.Int32');
+    MaterialRevaluation.DOC_NUM = new core_1.NumberField('DocNum', MaterialRevaluation, 'Edm.Int32');
     /**
      * Static representation of the [[docDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.DOC_DATE = new v4_1.DateField('DocDate', MaterialRevaluation, 'Edm.DateTimeOffset');
+    MaterialRevaluation.DOC_DATE = new core_1.DateField('DocDate', MaterialRevaluation, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[reference1]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.REFERENCE_1 = new v4_1.StringField('Reference1', MaterialRevaluation, 'Edm.String');
+    MaterialRevaluation.REFERENCE_1 = new core_1.StringField('Reference1', MaterialRevaluation, 'Edm.String');
     /**
      * Static representation of the [[reference2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.REFERENCE_2 = new v4_1.StringField('Reference2', MaterialRevaluation, 'Edm.String');
+    MaterialRevaluation.REFERENCE_2 = new core_1.StringField('Reference2', MaterialRevaluation, 'Edm.String');
     /**
      * Static representation of the [[comments]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.COMMENTS = new v4_1.StringField('Comments', MaterialRevaluation, 'Edm.String');
+    MaterialRevaluation.COMMENTS = new core_1.StringField('Comments', MaterialRevaluation, 'Edm.String');
     /**
      * Static representation of the [[journalMemo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.JOURNAL_MEMO = new v4_1.StringField('JournalMemo', MaterialRevaluation, 'Edm.String');
+    MaterialRevaluation.JOURNAL_MEMO = new core_1.StringField('JournalMemo', MaterialRevaluation, 'Edm.String');
     /**
      * Static representation of the [[docTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.DOC_TIME = new v4_1.TimeField('DocTime', MaterialRevaluation, 'Edm.TimeOfDay');
+    MaterialRevaluation.DOC_TIME = new core_1.TimeField('DocTime', MaterialRevaluation, 'Edm.TimeOfDay');
     /**
      * Static representation of the [[series]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.SERIES = new v4_1.NumberField('Series', MaterialRevaluation, 'Edm.Int32');
+    MaterialRevaluation.SERIES = new core_1.NumberField('Series', MaterialRevaluation, 'Edm.Int32');
     /**
      * Static representation of the [[taxDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.TAX_DATE = new v4_1.DateField('TaxDate', MaterialRevaluation, 'Edm.DateTimeOffset');
+    MaterialRevaluation.TAX_DATE = new core_1.DateField('TaxDate', MaterialRevaluation, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[docEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.DOC_ENTRY = new v4_1.NumberField('DocEntry', MaterialRevaluation, 'Edm.Int32');
+    MaterialRevaluation.DOC_ENTRY = new core_1.NumberField('DocEntry', MaterialRevaluation, 'Edm.Int32');
     /**
      * Static representation of the [[creationDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.CREATION_DATE = new v4_1.DateField('CreationDate', MaterialRevaluation, 'Edm.DateTimeOffset');
+    MaterialRevaluation.CREATION_DATE = new core_1.DateField('CreationDate', MaterialRevaluation, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[updateDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.UPDATE_DATE = new v4_1.DateField('UpdateDate', MaterialRevaluation, 'Edm.DateTimeOffset');
+    MaterialRevaluation.UPDATE_DATE = new core_1.DateField('UpdateDate', MaterialRevaluation, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[transNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.TRANS_NUM = new v4_1.NumberField('TransNum', MaterialRevaluation, 'Edm.Int32');
+    MaterialRevaluation.TRANS_NUM = new core_1.NumberField('TransNum', MaterialRevaluation, 'Edm.Int32');
     /**
      * Static representation of the [[revalType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.REVAL_TYPE = new v4_1.StringField('RevalType', MaterialRevaluation, 'Edm.String');
+    MaterialRevaluation.REVAL_TYPE = new core_1.StringField('RevalType', MaterialRevaluation, 'Edm.String');
     /**
      * Static representation of the [[revaluationIncomeAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.REVALUATION_INCOME_ACCOUNT = new v4_1.StringField('RevaluationIncomeAccount', MaterialRevaluation, 'Edm.String');
+    MaterialRevaluation.REVALUATION_INCOME_ACCOUNT = new core_1.StringField('RevaluationIncomeAccount', MaterialRevaluation, 'Edm.String');
     /**
      * Static representation of the [[revaluationExpenseAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.REVALUATION_EXPENSE_ACCOUNT = new v4_1.StringField('RevaluationExpenseAccount', MaterialRevaluation, 'Edm.String');
+    MaterialRevaluation.REVALUATION_EXPENSE_ACCOUNT = new core_1.StringField('RevaluationExpenseAccount', MaterialRevaluation, 'Edm.String');
     /**
      * Static representation of the [[dataSource]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.DATA_SOURCE = new v4_1.StringField('DataSource', MaterialRevaluation, 'Edm.String');
+    MaterialRevaluation.DATA_SOURCE = new core_1.StringField('DataSource', MaterialRevaluation, 'Edm.String');
     /**
      * Static representation of the [[userSignature]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.USER_SIGNATURE = new v4_1.NumberField('UserSignature', MaterialRevaluation, 'Edm.Int32');
+    MaterialRevaluation.USER_SIGNATURE = new core_1.NumberField('UserSignature', MaterialRevaluation, 'Edm.Int32');
+    /**
+     * Static representation of the [[inflationRevaluation]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    MaterialRevaluation.INFLATION_REVALUATION = new core_1.EnumField('InflationRevaluation', MaterialRevaluation);
     /**
      * Static representation of the [[cardCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.CARD_CODE = new v4_1.StringField('CardCode', MaterialRevaluation, 'Edm.String');
+    MaterialRevaluation.CARD_CODE = new core_1.StringField('CardCode', MaterialRevaluation, 'Edm.String');
     /**
      * Static representation of the [[cardName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.CARD_NAME = new v4_1.StringField('CardName', MaterialRevaluation, 'Edm.String');
+    MaterialRevaluation.CARD_NAME = new core_1.StringField('CardName', MaterialRevaluation, 'Edm.String');
     /**
      * Static representation of the [[materialRevaluationLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.MATERIAL_REVALUATION_LINES = new v4_1.CollectionField('MaterialRevaluationLines', MaterialRevaluation, new MaterialRevaluationLine_1.MaterialRevaluationLineField('', MaterialRevaluation));
+    MaterialRevaluation.MATERIAL_REVALUATION_LINES = new core_1.CollectionField('MaterialRevaluationLines', MaterialRevaluation, MaterialRevaluationLine_1.MaterialRevaluationLine);
     /**
      * Static representation of the one-to-one navigation property [[journalEntry]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.JOURNAL_ENTRY = new v4_1.OneToOneLink('JournalEntry', MaterialRevaluation, JournalEntries_1.JournalEntries);
+    MaterialRevaluation.JOURNAL_ENTRY = new core_1.OneToOneLink('JournalEntry', MaterialRevaluation, JournalEntries_1.JournalEntries);
     /**
      * Static representation of the one-to-one navigation property [[user]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.USER = new v4_1.OneToOneLink('User', MaterialRevaluation, Users_1.Users);
+    MaterialRevaluation.USER = new core_1.OneToOneLink('User', MaterialRevaluation, Users_1.Users);
     /**
      * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    MaterialRevaluation.BUSINESS_PARTNER = new v4_1.OneToOneLink('BusinessPartner', MaterialRevaluation, BusinessPartners_1.BusinessPartners);
+    MaterialRevaluation.BUSINESS_PARTNER = new core_1.OneToOneLink('BusinessPartner', MaterialRevaluation, BusinessPartners_1.BusinessPartners);
     /**
      * All fields of the MaterialRevaluation entity.
      */
@@ -232,6 +232,7 @@ var BusinessPartners_1 = require("./BusinessPartners");
         MaterialRevaluation.REVALUATION_EXPENSE_ACCOUNT,
         MaterialRevaluation.DATA_SOURCE,
         MaterialRevaluation.USER_SIGNATURE,
+        MaterialRevaluation.INFLATION_REVALUATION,
         MaterialRevaluation.CARD_CODE,
         MaterialRevaluation.CARD_NAME,
         MaterialRevaluation.MATERIAL_REVALUATION_LINES,
@@ -242,7 +243,7 @@ var BusinessPartners_1 = require("./BusinessPartners");
     /**
      * All fields selector.
      */
-    MaterialRevaluation.ALL_FIELDS = new v4_1.AllFields('*', MaterialRevaluation);
+    MaterialRevaluation.ALL_FIELDS = new core_1.AllFields('*', MaterialRevaluation);
     /**
      * All key fields of the MaterialRevaluation entity.
      */

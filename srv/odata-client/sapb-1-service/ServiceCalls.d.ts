@@ -5,20 +5,20 @@ import { ServiceCallInventoryExpense } from './ServiceCallInventoryExpense';
 import { ServiceCallSolution } from './ServiceCallSolution';
 import { ServiceCallScheduling } from './ServiceCallScheduling';
 import { ServiceCallBpAddressComponent } from './ServiceCallBpAddressComponent';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoSvcCallPriorities } from './BoSvcCallPriorities';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoDurations } from './BoDurations';
+import { BoAddressType } from './BoAddressType';
+import { ServiceTypeEnum } from './ServiceTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ServiceCalls" of service "SAPB1".
  */
-export declare class ServiceCalls extends Entity implements ServiceCallsType {
+export declare class ServiceCalls extends EntityV4 implements ServiceCallsType {
     /**
      * Technical entity name for ServiceCalls.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ServiceCalls.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -104,6 +104,11 @@ export declare class ServiceCalls extends Entity implements ServiceCallsType {
      */
     status?: number;
     /**
+     * Priority.
+     * @nullable
+     */
+    priority?: BoSvcCallPriorities;
+    /**
      * Call Type.
      * @nullable
      */
@@ -154,6 +159,11 @@ export declare class ServiceCalls extends Entity implements ServiceCallsType {
      */
     updatedTime?: Time;
     /**
+     * Belongs To A Queue.
+     * @nullable
+     */
+    belongsToAQueue?: BoYesNoEnum;
+    /**
      * Response By Time.
      * @nullable
      */
@@ -199,6 +209,11 @@ export declare class ServiceCalls extends Entity implements ServiceCallsType {
      */
     responseAssignee?: number;
     /**
+     * Entitledfor Service.
+     * @nullable
+     */
+    entitledforService?: BoYesNoEnum;
+    /**
      * Resolution On Time.
      * @nullable
      */
@@ -223,6 +238,11 @@ export declare class ServiceCalls extends Entity implements ServiceCallsType {
      * @nullable
      */
     docNum?: number;
+    /**
+     * Hand Written.
+     * @nullable
+     */
+    handWritten?: BoYesNoEnum;
     /**
      * Period Indicator.
      * @nullable
@@ -254,10 +274,25 @@ export declare class ServiceCalls extends Entity implements ServiceCallsType {
      */
     duration?: number;
     /**
+     * Duration Type.
+     * @nullable
+     */
+    durationType?: BoDurations;
+    /**
+     * Reminder.
+     * @nullable
+     */
+    reminder?: BoYesNoEnum;
+    /**
      * Reminder Period.
      * @nullable
      */
     reminderPeriod?: number;
+    /**
+     * Reminder Type.
+     * @nullable
+     */
+    reminderType?: BoDurations;
     /**
      * Location.
      * @nullable
@@ -268,6 +303,11 @@ export declare class ServiceCalls extends Entity implements ServiceCallsType {
      * @nullable
      */
     addressName?: string;
+    /**
+     * Address Type.
+     * @nullable
+     */
+    addressType?: BoAddressType;
     /**
      * Street.
      * @nullable
@@ -294,6 +334,11 @@ export declare class ServiceCalls extends Entity implements ServiceCallsType {
      */
     country?: string;
     /**
+     * Display In Calendar.
+     * @nullable
+     */
+    displayInCalendar?: BoYesNoEnum;
+    /**
      * Customer Ref No.
      * @nullable
      */
@@ -308,6 +353,11 @@ export declare class ServiceCalls extends Entity implements ServiceCallsType {
      * @nullable
      */
     attachmentEntry?: number;
+    /**
+     * Service Bp Type.
+     * @nullable
+     */
+    serviceBpType?: ServiceTypeEnum;
     /**
      * Bp Contact Person.
      * @nullable
@@ -460,10 +510,10 @@ export declare class ServiceCalls extends Entity implements ServiceCallsType {
      */
     serviceCallProblemSubType: ServiceCallProblemSubTypes;
     /**
-     * Returns an entity builder to construct instances `ServiceCalls`.
+     * Returns an entity builder to construct instances of `ServiceCalls`.
      * @returns A builder that constructs instances of entity type `ServiceCalls`.
      */
-    static builder(): EntityBuilderType<ServiceCalls, ServiceCallsTypeForceMandatory>;
+    static builder(): EntityBuilderType<ServiceCalls, ServiceCallsType>;
     /**
      * Returns a request builder to construct requests for operations on the `ServiceCalls` entity type.
      * @returns A `ServiceCalls` request builder.
@@ -474,7 +524,7 @@ export declare class ServiceCalls extends Entity implements ServiceCallsType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ServiceCalls`.
      */
-    static customField(fieldName: string): CustomField<ServiceCalls>;
+    static customField(fieldName: string): CustomFieldV4<ServiceCalls>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -498,174 +548,92 @@ import { ActivityLocations, ActivityLocationsType } from './ActivityLocations';
 import { Countries, CountriesType } from './Countries';
 import { ServiceCallProblemSubTypes, ServiceCallProblemSubTypesType } from './ServiceCallProblemSubTypes';
 export interface ServiceCallsType {
-    serviceCallId?: number;
-    subject?: string;
-    customerCode?: string;
-    customerName?: string;
-    contactCode?: number;
-    manufacturerSerialNum?: string;
-    internalSerialNum?: string;
-    contractId?: number;
-    contractEndDate?: Moment;
-    resolutionDate?: Moment;
-    resolutionTime?: Time;
-    origin?: number;
-    itemCode?: string;
-    itemDescription?: string;
-    itemGroupCode?: number;
-    status?: number;
-    callType?: number;
-    problemType?: number;
-    assigneeCode?: number;
-    description?: string;
-    technicianCode?: number;
-    resolution?: string;
-    creationDate?: Moment;
-    creationTime?: Time;
-    responder?: number;
-    updatedTime?: Time;
-    responseByTime?: Time;
-    responseByDate?: Moment;
-    resolutionOnDate?: Moment;
-    responseOnTime?: Time;
-    responseOnDate?: Moment;
-    closingTime?: Time;
-    assignedDate?: Moment;
-    queue?: string;
-    responseAssignee?: number;
-    resolutionOnTime?: Time;
-    assignedTime?: Time;
-    closingDate?: Moment;
-    series?: number;
-    docNum?: number;
-    periodIndicator?: string;
-    startDate?: Moment;
-    startTime?: Time;
-    endDueDate?: Moment;
-    endTime?: Time;
-    duration?: number;
-    reminderPeriod?: number;
-    location?: number;
-    addressName?: string;
-    street?: string;
-    city?: string;
-    room?: string;
-    state?: string;
-    country?: string;
-    customerRefNo?: string;
-    problemSubType?: number;
-    attachmentEntry?: number;
-    bpContactPerson?: string;
-    bpPhone1?: string;
-    bpPhone2?: string;
-    bpCellular?: string;
-    bpFax?: string;
-    bPeMail?: string;
-    bpProjectCode?: string;
-    bpTerritory?: number;
-    bpShipToCode?: string;
-    bpShipToAddress?: string;
-    bpBillToCode?: string;
-    bpBillToAddress?: string;
-    telephone?: string;
-    updateDate?: Moment;
-    serviceCallActivities?: ServiceCallActivity[];
-    serviceCallInventoryExpenses?: ServiceCallInventoryExpense[];
-    serviceCallSolutions?: ServiceCallSolution[];
-    serviceCallSchedulings?: ServiceCallScheduling[];
-    serviceCallBpAddressComponents?: ServiceCallBpAddressComponent[];
-    businessPartner: BusinessPartnersType;
-    serviceContract: ServiceContractsType;
-    serviceCallOrigin: ServiceCallOriginsType;
-    item: ItemsType;
-    itemGroups: ItemGroupsType;
-    serviceCallStatus: ServiceCallStatusType;
-    serviceCallType: ServiceCallTypesType;
-    serviceCallProblemType: ServiceCallProblemTypesType;
-    user: UsersType;
-    employeeInfo: EmployeesInfoType;
-    queue2: QueueType;
-    activityLocation: ActivityLocationsType;
-    country2: CountriesType;
-    serviceCallProblemSubType: ServiceCallProblemSubTypesType;
-}
-export interface ServiceCallsTypeForceMandatory {
-    serviceCallId: number;
-    subject: string;
-    customerCode: string;
-    customerName: string;
-    contactCode: number;
-    manufacturerSerialNum: string;
-    internalSerialNum: string;
-    contractId: number;
-    contractEndDate: Moment;
-    resolutionDate: Moment;
-    resolutionTime: Time;
-    origin: number;
-    itemCode: string;
-    itemDescription: string;
-    itemGroupCode: number;
-    status: number;
-    callType: number;
-    problemType: number;
-    assigneeCode: number;
-    description: string;
-    technicianCode: number;
-    resolution: string;
-    creationDate: Moment;
-    creationTime: Time;
-    responder: number;
-    updatedTime: Time;
-    responseByTime: Time;
-    responseByDate: Moment;
-    resolutionOnDate: Moment;
-    responseOnTime: Time;
-    responseOnDate: Moment;
-    closingTime: Time;
-    assignedDate: Moment;
-    queue: string;
-    responseAssignee: number;
-    resolutionOnTime: Time;
-    assignedTime: Time;
-    closingDate: Moment;
-    series: number;
-    docNum: number;
-    periodIndicator: string;
-    startDate: Moment;
-    startTime: Time;
-    endDueDate: Moment;
-    endTime: Time;
-    duration: number;
-    reminderPeriod: number;
-    location: number;
-    addressName: string;
-    street: string;
-    city: string;
-    room: string;
-    state: string;
-    country: string;
-    customerRefNo: string;
-    problemSubType: number;
-    attachmentEntry: number;
-    bpContactPerson: string;
-    bpPhone1: string;
-    bpPhone2: string;
-    bpCellular: string;
-    bpFax: string;
-    bPeMail: string;
-    bpProjectCode: string;
-    bpTerritory: number;
-    bpShipToCode: string;
-    bpShipToAddress: string;
-    bpBillToCode: string;
-    bpBillToAddress: string;
-    telephone: string;
-    updateDate: Moment;
-    serviceCallActivities: ServiceCallActivity[];
-    serviceCallInventoryExpenses: ServiceCallInventoryExpense[];
-    serviceCallSolutions: ServiceCallSolution[];
-    serviceCallSchedulings: ServiceCallScheduling[];
-    serviceCallBpAddressComponents: ServiceCallBpAddressComponent[];
+    serviceCallId?: number | null;
+    subject?: string | null;
+    customerCode?: string | null;
+    customerName?: string | null;
+    contactCode?: number | null;
+    manufacturerSerialNum?: string | null;
+    internalSerialNum?: string | null;
+    contractId?: number | null;
+    contractEndDate?: Moment | null;
+    resolutionDate?: Moment | null;
+    resolutionTime?: Time | null;
+    origin?: number | null;
+    itemCode?: string | null;
+    itemDescription?: string | null;
+    itemGroupCode?: number | null;
+    status?: number | null;
+    priority?: BoSvcCallPriorities | null;
+    callType?: number | null;
+    problemType?: number | null;
+    assigneeCode?: number | null;
+    description?: string | null;
+    technicianCode?: number | null;
+    resolution?: string | null;
+    creationDate?: Moment | null;
+    creationTime?: Time | null;
+    responder?: number | null;
+    updatedTime?: Time | null;
+    belongsToAQueue?: BoYesNoEnum | null;
+    responseByTime?: Time | null;
+    responseByDate?: Moment | null;
+    resolutionOnDate?: Moment | null;
+    responseOnTime?: Time | null;
+    responseOnDate?: Moment | null;
+    closingTime?: Time | null;
+    assignedDate?: Moment | null;
+    queue?: string | null;
+    responseAssignee?: number | null;
+    entitledforService?: BoYesNoEnum | null;
+    resolutionOnTime?: Time | null;
+    assignedTime?: Time | null;
+    closingDate?: Moment | null;
+    series?: number | null;
+    docNum?: number | null;
+    handWritten?: BoYesNoEnum | null;
+    periodIndicator?: string | null;
+    startDate?: Moment | null;
+    startTime?: Time | null;
+    endDueDate?: Moment | null;
+    endTime?: Time | null;
+    duration?: number | null;
+    durationType?: BoDurations | null;
+    reminder?: BoYesNoEnum | null;
+    reminderPeriod?: number | null;
+    reminderType?: BoDurations | null;
+    location?: number | null;
+    addressName?: string | null;
+    addressType?: BoAddressType | null;
+    street?: string | null;
+    city?: string | null;
+    room?: string | null;
+    state?: string | null;
+    country?: string | null;
+    displayInCalendar?: BoYesNoEnum | null;
+    customerRefNo?: string | null;
+    problemSubType?: number | null;
+    attachmentEntry?: number | null;
+    serviceBpType?: ServiceTypeEnum | null;
+    bpContactPerson?: string | null;
+    bpPhone1?: string | null;
+    bpPhone2?: string | null;
+    bpCellular?: string | null;
+    bpFax?: string | null;
+    bPeMail?: string | null;
+    bpProjectCode?: string | null;
+    bpTerritory?: number | null;
+    bpShipToCode?: string | null;
+    bpShipToAddress?: string | null;
+    bpBillToCode?: string | null;
+    bpBillToAddress?: string | null;
+    telephone?: string | null;
+    updateDate?: Moment | null;
+    serviceCallActivities?: ServiceCallActivity[] | null;
+    serviceCallInventoryExpenses?: ServiceCallInventoryExpense[] | null;
+    serviceCallSolutions?: ServiceCallSolution[] | null;
+    serviceCallSchedulings?: ServiceCallScheduling[] | null;
+    serviceCallBpAddressComponents?: ServiceCallBpAddressComponent[] | null;
     businessPartner: BusinessPartnersType;
     serviceContract: ServiceContractsType;
     serviceCallOrigin: ServiceCallOriginsType;
@@ -763,6 +731,11 @@ export declare namespace ServiceCalls {
      */
     const STATUS: NumberField<ServiceCalls>;
     /**
+     * Static representation of the [[priority]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PRIORITY: EnumField<ServiceCalls>;
+    /**
      * Static representation of the [[callType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -813,6 +786,11 @@ export declare namespace ServiceCalls {
      */
     const UPDATED_TIME: TimeField<ServiceCalls>;
     /**
+     * Static representation of the [[belongsToAQueue]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BELONGS_TO_A_QUEUE: EnumField<ServiceCalls>;
+    /**
      * Static representation of the [[responseByTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -858,6 +836,11 @@ export declare namespace ServiceCalls {
      */
     const RESPONSE_ASSIGNEE: NumberField<ServiceCalls>;
     /**
+     * Static representation of the [[entitledforService]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ENTITLEDFOR_SERVICE: EnumField<ServiceCalls>;
+    /**
      * Static representation of the [[resolutionOnTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -882,6 +865,11 @@ export declare namespace ServiceCalls {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DOC_NUM: NumberField<ServiceCalls>;
+    /**
+     * Static representation of the [[handWritten]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const HAND_WRITTEN: EnumField<ServiceCalls>;
     /**
      * Static representation of the [[periodIndicator]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -913,10 +901,25 @@ export declare namespace ServiceCalls {
      */
     const DURATION: NumberField<ServiceCalls>;
     /**
+     * Static representation of the [[durationType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DURATION_TYPE: EnumField<ServiceCalls>;
+    /**
+     * Static representation of the [[reminder]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REMINDER: EnumField<ServiceCalls>;
+    /**
      * Static representation of the [[reminderPeriod]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const REMINDER_PERIOD: NumberField<ServiceCalls>;
+    /**
+     * Static representation of the [[reminderType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REMINDER_TYPE: EnumField<ServiceCalls>;
     /**
      * Static representation of the [[location]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -927,6 +930,11 @@ export declare namespace ServiceCalls {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const ADDRESS_NAME: StringField<ServiceCalls>;
+    /**
+     * Static representation of the [[addressType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ADDRESS_TYPE: EnumField<ServiceCalls>;
     /**
      * Static representation of the [[street]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -953,6 +961,11 @@ export declare namespace ServiceCalls {
      */
     const COUNTRY: StringField<ServiceCalls>;
     /**
+     * Static representation of the [[displayInCalendar]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DISPLAY_IN_CALENDAR: EnumField<ServiceCalls>;
+    /**
      * Static representation of the [[customerRefNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -967,6 +980,11 @@ export declare namespace ServiceCalls {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const ATTACHMENT_ENTRY: NumberField<ServiceCalls>;
+    /**
+     * Static representation of the [[serviceBpType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SERVICE_BP_TYPE: EnumField<ServiceCalls>;
     /**
      * Static representation of the [[bpContactPerson]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1041,27 +1059,27 @@ export declare namespace ServiceCalls {
      * Static representation of the [[serviceCallActivities]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const SERVICE_CALL_ACTIVITIES: CollectionField<ServiceCalls>;
+    const SERVICE_CALL_ACTIVITIES: CollectionField<ServiceCalls, ServiceCallActivity>;
     /**
      * Static representation of the [[serviceCallInventoryExpenses]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const SERVICE_CALL_INVENTORY_EXPENSES: CollectionField<ServiceCalls>;
+    const SERVICE_CALL_INVENTORY_EXPENSES: CollectionField<ServiceCalls, ServiceCallInventoryExpense>;
     /**
      * Static representation of the [[serviceCallSolutions]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const SERVICE_CALL_SOLUTIONS: CollectionField<ServiceCalls>;
+    const SERVICE_CALL_SOLUTIONS: CollectionField<ServiceCalls, ServiceCallSolution>;
     /**
      * Static representation of the [[serviceCallSchedulings]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const SERVICE_CALL_SCHEDULINGS: CollectionField<ServiceCalls>;
+    const SERVICE_CALL_SCHEDULINGS: CollectionField<ServiceCalls, ServiceCallScheduling>;
     /**
      * Static representation of the [[serviceCallBpAddressComponents]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const SERVICE_CALL_BP_ADDRESS_COMPONENTS: CollectionField<ServiceCalls>;
+    const SERVICE_CALL_BP_ADDRESS_COMPONENTS: CollectionField<ServiceCalls, ServiceCallBpAddressComponent>;
     /**
      * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1135,7 +1153,7 @@ export declare namespace ServiceCalls {
     /**
      * All fields of the ServiceCalls entity.
      */
-    const _allFields: Array<NumberField<ServiceCalls> | StringField<ServiceCalls> | DateField<ServiceCalls> | TimeField<ServiceCalls> | CollectionField<ServiceCalls> | OneToOneLink<ServiceCalls, BusinessPartners> | OneToOneLink<ServiceCalls, ServiceContracts> | OneToOneLink<ServiceCalls, ServiceCallOrigins> | OneToOneLink<ServiceCalls, Items> | OneToOneLink<ServiceCalls, ItemGroups> | OneToOneLink<ServiceCalls, ServiceCallStatus> | OneToOneLink<ServiceCalls, ServiceCallTypes> | OneToOneLink<ServiceCalls, ServiceCallProblemTypes> | OneToOneLink<ServiceCalls, Users> | OneToOneLink<ServiceCalls, EmployeesInfo> | OneToOneLink<ServiceCalls, Queue> | OneToOneLink<ServiceCalls, ActivityLocations> | OneToOneLink<ServiceCalls, Countries> | OneToOneLink<ServiceCalls, ServiceCallProblemSubTypes>>;
+    const _allFields: Array<NumberField<ServiceCalls> | StringField<ServiceCalls> | DateField<ServiceCalls> | TimeField<ServiceCalls> | EnumField<ServiceCalls> | CollectionField<ServiceCalls, ServiceCallActivity> | CollectionField<ServiceCalls, ServiceCallInventoryExpense> | CollectionField<ServiceCalls, ServiceCallSolution> | CollectionField<ServiceCalls, ServiceCallScheduling> | CollectionField<ServiceCalls, ServiceCallBpAddressComponent> | OneToOneLink<ServiceCalls, BusinessPartners> | OneToOneLink<ServiceCalls, ServiceContracts> | OneToOneLink<ServiceCalls, ServiceCallOrigins> | OneToOneLink<ServiceCalls, Items> | OneToOneLink<ServiceCalls, ItemGroups> | OneToOneLink<ServiceCalls, ServiceCallStatus> | OneToOneLink<ServiceCalls, ServiceCallTypes> | OneToOneLink<ServiceCalls, ServiceCallProblemTypes> | OneToOneLink<ServiceCalls, Users> | OneToOneLink<ServiceCalls, EmployeesInfo> | OneToOneLink<ServiceCalls, Queue> | OneToOneLink<ServiceCalls, ActivityLocations> | OneToOneLink<ServiceCalls, Countries> | OneToOneLink<ServiceCalls, ServiceCallProblemSubTypes>>;
     /**
      * All fields selector.
      */

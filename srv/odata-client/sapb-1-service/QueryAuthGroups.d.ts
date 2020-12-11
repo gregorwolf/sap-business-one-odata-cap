@@ -1,19 +1,14 @@
 import { QueryAuthGroupsRequestBuilder } from './QueryAuthGroupsRequestBuilder';
 import { CategoryGroup } from './CategoryGroup';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "QueryAuthGroups" of service "SAPB1".
  */
-export declare class QueryAuthGroups extends Entity implements QueryAuthGroupsType {
+export declare class QueryAuthGroups extends EntityV4 implements QueryAuthGroupsType {
     /**
      * Technical entity name for QueryAuthGroups.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for QueryAuthGroups.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -39,10 +34,10 @@ export declare class QueryAuthGroups extends Entity implements QueryAuthGroupsTy
      */
     categoryGroupCollection?: CategoryGroup[];
     /**
-     * Returns an entity builder to construct instances `QueryAuthGroups`.
+     * Returns an entity builder to construct instances of `QueryAuthGroups`.
      * @returns A builder that constructs instances of entity type `QueryAuthGroups`.
      */
-    static builder(): EntityBuilderType<QueryAuthGroups, QueryAuthGroupsTypeForceMandatory>;
+    static builder(): EntityBuilderType<QueryAuthGroups, QueryAuthGroupsType>;
     /**
      * Returns a request builder to construct requests for operations on the `QueryAuthGroups` entity type.
      * @returns A `QueryAuthGroups` request builder.
@@ -53,7 +48,7 @@ export declare class QueryAuthGroups extends Entity implements QueryAuthGroupsTy
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `QueryAuthGroups`.
      */
-    static customField(fieldName: string): CustomField<QueryAuthGroups>;
+    static customField(fieldName: string): CustomFieldV4<QueryAuthGroups>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -63,16 +58,10 @@ export declare class QueryAuthGroups extends Entity implements QueryAuthGroupsTy
     };
 }
 export interface QueryAuthGroupsType {
-    authGroupCode?: string;
-    authGroupDes?: string;
-    authGroupId?: number;
-    categoryGroupCollection?: CategoryGroup[];
-}
-export interface QueryAuthGroupsTypeForceMandatory {
-    authGroupCode: string;
-    authGroupDes: string;
-    authGroupId: number;
-    categoryGroupCollection: CategoryGroup[];
+    authGroupCode?: string | null;
+    authGroupDes?: string | null;
+    authGroupId?: number | null;
+    categoryGroupCollection?: CategoryGroup[] | null;
 }
 export declare namespace QueryAuthGroups {
     /**
@@ -94,11 +83,11 @@ export declare namespace QueryAuthGroups {
      * Static representation of the [[categoryGroupCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const CATEGORY_GROUP_COLLECTION: CollectionField<QueryAuthGroups>;
+    const CATEGORY_GROUP_COLLECTION: CollectionField<QueryAuthGroups, CategoryGroup>;
     /**
      * All fields of the QueryAuthGroups entity.
      */
-    const _allFields: Array<StringField<QueryAuthGroups> | NumberField<QueryAuthGroups> | CollectionField<QueryAuthGroups>>;
+    const _allFields: Array<StringField<QueryAuthGroups> | NumberField<QueryAuthGroups> | CollectionField<QueryAuthGroups, CategoryGroup>>;
     /**
      * All fields selector.
      */

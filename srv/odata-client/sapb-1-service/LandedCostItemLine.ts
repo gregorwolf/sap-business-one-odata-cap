@@ -3,7 +3,9 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { LandedCostBaseDocumentTypeEnum } from './LandedCostBaseDocumentTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * LandedCostItemLine
@@ -19,6 +21,11 @@ export interface LandedCostItemLine {
    * @nullable
    */
   lineNumber?: number;
+  /**
+   * Base Document Type.
+   * @nullable
+   */
+  baseDocumentType?: LandedCostBaseDocumentTypeEnum;
   /**
    * Base Entry.
    * @nullable
@@ -305,6 +312,16 @@ export interface LandedCostItemLine {
    */
   priceList?: number;
   /**
+   * Automatic Expenditure.
+   * @nullable
+   */
+  automaticExpenditure?: BoYesNoEnum;
+  /**
+   * Inventory Valuation.
+   * @nullable
+   */
+  inventoryValuation?: BoYesNoEnum;
+  /**
    * Origin Line.
    * @nullable
    */
@@ -340,6 +357,11 @@ export interface LandedCostItemLine {
    */
   exciseSumFc?: number;
   /**
+   * Excise Affect Stock.
+   * @nullable
+   */
+  exciseAffectStock?: BoYesNoEnum;
+  /**
    * Customs Cost.
    * @nullable
    */
@@ -350,6 +372,11 @@ export interface LandedCostItemLine {
    */
   customsCostFc?: number;
   /**
+   * Customs Affect Stock.
+   * @nullable
+   */
+  customsAffectStock?: BoYesNoEnum;
+  /**
    * Customs Vat.
    * @nullable
    */
@@ -359,6 +386,11 @@ export interface LandedCostItemLine {
    * @nullable
    */
   customsVatFc?: number;
+  /**
+   * Customs Vat Affect Stock.
+   * @nullable
+   */
+  customsVatAffectStock?: BoYesNoEnum;
   /**
    * Ccd Number.
    * @nullable
@@ -377,7 +409,7 @@ export function createLandedCostItemLine(json: any): LandedCostItemLine {
  * LandedCostItemLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class LandedCostItemLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class LandedCostItemLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, LandedCostItemLine> {
   /**
    * Representation of the [[LandedCostItemLine.docEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -388,6 +420,11 @@ export class LandedCostItemLineField<EntityT extends Entity> extends ComplexType
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   lineNumber: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('LineNumber', this, 'Edm.Int32');
+  /**
+   * Representation of the [[LandedCostItemLine.baseDocumentType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  baseDocumentType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('BaseDocumentType', this);
   /**
    * Representation of the [[LandedCostItemLine.baseEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -674,6 +711,16 @@ export class LandedCostItemLineField<EntityT extends Entity> extends ComplexType
    */
   priceList: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('PriceList', this, 'Edm.Int32');
   /**
+   * Representation of the [[LandedCostItemLine.automaticExpenditure]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  automaticExpenditure: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AutomaticExpenditure', this);
+  /**
+   * Representation of the [[LandedCostItemLine.inventoryValuation]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  inventoryValuation: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('InventoryValuation', this);
+  /**
    * Representation of the [[LandedCostItemLine.originLine]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -709,6 +756,11 @@ export class LandedCostItemLineField<EntityT extends Entity> extends ComplexType
    */
   exciseSumFc: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('ExciseSumFC', this, 'Edm.Double');
   /**
+   * Representation of the [[LandedCostItemLine.exciseAffectStock]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  exciseAffectStock: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ExciseAffectStock', this);
+  /**
    * Representation of the [[LandedCostItemLine.customsCost]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -718,6 +770,11 @@ export class LandedCostItemLineField<EntityT extends Entity> extends ComplexType
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   customsCostFc: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('CustomsCostFC', this, 'Edm.Double');
+  /**
+   * Representation of the [[LandedCostItemLine.customsAffectStock]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  customsAffectStock: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CustomsAffectStock', this);
   /**
    * Representation of the [[LandedCostItemLine.customsVat]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -729,86 +786,422 @@ export class LandedCostItemLineField<EntityT extends Entity> extends ComplexType
    */
   customsVatFc: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('CustomsVatFC', this, 'Edm.Double');
   /**
+   * Representation of the [[LandedCostItemLine.customsVatAffectStock]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  customsVatAffectStock: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CustomsVatAffectStock', this);
+  /**
    * Representation of the [[LandedCostItemLine.ccdNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   ccdNumber: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('CCDNumber', this, 'Edm.String');
+
+  /**
+   * Creates an instance of LandedCostItemLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, LandedCostItemLine);
+  }
 }
 
 export namespace LandedCostItemLine {
+  /**
+   * Metadata information on all properties of the `LandedCostItemLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<LandedCostItemLine>[] = [{
+    originalName: 'DocEntry',
+    name: 'docEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineNumber',
+    name: 'lineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BaseDocumentType',
+    name: 'baseDocumentType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BaseEntry',
+    name: 'baseEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Number',
+    name: 'number',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemDescription',
+    name: 'itemDescription',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Quantity',
+    name: 'quantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BaseDocumentPrice',
+    name: 'baseDocumentPrice',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Rate',
+    name: 'rate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ProjectedCustoms',
+    name: 'projectedCustoms',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ProjectedCustomsFC',
+    name: 'projectedCustomsFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Expenditure',
+    name: 'expenditure',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ExpenditureFC',
+    name: 'expenditureFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WarehousePrice',
+    name: 'warehousePrice',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WarehousePriceFC',
+    name: 'warehousePriceFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'LineTotal',
+    name: 'lineTotal',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'LineTotalFC',
+    name: 'lineTotalFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Volume',
+    name: 'volume',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'VolumeUoM',
+    name: 'volumeUoM',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Weight1',
+    name: 'weight1',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Weight1UnitCode',
+    name: 'weight1UnitCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Weight2',
+    name: 'weight2',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Weight2UnitCode',
+    name: 'weight2UnitCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'VendorCode',
+    name: 'vendorCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Reference',
+    name: 'reference',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FactorWithoutCustoms',
+    name: 'factorWithoutCustoms',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FactorWithCustoms',
+    name: 'factorWithCustoms',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'InventoryUoM',
+    name: 'inventoryUoM',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BlockNumber',
+    name: 'blockNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ImportLog',
+    name: 'importLog',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'OriginalWarehouse',
+    name: 'originalWarehouse',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Warehouse',
+    name: 'warehouse',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ReleaseNumber',
+    name: 'releaseNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'VariantCosts',
+    name: 'variantCosts',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FixCosts',
+    name: 'fixCosts',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'VariantCostsFC',
+    name: 'variantCostsFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FixCostsFC',
+    name: 'fixCostsFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Customs',
+    name: 'customs',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CustomsFC',
+    name: 'customsFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BaseDocumentValueLineTotal',
+    name: 'baseDocumentValueLineTotal',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BaseDocumentValueLineTotalFC',
+    name: 'baseDocumentValueLineTotalFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AllocatedUnitCostsLineTotal',
+    name: 'allocatedUnitCostsLineTotal',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AllocatedUnitCostsLineTotalFC',
+    name: 'allocatedUnitCostsLineTotalFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CustomsValue',
+    name: 'customsValue',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CustomsValueFC',
+    name: 'customsValueFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TotalCosts',
+    name: 'totalCosts',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TotalCostsFC',
+    name: 'totalCostsFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TotalVolume',
+    name: 'totalVolume',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'BaseLine',
+    name: 'baseLine',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TotalLineProjectedCustoms',
+    name: 'totalLineProjectedCustoms',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AllocatedCostsLineTotal',
+    name: 'allocatedCostsLineTotal',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FOBandIncludedCosts',
+    name: 'foBandIncludedCosts',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FOBandIncludedCostsFC',
+    name: 'foBandIncludedCostsFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Project',
+    name: 'project',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule',
+    name: 'distributionRule',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule2',
+    name: 'distributionRule2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule3',
+    name: 'distributionRule3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule4',
+    name: 'distributionRule4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule5',
+    name: 'distributionRule5',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PriceList',
+    name: 'priceList',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AutomaticExpenditure',
+    name: 'automaticExpenditure',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'InventoryValuation',
+    name: 'inventoryValuation',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'OriginLine',
+    name: 'originLine',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Currency',
+    name: 'currency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CustomsGroupRate',
+    name: 'customsGroupRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'VatGroup',
+    name: 'vatGroup',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'VatPercent',
+    name: 'vatPercent',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ExciseSum',
+    name: 'exciseSum',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ExciseSumFC',
+    name: 'exciseSumFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ExciseAffectStock',
+    name: 'exciseAffectStock',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CustomsCost',
+    name: 'customsCost',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CustomsCostFC',
+    name: 'customsCostFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CustomsAffectStock',
+    name: 'customsAffectStock',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CustomsVat',
+    name: 'customsVat',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CustomsVatFC',
+    name: 'customsVatFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CustomsVatAffectStock',
+    name: 'customsVatAffectStock',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CCDNumber',
+    name: 'ccdNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): LandedCostItemLine {
-    return createComplexType(json, {
-      DocEntry: (docEntry: number) => ({ docEntry: edmToTs(docEntry, 'Edm.Int32') }),
-      LineNumber: (lineNumber: number) => ({ lineNumber: edmToTs(lineNumber, 'Edm.Int32') }),
-      BaseEntry: (baseEntry: number) => ({ baseEntry: edmToTs(baseEntry, 'Edm.Int32') }),
-      Number: (number: string) => ({ number: edmToTs(number, 'Edm.String') }),
-      ItemDescription: (itemDescription: string) => ({ itemDescription: edmToTs(itemDescription, 'Edm.String') }),
-      Quantity: (quantity: number) => ({ quantity: edmToTs(quantity, 'Edm.Double') }),
-      BaseDocumentPrice: (baseDocumentPrice: number) => ({ baseDocumentPrice: edmToTs(baseDocumentPrice, 'Edm.Double') }),
-      Rate: (rate: number) => ({ rate: edmToTs(rate, 'Edm.Double') }),
-      ProjectedCustoms: (projectedCustoms: number) => ({ projectedCustoms: edmToTs(projectedCustoms, 'Edm.Double') }),
-      ProjectedCustomsFC: (projectedCustomsFc: number) => ({ projectedCustomsFc: edmToTs(projectedCustomsFc, 'Edm.Double') }),
-      Expenditure: (expenditure: number) => ({ expenditure: edmToTs(expenditure, 'Edm.Double') }),
-      ExpenditureFC: (expenditureFc: number) => ({ expenditureFc: edmToTs(expenditureFc, 'Edm.Double') }),
-      WarehousePrice: (warehousePrice: number) => ({ warehousePrice: edmToTs(warehousePrice, 'Edm.Double') }),
-      WarehousePriceFC: (warehousePriceFc: number) => ({ warehousePriceFc: edmToTs(warehousePriceFc, 'Edm.Double') }),
-      LineTotal: (lineTotal: number) => ({ lineTotal: edmToTs(lineTotal, 'Edm.Double') }),
-      LineTotalFC: (lineTotalFc: number) => ({ lineTotalFc: edmToTs(lineTotalFc, 'Edm.Double') }),
-      Volume: (volume: number) => ({ volume: edmToTs(volume, 'Edm.Double') }),
-      VolumeUoM: (volumeUoM: number) => ({ volumeUoM: edmToTs(volumeUoM, 'Edm.Int32') }),
-      Weight1: (weight1: number) => ({ weight1: edmToTs(weight1, 'Edm.Double') }),
-      Weight1UnitCode: (weight1UnitCode: number) => ({ weight1UnitCode: edmToTs(weight1UnitCode, 'Edm.Int32') }),
-      Weight2: (weight2: number) => ({ weight2: edmToTs(weight2, 'Edm.Double') }),
-      Weight2UnitCode: (weight2UnitCode: number) => ({ weight2UnitCode: edmToTs(weight2UnitCode, 'Edm.Int32') }),
-      VendorCode: (vendorCode: string) => ({ vendorCode: edmToTs(vendorCode, 'Edm.String') }),
-      Reference: (reference: string) => ({ reference: edmToTs(reference, 'Edm.String') }),
-      FactorWithoutCustoms: (factorWithoutCustoms: number) => ({ factorWithoutCustoms: edmToTs(factorWithoutCustoms, 'Edm.Double') }),
-      FactorWithCustoms: (factorWithCustoms: number) => ({ factorWithCustoms: edmToTs(factorWithCustoms, 'Edm.Double') }),
-      InventoryUoM: (inventoryUoM: string) => ({ inventoryUoM: edmToTs(inventoryUoM, 'Edm.String') }),
-      BlockNumber: (blockNumber: string) => ({ blockNumber: edmToTs(blockNumber, 'Edm.String') }),
-      ImportLog: (importLog: string) => ({ importLog: edmToTs(importLog, 'Edm.String') }),
-      OriginalWarehouse: (originalWarehouse: string) => ({ originalWarehouse: edmToTs(originalWarehouse, 'Edm.String') }),
-      Warehouse: (warehouse: string) => ({ warehouse: edmToTs(warehouse, 'Edm.String') }),
-      ReleaseNumber: (releaseNumber: number) => ({ releaseNumber: edmToTs(releaseNumber, 'Edm.Int32') }),
-      VariantCosts: (variantCosts: number) => ({ variantCosts: edmToTs(variantCosts, 'Edm.Double') }),
-      FixCosts: (fixCosts: number) => ({ fixCosts: edmToTs(fixCosts, 'Edm.Double') }),
-      VariantCostsFC: (variantCostsFc: number) => ({ variantCostsFc: edmToTs(variantCostsFc, 'Edm.Double') }),
-      FixCostsFC: (fixCostsFc: number) => ({ fixCostsFc: edmToTs(fixCostsFc, 'Edm.Double') }),
-      Customs: (customs: number) => ({ customs: edmToTs(customs, 'Edm.Double') }),
-      CustomsFC: (customsFc: number) => ({ customsFc: edmToTs(customsFc, 'Edm.Double') }),
-      BaseDocumentValueLineTotal: (baseDocumentValueLineTotal: number) => ({ baseDocumentValueLineTotal: edmToTs(baseDocumentValueLineTotal, 'Edm.Double') }),
-      BaseDocumentValueLineTotalFC: (baseDocumentValueLineTotalFc: number) => ({ baseDocumentValueLineTotalFc: edmToTs(baseDocumentValueLineTotalFc, 'Edm.Double') }),
-      AllocatedUnitCostsLineTotal: (allocatedUnitCostsLineTotal: number) => ({ allocatedUnitCostsLineTotal: edmToTs(allocatedUnitCostsLineTotal, 'Edm.Double') }),
-      AllocatedUnitCostsLineTotalFC: (allocatedUnitCostsLineTotalFc: number) => ({ allocatedUnitCostsLineTotalFc: edmToTs(allocatedUnitCostsLineTotalFc, 'Edm.Double') }),
-      CustomsValue: (customsValue: number) => ({ customsValue: edmToTs(customsValue, 'Edm.Double') }),
-      CustomsValueFC: (customsValueFc: number) => ({ customsValueFc: edmToTs(customsValueFc, 'Edm.Double') }),
-      TotalCosts: (totalCosts: number) => ({ totalCosts: edmToTs(totalCosts, 'Edm.Double') }),
-      TotalCostsFC: (totalCostsFc: number) => ({ totalCostsFc: edmToTs(totalCostsFc, 'Edm.Double') }),
-      TotalVolume: (totalVolume: number) => ({ totalVolume: edmToTs(totalVolume, 'Edm.Double') }),
-      BaseLine: (baseLine: number) => ({ baseLine: edmToTs(baseLine, 'Edm.Int32') }),
-      TotalLineProjectedCustoms: (totalLineProjectedCustoms: number) => ({ totalLineProjectedCustoms: edmToTs(totalLineProjectedCustoms, 'Edm.Double') }),
-      AllocatedCostsLineTotal: (allocatedCostsLineTotal: number) => ({ allocatedCostsLineTotal: edmToTs(allocatedCostsLineTotal, 'Edm.Double') }),
-      FOBandIncludedCosts: (foBandIncludedCosts: number) => ({ foBandIncludedCosts: edmToTs(foBandIncludedCosts, 'Edm.Double') }),
-      FOBandIncludedCostsFC: (foBandIncludedCostsFc: number) => ({ foBandIncludedCostsFc: edmToTs(foBandIncludedCostsFc, 'Edm.Double') }),
-      Project: (project: string) => ({ project: edmToTs(project, 'Edm.String') }),
-      DistributionRule: (distributionRule: string) => ({ distributionRule: edmToTs(distributionRule, 'Edm.String') }),
-      DistributionRule2: (distributionRule2: string) => ({ distributionRule2: edmToTs(distributionRule2, 'Edm.String') }),
-      DistributionRule3: (distributionRule3: string) => ({ distributionRule3: edmToTs(distributionRule3, 'Edm.String') }),
-      DistributionRule4: (distributionRule4: string) => ({ distributionRule4: edmToTs(distributionRule4, 'Edm.String') }),
-      DistributionRule5: (distributionRule5: string) => ({ distributionRule5: edmToTs(distributionRule5, 'Edm.String') }),
-      PriceList: (priceList: number) => ({ priceList: edmToTs(priceList, 'Edm.Int32') }),
-      OriginLine: (originLine: number) => ({ originLine: edmToTs(originLine, 'Edm.Int32') }),
-      Currency: (currency: string) => ({ currency: edmToTs(currency, 'Edm.String') }),
-      CustomsGroupRate: (customsGroupRate: number) => ({ customsGroupRate: edmToTs(customsGroupRate, 'Edm.Double') }),
-      VatGroup: (vatGroup: string) => ({ vatGroup: edmToTs(vatGroup, 'Edm.String') }),
-      VatPercent: (vatPercent: number) => ({ vatPercent: edmToTs(vatPercent, 'Edm.Double') }),
-      ExciseSum: (exciseSum: number) => ({ exciseSum: edmToTs(exciseSum, 'Edm.Double') }),
-      ExciseSumFC: (exciseSumFc: number) => ({ exciseSumFc: edmToTs(exciseSumFc, 'Edm.Double') }),
-      CustomsCost: (customsCost: number) => ({ customsCost: edmToTs(customsCost, 'Edm.Double') }),
-      CustomsCostFC: (customsCostFc: number) => ({ customsCostFc: edmToTs(customsCostFc, 'Edm.Double') }),
-      CustomsVat: (customsVat: number) => ({ customsVat: edmToTs(customsVat, 'Edm.Double') }),
-      CustomsVatFC: (customsVatFc: number) => ({ customsVatFc: edmToTs(customsVatFc, 'Edm.Double') }),
-      CCDNumber: (ccdNumber: string) => ({ ccdNumber: edmToTs(ccdNumber, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, LandedCostItemLine);
   }
 }

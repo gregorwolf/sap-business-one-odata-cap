@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.ReportTypes = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var ReportTypesRequestBuilder_1 = require("./ReportTypesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "ReportTypes" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var ReportTypes = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `ReportTypes`.
+     * Returns an entity builder to construct instances of `ReportTypes`.
      * @returns A builder that constructs instances of entity type `ReportTypes`.
      */
     ReportTypes.builder = function () {
-        return v4_1.Entity.entityBuilder(ReportTypes);
+        return core_1.EntityV4.entityBuilder(ReportTypes);
     };
     /**
      * Returns a request builder to construct requests for operations on the `ReportTypes` entity type.
@@ -60,7 +60,7 @@ var ReportTypes = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `ReportTypes`.
      */
     ReportTypes.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, ReportTypes);
+        return core_1.EntityV4.customFieldSelector(fieldName, ReportTypes);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,48 +74,43 @@ var ReportTypes = /** @class */ (function (_super) {
      */
     ReportTypes._entityName = 'ReportTypes';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ReportTypes.
-     */
-    ReportTypes._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    ReportTypes._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    ReportTypes._defaultServicePath = '/b1s/v2/';
     return ReportTypes;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.ReportTypes = ReportTypes;
 (function (ReportTypes) {
     /**
      * Static representation of the [[typeCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ReportTypes.TYPE_CODE = new v4_1.StringField('TypeCode', ReportTypes, 'Edm.String');
+    ReportTypes.TYPE_CODE = new core_1.StringField('TypeCode', ReportTypes, 'Edm.String');
     /**
      * Static representation of the [[typeName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ReportTypes.TYPE_NAME = new v4_1.StringField('TypeName', ReportTypes, 'Edm.String');
+    ReportTypes.TYPE_NAME = new core_1.StringField('TypeName', ReportTypes, 'Edm.String');
     /**
      * Static representation of the [[defaultReportLayout]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ReportTypes.DEFAULT_REPORT_LAYOUT = new v4_1.StringField('DefaultReportLayout', ReportTypes, 'Edm.String');
+    ReportTypes.DEFAULT_REPORT_LAYOUT = new core_1.StringField('DefaultReportLayout', ReportTypes, 'Edm.String');
     /**
      * Static representation of the [[addonName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ReportTypes.ADDON_NAME = new v4_1.StringField('AddonName', ReportTypes, 'Edm.String');
+    ReportTypes.ADDON_NAME = new core_1.StringField('AddonName', ReportTypes, 'Edm.String');
     /**
      * Static representation of the [[addonFormType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ReportTypes.ADDON_FORM_TYPE = new v4_1.StringField('AddonFormType', ReportTypes, 'Edm.String');
+    ReportTypes.ADDON_FORM_TYPE = new core_1.StringField('AddonFormType', ReportTypes, 'Edm.String');
     /**
      * Static representation of the [[menuId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ReportTypes.MENU_ID = new v4_1.StringField('MenuID', ReportTypes, 'Edm.String');
+    ReportTypes.MENU_ID = new core_1.StringField('MenuID', ReportTypes, 'Edm.String');
     /**
      * All fields of the ReportTypes entity.
      */
@@ -130,7 +125,7 @@ exports.ReportTypes = ReportTypes;
     /**
      * All fields selector.
      */
-    ReportTypes.ALL_FIELDS = new v4_1.AllFields('*', ReportTypes);
+    ReportTypes.ALL_FIELDS = new core_1.AllFields('*', ReportTypes);
     /**
      * All key fields of the ReportTypes entity.
      */

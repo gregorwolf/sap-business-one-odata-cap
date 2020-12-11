@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * WorkflowTaskOutputObject
@@ -47,7 +47,7 @@ export function createWorkflowTaskOutputObject(json: any): WorkflowTaskOutputObj
  * WorkflowTaskOutputObjectField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class WorkflowTaskOutputObjectField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class WorkflowTaskOutputObjectField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, WorkflowTaskOutputObject> {
   /**
    * Representation of the [[WorkflowTaskOutputObject.taskId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -73,16 +73,53 @@ export class WorkflowTaskOutputObjectField<EntityT extends Entity> extends Compl
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   subType: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('SubType', this, 'Edm.String');
+
+  /**
+   * Creates an instance of WorkflowTaskOutputObjectField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, WorkflowTaskOutputObject);
+  }
 }
 
 export namespace WorkflowTaskOutputObject {
+  /**
+   * Metadata information on all properties of the `WorkflowTaskOutputObject` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<WorkflowTaskOutputObject>[] = [{
+    originalName: 'TaskID',
+    name: 'taskId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineId',
+    name: 'lineId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Type',
+    name: 'type',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Key',
+    name: 'key',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SubType',
+    name: 'subType',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): WorkflowTaskOutputObject {
-    return createComplexType(json, {
-      TaskID: (taskId: number) => ({ taskId: edmToTs(taskId, 'Edm.Int32') }),
-      LineId: (lineId: string) => ({ lineId: edmToTs(lineId, 'Edm.String') }),
-      Type: (type: string) => ({ type: edmToTs(type, 'Edm.String') }),
-      Key: (key: string) => ({ key: edmToTs(key, 'Edm.String') }),
-      SubType: (subType: string) => ({ subType: edmToTs(subType, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, WorkflowTaskOutputObject);
   }
 }

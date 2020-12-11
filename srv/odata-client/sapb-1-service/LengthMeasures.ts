@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { LengthMeasuresRequestBuilder } from './LengthMeasuresRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "LengthMeasures" of service "SAPB1".
  */
-export class LengthMeasures extends Entity implements LengthMeasuresType {
+export class LengthMeasures extends EntityV4 implements LengthMeasuresType {
   /**
    * Technical entity name for LengthMeasures.
    */
   static _entityName = 'LengthMeasures';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for LengthMeasures.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Unit Code.
    * @nullable
@@ -50,11 +45,11 @@ export class LengthMeasures extends Entity implements LengthMeasuresType {
   unitLengthinmm?: number;
 
   /**
-   * Returns an entity builder to construct instances `LengthMeasures`.
+   * Returns an entity builder to construct instances of `LengthMeasures`.
    * @returns A builder that constructs instances of entity type `LengthMeasures`.
    */
-  static builder(): EntityBuilderType<LengthMeasures, LengthMeasuresTypeForceMandatory> {
-    return Entity.entityBuilder(LengthMeasures);
+  static builder(): EntityBuilderType<LengthMeasures, LengthMeasuresType> {
+    return EntityV4.entityBuilder(LengthMeasures);
   }
 
   /**
@@ -70,8 +65,8 @@ export class LengthMeasures extends Entity implements LengthMeasuresType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `LengthMeasures`.
    */
-  static customField(fieldName: string): CustomField<LengthMeasures> {
-    return Entity.customFieldSelector(fieldName, LengthMeasures);
+  static customField(fieldName: string): CustomFieldV4<LengthMeasures> {
+    return EntityV4.customFieldSelector(fieldName, LengthMeasures);
   }
 
   /**
@@ -84,19 +79,11 @@ export class LengthMeasures extends Entity implements LengthMeasuresType {
 }
 
 export interface LengthMeasuresType {
-  unitCode?: number;
-  unitDisplay?: string;
-  unitName?: string;
-  unitCodeforQuantityDisplay?: string;
-  unitLengthinmm?: number;
-}
-
-export interface LengthMeasuresTypeForceMandatory {
-  unitCode: number;
-  unitDisplay: string;
-  unitName: string;
-  unitCodeforQuantityDisplay: string;
-  unitLengthinmm: number;
+  unitCode?: number | null;
+  unitDisplay?: string | null;
+  unitName?: string | null;
+  unitCodeforQuantityDisplay?: string | null;
+  unitLengthinmm?: number | null;
 }
 
 export namespace LengthMeasures {

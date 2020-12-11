@@ -1,18 +1,13 @@
 import { ResourcePropertiesRequestBuilder } from './ResourcePropertiesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ResourceProperties" of service "SAPB1".
  */
-export declare class ResourceProperties extends Entity implements ResourcePropertiesType {
+export declare class ResourceProperties extends EntityV4 implements ResourcePropertiesType {
     /**
      * Technical entity name for ResourceProperties.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ResourceProperties.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -28,10 +23,10 @@ export declare class ResourceProperties extends Entity implements ResourceProper
      */
     name?: string;
     /**
-     * Returns an entity builder to construct instances `ResourceProperties`.
+     * Returns an entity builder to construct instances of `ResourceProperties`.
      * @returns A builder that constructs instances of entity type `ResourceProperties`.
      */
-    static builder(): EntityBuilderType<ResourceProperties, ResourcePropertiesTypeForceMandatory>;
+    static builder(): EntityBuilderType<ResourceProperties, ResourcePropertiesType>;
     /**
      * Returns a request builder to construct requests for operations on the `ResourceProperties` entity type.
      * @returns A `ResourceProperties` request builder.
@@ -42,7 +37,7 @@ export declare class ResourceProperties extends Entity implements ResourceProper
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ResourceProperties`.
      */
-    static customField(fieldName: string): CustomField<ResourceProperties>;
+    static customField(fieldName: string): CustomFieldV4<ResourceProperties>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -52,12 +47,8 @@ export declare class ResourceProperties extends Entity implements ResourceProper
     };
 }
 export interface ResourcePropertiesType {
-    code?: number;
-    name?: string;
-}
-export interface ResourcePropertiesTypeForceMandatory {
-    code: number;
-    name: string;
+    code?: number | null;
+    name?: string | null;
 }
 export declare namespace ResourceProperties {
     /**

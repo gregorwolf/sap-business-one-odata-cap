@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { IndustriesRequestBuilder } from './IndustriesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "Industries" of service "SAPB1".
  */
-export class Industries extends Entity implements IndustriesType {
+export class Industries extends EntityV4 implements IndustriesType {
   /**
    * Technical entity name for Industries.
    */
   static _entityName = 'Industries';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for Industries.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Industry Description.
    * @nullable
@@ -52,11 +47,11 @@ export class Industries extends Entity implements IndustriesType {
   projectManagements!: ProjectManagements[];
 
   /**
-   * Returns an entity builder to construct instances `Industries`.
+   * Returns an entity builder to construct instances of `Industries`.
    * @returns A builder that constructs instances of entity type `Industries`.
    */
-  static builder(): EntityBuilderType<Industries, IndustriesTypeForceMandatory> {
-    return Entity.entityBuilder(Industries);
+  static builder(): EntityBuilderType<Industries, IndustriesType> {
+    return EntityV4.entityBuilder(Industries);
   }
 
   /**
@@ -72,8 +67,8 @@ export class Industries extends Entity implements IndustriesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `Industries`.
    */
-  static customField(fieldName: string): CustomField<Industries> {
-    return Entity.customFieldSelector(fieldName, Industries);
+  static customField(fieldName: string): CustomFieldV4<Industries> {
+    return EntityV4.customFieldSelector(fieldName, Industries);
   }
 
   /**
@@ -90,18 +85,9 @@ import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 import { ProjectManagements, ProjectManagementsType } from './ProjectManagements';
 
 export interface IndustriesType {
-  industryDescription?: string;
-  industryName?: string;
-  industryCode?: number;
-  salesOpportunities: SalesOpportunitiesType[];
-  businessPartners: BusinessPartnersType[];
-  projectManagements: ProjectManagementsType[];
-}
-
-export interface IndustriesTypeForceMandatory {
-  industryDescription: string;
-  industryName: string;
-  industryCode: number;
+  industryDescription?: string | null;
+  industryName?: string | null;
+  industryCode?: number | null;
   salesOpportunities: SalesOpportunitiesType[];
   businessPartners: BusinessPartnersType[];
   projectManagements: ProjectManagementsType[];

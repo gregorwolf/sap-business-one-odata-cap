@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { PickLists } from './PickLists';
 
 /**
@@ -15,16 +15,16 @@ export class PickListsRequestBuilder extends RequestBuilder<PickLists> {
    * @param absoluteentry Key property. See [[PickLists.absoluteentry]].
    * @returns A request builder for creating requests to retrieve one `PickLists` entity based on its keys.
    */
-  getByKey(absoluteentry: number): GetByKeyRequestBuilder<PickLists> {
-    return new GetByKeyRequestBuilder(PickLists, { Absoluteentry: absoluteentry });
+  getByKey(absoluteentry: number): GetByKeyRequestBuilderV4<PickLists> {
+    return new GetByKeyRequestBuilderV4(PickLists, { Absoluteentry: absoluteentry });
   }
 
   /**
    * Returns a request builder for querying all `PickLists` entities.
    * @returns A request builder for creating requests to retrieve all `PickLists` entities.
    */
-  getAll(): GetAllRequestBuilder<PickLists> {
-    return new GetAllRequestBuilder(PickLists);
+  getAll(): GetAllRequestBuilderV4<PickLists> {
+    return new GetAllRequestBuilderV4(PickLists);
   }
 
   /**
@@ -32,8 +32,8 @@ export class PickListsRequestBuilder extends RequestBuilder<PickLists> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `PickLists`.
    */
-  create(entity: PickLists): CreateRequestBuilder<PickLists> {
-    return new CreateRequestBuilder(PickLists, entity);
+  create(entity: PickLists): CreateRequestBuilderV4<PickLists> {
+    return new CreateRequestBuilderV4(PickLists, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class PickListsRequestBuilder extends RequestBuilder<PickLists> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `PickLists`.
    */
-  update(entity: PickLists): UpdateRequestBuilder<PickLists> {
-    return new UpdateRequestBuilder(PickLists, entity);
+  update(entity: PickLists): UpdateRequestBuilderV4<PickLists> {
+    return new UpdateRequestBuilderV4(PickLists, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class PickListsRequestBuilder extends RequestBuilder<PickLists> {
    * @param absoluteentry Key property. See [[PickLists.absoluteentry]].
    * @returns A request builder for creating requests that delete an entity of type `PickLists`.
    */
-  delete(absoluteentry: number): DeleteRequestBuilder<PickLists>;
+  delete(absoluteentry: number): DeleteRequestBuilderV4<PickLists>;
   /**
    * Returns a request builder for deleting an entity of type `PickLists`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `PickLists` by taking the entity as a parameter.
    */
-  delete(entity: PickLists): DeleteRequestBuilder<PickLists>;
-  delete(absoluteentryOrEntity: any): DeleteRequestBuilder<PickLists> {
-    return new DeleteRequestBuilder(PickLists, absoluteentryOrEntity instanceof PickLists ? absoluteentryOrEntity : { Absoluteentry: absoluteentryOrEntity! });
+  delete(entity: PickLists): DeleteRequestBuilderV4<PickLists>;
+  delete(absoluteentryOrEntity: any): DeleteRequestBuilderV4<PickLists> {
+    return new DeleteRequestBuilderV4(PickLists, absoluteentryOrEntity instanceof PickLists ? absoluteentryOrEntity : { Absoluteentry: absoluteentryOrEntity! });
   }
 }

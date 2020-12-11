@@ -4,25 +4,22 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { HouseBankAccountsRequestBuilder } from './HouseBankAccountsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { PrintOnEnum } from './PrintOnEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "HouseBankAccounts" of service "SAPB1".
  */
-export class HouseBankAccounts extends Entity implements HouseBankAccountsType {
+export class HouseBankAccounts extends EntityV4 implements HouseBankAccountsType {
   /**
    * Technical entity name for HouseBankAccounts.
    */
   static _entityName = 'HouseBankAccounts';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for HouseBankAccounts.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Bank Code.
    * @nullable
@@ -83,6 +80,11 @@ export class HouseBankAccounts extends Entity implements HouseBankAccountsType {
    * @nullable
    */
   state?: string;
+  /**
+   * Bisr.
+   * @nullable
+   */
+  bisr?: BoYesNoEnum;
   /**
    * Control Key.
    * @nullable
@@ -169,6 +171,11 @@ export class HouseBankAccounts extends Entity implements HouseBankAccountsType {
    */
   bankKey?: number;
   /**
+   * Lock Checks Printing.
+   * @nullable
+   */
+  lockChecksPrinting?: BoYesNoEnum;
+  /**
    * Template Name.
    * @nullable
    */
@@ -178,6 +185,11 @@ export class HouseBankAccounts extends Entity implements HouseBankAccountsType {
    * @nullable
    */
   maximumLines?: number;
+  /**
+   * Print On.
+   * @nullable
+   */
+  printOn?: PrintOnEnum;
   /**
    * Customer Id Number.
    * @nullable
@@ -330,11 +342,11 @@ export class HouseBankAccounts extends Entity implements HouseBankAccountsType {
   bankStatements!: BankStatements[];
 
   /**
-   * Returns an entity builder to construct instances `HouseBankAccounts`.
+   * Returns an entity builder to construct instances of `HouseBankAccounts`.
    * @returns A builder that constructs instances of entity type `HouseBankAccounts`.
    */
-  static builder(): EntityBuilderType<HouseBankAccounts, HouseBankAccountsTypeForceMandatory> {
-    return Entity.entityBuilder(HouseBankAccounts);
+  static builder(): EntityBuilderType<HouseBankAccounts, HouseBankAccountsType> {
+    return EntityV4.entityBuilder(HouseBankAccounts);
   }
 
   /**
@@ -350,8 +362,8 @@ export class HouseBankAccounts extends Entity implements HouseBankAccountsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `HouseBankAccounts`.
    */
-  static customField(fieldName: string): CustomField<HouseBankAccounts> {
-    return Entity.customFieldSelector(fieldName, HouseBankAccounts);
+  static customField(fieldName: string): CustomFieldV4<HouseBankAccounts> {
+    return EntityV4.customFieldSelector(fieldName, HouseBankAccounts);
   }
 
   /**
@@ -370,128 +382,66 @@ import { Banks, BanksType } from './Banks';
 import { BankStatements, BankStatementsType } from './BankStatements';
 
 export interface HouseBankAccountsType {
-  bankCode?: string;
-  accNo?: string;
-  branch?: string;
-  nextCheckNo?: number;
-  glAccount?: string;
-  street?: string;
-  block?: string;
-  zipCode?: string;
-  city?: string;
-  county?: string;
-  country?: string;
-  state?: string;
-  controlKey?: string;
-  userNo1?: string;
-  userNo2?: string;
-  userNo3?: string;
-  userNo4?: string;
-  iban?: string;
-  debtofDiscountedBillofExc?: string;
-  toleranceDays?: number;
-  minAmountofBillofExchang?: number;
-  maxAmountofBillofExchan?: number;
-  discountLimit?: number;
-  daysInAdvance?: number;
-  bankonCollection?: string;
-  bankonDiscounted?: string;
-  glInterimAccount?: string;
-  absoluteEntry?: number;
-  bankKey?: number;
-  templateName?: string;
-  maximumLines?: number;
-  customerIdNumber?: string;
-  isrBillerId?: string;
-  isrType?: number;
-  accountCheckDigit?: string;
-  ourNumber?: number;
-  agreementNumber?: string;
-  addressType?: string;
-  streetNo?: string;
-  building?: string;
-  incomingPaymentSeries?: number;
-  outgoingPaymentSeries?: number;
-  journalEntrySeries?: number;
-  importFileName?: string;
-  accountName?: string;
-  bicSwiftCode?: string;
-  fineAccount?: string;
-  interestAccount?: string;
-  discountAccount?: string;
-  serviceFeeAccount?: string;
-  iofTaxAccount?: string;
-  otherExpensesAccount?: string;
-  otherIncomesAccount?: string;
-  retornoFileName?: string;
-  branchCheckDigit?: string;
-  collectionCode?: string;
-  fileSeqNextNumber?: number;
-  wizardPaymentMethods: WizardPaymentMethodsType[];
-  chartOfAccount: ChartOfAccountsType;
-  country2: CountriesType;
-  bank: BanksType;
-  bankStatements: BankStatementsType[];
-}
-
-export interface HouseBankAccountsTypeForceMandatory {
-  bankCode: string;
-  accNo: string;
-  branch: string;
-  nextCheckNo: number;
-  glAccount: string;
-  street: string;
-  block: string;
-  zipCode: string;
-  city: string;
-  county: string;
-  country: string;
-  state: string;
-  controlKey: string;
-  userNo1: string;
-  userNo2: string;
-  userNo3: string;
-  userNo4: string;
-  iban: string;
-  debtofDiscountedBillofExc: string;
-  toleranceDays: number;
-  minAmountofBillofExchang: number;
-  maxAmountofBillofExchan: number;
-  discountLimit: number;
-  daysInAdvance: number;
-  bankonCollection: string;
-  bankonDiscounted: string;
-  glInterimAccount: string;
-  absoluteEntry: number;
-  bankKey: number;
-  templateName: string;
-  maximumLines: number;
-  customerIdNumber: string;
-  isrBillerId: string;
-  isrType: number;
-  accountCheckDigit: string;
-  ourNumber: number;
-  agreementNumber: string;
-  addressType: string;
-  streetNo: string;
-  building: string;
-  incomingPaymentSeries: number;
-  outgoingPaymentSeries: number;
-  journalEntrySeries: number;
-  importFileName: string;
-  accountName: string;
-  bicSwiftCode: string;
-  fineAccount: string;
-  interestAccount: string;
-  discountAccount: string;
-  serviceFeeAccount: string;
-  iofTaxAccount: string;
-  otherExpensesAccount: string;
-  otherIncomesAccount: string;
-  retornoFileName: string;
-  branchCheckDigit: string;
-  collectionCode: string;
-  fileSeqNextNumber: number;
+  bankCode?: string | null;
+  accNo?: string | null;
+  branch?: string | null;
+  nextCheckNo?: number | null;
+  glAccount?: string | null;
+  street?: string | null;
+  block?: string | null;
+  zipCode?: string | null;
+  city?: string | null;
+  county?: string | null;
+  country?: string | null;
+  state?: string | null;
+  bisr?: BoYesNoEnum | null;
+  controlKey?: string | null;
+  userNo1?: string | null;
+  userNo2?: string | null;
+  userNo3?: string | null;
+  userNo4?: string | null;
+  iban?: string | null;
+  debtofDiscountedBillofExc?: string | null;
+  toleranceDays?: number | null;
+  minAmountofBillofExchang?: number | null;
+  maxAmountofBillofExchan?: number | null;
+  discountLimit?: number | null;
+  daysInAdvance?: number | null;
+  bankonCollection?: string | null;
+  bankonDiscounted?: string | null;
+  glInterimAccount?: string | null;
+  absoluteEntry?: number | null;
+  bankKey?: number | null;
+  lockChecksPrinting?: BoYesNoEnum | null;
+  templateName?: string | null;
+  maximumLines?: number | null;
+  printOn?: PrintOnEnum | null;
+  customerIdNumber?: string | null;
+  isrBillerId?: string | null;
+  isrType?: number | null;
+  accountCheckDigit?: string | null;
+  ourNumber?: number | null;
+  agreementNumber?: string | null;
+  addressType?: string | null;
+  streetNo?: string | null;
+  building?: string | null;
+  incomingPaymentSeries?: number | null;
+  outgoingPaymentSeries?: number | null;
+  journalEntrySeries?: number | null;
+  importFileName?: string | null;
+  accountName?: string | null;
+  bicSwiftCode?: string | null;
+  fineAccount?: string | null;
+  interestAccount?: string | null;
+  discountAccount?: string | null;
+  serviceFeeAccount?: string | null;
+  iofTaxAccount?: string | null;
+  otherExpensesAccount?: string | null;
+  otherIncomesAccount?: string | null;
+  retornoFileName?: string | null;
+  branchCheckDigit?: string | null;
+  collectionCode?: string | null;
+  fileSeqNextNumber?: number | null;
   wizardPaymentMethods: WizardPaymentMethodsType[];
   chartOfAccount: ChartOfAccountsType;
   country2: CountriesType;
@@ -560,6 +510,11 @@ export namespace HouseBankAccounts {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const STATE: StringField<HouseBankAccounts> = new StringField('State', HouseBankAccounts, 'Edm.String');
+  /**
+   * Static representation of the [[bisr]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const BISR: EnumField<HouseBankAccounts> = new EnumField('BISR', HouseBankAccounts);
   /**
    * Static representation of the [[controlKey]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -646,6 +601,11 @@ export namespace HouseBankAccounts {
    */
   export const BANK_KEY: NumberField<HouseBankAccounts> = new NumberField('BankKey', HouseBankAccounts, 'Edm.Int32');
   /**
+   * Static representation of the [[lockChecksPrinting]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const LOCK_CHECKS_PRINTING: EnumField<HouseBankAccounts> = new EnumField('LockChecksPrinting', HouseBankAccounts);
+  /**
    * Static representation of the [[templateName]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -655,6 +615,11 @@ export namespace HouseBankAccounts {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const MAXIMUM_LINES: NumberField<HouseBankAccounts> = new NumberField('MaximumLines', HouseBankAccounts, 'Edm.Int32');
+  /**
+   * Static representation of the [[printOn]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRINT_ON: EnumField<HouseBankAccounts> = new EnumField('PrintOn', HouseBankAccounts);
   /**
    * Static representation of the [[customerIdNumber]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -813,7 +778,7 @@ export namespace HouseBankAccounts {
   /**
    * All fields of the HouseBankAccounts entity.
    */
-  export const _allFields: Array<StringField<HouseBankAccounts> | NumberField<HouseBankAccounts> | OneToManyLink<HouseBankAccounts, WizardPaymentMethods> | OneToOneLink<HouseBankAccounts, ChartOfAccounts> | OneToOneLink<HouseBankAccounts, Countries> | OneToOneLink<HouseBankAccounts, Banks> | OneToManyLink<HouseBankAccounts, BankStatements>> = [
+  export const _allFields: Array<StringField<HouseBankAccounts> | NumberField<HouseBankAccounts> | EnumField<HouseBankAccounts> | OneToManyLink<HouseBankAccounts, WizardPaymentMethods> | OneToOneLink<HouseBankAccounts, ChartOfAccounts> | OneToOneLink<HouseBankAccounts, Countries> | OneToOneLink<HouseBankAccounts, Banks> | OneToManyLink<HouseBankAccounts, BankStatements>> = [
     HouseBankAccounts.BANK_CODE,
     HouseBankAccounts.ACC_NO,
     HouseBankAccounts.BRANCH,
@@ -826,6 +791,7 @@ export namespace HouseBankAccounts {
     HouseBankAccounts.COUNTY,
     HouseBankAccounts.COUNTRY,
     HouseBankAccounts.STATE,
+    HouseBankAccounts.BISR,
     HouseBankAccounts.CONTROL_KEY,
     HouseBankAccounts.USER_NO_1,
     HouseBankAccounts.USER_NO_2,
@@ -843,8 +809,10 @@ export namespace HouseBankAccounts {
     HouseBankAccounts.GL_INTERIM_ACCOUNT,
     HouseBankAccounts.ABSOLUTE_ENTRY,
     HouseBankAccounts.BANK_KEY,
+    HouseBankAccounts.LOCK_CHECKS_PRINTING,
     HouseBankAccounts.TEMPLATE_NAME,
     HouseBankAccounts.MAXIMUM_LINES,
+    HouseBankAccounts.PRINT_ON,
     HouseBankAccounts.CUSTOMER_ID_NUMBER,
     HouseBankAccounts.ISR_BILLER_ID,
     HouseBankAccounts.ISR_TYPE,

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.BoeInstructionsRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var BoeInstructions_1 = require("./BoeInstructions");
 /**
  * Request builder class for operations supported on the [[BoeInstructions]] entity.
@@ -35,14 +35,14 @@ var BoeInstructionsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `BoeInstructions` entity based on its keys.
      */
     BoeInstructionsRequestBuilder.prototype.getByKey = function (instructionEntry) {
-        return new v4_1.GetByKeyRequestBuilder(BoeInstructions_1.BoeInstructions, { InstructionEntry: instructionEntry });
+        return new core_1.GetByKeyRequestBuilderV4(BoeInstructions_1.BoeInstructions, { InstructionEntry: instructionEntry });
     };
     /**
      * Returns a request builder for querying all `BoeInstructions` entities.
      * @returns A request builder for creating requests to retrieve all `BoeInstructions` entities.
      */
     BoeInstructionsRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(BoeInstructions_1.BoeInstructions);
+        return new core_1.GetAllRequestBuilderV4(BoeInstructions_1.BoeInstructions);
     };
     /**
      * Returns a request builder for creating a `BoeInstructions` entity.
@@ -50,7 +50,7 @@ var BoeInstructionsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `BoeInstructions`.
      */
     BoeInstructionsRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(BoeInstructions_1.BoeInstructions, entity);
+        return new core_1.CreateRequestBuilderV4(BoeInstructions_1.BoeInstructions, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `BoeInstructions`.
@@ -58,12 +58,12 @@ var BoeInstructionsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `BoeInstructions`.
      */
     BoeInstructionsRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(BoeInstructions_1.BoeInstructions, entity);
+        return new core_1.UpdateRequestBuilderV4(BoeInstructions_1.BoeInstructions, entity);
     };
     BoeInstructionsRequestBuilder.prototype.delete = function (instructionEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(BoeInstructions_1.BoeInstructions, instructionEntryOrEntity instanceof BoeInstructions_1.BoeInstructions ? instructionEntryOrEntity : { InstructionEntry: instructionEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(BoeInstructions_1.BoeInstructions, instructionEntryOrEntity instanceof BoeInstructions_1.BoeInstructions ? instructionEntryOrEntity : { InstructionEntry: instructionEntryOrEntity });
     };
     return BoeInstructionsRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.BoeInstructionsRequestBuilder = BoeInstructionsRequestBuilder;
 //# sourceMappingURL=BoeInstructionsRequestBuilder.js.map

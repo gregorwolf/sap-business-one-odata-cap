@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.KpIs = void 0;
  */
 var KpIsRequestBuilder_1 = require("./KpIsRequestBuilder");
 var KpiItemLine_1 = require("./KpiItemLine");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "KPIs" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var KpIs = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `KpIs`.
+     * Returns an entity builder to construct instances of `KpIs`.
      * @returns A builder that constructs instances of entity type `KpIs`.
      */
     KpIs.builder = function () {
-        return v4_1.Entity.entityBuilder(KpIs);
+        return core_1.EntityV4.entityBuilder(KpIs);
     };
     /**
      * Returns a request builder to construct requests for operations on the `KpIs` entity type.
@@ -61,7 +61,7 @@ var KpIs = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `KpIs`.
      */
     KpIs.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, KpIs);
+        return core_1.EntityV4.customFieldSelector(fieldName, KpIs);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,51 +75,52 @@ var KpIs = /** @class */ (function (_super) {
      */
     KpIs._entityName = 'KPIs';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for KpIs.
-     */
-    KpIs._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    KpIs._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    KpIs._defaultServicePath = '/b1s/v2/';
     return KpIs;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.KpIs = KpIs;
 (function (KpIs) {
     /**
      * Static representation of the [[kpiCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KpIs.KPI_CODE = new v4_1.StringField('KPICode', KpIs, 'Edm.String');
+    KpIs.KPI_CODE = new core_1.StringField('KPICode', KpIs, 'Edm.String');
     /**
      * Static representation of the [[kpiName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KpIs.KPI_NAME = new v4_1.StringField('KPIName', KpIs, 'Edm.String');
+    KpIs.KPI_NAME = new core_1.StringField('KPIName', KpIs, 'Edm.String');
+    /**
+     * Static representation of the [[kpiType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    KpIs.KPI_TYPE = new core_1.EnumField('KPIType', KpIs);
     /**
      * Static representation of the [[numberOfColumns]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KpIs.NUMBER_OF_COLUMNS = new v4_1.NumberField('NumberOfColumns', KpIs, 'Edm.Int32');
+    KpIs.NUMBER_OF_COLUMNS = new core_1.NumberField('NumberOfColumns', KpIs, 'Edm.Int32');
     /**
      * Static representation of the [[kpiItemLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    KpIs.KPI_ITEM_LINES = new v4_1.CollectionField('KPI_ItemLines', KpIs, new KpiItemLine_1.KpiItemLineField('', KpIs));
+    KpIs.KPI_ITEM_LINES = new core_1.CollectionField('KPI_ItemLines', KpIs, KpiItemLine_1.KpiItemLine);
     /**
      * All fields of the KpIs entity.
      */
     KpIs._allFields = [
         KpIs.KPI_CODE,
         KpIs.KPI_NAME,
+        KpIs.KPI_TYPE,
         KpIs.NUMBER_OF_COLUMNS,
         KpIs.KPI_ITEM_LINES
     ];
     /**
      * All fields selector.
      */
-    KpIs.ALL_FIELDS = new v4_1.AllFields('*', KpIs);
+    KpIs.ALL_FIELDS = new core_1.AllFields('*', KpIs);
     /**
      * All key fields of the KpIs entity.
      */

@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { CreditOrDebitEnum } from './CreditOrDebitEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * InternalReconciliationRow
@@ -40,6 +41,11 @@ export interface InternalReconciliationRow {
    */
   srcObjAbs?: number;
   /**
+   * Credit Or Debit.
+   * @nullable
+   */
+  creditOrDebit?: CreditOrDebitEnum;
+  /**
    * Reconcile Amount.
    * @nullable
    */
@@ -62,7 +68,7 @@ export function createInternalReconciliationRow(json: any): InternalReconciliati
  * InternalReconciliationRowField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class InternalReconciliationRowField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class InternalReconciliationRowField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, InternalReconciliationRow> {
   /**
    * Representation of the [[InternalReconciliationRow.lineSeq]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -94,6 +100,11 @@ export class InternalReconciliationRowField<EntityT extends Entity> extends Comp
    */
   srcObjAbs: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('SrcObjAbs', this, 'Edm.Int32');
   /**
+   * Representation of the [[InternalReconciliationRow.creditOrDebit]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  creditOrDebit: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('CreditOrDebit', this);
+  /**
    * Representation of the [[InternalReconciliationRow.reconcileAmount]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -103,19 +114,73 @@ export class InternalReconciliationRowField<EntityT extends Entity> extends Comp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   cashDiscount: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('CashDiscount', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of InternalReconciliationRowField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, InternalReconciliationRow);
+  }
 }
 
 export namespace InternalReconciliationRow {
+  /**
+   * Metadata information on all properties of the `InternalReconciliationRow` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<InternalReconciliationRow>[] = [{
+    originalName: 'LineSeq',
+    name: 'lineSeq',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ShortName',
+    name: 'shortName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TransId',
+    name: 'transId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TransRowId',
+    name: 'transRowId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SrcObjTyp',
+    name: 'srcObjTyp',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SrcObjAbs',
+    name: 'srcObjAbs',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CreditOrDebit',
+    name: 'creditOrDebit',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ReconcileAmount',
+    name: 'reconcileAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CashDiscount',
+    name: 'cashDiscount',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): InternalReconciliationRow {
-    return createComplexType(json, {
-      LineSeq: (lineSeq: number) => ({ lineSeq: edmToTs(lineSeq, 'Edm.Int32') }),
-      ShortName: (shortName: string) => ({ shortName: edmToTs(shortName, 'Edm.String') }),
-      TransId: (transId: number) => ({ transId: edmToTs(transId, 'Edm.Int32') }),
-      TransRowId: (transRowId: number) => ({ transRowId: edmToTs(transRowId, 'Edm.Int32') }),
-      SrcObjTyp: (srcObjTyp: string) => ({ srcObjTyp: edmToTs(srcObjTyp, 'Edm.String') }),
-      SrcObjAbs: (srcObjAbs: number) => ({ srcObjAbs: edmToTs(srcObjAbs, 'Edm.Int32') }),
-      ReconcileAmount: (reconcileAmount: number) => ({ reconcileAmount: edmToTs(reconcileAmount, 'Edm.Double') }),
-      CashDiscount: (cashDiscount: number) => ({ cashDiscount: edmToTs(cashDiscount, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, InternalReconciliationRow);
   }
 }

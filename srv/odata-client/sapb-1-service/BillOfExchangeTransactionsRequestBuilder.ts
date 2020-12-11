@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { BillOfExchangeTransactions } from './BillOfExchangeTransactions';
 
 /**
@@ -15,16 +15,16 @@ export class BillOfExchangeTransactionsRequestBuilder extends RequestBuilder<Bil
    * @param boeTransactionkey Key property. See [[BillOfExchangeTransactions.boeTransactionkey]].
    * @returns A request builder for creating requests to retrieve one `BillOfExchangeTransactions` entity based on its keys.
    */
-  getByKey(boeTransactionkey: number): GetByKeyRequestBuilder<BillOfExchangeTransactions> {
-    return new GetByKeyRequestBuilder(BillOfExchangeTransactions, { BOETransactionkey: boeTransactionkey });
+  getByKey(boeTransactionkey: number): GetByKeyRequestBuilderV4<BillOfExchangeTransactions> {
+    return new GetByKeyRequestBuilderV4(BillOfExchangeTransactions, { BOETransactionkey: boeTransactionkey });
   }
 
   /**
    * Returns a request builder for querying all `BillOfExchangeTransactions` entities.
    * @returns A request builder for creating requests to retrieve all `BillOfExchangeTransactions` entities.
    */
-  getAll(): GetAllRequestBuilder<BillOfExchangeTransactions> {
-    return new GetAllRequestBuilder(BillOfExchangeTransactions);
+  getAll(): GetAllRequestBuilderV4<BillOfExchangeTransactions> {
+    return new GetAllRequestBuilderV4(BillOfExchangeTransactions);
   }
 
   /**
@@ -32,8 +32,8 @@ export class BillOfExchangeTransactionsRequestBuilder extends RequestBuilder<Bil
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `BillOfExchangeTransactions`.
    */
-  create(entity: BillOfExchangeTransactions): CreateRequestBuilder<BillOfExchangeTransactions> {
-    return new CreateRequestBuilder(BillOfExchangeTransactions, entity);
+  create(entity: BillOfExchangeTransactions): CreateRequestBuilderV4<BillOfExchangeTransactions> {
+    return new CreateRequestBuilderV4(BillOfExchangeTransactions, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class BillOfExchangeTransactionsRequestBuilder extends RequestBuilder<Bil
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `BillOfExchangeTransactions`.
    */
-  update(entity: BillOfExchangeTransactions): UpdateRequestBuilder<BillOfExchangeTransactions> {
-    return new UpdateRequestBuilder(BillOfExchangeTransactions, entity);
+  update(entity: BillOfExchangeTransactions): UpdateRequestBuilderV4<BillOfExchangeTransactions> {
+    return new UpdateRequestBuilderV4(BillOfExchangeTransactions, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class BillOfExchangeTransactionsRequestBuilder extends RequestBuilder<Bil
    * @param boeTransactionkey Key property. See [[BillOfExchangeTransactions.boeTransactionkey]].
    * @returns A request builder for creating requests that delete an entity of type `BillOfExchangeTransactions`.
    */
-  delete(boeTransactionkey: number): DeleteRequestBuilder<BillOfExchangeTransactions>;
+  delete(boeTransactionkey: number): DeleteRequestBuilderV4<BillOfExchangeTransactions>;
   /**
    * Returns a request builder for deleting an entity of type `BillOfExchangeTransactions`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `BillOfExchangeTransactions` by taking the entity as a parameter.
    */
-  delete(entity: BillOfExchangeTransactions): DeleteRequestBuilder<BillOfExchangeTransactions>;
-  delete(boeTransactionkeyOrEntity: any): DeleteRequestBuilder<BillOfExchangeTransactions> {
-    return new DeleteRequestBuilder(BillOfExchangeTransactions, boeTransactionkeyOrEntity instanceof BillOfExchangeTransactions ? boeTransactionkeyOrEntity : { BOETransactionkey: boeTransactionkeyOrEntity! });
+  delete(entity: BillOfExchangeTransactions): DeleteRequestBuilderV4<BillOfExchangeTransactions>;
+  delete(boeTransactionkeyOrEntity: any): DeleteRequestBuilderV4<BillOfExchangeTransactions> {
+    return new DeleteRequestBuilderV4(BillOfExchangeTransactions, boeTransactionkeyOrEntity instanceof BillOfExchangeTransactions ? boeTransactionkeyOrEntity : { BOETransactionkey: boeTransactionkeyOrEntity! });
   }
 }

@@ -1,9 +1,15 @@
-import { ItemUoMPackage, ItemUoMPackageField } from './ItemUoMPackage';
-import { ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ItemUoMPackage } from './ItemUoMPackage';
+import { ItemUoMTypeEnum } from './ItemUoMTypeEnum';
+import { CollectionField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * ItemUnitOfMeasurement
  */
 export interface ItemUnitOfMeasurement {
+    /**
+     * Uo M Type.
+     * @nullable
+     */
+    uoMType?: ItemUoMTypeEnum;
     /**
      * Uo M Entry.
      * @nullable
@@ -113,7 +119,7 @@ export interface ItemUnitOfMeasurement {
      * Item Uo M Package Collection.
      * @nullable
      */
-    itemUoMPackageCollection?: ItemUoMPackage;
+    itemUoMPackageCollection?: ItemUoMPackage[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[ItemUnitOfMeasurement.build]] instead.
@@ -123,7 +129,12 @@ export declare function createItemUnitOfMeasurement(json: any): ItemUnitOfMeasur
  * ItemUnitOfMeasurementField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class ItemUnitOfMeasurementField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class ItemUnitOfMeasurementField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ItemUnitOfMeasurement> {
+    /**
+     * Representation of the [[ItemUnitOfMeasurement.uoMType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    uoMType: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[ItemUnitOfMeasurement.uoMEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -233,9 +244,23 @@ export declare class ItemUnitOfMeasurementField<EntityT extends Entity> extends 
      * Representation of the [[ItemUnitOfMeasurement.itemUoMPackageCollection]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    itemUoMPackageCollection: ItemUoMPackageField<EntityT>;
+    itemUoMPackageCollection: CollectionField<EntityT, ItemUoMPackage>;
+    /**
+     * Creates an instance of ItemUnitOfMeasurementField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace ItemUnitOfMeasurement {
+    /**
+     * Metadata information on all properties of the `ItemUnitOfMeasurement` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<ItemUnitOfMeasurement>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | ItemUoMPackage;
     }): ItemUnitOfMeasurement;

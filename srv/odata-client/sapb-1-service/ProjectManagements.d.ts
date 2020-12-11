@@ -8,20 +8,19 @@ import { PmWorkOrderData } from './PmWorkOrderData';
 import { PmSummaryData, PmSummaryDataField } from './PmSummaryData';
 import { PmDocAttachement } from './PmDocAttachement';
 import { PmStageAttachement } from './PmStageAttachement';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { ProjectTypeEnum } from './ProjectTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ProjectStatusTypeEnum } from './ProjectStatusTypeEnum';
+import { RiskLevelTypeEnum } from './RiskLevelTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ProjectManagements" of service "SAPB1".
  */
-export declare class ProjectManagements extends Entity implements ProjectManagementsType {
+export declare class ProjectManagements extends EntityV4 implements ProjectManagementsType {
     /**
      * Technical entity name for ProjectManagements.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ProjectManagements.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -62,6 +61,11 @@ export declare class ProjectManagements extends Entity implements ProjectManagem
      */
     series?: number;
     /**
+     * Project Type.
+     * @nullable
+     */
+    projectType?: ProjectTypeEnum;
+    /**
      * Business Partner.
      * @nullable
      */
@@ -87,6 +91,16 @@ export declare class ProjectManagements extends Entity implements ProjectManagem
      */
     salesEmployee?: number;
     /**
+     * Allow Subprojects.
+     * @nullable
+     */
+    allowSubprojects?: BoYesNoEnum;
+    /**
+     * Project Status.
+     * @nullable
+     */
+    projectStatus?: ProjectStatusTypeEnum;
+    /**
      * Due Date.
      * @nullable
      */
@@ -101,6 +115,11 @@ export declare class ProjectManagements extends Entity implements ProjectManagem
      * @nullable
      */
     financialProject?: string;
+    /**
+     * Risk Level.
+     * @nullable
+     */
+    riskLevel?: RiskLevelTypeEnum;
     /**
      * Industry.
      * @nullable
@@ -185,10 +204,10 @@ export declare class ProjectManagements extends Entity implements ProjectManagem
      */
     attachments2: Attachments2;
     /**
-     * Returns an entity builder to construct instances `ProjectManagements`.
+     * Returns an entity builder to construct instances of `ProjectManagements`.
      * @returns A builder that constructs instances of entity type `ProjectManagements`.
      */
-    static builder(): EntityBuilderType<ProjectManagements, ProjectManagementsTypeForceMandatory>;
+    static builder(): EntityBuilderType<ProjectManagements, ProjectManagementsType>;
     /**
      * Returns a request builder to construct requests for operations on the `ProjectManagements` entity type.
      * @returns A `ProjectManagements` request builder.
@@ -199,7 +218,7 @@ export declare class ProjectManagements extends Entity implements ProjectManagem
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ProjectManagements`.
      */
-    static customField(fieldName: string): CustomField<ProjectManagements>;
+    static customField(fieldName: string): CustomFieldV4<ProjectManagements>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -216,67 +235,36 @@ import { Projects, ProjectsType } from './Projects';
 import { Industries, IndustriesType } from './Industries';
 import { Attachments2, Attachments2Type } from './Attachments2';
 export interface ProjectManagementsType {
-    absEntry?: number;
-    owner?: number;
-    projectName?: string;
-    startDate?: Moment;
-    finishedPercent?: number;
-    docNum?: number;
-    series?: number;
-    businessPartner?: string;
-    businessPartnerName?: string;
-    contactPerson?: number;
-    territory?: number;
-    salesEmployee?: number;
-    dueDate?: Moment;
-    closingDate?: Moment;
-    financialProject?: string;
-    industry?: number;
-    reason?: string;
-    attachmentEntry?: number;
-    pmStagesCollection?: PmStageData[];
-    pmOpenIssuesCollection?: PmOpenIssueData[];
-    pmDocumentsCollection?: PmDocumentData[];
-    pmActivitiesCollection?: PmActivityData[];
-    pmWorkOrdersCollection?: PmWorkOrderData[];
-    pmSummaryData?: PmSummaryData;
-    pmDocAttachements?: PmDocAttachement[];
-    pmStageAttachements?: PmStageAttachement[];
-    employeeInfo: EmployeesInfoType;
-    businessPartner2: BusinessPartnersType;
-    territory2: TerritoriesType;
-    salesPerson: SalesPersonsType;
-    project: ProjectsType;
-    industry2: IndustriesType;
-    attachments2: Attachments2Type;
-}
-export interface ProjectManagementsTypeForceMandatory {
-    absEntry: number;
-    owner: number;
-    projectName: string;
-    startDate: Moment;
-    finishedPercent: number;
-    docNum: number;
-    series: number;
-    businessPartner: string;
-    businessPartnerName: string;
-    contactPerson: number;
-    territory: number;
-    salesEmployee: number;
-    dueDate: Moment;
-    closingDate: Moment;
-    financialProject: string;
-    industry: number;
-    reason: string;
-    attachmentEntry: number;
-    pmStagesCollection: PmStageData[];
-    pmOpenIssuesCollection: PmOpenIssueData[];
-    pmDocumentsCollection: PmDocumentData[];
-    pmActivitiesCollection: PmActivityData[];
-    pmWorkOrdersCollection: PmWorkOrderData[];
-    pmSummaryData: PmSummaryData;
-    pmDocAttachements: PmDocAttachement[];
-    pmStageAttachements: PmStageAttachement[];
+    absEntry?: number | null;
+    owner?: number | null;
+    projectName?: string | null;
+    startDate?: Moment | null;
+    finishedPercent?: number | null;
+    docNum?: number | null;
+    series?: number | null;
+    projectType?: ProjectTypeEnum | null;
+    businessPartner?: string | null;
+    businessPartnerName?: string | null;
+    contactPerson?: number | null;
+    territory?: number | null;
+    salesEmployee?: number | null;
+    allowSubprojects?: BoYesNoEnum | null;
+    projectStatus?: ProjectStatusTypeEnum | null;
+    dueDate?: Moment | null;
+    closingDate?: Moment | null;
+    financialProject?: string | null;
+    riskLevel?: RiskLevelTypeEnum | null;
+    industry?: number | null;
+    reason?: string | null;
+    attachmentEntry?: number | null;
+    pmStagesCollection?: PmStageData[] | null;
+    pmOpenIssuesCollection?: PmOpenIssueData[] | null;
+    pmDocumentsCollection?: PmDocumentData[] | null;
+    pmActivitiesCollection?: PmActivityData[] | null;
+    pmWorkOrdersCollection?: PmWorkOrderData[] | null;
+    pmSummaryData?: PmSummaryData | null;
+    pmDocAttachements?: PmDocAttachement[] | null;
+    pmStageAttachements?: PmStageAttachement[] | null;
     employeeInfo: EmployeesInfoType;
     businessPartner2: BusinessPartnersType;
     territory2: TerritoriesType;
@@ -322,6 +310,11 @@ export declare namespace ProjectManagements {
      */
     const SERIES: NumberField<ProjectManagements>;
     /**
+     * Static representation of the [[projectType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROJECT_TYPE: EnumField<ProjectManagements>;
+    /**
      * Static representation of the [[businessPartner]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -347,6 +340,16 @@ export declare namespace ProjectManagements {
      */
     const SALES_EMPLOYEE: NumberField<ProjectManagements>;
     /**
+     * Static representation of the [[allowSubprojects]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ALLOW_SUBPROJECTS: EnumField<ProjectManagements>;
+    /**
+     * Static representation of the [[projectStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROJECT_STATUS: EnumField<ProjectManagements>;
+    /**
      * Static representation of the [[dueDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -361,6 +364,11 @@ export declare namespace ProjectManagements {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const FINANCIAL_PROJECT: StringField<ProjectManagements>;
+    /**
+     * Static representation of the [[riskLevel]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RISK_LEVEL: EnumField<ProjectManagements>;
     /**
      * Static representation of the [[industry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -380,27 +388,27 @@ export declare namespace ProjectManagements {
      * Static representation of the [[pmStagesCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const PM_STAGES_COLLECTION: CollectionField<ProjectManagements>;
+    const PM_STAGES_COLLECTION: CollectionField<ProjectManagements, PmStageData>;
     /**
      * Static representation of the [[pmOpenIssuesCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const PM_OPEN_ISSUES_COLLECTION: CollectionField<ProjectManagements>;
+    const PM_OPEN_ISSUES_COLLECTION: CollectionField<ProjectManagements, PmOpenIssueData>;
     /**
      * Static representation of the [[pmDocumentsCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const PM_DOCUMENTS_COLLECTION: CollectionField<ProjectManagements>;
+    const PM_DOCUMENTS_COLLECTION: CollectionField<ProjectManagements, PmDocumentData>;
     /**
      * Static representation of the [[pmActivitiesCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const PM_ACTIVITIES_COLLECTION: CollectionField<ProjectManagements>;
+    const PM_ACTIVITIES_COLLECTION: CollectionField<ProjectManagements, PmActivityData>;
     /**
      * Static representation of the [[pmWorkOrdersCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const PM_WORK_ORDERS_COLLECTION: CollectionField<ProjectManagements>;
+    const PM_WORK_ORDERS_COLLECTION: CollectionField<ProjectManagements, PmWorkOrderData>;
     /**
      * Static representation of the [[pmSummaryData]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -410,12 +418,12 @@ export declare namespace ProjectManagements {
      * Static representation of the [[pmDocAttachements]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const PM_DOC_ATTACHEMENTS: CollectionField<ProjectManagements>;
+    const PM_DOC_ATTACHEMENTS: CollectionField<ProjectManagements, PmDocAttachement>;
     /**
      * Static representation of the [[pmStageAttachements]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const PM_STAGE_ATTACHEMENTS: CollectionField<ProjectManagements>;
+    const PM_STAGE_ATTACHEMENTS: CollectionField<ProjectManagements, PmStageAttachement>;
     /**
      * Static representation of the one-to-one navigation property [[employeeInfo]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -454,7 +462,7 @@ export declare namespace ProjectManagements {
     /**
      * All fields of the ProjectManagements entity.
      */
-    const _allFields: Array<NumberField<ProjectManagements> | StringField<ProjectManagements> | DateField<ProjectManagements> | CollectionField<ProjectManagements> | PmSummaryDataField<ProjectManagements> | OneToOneLink<ProjectManagements, EmployeesInfo> | OneToOneLink<ProjectManagements, BusinessPartners> | OneToOneLink<ProjectManagements, Territories> | OneToOneLink<ProjectManagements, SalesPersons> | OneToOneLink<ProjectManagements, Projects> | OneToOneLink<ProjectManagements, Industries> | OneToOneLink<ProjectManagements, Attachments2>>;
+    const _allFields: Array<NumberField<ProjectManagements> | StringField<ProjectManagements> | DateField<ProjectManagements> | EnumField<ProjectManagements> | CollectionField<ProjectManagements, PmStageData> | CollectionField<ProjectManagements, PmOpenIssueData> | CollectionField<ProjectManagements, PmDocumentData> | CollectionField<ProjectManagements, PmActivityData> | CollectionField<ProjectManagements, PmWorkOrderData> | PmSummaryDataField<ProjectManagements> | CollectionField<ProjectManagements, PmDocAttachement> | CollectionField<ProjectManagements, PmStageAttachement> | OneToOneLink<ProjectManagements, EmployeesInfo> | OneToOneLink<ProjectManagements, BusinessPartners> | OneToOneLink<ProjectManagements, Territories> | OneToOneLink<ProjectManagements, SalesPersons> | OneToOneLink<ProjectManagements, Projects> | OneToOneLink<ProjectManagements, Industries> | OneToOneLink<ProjectManagements, Attachments2>>;
     /**
      * All fields selector.
      */

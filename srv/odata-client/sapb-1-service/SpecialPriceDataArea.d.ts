@@ -1,6 +1,7 @@
 import { Moment } from 'moment';
-import { SpecialPriceQuantityArea, SpecialPriceQuantityAreaField } from './SpecialPriceQuantityArea';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { SpecialPriceQuantityArea } from './SpecialPriceQuantityArea';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * SpecialPriceDataArea
  */
@@ -10,6 +11,11 @@ export interface SpecialPriceDataArea {
      * @nullable
      */
     priceCurrency?: string;
+    /**
+     * Auto Update.
+     * @nullable
+     */
+    autoUpdate?: BoYesNoEnum;
     /**
      * Dateto.
      * @nullable
@@ -54,7 +60,7 @@ export interface SpecialPriceDataArea {
      * Special Price Quantity Areas.
      * @nullable
      */
-    specialPriceQuantityAreas?: SpecialPriceQuantityArea;
+    specialPriceQuantityAreas?: SpecialPriceQuantityArea[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[SpecialPriceDataArea.build]] instead.
@@ -64,12 +70,17 @@ export declare function createSpecialPriceDataArea(json: any): SpecialPriceDataA
  * SpecialPriceDataAreaField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class SpecialPriceDataAreaField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class SpecialPriceDataAreaField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, SpecialPriceDataArea> {
     /**
      * Representation of the [[SpecialPriceDataArea.priceCurrency]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     priceCurrency: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[SpecialPriceDataArea.autoUpdate]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    autoUpdate: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[SpecialPriceDataArea.dateto]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -114,9 +125,23 @@ export declare class SpecialPriceDataAreaField<EntityT extends Entity> extends C
      * Representation of the [[SpecialPriceDataArea.specialPriceQuantityAreas]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    specialPriceQuantityAreas: SpecialPriceQuantityAreaField<EntityT>;
+    specialPriceQuantityAreas: CollectionField<EntityT, SpecialPriceQuantityArea>;
+    /**
+     * Creates an instance of SpecialPriceDataAreaField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace SpecialPriceDataArea {
+    /**
+     * Metadata information on all properties of the `SpecialPriceDataArea` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<SpecialPriceDataArea>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | SpecialPriceQuantityArea;
     }): SpecialPriceDataArea;

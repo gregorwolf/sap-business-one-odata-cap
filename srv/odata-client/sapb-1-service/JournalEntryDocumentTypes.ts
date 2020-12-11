@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { JournalEntryDocumentTypesRequestBuilder } from './JournalEntryDocumentTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "JournalEntryDocumentTypes" of service "SAPB1".
  */
-export class JournalEntryDocumentTypes extends Entity implements JournalEntryDocumentTypesType {
+export class JournalEntryDocumentTypes extends EntityV4 implements JournalEntryDocumentTypesType {
   /**
    * Technical entity name for JournalEntryDocumentTypes.
    */
   static _entityName = 'JournalEntryDocumentTypes';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for JournalEntryDocumentTypes.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Journal Entry Type.
    * @nullable
@@ -44,11 +39,11 @@ export class JournalEntryDocumentTypes extends Entity implements JournalEntryDoc
   journalEntries!: JournalEntries[];
 
   /**
-   * Returns an entity builder to construct instances `JournalEntryDocumentTypes`.
+   * Returns an entity builder to construct instances of `JournalEntryDocumentTypes`.
    * @returns A builder that constructs instances of entity type `JournalEntryDocumentTypes`.
    */
-  static builder(): EntityBuilderType<JournalEntryDocumentTypes, JournalEntryDocumentTypesTypeForceMandatory> {
-    return Entity.entityBuilder(JournalEntryDocumentTypes);
+  static builder(): EntityBuilderType<JournalEntryDocumentTypes, JournalEntryDocumentTypesType> {
+    return EntityV4.entityBuilder(JournalEntryDocumentTypes);
   }
 
   /**
@@ -64,8 +59,8 @@ export class JournalEntryDocumentTypes extends Entity implements JournalEntryDoc
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `JournalEntryDocumentTypes`.
    */
-  static customField(fieldName: string): CustomField<JournalEntryDocumentTypes> {
-    return Entity.customFieldSelector(fieldName, JournalEntryDocumentTypes);
+  static customField(fieldName: string): CustomFieldV4<JournalEntryDocumentTypes> {
+    return EntityV4.customFieldSelector(fieldName, JournalEntryDocumentTypes);
   }
 
   /**
@@ -80,16 +75,9 @@ export class JournalEntryDocumentTypes extends Entity implements JournalEntryDoc
 import { JournalEntries, JournalEntriesType } from './JournalEntries';
 
 export interface JournalEntryDocumentTypesType {
-  journalEntryType?: string;
-  docTypeDescription?: string;
-  shortName?: string;
-  journalEntries: JournalEntriesType[];
-}
-
-export interface JournalEntryDocumentTypesTypeForceMandatory {
-  journalEntryType: string;
-  docTypeDescription: string;
-  shortName: string;
+  journalEntryType?: string | null;
+  docTypeDescription?: string | null;
+  shortName?: string | null;
   journalEntries: JournalEntriesType[];
 }
 

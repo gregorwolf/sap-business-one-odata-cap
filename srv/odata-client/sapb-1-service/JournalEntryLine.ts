@@ -4,8 +4,10 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { CashFlowAssignment, CashFlowAssignmentField } from './CashFlowAssignment';
-import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { CashFlowAssignment } from './CashFlowAssignment';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoTaxPostAccEnum } from './BoTaxPostAccEnum';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * JournalEntryLine
@@ -127,6 +129,11 @@ export interface JournalEntryLine {
    */
   vatDate?: Moment;
   /**
+   * Vat Line.
+   * @nullable
+   */
+  vatLine?: BoYesNoEnum;
+  /**
    * System Base Amount.
    * @nullable
    */
@@ -177,6 +184,11 @@ export interface JournalEntryLine {
    */
   taxCode?: string;
   /**
+   * Tax Post Account.
+   * @nullable
+   */
+  taxPostAccount?: BoTaxPostAccEnum;
+  /**
    * Costing Code 5.
    * @nullable
    */
@@ -212,6 +224,21 @@ export interface JournalEntryLine {
    */
   systemTotalTax?: number;
   /**
+   * Wt Liable.
+   * @nullable
+   */
+  wtLiable?: BoYesNoEnum;
+  /**
+   * Wt Row.
+   * @nullable
+   */
+  wtRow?: BoYesNoEnum;
+  /**
+   * Payment Block.
+   * @nullable
+   */
+  paymentBlock?: BoYesNoEnum;
+  /**
    * Block Reason.
    * @nullable
    */
@@ -237,6 +264,11 @@ export interface JournalEntryLine {
    */
   vatRegNum?: string;
   /**
+   * Payment Ordered.
+   * @nullable
+   */
+  paymentOrdered?: BoYesNoEnum;
+  /**
    * Exposed Trans Number.
    * @nullable
    */
@@ -260,7 +292,7 @@ export interface JournalEntryLine {
    * Cash Flow Assignments.
    * @nullable
    */
-  cashFlowAssignments?: CashFlowAssignment;
+  cashFlowAssignments?: CashFlowAssignment[];
 }
 
 /**
@@ -274,7 +306,7 @@ export function createJournalEntryLine(json: any): JournalEntryLine {
  * JournalEntryLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class JournalEntryLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class JournalEntryLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, JournalEntryLine> {
   /**
    * Representation of the [[JournalEntryLine.lineId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -391,6 +423,11 @@ export class JournalEntryLineField<EntityT extends Entity> extends ComplexTypeFi
    */
   vatDate: ComplexTypeDatePropertyField<EntityT> = new ComplexTypeDatePropertyField('VatDate', this, 'Edm.DateTimeOffset');
   /**
+   * Representation of the [[JournalEntryLine.vatLine]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  vatLine: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('VatLine', this);
+  /**
    * Representation of the [[JournalEntryLine.systemBaseAmount]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -441,6 +478,11 @@ export class JournalEntryLineField<EntityT extends Entity> extends ComplexTypeFi
    */
   taxCode: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('TaxCode', this, 'Edm.String');
   /**
+   * Representation of the [[JournalEntryLine.taxPostAccount]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  taxPostAccount: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('TaxPostAccount', this);
+  /**
    * Representation of the [[JournalEntryLine.costingCode5]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -476,6 +518,21 @@ export class JournalEntryLineField<EntityT extends Entity> extends ComplexTypeFi
    */
   systemTotalTax: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('SystemTotalTax', this, 'Edm.Double');
   /**
+   * Representation of the [[JournalEntryLine.wtLiable]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  wtLiable: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('WTLiable', this);
+  /**
+   * Representation of the [[JournalEntryLine.wtRow]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  wtRow: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('WTRow', this);
+  /**
+   * Representation of the [[JournalEntryLine.paymentBlock]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  paymentBlock: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('PaymentBlock', this);
+  /**
    * Representation of the [[JournalEntryLine.blockReason]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -501,6 +558,11 @@ export class JournalEntryLineField<EntityT extends Entity> extends ComplexTypeFi
    */
   vatRegNum: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('VATRegNum', this, 'Edm.String');
   /**
+   * Representation of the [[JournalEntryLine.paymentOrdered]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  paymentOrdered: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('PaymentOrdered', this);
+  /**
    * Representation of the [[JournalEntryLine.exposedTransNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -524,62 +586,309 @@ export class JournalEntryLineField<EntityT extends Entity> extends ComplexTypeFi
    * Representation of the [[JournalEntryLine.cashFlowAssignments]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
-  cashFlowAssignments: CashFlowAssignmentField<EntityT> = new CashFlowAssignmentField('CashFlowAssignments', this);
+  cashFlowAssignments: CollectionField<EntityT, CashFlowAssignment> = new CollectionField('CashFlowAssignments', this, CashFlowAssignment);
+
+  /**
+   * Creates an instance of JournalEntryLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, JournalEntryLine);
+  }
 }
 
 export namespace JournalEntryLine {
+  /**
+   * Metadata information on all properties of the `JournalEntryLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<JournalEntryLine>[] = [{
+    originalName: 'Line_ID',
+    name: 'lineId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AccountCode',
+    name: 'accountCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Debit',
+    name: 'debit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'Credit',
+    name: 'credit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FCDebit',
+    name: 'fcDebit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FCCredit',
+    name: 'fcCredit',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'FCCurrency',
+    name: 'fcCurrency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DueDate',
+    name: 'dueDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ShortName',
+    name: 'shortName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ContraAccount',
+    name: 'contraAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LineMemo',
+    name: 'lineMemo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ReferenceDate1',
+    name: 'referenceDate1',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ReferenceDate2',
+    name: 'referenceDate2',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Reference1',
+    name: 'reference1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Reference2',
+    name: 'reference2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ProjectCode',
+    name: 'projectCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode',
+    name: 'costingCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxDate',
+    name: 'taxDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'BaseSum',
+    name: 'baseSum',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TaxGroup',
+    name: 'taxGroup',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DebitSys',
+    name: 'debitSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CreditSys',
+    name: 'creditSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'VatDate',
+    name: 'vatDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'VatLine',
+    name: 'vatLine',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SystemBaseAmount',
+    name: 'systemBaseAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'VatAmount',
+    name: 'vatAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SystemVatAmount',
+    name: 'systemVatAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'GrossValue',
+    name: 'grossValue',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AdditionalReference',
+    name: 'additionalReference',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CheckAbs',
+    name: 'checkAbs',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode2',
+    name: 'costingCode2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode3',
+    name: 'costingCode3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode4',
+    name: 'costingCode4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxCode',
+    name: 'taxCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxPostAccount',
+    name: 'taxPostAccount',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'CostingCode5',
+    name: 'costingCode5',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'LocationCode',
+    name: 'locationCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ControlAccount',
+    name: 'controlAccount',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'EqualizationTaxAmount',
+    name: 'equalizationTaxAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SystemEqualizationTaxAmount',
+    name: 'systemEqualizationTaxAmount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TotalTax',
+    name: 'totalTax',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'SystemTotalTax',
+    name: 'systemTotalTax',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WTLiable',
+    name: 'wtLiable',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'WTRow',
+    name: 'wtRow',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'PaymentBlock',
+    name: 'paymentBlock',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'BlockReason',
+    name: 'blockReason',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'FederalTaxID',
+    name: 'federalTaxId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPLID',
+    name: 'bplid',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'BPLName',
+    name: 'bplName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'VATRegNum',
+    name: 'vatRegNum',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PaymentOrdered',
+    name: 'paymentOrdered',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ExposedTransNumber',
+    name: 'exposedTransNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DocumentArray',
+    name: 'documentArray',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DocumentLine',
+    name: 'documentLine',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CostElementCode',
+    name: 'costElementCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CashFlowAssignments',
+    name: 'cashFlowAssignments',
+    type: CashFlowAssignment,
+    isCollection: true
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType | CashFlowAssignment }): JournalEntryLine {
-    return createComplexType(json, {
-      Line_ID: (lineId: number) => ({ lineId: edmToTs(lineId, 'Edm.Int32') }),
-      AccountCode: (accountCode: string) => ({ accountCode: edmToTs(accountCode, 'Edm.String') }),
-      Debit: (debit: number) => ({ debit: edmToTs(debit, 'Edm.Double') }),
-      Credit: (credit: number) => ({ credit: edmToTs(credit, 'Edm.Double') }),
-      FCDebit: (fcDebit: number) => ({ fcDebit: edmToTs(fcDebit, 'Edm.Double') }),
-      FCCredit: (fcCredit: number) => ({ fcCredit: edmToTs(fcCredit, 'Edm.Double') }),
-      FCCurrency: (fcCurrency: string) => ({ fcCurrency: edmToTs(fcCurrency, 'Edm.String') }),
-      DueDate: (dueDate: Moment) => ({ dueDate: edmToTs(dueDate, 'Edm.DateTimeOffset') }),
-      ShortName: (shortName: string) => ({ shortName: edmToTs(shortName, 'Edm.String') }),
-      ContraAccount: (contraAccount: string) => ({ contraAccount: edmToTs(contraAccount, 'Edm.String') }),
-      LineMemo: (lineMemo: string) => ({ lineMemo: edmToTs(lineMemo, 'Edm.String') }),
-      ReferenceDate1: (referenceDate1: Moment) => ({ referenceDate1: edmToTs(referenceDate1, 'Edm.DateTimeOffset') }),
-      ReferenceDate2: (referenceDate2: Moment) => ({ referenceDate2: edmToTs(referenceDate2, 'Edm.DateTimeOffset') }),
-      Reference1: (reference1: string) => ({ reference1: edmToTs(reference1, 'Edm.String') }),
-      Reference2: (reference2: string) => ({ reference2: edmToTs(reference2, 'Edm.String') }),
-      ProjectCode: (projectCode: string) => ({ projectCode: edmToTs(projectCode, 'Edm.String') }),
-      CostingCode: (costingCode: string) => ({ costingCode: edmToTs(costingCode, 'Edm.String') }),
-      TaxDate: (taxDate: Moment) => ({ taxDate: edmToTs(taxDate, 'Edm.DateTimeOffset') }),
-      BaseSum: (baseSum: number) => ({ baseSum: edmToTs(baseSum, 'Edm.Double') }),
-      TaxGroup: (taxGroup: string) => ({ taxGroup: edmToTs(taxGroup, 'Edm.String') }),
-      DebitSys: (debitSys: number) => ({ debitSys: edmToTs(debitSys, 'Edm.Double') }),
-      CreditSys: (creditSys: number) => ({ creditSys: edmToTs(creditSys, 'Edm.Double') }),
-      VatDate: (vatDate: Moment) => ({ vatDate: edmToTs(vatDate, 'Edm.DateTimeOffset') }),
-      SystemBaseAmount: (systemBaseAmount: number) => ({ systemBaseAmount: edmToTs(systemBaseAmount, 'Edm.Double') }),
-      VatAmount: (vatAmount: number) => ({ vatAmount: edmToTs(vatAmount, 'Edm.Double') }),
-      SystemVatAmount: (systemVatAmount: number) => ({ systemVatAmount: edmToTs(systemVatAmount, 'Edm.Double') }),
-      GrossValue: (grossValue: number) => ({ grossValue: edmToTs(grossValue, 'Edm.Double') }),
-      AdditionalReference: (additionalReference: string) => ({ additionalReference: edmToTs(additionalReference, 'Edm.String') }),
-      CheckAbs: (checkAbs: number) => ({ checkAbs: edmToTs(checkAbs, 'Edm.Int32') }),
-      CostingCode2: (costingCode2: string) => ({ costingCode2: edmToTs(costingCode2, 'Edm.String') }),
-      CostingCode3: (costingCode3: string) => ({ costingCode3: edmToTs(costingCode3, 'Edm.String') }),
-      CostingCode4: (costingCode4: string) => ({ costingCode4: edmToTs(costingCode4, 'Edm.String') }),
-      TaxCode: (taxCode: string) => ({ taxCode: edmToTs(taxCode, 'Edm.String') }),
-      CostingCode5: (costingCode5: string) => ({ costingCode5: edmToTs(costingCode5, 'Edm.String') }),
-      LocationCode: (locationCode: number) => ({ locationCode: edmToTs(locationCode, 'Edm.Int32') }),
-      ControlAccount: (controlAccount: string) => ({ controlAccount: edmToTs(controlAccount, 'Edm.String') }),
-      EqualizationTaxAmount: (equalizationTaxAmount: number) => ({ equalizationTaxAmount: edmToTs(equalizationTaxAmount, 'Edm.Double') }),
-      SystemEqualizationTaxAmount: (systemEqualizationTaxAmount: number) => ({ systemEqualizationTaxAmount: edmToTs(systemEqualizationTaxAmount, 'Edm.Double') }),
-      TotalTax: (totalTax: number) => ({ totalTax: edmToTs(totalTax, 'Edm.Double') }),
-      SystemTotalTax: (systemTotalTax: number) => ({ systemTotalTax: edmToTs(systemTotalTax, 'Edm.Double') }),
-      BlockReason: (blockReason: number) => ({ blockReason: edmToTs(blockReason, 'Edm.Int32') }),
-      FederalTaxID: (federalTaxId: string) => ({ federalTaxId: edmToTs(federalTaxId, 'Edm.String') }),
-      BPLID: (bplid: number) => ({ bplid: edmToTs(bplid, 'Edm.Int32') }),
-      BPLName: (bplName: string) => ({ bplName: edmToTs(bplName, 'Edm.String') }),
-      VATRegNum: (vatRegNum: string) => ({ vatRegNum: edmToTs(vatRegNum, 'Edm.String') }),
-      ExposedTransNumber: (exposedTransNumber: number) => ({ exposedTransNumber: edmToTs(exposedTransNumber, 'Edm.Int32') }),
-      DocumentArray: (documentArray: number) => ({ documentArray: edmToTs(documentArray, 'Edm.Int32') }),
-      DocumentLine: (documentLine: number) => ({ documentLine: edmToTs(documentLine, 'Edm.Int32') }),
-      CostElementCode: (costElementCode: string) => ({ costElementCode: edmToTs(costElementCode, 'Edm.String') }),
-      CashFlowAssignments: (cashFlowAssignments: CashFlowAssignment) => ({ cashFlowAssignments: CashFlowAssignment.build(cashFlowAssignments) })
-    });
+    return deserializeComplexTypeV4(json, JournalEntryLine);
   }
 }

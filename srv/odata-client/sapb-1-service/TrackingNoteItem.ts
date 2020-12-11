@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * TrackingNoteItem
@@ -72,7 +72,7 @@ export function createTrackingNoteItem(json: any): TrackingNoteItem {
  * TrackingNoteItemField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class TrackingNoteItemField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class TrackingNoteItemField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, TrackingNoteItem> {
   /**
    * Representation of the [[TrackingNoteItem.trackingNoteNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -123,21 +123,78 @@ export class TrackingNoteItemField<EntityT extends Entity> extends ComplexTypeFi
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   accumulatedRelocatedQuantity: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('AccumulatedRelocatedQuantity', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of TrackingNoteItemField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, TrackingNoteItem);
+  }
 }
 
 export namespace TrackingNoteItem {
+  /**
+   * Metadata information on all properties of the `TrackingNoteItem` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<TrackingNoteItem>[] = [{
+    originalName: 'TrackingNoteNumber',
+    name: 'trackingNoteNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TrackingNoteLineNumber',
+    name: 'trackingNoteLineNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ItemCCDNumber',
+    name: 'itemCcdNumber',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemCode',
+    name: 'itemCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Quantity',
+    name: 'quantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'CountryOfOrigin',
+    name: 'countryOfOrigin',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CustomsGroupCode',
+    name: 'customsGroupCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AccumulatedAPQuantity',
+    name: 'accumulatedApQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumulatedARQuantity',
+    name: 'accumulatedArQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AccumulatedRelocatedQuantity',
+    name: 'accumulatedRelocatedQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): TrackingNoteItem {
-    return createComplexType(json, {
-      TrackingNoteNumber: (trackingNoteNumber: number) => ({ trackingNoteNumber: edmToTs(trackingNoteNumber, 'Edm.Int32') }),
-      TrackingNoteLineNumber: (trackingNoteLineNumber: number) => ({ trackingNoteLineNumber: edmToTs(trackingNoteLineNumber, 'Edm.Int32') }),
-      ItemCCDNumber: (itemCcdNumber: string) => ({ itemCcdNumber: edmToTs(itemCcdNumber, 'Edm.String') }),
-      ItemCode: (itemCode: string) => ({ itemCode: edmToTs(itemCode, 'Edm.String') }),
-      Quantity: (quantity: number) => ({ quantity: edmToTs(quantity, 'Edm.Double') }),
-      CountryOfOrigin: (countryOfOrigin: string) => ({ countryOfOrigin: edmToTs(countryOfOrigin, 'Edm.String') }),
-      CustomsGroupCode: (customsGroupCode: number) => ({ customsGroupCode: edmToTs(customsGroupCode, 'Edm.Int32') }),
-      AccumulatedAPQuantity: (accumulatedApQuantity: number) => ({ accumulatedApQuantity: edmToTs(accumulatedApQuantity, 'Edm.Double') }),
-      AccumulatedARQuantity: (accumulatedArQuantity: number) => ({ accumulatedArQuantity: edmToTs(accumulatedArQuantity, 'Edm.Double') }),
-      AccumulatedRelocatedQuantity: (accumulatedRelocatedQuantity: number) => ({ accumulatedRelocatedQuantity: edmToTs(accumulatedRelocatedQuantity, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, TrackingNoteItem);
   }
 }

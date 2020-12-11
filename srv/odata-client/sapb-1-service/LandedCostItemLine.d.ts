@@ -1,4 +1,6 @@
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { LandedCostBaseDocumentTypeEnum } from './LandedCostBaseDocumentTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * LandedCostItemLine
  */
@@ -13,6 +15,11 @@ export interface LandedCostItemLine {
      * @nullable
      */
     lineNumber?: number;
+    /**
+     * Base Document Type.
+     * @nullable
+     */
+    baseDocumentType?: LandedCostBaseDocumentTypeEnum;
     /**
      * Base Entry.
      * @nullable
@@ -299,6 +306,16 @@ export interface LandedCostItemLine {
      */
     priceList?: number;
     /**
+     * Automatic Expenditure.
+     * @nullable
+     */
+    automaticExpenditure?: BoYesNoEnum;
+    /**
+     * Inventory Valuation.
+     * @nullable
+     */
+    inventoryValuation?: BoYesNoEnum;
+    /**
      * Origin Line.
      * @nullable
      */
@@ -334,6 +351,11 @@ export interface LandedCostItemLine {
      */
     exciseSumFc?: number;
     /**
+     * Excise Affect Stock.
+     * @nullable
+     */
+    exciseAffectStock?: BoYesNoEnum;
+    /**
      * Customs Cost.
      * @nullable
      */
@@ -344,6 +366,11 @@ export interface LandedCostItemLine {
      */
     customsCostFc?: number;
     /**
+     * Customs Affect Stock.
+     * @nullable
+     */
+    customsAffectStock?: BoYesNoEnum;
+    /**
      * Customs Vat.
      * @nullable
      */
@@ -353,6 +380,11 @@ export interface LandedCostItemLine {
      * @nullable
      */
     customsVatFc?: number;
+    /**
+     * Customs Vat Affect Stock.
+     * @nullable
+     */
+    customsVatAffectStock?: BoYesNoEnum;
     /**
      * Ccd Number.
      * @nullable
@@ -367,7 +399,7 @@ export declare function createLandedCostItemLine(json: any): LandedCostItemLine;
  * LandedCostItemLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class LandedCostItemLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class LandedCostItemLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, LandedCostItemLine> {
     /**
      * Representation of the [[LandedCostItemLine.docEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -378,6 +410,11 @@ export declare class LandedCostItemLineField<EntityT extends Entity> extends Com
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     lineNumber: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[LandedCostItemLine.baseDocumentType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    baseDocumentType: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[LandedCostItemLine.baseEntry]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -664,6 +701,16 @@ export declare class LandedCostItemLineField<EntityT extends Entity> extends Com
      */
     priceList: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[LandedCostItemLine.automaticExpenditure]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    automaticExpenditure: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[LandedCostItemLine.inventoryValuation]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    inventoryValuation: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[LandedCostItemLine.originLine]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -699,6 +746,11 @@ export declare class LandedCostItemLineField<EntityT extends Entity> extends Com
      */
     exciseSumFc: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[LandedCostItemLine.exciseAffectStock]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    exciseAffectStock: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[LandedCostItemLine.customsCost]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
@@ -708,6 +760,11 @@ export declare class LandedCostItemLineField<EntityT extends Entity> extends Com
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     customsCostFc: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[LandedCostItemLine.customsAffectStock]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    customsAffectStock: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[LandedCostItemLine.customsVat]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -719,12 +776,31 @@ export declare class LandedCostItemLineField<EntityT extends Entity> extends Com
      */
     customsVatFc: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[LandedCostItemLine.customsVatAffectStock]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    customsVatAffectStock: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[LandedCostItemLine.ccdNumber]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     ccdNumber: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Creates an instance of LandedCostItemLineField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace LandedCostItemLine {
+    /**
+     * Metadata information on all properties of the `LandedCostItemLine` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<LandedCostItemLine>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): LandedCostItemLine;

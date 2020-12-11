@@ -4,7 +4,10 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, Entity, FieldType, Time, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoDurations } from './BoDurations';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoAddressType } from './BoAddressType';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, Time, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ServiceCallScheduling
@@ -56,10 +59,30 @@ export interface ServiceCallScheduling {
    */
   actualDuration?: number;
   /**
+   * Duration Type.
+   * @nullable
+   */
+  durationType?: BoDurations;
+  /**
+   * Reminder.
+   * @nullable
+   */
+  reminder?: BoYesNoEnum;
+  /**
    * Reminder Period.
    * @nullable
    */
   reminderPeriod?: number;
+  /**
+   * Reminder Type.
+   * @nullable
+   */
+  reminderType?: BoDurations;
+  /**
+   * Reminder Sent.
+   * @nullable
+   */
+  reminderSent?: BoYesNoEnum;
   /**
    * Reminder Date.
    * @nullable
@@ -70,6 +93,16 @@ export interface ServiceCallScheduling {
    * @nullable
    */
   reminderTime?: Time;
+  /**
+   * Display In Calendar.
+   * @nullable
+   */
+  displayInCalendar?: BoYesNoEnum;
+  /**
+   * Is Unscheduled.
+   * @nullable
+   */
+  isUnscheduled?: BoYesNoEnum;
   /**
    * Location.
    * @nullable
@@ -156,10 +189,20 @@ export interface ServiceCallScheduling {
    */
   globalLocNum?: string;
   /**
+   * Is Closed.
+   * @nullable
+   */
+  isClosed?: BoYesNoEnum;
+  /**
    * Remark.
    * @nullable
    */
   remark?: string;
+  /**
+   * Address Type Bs.
+   * @nullable
+   */
+  addressTypeBs?: BoAddressType;
   /**
    * Signature Name.
    * @nullable
@@ -218,7 +261,7 @@ export function createServiceCallScheduling(json: any): ServiceCallScheduling {
  * ServiceCallSchedulingField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ServiceCallSchedulingField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ServiceCallSchedulingField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ServiceCallScheduling> {
   /**
    * Representation of the [[ServiceCallScheduling.lineNum]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -265,10 +308,30 @@ export class ServiceCallSchedulingField<EntityT extends Entity> extends ComplexT
    */
   actualDuration: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('ActualDuration', this, 'Edm.Double');
   /**
+   * Representation of the [[ServiceCallScheduling.durationType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  durationType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DurationType', this);
+  /**
+   * Representation of the [[ServiceCallScheduling.reminder]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  reminder: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Reminder', this);
+  /**
    * Representation of the [[ServiceCallScheduling.reminderPeriod]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   reminderPeriod: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('ReminderPeriod', this, 'Edm.Double');
+  /**
+   * Representation of the [[ServiceCallScheduling.reminderType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  reminderType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ReminderType', this);
+  /**
+   * Representation of the [[ServiceCallScheduling.reminderSent]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  reminderSent: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('ReminderSent', this);
   /**
    * Representation of the [[ServiceCallScheduling.reminderDate]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -279,6 +342,16 @@ export class ServiceCallSchedulingField<EntityT extends Entity> extends ComplexT
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   reminderTime: ComplexTypeTimePropertyField<EntityT> = new ComplexTypeTimePropertyField('ReminderTime', this, 'Edm.TimeOfDay');
+  /**
+   * Representation of the [[ServiceCallScheduling.displayInCalendar]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  displayInCalendar: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('DisplayInCalendar', this);
+  /**
+   * Representation of the [[ServiceCallScheduling.isUnscheduled]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  isUnscheduled: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IsUnscheduled', this);
   /**
    * Representation of the [[ServiceCallScheduling.location]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -365,10 +438,20 @@ export class ServiceCallSchedulingField<EntityT extends Entity> extends ComplexT
    */
   globalLocNum: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('GlobalLocNum', this, 'Edm.String');
   /**
+   * Representation of the [[ServiceCallScheduling.isClosed]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  isClosed: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IsClosed', this);
+  /**
    * Representation of the [[ServiceCallScheduling.remark]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   remark: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Remark', this, 'Edm.String');
+  /**
+   * Representation of the [[ServiceCallScheduling.addressTypeBs]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  addressTypeBs: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AddressTypeBS', this);
   /**
    * Representation of the [[ServiceCallScheduling.signatureName]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -414,50 +497,263 @@ export class ServiceCallSchedulingField<EntityT extends Entity> extends ComplexT
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   checkOutTime: ComplexTypeTimePropertyField<EntityT> = new ComplexTypeTimePropertyField('CheckOutTime', this, 'Edm.TimeOfDay');
+
+  /**
+   * Creates an instance of ServiceCallSchedulingField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ServiceCallScheduling);
+  }
 }
 
 export namespace ServiceCallScheduling {
+  /**
+   * Metadata information on all properties of the `ServiceCallScheduling` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ServiceCallScheduling>[] = [{
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Technician',
+    name: 'technician',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'HandledBy',
+    name: 'handledBy',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'StartDate',
+    name: 'startDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'StartTime',
+    name: 'startTime',
+    type: 'Edm.TimeOfDay',
+    isCollection: false
+  }, {
+    originalName: 'EndDate',
+    name: 'endDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'EndTime',
+    name: 'endTime',
+    type: 'Edm.TimeOfDay',
+    isCollection: false
+  }, {
+    originalName: 'Duration',
+    name: 'duration',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ActualDuration',
+    name: 'actualDuration',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DurationType',
+    name: 'durationType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Reminder',
+    name: 'reminder',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ReminderPeriod',
+    name: 'reminderPeriod',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ReminderType',
+    name: 'reminderType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ReminderSent',
+    name: 'reminderSent',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ReminderDate',
+    name: 'reminderDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ReminderTime',
+    name: 'reminderTime',
+    type: 'Edm.TimeOfDay',
+    isCollection: false
+  }, {
+    originalName: 'DisplayInCalendar',
+    name: 'displayInCalendar',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'IsUnscheduled',
+    name: 'isUnscheduled',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Location',
+    name: 'location',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AddressName',
+    name: 'addressName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AddressText',
+    name: 'addressText',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Street',
+    name: 'street',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'City',
+    name: 'city',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Room',
+    name: 'room',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'State',
+    name: 'state',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Country',
+    name: 'country',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Address2',
+    name: 'address2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Address3',
+    name: 'address3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AddressType',
+    name: 'addressType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'StreetNo',
+    name: 'streetNo',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ZipCode',
+    name: 'zipCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Block',
+    name: 'block',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'County',
+    name: 'county',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxOffice',
+    name: 'taxOffice',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'GlobalLocNum',
+    name: 'globalLocNum',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'IsClosed',
+    name: 'isClosed',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Remark',
+    name: 'remark',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AddressTypeBS',
+    name: 'addressTypeBs',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'SignatureName',
+    name: 'signatureName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'SalesOrders',
+    name: 'salesOrders',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CheckInDate',
+    name: 'checkInDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'CheckInTime',
+    name: 'checkInTime',
+    type: 'Edm.TimeOfDay',
+    isCollection: false
+  }, {
+    originalName: 'CheckInLocation',
+    name: 'checkInLocation',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CheckInLatitude',
+    name: 'checkInLatitude',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CheckInLongitude',
+    name: 'checkInLongitude',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CheckOutDate',
+    name: 'checkOutDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'CheckOutTime',
+    name: 'checkOutTime',
+    type: 'Edm.TimeOfDay',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ServiceCallScheduling {
-    return createComplexType(json, {
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      Technician: (technician: number) => ({ technician: edmToTs(technician, 'Edm.Int32') }),
-      HandledBy: (handledBy: number) => ({ handledBy: edmToTs(handledBy, 'Edm.Int32') }),
-      StartDate: (startDate: Moment) => ({ startDate: edmToTs(startDate, 'Edm.DateTimeOffset') }),
-      StartTime: (startTime: Time) => ({ startTime: edmToTs(startTime, 'Edm.TimeOfDay') }),
-      EndDate: (endDate: Moment) => ({ endDate: edmToTs(endDate, 'Edm.DateTimeOffset') }),
-      EndTime: (endTime: Time) => ({ endTime: edmToTs(endTime, 'Edm.TimeOfDay') }),
-      Duration: (duration: number) => ({ duration: edmToTs(duration, 'Edm.Double') }),
-      ActualDuration: (actualDuration: number) => ({ actualDuration: edmToTs(actualDuration, 'Edm.Double') }),
-      ReminderPeriod: (reminderPeriod: number) => ({ reminderPeriod: edmToTs(reminderPeriod, 'Edm.Double') }),
-      ReminderDate: (reminderDate: Moment) => ({ reminderDate: edmToTs(reminderDate, 'Edm.DateTimeOffset') }),
-      ReminderTime: (reminderTime: Time) => ({ reminderTime: edmToTs(reminderTime, 'Edm.TimeOfDay') }),
-      Location: (location: number) => ({ location: edmToTs(location, 'Edm.Int32') }),
-      AddressName: (addressName: string) => ({ addressName: edmToTs(addressName, 'Edm.String') }),
-      AddressText: (addressText: string) => ({ addressText: edmToTs(addressText, 'Edm.String') }),
-      Street: (street: string) => ({ street: edmToTs(street, 'Edm.String') }),
-      City: (city: string) => ({ city: edmToTs(city, 'Edm.String') }),
-      Room: (room: string) => ({ room: edmToTs(room, 'Edm.String') }),
-      State: (state: string) => ({ state: edmToTs(state, 'Edm.String') }),
-      Country: (country: string) => ({ country: edmToTs(country, 'Edm.String') }),
-      Address2: (address2: string) => ({ address2: edmToTs(address2, 'Edm.String') }),
-      Address3: (address3: string) => ({ address3: edmToTs(address3, 'Edm.String') }),
-      AddressType: (addressType: string) => ({ addressType: edmToTs(addressType, 'Edm.String') }),
-      StreetNo: (streetNo: string) => ({ streetNo: edmToTs(streetNo, 'Edm.String') }),
-      ZipCode: (zipCode: string) => ({ zipCode: edmToTs(zipCode, 'Edm.String') }),
-      Block: (block: string) => ({ block: edmToTs(block, 'Edm.String') }),
-      County: (county: string) => ({ county: edmToTs(county, 'Edm.String') }),
-      TaxOffice: (taxOffice: string) => ({ taxOffice: edmToTs(taxOffice, 'Edm.String') }),
-      GlobalLocNum: (globalLocNum: string) => ({ globalLocNum: edmToTs(globalLocNum, 'Edm.String') }),
-      Remark: (remark: string) => ({ remark: edmToTs(remark, 'Edm.String') }),
-      SignatureName: (signatureName: string) => ({ signatureName: edmToTs(signatureName, 'Edm.String') }),
-      SalesOrders: (salesOrders: string) => ({ salesOrders: edmToTs(salesOrders, 'Edm.String') }),
-      CheckInDate: (checkInDate: Moment) => ({ checkInDate: edmToTs(checkInDate, 'Edm.DateTimeOffset') }),
-      CheckInTime: (checkInTime: Time) => ({ checkInTime: edmToTs(checkInTime, 'Edm.TimeOfDay') }),
-      CheckInLocation: (checkInLocation: string) => ({ checkInLocation: edmToTs(checkInLocation, 'Edm.String') }),
-      CheckInLatitude: (checkInLatitude: string) => ({ checkInLatitude: edmToTs(checkInLatitude, 'Edm.String') }),
-      CheckInLongitude: (checkInLongitude: string) => ({ checkInLongitude: edmToTs(checkInLongitude, 'Edm.String') }),
-      CheckOutDate: (checkOutDate: Moment) => ({ checkOutDate: edmToTs(checkOutDate, 'Edm.DateTimeOffset') }),
-      CheckOutTime: (checkOutTime: Time) => ({ checkOutTime: edmToTs(checkOutTime, 'Edm.TimeOfDay') })
-    });
+    return deserializeComplexTypeV4(json, ServiceCallScheduling);
   }
 }

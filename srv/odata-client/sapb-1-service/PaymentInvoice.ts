@@ -4,7 +4,8 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoRcptInvTypes } from './BoRcptInvTypes';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * PaymentInvoice
@@ -45,6 +46,11 @@ export interface PaymentInvoice {
    * @nullable
    */
   docLine?: number;
+  /**
+   * Invoice Type.
+   * @nullable
+   */
+  invoiceType?: BoRcptInvTypes;
   /**
    * Discount Percent.
    * @nullable
@@ -133,7 +139,7 @@ export function createPaymentInvoice(json: any): PaymentInvoice {
  * PaymentInvoiceField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class PaymentInvoiceField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class PaymentInvoiceField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, PaymentInvoice> {
   /**
    * Representation of the [[PaymentInvoice.lineNum]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -169,6 +175,11 @@ export class PaymentInvoiceField<EntityT extends Entity> extends ComplexTypeFiel
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   docLine: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DocLine', this, 'Edm.Int32');
+  /**
+   * Representation of the [[PaymentInvoice.invoiceType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  invoiceType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('InvoiceType', this);
   /**
    * Representation of the [[PaymentInvoice.discountPercent]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -244,33 +255,143 @@ export class PaymentInvoiceField<EntityT extends Entity> extends ComplexTypeFiel
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   totalDiscountSc: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('TotalDiscountSC', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of PaymentInvoiceField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, PaymentInvoice);
+  }
 }
 
 export namespace PaymentInvoice {
+  /**
+   * Metadata information on all properties of the `PaymentInvoice` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<PaymentInvoice>[] = [{
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DocEntry',
+    name: 'docEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'SumApplied',
+    name: 'sumApplied',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AppliedFC',
+    name: 'appliedFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'AppliedSys',
+    name: 'appliedSys',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DocRate',
+    name: 'docRate',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'DocLine',
+    name: 'docLine',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'InvoiceType',
+    name: 'invoiceType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'DiscountPercent',
+    name: 'discountPercent',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PaidSum',
+    name: 'paidSum',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'InstallmentId',
+    name: 'installmentId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'WitholdingTaxApplied',
+    name: 'witholdingTaxApplied',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WitholdingTaxAppliedFC',
+    name: 'witholdingTaxAppliedFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'WitholdingTaxAppliedSC',
+    name: 'witholdingTaxAppliedSc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'LinkDate',
+    name: 'linkDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule',
+    name: 'distributionRule',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule2',
+    name: 'distributionRule2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule3',
+    name: 'distributionRule3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule4',
+    name: 'distributionRule4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'DistributionRule5',
+    name: 'distributionRule5',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TotalDiscount',
+    name: 'totalDiscount',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TotalDiscountFC',
+    name: 'totalDiscountFc',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'TotalDiscountSC',
+    name: 'totalDiscountSc',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): PaymentInvoice {
-    return createComplexType(json, {
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      DocEntry: (docEntry: number) => ({ docEntry: edmToTs(docEntry, 'Edm.Int32') }),
-      SumApplied: (sumApplied: number) => ({ sumApplied: edmToTs(sumApplied, 'Edm.Double') }),
-      AppliedFC: (appliedFc: number) => ({ appliedFc: edmToTs(appliedFc, 'Edm.Double') }),
-      AppliedSys: (appliedSys: number) => ({ appliedSys: edmToTs(appliedSys, 'Edm.Double') }),
-      DocRate: (docRate: number) => ({ docRate: edmToTs(docRate, 'Edm.Double') }),
-      DocLine: (docLine: number) => ({ docLine: edmToTs(docLine, 'Edm.Int32') }),
-      DiscountPercent: (discountPercent: number) => ({ discountPercent: edmToTs(discountPercent, 'Edm.Double') }),
-      PaidSum: (paidSum: number) => ({ paidSum: edmToTs(paidSum, 'Edm.Double') }),
-      InstallmentId: (installmentId: number) => ({ installmentId: edmToTs(installmentId, 'Edm.Int32') }),
-      WitholdingTaxApplied: (witholdingTaxApplied: number) => ({ witholdingTaxApplied: edmToTs(witholdingTaxApplied, 'Edm.Double') }),
-      WitholdingTaxAppliedFC: (witholdingTaxAppliedFc: number) => ({ witholdingTaxAppliedFc: edmToTs(witholdingTaxAppliedFc, 'Edm.Double') }),
-      WitholdingTaxAppliedSC: (witholdingTaxAppliedSc: number) => ({ witholdingTaxAppliedSc: edmToTs(witholdingTaxAppliedSc, 'Edm.Double') }),
-      LinkDate: (linkDate: Moment) => ({ linkDate: edmToTs(linkDate, 'Edm.DateTimeOffset') }),
-      DistributionRule: (distributionRule: string) => ({ distributionRule: edmToTs(distributionRule, 'Edm.String') }),
-      DistributionRule2: (distributionRule2: string) => ({ distributionRule2: edmToTs(distributionRule2, 'Edm.String') }),
-      DistributionRule3: (distributionRule3: string) => ({ distributionRule3: edmToTs(distributionRule3, 'Edm.String') }),
-      DistributionRule4: (distributionRule4: string) => ({ distributionRule4: edmToTs(distributionRule4, 'Edm.String') }),
-      DistributionRule5: (distributionRule5: string) => ({ distributionRule5: edmToTs(distributionRule5, 'Edm.String') }),
-      TotalDiscount: (totalDiscount: number) => ({ totalDiscount: edmToTs(totalDiscount, 'Edm.Double') }),
-      TotalDiscountFC: (totalDiscountFc: number) => ({ totalDiscountFc: edmToTs(totalDiscountFc, 'Edm.Double') }),
-      TotalDiscountSC: (totalDiscountSc: number) => ({ totalDiscountSc: edmToTs(totalDiscountSc, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, PaymentInvoice);
   }
 }

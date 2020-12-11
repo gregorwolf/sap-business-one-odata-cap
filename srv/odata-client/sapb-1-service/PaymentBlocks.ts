@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { PaymentBlocksRequestBuilder } from './PaymentBlocksRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "PaymentBlocks" of service "SAPB1".
  */
-export class PaymentBlocks extends Entity implements PaymentBlocksType {
+export class PaymentBlocks extends EntityV4 implements PaymentBlocksType {
   /**
    * Technical entity name for PaymentBlocks.
    */
   static _entityName = 'PaymentBlocks';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for PaymentBlocks.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Abs Entry.
    * @nullable
@@ -135,11 +130,11 @@ export class PaymentBlocks extends Entity implements PaymentBlocksType {
   goodsReturnRequest!: GoodsReturnRequest[];
 
   /**
-   * Returns an entity builder to construct instances `PaymentBlocks`.
+   * Returns an entity builder to construct instances of `PaymentBlocks`.
    * @returns A builder that constructs instances of entity type `PaymentBlocks`.
    */
-  static builder(): EntityBuilderType<PaymentBlocks, PaymentBlocksTypeForceMandatory> {
-    return Entity.entityBuilder(PaymentBlocks);
+  static builder(): EntityBuilderType<PaymentBlocks, PaymentBlocksType> {
+    return EntityV4.entityBuilder(PaymentBlocks);
   }
 
   /**
@@ -155,8 +150,8 @@ export class PaymentBlocks extends Entity implements PaymentBlocksType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `PaymentBlocks`.
    */
-  static customField(fieldName: string): CustomField<PaymentBlocks> {
-    return Entity.customFieldSelector(fieldName, PaymentBlocks);
+  static customField(fieldName: string): CustomFieldV4<PaymentBlocks> {
+    return EntityV4.customFieldSelector(fieldName, PaymentBlocks);
   }
 
   /**
@@ -195,38 +190,8 @@ import { PurchaseOrders, PurchaseOrdersType } from './PurchaseOrders';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 
 export interface PaymentBlocksType {
-  absEntry?: number;
-  paymentBlockCode?: string;
-  inventoryGenEntries: InventoryGenEntriesType[];
-  purchaseQuotations: PurchaseQuotationsType[];
-  deliveryNotes: DeliveryNotesType[];
-  businessPartners: BusinessPartnersType[];
-  quotations: QuotationsType[];
-  inventoryGenExits: InventoryGenExitsType[];
-  purchaseRequests: PurchaseRequestsType[];
-  returnRequest: ReturnRequestType[];
-  purchaseReturns: PurchaseReturnsType[];
-  invoices: InvoicesType[];
-  creditNotes: CreditNotesType[];
-  orders: OrdersType[];
-  downPayments: DownPaymentsType[];
-  drafts: DraftsType[];
-  returns: ReturnsType[];
-  correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-  correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-  correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-  purchaseInvoices: PurchaseInvoicesType[];
-  purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-  correctionInvoice: CorrectionInvoiceType[];
-  purchaseCreditNotes: PurchaseCreditNotesType[];
-  purchaseDownPayments: PurchaseDownPaymentsType[];
-  purchaseOrders: PurchaseOrdersType[];
-  goodsReturnRequest: GoodsReturnRequestType[];
-}
-
-export interface PaymentBlocksTypeForceMandatory {
-  absEntry: number;
-  paymentBlockCode: string;
+  absEntry?: number | null;
+  paymentBlockCode?: string | null;
   inventoryGenEntries: InventoryGenEntriesType[];
   purchaseQuotations: PurchaseQuotationsType[];
   deliveryNotes: DeliveryNotesType[];

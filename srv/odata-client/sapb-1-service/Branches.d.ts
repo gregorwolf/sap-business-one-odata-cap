@@ -1,18 +1,13 @@
 import { BranchesRequestBuilder } from './BranchesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "Branches" of service "SAPB1".
  */
-export declare class Branches extends Entity implements BranchesType {
+export declare class Branches extends EntityV4 implements BranchesType {
     /**
      * Technical entity name for Branches.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Branches.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -137,10 +132,10 @@ export declare class Branches extends Entity implements BranchesType {
      */
     goodsReturnRequest: GoodsReturnRequest[];
     /**
-     * Returns an entity builder to construct instances `Branches`.
+     * Returns an entity builder to construct instances of `Branches`.
      * @returns A builder that constructs instances of entity type `Branches`.
      */
-    static builder(): EntityBuilderType<Branches, BranchesTypeForceMandatory>;
+    static builder(): EntityBuilderType<Branches, BranchesType>;
     /**
      * Returns a request builder to construct requests for operations on the `Branches` entity type.
      * @returns A `Branches` request builder.
@@ -151,7 +146,7 @@ export declare class Branches extends Entity implements BranchesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `Branches`.
      */
-    static customField(fieldName: string): CustomField<Branches>;
+    static customField(fieldName: string): CustomFieldV4<Branches>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -187,40 +182,9 @@ import { EmployeesInfo, EmployeesInfoType } from './EmployeesInfo';
 import { PurchaseOrders, PurchaseOrdersType } from './PurchaseOrders';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 export interface BranchesType {
-    code?: number;
-    name?: string;
-    description?: string;
-    inventoryGenEntries: InventoryGenEntriesType[];
-    purchaseQuotations: PurchaseQuotationsType[];
-    deliveryNotes: DeliveryNotesType[];
-    quotations: QuotationsType[];
-    inventoryGenExits: InventoryGenExitsType[];
-    purchaseRequests: PurchaseRequestsType[];
-    returnRequest: ReturnRequestType[];
-    users: UsersType[];
-    purchaseReturns: PurchaseReturnsType[];
-    invoices: InvoicesType[];
-    creditNotes: CreditNotesType[];
-    orders: OrdersType[];
-    downPayments: DownPaymentsType[];
-    drafts: DraftsType[];
-    returns: ReturnsType[];
-    correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-    correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-    correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-    purchaseInvoices: PurchaseInvoicesType[];
-    purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-    correctionInvoice: CorrectionInvoiceType[];
-    purchaseCreditNotes: PurchaseCreditNotesType[];
-    purchaseDownPayments: PurchaseDownPaymentsType[];
-    employeesInfo: EmployeesInfoType[];
-    purchaseOrders: PurchaseOrdersType[];
-    goodsReturnRequest: GoodsReturnRequestType[];
-}
-export interface BranchesTypeForceMandatory {
-    code: number;
-    name: string;
-    description: string;
+    code?: number | null;
+    name?: string | null;
+    description?: string | null;
     inventoryGenEntries: InventoryGenEntriesType[];
     purchaseQuotations: PurchaseQuotationsType[];
     deliveryNotes: DeliveryNotesType[];

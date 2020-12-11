@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { TaxWebSitesRequestBuilder } from './TaxWebSitesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "TaxWebSites" of service "SAPB1".
  */
-export class TaxWebSites extends Entity implements TaxWebSitesType {
+export class TaxWebSites extends EntityV4 implements TaxWebSitesType {
   /**
    * Technical entity name for TaxWebSites.
    */
   static _entityName = 'TaxWebSites';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for TaxWebSites.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Abs Entry.
    * @nullable
@@ -149,11 +144,11 @@ export class TaxWebSites extends Entity implements TaxWebSitesType {
   goodsReturnRequest!: GoodsReturnRequest[];
 
   /**
-   * Returns an entity builder to construct instances `TaxWebSites`.
+   * Returns an entity builder to construct instances of `TaxWebSites`.
    * @returns A builder that constructs instances of entity type `TaxWebSites`.
    */
-  static builder(): EntityBuilderType<TaxWebSites, TaxWebSitesTypeForceMandatory> {
-    return Entity.entityBuilder(TaxWebSites);
+  static builder(): EntityBuilderType<TaxWebSites, TaxWebSitesType> {
+    return EntityV4.entityBuilder(TaxWebSites);
   }
 
   /**
@@ -169,8 +164,8 @@ export class TaxWebSites extends Entity implements TaxWebSitesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `TaxWebSites`.
    */
-  static customField(fieldName: string): CustomField<TaxWebSites> {
-    return Entity.customFieldSelector(fieldName, TaxWebSites);
+  static customField(fieldName: string): CustomFieldV4<TaxWebSites> {
+    return EntityV4.customFieldSelector(fieldName, TaxWebSites);
   }
 
   /**
@@ -210,43 +205,10 @@ import { PurchaseOrders, PurchaseOrdersType } from './PurchaseOrders';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 
 export interface TaxWebSitesType {
-  absEntry?: number;
-  webSiteName?: string;
-  webSiteUrl?: string;
-  description?: string;
-  inventoryGenEntries: InventoryGenEntriesType[];
-  purchaseQuotations: PurchaseQuotationsType[];
-  deliveryNotes: DeliveryNotesType[];
-  businessPartners: BusinessPartnersType[];
-  quotations: QuotationsType[];
-  taxInvoiceReport: TaxInvoiceReportType[];
-  inventoryGenExits: InventoryGenExitsType[];
-  purchaseRequests: PurchaseRequestsType[];
-  returnRequest: ReturnRequestType[];
-  purchaseReturns: PurchaseReturnsType[];
-  invoices: InvoicesType[];
-  creditNotes: CreditNotesType[];
-  orders: OrdersType[];
-  downPayments: DownPaymentsType[];
-  drafts: DraftsType[];
-  returns: ReturnsType[];
-  correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-  correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-  correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-  purchaseInvoices: PurchaseInvoicesType[];
-  purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-  correctionInvoice: CorrectionInvoiceType[];
-  purchaseCreditNotes: PurchaseCreditNotesType[];
-  purchaseDownPayments: PurchaseDownPaymentsType[];
-  purchaseOrders: PurchaseOrdersType[];
-  goodsReturnRequest: GoodsReturnRequestType[];
-}
-
-export interface TaxWebSitesTypeForceMandatory {
-  absEntry: number;
-  webSiteName: string;
-  webSiteUrl: string;
-  description: string;
+  absEntry?: number | null;
+  webSiteName?: string | null;
+  webSiteUrl?: string | null;
+  description?: string | null;
   inventoryGenEntries: InventoryGenEntriesType[];
   purchaseQuotations: PurchaseQuotationsType[];
   deliveryNotes: DeliveryNotesType[];

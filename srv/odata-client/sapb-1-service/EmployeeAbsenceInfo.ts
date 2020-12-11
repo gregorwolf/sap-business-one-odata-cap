@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * EmployeeAbsenceInfo
@@ -58,7 +58,7 @@ export function createEmployeeAbsenceInfo(json: any): EmployeeAbsenceInfo {
  * EmployeeAbsenceInfoField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class EmployeeAbsenceInfoField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class EmployeeAbsenceInfoField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, EmployeeAbsenceInfo> {
   /**
    * Representation of the [[EmployeeAbsenceInfo.employeeId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -94,18 +94,63 @@ export class EmployeeAbsenceInfoField<EntityT extends Entity> extends ComplexTyp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   confirmerNumber: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('ConfirmerNumber', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of EmployeeAbsenceInfoField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, EmployeeAbsenceInfo);
+  }
 }
 
 export namespace EmployeeAbsenceInfo {
+  /**
+   * Metadata information on all properties of the `EmployeeAbsenceInfo` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<EmployeeAbsenceInfo>[] = [{
+    originalName: 'EmployeeID',
+    name: 'employeeId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'FromDate',
+    name: 'fromDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ToDate',
+    name: 'toDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'Reason',
+    name: 'reason',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ApprovedBy',
+    name: 'approvedBy',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ConfirmerNumber',
+    name: 'confirmerNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): EmployeeAbsenceInfo {
-    return createComplexType(json, {
-      EmployeeID: (employeeId: number) => ({ employeeId: edmToTs(employeeId, 'Edm.Int32') }),
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      FromDate: (fromDate: Moment) => ({ fromDate: edmToTs(fromDate, 'Edm.DateTimeOffset') }),
-      ToDate: (toDate: Moment) => ({ toDate: edmToTs(toDate, 'Edm.DateTimeOffset') }),
-      Reason: (reason: string) => ({ reason: edmToTs(reason, 'Edm.String') }),
-      ApprovedBy: (approvedBy: string) => ({ approvedBy: edmToTs(approvedBy, 'Edm.String') }),
-      ConfirmerNumber: (confirmerNumber: number) => ({ confirmerNumber: edmToTs(confirmerNumber, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, EmployeeAbsenceInfo);
   }
 }

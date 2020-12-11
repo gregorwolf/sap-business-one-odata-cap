@@ -4,30 +4,31 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { DeductionTaxGroupsRequestBuilder } from './DeductionTaxGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoDeductionTaxGroupCodeEnum } from './BoDeductionTaxGroupCodeEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "DeductionTaxGroups" of service "SAPB1".
  */
-export class DeductionTaxGroups extends Entity implements DeductionTaxGroupsType {
+export class DeductionTaxGroups extends EntityV4 implements DeductionTaxGroupsType {
   /**
    * Technical entity name for DeductionTaxGroups.
    */
   static _entityName = 'DeductionTaxGroups';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for DeductionTaxGroups.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Group Key.
    * @nullable
    */
   groupKey?: number;
+  /**
+   * Group Code.
+   * @nullable
+   */
+  groupCode?: BoDeductionTaxGroupCodeEnum;
   /**
    * Group Name.
    * @nullable
@@ -53,11 +54,11 @@ export class DeductionTaxGroups extends Entity implements DeductionTaxGroupsType
   deductionTaxSubGroup!: DeductionTaxSubGroups;
 
   /**
-   * Returns an entity builder to construct instances `DeductionTaxGroups`.
+   * Returns an entity builder to construct instances of `DeductionTaxGroups`.
    * @returns A builder that constructs instances of entity type `DeductionTaxGroups`.
    */
-  static builder(): EntityBuilderType<DeductionTaxGroups, DeductionTaxGroupsTypeForceMandatory> {
-    return Entity.entityBuilder(DeductionTaxGroups);
+  static builder(): EntityBuilderType<DeductionTaxGroups, DeductionTaxGroupsType> {
+    return EntityV4.entityBuilder(DeductionTaxGroups);
   }
 
   /**
@@ -73,8 +74,8 @@ export class DeductionTaxGroups extends Entity implements DeductionTaxGroupsType
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `DeductionTaxGroups`.
    */
-  static customField(fieldName: string): CustomField<DeductionTaxGroups> {
-    return Entity.customFieldSelector(fieldName, DeductionTaxGroups);
+  static customField(fieldName: string): CustomFieldV4<DeductionTaxGroups> {
+    return EntityV4.customFieldSelector(fieldName, DeductionTaxGroups);
   }
 
   /**
@@ -90,19 +91,11 @@ import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 import { DeductionTaxSubGroups, DeductionTaxSubGroupsType } from './DeductionTaxSubGroups';
 
 export interface DeductionTaxGroupsType {
-  groupKey?: number;
-  groupName?: string;
-  maxRedin?: number;
-  groupExtendedCode?: string;
-  businessPartners: BusinessPartnersType[];
-  deductionTaxSubGroup: DeductionTaxSubGroupsType;
-}
-
-export interface DeductionTaxGroupsTypeForceMandatory {
-  groupKey: number;
-  groupName: string;
-  maxRedin: number;
-  groupExtendedCode: string;
+  groupKey?: number | null;
+  groupCode?: BoDeductionTaxGroupCodeEnum | null;
+  groupName?: string | null;
+  maxRedin?: number | null;
+  groupExtendedCode?: string | null;
   businessPartners: BusinessPartnersType[];
   deductionTaxSubGroup: DeductionTaxSubGroupsType;
 }
@@ -113,6 +106,11 @@ export namespace DeductionTaxGroups {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const GROUP_KEY: NumberField<DeductionTaxGroups> = new NumberField('GroupKey', DeductionTaxGroups, 'Edm.Int32');
+  /**
+   * Static representation of the [[groupCode]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const GROUP_CODE: EnumField<DeductionTaxGroups> = new EnumField('GroupCode', DeductionTaxGroups);
   /**
    * Static representation of the [[groupName]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -141,8 +139,9 @@ export namespace DeductionTaxGroups {
   /**
    * All fields of the DeductionTaxGroups entity.
    */
-  export const _allFields: Array<NumberField<DeductionTaxGroups> | StringField<DeductionTaxGroups> | OneToManyLink<DeductionTaxGroups, BusinessPartners> | OneToOneLink<DeductionTaxGroups, DeductionTaxSubGroups>> = [
+  export const _allFields: Array<NumberField<DeductionTaxGroups> | EnumField<DeductionTaxGroups> | StringField<DeductionTaxGroups> | OneToManyLink<DeductionTaxGroups, BusinessPartners> | OneToOneLink<DeductionTaxGroups, DeductionTaxSubGroups>> = [
     DeductionTaxGroups.GROUP_KEY,
+    DeductionTaxGroups.GROUP_CODE,
     DeductionTaxGroups.GROUP_NAME,
     DeductionTaxGroups.MAX_REDIN,
     DeductionTaxGroups.GROUP_EXTENDED_CODE,

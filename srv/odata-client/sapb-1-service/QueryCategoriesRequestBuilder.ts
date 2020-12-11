@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { QueryCategories } from './QueryCategories';
 
 /**
@@ -15,16 +15,16 @@ export class QueryCategoriesRequestBuilder extends RequestBuilder<QueryCategorie
    * @param code Key property. See [[QueryCategories.code]].
    * @returns A request builder for creating requests to retrieve one `QueryCategories` entity based on its keys.
    */
-  getByKey(code: number): GetByKeyRequestBuilder<QueryCategories> {
-    return new GetByKeyRequestBuilder(QueryCategories, { Code: code });
+  getByKey(code: number): GetByKeyRequestBuilderV4<QueryCategories> {
+    return new GetByKeyRequestBuilderV4(QueryCategories, { Code: code });
   }
 
   /**
    * Returns a request builder for querying all `QueryCategories` entities.
    * @returns A request builder for creating requests to retrieve all `QueryCategories` entities.
    */
-  getAll(): GetAllRequestBuilder<QueryCategories> {
-    return new GetAllRequestBuilder(QueryCategories);
+  getAll(): GetAllRequestBuilderV4<QueryCategories> {
+    return new GetAllRequestBuilderV4(QueryCategories);
   }
 
   /**
@@ -32,8 +32,8 @@ export class QueryCategoriesRequestBuilder extends RequestBuilder<QueryCategorie
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `QueryCategories`.
    */
-  create(entity: QueryCategories): CreateRequestBuilder<QueryCategories> {
-    return new CreateRequestBuilder(QueryCategories, entity);
+  create(entity: QueryCategories): CreateRequestBuilderV4<QueryCategories> {
+    return new CreateRequestBuilderV4(QueryCategories, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class QueryCategoriesRequestBuilder extends RequestBuilder<QueryCategorie
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `QueryCategories`.
    */
-  update(entity: QueryCategories): UpdateRequestBuilder<QueryCategories> {
-    return new UpdateRequestBuilder(QueryCategories, entity);
+  update(entity: QueryCategories): UpdateRequestBuilderV4<QueryCategories> {
+    return new UpdateRequestBuilderV4(QueryCategories, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class QueryCategoriesRequestBuilder extends RequestBuilder<QueryCategorie
    * @param code Key property. See [[QueryCategories.code]].
    * @returns A request builder for creating requests that delete an entity of type `QueryCategories`.
    */
-  delete(code: number): DeleteRequestBuilder<QueryCategories>;
+  delete(code: number): DeleteRequestBuilderV4<QueryCategories>;
   /**
    * Returns a request builder for deleting an entity of type `QueryCategories`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `QueryCategories` by taking the entity as a parameter.
    */
-  delete(entity: QueryCategories): DeleteRequestBuilder<QueryCategories>;
-  delete(codeOrEntity: any): DeleteRequestBuilder<QueryCategories> {
-    return new DeleteRequestBuilder(QueryCategories, codeOrEntity instanceof QueryCategories ? codeOrEntity : { Code: codeOrEntity! });
+  delete(entity: QueryCategories): DeleteRequestBuilderV4<QueryCategories>;
+  delete(codeOrEntity: any): DeleteRequestBuilderV4<QueryCategories> {
+    return new DeleteRequestBuilderV4(QueryCategories, codeOrEntity instanceof QueryCategories ? codeOrEntity : { Code: codeOrEntity! });
   }
 }

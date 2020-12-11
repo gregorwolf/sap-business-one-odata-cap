@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { EmployeeRolesSetupRequestBuilder } from './EmployeeRolesSetupRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "EmployeeRolesSetup" of service "SAPB1".
  */
-export class EmployeeRolesSetup extends Entity implements EmployeeRolesSetupType {
+export class EmployeeRolesSetup extends EntityV4 implements EmployeeRolesSetupType {
   /**
    * Technical entity name for EmployeeRolesSetup.
    */
   static _entityName = 'EmployeeRolesSetup';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for EmployeeRolesSetup.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Type Id.
    * @nullable
@@ -44,11 +39,11 @@ export class EmployeeRolesSetup extends Entity implements EmployeeRolesSetupType
   employeesInfo!: EmployeesInfo[];
 
   /**
-   * Returns an entity builder to construct instances `EmployeeRolesSetup`.
+   * Returns an entity builder to construct instances of `EmployeeRolesSetup`.
    * @returns A builder that constructs instances of entity type `EmployeeRolesSetup`.
    */
-  static builder(): EntityBuilderType<EmployeeRolesSetup, EmployeeRolesSetupTypeForceMandatory> {
-    return Entity.entityBuilder(EmployeeRolesSetup);
+  static builder(): EntityBuilderType<EmployeeRolesSetup, EmployeeRolesSetupType> {
+    return EntityV4.entityBuilder(EmployeeRolesSetup);
   }
 
   /**
@@ -64,8 +59,8 @@ export class EmployeeRolesSetup extends Entity implements EmployeeRolesSetupType
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `EmployeeRolesSetup`.
    */
-  static customField(fieldName: string): CustomField<EmployeeRolesSetup> {
-    return Entity.customFieldSelector(fieldName, EmployeeRolesSetup);
+  static customField(fieldName: string): CustomFieldV4<EmployeeRolesSetup> {
+    return EntityV4.customFieldSelector(fieldName, EmployeeRolesSetup);
   }
 
   /**
@@ -80,16 +75,9 @@ export class EmployeeRolesSetup extends Entity implements EmployeeRolesSetupType
 import { EmployeesInfo, EmployeesInfoType } from './EmployeesInfo';
 
 export interface EmployeeRolesSetupType {
-  typeId?: number;
-  name?: string;
-  description?: string;
-  employeesInfo: EmployeesInfoType[];
-}
-
-export interface EmployeeRolesSetupTypeForceMandatory {
-  typeId: number;
-  name: string;
-  description: string;
+  typeId?: number | null;
+  name?: string | null;
+  description?: string | null;
   employeesInfo: EmployeesInfoType[];
 }
 

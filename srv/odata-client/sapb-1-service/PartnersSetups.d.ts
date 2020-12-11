@@ -1,18 +1,13 @@
 import { PartnersSetupsRequestBuilder } from './PartnersSetupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "PartnersSetups" of service "SAPB1".
  */
-export declare class PartnersSetups extends Entity implements PartnersSetupsType {
+export declare class PartnersSetups extends EntityV4 implements PartnersSetupsType {
     /**
      * Technical entity name for PartnersSetups.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for PartnersSetups.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -46,10 +41,10 @@ export declare class PartnersSetups extends Entity implements PartnersSetupsType
      */
     businessPartner: BusinessPartners;
     /**
-     * Returns an entity builder to construct instances `PartnersSetups`.
+     * Returns an entity builder to construct instances of `PartnersSetups`.
      * @returns A builder that constructs instances of entity type `PartnersSetups`.
      */
-    static builder(): EntityBuilderType<PartnersSetups, PartnersSetupsTypeForceMandatory>;
+    static builder(): EntityBuilderType<PartnersSetups, PartnersSetupsType>;
     /**
      * Returns a request builder to construct requests for operations on the `PartnersSetups` entity type.
      * @returns A `PartnersSetups` request builder.
@@ -60,7 +55,7 @@ export declare class PartnersSetups extends Entity implements PartnersSetupsType
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `PartnersSetups`.
      */
-    static customField(fieldName: string): CustomField<PartnersSetups>;
+    static customField(fieldName: string): CustomFieldV4<PartnersSetups>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -72,18 +67,10 @@ export declare class PartnersSetups extends Entity implements PartnersSetupsType
 import { Relationships, RelationshipsType } from './Relationships';
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 export interface PartnersSetupsType {
-    name?: string;
-    defaultRelationship?: number;
-    relatedBp?: string;
-    details?: string;
-    relationship: RelationshipsType;
-    businessPartner: BusinessPartnersType;
-}
-export interface PartnersSetupsTypeForceMandatory {
-    name: string;
-    defaultRelationship: number;
-    relatedBp: string;
-    details: string;
+    name?: string | null;
+    defaultRelationship?: number | null;
+    relatedBp?: string | null;
+    details?: string | null;
     relationship: RelationshipsType;
     businessPartner: BusinessPartnersType;
 }

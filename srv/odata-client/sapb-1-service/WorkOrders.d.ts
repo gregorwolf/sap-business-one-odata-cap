@@ -1,24 +1,31 @@
 import { WorkOrdersRequestBuilder } from './WorkOrdersRequestBuilder';
 import { Moment } from 'moment';
 import { WorkOrderLine } from './WorkOrderLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoWorkOrderStat } from './BoWorkOrderStat';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "WorkOrders" of service "SAPB1".
  */
-export declare class WorkOrders extends Entity implements WorkOrdersType {
+export declare class WorkOrders extends EntityV4 implements WorkOrdersType {
     /**
      * Technical entity name for WorkOrders.
      */
     static _entityName: string;
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for WorkOrders.
-     */
-    static _serviceName: string;
-    /**
      * Default url path for the according service.
      */
     static _defaultServicePath: string;
+    /**
+     * Status.
+     * @nullable
+     */
+    status?: BoWorkOrderStat;
+    /**
+     * Canceled.
+     * @nullable
+     */
+    canceled?: BoYesNoEnum;
     /**
      * Order Date.
      * @nullable
@@ -146,10 +153,10 @@ export declare class WorkOrders extends Entity implements WorkOrdersType {
      */
     priceList: PriceLists;
     /**
-     * Returns an entity builder to construct instances `WorkOrders`.
+     * Returns an entity builder to construct instances of `WorkOrders`.
      * @returns A builder that constructs instances of entity type `WorkOrders`.
      */
-    static builder(): EntityBuilderType<WorkOrders, WorkOrdersTypeForceMandatory>;
+    static builder(): EntityBuilderType<WorkOrders, WorkOrdersType>;
     /**
      * Returns a request builder to construct requests for operations on the `WorkOrders` entity type.
      * @returns A `WorkOrders` request builder.
@@ -160,7 +167,7 @@ export declare class WorkOrders extends Entity implements WorkOrdersType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `WorkOrders`.
      */
-    static customField(fieldName: string): CustomField<WorkOrders>;
+    static customField(fieldName: string): CustomFieldV4<WorkOrders>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -174,62 +181,46 @@ import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 import { ChartOfAccounts, ChartOfAccountsType } from './ChartOfAccounts';
 import { PriceLists, PriceListsType } from './PriceLists';
 export interface WorkOrdersType {
-    orderDate?: Moment;
-    workStartDate?: Moment;
-    expectedCompletionDate?: Moment;
-    workFinishDate?: Moment;
-    receiverName?: string;
-    ordererCode?: string;
-    ordererName?: string;
-    customerRefNo?: string;
-    orderTotal?: number;
-    totalCurrency?: string;
-    generationTime?: number;
-    comment?: string;
-    instructionNumber?: number;
-    contactPerson?: number;
-    series?: number;
-    activeAccountCode?: string;
-    workSum?: number;
-    journalRemarks?: string;
-    priceListNum?: number;
-    financialPeriod?: number;
-    orderNum?: number;
-    workOrderLines?: WorkOrderLine[];
-    user: UsersType;
-    businessPartner: BusinessPartnersType;
-    chartOfAccount: ChartOfAccountsType;
-    priceList: PriceListsType;
-}
-export interface WorkOrdersTypeForceMandatory {
-    orderDate: Moment;
-    workStartDate: Moment;
-    expectedCompletionDate: Moment;
-    workFinishDate: Moment;
-    receiverName: string;
-    ordererCode: string;
-    ordererName: string;
-    customerRefNo: string;
-    orderTotal: number;
-    totalCurrency: string;
-    generationTime: number;
-    comment: string;
-    instructionNumber: number;
-    contactPerson: number;
-    series: number;
-    activeAccountCode: string;
-    workSum: number;
-    journalRemarks: string;
-    priceListNum: number;
-    financialPeriod: number;
-    orderNum: number;
-    workOrderLines: WorkOrderLine[];
+    status?: BoWorkOrderStat | null;
+    canceled?: BoYesNoEnum | null;
+    orderDate?: Moment | null;
+    workStartDate?: Moment | null;
+    expectedCompletionDate?: Moment | null;
+    workFinishDate?: Moment | null;
+    receiverName?: string | null;
+    ordererCode?: string | null;
+    ordererName?: string | null;
+    customerRefNo?: string | null;
+    orderTotal?: number | null;
+    totalCurrency?: string | null;
+    generationTime?: number | null;
+    comment?: string | null;
+    instructionNumber?: number | null;
+    contactPerson?: number | null;
+    series?: number | null;
+    activeAccountCode?: string | null;
+    workSum?: number | null;
+    journalRemarks?: string | null;
+    priceListNum?: number | null;
+    financialPeriod?: number | null;
+    orderNum?: number | null;
+    workOrderLines?: WorkOrderLine[] | null;
     user: UsersType;
     businessPartner: BusinessPartnersType;
     chartOfAccount: ChartOfAccountsType;
     priceList: PriceListsType;
 }
 export declare namespace WorkOrders {
+    /**
+     * Static representation of the [[status]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const STATUS: EnumField<WorkOrders>;
+    /**
+     * Static representation of the [[canceled]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CANCELED: EnumField<WorkOrders>;
     /**
      * Static representation of the [[orderDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -339,7 +330,7 @@ export declare namespace WorkOrders {
      * Static representation of the [[workOrderLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const WORK_ORDER_LINES: CollectionField<WorkOrders>;
+    const WORK_ORDER_LINES: CollectionField<WorkOrders, WorkOrderLine>;
     /**
      * Static representation of the one-to-one navigation property [[user]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -363,7 +354,7 @@ export declare namespace WorkOrders {
     /**
      * All fields of the WorkOrders entity.
      */
-    const _allFields: Array<DateField<WorkOrders> | StringField<WorkOrders> | NumberField<WorkOrders> | CollectionField<WorkOrders> | OneToOneLink<WorkOrders, Users> | OneToOneLink<WorkOrders, BusinessPartners> | OneToOneLink<WorkOrders, ChartOfAccounts> | OneToOneLink<WorkOrders, PriceLists>>;
+    const _allFields: Array<EnumField<WorkOrders> | DateField<WorkOrders> | StringField<WorkOrders> | NumberField<WorkOrders> | CollectionField<WorkOrders, WorkOrderLine> | OneToOneLink<WorkOrders, Users> | OneToOneLink<WorkOrders, BusinessPartners> | OneToOneLink<WorkOrders, ChartOfAccounts> | OneToOneLink<WorkOrders, PriceLists>>;
     /**
      * All fields selector.
      */

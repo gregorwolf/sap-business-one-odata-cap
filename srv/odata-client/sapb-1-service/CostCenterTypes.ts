@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { CostCenterTypesRequestBuilder } from './CostCenterTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "CostCenterTypes" of service "SAPB1".
  */
-export class CostCenterTypes extends Entity implements CostCenterTypesType {
+export class CostCenterTypes extends EntityV4 implements CostCenterTypesType {
   /**
    * Technical entity name for CostCenterTypes.
    */
   static _entityName = 'CostCenterTypes';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for CostCenterTypes.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Cost Center Type Code.
    * @nullable
@@ -39,11 +34,11 @@ export class CostCenterTypes extends Entity implements CostCenterTypesType {
   profitCenters!: ProfitCenters[];
 
   /**
-   * Returns an entity builder to construct instances `CostCenterTypes`.
+   * Returns an entity builder to construct instances of `CostCenterTypes`.
    * @returns A builder that constructs instances of entity type `CostCenterTypes`.
    */
-  static builder(): EntityBuilderType<CostCenterTypes, CostCenterTypesTypeForceMandatory> {
-    return Entity.entityBuilder(CostCenterTypes);
+  static builder(): EntityBuilderType<CostCenterTypes, CostCenterTypesType> {
+    return EntityV4.entityBuilder(CostCenterTypes);
   }
 
   /**
@@ -59,8 +54,8 @@ export class CostCenterTypes extends Entity implements CostCenterTypesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `CostCenterTypes`.
    */
-  static customField(fieldName: string): CustomField<CostCenterTypes> {
-    return Entity.customFieldSelector(fieldName, CostCenterTypes);
+  static customField(fieldName: string): CustomFieldV4<CostCenterTypes> {
+    return EntityV4.customFieldSelector(fieldName, CostCenterTypes);
   }
 
   /**
@@ -75,14 +70,8 @@ export class CostCenterTypes extends Entity implements CostCenterTypesType {
 import { ProfitCenters, ProfitCentersType } from './ProfitCenters';
 
 export interface CostCenterTypesType {
-  costCenterTypeCode?: string;
-  costCenterTypeName?: string;
-  profitCenters: ProfitCentersType[];
-}
-
-export interface CostCenterTypesTypeForceMandatory {
-  costCenterTypeCode: string;
-  costCenterTypeName: string;
+  costCenterTypeCode?: string | null;
+  costCenterTypeName?: string | null;
   profitCenters: ProfitCentersType[];
 }
 

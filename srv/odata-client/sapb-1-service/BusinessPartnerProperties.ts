@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { BusinessPartnerPropertiesRequestBuilder } from './BusinessPartnerPropertiesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "BusinessPartnerProperties" of service "SAPB1".
  */
-export class BusinessPartnerProperties extends Entity implements BusinessPartnerPropertiesType {
+export class BusinessPartnerProperties extends EntityV4 implements BusinessPartnerPropertiesType {
   /**
    * Technical entity name for BusinessPartnerProperties.
    */
   static _entityName = 'BusinessPartnerProperties';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for BusinessPartnerProperties.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Property Code.
    * @nullable
@@ -35,11 +30,11 @@ export class BusinessPartnerProperties extends Entity implements BusinessPartner
   propertyName?: string;
 
   /**
-   * Returns an entity builder to construct instances `BusinessPartnerProperties`.
+   * Returns an entity builder to construct instances of `BusinessPartnerProperties`.
    * @returns A builder that constructs instances of entity type `BusinessPartnerProperties`.
    */
-  static builder(): EntityBuilderType<BusinessPartnerProperties, BusinessPartnerPropertiesTypeForceMandatory> {
-    return Entity.entityBuilder(BusinessPartnerProperties);
+  static builder(): EntityBuilderType<BusinessPartnerProperties, BusinessPartnerPropertiesType> {
+    return EntityV4.entityBuilder(BusinessPartnerProperties);
   }
 
   /**
@@ -55,8 +50,8 @@ export class BusinessPartnerProperties extends Entity implements BusinessPartner
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `BusinessPartnerProperties`.
    */
-  static customField(fieldName: string): CustomField<BusinessPartnerProperties> {
-    return Entity.customFieldSelector(fieldName, BusinessPartnerProperties);
+  static customField(fieldName: string): CustomFieldV4<BusinessPartnerProperties> {
+    return EntityV4.customFieldSelector(fieldName, BusinessPartnerProperties);
   }
 
   /**
@@ -69,13 +64,8 @@ export class BusinessPartnerProperties extends Entity implements BusinessPartner
 }
 
 export interface BusinessPartnerPropertiesType {
-  propertyCode?: number;
-  propertyName?: string;
-}
-
-export interface BusinessPartnerPropertiesTypeForceMandatory {
-  propertyCode: number;
-  propertyName: string;
+  propertyCode?: number | null;
+  propertyName?: string | null;
 }
 
 export namespace BusinessPartnerProperties {

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * WorkOrderLine
@@ -67,7 +67,7 @@ export function createWorkOrderLine(json: any): WorkOrderLine {
  * WorkOrderLineField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class WorkOrderLineField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class WorkOrderLineField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, WorkOrderLine> {
   /**
    * Representation of the [[WorkOrderLine.rowNumber]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -113,20 +113,73 @@ export class WorkOrderLineField<EntityT extends Entity> extends ComplexTypeField
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   workSum: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('WorkSum', this, 'Edm.Double');
+
+  /**
+   * Creates an instance of WorkOrderLineField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, WorkOrderLine);
+  }
 }
 
 export namespace WorkOrderLine {
+  /**
+   * Metadata information on all properties of the `WorkOrderLine` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<WorkOrderLine>[] = [{
+    originalName: 'RowNumber',
+    name: 'rowNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'ItemCode',
+    name: 'itemCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemDescription',
+    name: 'itemDescription',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemQuantity',
+    name: 'itemQuantity',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'ItemPrice',
+    name: 'itemPrice',
+    type: 'Edm.Double',
+    isCollection: false
+  }, {
+    originalName: 'PriceCurrency',
+    name: 'priceCurrency',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ItemWarehouse',
+    name: 'itemWarehouse',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ActiveAccountCode',
+    name: 'activeAccountCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'WorkSum',
+    name: 'workSum',
+    type: 'Edm.Double',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): WorkOrderLine {
-    return createComplexType(json, {
-      RowNumber: (rowNumber: number) => ({ rowNumber: edmToTs(rowNumber, 'Edm.Int32') }),
-      ItemCode: (itemCode: string) => ({ itemCode: edmToTs(itemCode, 'Edm.String') }),
-      ItemDescription: (itemDescription: string) => ({ itemDescription: edmToTs(itemDescription, 'Edm.String') }),
-      ItemQuantity: (itemQuantity: number) => ({ itemQuantity: edmToTs(itemQuantity, 'Edm.Double') }),
-      ItemPrice: (itemPrice: number) => ({ itemPrice: edmToTs(itemPrice, 'Edm.Double') }),
-      PriceCurrency: (priceCurrency: string) => ({ priceCurrency: edmToTs(priceCurrency, 'Edm.String') }),
-      ItemWarehouse: (itemWarehouse: string) => ({ itemWarehouse: edmToTs(itemWarehouse, 'Edm.String') }),
-      ActiveAccountCode: (activeAccountCode: string) => ({ activeAccountCode: edmToTs(activeAccountCode, 'Edm.String') }),
-      WorkSum: (workSum: number) => ({ workSum: edmToTs(workSum, 'Edm.Double') })
-    });
+    return deserializeComplexTypeV4(json, WorkOrderLine);
   }
 }

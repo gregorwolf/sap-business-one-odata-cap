@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.ElectronicFileFormats = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var ElectronicFileFormatsRequestBuilder_1 = require("./ElectronicFileFormatsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "ElectronicFileFormats" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var ElectronicFileFormats = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `ElectronicFileFormats`.
+     * Returns an entity builder to construct instances of `ElectronicFileFormats`.
      * @returns A builder that constructs instances of entity type `ElectronicFileFormats`.
      */
     ElectronicFileFormats.builder = function () {
-        return v4_1.Entity.entityBuilder(ElectronicFileFormats);
+        return core_1.EntityV4.entityBuilder(ElectronicFileFormats);
     };
     /**
      * Returns a request builder to construct requests for operations on the `ElectronicFileFormats` entity type.
@@ -60,7 +60,7 @@ var ElectronicFileFormats = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `ElectronicFileFormats`.
      */
     ElectronicFileFormats.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, ElectronicFileFormats);
+        return core_1.EntityV4.customFieldSelector(fieldName, ElectronicFileFormats);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,58 +74,53 @@ var ElectronicFileFormats = /** @class */ (function (_super) {
      */
     ElectronicFileFormats._entityName = 'ElectronicFileFormats';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ElectronicFileFormats.
-     */
-    ElectronicFileFormats._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    ElectronicFileFormats._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    ElectronicFileFormats._defaultServicePath = '/b1s/v2/';
     return ElectronicFileFormats;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.ElectronicFileFormats = ElectronicFileFormats;
 (function (ElectronicFileFormats) {
     /**
      * Static representation of the [[formatId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ElectronicFileFormats.FORMAT_ID = new v4_1.NumberField('FormatID', ElectronicFileFormats, 'Edm.Int32');
+    ElectronicFileFormats.FORMAT_ID = new core_1.NumberField('FormatID', ElectronicFileFormats, 'Edm.Int32');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ElectronicFileFormats.NAME = new v4_1.StringField('Name', ElectronicFileFormats, 'Edm.String');
+    ElectronicFileFormats.NAME = new core_1.StringField('Name', ElectronicFileFormats, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ElectronicFileFormats.DESCRIPTION = new v4_1.StringField('Description', ElectronicFileFormats, 'Edm.String');
+    ElectronicFileFormats.DESCRIPTION = new core_1.StringField('Description', ElectronicFileFormats, 'Edm.String');
     /**
      * Static representation of the [[version]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ElectronicFileFormats.VERSION = new v4_1.StringField('Version', ElectronicFileFormats, 'Edm.String');
+    ElectronicFileFormats.VERSION = new core_1.StringField('Version', ElectronicFileFormats, 'Edm.String');
     /**
      * Static representation of the [[schemaVersion]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ElectronicFileFormats.SCHEMA_VERSION = new v4_1.StringField('SchemaVersion', ElectronicFileFormats, 'Edm.String');
+    ElectronicFileFormats.SCHEMA_VERSION = new core_1.StringField('SchemaVersion', ElectronicFileFormats, 'Edm.String');
     /**
      * Static representation of the [[outputFilePath]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ElectronicFileFormats.OUTPUT_FILE_PATH = new v4_1.StringField('OutputFilePath', ElectronicFileFormats, 'Edm.String');
+    ElectronicFileFormats.OUTPUT_FILE_PATH = new core_1.StringField('OutputFilePath', ElectronicFileFormats, 'Edm.String');
     /**
      * Static representation of the [[menuName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ElectronicFileFormats.MENU_NAME = new v4_1.StringField('MenuName', ElectronicFileFormats, 'Edm.String');
+    ElectronicFileFormats.MENU_NAME = new core_1.StringField('MenuName', ElectronicFileFormats, 'Edm.String');
     /**
      * Static representation of the [[menuPath]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ElectronicFileFormats.MENU_PATH = new v4_1.StringField('MenuPath', ElectronicFileFormats, 'Edm.String');
+    ElectronicFileFormats.MENU_PATH = new core_1.StringField('MenuPath', ElectronicFileFormats, 'Edm.String');
     /**
      * All fields of the ElectronicFileFormats entity.
      */
@@ -142,7 +137,7 @@ exports.ElectronicFileFormats = ElectronicFileFormats;
     /**
      * All fields selector.
      */
-    ElectronicFileFormats.ALL_FIELDS = new v4_1.AllFields('*', ElectronicFileFormats);
+    ElectronicFileFormats.ALL_FIELDS = new core_1.AllFields('*', ElectronicFileFormats);
     /**
      * All key fields of the ElectronicFileFormats entity.
      */

@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { StockTakingsRequestBuilder } from './StockTakingsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "StockTakings" of service "SAPB1".
  */
-export class StockTakings extends Entity implements StockTakingsType {
+export class StockTakings extends EntityV4 implements StockTakingsType {
   /**
    * Technical entity name for StockTakings.
    */
   static _entityName = 'StockTakings';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for StockTakings.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Item Code.
    * @nullable
@@ -48,11 +43,11 @@ export class StockTakings extends Entity implements StockTakingsType {
   warehouse!: Warehouses;
 
   /**
-   * Returns an entity builder to construct instances `StockTakings`.
+   * Returns an entity builder to construct instances of `StockTakings`.
    * @returns A builder that constructs instances of entity type `StockTakings`.
    */
-  static builder(): EntityBuilderType<StockTakings, StockTakingsTypeForceMandatory> {
-    return Entity.entityBuilder(StockTakings);
+  static builder(): EntityBuilderType<StockTakings, StockTakingsType> {
+    return EntityV4.entityBuilder(StockTakings);
   }
 
   /**
@@ -68,8 +63,8 @@ export class StockTakings extends Entity implements StockTakingsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `StockTakings`.
    */
-  static customField(fieldName: string): CustomField<StockTakings> {
-    return Entity.customFieldSelector(fieldName, StockTakings);
+  static customField(fieldName: string): CustomFieldV4<StockTakings> {
+    return EntityV4.customFieldSelector(fieldName, StockTakings);
   }
 
   /**
@@ -85,17 +80,9 @@ import { Items, ItemsType } from './Items';
 import { Warehouses, WarehousesType } from './Warehouses';
 
 export interface StockTakingsType {
-  itemCode?: string;
-  warehouseCode?: string;
-  counted?: number;
-  item: ItemsType;
-  warehouse: WarehousesType;
-}
-
-export interface StockTakingsTypeForceMandatory {
-  itemCode: string;
-  warehouseCode: string;
-  counted: number;
+  itemCode?: string | null;
+  warehouseCode?: string | null;
+  counted?: number | null;
   item: ItemsType;
   warehouse: WarehousesType;
 }

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.SalesPersonsRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var SalesPersons_1 = require("./SalesPersons");
 /**
  * Request builder class for operations supported on the [[SalesPersons]] entity.
@@ -35,14 +35,14 @@ var SalesPersonsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `SalesPersons` entity based on its keys.
      */
     SalesPersonsRequestBuilder.prototype.getByKey = function (salesEmployeeCode) {
-        return new v4_1.GetByKeyRequestBuilder(SalesPersons_1.SalesPersons, { SalesEmployeeCode: salesEmployeeCode });
+        return new core_1.GetByKeyRequestBuilderV4(SalesPersons_1.SalesPersons, { SalesEmployeeCode: salesEmployeeCode });
     };
     /**
      * Returns a request builder for querying all `SalesPersons` entities.
      * @returns A request builder for creating requests to retrieve all `SalesPersons` entities.
      */
     SalesPersonsRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(SalesPersons_1.SalesPersons);
+        return new core_1.GetAllRequestBuilderV4(SalesPersons_1.SalesPersons);
     };
     /**
      * Returns a request builder for creating a `SalesPersons` entity.
@@ -50,7 +50,7 @@ var SalesPersonsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `SalesPersons`.
      */
     SalesPersonsRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(SalesPersons_1.SalesPersons, entity);
+        return new core_1.CreateRequestBuilderV4(SalesPersons_1.SalesPersons, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `SalesPersons`.
@@ -58,12 +58,12 @@ var SalesPersonsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `SalesPersons`.
      */
     SalesPersonsRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(SalesPersons_1.SalesPersons, entity);
+        return new core_1.UpdateRequestBuilderV4(SalesPersons_1.SalesPersons, entity);
     };
     SalesPersonsRequestBuilder.prototype.delete = function (salesEmployeeCodeOrEntity) {
-        return new v4_1.DeleteRequestBuilder(SalesPersons_1.SalesPersons, salesEmployeeCodeOrEntity instanceof SalesPersons_1.SalesPersons ? salesEmployeeCodeOrEntity : { SalesEmployeeCode: salesEmployeeCodeOrEntity });
+        return new core_1.DeleteRequestBuilderV4(SalesPersons_1.SalesPersons, salesEmployeeCodeOrEntity instanceof SalesPersons_1.SalesPersons ? salesEmployeeCodeOrEntity : { SalesEmployeeCode: salesEmployeeCodeOrEntity });
     };
     return SalesPersonsRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.SalesPersonsRequestBuilder = SalesPersonsRequestBuilder;
 //# sourceMappingURL=SalesPersonsRequestBuilder.js.map

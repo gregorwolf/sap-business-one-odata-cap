@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { CampaignResponseType } from './CampaignResponseType';
 
 /**
@@ -15,16 +15,16 @@ export class CampaignResponseTypeRequestBuilder extends RequestBuilder<CampaignR
    * @param responseType Key property. See [[CampaignResponseType.responseType]].
    * @returns A request builder for creating requests to retrieve one `CampaignResponseType` entity based on its keys.
    */
-  getByKey(responseType: string): GetByKeyRequestBuilder<CampaignResponseType> {
-    return new GetByKeyRequestBuilder(CampaignResponseType, { ResponseType: responseType });
+  getByKey(responseType: string): GetByKeyRequestBuilderV4<CampaignResponseType> {
+    return new GetByKeyRequestBuilderV4(CampaignResponseType, { ResponseType: responseType });
   }
 
   /**
    * Returns a request builder for querying all `CampaignResponseType` entities.
    * @returns A request builder for creating requests to retrieve all `CampaignResponseType` entities.
    */
-  getAll(): GetAllRequestBuilder<CampaignResponseType> {
-    return new GetAllRequestBuilder(CampaignResponseType);
+  getAll(): GetAllRequestBuilderV4<CampaignResponseType> {
+    return new GetAllRequestBuilderV4(CampaignResponseType);
   }
 
   /**
@@ -32,8 +32,8 @@ export class CampaignResponseTypeRequestBuilder extends RequestBuilder<CampaignR
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `CampaignResponseType`.
    */
-  create(entity: CampaignResponseType): CreateRequestBuilder<CampaignResponseType> {
-    return new CreateRequestBuilder(CampaignResponseType, entity);
+  create(entity: CampaignResponseType): CreateRequestBuilderV4<CampaignResponseType> {
+    return new CreateRequestBuilderV4(CampaignResponseType, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class CampaignResponseTypeRequestBuilder extends RequestBuilder<CampaignR
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `CampaignResponseType`.
    */
-  update(entity: CampaignResponseType): UpdateRequestBuilder<CampaignResponseType> {
-    return new UpdateRequestBuilder(CampaignResponseType, entity);
+  update(entity: CampaignResponseType): UpdateRequestBuilderV4<CampaignResponseType> {
+    return new UpdateRequestBuilderV4(CampaignResponseType, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class CampaignResponseTypeRequestBuilder extends RequestBuilder<CampaignR
    * @param responseType Key property. See [[CampaignResponseType.responseType]].
    * @returns A request builder for creating requests that delete an entity of type `CampaignResponseType`.
    */
-  delete(responseType: string): DeleteRequestBuilder<CampaignResponseType>;
+  delete(responseType: string): DeleteRequestBuilderV4<CampaignResponseType>;
   /**
    * Returns a request builder for deleting an entity of type `CampaignResponseType`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `CampaignResponseType` by taking the entity as a parameter.
    */
-  delete(entity: CampaignResponseType): DeleteRequestBuilder<CampaignResponseType>;
-  delete(responseTypeOrEntity: any): DeleteRequestBuilder<CampaignResponseType> {
-    return new DeleteRequestBuilder(CampaignResponseType, responseTypeOrEntity instanceof CampaignResponseType ? responseTypeOrEntity : { ResponseType: responseTypeOrEntity! });
+  delete(entity: CampaignResponseType): DeleteRequestBuilderV4<CampaignResponseType>;
+  delete(responseTypeOrEntity: any): DeleteRequestBuilderV4<CampaignResponseType> {
+    return new DeleteRequestBuilderV4(CampaignResponseType, responseTypeOrEntity instanceof CampaignResponseType ? responseTypeOrEntity : { ResponseType: responseTypeOrEntity! });
   }
 }

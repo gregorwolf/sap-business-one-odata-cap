@@ -5,26 +5,23 @@
  */
 import { InternalReconciliationsRequestBuilder } from './InternalReconciliationsRequestBuilder';
 import { Moment } from 'moment';
-import { InternalReconciliationRow, InternalReconciliationRowField } from './InternalReconciliationRow';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField } from '@sap-cloud-sdk/core/v4';
+import { InternalReconciliationRow } from './InternalReconciliationRow';
+import { CardOrAccountEnum } from './CardOrAccountEnum';
+import { ReconTypeEnum } from './ReconTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "InternalReconciliations" of service "SAPB1".
  */
-export class InternalReconciliations extends Entity implements InternalReconciliationsType {
+export class InternalReconciliations extends EntityV4 implements InternalReconciliationsType {
   /**
    * Technical entity name for InternalReconciliations.
    */
   static _entityName = 'InternalReconciliations';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for InternalReconciliations.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Recon Num.
    * @nullable
@@ -35,6 +32,16 @@ export class InternalReconciliations extends Entity implements InternalReconcili
    * @nullable
    */
   reconDate?: Moment;
+  /**
+   * Card Or Account.
+   * @nullable
+   */
+  cardOrAccount?: CardOrAccountEnum;
+  /**
+   * Recon Type.
+   * @nullable
+   */
+  reconType?: ReconTypeEnum;
   /**
    * Total.
    * @nullable
@@ -52,11 +59,11 @@ export class InternalReconciliations extends Entity implements InternalReconcili
   internalReconciliationRows?: InternalReconciliationRow[];
 
   /**
-   * Returns an entity builder to construct instances `InternalReconciliations`.
+   * Returns an entity builder to construct instances of `InternalReconciliations`.
    * @returns A builder that constructs instances of entity type `InternalReconciliations`.
    */
-  static builder(): EntityBuilderType<InternalReconciliations, InternalReconciliationsTypeForceMandatory> {
-    return Entity.entityBuilder(InternalReconciliations);
+  static builder(): EntityBuilderType<InternalReconciliations, InternalReconciliationsType> {
+    return EntityV4.entityBuilder(InternalReconciliations);
   }
 
   /**
@@ -72,8 +79,8 @@ export class InternalReconciliations extends Entity implements InternalReconcili
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `InternalReconciliations`.
    */
-  static customField(fieldName: string): CustomField<InternalReconciliations> {
-    return Entity.customFieldSelector(fieldName, InternalReconciliations);
+  static customField(fieldName: string): CustomFieldV4<InternalReconciliations> {
+    return EntityV4.customFieldSelector(fieldName, InternalReconciliations);
   }
 
   /**
@@ -86,19 +93,13 @@ export class InternalReconciliations extends Entity implements InternalReconcili
 }
 
 export interface InternalReconciliationsType {
-  reconNum?: number;
-  reconDate?: Moment;
-  total?: number;
-  cancelAbs?: number;
-  internalReconciliationRows?: InternalReconciliationRow[];
-}
-
-export interface InternalReconciliationsTypeForceMandatory {
-  reconNum: number;
-  reconDate: Moment;
-  total: number;
-  cancelAbs: number;
-  internalReconciliationRows: InternalReconciliationRow[];
+  reconNum?: number | null;
+  reconDate?: Moment | null;
+  cardOrAccount?: CardOrAccountEnum | null;
+  reconType?: ReconTypeEnum | null;
+  total?: number | null;
+  cancelAbs?: number | null;
+  internalReconciliationRows?: InternalReconciliationRow[] | null;
 }
 
 export namespace InternalReconciliations {
@@ -113,6 +114,16 @@ export namespace InternalReconciliations {
    */
   export const RECON_DATE: DateField<InternalReconciliations> = new DateField('ReconDate', InternalReconciliations, 'Edm.DateTimeOffset');
   /**
+   * Static representation of the [[cardOrAccount]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CARD_OR_ACCOUNT: EnumField<InternalReconciliations> = new EnumField('CardOrAccount', InternalReconciliations);
+  /**
+   * Static representation of the [[reconType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RECON_TYPE: EnumField<InternalReconciliations> = new EnumField('ReconType', InternalReconciliations);
+  /**
    * Static representation of the [[total]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -126,13 +137,15 @@ export namespace InternalReconciliations {
    * Static representation of the [[internalReconciliationRows]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const INTERNAL_RECONCILIATION_ROWS: CollectionField<InternalReconciliations> = new CollectionField('InternalReconciliationRows', InternalReconciliations, new InternalReconciliationRowField('', InternalReconciliations));
+  export const INTERNAL_RECONCILIATION_ROWS: CollectionField<InternalReconciliations, InternalReconciliationRow> = new CollectionField('InternalReconciliationRows', InternalReconciliations, InternalReconciliationRow);
   /**
    * All fields of the InternalReconciliations entity.
    */
-  export const _allFields: Array<NumberField<InternalReconciliations> | DateField<InternalReconciliations> | CollectionField<InternalReconciliations>> = [
+  export const _allFields: Array<NumberField<InternalReconciliations> | DateField<InternalReconciliations> | EnumField<InternalReconciliations> | CollectionField<InternalReconciliations, InternalReconciliationRow>> = [
     InternalReconciliations.RECON_NUM,
     InternalReconciliations.RECON_DATE,
+    InternalReconciliations.CARD_OR_ACCOUNT,
+    InternalReconciliations.RECON_TYPE,
     InternalReconciliations.TOTAL,
     InternalReconciliations.CANCEL_ABS,
     InternalReconciliations.INTERNAL_RECONCILIATION_ROWS

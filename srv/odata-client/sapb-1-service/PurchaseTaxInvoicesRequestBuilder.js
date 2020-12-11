@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.PurchaseTaxInvoicesRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var PurchaseTaxInvoices_1 = require("./PurchaseTaxInvoices");
 /**
  * Request builder class for operations supported on the [[PurchaseTaxInvoices]] entity.
@@ -35,14 +35,14 @@ var PurchaseTaxInvoicesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `PurchaseTaxInvoices` entity based on its keys.
      */
     PurchaseTaxInvoicesRequestBuilder.prototype.getByKey = function (docEntry) {
-        return new v4_1.GetByKeyRequestBuilder(PurchaseTaxInvoices_1.PurchaseTaxInvoices, { DocEntry: docEntry });
+        return new core_1.GetByKeyRequestBuilderV4(PurchaseTaxInvoices_1.PurchaseTaxInvoices, { DocEntry: docEntry });
     };
     /**
      * Returns a request builder for querying all `PurchaseTaxInvoices` entities.
      * @returns A request builder for creating requests to retrieve all `PurchaseTaxInvoices` entities.
      */
     PurchaseTaxInvoicesRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(PurchaseTaxInvoices_1.PurchaseTaxInvoices);
+        return new core_1.GetAllRequestBuilderV4(PurchaseTaxInvoices_1.PurchaseTaxInvoices);
     };
     /**
      * Returns a request builder for creating a `PurchaseTaxInvoices` entity.
@@ -50,7 +50,7 @@ var PurchaseTaxInvoicesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `PurchaseTaxInvoices`.
      */
     PurchaseTaxInvoicesRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(PurchaseTaxInvoices_1.PurchaseTaxInvoices, entity);
+        return new core_1.CreateRequestBuilderV4(PurchaseTaxInvoices_1.PurchaseTaxInvoices, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `PurchaseTaxInvoices`.
@@ -58,12 +58,12 @@ var PurchaseTaxInvoicesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `PurchaseTaxInvoices`.
      */
     PurchaseTaxInvoicesRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(PurchaseTaxInvoices_1.PurchaseTaxInvoices, entity);
+        return new core_1.UpdateRequestBuilderV4(PurchaseTaxInvoices_1.PurchaseTaxInvoices, entity);
     };
     PurchaseTaxInvoicesRequestBuilder.prototype.delete = function (docEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(PurchaseTaxInvoices_1.PurchaseTaxInvoices, docEntryOrEntity instanceof PurchaseTaxInvoices_1.PurchaseTaxInvoices ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(PurchaseTaxInvoices_1.PurchaseTaxInvoices, docEntryOrEntity instanceof PurchaseTaxInvoices_1.PurchaseTaxInvoices ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
     };
     return PurchaseTaxInvoicesRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.PurchaseTaxInvoicesRequestBuilder = PurchaseTaxInvoicesRequestBuilder;
 //# sourceMappingURL=PurchaseTaxInvoicesRequestBuilder.js.map

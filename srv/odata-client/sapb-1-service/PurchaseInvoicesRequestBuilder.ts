@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { PurchaseInvoices } from './PurchaseInvoices';
 
 /**
@@ -15,16 +15,16 @@ export class PurchaseInvoicesRequestBuilder extends RequestBuilder<PurchaseInvoi
    * @param docEntry Key property. See [[PurchaseInvoices.docEntry]].
    * @returns A request builder for creating requests to retrieve one `PurchaseInvoices` entity based on its keys.
    */
-  getByKey(docEntry: number): GetByKeyRequestBuilder<PurchaseInvoices> {
-    return new GetByKeyRequestBuilder(PurchaseInvoices, { DocEntry: docEntry });
+  getByKey(docEntry: number): GetByKeyRequestBuilderV4<PurchaseInvoices> {
+    return new GetByKeyRequestBuilderV4(PurchaseInvoices, { DocEntry: docEntry });
   }
 
   /**
    * Returns a request builder for querying all `PurchaseInvoices` entities.
    * @returns A request builder for creating requests to retrieve all `PurchaseInvoices` entities.
    */
-  getAll(): GetAllRequestBuilder<PurchaseInvoices> {
-    return new GetAllRequestBuilder(PurchaseInvoices);
+  getAll(): GetAllRequestBuilderV4<PurchaseInvoices> {
+    return new GetAllRequestBuilderV4(PurchaseInvoices);
   }
 
   /**
@@ -32,8 +32,8 @@ export class PurchaseInvoicesRequestBuilder extends RequestBuilder<PurchaseInvoi
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `PurchaseInvoices`.
    */
-  create(entity: PurchaseInvoices): CreateRequestBuilder<PurchaseInvoices> {
-    return new CreateRequestBuilder(PurchaseInvoices, entity);
+  create(entity: PurchaseInvoices): CreateRequestBuilderV4<PurchaseInvoices> {
+    return new CreateRequestBuilderV4(PurchaseInvoices, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class PurchaseInvoicesRequestBuilder extends RequestBuilder<PurchaseInvoi
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `PurchaseInvoices`.
    */
-  update(entity: PurchaseInvoices): UpdateRequestBuilder<PurchaseInvoices> {
-    return new UpdateRequestBuilder(PurchaseInvoices, entity);
+  update(entity: PurchaseInvoices): UpdateRequestBuilderV4<PurchaseInvoices> {
+    return new UpdateRequestBuilderV4(PurchaseInvoices, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class PurchaseInvoicesRequestBuilder extends RequestBuilder<PurchaseInvoi
    * @param docEntry Key property. See [[PurchaseInvoices.docEntry]].
    * @returns A request builder for creating requests that delete an entity of type `PurchaseInvoices`.
    */
-  delete(docEntry: number): DeleteRequestBuilder<PurchaseInvoices>;
+  delete(docEntry: number): DeleteRequestBuilderV4<PurchaseInvoices>;
   /**
    * Returns a request builder for deleting an entity of type `PurchaseInvoices`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `PurchaseInvoices` by taking the entity as a parameter.
    */
-  delete(entity: PurchaseInvoices): DeleteRequestBuilder<PurchaseInvoices>;
-  delete(docEntryOrEntity: any): DeleteRequestBuilder<PurchaseInvoices> {
-    return new DeleteRequestBuilder(PurchaseInvoices, docEntryOrEntity instanceof PurchaseInvoices ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
+  delete(entity: PurchaseInvoices): DeleteRequestBuilderV4<PurchaseInvoices>;
+  delete(docEntryOrEntity: any): DeleteRequestBuilderV4<PurchaseInvoices> {
+    return new DeleteRequestBuilderV4(PurchaseInvoices, docEntryOrEntity instanceof PurchaseInvoices ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
   }
 }

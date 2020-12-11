@@ -4,25 +4,26 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { BrazilNumericIndexersRequestBuilder } from './BrazilNumericIndexersRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BrazilNumericIndexerTypes } from './BrazilNumericIndexerTypes';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "BrazilNumericIndexers" of service "SAPB1".
  */
-export class BrazilNumericIndexers extends Entity implements BrazilNumericIndexersType {
+export class BrazilNumericIndexers extends EntityV4 implements BrazilNumericIndexersType {
   /**
    * Technical entity name for BrazilNumericIndexers.
    */
   static _entityName = 'BrazilNumericIndexers';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for BrazilNumericIndexers.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
+  /**
+   * Indexer Type.
+   * @nullable
+   */
+  indexerType?: BrazilNumericIndexerTypes;
   /**
    * Code.
    * @nullable
@@ -52,11 +53,11 @@ export class BrazilNumericIndexers extends Entity implements BrazilNumericIndexe
   businessPlaces!: BusinessPlaces[];
 
   /**
-   * Returns an entity builder to construct instances `BrazilNumericIndexers`.
+   * Returns an entity builder to construct instances of `BrazilNumericIndexers`.
    * @returns A builder that constructs instances of entity type `BrazilNumericIndexers`.
    */
-  static builder(): EntityBuilderType<BrazilNumericIndexers, BrazilNumericIndexersTypeForceMandatory> {
-    return Entity.entityBuilder(BrazilNumericIndexers);
+  static builder(): EntityBuilderType<BrazilNumericIndexers, BrazilNumericIndexersType> {
+    return EntityV4.entityBuilder(BrazilNumericIndexers);
   }
 
   /**
@@ -72,8 +73,8 @@ export class BrazilNumericIndexers extends Entity implements BrazilNumericIndexe
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `BrazilNumericIndexers`.
    */
-  static customField(fieldName: string): CustomField<BrazilNumericIndexers> {
-    return Entity.customFieldSelector(fieldName, BrazilNumericIndexers);
+  static customField(fieldName: string): CustomFieldV4<BrazilNumericIndexers> {
+    return EntityV4.customFieldSelector(fieldName, BrazilNumericIndexers);
   }
 
   /**
@@ -90,24 +91,21 @@ import { Items, ItemsType } from './Items';
 import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 
 export interface BrazilNumericIndexersType {
-  code?: number;
-  description?: string;
-  id?: number;
-  brazilBeverageIndexers: BrazilBeverageIndexersType[];
-  items: ItemsType[];
-  businessPlaces: BusinessPlacesType[];
-}
-
-export interface BrazilNumericIndexersTypeForceMandatory {
-  code: number;
-  description: string;
-  id: number;
+  indexerType?: BrazilNumericIndexerTypes | null;
+  code?: number | null;
+  description?: string | null;
+  id?: number | null;
   brazilBeverageIndexers: BrazilBeverageIndexersType[];
   items: ItemsType[];
   businessPlaces: BusinessPlacesType[];
 }
 
 export namespace BrazilNumericIndexers {
+  /**
+   * Static representation of the [[indexerType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INDEXER_TYPE: EnumField<BrazilNumericIndexers> = new EnumField('IndexerType', BrazilNumericIndexers);
   /**
    * Static representation of the [[code]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -141,7 +139,8 @@ export namespace BrazilNumericIndexers {
   /**
    * All fields of the BrazilNumericIndexers entity.
    */
-  export const _allFields: Array<NumberField<BrazilNumericIndexers> | StringField<BrazilNumericIndexers> | OneToManyLink<BrazilNumericIndexers, BrazilBeverageIndexers> | OneToManyLink<BrazilNumericIndexers, Items> | OneToManyLink<BrazilNumericIndexers, BusinessPlaces>> = [
+  export const _allFields: Array<EnumField<BrazilNumericIndexers> | NumberField<BrazilNumericIndexers> | StringField<BrazilNumericIndexers> | OneToManyLink<BrazilNumericIndexers, BrazilBeverageIndexers> | OneToManyLink<BrazilNumericIndexers, Items> | OneToManyLink<BrazilNumericIndexers, BusinessPlaces>> = [
+    BrazilNumericIndexers.INDEXER_TYPE,
     BrazilNumericIndexers.CODE,
     BrazilNumericIndexers.DESCRIPTION,
     BrazilNumericIndexers.ID,

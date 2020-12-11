@@ -4,26 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Attachments2RequestBuilder } from './Attachments2RequestBuilder';
-import { Attachments2Line, Attachments2LineField } from './Attachments2Line';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink } from '@sap-cloud-sdk/core/v4';
+import { Attachments2Line } from './Attachments2Line';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "Attachments2" of service "SAPB1".
  */
-export class Attachments2 extends Entity implements Attachments2Type {
+export class Attachments2 extends EntityV4 implements Attachments2Type {
   /**
    * Technical entity name for Attachments2.
    */
   static _entityName = 'Attachments2';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for Attachments2.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Absolute Entry.
    * @nullable
@@ -56,11 +51,11 @@ export class Attachments2 extends Entity implements Attachments2Type {
   projectManagements!: ProjectManagements[];
 
   /**
-   * Returns an entity builder to construct instances `Attachments2`.
+   * Returns an entity builder to construct instances of `Attachments2`.
    * @returns A builder that constructs instances of entity type `Attachments2`.
    */
-  static builder(): EntityBuilderType<Attachments2, Attachments2TypeForceMandatory> {
-    return Entity.entityBuilder(Attachments2);
+  static builder(): EntityBuilderType<Attachments2, Attachments2Type> {
+    return EntityV4.entityBuilder(Attachments2);
   }
 
   /**
@@ -76,8 +71,8 @@ export class Attachments2 extends Entity implements Attachments2Type {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `Attachments2`.
    */
-  static customField(fieldName: string): CustomField<Attachments2> {
-    return Entity.customFieldSelector(fieldName, Attachments2);
+  static customField(fieldName: string): CustomFieldV4<Attachments2> {
+    return EntityV4.customFieldSelector(fieldName, Attachments2);
   }
 
   /**
@@ -96,18 +91,8 @@ import { CustomerEquipmentCards, CustomerEquipmentCardsType } from './CustomerEq
 import { ProjectManagements, ProjectManagementsType } from './ProjectManagements';
 
 export interface Attachments2Type {
-  absoluteEntry?: number;
-  attachments2Lines?: Attachments2Line[];
-  serviceContracts: ServiceContractsType[];
-  campaigns: CampaignsType[];
-  blanketAgreements: BlanketAgreementsType[];
-  customerEquipmentCards: CustomerEquipmentCardsType[];
-  projectManagements: ProjectManagementsType[];
-}
-
-export interface Attachments2TypeForceMandatory {
-  absoluteEntry: number;
-  attachments2Lines: Attachments2Line[];
+  absoluteEntry?: number | null;
+  attachments2Lines?: Attachments2Line[] | null;
   serviceContracts: ServiceContractsType[];
   campaigns: CampaignsType[];
   blanketAgreements: BlanketAgreementsType[];
@@ -125,7 +110,7 @@ export namespace Attachments2 {
    * Static representation of the [[attachments2Lines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const ATTACHMENTS_2_LINES: CollectionField<Attachments2> = new CollectionField('Attachments2_Lines', Attachments2, new Attachments2LineField('', Attachments2));
+  export const ATTACHMENTS_2_LINES: CollectionField<Attachments2, Attachments2Line> = new CollectionField('Attachments2_Lines', Attachments2, Attachments2Line);
   /**
    * Static representation of the one-to-many navigation property [[serviceContracts]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -154,7 +139,7 @@ export namespace Attachments2 {
   /**
    * All fields of the Attachments2 entity.
    */
-  export const _allFields: Array<NumberField<Attachments2> | CollectionField<Attachments2> | OneToManyLink<Attachments2, ServiceContracts> | OneToManyLink<Attachments2, Campaigns> | OneToManyLink<Attachments2, BlanketAgreements> | OneToManyLink<Attachments2, CustomerEquipmentCards> | OneToManyLink<Attachments2, ProjectManagements>> = [
+  export const _allFields: Array<NumberField<Attachments2> | CollectionField<Attachments2, Attachments2Line> | OneToManyLink<Attachments2, ServiceContracts> | OneToManyLink<Attachments2, Campaigns> | OneToManyLink<Attachments2, BlanketAgreements> | OneToManyLink<Attachments2, CustomerEquipmentCards> | OneToManyLink<Attachments2, ProjectManagements>> = [
     Attachments2.ABSOLUTE_ENTRY,
     Attachments2.ATTACHMENTS_2_LINES,
     Attachments2.SERVICE_CONTRACTS,

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.CorrectionInvoiceRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var CorrectionInvoice_1 = require("./CorrectionInvoice");
 /**
  * Request builder class for operations supported on the [[CorrectionInvoice]] entity.
@@ -35,14 +35,14 @@ var CorrectionInvoiceRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `CorrectionInvoice` entity based on its keys.
      */
     CorrectionInvoiceRequestBuilder.prototype.getByKey = function (docEntry) {
-        return new v4_1.GetByKeyRequestBuilder(CorrectionInvoice_1.CorrectionInvoice, { DocEntry: docEntry });
+        return new core_1.GetByKeyRequestBuilderV4(CorrectionInvoice_1.CorrectionInvoice, { DocEntry: docEntry });
     };
     /**
      * Returns a request builder for querying all `CorrectionInvoice` entities.
      * @returns A request builder for creating requests to retrieve all `CorrectionInvoice` entities.
      */
     CorrectionInvoiceRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(CorrectionInvoice_1.CorrectionInvoice);
+        return new core_1.GetAllRequestBuilderV4(CorrectionInvoice_1.CorrectionInvoice);
     };
     /**
      * Returns a request builder for creating a `CorrectionInvoice` entity.
@@ -50,7 +50,7 @@ var CorrectionInvoiceRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `CorrectionInvoice`.
      */
     CorrectionInvoiceRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(CorrectionInvoice_1.CorrectionInvoice, entity);
+        return new core_1.CreateRequestBuilderV4(CorrectionInvoice_1.CorrectionInvoice, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `CorrectionInvoice`.
@@ -58,12 +58,12 @@ var CorrectionInvoiceRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `CorrectionInvoice`.
      */
     CorrectionInvoiceRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(CorrectionInvoice_1.CorrectionInvoice, entity);
+        return new core_1.UpdateRequestBuilderV4(CorrectionInvoice_1.CorrectionInvoice, entity);
     };
     CorrectionInvoiceRequestBuilder.prototype.delete = function (docEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(CorrectionInvoice_1.CorrectionInvoice, docEntryOrEntity instanceof CorrectionInvoice_1.CorrectionInvoice ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(CorrectionInvoice_1.CorrectionInvoice, docEntryOrEntity instanceof CorrectionInvoice_1.CorrectionInvoice ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
     };
     return CorrectionInvoiceRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.CorrectionInvoiceRequestBuilder = CorrectionInvoiceRequestBuilder;
 //# sourceMappingURL=CorrectionInvoiceRequestBuilder.js.map

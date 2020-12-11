@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { BudgetDistributions } from './BudgetDistributions';
 
 /**
@@ -15,16 +15,16 @@ export class BudgetDistributionsRequestBuilder extends RequestBuilder<BudgetDist
    * @param divisionCode Key property. See [[BudgetDistributions.divisionCode]].
    * @returns A request builder for creating requests to retrieve one `BudgetDistributions` entity based on its keys.
    */
-  getByKey(divisionCode: number): GetByKeyRequestBuilder<BudgetDistributions> {
-    return new GetByKeyRequestBuilder(BudgetDistributions, { DivisionCode: divisionCode });
+  getByKey(divisionCode: number): GetByKeyRequestBuilderV4<BudgetDistributions> {
+    return new GetByKeyRequestBuilderV4(BudgetDistributions, { DivisionCode: divisionCode });
   }
 
   /**
    * Returns a request builder for querying all `BudgetDistributions` entities.
    * @returns A request builder for creating requests to retrieve all `BudgetDistributions` entities.
    */
-  getAll(): GetAllRequestBuilder<BudgetDistributions> {
-    return new GetAllRequestBuilder(BudgetDistributions);
+  getAll(): GetAllRequestBuilderV4<BudgetDistributions> {
+    return new GetAllRequestBuilderV4(BudgetDistributions);
   }
 
   /**
@@ -32,8 +32,8 @@ export class BudgetDistributionsRequestBuilder extends RequestBuilder<BudgetDist
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `BudgetDistributions`.
    */
-  create(entity: BudgetDistributions): CreateRequestBuilder<BudgetDistributions> {
-    return new CreateRequestBuilder(BudgetDistributions, entity);
+  create(entity: BudgetDistributions): CreateRequestBuilderV4<BudgetDistributions> {
+    return new CreateRequestBuilderV4(BudgetDistributions, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class BudgetDistributionsRequestBuilder extends RequestBuilder<BudgetDist
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `BudgetDistributions`.
    */
-  update(entity: BudgetDistributions): UpdateRequestBuilder<BudgetDistributions> {
-    return new UpdateRequestBuilder(BudgetDistributions, entity);
+  update(entity: BudgetDistributions): UpdateRequestBuilderV4<BudgetDistributions> {
+    return new UpdateRequestBuilderV4(BudgetDistributions, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class BudgetDistributionsRequestBuilder extends RequestBuilder<BudgetDist
    * @param divisionCode Key property. See [[BudgetDistributions.divisionCode]].
    * @returns A request builder for creating requests that delete an entity of type `BudgetDistributions`.
    */
-  delete(divisionCode: number): DeleteRequestBuilder<BudgetDistributions>;
+  delete(divisionCode: number): DeleteRequestBuilderV4<BudgetDistributions>;
   /**
    * Returns a request builder for deleting an entity of type `BudgetDistributions`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `BudgetDistributions` by taking the entity as a parameter.
    */
-  delete(entity: BudgetDistributions): DeleteRequestBuilder<BudgetDistributions>;
-  delete(divisionCodeOrEntity: any): DeleteRequestBuilder<BudgetDistributions> {
-    return new DeleteRequestBuilder(BudgetDistributions, divisionCodeOrEntity instanceof BudgetDistributions ? divisionCodeOrEntity : { DivisionCode: divisionCodeOrEntity! });
+  delete(entity: BudgetDistributions): DeleteRequestBuilderV4<BudgetDistributions>;
+  delete(divisionCodeOrEntity: any): DeleteRequestBuilderV4<BudgetDistributions> {
+    return new DeleteRequestBuilderV4(BudgetDistributions, divisionCodeOrEntity instanceof BudgetDistributions ? divisionCodeOrEntity : { DivisionCode: divisionCodeOrEntity! });
   }
 }

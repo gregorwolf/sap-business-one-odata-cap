@@ -4,7 +4,8 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, Entity, FieldType, Time, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { UserActionTypeEnum } from './UserActionTypeEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, Time, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * UserActionRecordItem
@@ -15,6 +16,11 @@ export interface UserActionRecordItem {
    * @nullable
    */
   userCode?: string;
+  /**
+   * Action.
+   * @nullable
+   */
+  action?: UserActionTypeEnum;
   /**
    * Action By.
    * @nullable
@@ -78,12 +84,17 @@ export function createUserActionRecordItem(json: any): UserActionRecordItem {
  * UserActionRecordItemField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class UserActionRecordItemField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class UserActionRecordItemField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, UserActionRecordItem> {
   /**
    * Representation of the [[UserActionRecordItem.userCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   userCode: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('UserCode', this, 'Edm.String');
+  /**
+   * Representation of the [[UserActionRecordItem.action]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  action: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('Action', this);
   /**
    * Representation of the [[UserActionRecordItem.actionBy]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -134,22 +145,88 @@ export class UserActionRecordItemField<EntityT extends Entity> extends ComplexTy
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   aliveDuration: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('AliveDuration', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of UserActionRecordItemField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, UserActionRecordItem);
+  }
 }
 
 export namespace UserActionRecordItem {
+  /**
+   * Metadata information on all properties of the `UserActionRecordItem` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<UserActionRecordItem>[] = [{
+    originalName: 'UserCode',
+    name: 'userCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Action',
+    name: 'action',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'ActionBy',
+    name: 'actionBy',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ClientIP',
+    name: 'clientIp',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ClientName',
+    name: 'clientName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ActionDate',
+    name: 'actionDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ActionTime',
+    name: 'actionTime',
+    type: 'Edm.TimeOfDay',
+    isCollection: false
+  }, {
+    originalName: 'WindowsSession',
+    name: 'windowsSession',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'WindowsUser',
+    name: 'windowsUser',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ProcessName',
+    name: 'processName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ProcessID',
+    name: 'processId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'AliveDuration',
+    name: 'aliveDuration',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): UserActionRecordItem {
-    return createComplexType(json, {
-      UserCode: (userCode: string) => ({ userCode: edmToTs(userCode, 'Edm.String') }),
-      ActionBy: (actionBy: string) => ({ actionBy: edmToTs(actionBy, 'Edm.String') }),
-      ClientIP: (clientIp: string) => ({ clientIp: edmToTs(clientIp, 'Edm.String') }),
-      ClientName: (clientName: string) => ({ clientName: edmToTs(clientName, 'Edm.String') }),
-      ActionDate: (actionDate: Moment) => ({ actionDate: edmToTs(actionDate, 'Edm.DateTimeOffset') }),
-      ActionTime: (actionTime: Time) => ({ actionTime: edmToTs(actionTime, 'Edm.TimeOfDay') }),
-      WindowsSession: (windowsSession: number) => ({ windowsSession: edmToTs(windowsSession, 'Edm.Int32') }),
-      WindowsUser: (windowsUser: string) => ({ windowsUser: edmToTs(windowsUser, 'Edm.String') }),
-      ProcessName: (processName: string) => ({ processName: edmToTs(processName, 'Edm.String') }),
-      ProcessID: (processId: number) => ({ processId: edmToTs(processId, 'Edm.Int32') }),
-      AliveDuration: (aliveDuration: number) => ({ aliveDuration: edmToTs(aliveDuration, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, UserActionRecordItem);
   }
 }

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -22,7 +22,7 @@ exports.WorkflowTask = exports.WorkflowTaskField = exports.createWorkflowTask = 
 var WorkflowTaskInputObject_1 = require("./WorkflowTaskInputObject");
 var WorkflowTaskNote_1 = require("./WorkflowTaskNote");
 var WorkflowTaskOutputObject_1 = require("./WorkflowTaskOutputObject");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[WorkflowTask.build]] instead.
  */
@@ -36,102 +36,170 @@ exports.createWorkflowTask = createWorkflowTask;
  */
 var WorkflowTaskField = /** @class */ (function (_super) {
     __extends(WorkflowTaskField, _super);
-    function WorkflowTaskField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of WorkflowTaskField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function WorkflowTaskField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, WorkflowTask) || this;
         /**
          * Representation of the [[WorkflowTask.instanceId]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.instanceId = new v4_1.ComplexTypeNumberPropertyField('InstanceID', _this, 'Edm.Int32');
+        _this.instanceId = new core_1.ComplexTypeNumberPropertyField('InstanceID', _this, 'Edm.Int32');
         /**
          * Representation of the [[WorkflowTask.taskId]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.taskId = new v4_1.ComplexTypeNumberPropertyField('TaskID', _this, 'Edm.Int32');
+        _this.taskId = new core_1.ComplexTypeNumberPropertyField('TaskID', _this, 'Edm.Int32');
         /**
          * Representation of the [[WorkflowTask.templateId]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.templateId = new v4_1.ComplexTypeStringPropertyField('TemplateID', _this, 'Edm.String');
+        _this.templateId = new core_1.ComplexTypeStringPropertyField('TemplateID', _this, 'Edm.String');
         /**
          * Representation of the [[WorkflowTask.templateName]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.templateName = new v4_1.ComplexTypeStringPropertyField('TemplateName', _this, 'Edm.String');
+        _this.templateName = new core_1.ComplexTypeStringPropertyField('TemplateName', _this, 'Edm.String');
         /**
          * Representation of the [[WorkflowTask.description]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.description = new v4_1.ComplexTypeStringPropertyField('Description', _this, 'Edm.String');
+        _this.description = new core_1.ComplexTypeStringPropertyField('Description', _this, 'Edm.String');
         /**
          * Representation of the [[WorkflowTask.operation]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.operation = new v4_1.ComplexTypeStringPropertyField('Operation', _this, 'Edm.String');
+        _this.operation = new core_1.ComplexTypeStringPropertyField('Operation', _this, 'Edm.String');
         /**
          * Representation of the [[WorkflowTask.type]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.type = new v4_1.ComplexTypeStringPropertyField('Type', _this, 'Edm.String');
+        _this.type = new core_1.ComplexTypeStringPropertyField('Type', _this, 'Edm.String');
         /**
          * Representation of the [[WorkflowTask.owner]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.owner = new v4_1.ComplexTypeStringPropertyField('Owner', _this, 'Edm.String');
+        _this.owner = new core_1.ComplexTypeStringPropertyField('Owner', _this, 'Edm.String');
         /**
          * Representation of the [[WorkflowTask.priority]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.priority = new v4_1.ComplexTypeNumberPropertyField('Priority', _this, 'Edm.Int32');
+        _this.priority = new core_1.ComplexTypeNumberPropertyField('Priority', _this, 'Edm.Int32');
         /**
          * Representation of the [[WorkflowTask.status]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.status = new v4_1.ComplexTypeStringPropertyField('Status', _this, 'Edm.String');
+        _this.status = new core_1.ComplexTypeStringPropertyField('Status', _this, 'Edm.String');
         /**
          * Representation of the [[WorkflowTask.name]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.name = new v4_1.ComplexTypeStringPropertyField('Name', _this, 'Edm.String');
+        _this.name = new core_1.ComplexTypeStringPropertyField('Name', _this, 'Edm.String');
         /**
          * Representation of the [[WorkflowTask.workflowTaskInputObjectCollection]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.workflowTaskInputObjectCollection = new WorkflowTaskInputObject_1.WorkflowTaskInputObjectField('WorkflowTaskInputObjectCollection', _this);
+        _this.workflowTaskInputObjectCollection = new core_1.CollectionField('WorkflowTaskInputObjectCollection', _this, WorkflowTaskInputObject_1.WorkflowTaskInputObject);
         /**
          * Representation of the [[WorkflowTask.workflowTaskNoteCollection]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.workflowTaskNoteCollection = new WorkflowTaskNote_1.WorkflowTaskNoteField('WorkflowTaskNoteCollection', _this);
+        _this.workflowTaskNoteCollection = new core_1.CollectionField('WorkflowTaskNoteCollection', _this, WorkflowTaskNote_1.WorkflowTaskNote);
         /**
          * Representation of the [[WorkflowTask.workflowTaskOutputObjectCollection]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.workflowTaskOutputObjectCollection = new WorkflowTaskOutputObject_1.WorkflowTaskOutputObjectField('WorkflowTaskOutputObjectCollection', _this);
+        _this.workflowTaskOutputObjectCollection = new core_1.CollectionField('WorkflowTaskOutputObjectCollection', _this, WorkflowTaskOutputObject_1.WorkflowTaskOutputObject);
         return _this;
     }
     return WorkflowTaskField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.WorkflowTaskField = WorkflowTaskField;
 var WorkflowTask;
 (function (WorkflowTask) {
+    /**
+     * Metadata information on all properties of the `WorkflowTask` complex type.
+     */
+    WorkflowTask._propertyMetadata = [{
+            originalName: 'InstanceID',
+            name: 'instanceId',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'TaskID',
+            name: 'taskId',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'TemplateID',
+            name: 'templateId',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'TemplateName',
+            name: 'templateName',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Description',
+            name: 'description',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Operation',
+            name: 'operation',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Type',
+            name: 'type',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Owner',
+            name: 'owner',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Priority',
+            name: 'priority',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Status',
+            name: 'status',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Name',
+            name: 'name',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'WorkflowTaskInputObjectCollection',
+            name: 'workflowTaskInputObjectCollection',
+            type: WorkflowTaskInputObject_1.WorkflowTaskInputObject,
+            isCollection: true
+        }, {
+            originalName: 'WorkflowTaskNoteCollection',
+            name: 'workflowTaskNoteCollection',
+            type: WorkflowTaskNote_1.WorkflowTaskNote,
+            isCollection: true
+        }, {
+            originalName: 'WorkflowTaskOutputObjectCollection',
+            name: 'workflowTaskOutputObjectCollection',
+            type: WorkflowTaskOutputObject_1.WorkflowTaskOutputObject,
+            isCollection: true
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            InstanceID: function (instanceId) { return ({ instanceId: v4_1.edmToTs(instanceId, 'Edm.Int32') }); },
-            TaskID: function (taskId) { return ({ taskId: v4_1.edmToTs(taskId, 'Edm.Int32') }); },
-            TemplateID: function (templateId) { return ({ templateId: v4_1.edmToTs(templateId, 'Edm.String') }); },
-            TemplateName: function (templateName) { return ({ templateName: v4_1.edmToTs(templateName, 'Edm.String') }); },
-            Description: function (description) { return ({ description: v4_1.edmToTs(description, 'Edm.String') }); },
-            Operation: function (operation) { return ({ operation: v4_1.edmToTs(operation, 'Edm.String') }); },
-            Type: function (type) { return ({ type: v4_1.edmToTs(type, 'Edm.String') }); },
-            Owner: function (owner) { return ({ owner: v4_1.edmToTs(owner, 'Edm.String') }); },
-            Priority: function (priority) { return ({ priority: v4_1.edmToTs(priority, 'Edm.Int32') }); },
-            Status: function (status) { return ({ status: v4_1.edmToTs(status, 'Edm.String') }); },
-            Name: function (name) { return ({ name: v4_1.edmToTs(name, 'Edm.String') }); },
-            WorkflowTaskInputObjectCollection: function (workflowTaskInputObjectCollection) { return ({ workflowTaskInputObjectCollection: WorkflowTaskInputObject_1.WorkflowTaskInputObject.build(workflowTaskInputObjectCollection) }); },
-            WorkflowTaskNoteCollection: function (workflowTaskNoteCollection) { return ({ workflowTaskNoteCollection: WorkflowTaskNote_1.WorkflowTaskNote.build(workflowTaskNoteCollection) }); },
-            WorkflowTaskOutputObjectCollection: function (workflowTaskOutputObjectCollection) { return ({ workflowTaskOutputObjectCollection: WorkflowTaskOutputObject_1.WorkflowTaskOutputObject.build(workflowTaskOutputObjectCollection) }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, WorkflowTask);
     }
     WorkflowTask.build = build;
 })(WorkflowTask = exports.WorkflowTask || (exports.WorkflowTask = {}));

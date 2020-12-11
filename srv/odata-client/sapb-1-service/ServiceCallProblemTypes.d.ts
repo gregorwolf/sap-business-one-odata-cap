@@ -1,18 +1,13 @@
 import { ServiceCallProblemTypesRequestBuilder } from './ServiceCallProblemTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ServiceCallProblemTypes" of service "SAPB1".
  */
-export declare class ServiceCallProblemTypes extends Entity implements ServiceCallProblemTypesType {
+export declare class ServiceCallProblemTypes extends EntityV4 implements ServiceCallProblemTypesType {
     /**
      * Technical entity name for ServiceCallProblemTypes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ServiceCallProblemTypes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -37,10 +32,10 @@ export declare class ServiceCallProblemTypes extends Entity implements ServiceCa
      */
     serviceCalls: ServiceCalls[];
     /**
-     * Returns an entity builder to construct instances `ServiceCallProblemTypes`.
+     * Returns an entity builder to construct instances of `ServiceCallProblemTypes`.
      * @returns A builder that constructs instances of entity type `ServiceCallProblemTypes`.
      */
-    static builder(): EntityBuilderType<ServiceCallProblemTypes, ServiceCallProblemTypesTypeForceMandatory>;
+    static builder(): EntityBuilderType<ServiceCallProblemTypes, ServiceCallProblemTypesType>;
     /**
      * Returns a request builder to construct requests for operations on the `ServiceCallProblemTypes` entity type.
      * @returns A `ServiceCallProblemTypes` request builder.
@@ -51,7 +46,7 @@ export declare class ServiceCallProblemTypes extends Entity implements ServiceCa
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ServiceCallProblemTypes`.
      */
-    static customField(fieldName: string): CustomField<ServiceCallProblemTypes>;
+    static customField(fieldName: string): CustomFieldV4<ServiceCallProblemTypes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -62,15 +57,9 @@ export declare class ServiceCallProblemTypes extends Entity implements ServiceCa
 }
 import { ServiceCalls, ServiceCallsType } from './ServiceCalls';
 export interface ServiceCallProblemTypesType {
-    problemTypeId?: number;
-    name?: string;
-    description?: string;
-    serviceCalls: ServiceCallsType[];
-}
-export interface ServiceCallProblemTypesTypeForceMandatory {
-    problemTypeId: number;
-    name: string;
-    description: string;
+    problemTypeId?: number | null;
+    name?: string | null;
+    description?: string | null;
     serviceCalls: ServiceCallsType[];
 }
 export declare namespace ServiceCallProblemTypes {

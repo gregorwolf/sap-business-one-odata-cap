@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ActivityLocationsRequestBuilder } from './ActivityLocationsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ActivityLocations" of service "SAPB1".
  */
-export class ActivityLocations extends Entity implements ActivityLocationsType {
+export class ActivityLocations extends EntityV4 implements ActivityLocationsType {
   /**
    * Technical entity name for ActivityLocations.
    */
   static _entityName = 'ActivityLocations';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ActivityLocations.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -47,11 +42,11 @@ export class ActivityLocations extends Entity implements ActivityLocationsType {
   serviceCalls!: ServiceCalls[];
 
   /**
-   * Returns an entity builder to construct instances `ActivityLocations`.
+   * Returns an entity builder to construct instances of `ActivityLocations`.
    * @returns A builder that constructs instances of entity type `ActivityLocations`.
    */
-  static builder(): EntityBuilderType<ActivityLocations, ActivityLocationsTypeForceMandatory> {
-    return Entity.entityBuilder(ActivityLocations);
+  static builder(): EntityBuilderType<ActivityLocations, ActivityLocationsType> {
+    return EntityV4.entityBuilder(ActivityLocations);
   }
 
   /**
@@ -67,8 +62,8 @@ export class ActivityLocations extends Entity implements ActivityLocationsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ActivityLocations`.
    */
-  static customField(fieldName: string): CustomField<ActivityLocations> {
-    return Entity.customFieldSelector(fieldName, ActivityLocations);
+  static customField(fieldName: string): CustomFieldV4<ActivityLocations> {
+    return EntityV4.customFieldSelector(fieldName, ActivityLocations);
   }
 
   /**
@@ -85,16 +80,8 @@ import { Activities, ActivitiesType } from './Activities';
 import { ServiceCalls, ServiceCallsType } from './ServiceCalls';
 
 export interface ActivityLocationsType {
-  code?: number;
-  name?: string;
-  contacts: ContactsType[];
-  activities: ActivitiesType[];
-  serviceCalls: ServiceCallsType[];
-}
-
-export interface ActivityLocationsTypeForceMandatory {
-  code: number;
-  name: string;
+  code?: number | null;
+  name?: string | null;
   contacts: ContactsType[];
   activities: ActivitiesType[];
   serviceCalls: ServiceCallsType[];

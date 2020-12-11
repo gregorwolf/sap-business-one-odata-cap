@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * ReportTypeParams
@@ -47,7 +47,7 @@ export function createReportTypeParams(json: any): ReportTypeParams {
  * ReportTypeParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class ReportTypeParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class ReportTypeParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ReportTypeParams> {
   /**
    * Representation of the [[ReportTypeParams.typeCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -73,16 +73,53 @@ export class ReportTypeParamsField<EntityT extends Entity> extends ComplexTypeFi
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   menuId: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('MenuID', this, 'Edm.String');
+
+  /**
+   * Creates an instance of ReportTypeParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, ReportTypeParams);
+  }
 }
 
 export namespace ReportTypeParams {
+  /**
+   * Metadata information on all properties of the `ReportTypeParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<ReportTypeParams>[] = [{
+    originalName: 'TypeCode',
+    name: 'typeCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TypeName',
+    name: 'typeName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AddonName',
+    name: 'addonName',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AddonFormType',
+    name: 'addonFormType',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'MenuID',
+    name: 'menuId',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): ReportTypeParams {
-    return createComplexType(json, {
-      TypeCode: (typeCode: string) => ({ typeCode: edmToTs(typeCode, 'Edm.String') }),
-      TypeName: (typeName: string) => ({ typeName: edmToTs(typeName, 'Edm.String') }),
-      AddonName: (addonName: string) => ({ addonName: edmToTs(addonName, 'Edm.String') }),
-      AddonFormType: (addonFormType: string) => ({ addonFormType: edmToTs(addonFormType, 'Edm.String') }),
-      MenuID: (menuId: string) => ({ menuId: edmToTs(menuId, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, ReportTypeParams);
   }
 }

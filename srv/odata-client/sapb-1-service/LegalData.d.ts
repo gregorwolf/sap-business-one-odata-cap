@@ -1,20 +1,16 @@
 import { LegalDataRequestBuilder } from './LegalDataRequestBuilder';
 import { Moment } from 'moment';
 import { LegalDataDetail } from './LegalDataDetail';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoAparDocumentTypes } from './BoAparDocumentTypes';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "LegalData" of service "SAPB1".
  */
-export declare class LegalData extends Entity implements LegalDataType {
+export declare class LegalData extends EntityV4 implements LegalDataType {
     /**
      * Technical entity name for LegalData.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for LegalData.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -24,6 +20,11 @@ export declare class LegalData extends Entity implements LegalDataType {
      * @nullable
      */
     docEntry?: number;
+    /**
+     * Source Object Type.
+     * @nullable
+     */
+    sourceObjectType?: BoAparDocumentTypes;
     /**
      * Source Object Entry.
      * @nullable
@@ -94,10 +95,10 @@ export declare class LegalData extends Entity implements LegalDataType {
      */
     user: Users;
     /**
-     * Returns an entity builder to construct instances `LegalData`.
+     * Returns an entity builder to construct instances of `LegalData`.
      * @returns A builder that constructs instances of entity type `LegalData`.
      */
-    static builder(): EntityBuilderType<LegalData, LegalDataTypeForceMandatory>;
+    static builder(): EntityBuilderType<LegalData, LegalDataType>;
     /**
      * Returns a request builder to construct requests for operations on the `LegalData` entity type.
      * @returns A `LegalData` request builder.
@@ -108,7 +109,7 @@ export declare class LegalData extends Entity implements LegalDataType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `LegalData`.
      */
-    static customField(fieldName: string): CustomField<LegalData>;
+    static customField(fieldName: string): CustomFieldV4<LegalData>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -119,37 +120,21 @@ export declare class LegalData extends Entity implements LegalDataType {
 }
 import { Users, UsersType } from './Users';
 export interface LegalDataType {
-    docEntry?: number;
-    sourceObjectEntry?: number;
-    dateOfPrinting?: Moment;
-    timeOfPrinting?: Time;
-    printerBrand?: string;
-    printerType?: string;
-    printerModel?: string;
-    printerFirmwareVersion?: string;
-    printerDllVersion?: string;
-    fiscalSeries?: string;
-    fiscalNumber?: string;
-    documentNumber?: string;
-    fiscalUserId?: number;
-    legalDataDetailCollection?: LegalDataDetail[];
-    user: UsersType;
-}
-export interface LegalDataTypeForceMandatory {
-    docEntry: number;
-    sourceObjectEntry: number;
-    dateOfPrinting: Moment;
-    timeOfPrinting: Time;
-    printerBrand: string;
-    printerType: string;
-    printerModel: string;
-    printerFirmwareVersion: string;
-    printerDllVersion: string;
-    fiscalSeries: string;
-    fiscalNumber: string;
-    documentNumber: string;
-    fiscalUserId: number;
-    legalDataDetailCollection: LegalDataDetail[];
+    docEntry?: number | null;
+    sourceObjectType?: BoAparDocumentTypes | null;
+    sourceObjectEntry?: number | null;
+    dateOfPrinting?: Moment | null;
+    timeOfPrinting?: Time | null;
+    printerBrand?: string | null;
+    printerType?: string | null;
+    printerModel?: string | null;
+    printerFirmwareVersion?: string | null;
+    printerDllVersion?: string | null;
+    fiscalSeries?: string | null;
+    fiscalNumber?: string | null;
+    documentNumber?: string | null;
+    fiscalUserId?: number | null;
+    legalDataDetailCollection?: LegalDataDetail[] | null;
     user: UsersType;
 }
 export declare namespace LegalData {
@@ -158,6 +143,11 @@ export declare namespace LegalData {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DOC_ENTRY: NumberField<LegalData>;
+    /**
+     * Static representation of the [[sourceObjectType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SOURCE_OBJECT_TYPE: EnumField<LegalData>;
     /**
      * Static representation of the [[sourceObjectEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -222,7 +212,7 @@ export declare namespace LegalData {
      * Static representation of the [[legalDataDetailCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const LEGAL_DATA_DETAIL_COLLECTION: CollectionField<LegalData>;
+    const LEGAL_DATA_DETAIL_COLLECTION: CollectionField<LegalData, LegalDataDetail>;
     /**
      * Static representation of the one-to-one navigation property [[user]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -231,7 +221,7 @@ export declare namespace LegalData {
     /**
      * All fields of the LegalData entity.
      */
-    const _allFields: Array<NumberField<LegalData> | DateField<LegalData> | TimeField<LegalData> | StringField<LegalData> | CollectionField<LegalData> | OneToOneLink<LegalData, Users>>;
+    const _allFields: Array<NumberField<LegalData> | EnumField<LegalData> | DateField<LegalData> | TimeField<LegalData> | StringField<LegalData> | CollectionField<LegalData, LegalDataDetail> | OneToOneLink<LegalData, Users>>;
     /**
      * All fields selector.
      */

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.Warehouses = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var WarehousesRequestBuilder_1 = require("./WarehousesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "Warehouses" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var Warehouses = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `Warehouses`.
+     * Returns an entity builder to construct instances of `Warehouses`.
      * @returns A builder that constructs instances of entity type `Warehouses`.
      */
     Warehouses.builder = function () {
-        return v4_1.Entity.entityBuilder(Warehouses);
+        return core_1.EntityV4.entityBuilder(Warehouses);
     };
     /**
      * Returns a request builder to construct requests for operations on the `Warehouses` entity type.
@@ -60,7 +60,7 @@ var Warehouses = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `Warehouses`.
      */
     Warehouses.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, Warehouses);
+        return core_1.EntityV4.customFieldSelector(fieldName, Warehouses);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var Warehouses = /** @class */ (function (_super) {
      */
     Warehouses._entityName = 'Warehouses';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Warehouses.
-     */
-    Warehouses._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    Warehouses._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    Warehouses._defaultServicePath = '/b1s/v2/';
     return Warehouses;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.Warehouses = Warehouses;
 var UserDefaultGroups_1 = require("./UserDefaultGroups");
 var ChartOfAccounts_1 = require("./ChartOfAccounts");
@@ -106,432 +101,512 @@ var StockTransferDrafts_1 = require("./StockTransferDrafts");
      * Static representation of the [[street]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.STREET = new v4_1.StringField('Street', Warehouses, 'Edm.String');
+    Warehouses.STREET = new core_1.StringField('Street', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[stockInflationOffsetAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.STOCK_INFLATION_OFFSET_ACCOUNT = new v4_1.StringField('StockInflationOffsetAccount', Warehouses, 'Edm.String');
+    Warehouses.STOCK_INFLATION_OFFSET_ACCOUNT = new core_1.StringField('StockInflationOffsetAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[zipCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.ZIP_CODE = new v4_1.StringField('ZipCode', Warehouses, 'Edm.String');
+    Warehouses.ZIP_CODE = new core_1.StringField('ZipCode', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[decreasingAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.DECREASING_ACCOUNT = new v4_1.StringField('DecreasingAccount', Warehouses, 'Edm.String');
+    Warehouses.DECREASING_ACCOUNT = new core_1.StringField('DecreasingAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[purchaseAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.PURCHASE_ACCOUNT = new v4_1.StringField('PurchaseAccount', Warehouses, 'Edm.String');
+    Warehouses.PURCHASE_ACCOUNT = new core_1.StringField('PurchaseAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[euRevenuesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.EU_REVENUES_ACCOUNT = new v4_1.StringField('EURevenuesAccount', Warehouses, 'Edm.String');
+    Warehouses.EU_REVENUES_ACCOUNT = new core_1.StringField('EURevenuesAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[returningAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.RETURNING_ACCOUNT = new v4_1.StringField('ReturningAccount', Warehouses, 'Edm.String');
+    Warehouses.RETURNING_ACCOUNT = new core_1.StringField('ReturningAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[shippedGoodsAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.SHIPPED_GOODS_ACCOUNT = new v4_1.StringField('ShippedGoodsAccount', Warehouses, 'Edm.String');
+    Warehouses.SHIPPED_GOODS_ACCOUNT = new core_1.StringField('ShippedGoodsAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[stockInflationAdjustAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.STOCK_INFLATION_ADJUST_ACCOUNT = new v4_1.StringField('StockInflationAdjustAccount', Warehouses, 'Edm.String');
+    Warehouses.STOCK_INFLATION_ADJUST_ACCOUNT = new core_1.StringField('StockInflationAdjustAccount', Warehouses, 'Edm.String');
+    /**
+     * Static representation of the [[allowUseTax]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Warehouses.ALLOW_USE_TAX = new core_1.EnumField('AllowUseTax', Warehouses);
     /**
      * Static representation of the [[costInflationAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.COST_INFLATION_ACCOUNT = new v4_1.StringField('CostInflationAccount', Warehouses, 'Edm.String');
+    Warehouses.COST_INFLATION_ACCOUNT = new core_1.StringField('CostInflationAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[foreignExpensesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.FOREIGN_EXPENSES_ACCOUNT = new v4_1.StringField('ForeignExpensesAccount', Warehouses, 'Edm.String');
+    Warehouses.FOREIGN_EXPENSES_ACCOUNT = new core_1.StringField('ForeignExpensesAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[euExpensesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.EU_EXPENSES_ACCOUNT = new v4_1.StringField('EUExpensesAccount', Warehouses, 'Edm.String');
+    Warehouses.EU_EXPENSES_ACCOUNT = new core_1.StringField('EUExpensesAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[costInflationOffsetAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.COST_INFLATION_OFFSET_ACCOUNT = new v4_1.StringField('CostInflationOffsetAccount', Warehouses, 'Edm.String');
+    Warehouses.COST_INFLATION_OFFSET_ACCOUNT = new core_1.StringField('CostInflationOffsetAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[expensesClearingAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.EXPENSES_CLEARING_ACCOUNT = new v4_1.StringField('ExpensesClearingAccount', Warehouses, 'Edm.String');
+    Warehouses.EXPENSES_CLEARING_ACCOUNT = new core_1.StringField('ExpensesClearingAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[purchaseReturningAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.PURCHASE_RETURNING_ACCOUNT = new v4_1.StringField('PurchaseReturningAccount', Warehouses, 'Edm.String');
+    Warehouses.PURCHASE_RETURNING_ACCOUNT = new core_1.StringField('PurchaseReturningAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[vatInRevenueAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.VAT_IN_REVENUE_ACCOUNT = new v4_1.StringField('VATInRevenueAccount', Warehouses, 'Edm.String');
+    Warehouses.VAT_IN_REVENUE_ACCOUNT = new core_1.StringField('VATInRevenueAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[federalTaxId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.FEDERAL_TAX_ID = new v4_1.StringField('FederalTaxID', Warehouses, 'Edm.String');
+    Warehouses.FEDERAL_TAX_ID = new core_1.StringField('FederalTaxID', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[location]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.LOCATION = new v4_1.NumberField('Location', Warehouses, 'Edm.Int32');
+    Warehouses.LOCATION = new core_1.NumberField('Location', Warehouses, 'Edm.Int32');
     /**
      * Static representation of the [[block]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.BLOCK = new v4_1.StringField('Block', Warehouses, 'Edm.String');
+    Warehouses.BLOCK = new core_1.StringField('Block', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[expenseAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.EXPENSE_ACCOUNT = new v4_1.StringField('ExpenseAccount', Warehouses, 'Edm.String');
+    Warehouses.EXPENSE_ACCOUNT = new core_1.StringField('ExpenseAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[decreaseGlAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.DECREASE_GL_ACCOUNT = new v4_1.StringField('DecreaseGLAccount', Warehouses, 'Edm.String');
+    Warehouses.DECREASE_GL_ACCOUNT = new core_1.StringField('DecreaseGLAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[revenuesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.REVENUES_ACCOUNT = new v4_1.StringField('RevenuesAccount', Warehouses, 'Edm.String');
+    Warehouses.REVENUES_ACCOUNT = new core_1.StringField('RevenuesAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[taxGroup]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.TAX_GROUP = new v4_1.StringField('TaxGroup', Warehouses, 'Edm.String');
+    Warehouses.TAX_GROUP = new core_1.StringField('TaxGroup', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[exemptRevenuesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.EXEMPT_REVENUES_ACCOUNT = new v4_1.StringField('ExemptRevenuesAccount', Warehouses, 'Edm.String');
+    Warehouses.EXEMPT_REVENUES_ACCOUNT = new core_1.StringField('ExemptRevenuesAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[purchaseOffsetAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.PURCHASE_OFFSET_ACCOUNT = new v4_1.StringField('PurchaseOffsetAccount', Warehouses, 'Edm.String');
+    Warehouses.PURCHASE_OFFSET_ACCOUNT = new core_1.StringField('PurchaseOffsetAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[costOfGoodsSold]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.COST_OF_GOODS_SOLD = new v4_1.StringField('CostOfGoodsSold', Warehouses, 'Edm.String');
+    Warehouses.COST_OF_GOODS_SOLD = new core_1.StringField('CostOfGoodsSold', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[warehouseCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.WAREHOUSE_CODE = new v4_1.StringField('WarehouseCode', Warehouses, 'Edm.String');
+    Warehouses.WAREHOUSE_CODE = new core_1.StringField('WarehouseCode', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[state]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.STATE = new v4_1.StringField('State', Warehouses, 'Edm.String');
+    Warehouses.STATE = new core_1.StringField('State', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[city]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.CITY = new v4_1.StringField('City', Warehouses, 'Edm.String');
+    Warehouses.CITY = new core_1.StringField('City', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[priceDifferencesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.PRICE_DIFFERENCES_ACCOUNT = new v4_1.StringField('PriceDifferencesAccount', Warehouses, 'Edm.String');
+    Warehouses.PRICE_DIFFERENCES_ACCOUNT = new core_1.StringField('PriceDifferencesAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[varianceAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.VARIANCE_ACCOUNT = new v4_1.StringField('VarianceAccount', Warehouses, 'Edm.String');
+    Warehouses.VARIANCE_ACCOUNT = new core_1.StringField('VarianceAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[country]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.COUNTRY = new v4_1.StringField('Country', Warehouses, 'Edm.String');
+    Warehouses.COUNTRY = new core_1.StringField('Country', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[increaseGlAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.INCREASE_GL_ACCOUNT = new v4_1.StringField('IncreaseGLAccount', Warehouses, 'Edm.String');
+    Warehouses.INCREASE_GL_ACCOUNT = new core_1.StringField('IncreaseGLAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[exchangeRateDifferencesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.EXCHANGE_RATE_DIFFERENCES_ACCOUNT = new v4_1.StringField('ExchangeRateDifferencesAccount', Warehouses, 'Edm.String');
+    Warehouses.EXCHANGE_RATE_DIFFERENCES_ACCOUNT = new core_1.StringField('ExchangeRateDifferencesAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[wipMaterialAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.WIP_MATERIAL_ACCOUNT = new v4_1.StringField('WIPMaterialAccount', Warehouses, 'Edm.String');
+    Warehouses.WIP_MATERIAL_ACCOUNT = new core_1.StringField('WIPMaterialAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[warehouseName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.WAREHOUSE_NAME = new v4_1.StringField('WarehouseName', Warehouses, 'Edm.String');
+    Warehouses.WAREHOUSE_NAME = new core_1.StringField('WarehouseName', Warehouses, 'Edm.String');
+    /**
+     * Static representation of the [[dropShip]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Warehouses.DROP_SHIP = new core_1.EnumField('DropShip', Warehouses);
     /**
      * Static representation of the [[wipMaterialVarianceAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.WIP_MATERIAL_VARIANCE_ACCOUNT = new v4_1.StringField('WIPMaterialVarianceAccount', Warehouses, 'Edm.String');
+    Warehouses.WIP_MATERIAL_VARIANCE_ACCOUNT = new core_1.StringField('WIPMaterialVarianceAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[transfersAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.TRANSFERS_ACC = new v4_1.StringField('TransfersAcc', Warehouses, 'Edm.String');
+    Warehouses.TRANSFERS_ACC = new core_1.StringField('TransfersAcc', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[internalKey]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.INTERNAL_KEY = new v4_1.NumberField('InternalKey', Warehouses, 'Edm.Int32');
+    Warehouses.INTERNAL_KEY = new core_1.NumberField('InternalKey', Warehouses, 'Edm.Int32');
     /**
      * Static representation of the [[foreignRevenuesAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.FOREIGN_REVENUES_ACC = new v4_1.StringField('ForeignRevenuesAcc', Warehouses, 'Edm.String');
+    Warehouses.FOREIGN_REVENUES_ACC = new core_1.StringField('ForeignRevenuesAcc', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[buildingFloorRoom]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.BUILDING_FLOOR_ROOM = new v4_1.StringField('BuildingFloorRoom', Warehouses, 'Edm.String');
+    Warehouses.BUILDING_FLOOR_ROOM = new core_1.StringField('BuildingFloorRoom', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[county]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.COUNTY = new v4_1.StringField('County', Warehouses, 'Edm.String');
+    Warehouses.COUNTY = new core_1.StringField('County', Warehouses, 'Edm.String');
+    /**
+     * Static representation of the [[nettable]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Warehouses.NETTABLE = new core_1.EnumField('Nettable', Warehouses);
     /**
      * Static representation of the [[increasingAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.INCREASING_ACC = new v4_1.StringField('IncreasingAcc', Warehouses, 'Edm.String');
+    Warehouses.INCREASING_ACC = new core_1.StringField('IncreasingAcc', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[expenseOffsetingAct]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.EXPENSE_OFFSETING_ACT = new v4_1.StringField('ExpenseOffsetingAct', Warehouses, 'Edm.String');
+    Warehouses.EXPENSE_OFFSETING_ACT = new core_1.StringField('ExpenseOffsetingAct', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[goodsClearingAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.GOODS_CLEARING_ACC = new v4_1.StringField('GoodsClearingAcc', Warehouses, 'Edm.String');
+    Warehouses.GOODS_CLEARING_ACC = new core_1.StringField('GoodsClearingAcc', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[stockAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.STOCK_ACCOUNT = new v4_1.StringField('StockAccount', Warehouses, 'Edm.String');
+    Warehouses.STOCK_ACCOUNT = new core_1.StringField('StockAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[businessPlaceId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.BUSINESS_PLACE_ID = new v4_1.NumberField('BusinessPlaceID', Warehouses, 'Edm.Int32');
+    Warehouses.BUSINESS_PLACE_ID = new core_1.NumberField('BusinessPlaceID', Warehouses, 'Edm.Int32');
     /**
      * Static representation of the [[purchaseCreditAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.PURCHASE_CREDIT_ACC = new v4_1.StringField('PurchaseCreditAcc', Warehouses, 'Edm.String');
+    Warehouses.PURCHASE_CREDIT_ACC = new core_1.StringField('PurchaseCreditAcc', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[euPurchaseCreditAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.EU_PURCHASE_CREDIT_ACC = new v4_1.StringField('EUPurchaseCreditAcc', Warehouses, 'Edm.String');
+    Warehouses.EU_PURCHASE_CREDIT_ACC = new core_1.StringField('EUPurchaseCreditAcc', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[foreignPurchaseCreditAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.FOREIGN_PURCHASE_CREDIT_ACC = new v4_1.StringField('ForeignPurchaseCreditAcc', Warehouses, 'Edm.String');
+    Warehouses.FOREIGN_PURCHASE_CREDIT_ACC = new core_1.StringField('ForeignPurchaseCreditAcc', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[salesCreditAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.SALES_CREDIT_ACC = new v4_1.StringField('SalesCreditAcc', Warehouses, 'Edm.String');
+    Warehouses.SALES_CREDIT_ACC = new core_1.StringField('SalesCreditAcc', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[salesCreditEuAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.SALES_CREDIT_EU_ACC = new v4_1.StringField('SalesCreditEUAcc', Warehouses, 'Edm.String');
+    Warehouses.SALES_CREDIT_EU_ACC = new core_1.StringField('SalesCreditEUAcc', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[exemptedCredits]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.EXEMPTED_CREDITS = new v4_1.StringField('ExemptedCredits', Warehouses, 'Edm.String');
+    Warehouses.EXEMPTED_CREDITS = new core_1.StringField('ExemptedCredits', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[salesCreditForeignAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.SALES_CREDIT_FOREIGN_ACC = new v4_1.StringField('SalesCreditForeignAcc', Warehouses, 'Edm.String');
+    Warehouses.SALES_CREDIT_FOREIGN_ACC = new core_1.StringField('SalesCreditForeignAcc', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[negativeInventoryAdjustmentAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.NEGATIVE_INVENTORY_ADJUSTMENT_ACCOUNT = new v4_1.StringField('NegativeInventoryAdjustmentAccount', Warehouses, 'Edm.String');
+    Warehouses.NEGATIVE_INVENTORY_ADJUSTMENT_ACCOUNT = new core_1.StringField('NegativeInventoryAdjustmentAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[whShipToName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.WH_SHIP_TO_NAME = new v4_1.StringField('WHShipToName', Warehouses, 'Edm.String');
+    Warehouses.WH_SHIP_TO_NAME = new core_1.StringField('WHShipToName', Warehouses, 'Edm.String');
+    /**
+     * Static representation of the [[excisable]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Warehouses.EXCISABLE = new core_1.EnumField('Excisable', Warehouses);
     /**
      * Static representation of the [[whIncomingCenvatAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.WH_INCOMING_CENVAT_ACCOUNT = new v4_1.StringField('WHIncomingCenvatAccount', Warehouses, 'Edm.String');
+    Warehouses.WH_INCOMING_CENVAT_ACCOUNT = new core_1.StringField('WHIncomingCenvatAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[whOutgoingCenvatAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.WH_OUTGOING_CENVAT_ACCOUNT = new v4_1.StringField('WHOutgoingCenvatAccount', Warehouses, 'Edm.String');
+    Warehouses.WH_OUTGOING_CENVAT_ACCOUNT = new core_1.StringField('WHOutgoingCenvatAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[stockInTransitAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.STOCK_IN_TRANSIT_ACCOUNT = new v4_1.StringField('StockInTransitAccount', Warehouses, 'Edm.String');
+    Warehouses.STOCK_IN_TRANSIT_ACCOUNT = new core_1.StringField('StockInTransitAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[wipOffsetProfitAndLossAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.WIP_OFFSET_PROFIT_AND_LOSS_ACCOUNT = new v4_1.StringField('WipOffsetProfitAndLossAccount', Warehouses, 'Edm.String');
+    Warehouses.WIP_OFFSET_PROFIT_AND_LOSS_ACCOUNT = new core_1.StringField('WipOffsetProfitAndLossAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[inventoryOffsetProfitAndLossAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.INVENTORY_OFFSET_PROFIT_AND_LOSS_ACCOUNT = new v4_1.StringField('InventoryOffsetProfitAndLossAccount', Warehouses, 'Edm.String');
+    Warehouses.INVENTORY_OFFSET_PROFIT_AND_LOSS_ACCOUNT = new core_1.StringField('InventoryOffsetProfitAndLossAccount', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[addressType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.ADDRESS_TYPE = new v4_1.StringField('AddressType', Warehouses, 'Edm.String');
+    Warehouses.ADDRESS_TYPE = new core_1.StringField('AddressType', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[streetNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.STREET_NO = new v4_1.StringField('StreetNo', Warehouses, 'Edm.String');
+    Warehouses.STREET_NO = new core_1.StringField('StreetNo', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[storekeeper]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.STOREKEEPER = new v4_1.NumberField('Storekeeper', Warehouses, 'Edm.Int32');
+    Warehouses.STOREKEEPER = new core_1.NumberField('Storekeeper', Warehouses, 'Edm.Int32');
     /**
      * Static representation of the [[shipper]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.SHIPPER = new v4_1.StringField('Shipper', Warehouses, 'Edm.String');
+    Warehouses.SHIPPER = new core_1.StringField('Shipper', Warehouses, 'Edm.String');
+    /**
+     * Static representation of the [[manageSerialAndBatchNumbers]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Warehouses.MANAGE_SERIAL_AND_BATCH_NUMBERS = new core_1.EnumField('ManageSerialAndBatchNumbers', Warehouses);
     /**
      * Static representation of the [[globalLocationNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.GLOBAL_LOCATION_NUMBER = new v4_1.StringField('GlobalLocationNumber', Warehouses, 'Edm.String');
+    Warehouses.GLOBAL_LOCATION_NUMBER = new core_1.StringField('GlobalLocationNumber', Warehouses, 'Edm.String');
+    /**
+     * Static representation of the [[enableBinLocations]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Warehouses.ENABLE_BIN_LOCATIONS = new core_1.EnumField('EnableBinLocations', Warehouses);
     /**
      * Static representation of the [[binLocCodeSeparator]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.BIN_LOC_CODE_SEPARATOR = new v4_1.StringField('BinLocCodeSeparator', Warehouses, 'Edm.String');
+    Warehouses.BIN_LOC_CODE_SEPARATOR = new core_1.StringField('BinLocCodeSeparator', Warehouses, 'Edm.String');
     /**
      * Static representation of the [[defaultBin]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.DEFAULT_BIN = new v4_1.NumberField('DefaultBin', Warehouses, 'Edm.Int32');
+    Warehouses.DEFAULT_BIN = new core_1.NumberField('DefaultBin', Warehouses, 'Edm.Int32');
+    /**
+     * Static representation of the [[defaultBinEnforced]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Warehouses.DEFAULT_BIN_ENFORCED = new core_1.EnumField('DefaultBinEnforced', Warehouses);
+    /**
+     * Static representation of the [[autoAllocOnIssue]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Warehouses.AUTO_ALLOC_ON_ISSUE = new core_1.EnumField('AutoAllocOnIssue', Warehouses);
+    /**
+     * Static representation of the [[enableReceivingBinLocations]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Warehouses.ENABLE_RECEIVING_BIN_LOCATIONS = new core_1.EnumField('EnableReceivingBinLocations', Warehouses);
+    /**
+     * Static representation of the [[receivingBinLocationsBy]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Warehouses.RECEIVING_BIN_LOCATIONS_BY = new core_1.EnumField('ReceivingBinLocationsBy', Warehouses);
     /**
      * Static representation of the [[purchaseBalanceAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.PURCHASE_BALANCE_ACCOUNT = new v4_1.StringField('PurchaseBalanceAccount', Warehouses, 'Edm.String');
+    Warehouses.PURCHASE_BALANCE_ACCOUNT = new core_1.StringField('PurchaseBalanceAccount', Warehouses, 'Edm.String');
+    /**
+     * Static representation of the [[inactive]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Warehouses.INACTIVE = new core_1.EnumField('Inactive', Warehouses);
+    /**
+     * Static representation of the [[restrictReceiptToEmptyBinLocation]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Warehouses.RESTRICT_RECEIPT_TO_EMPTY_BIN_LOCATION = new core_1.EnumField('RestrictReceiptToEmptyBinLocation', Warehouses);
+    /**
+     * Static representation of the [[receiveUpToMaxQuantity]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Warehouses.RECEIVE_UP_TO_MAX_QUANTITY = new core_1.EnumField('ReceiveUpToMaxQuantity', Warehouses);
+    /**
+     * Static representation of the [[autoAllocOnReceipt]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Warehouses.AUTO_ALLOC_ON_RECEIPT = new core_1.EnumField('AutoAllocOnReceipt', Warehouses);
+    /**
+     * Static representation of the [[receiveUpToMaxWeight]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Warehouses.RECEIVE_UP_TO_MAX_WEIGHT = new core_1.EnumField('ReceiveUpToMaxWeight', Warehouses);
+    /**
+     * Static representation of the [[receiveUpToMethod]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    Warehouses.RECEIVE_UP_TO_METHOD = new core_1.EnumField('ReceiveUpToMethod', Warehouses);
     /**
      * Static representation of the one-to-many navigation property [[userDefaultGroups]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.USER_DEFAULT_GROUPS = new v4_1.OneToManyLink('UserDefaultGroups', Warehouses, UserDefaultGroups_1.UserDefaultGroups);
+    Warehouses.USER_DEFAULT_GROUPS = new core_1.OneToManyLink('UserDefaultGroups', Warehouses, UserDefaultGroups_1.UserDefaultGroups);
     /**
      * Static representation of the one-to-one navigation property [[chartOfAccount]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.CHART_OF_ACCOUNT = new v4_1.OneToOneLink('ChartOfAccount', Warehouses, ChartOfAccounts_1.ChartOfAccounts);
+    Warehouses.CHART_OF_ACCOUNT = new core_1.OneToOneLink('ChartOfAccount', Warehouses, ChartOfAccounts_1.ChartOfAccounts);
     /**
      * Static representation of the one-to-one navigation property [[warehouseLocation]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.WAREHOUSE_LOCATION = new v4_1.OneToOneLink('WarehouseLocation', Warehouses, WarehouseLocations_1.WarehouseLocations);
+    Warehouses.WAREHOUSE_LOCATION = new core_1.OneToOneLink('WarehouseLocation', Warehouses, WarehouseLocations_1.WarehouseLocations);
     /**
      * Static representation of the one-to-one navigation property [[salesTaxCode]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.SALES_TAX_CODE = new v4_1.OneToOneLink('SalesTaxCode', Warehouses, SalesTaxCodes_1.SalesTaxCodes);
+    Warehouses.SALES_TAX_CODE = new core_1.OneToOneLink('SalesTaxCode', Warehouses, SalesTaxCodes_1.SalesTaxCodes);
     /**
      * Static representation of the one-to-one navigation property [[country2]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.COUNTRY_2 = new v4_1.OneToOneLink('Country2', Warehouses, Countries_1.Countries);
+    Warehouses.COUNTRY_2 = new core_1.OneToOneLink('Country2', Warehouses, Countries_1.Countries);
     /**
      * Static representation of the one-to-one navigation property [[employeeInfo]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.EMPLOYEE_INFO = new v4_1.OneToOneLink('EmployeeInfo', Warehouses, EmployeesInfo_1.EmployeesInfo);
+    Warehouses.EMPLOYEE_INFO = new core_1.OneToOneLink('EmployeeInfo', Warehouses, EmployeesInfo_1.EmployeesInfo);
     /**
      * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.BUSINESS_PARTNER = new v4_1.OneToOneLink('BusinessPartner', Warehouses, BusinessPartners_1.BusinessPartners);
+    Warehouses.BUSINESS_PARTNER = new core_1.OneToOneLink('BusinessPartner', Warehouses, BusinessPartners_1.BusinessPartners);
     /**
      * Static representation of the one-to-one navigation property [[binLocation]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.BIN_LOCATION = new v4_1.OneToOneLink('BinLocation', Warehouses, BinLocations_1.BinLocations);
+    Warehouses.BIN_LOCATION = new core_1.OneToOneLink('BinLocation', Warehouses, BinLocations_1.BinLocations);
     /**
      * Static representation of the one-to-many navigation property [[stockTakings]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.STOCK_TAKINGS = new v4_1.OneToManyLink('StockTakings', Warehouses, StockTakings_1.StockTakings);
+    Warehouses.STOCK_TAKINGS = new core_1.OneToManyLink('StockTakings', Warehouses, StockTakings_1.StockTakings);
     /**
      * Static representation of the one-to-many navigation property [[productionOrders]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.PRODUCTION_ORDERS = new v4_1.OneToManyLink('ProductionOrders', Warehouses, ProductionOrders_1.ProductionOrders);
+    Warehouses.PRODUCTION_ORDERS = new core_1.OneToManyLink('ProductionOrders', Warehouses, ProductionOrders_1.ProductionOrders);
     /**
      * Static representation of the one-to-many navigation property [[resourceCapacities]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.RESOURCE_CAPACITIES = new v4_1.OneToManyLink('ResourceCapacities', Warehouses, ResourceCapacities_1.ResourceCapacities);
+    Warehouses.RESOURCE_CAPACITIES = new core_1.OneToManyLink('ResourceCapacities', Warehouses, ResourceCapacities_1.ResourceCapacities);
     /**
      * Static representation of the one-to-many navigation property [[glAccountAdvancedRules]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.GL_ACCOUNT_ADVANCED_RULES = new v4_1.OneToManyLink('GLAccountAdvancedRules', Warehouses, GlAccountAdvancedRules_1.GlAccountAdvancedRules);
+    Warehouses.GL_ACCOUNT_ADVANCED_RULES = new core_1.OneToManyLink('GLAccountAdvancedRules', Warehouses, GlAccountAdvancedRules_1.GlAccountAdvancedRules);
     /**
      * Static representation of the one-to-many navigation property [[stockTransfers]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.STOCK_TRANSFERS = new v4_1.OneToManyLink('StockTransfers', Warehouses, StockTransfers_1.StockTransfers);
+    Warehouses.STOCK_TRANSFERS = new core_1.OneToManyLink('StockTransfers', Warehouses, StockTransfers_1.StockTransfers);
     /**
      * Static representation of the one-to-many navigation property [[businessPlaces]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.BUSINESS_PLACES = new v4_1.OneToManyLink('BusinessPlaces', Warehouses, BusinessPlaces_1.BusinessPlaces);
+    Warehouses.BUSINESS_PLACES = new core_1.OneToManyLink('BusinessPlaces', Warehouses, BusinessPlaces_1.BusinessPlaces);
     /**
      * Static representation of the one-to-many navigation property [[inventoryTransferRequests]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.INVENTORY_TRANSFER_REQUESTS = new v4_1.OneToManyLink('InventoryTransferRequests', Warehouses, InventoryTransferRequests_1.InventoryTransferRequests);
+    Warehouses.INVENTORY_TRANSFER_REQUESTS = new core_1.OneToManyLink('InventoryTransferRequests', Warehouses, InventoryTransferRequests_1.InventoryTransferRequests);
     /**
      * Static representation of the one-to-many navigation property [[binLocations]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.BIN_LOCATIONS = new v4_1.OneToManyLink('BinLocations', Warehouses, BinLocations_1.BinLocations);
+    Warehouses.BIN_LOCATIONS = new core_1.OneToManyLink('BinLocations', Warehouses, BinLocations_1.BinLocations);
     /**
      * Static representation of the one-to-many navigation property [[stockTransferDrafts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    Warehouses.STOCK_TRANSFER_DRAFTS = new v4_1.OneToManyLink('StockTransferDrafts', Warehouses, StockTransferDrafts_1.StockTransferDrafts);
+    Warehouses.STOCK_TRANSFER_DRAFTS = new core_1.OneToManyLink('StockTransferDrafts', Warehouses, StockTransferDrafts_1.StockTransferDrafts);
     /**
      * All fields of the Warehouses entity.
      */
@@ -545,6 +620,7 @@ var StockTransferDrafts_1 = require("./StockTransferDrafts");
         Warehouses.RETURNING_ACCOUNT,
         Warehouses.SHIPPED_GOODS_ACCOUNT,
         Warehouses.STOCK_INFLATION_ADJUST_ACCOUNT,
+        Warehouses.ALLOW_USE_TAX,
         Warehouses.COST_INFLATION_ACCOUNT,
         Warehouses.FOREIGN_EXPENSES_ACCOUNT,
         Warehouses.EU_EXPENSES_ACCOUNT,
@@ -572,12 +648,14 @@ var StockTransferDrafts_1 = require("./StockTransferDrafts");
         Warehouses.EXCHANGE_RATE_DIFFERENCES_ACCOUNT,
         Warehouses.WIP_MATERIAL_ACCOUNT,
         Warehouses.WAREHOUSE_NAME,
+        Warehouses.DROP_SHIP,
         Warehouses.WIP_MATERIAL_VARIANCE_ACCOUNT,
         Warehouses.TRANSFERS_ACC,
         Warehouses.INTERNAL_KEY,
         Warehouses.FOREIGN_REVENUES_ACC,
         Warehouses.BUILDING_FLOOR_ROOM,
         Warehouses.COUNTY,
+        Warehouses.NETTABLE,
         Warehouses.INCREASING_ACC,
         Warehouses.EXPENSE_OFFSETING_ACT,
         Warehouses.GOODS_CLEARING_ACC,
@@ -592,6 +670,7 @@ var StockTransferDrafts_1 = require("./StockTransferDrafts");
         Warehouses.SALES_CREDIT_FOREIGN_ACC,
         Warehouses.NEGATIVE_INVENTORY_ADJUSTMENT_ACCOUNT,
         Warehouses.WH_SHIP_TO_NAME,
+        Warehouses.EXCISABLE,
         Warehouses.WH_INCOMING_CENVAT_ACCOUNT,
         Warehouses.WH_OUTGOING_CENVAT_ACCOUNT,
         Warehouses.STOCK_IN_TRANSIT_ACCOUNT,
@@ -601,10 +680,22 @@ var StockTransferDrafts_1 = require("./StockTransferDrafts");
         Warehouses.STREET_NO,
         Warehouses.STOREKEEPER,
         Warehouses.SHIPPER,
+        Warehouses.MANAGE_SERIAL_AND_BATCH_NUMBERS,
         Warehouses.GLOBAL_LOCATION_NUMBER,
+        Warehouses.ENABLE_BIN_LOCATIONS,
         Warehouses.BIN_LOC_CODE_SEPARATOR,
         Warehouses.DEFAULT_BIN,
+        Warehouses.DEFAULT_BIN_ENFORCED,
+        Warehouses.AUTO_ALLOC_ON_ISSUE,
+        Warehouses.ENABLE_RECEIVING_BIN_LOCATIONS,
+        Warehouses.RECEIVING_BIN_LOCATIONS_BY,
         Warehouses.PURCHASE_BALANCE_ACCOUNT,
+        Warehouses.INACTIVE,
+        Warehouses.RESTRICT_RECEIPT_TO_EMPTY_BIN_LOCATION,
+        Warehouses.RECEIVE_UP_TO_MAX_QUANTITY,
+        Warehouses.AUTO_ALLOC_ON_RECEIPT,
+        Warehouses.RECEIVE_UP_TO_MAX_WEIGHT,
+        Warehouses.RECEIVE_UP_TO_METHOD,
         Warehouses.USER_DEFAULT_GROUPS,
         Warehouses.CHART_OF_ACCOUNT,
         Warehouses.WAREHOUSE_LOCATION,
@@ -626,7 +717,7 @@ var StockTransferDrafts_1 = require("./StockTransferDrafts");
     /**
      * All fields selector.
      */
-    Warehouses.ALL_FIELDS = new v4_1.AllFields('*', Warehouses);
+    Warehouses.ALL_FIELDS = new core_1.AllFields('*', Warehouses);
     /**
      * All key fields of the Warehouses entity.
      */

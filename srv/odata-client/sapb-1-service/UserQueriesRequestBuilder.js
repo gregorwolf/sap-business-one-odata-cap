@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.UserQueriesRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var UserQueries_1 = require("./UserQueries");
 /**
  * Request builder class for operations supported on the [[UserQueries]] entity.
@@ -36,7 +36,7 @@ var UserQueriesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `UserQueries` entity based on its keys.
      */
     UserQueriesRequestBuilder.prototype.getByKey = function (internalKey, queryCategory) {
-        return new v4_1.GetByKeyRequestBuilder(UserQueries_1.UserQueries, {
+        return new core_1.GetByKeyRequestBuilderV4(UserQueries_1.UserQueries, {
             InternalKey: internalKey,
             QueryCategory: queryCategory
         });
@@ -46,7 +46,7 @@ var UserQueriesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve all `UserQueries` entities.
      */
     UserQueriesRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(UserQueries_1.UserQueries);
+        return new core_1.GetAllRequestBuilderV4(UserQueries_1.UserQueries);
     };
     /**
      * Returns a request builder for creating a `UserQueries` entity.
@@ -54,7 +54,7 @@ var UserQueriesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `UserQueries`.
      */
     UserQueriesRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(UserQueries_1.UserQueries, entity);
+        return new core_1.CreateRequestBuilderV4(UserQueries_1.UserQueries, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `UserQueries`.
@@ -62,15 +62,15 @@ var UserQueriesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `UserQueries`.
      */
     UserQueriesRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(UserQueries_1.UserQueries, entity);
+        return new core_1.UpdateRequestBuilderV4(UserQueries_1.UserQueries, entity);
     };
     UserQueriesRequestBuilder.prototype.delete = function (internalKeyOrEntity, queryCategory) {
-        return new v4_1.DeleteRequestBuilder(UserQueries_1.UserQueries, internalKeyOrEntity instanceof UserQueries_1.UserQueries ? internalKeyOrEntity : {
+        return new core_1.DeleteRequestBuilderV4(UserQueries_1.UserQueries, internalKeyOrEntity instanceof UserQueries_1.UserQueries ? internalKeyOrEntity : {
             InternalKey: internalKeyOrEntity,
             QueryCategory: queryCategory
         });
     };
     return UserQueriesRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.UserQueriesRequestBuilder = UserQueriesRequestBuilder;
 //# sourceMappingURL=UserQueriesRequestBuilder.js.map

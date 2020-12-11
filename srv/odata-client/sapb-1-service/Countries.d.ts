@@ -1,18 +1,15 @@
 import { CountriesRequestBuilder } from './CountriesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { DomesticBankAccountValidationEnum } from './DomesticBankAccountValidationEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "Countries" of service "SAPB1".
  */
-export declare class Countries extends Entity implements CountriesType {
+export declare class Countries extends EntityV4 implements CountriesType {
     /**
      * Technical entity name for Countries.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Countries.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -37,6 +34,11 @@ export declare class Countries extends Entity implements CountriesType {
      * @nullable
      */
     addressFormat?: number;
+    /**
+     * Eu.
+     * @nullable
+     */
+    eu?: BoYesNoEnum;
     /**
      * Number Of Digits For Tax Id.
      * @nullable
@@ -63,10 +65,30 @@ export declare class Countries extends Entity implements CountriesType {
      */
     bankControlKeyDigits?: number;
     /**
+     * Domestic Account Validation.
+     * @nullable
+     */
+    domesticAccountValidation?: DomesticBankAccountValidationEnum;
+    /**
+     * Iban Validation.
+     * @nullable
+     */
+    ibanValidation?: BoYesNoEnum;
+    /**
+     * Blacklisted.
+     * @nullable
+     */
+    blacklisted?: BoYesNoEnum;
+    /**
      * Uic Country Code.
      * @nullable
      */
     uicCountryCode?: string;
+    /**
+     * Eaeu.
+     * @nullable
+     */
+    eaeu?: BoYesNoEnum;
     /**
      * One-to-many navigation property to the [[UserDefaultGroups]] entity.
      */
@@ -244,10 +266,10 @@ export declare class Countries extends Entity implements CountriesType {
      */
     incomingPayments: IncomingPayments[];
     /**
-     * Returns an entity builder to construct instances `Countries`.
+     * Returns an entity builder to construct instances of `Countries`.
      * @returns A builder that constructs instances of entity type `Countries`.
      */
-    static builder(): EntityBuilderType<Countries, CountriesTypeForceMandatory>;
+    static builder(): EntityBuilderType<Countries, CountriesType>;
     /**
      * Returns a request builder to construct requests for operations on the `Countries` entity type.
      * @returns A `Countries` request builder.
@@ -258,7 +280,7 @@ export declare class Countries extends Entity implements CountriesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `Countries`.
      */
-    static customField(fieldName: string): CustomField<Countries>;
+    static customField(fieldName: string): CustomFieldV4<Countries>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -312,72 +334,21 @@ import { HouseBankAccounts, HouseBankAccountsType } from './HouseBankAccounts';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 import { IncomingPayments, IncomingPaymentsType } from './IncomingPayments';
 export interface CountriesType {
-    code?: string;
-    name?: string;
-    codeForReports?: string;
-    addressFormat?: number;
-    numberOfDigitsForTaxId?: number;
-    bankCodeDigits?: number;
-    bankBranchDigits?: number;
-    bankAccountDigits?: number;
-    bankControlKeyDigits?: number;
-    uicCountryCode?: string;
-    userDefaultGroups: UserDefaultGroupsType[];
-    warehouses: WarehousesType[];
-    inventoryGenEntries: InventoryGenEntriesType[];
-    checksforPayment: ChecksforPaymentType[];
-    purchaseQuotations: PurchaseQuotationsType[];
-    vendorPayments: VendorPaymentsType[];
-    creditCards: CreditCardsType[];
-    contacts: ContactsType[];
-    deliveryNotes: DeliveryNotesType[];
-    businessPartners: BusinessPartnersType[];
-    quotations: QuotationsType[];
-    warehouseLocations: WarehouseLocationsType[];
-    inventoryGenExits: InventoryGenExitsType[];
-    purchaseRequests: PurchaseRequestsType[];
-    returnRequest: ReturnRequestType[];
-    glAccountAdvancedRules: GlAccountAdvancedRulesType[];
-    states: StatesType[];
-    purchaseReturns: PurchaseReturnsType[];
-    invoices: InvoicesType[];
-    creditNotes: CreditNotesType[];
-    businessPlaces: BusinessPlacesType[];
-    orders: OrdersType[];
-    activities: ActivitiesType[];
-    downPayments: DownPaymentsType[];
-    drafts: DraftsType[];
-    wizardPaymentMethods: WizardPaymentMethodsType[];
-    paymentDrafts: PaymentDraftsType[];
-    returns: ReturnsType[];
-    correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-    correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-    correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-    customerEquipmentCards: CustomerEquipmentCardsType[];
-    purchaseInvoices: PurchaseInvoicesType[];
-    purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-    correctionInvoice: CorrectionInvoiceType[];
-    purchaseCreditNotes: PurchaseCreditNotesType[];
-    serviceCalls: ServiceCallsType[];
-    purchaseDownPayments: PurchaseDownPaymentsType[];
-    employeesInfo: EmployeesInfoType[];
-    banks: BanksType[];
-    purchaseOrders: PurchaseOrdersType[];
-    houseBankAccounts: HouseBankAccountsType[];
-    goodsReturnRequest: GoodsReturnRequestType[];
-    incomingPayments: IncomingPaymentsType[];
-}
-export interface CountriesTypeForceMandatory {
-    code: string;
-    name: string;
-    codeForReports: string;
-    addressFormat: number;
-    numberOfDigitsForTaxId: number;
-    bankCodeDigits: number;
-    bankBranchDigits: number;
-    bankAccountDigits: number;
-    bankControlKeyDigits: number;
-    uicCountryCode: string;
+    code?: string | null;
+    name?: string | null;
+    codeForReports?: string | null;
+    addressFormat?: number | null;
+    eu?: BoYesNoEnum | null;
+    numberOfDigitsForTaxId?: number | null;
+    bankCodeDigits?: number | null;
+    bankBranchDigits?: number | null;
+    bankAccountDigits?: number | null;
+    bankControlKeyDigits?: number | null;
+    domesticAccountValidation?: DomesticBankAccountValidationEnum | null;
+    ibanValidation?: BoYesNoEnum | null;
+    blacklisted?: BoYesNoEnum | null;
+    uicCountryCode?: string | null;
+    eaeu?: BoYesNoEnum | null;
     userDefaultGroups: UserDefaultGroupsType[];
     warehouses: WarehousesType[];
     inventoryGenEntries: InventoryGenEntriesType[];
@@ -445,6 +416,11 @@ export declare namespace Countries {
      */
     const ADDRESS_FORMAT: NumberField<Countries>;
     /**
+     * Static representation of the [[eu]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const EU: EnumField<Countries>;
+    /**
      * Static representation of the [[numberOfDigitsForTaxId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -470,10 +446,30 @@ export declare namespace Countries {
      */
     const BANK_CONTROL_KEY_DIGITS: NumberField<Countries>;
     /**
+     * Static representation of the [[domesticAccountValidation]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DOMESTIC_ACCOUNT_VALIDATION: EnumField<Countries>;
+    /**
+     * Static representation of the [[ibanValidation]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IBAN_VALIDATION: EnumField<Countries>;
+    /**
+     * Static representation of the [[blacklisted]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BLACKLISTED: EnumField<Countries>;
+    /**
      * Static representation of the [[uicCountryCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const UIC_COUNTRY_CODE: StringField<Countries>;
+    /**
+     * Static representation of the [[eaeu]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const EAEU: EnumField<Countries>;
     /**
      * Static representation of the one-to-many navigation property [[userDefaultGroups]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -697,7 +693,7 @@ export declare namespace Countries {
     /**
      * All fields of the Countries entity.
      */
-    const _allFields: Array<StringField<Countries> | NumberField<Countries> | OneToManyLink<Countries, UserDefaultGroups> | OneToManyLink<Countries, Warehouses> | OneToManyLink<Countries, InventoryGenEntries> | OneToManyLink<Countries, ChecksforPayment> | OneToManyLink<Countries, PurchaseQuotations> | OneToManyLink<Countries, VendorPayments> | OneToManyLink<Countries, CreditCards> | OneToManyLink<Countries, Contacts> | OneToManyLink<Countries, DeliveryNotes> | OneToManyLink<Countries, BusinessPartners> | OneToManyLink<Countries, Quotations> | OneToManyLink<Countries, WarehouseLocations> | OneToManyLink<Countries, InventoryGenExits> | OneToManyLink<Countries, PurchaseRequests> | OneToManyLink<Countries, ReturnRequest> | OneToManyLink<Countries, GlAccountAdvancedRules> | OneToManyLink<Countries, States> | OneToManyLink<Countries, PurchaseReturns> | OneToManyLink<Countries, Invoices> | OneToManyLink<Countries, CreditNotes> | OneToManyLink<Countries, BusinessPlaces> | OneToManyLink<Countries, Orders> | OneToManyLink<Countries, Activities> | OneToManyLink<Countries, DownPayments> | OneToManyLink<Countries, Drafts> | OneToManyLink<Countries, WizardPaymentMethods> | OneToManyLink<Countries, PaymentDrafts> | OneToManyLink<Countries, Returns> | OneToManyLink<Countries, CorrectionInvoiceReversal> | OneToManyLink<Countries, CorrectionPurchaseInvoice> | OneToManyLink<Countries, CorrectionPurchaseInvoiceReversal> | OneToManyLink<Countries, CustomerEquipmentCards> | OneToManyLink<Countries, PurchaseInvoices> | OneToManyLink<Countries, PurchaseDeliveryNotes> | OneToManyLink<Countries, CorrectionInvoice> | OneToManyLink<Countries, PurchaseCreditNotes> | OneToManyLink<Countries, ServiceCalls> | OneToManyLink<Countries, PurchaseDownPayments> | OneToManyLink<Countries, EmployeesInfo> | OneToManyLink<Countries, Banks> | OneToManyLink<Countries, PurchaseOrders> | OneToManyLink<Countries, HouseBankAccounts> | OneToManyLink<Countries, GoodsReturnRequest> | OneToManyLink<Countries, IncomingPayments>>;
+    const _allFields: Array<StringField<Countries> | NumberField<Countries> | EnumField<Countries> | OneToManyLink<Countries, UserDefaultGroups> | OneToManyLink<Countries, Warehouses> | OneToManyLink<Countries, InventoryGenEntries> | OneToManyLink<Countries, ChecksforPayment> | OneToManyLink<Countries, PurchaseQuotations> | OneToManyLink<Countries, VendorPayments> | OneToManyLink<Countries, CreditCards> | OneToManyLink<Countries, Contacts> | OneToManyLink<Countries, DeliveryNotes> | OneToManyLink<Countries, BusinessPartners> | OneToManyLink<Countries, Quotations> | OneToManyLink<Countries, WarehouseLocations> | OneToManyLink<Countries, InventoryGenExits> | OneToManyLink<Countries, PurchaseRequests> | OneToManyLink<Countries, ReturnRequest> | OneToManyLink<Countries, GlAccountAdvancedRules> | OneToManyLink<Countries, States> | OneToManyLink<Countries, PurchaseReturns> | OneToManyLink<Countries, Invoices> | OneToManyLink<Countries, CreditNotes> | OneToManyLink<Countries, BusinessPlaces> | OneToManyLink<Countries, Orders> | OneToManyLink<Countries, Activities> | OneToManyLink<Countries, DownPayments> | OneToManyLink<Countries, Drafts> | OneToManyLink<Countries, WizardPaymentMethods> | OneToManyLink<Countries, PaymentDrafts> | OneToManyLink<Countries, Returns> | OneToManyLink<Countries, CorrectionInvoiceReversal> | OneToManyLink<Countries, CorrectionPurchaseInvoice> | OneToManyLink<Countries, CorrectionPurchaseInvoiceReversal> | OneToManyLink<Countries, CustomerEquipmentCards> | OneToManyLink<Countries, PurchaseInvoices> | OneToManyLink<Countries, PurchaseDeliveryNotes> | OneToManyLink<Countries, CorrectionInvoice> | OneToManyLink<Countries, PurchaseCreditNotes> | OneToManyLink<Countries, ServiceCalls> | OneToManyLink<Countries, PurchaseDownPayments> | OneToManyLink<Countries, EmployeesInfo> | OneToManyLink<Countries, Banks> | OneToManyLink<Countries, PurchaseOrders> | OneToManyLink<Countries, HouseBankAccounts> | OneToManyLink<Countries, GoodsReturnRequest> | OneToManyLink<Countries, IncomingPayments>>;
     /**
      * All fields selector.
      */

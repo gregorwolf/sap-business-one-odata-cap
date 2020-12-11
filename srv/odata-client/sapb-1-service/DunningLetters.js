@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.DunningLetters = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var DunningLettersRequestBuilder_1 = require("./DunningLettersRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "DunningLetters" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var DunningLetters = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `DunningLetters`.
+     * Returns an entity builder to construct instances of `DunningLetters`.
      * @returns A builder that constructs instances of entity type `DunningLetters`.
      */
     DunningLetters.builder = function () {
-        return v4_1.Entity.entityBuilder(DunningLetters);
+        return core_1.EntityV4.entityBuilder(DunningLetters);
     };
     /**
      * Returns a request builder to construct requests for operations on the `DunningLetters` entity type.
@@ -60,7 +60,7 @@ var DunningLetters = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `DunningLetters`.
      */
     DunningLetters.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, DunningLetters);
+        return core_1.EntityV4.customFieldSelector(fieldName, DunningLetters);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var DunningLetters = /** @class */ (function (_super) {
      */
     DunningLetters._entityName = 'DunningLetters';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for DunningLetters.
-     */
-    DunningLetters._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    DunningLetters._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    DunningLetters._defaultServicePath = '/b1s/v2/';
     return DunningLetters;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.DunningLetters = DunningLetters;
 var BusinessPartners_1 = require("./BusinessPartners");
 (function (DunningLetters) {
@@ -91,42 +86,47 @@ var BusinessPartners_1 = require("./BusinessPartners");
      * Static representation of the [[feeCurrency]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DunningLetters.FEE_CURRENCY = new v4_1.StringField('FeeCurrency', DunningLetters, 'Edm.String');
+    DunningLetters.FEE_CURRENCY = new core_1.StringField('FeeCurrency', DunningLetters, 'Edm.String');
     /**
      * Static representation of the [[rowNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DunningLetters.ROW_NUMBER = new v4_1.NumberField('RowNumber', DunningLetters, 'Edm.Int32');
+    DunningLetters.ROW_NUMBER = new core_1.NumberField('RowNumber', DunningLetters, 'Edm.Int32');
     /**
      * Static representation of the [[letterFormat]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DunningLetters.LETTER_FORMAT = new v4_1.StringField('LetterFormat', DunningLetters, 'Edm.String');
+    DunningLetters.LETTER_FORMAT = new core_1.StringField('LetterFormat', DunningLetters, 'Edm.String');
     /**
      * Static representation of the [[effectiveafter]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DunningLetters.EFFECTIVEAFTER = new v4_1.StringField('Effectiveafter', DunningLetters, 'Edm.String');
+    DunningLetters.EFFECTIVEAFTER = new core_1.StringField('Effectiveafter', DunningLetters, 'Edm.String');
     /**
      * Static representation of the [[minimumBalanceCurrency]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DunningLetters.MINIMUM_BALANCE_CURRENCY = new v4_1.StringField('MinimumBalanceCurrency', DunningLetters, 'Edm.String');
+    DunningLetters.MINIMUM_BALANCE_CURRENCY = new core_1.StringField('MinimumBalanceCurrency', DunningLetters, 'Edm.String');
     /**
      * Static representation of the [[feeperletter]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DunningLetters.FEEPERLETTER = new v4_1.NumberField('Feeperletter', DunningLetters, 'Edm.Double');
+    DunningLetters.FEEPERLETTER = new core_1.NumberField('Feeperletter', DunningLetters, 'Edm.Double');
+    /**
+     * Static representation of the [[calcInterest]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    DunningLetters.CALC_INTEREST = new core_1.EnumField('CalcInterest', DunningLetters);
     /**
      * Static representation of the [[minimumBalance]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DunningLetters.MINIMUM_BALANCE = new v4_1.NumberField('MinimumBalance', DunningLetters, 'Edm.Double');
+    DunningLetters.MINIMUM_BALANCE = new core_1.NumberField('MinimumBalance', DunningLetters, 'Edm.Double');
     /**
      * Static representation of the one-to-many navigation property [[businessPartners]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    DunningLetters.BUSINESS_PARTNERS = new v4_1.OneToManyLink('BusinessPartners', DunningLetters, BusinessPartners_1.BusinessPartners);
+    DunningLetters.BUSINESS_PARTNERS = new core_1.OneToManyLink('BusinessPartners', DunningLetters, BusinessPartners_1.BusinessPartners);
     /**
      * All fields of the DunningLetters entity.
      */
@@ -137,13 +137,14 @@ var BusinessPartners_1 = require("./BusinessPartners");
         DunningLetters.EFFECTIVEAFTER,
         DunningLetters.MINIMUM_BALANCE_CURRENCY,
         DunningLetters.FEEPERLETTER,
+        DunningLetters.CALC_INTEREST,
         DunningLetters.MINIMUM_BALANCE,
         DunningLetters.BUSINESS_PARTNERS
     ];
     /**
      * All fields selector.
      */
-    DunningLetters.ALL_FIELDS = new v4_1.AllFields('*', DunningLetters);
+    DunningLetters.ALL_FIELDS = new core_1.AllFields('*', DunningLetters);
     /**
      * All key fields of the DunningLetters entity.
      */

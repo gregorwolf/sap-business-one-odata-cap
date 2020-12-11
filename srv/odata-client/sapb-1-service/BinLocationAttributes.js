@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.BinLocationAttributes = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var BinLocationAttributesRequestBuilder_1 = require("./BinLocationAttributesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "BinLocationAttributes" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var BinLocationAttributes = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `BinLocationAttributes`.
+     * Returns an entity builder to construct instances of `BinLocationAttributes`.
      * @returns A builder that constructs instances of entity type `BinLocationAttributes`.
      */
     BinLocationAttributes.builder = function () {
-        return v4_1.Entity.entityBuilder(BinLocationAttributes);
+        return core_1.EntityV4.entityBuilder(BinLocationAttributes);
     };
     /**
      * Returns a request builder to construct requests for operations on the `BinLocationAttributes` entity type.
@@ -60,7 +60,7 @@ var BinLocationAttributes = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `BinLocationAttributes`.
      */
     BinLocationAttributes.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, BinLocationAttributes);
+        return core_1.EntityV4.customFieldSelector(fieldName, BinLocationAttributes);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var BinLocationAttributes = /** @class */ (function (_super) {
      */
     BinLocationAttributes._entityName = 'BinLocationAttributes';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BinLocationAttributes.
-     */
-    BinLocationAttributes._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    BinLocationAttributes._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    BinLocationAttributes._defaultServicePath = '/b1s/v2/';
     return BinLocationAttributes;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.BinLocationAttributes = BinLocationAttributes;
 var BinLocationFields_1 = require("./BinLocationFields");
 (function (BinLocationAttributes) {
@@ -91,22 +86,22 @@ var BinLocationFields_1 = require("./BinLocationFields");
      * Static representation of the [[attribute]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BinLocationAttributes.ATTRIBUTE = new v4_1.NumberField('Attribute', BinLocationAttributes, 'Edm.Int32');
+    BinLocationAttributes.ATTRIBUTE = new core_1.NumberField('Attribute', BinLocationAttributes, 'Edm.Int32');
     /**
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BinLocationAttributes.CODE = new v4_1.StringField('Code', BinLocationAttributes, 'Edm.String');
+    BinLocationAttributes.CODE = new core_1.StringField('Code', BinLocationAttributes, 'Edm.String');
     /**
      * Static representation of the [[absEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BinLocationAttributes.ABS_ENTRY = new v4_1.NumberField('AbsEntry', BinLocationAttributes, 'Edm.Int32');
+    BinLocationAttributes.ABS_ENTRY = new core_1.NumberField('AbsEntry', BinLocationAttributes, 'Edm.Int32');
     /**
      * Static representation of the one-to-one navigation property [[binLocationField]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BinLocationAttributes.BIN_LOCATION_FIELD = new v4_1.OneToOneLink('BinLocationField', BinLocationAttributes, BinLocationFields_1.BinLocationFields);
+    BinLocationAttributes.BIN_LOCATION_FIELD = new core_1.OneToOneLink('BinLocationField', BinLocationAttributes, BinLocationFields_1.BinLocationFields);
     /**
      * All fields of the BinLocationAttributes entity.
      */
@@ -119,7 +114,7 @@ var BinLocationFields_1 = require("./BinLocationFields");
     /**
      * All fields selector.
      */
-    BinLocationAttributes.ALL_FIELDS = new v4_1.AllFields('*', BinLocationAttributes);
+    BinLocationAttributes.ALL_FIELDS = new core_1.AllFields('*', BinLocationAttributes);
     /**
      * All key fields of the BinLocationAttributes entity.
      */

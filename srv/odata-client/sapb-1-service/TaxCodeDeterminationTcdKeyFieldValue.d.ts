@@ -1,6 +1,6 @@
-import { TaxCodeDeterminationTcdKeyFieldValuePeriod, TaxCodeDeterminationTcdKeyFieldValuePeriodField } from './TaxCodeDeterminationTcdKeyFieldValuePeriod';
-import { TaxCodeDeterminationTcdKeyFieldValueDefaultWt, TaxCodeDeterminationTcdKeyFieldValueDefaultWtField } from './TaxCodeDeterminationTcdKeyFieldValueDefaultWt';
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { TaxCodeDeterminationTcdKeyFieldValuePeriod } from './TaxCodeDeterminationTcdKeyFieldValuePeriod';
+import { TaxCodeDeterminationTcdKeyFieldValueDefaultWt } from './TaxCodeDeterminationTcdKeyFieldValueDefaultWt';
+import { CollectionField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * TaxCodeDeterminationTcdKeyFieldValue
  */
@@ -39,12 +39,12 @@ export interface TaxCodeDeterminationTcdKeyFieldValue {
      * Tax Code Determination Tcd Key Field Value Periods.
      * @nullable
      */
-    taxCodeDeterminationTcdKeyFieldValuePeriods?: TaxCodeDeterminationTcdKeyFieldValuePeriod;
+    taxCodeDeterminationTcdKeyFieldValuePeriods?: TaxCodeDeterminationTcdKeyFieldValuePeriod[];
     /**
      * Tax Code Determination Tcd Key Field Value Default W Ts.
      * @nullable
      */
-    taxCodeDeterminationTcdKeyFieldValueDefaultWTs?: TaxCodeDeterminationTcdKeyFieldValueDefaultWt;
+    taxCodeDeterminationTcdKeyFieldValueDefaultWTs?: TaxCodeDeterminationTcdKeyFieldValueDefaultWt[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[TaxCodeDeterminationTcdKeyFieldValue.build]] instead.
@@ -54,7 +54,7 @@ export declare function createTaxCodeDeterminationTcdKeyFieldValue(json: any): T
  * TaxCodeDeterminationTcdKeyFieldValueField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class TaxCodeDeterminationTcdKeyFieldValueField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class TaxCodeDeterminationTcdKeyFieldValueField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, TaxCodeDeterminationTcdKeyFieldValue> {
     /**
      * Representation of the [[TaxCodeDeterminationTcdKeyFieldValue.absId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -89,14 +89,28 @@ export declare class TaxCodeDeterminationTcdKeyFieldValueField<EntityT extends E
      * Representation of the [[TaxCodeDeterminationTcdKeyFieldValue.taxCodeDeterminationTcdKeyFieldValuePeriods]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    taxCodeDeterminationTcdKeyFieldValuePeriods: TaxCodeDeterminationTcdKeyFieldValuePeriodField<EntityT>;
+    taxCodeDeterminationTcdKeyFieldValuePeriods: CollectionField<EntityT, TaxCodeDeterminationTcdKeyFieldValuePeriod>;
     /**
      * Representation of the [[TaxCodeDeterminationTcdKeyFieldValue.taxCodeDeterminationTcdKeyFieldValueDefaultWTs]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    taxCodeDeterminationTcdKeyFieldValueDefaultWTs: TaxCodeDeterminationTcdKeyFieldValueDefaultWtField<EntityT>;
+    taxCodeDeterminationTcdKeyFieldValueDefaultWTs: CollectionField<EntityT, TaxCodeDeterminationTcdKeyFieldValueDefaultWt>;
+    /**
+     * Creates an instance of TaxCodeDeterminationTcdKeyFieldValueField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace TaxCodeDeterminationTcdKeyFieldValue {
+    /**
+     * Metadata information on all properties of the `TaxCodeDeterminationTcdKeyFieldValue` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<TaxCodeDeterminationTcdKeyFieldValue>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | TaxCodeDeterminationTcdKeyFieldValueDefaultWt | TaxCodeDeterminationTcdKeyFieldValuePeriod;
     }): TaxCodeDeterminationTcdKeyFieldValue;

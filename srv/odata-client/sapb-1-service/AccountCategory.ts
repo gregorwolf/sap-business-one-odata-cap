@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { AccountCategoryRequestBuilder } from './AccountCategoryRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AccountCategorySourceEnum } from './AccountCategorySourceEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "AccountCategory" of service "SAPB1".
  */
-export class AccountCategory extends Entity implements AccountCategoryType {
+export class AccountCategory extends EntityV4 implements AccountCategoryType {
   /**
    * Technical entity name for AccountCategory.
    */
   static _entityName = 'AccountCategory';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for AccountCategory.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Category Code.
    * @nullable
@@ -34,16 +30,21 @@ export class AccountCategory extends Entity implements AccountCategoryType {
    */
   categoryName?: string;
   /**
+   * Category Source.
+   * @nullable
+   */
+  categorySource?: AccountCategorySourceEnum;
+  /**
    * One-to-many navigation property to the [[ChartOfAccounts]] entity.
    */
   chartOfAccounts!: ChartOfAccounts[];
 
   /**
-   * Returns an entity builder to construct instances `AccountCategory`.
+   * Returns an entity builder to construct instances of `AccountCategory`.
    * @returns A builder that constructs instances of entity type `AccountCategory`.
    */
-  static builder(): EntityBuilderType<AccountCategory, AccountCategoryTypeForceMandatory> {
-    return Entity.entityBuilder(AccountCategory);
+  static builder(): EntityBuilderType<AccountCategory, AccountCategoryType> {
+    return EntityV4.entityBuilder(AccountCategory);
   }
 
   /**
@@ -59,8 +60,8 @@ export class AccountCategory extends Entity implements AccountCategoryType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `AccountCategory`.
    */
-  static customField(fieldName: string): CustomField<AccountCategory> {
-    return Entity.customFieldSelector(fieldName, AccountCategory);
+  static customField(fieldName: string): CustomFieldV4<AccountCategory> {
+    return EntityV4.customFieldSelector(fieldName, AccountCategory);
   }
 
   /**
@@ -75,14 +76,9 @@ export class AccountCategory extends Entity implements AccountCategoryType {
 import { ChartOfAccounts, ChartOfAccountsType } from './ChartOfAccounts';
 
 export interface AccountCategoryType {
-  categoryCode?: number;
-  categoryName?: string;
-  chartOfAccounts: ChartOfAccountsType[];
-}
-
-export interface AccountCategoryTypeForceMandatory {
-  categoryCode: number;
-  categoryName: string;
+  categoryCode?: number | null;
+  categoryName?: string | null;
+  categorySource?: AccountCategorySourceEnum | null;
   chartOfAccounts: ChartOfAccountsType[];
 }
 
@@ -98,6 +94,11 @@ export namespace AccountCategory {
    */
   export const CATEGORY_NAME: StringField<AccountCategory> = new StringField('CategoryName', AccountCategory, 'Edm.String');
   /**
+   * Static representation of the [[categorySource]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CATEGORY_SOURCE: EnumField<AccountCategory> = new EnumField('CategorySource', AccountCategory);
+  /**
    * Static representation of the one-to-many navigation property [[chartOfAccounts]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -105,9 +106,10 @@ export namespace AccountCategory {
   /**
    * All fields of the AccountCategory entity.
    */
-  export const _allFields: Array<NumberField<AccountCategory> | StringField<AccountCategory> | OneToManyLink<AccountCategory, ChartOfAccounts>> = [
+  export const _allFields: Array<NumberField<AccountCategory> | StringField<AccountCategory> | EnumField<AccountCategory> | OneToManyLink<AccountCategory, ChartOfAccounts>> = [
     AccountCategory.CATEGORY_CODE,
     AccountCategory.CATEGORY_NAME,
+    AccountCategory.CATEGORY_SOURCE,
     AccountCategory.CHART_OF_ACCOUNTS
   ];
   /**

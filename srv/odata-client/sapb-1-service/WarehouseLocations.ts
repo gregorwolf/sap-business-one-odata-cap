@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { WarehouseLocationsRequestBuilder } from './WarehouseLocationsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoGstRegnTypeEnum } from './BoGstRegnTypeEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "WarehouseLocations" of service "SAPB1".
  */
-export class WarehouseLocations extends Entity implements WarehouseLocationsType {
+export class WarehouseLocations extends EntityV4 implements WarehouseLocationsType {
   /**
    * Technical entity name for WarehouseLocations.
    */
   static _entityName = 'WarehouseLocations';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for WarehouseLocations.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Code.
    * @nullable
@@ -169,6 +165,11 @@ export class WarehouseLocations extends Entity implements WarehouseLocationsType
    */
   gstin?: string;
   /**
+   * Gst Type.
+   * @nullable
+   */
+  gstType?: BoGstRegnTypeEnum;
+  /**
    * Gsttds.
    * @nullable
    */
@@ -216,11 +217,11 @@ export class WarehouseLocations extends Entity implements WarehouseLocationsType
   incomingPayments!: IncomingPayments[];
 
   /**
-   * Returns an entity builder to construct instances `WarehouseLocations`.
+   * Returns an entity builder to construct instances of `WarehouseLocations`.
    * @returns A builder that constructs instances of entity type `WarehouseLocations`.
    */
-  static builder(): EntityBuilderType<WarehouseLocations, WarehouseLocationsTypeForceMandatory> {
-    return Entity.entityBuilder(WarehouseLocations);
+  static builder(): EntityBuilderType<WarehouseLocations, WarehouseLocationsType> {
+    return EntityV4.entityBuilder(WarehouseLocations);
   }
 
   /**
@@ -236,8 +237,8 @@ export class WarehouseLocations extends Entity implements WarehouseLocationsType
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `WarehouseLocations`.
    */
-  static customField(fieldName: string): CustomField<WarehouseLocations> {
-    return Entity.customFieldSelector(fieldName, WarehouseLocations);
+  static customField(fieldName: string): CustomFieldV4<WarehouseLocations> {
+    return EntityV4.customFieldSelector(fieldName, WarehouseLocations);
   }
 
   /**
@@ -260,80 +261,38 @@ import { WithholdingTaxCodes, WithholdingTaxCodesType } from './WithholdingTaxCo
 import { IncomingPayments, IncomingPaymentsType } from './IncomingPayments';
 
 export interface WarehouseLocationsType {
-  code?: number;
-  name?: string;
-  lstvatNumber?: string;
-  cstNumber?: string;
-  exemptionNumber?: string;
-  tanNumber?: string;
-  serviceTaxNumber?: string;
-  assesseeType?: string;
-  companyType?: string;
-  natureOfBusiness?: string;
-  tinNumber?: string;
-  registrationType?: string;
-  eccNumber?: string;
-  ceRange?: string;
-  ceDivision?: string;
-  ceCommissionerate?: string;
-  manufacturerCode?: string;
-  jurisdiction?: string;
-  street?: string;
-  block?: string;
-  zipCode?: string;
-  city?: string;
-  county?: string;
-  country?: string;
-  state?: string;
-  panNumber?: string;
-  ceRegisterNumber?: string;
-  buildingFloorRoom?: string;
-  gstin?: string;
-  gsttds?: string;
-  gstisd?: string;
-  warehouses: WarehousesType[];
-  vendorPayments: VendorPaymentsType[];
-  items: ItemsType[];
-  journalEntries: JournalEntriesType[];
-  country2: CountriesType;
-  certificateSeries: CertificateSeriesType[];
-  paymentDrafts: PaymentDraftsType[];
-  withholdingTaxCodes: WithholdingTaxCodesType[];
-  incomingPayments: IncomingPaymentsType[];
-}
-
-export interface WarehouseLocationsTypeForceMandatory {
-  code: number;
-  name: string;
-  lstvatNumber: string;
-  cstNumber: string;
-  exemptionNumber: string;
-  tanNumber: string;
-  serviceTaxNumber: string;
-  assesseeType: string;
-  companyType: string;
-  natureOfBusiness: string;
-  tinNumber: string;
-  registrationType: string;
-  eccNumber: string;
-  ceRange: string;
-  ceDivision: string;
-  ceCommissionerate: string;
-  manufacturerCode: string;
-  jurisdiction: string;
-  street: string;
-  block: string;
-  zipCode: string;
-  city: string;
-  county: string;
-  country: string;
-  state: string;
-  panNumber: string;
-  ceRegisterNumber: string;
-  buildingFloorRoom: string;
-  gstin: string;
-  gsttds: string;
-  gstisd: string;
+  code?: number | null;
+  name?: string | null;
+  lstvatNumber?: string | null;
+  cstNumber?: string | null;
+  exemptionNumber?: string | null;
+  tanNumber?: string | null;
+  serviceTaxNumber?: string | null;
+  assesseeType?: string | null;
+  companyType?: string | null;
+  natureOfBusiness?: string | null;
+  tinNumber?: string | null;
+  registrationType?: string | null;
+  eccNumber?: string | null;
+  ceRange?: string | null;
+  ceDivision?: string | null;
+  ceCommissionerate?: string | null;
+  manufacturerCode?: string | null;
+  jurisdiction?: string | null;
+  street?: string | null;
+  block?: string | null;
+  zipCode?: string | null;
+  city?: string | null;
+  county?: string | null;
+  country?: string | null;
+  state?: string | null;
+  panNumber?: string | null;
+  ceRegisterNumber?: string | null;
+  buildingFloorRoom?: string | null;
+  gstin?: string | null;
+  gstType?: BoGstRegnTypeEnum | null;
+  gsttds?: string | null;
+  gstisd?: string | null;
   warehouses: WarehousesType[];
   vendorPayments: VendorPaymentsType[];
   items: ItemsType[];
@@ -492,6 +451,11 @@ export namespace WarehouseLocations {
    */
   export const GSTIN: StringField<WarehouseLocations> = new StringField('GSTIN', WarehouseLocations, 'Edm.String');
   /**
+   * Static representation of the [[gstType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const GST_TYPE: EnumField<WarehouseLocations> = new EnumField('GstType', WarehouseLocations);
+  /**
    * Static representation of the [[gsttds]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -549,7 +513,7 @@ export namespace WarehouseLocations {
   /**
    * All fields of the WarehouseLocations entity.
    */
-  export const _allFields: Array<NumberField<WarehouseLocations> | StringField<WarehouseLocations> | OneToManyLink<WarehouseLocations, Warehouses> | OneToManyLink<WarehouseLocations, VendorPayments> | OneToManyLink<WarehouseLocations, Items> | OneToManyLink<WarehouseLocations, JournalEntries> | OneToOneLink<WarehouseLocations, Countries> | OneToManyLink<WarehouseLocations, CertificateSeries> | OneToManyLink<WarehouseLocations, PaymentDrafts> | OneToManyLink<WarehouseLocations, WithholdingTaxCodes> | OneToManyLink<WarehouseLocations, IncomingPayments>> = [
+  export const _allFields: Array<NumberField<WarehouseLocations> | StringField<WarehouseLocations> | EnumField<WarehouseLocations> | OneToManyLink<WarehouseLocations, Warehouses> | OneToManyLink<WarehouseLocations, VendorPayments> | OneToManyLink<WarehouseLocations, Items> | OneToManyLink<WarehouseLocations, JournalEntries> | OneToOneLink<WarehouseLocations, Countries> | OneToManyLink<WarehouseLocations, CertificateSeries> | OneToManyLink<WarehouseLocations, PaymentDrafts> | OneToManyLink<WarehouseLocations, WithholdingTaxCodes> | OneToManyLink<WarehouseLocations, IncomingPayments>> = [
     WarehouseLocations.CODE,
     WarehouseLocations.NAME,
     WarehouseLocations.LSTVAT_NUMBER,
@@ -579,6 +543,7 @@ export namespace WarehouseLocations {
     WarehouseLocations.CE_REGISTER_NUMBER,
     WarehouseLocations.BUILDING_FLOOR_ROOM,
     WarehouseLocations.GSTIN,
+    WarehouseLocations.GST_TYPE,
     WarehouseLocations.GSTTDS,
     WarehouseLocations.GSTISD,
     WarehouseLocations.WAREHOUSES,

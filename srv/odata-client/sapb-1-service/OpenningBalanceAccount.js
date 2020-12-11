@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OpenningBalanceAccount = exports.OpenningBalanceAccountField = exports.createOpenningBalanceAccount = void 0;
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[OpenningBalanceAccount.build]] instead.
  */
@@ -28,54 +28,90 @@ exports.createOpenningBalanceAccount = createOpenningBalanceAccount;
  */
 var OpenningBalanceAccountField = /** @class */ (function (_super) {
     __extends(OpenningBalanceAccountField, _super);
-    function OpenningBalanceAccountField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of OpenningBalanceAccountField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function OpenningBalanceAccountField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, OpenningBalanceAccount) || this;
         /**
          * Representation of the [[OpenningBalanceAccount.openBalanceAccount]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.openBalanceAccount = new v4_1.ComplexTypeStringPropertyField('OpenBalanceAccount', _this, 'Edm.String');
+        _this.openBalanceAccount = new core_1.ComplexTypeStringPropertyField('OpenBalanceAccount', _this, 'Edm.String');
         /**
          * Representation of the [[OpenningBalanceAccount.date]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.date = new v4_1.ComplexTypeDatePropertyField('Date', _this, 'Edm.DateTimeOffset');
+        _this.date = new core_1.ComplexTypeDatePropertyField('Date', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[OpenningBalanceAccount.ref1]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.ref1 = new v4_1.ComplexTypeStringPropertyField('Ref1', _this, 'Edm.String');
+        _this.ref1 = new core_1.ComplexTypeStringPropertyField('Ref1', _this, 'Edm.String');
         /**
          * Representation of the [[OpenningBalanceAccount.ref2]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.ref2 = new v4_1.ComplexTypeStringPropertyField('Ref2', _this, 'Edm.String');
+        _this.ref2 = new core_1.ComplexTypeStringPropertyField('Ref2', _this, 'Edm.String');
         /**
          * Representation of the [[OpenningBalanceAccount.details]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.details = new v4_1.ComplexTypeStringPropertyField('Details', _this, 'Edm.String');
+        _this.details = new core_1.ComplexTypeStringPropertyField('Details', _this, 'Edm.String');
         /**
          * Representation of the [[OpenningBalanceAccount.bplid]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.bplid = new v4_1.ComplexTypeNumberPropertyField('BPLID', _this, 'Edm.Int32');
+        _this.bplid = new core_1.ComplexTypeNumberPropertyField('BPLID', _this, 'Edm.Int32');
         return _this;
     }
     return OpenningBalanceAccountField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.OpenningBalanceAccountField = OpenningBalanceAccountField;
 var OpenningBalanceAccount;
 (function (OpenningBalanceAccount) {
+    /**
+     * Metadata information on all properties of the `OpenningBalanceAccount` complex type.
+     */
+    OpenningBalanceAccount._propertyMetadata = [{
+            originalName: 'OpenBalanceAccount',
+            name: 'openBalanceAccount',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Date',
+            name: 'date',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'Ref1',
+            name: 'ref1',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Ref2',
+            name: 'ref2',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'Details',
+            name: 'details',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'BPLID',
+            name: 'bplid',
+            type: 'Edm.Int32',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            OpenBalanceAccount: function (openBalanceAccount) { return ({ openBalanceAccount: v4_1.edmToTs(openBalanceAccount, 'Edm.String') }); },
-            Date: function (date) { return ({ date: v4_1.edmToTs(date, 'Edm.DateTimeOffset') }); },
-            Ref1: function (ref1) { return ({ ref1: v4_1.edmToTs(ref1, 'Edm.String') }); },
-            Ref2: function (ref2) { return ({ ref2: v4_1.edmToTs(ref2, 'Edm.String') }); },
-            Details: function (details) { return ({ details: v4_1.edmToTs(details, 'Edm.String') }); },
-            BPLID: function (bplid) { return ({ bplid: v4_1.edmToTs(bplid, 'Edm.Int32') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, OpenningBalanceAccount);
     }
     OpenningBalanceAccount.build = build;
 })(OpenningBalanceAccount = exports.OpenningBalanceAccount || (exports.OpenningBalanceAccount = {}));

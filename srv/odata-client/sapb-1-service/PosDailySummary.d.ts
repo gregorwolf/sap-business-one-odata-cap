@@ -1,20 +1,15 @@
 import { PosDailySummaryRequestBuilder } from './PosDailySummaryRequestBuilder';
 import { Moment } from 'moment';
 import { PosTotalizer } from './PosTotalizer';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "POSDailySummary" of service "SAPB1".
  */
-export declare class PosDailySummary extends Entity implements PosDailySummaryType {
+export declare class PosDailySummary extends EntityV4 implements PosDailySummaryType {
     /**
      * Technical entity name for PosDailySummary.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for PosDailySummary.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -175,10 +170,10 @@ export declare class PosDailySummary extends Entity implements PosDailySummaryTy
      */
     goodsReturnRequest: GoodsReturnRequest[];
     /**
-     * Returns an entity builder to construct instances `PosDailySummary`.
+     * Returns an entity builder to construct instances of `PosDailySummary`.
      * @returns A builder that constructs instances of entity type `PosDailySummary`.
      */
-    static builder(): EntityBuilderType<PosDailySummary, PosDailySummaryTypeForceMandatory>;
+    static builder(): EntityBuilderType<PosDailySummary, PosDailySummaryType>;
     /**
      * Returns a request builder to construct requests for operations on the `PosDailySummary` entity type.
      * @returns A `PosDailySummary` request builder.
@@ -189,7 +184,7 @@ export declare class PosDailySummary extends Entity implements PosDailySummaryTy
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `PosDailySummary`.
      */
-    static customField(fieldName: string): CustomField<PosDailySummary>;
+    static customField(fieldName: string): CustomFieldV4<PosDailySummary>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -224,55 +219,17 @@ import { PurchaseDownPayments, PurchaseDownPaymentsType } from './PurchaseDownPa
 import { PurchaseOrders, PurchaseOrdersType } from './PurchaseOrders';
 import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest';
 export interface PosDailySummaryType {
-    absEntry?: number;
-    date?: Moment;
-    equipmentNo?: string;
-    counterPosition?: number;
-    resetCounterPosition?: number;
-    operationCounter?: number;
-    total?: number;
-    grossSales?: number;
-    pisTotal?: number;
-    cofinsTotal?: number;
-    posTotalizerCollection?: PosTotalizer[];
-    inventoryGenEntries: InventoryGenEntriesType[];
-    purchaseQuotations: PurchaseQuotationsType[];
-    deliveryNotes: DeliveryNotesType[];
-    quotations: QuotationsType[];
-    inventoryGenExits: InventoryGenExitsType[];
-    purchaseRequests: PurchaseRequestsType[];
-    returnRequest: ReturnRequestType[];
-    purchaseReturns: PurchaseReturnsType[];
-    invoices: InvoicesType[];
-    creditNotes: CreditNotesType[];
-    orders: OrdersType[];
-    downPayments: DownPaymentsType[];
-    drafts: DraftsType[];
-    returns: ReturnsType[];
-    correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-    correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-    correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-    fiscalPrinter: FiscalPrinterType;
-    purchaseInvoices: PurchaseInvoicesType[];
-    purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-    correctionInvoice: CorrectionInvoiceType[];
-    purchaseCreditNotes: PurchaseCreditNotesType[];
-    purchaseDownPayments: PurchaseDownPaymentsType[];
-    purchaseOrders: PurchaseOrdersType[];
-    goodsReturnRequest: GoodsReturnRequestType[];
-}
-export interface PosDailySummaryTypeForceMandatory {
-    absEntry: number;
-    date: Moment;
-    equipmentNo: string;
-    counterPosition: number;
-    resetCounterPosition: number;
-    operationCounter: number;
-    total: number;
-    grossSales: number;
-    pisTotal: number;
-    cofinsTotal: number;
-    posTotalizerCollection: PosTotalizer[];
+    absEntry?: number | null;
+    date?: Moment | null;
+    equipmentNo?: string | null;
+    counterPosition?: number | null;
+    resetCounterPosition?: number | null;
+    operationCounter?: number | null;
+    total?: number | null;
+    grossSales?: number | null;
+    pisTotal?: number | null;
+    cofinsTotal?: number | null;
+    posTotalizerCollection?: PosTotalizer[] | null;
     inventoryGenEntries: InventoryGenEntriesType[];
     purchaseQuotations: PurchaseQuotationsType[];
     deliveryNotes: DeliveryNotesType[];
@@ -354,7 +311,7 @@ export declare namespace PosDailySummary {
      * Static representation of the [[posTotalizerCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const POS_TOTALIZER_COLLECTION: CollectionField<PosDailySummary>;
+    const POS_TOTALIZER_COLLECTION: CollectionField<PosDailySummary, PosTotalizer>;
     /**
      * Static representation of the one-to-many navigation property [[inventoryGenEntries]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -483,7 +440,7 @@ export declare namespace PosDailySummary {
     /**
      * All fields of the PosDailySummary entity.
      */
-    const _allFields: Array<NumberField<PosDailySummary> | DateField<PosDailySummary> | StringField<PosDailySummary> | CollectionField<PosDailySummary> | OneToManyLink<PosDailySummary, InventoryGenEntries> | OneToManyLink<PosDailySummary, PurchaseQuotations> | OneToManyLink<PosDailySummary, DeliveryNotes> | OneToManyLink<PosDailySummary, Quotations> | OneToManyLink<PosDailySummary, InventoryGenExits> | OneToManyLink<PosDailySummary, PurchaseRequests> | OneToManyLink<PosDailySummary, ReturnRequest> | OneToManyLink<PosDailySummary, PurchaseReturns> | OneToManyLink<PosDailySummary, Invoices> | OneToManyLink<PosDailySummary, CreditNotes> | OneToManyLink<PosDailySummary, Orders> | OneToManyLink<PosDailySummary, DownPayments> | OneToManyLink<PosDailySummary, Drafts> | OneToManyLink<PosDailySummary, Returns> | OneToManyLink<PosDailySummary, CorrectionInvoiceReversal> | OneToManyLink<PosDailySummary, CorrectionPurchaseInvoice> | OneToManyLink<PosDailySummary, CorrectionPurchaseInvoiceReversal> | OneToOneLink<PosDailySummary, FiscalPrinter> | OneToManyLink<PosDailySummary, PurchaseInvoices> | OneToManyLink<PosDailySummary, PurchaseDeliveryNotes> | OneToManyLink<PosDailySummary, CorrectionInvoice> | OneToManyLink<PosDailySummary, PurchaseCreditNotes> | OneToManyLink<PosDailySummary, PurchaseDownPayments> | OneToManyLink<PosDailySummary, PurchaseOrders> | OneToManyLink<PosDailySummary, GoodsReturnRequest>>;
+    const _allFields: Array<NumberField<PosDailySummary> | DateField<PosDailySummary> | StringField<PosDailySummary> | CollectionField<PosDailySummary, PosTotalizer> | OneToManyLink<PosDailySummary, InventoryGenEntries> | OneToManyLink<PosDailySummary, PurchaseQuotations> | OneToManyLink<PosDailySummary, DeliveryNotes> | OneToManyLink<PosDailySummary, Quotations> | OneToManyLink<PosDailySummary, InventoryGenExits> | OneToManyLink<PosDailySummary, PurchaseRequests> | OneToManyLink<PosDailySummary, ReturnRequest> | OneToManyLink<PosDailySummary, PurchaseReturns> | OneToManyLink<PosDailySummary, Invoices> | OneToManyLink<PosDailySummary, CreditNotes> | OneToManyLink<PosDailySummary, Orders> | OneToManyLink<PosDailySummary, DownPayments> | OneToManyLink<PosDailySummary, Drafts> | OneToManyLink<PosDailySummary, Returns> | OneToManyLink<PosDailySummary, CorrectionInvoiceReversal> | OneToManyLink<PosDailySummary, CorrectionPurchaseInvoice> | OneToManyLink<PosDailySummary, CorrectionPurchaseInvoiceReversal> | OneToOneLink<PosDailySummary, FiscalPrinter> | OneToManyLink<PosDailySummary, PurchaseInvoices> | OneToManyLink<PosDailySummary, PurchaseDeliveryNotes> | OneToManyLink<PosDailySummary, CorrectionInvoice> | OneToManyLink<PosDailySummary, PurchaseCreditNotes> | OneToManyLink<PosDailySummary, PurchaseDownPayments> | OneToManyLink<PosDailySummary, PurchaseOrders> | OneToManyLink<PosDailySummary, GoodsReturnRequest>>;
     /**
      * All fields selector.
      */

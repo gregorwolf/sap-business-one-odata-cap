@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.ActivityRecipientLists = void 0;
  */
 var ActivityRecipientListsRequestBuilder_1 = require("./ActivityRecipientListsRequestBuilder");
 var ActivityRecipient_1 = require("./ActivityRecipient");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "ActivityRecipientLists" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var ActivityRecipientLists = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `ActivityRecipientLists`.
+     * Returns an entity builder to construct instances of `ActivityRecipientLists`.
      * @returns A builder that constructs instances of entity type `ActivityRecipientLists`.
      */
     ActivityRecipientLists.builder = function () {
-        return v4_1.Entity.entityBuilder(ActivityRecipientLists);
+        return core_1.EntityV4.entityBuilder(ActivityRecipientLists);
     };
     /**
      * Returns a request builder to construct requests for operations on the `ActivityRecipientLists` entity type.
@@ -61,7 +61,7 @@ var ActivityRecipientLists = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `ActivityRecipientLists`.
      */
     ActivityRecipientLists.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, ActivityRecipientLists);
+        return core_1.EntityV4.customFieldSelector(fieldName, ActivityRecipientLists);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,16 +75,11 @@ var ActivityRecipientLists = /** @class */ (function (_super) {
      */
     ActivityRecipientLists._entityName = 'ActivityRecipientLists';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ActivityRecipientLists.
-     */
-    ActivityRecipientLists._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    ActivityRecipientLists._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    ActivityRecipientLists._defaultServicePath = '/b1s/v2/';
     return ActivityRecipientLists;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.ActivityRecipientLists = ActivityRecipientLists;
 var Activities_1 = require("./Activities");
 (function (ActivityRecipientLists) {
@@ -92,35 +87,47 @@ var Activities_1 = require("./Activities");
      * Static representation of the [[code]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ActivityRecipientLists.CODE = new v4_1.NumberField('Code', ActivityRecipientLists, 'Edm.Int32');
+    ActivityRecipientLists.CODE = new core_1.NumberField('Code', ActivityRecipientLists, 'Edm.Int32');
     /**
      * Static representation of the [[name]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ActivityRecipientLists.NAME = new v4_1.StringField('Name', ActivityRecipientLists, 'Edm.String');
+    ActivityRecipientLists.NAME = new core_1.StringField('Name', ActivityRecipientLists, 'Edm.String');
+    /**
+     * Static representation of the [[active]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ActivityRecipientLists.ACTIVE = new core_1.EnumField('Active', ActivityRecipientLists);
+    /**
+     * Static representation of the [[isMultiple]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ActivityRecipientLists.IS_MULTIPLE = new core_1.EnumField('IsMultiple', ActivityRecipientLists);
     /**
      * Static representation of the [[activityRecipientCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ActivityRecipientLists.ACTIVITY_RECIPIENT_COLLECTION = new v4_1.CollectionField('ActivityRecipientCollection', ActivityRecipientLists, new ActivityRecipient_1.ActivityRecipientField('', ActivityRecipientLists));
+    ActivityRecipientLists.ACTIVITY_RECIPIENT_COLLECTION = new core_1.CollectionField('ActivityRecipientCollection', ActivityRecipientLists, ActivityRecipient_1.ActivityRecipient);
     /**
      * Static representation of the one-to-many navigation property [[activities]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ActivityRecipientLists.ACTIVITIES = new v4_1.OneToManyLink('Activities', ActivityRecipientLists, Activities_1.Activities);
+    ActivityRecipientLists.ACTIVITIES = new core_1.OneToManyLink('Activities', ActivityRecipientLists, Activities_1.Activities);
     /**
      * All fields of the ActivityRecipientLists entity.
      */
     ActivityRecipientLists._allFields = [
         ActivityRecipientLists.CODE,
         ActivityRecipientLists.NAME,
+        ActivityRecipientLists.ACTIVE,
+        ActivityRecipientLists.IS_MULTIPLE,
         ActivityRecipientLists.ACTIVITY_RECIPIENT_COLLECTION,
         ActivityRecipientLists.ACTIVITIES
     ];
     /**
      * All fields selector.
      */
-    ActivityRecipientLists.ALL_FIELDS = new v4_1.AllFields('*', ActivityRecipientLists);
+    ActivityRecipientLists.ALL_FIELDS = new core_1.AllFields('*', ActivityRecipientLists);
     /**
      * All key fields of the ActivityRecipientLists entity.
      */

@@ -4,7 +4,8 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { InventoryAccountTypeEnum } from './InventoryAccountTypeEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * AdvancedGlAccountParams
@@ -51,6 +52,11 @@ export interface AdvancedGlAccountParams {
    */
   postingDate?: Moment;
   /**
+   * Account Type.
+   * @nullable
+   */
+  accountType?: InventoryAccountTypeEnum;
+  /**
    * Usage.
    * @nullable
    */
@@ -93,7 +99,7 @@ export function createAdvancedGlAccountParams(json: any): AdvancedGlAccountParam
  * AdvancedGlAccountParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class AdvancedGlAccountParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class AdvancedGlAccountParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, AdvancedGlAccountParams> {
   /**
    * Representation of the [[AdvancedGlAccountParams.itemCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -135,6 +141,11 @@ export class AdvancedGlAccountParamsField<EntityT extends Entity> extends Comple
    */
   postingDate: ComplexTypeDatePropertyField<EntityT> = new ComplexTypeDatePropertyField('PostingDate', this, 'Edm.DateTimeOffset');
   /**
+   * Representation of the [[AdvancedGlAccountParams.accountType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  accountType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AccountType', this);
+  /**
    * Representation of the [[AdvancedGlAccountParams.usage]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -164,25 +175,103 @@ export class AdvancedGlAccountParamsField<EntityT extends Entity> extends Comple
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   udf5: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('UDF5', this, 'Edm.String');
+
+  /**
+   * Creates an instance of AdvancedGlAccountParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, AdvancedGlAccountParams);
+  }
 }
 
 export namespace AdvancedGlAccountParams {
+  /**
+   * Metadata information on all properties of the `AdvancedGlAccountParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<AdvancedGlAccountParams>[] = [{
+    originalName: 'ItemCode',
+    name: 'itemCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Warehouse',
+    name: 'warehouse',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPCode',
+    name: 'bpCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'FederalTaxID',
+    name: 'federalTaxId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShipToCountry',
+    name: 'shipToCountry',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'ShipToState',
+    name: 'shipToState',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'VatGroup',
+    name: 'vatGroup',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'PostingDate',
+    name: 'postingDate',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'AccountType',
+    name: 'accountType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'Usage',
+    name: 'usage',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'UDF1',
+    name: 'udf1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UDF2',
+    name: 'udf2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UDF3',
+    name: 'udf3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UDF4',
+    name: 'udf4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'UDF5',
+    name: 'udf5',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): AdvancedGlAccountParams {
-    return createComplexType(json, {
-      ItemCode: (itemCode: string) => ({ itemCode: edmToTs(itemCode, 'Edm.String') }),
-      Warehouse: (warehouse: string) => ({ warehouse: edmToTs(warehouse, 'Edm.String') }),
-      BPCode: (bpCode: string) => ({ bpCode: edmToTs(bpCode, 'Edm.String') }),
-      FederalTaxID: (federalTaxId: string) => ({ federalTaxId: edmToTs(federalTaxId, 'Edm.String') }),
-      ShipToCountry: (shipToCountry: string) => ({ shipToCountry: edmToTs(shipToCountry, 'Edm.String') }),
-      ShipToState: (shipToState: string) => ({ shipToState: edmToTs(shipToState, 'Edm.String') }),
-      VatGroup: (vatGroup: string) => ({ vatGroup: edmToTs(vatGroup, 'Edm.String') }),
-      PostingDate: (postingDate: Moment) => ({ postingDate: edmToTs(postingDate, 'Edm.DateTimeOffset') }),
-      Usage: (usage: number) => ({ usage: edmToTs(usage, 'Edm.Int32') }),
-      UDF1: (udf1: string) => ({ udf1: edmToTs(udf1, 'Edm.String') }),
-      UDF2: (udf2: string) => ({ udf2: edmToTs(udf2, 'Edm.String') }),
-      UDF3: (udf3: string) => ({ udf3: edmToTs(udf3, 'Edm.String') }),
-      UDF4: (udf4: string) => ({ udf4: edmToTs(udf4, 'Edm.String') }),
-      UDF5: (udf5: string) => ({ udf5: edmToTs(udf5, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, AdvancedGlAccountParams);
   }
 }

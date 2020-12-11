@@ -1,4 +1,4 @@
-import { FunctionImportRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { FunctionImportRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { MessageHeader } from './MessageHeader';
 import { PathAdmin } from './PathAdmin';
 import { AdminInfo } from './AdminInfo';
@@ -15,7 +15,7 @@ export interface LicenseServiceGetInstallationNumberParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export declare function licenseServiceGetInstallationNumber(parameters: LicenseServiceGetInstallationNumberParameters): FunctionImportRequestBuilder<LicenseServiceGetInstallationNumberParameters, string>;
+export declare function licenseServiceGetInstallationNumber(parameters: LicenseServiceGetInstallationNumberParameters): FunctionImportRequestBuilderV4<LicenseServiceGetInstallationNumberParameters, string>;
 /**
  * Type of the parameters to be passed to [[sboBobServiceFormatMoneyToString]].
  */
@@ -35,7 +35,7 @@ export interface SboBobServiceFormatMoneyToStringParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export declare function sboBobServiceFormatMoneyToString(parameters: SboBobServiceFormatMoneyToStringParameters): FunctionImportRequestBuilder<SboBobServiceFormatMoneyToStringParameters, string>;
+export declare function sboBobServiceFormatMoneyToString(parameters: SboBobServiceFormatMoneyToStringParameters): FunctionImportRequestBuilderV4<SboBobServiceFormatMoneyToStringParameters, string>;
 /**
  * Type of the parameters to be passed to [[sboBobServiceGetIndexRate]].
  */
@@ -55,7 +55,7 @@ export interface SboBobServiceGetIndexRateParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export declare function sboBobServiceGetIndexRate(parameters: SboBobServiceGetIndexRateParameters): FunctionImportRequestBuilder<SboBobServiceGetIndexRateParameters, number>;
+export declare function sboBobServiceGetIndexRate(parameters: SboBobServiceGetIndexRateParameters): FunctionImportRequestBuilderV4<SboBobServiceGetIndexRateParameters, number>;
 /**
  * Type of the parameters to be passed to [[sboBobServiceGetCurrencyRate]].
  */
@@ -75,7 +75,7 @@ export interface SboBobServiceGetCurrencyRateParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export declare function sboBobServiceGetCurrencyRate(parameters: SboBobServiceGetCurrencyRateParameters): FunctionImportRequestBuilder<SboBobServiceGetCurrencyRateParameters, number>;
+export declare function sboBobServiceGetCurrencyRate(parameters: SboBobServiceGetCurrencyRateParameters): FunctionImportRequestBuilderV4<SboBobServiceGetCurrencyRateParameters, number>;
 /**
  * Type of the parameters to be passed to [[sboBobServiceGetLocalCurrency]].
  */
@@ -87,7 +87,7 @@ export interface SboBobServiceGetLocalCurrencyParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export declare function sboBobServiceGetLocalCurrency(parameters: SboBobServiceGetLocalCurrencyParameters): FunctionImportRequestBuilder<SboBobServiceGetLocalCurrencyParameters, string>;
+export declare function sboBobServiceGetLocalCurrency(parameters: SboBobServiceGetLocalCurrencyParameters): FunctionImportRequestBuilderV4<SboBobServiceGetLocalCurrencyParameters, string>;
 /**
  * Type of the parameters to be passed to [[sboBobServiceGetDueDate]].
  */
@@ -107,7 +107,7 @@ export interface SboBobServiceGetDueDateParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export declare function sboBobServiceGetDueDate(parameters: SboBobServiceGetDueDateParameters): FunctionImportRequestBuilder<SboBobServiceGetDueDateParameters, string>;
+export declare function sboBobServiceGetDueDate(parameters: SboBobServiceGetDueDateParameters): FunctionImportRequestBuilderV4<SboBobServiceGetDueDateParameters, string>;
 /**
  * Type of the parameters to be passed to [[messagesServiceGetOutbox]].
  */
@@ -119,7 +119,7 @@ export interface MessagesServiceGetOutboxParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export declare function messagesServiceGetOutbox(parameters: MessagesServiceGetOutboxParameters): FunctionImportRequestBuilder<MessagesServiceGetOutboxParameters, MessageHeader[]>;
+export declare function messagesServiceGetOutbox(parameters: MessagesServiceGetOutboxParameters): FunctionImportRequestBuilderV4<MessagesServiceGetOutboxParameters, MessageHeader[]>;
 /**
  * Type of the parameters to be passed to [[messagesServiceGetInbox]].
  */
@@ -131,7 +131,7 @@ export interface MessagesServiceGetInboxParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export declare function messagesServiceGetInbox(parameters: MessagesServiceGetInboxParameters): FunctionImportRequestBuilder<MessagesServiceGetInboxParameters, MessageHeader[]>;
+export declare function messagesServiceGetInbox(parameters: MessagesServiceGetInboxParameters): FunctionImportRequestBuilderV4<MessagesServiceGetInboxParameters, MessageHeader[]>;
 /**
  * Type of the parameters to be passed to [[companyServiceGetPathAdmin]].
  */
@@ -143,7 +143,7 @@ export interface CompanyServiceGetPathAdminParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export declare function companyServiceGetPathAdmin(parameters: CompanyServiceGetPathAdminParameters): FunctionImportRequestBuilder<CompanyServiceGetPathAdminParameters, PathAdmin>;
+export declare function companyServiceGetPathAdmin(parameters: CompanyServiceGetPathAdminParameters): FunctionImportRequestBuilderV4<CompanyServiceGetPathAdminParameters, PathAdmin>;
 /**
  * Type of the parameters to be passed to [[companyServiceGetAdminInfo]].
  */
@@ -155,7 +155,7 @@ export interface CompanyServiceGetAdminInfoParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export declare function companyServiceGetAdminInfo(parameters: CompanyServiceGetAdminInfoParameters): FunctionImportRequestBuilder<CompanyServiceGetAdminInfoParameters, AdminInfo>;
+export declare function companyServiceGetAdminInfo(parameters: CompanyServiceGetAdminInfoParameters): FunctionImportRequestBuilderV4<CompanyServiceGetAdminInfoParameters, AdminInfo>;
 /**
  * Type of the parameters to be passed to [[companyServiceGetCompanyInfo]].
  */
@@ -167,7 +167,7 @@ export interface CompanyServiceGetCompanyInfoParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export declare function companyServiceGetCompanyInfo(parameters: CompanyServiceGetCompanyInfoParameters): FunctionImportRequestBuilder<CompanyServiceGetCompanyInfoParameters, CompanyInfo>;
+export declare function companyServiceGetCompanyInfo(parameters: CompanyServiceGetCompanyInfoParameters): FunctionImportRequestBuilderV4<CompanyServiceGetCompanyInfoParameters, CompanyInfo>;
 /**
  * Type of the parameters to be passed to [[sboBobServiceGetSystemPermission]].
  */
@@ -187,7 +187,7 @@ export interface SboBobServiceGetSystemPermissionParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export declare function sboBobServiceGetSystemPermission(parameters: SboBobServiceGetSystemPermissionParameters): FunctionImportRequestBuilder<SboBobServiceGetSystemPermissionParameters, number>;
+export declare function sboBobServiceGetSystemPermission(parameters: SboBobServiceGetSystemPermissionParameters): FunctionImportRequestBuilderV4<SboBobServiceGetSystemPermissionParameters, number>;
 /**
  * Type of the parameters to be passed to [[userMenuServiceGetCurrentUserMenu]].
  */
@@ -199,7 +199,7 @@ export interface UserMenuServiceGetCurrentUserMenuParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export declare function userMenuServiceGetCurrentUserMenu(parameters: UserMenuServiceGetCurrentUserMenuParameters): FunctionImportRequestBuilder<UserMenuServiceGetCurrentUserMenuParameters, UserMenuItem[]>;
+export declare function userMenuServiceGetCurrentUserMenu(parameters: UserMenuServiceGetCurrentUserMenuParameters): FunctionImportRequestBuilderV4<UserMenuServiceGetCurrentUserMenuParameters, UserMenuItem[]>;
 /**
  * Type of the parameters to be passed to [[sboBobServiceGetSystemCurrency]].
  */
@@ -211,7 +211,7 @@ export interface SboBobServiceGetSystemCurrencyParameters {
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resultng request.
  */
-export declare function sboBobServiceGetSystemCurrency(parameters: SboBobServiceGetSystemCurrencyParameters): FunctionImportRequestBuilder<SboBobServiceGetSystemCurrencyParameters, string>;
+export declare function sboBobServiceGetSystemCurrency(parameters: SboBobServiceGetSystemCurrencyParameters): FunctionImportRequestBuilderV4<SboBobServiceGetSystemCurrencyParameters, string>;
 export declare const functionImports: {
     licenseServiceGetInstallationNumber: typeof licenseServiceGetInstallationNumber;
     sboBobServiceFormatMoneyToString: typeof sboBobServiceFormatMoneyToString;

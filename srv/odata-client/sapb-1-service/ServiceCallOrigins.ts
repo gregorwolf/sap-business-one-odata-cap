@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ServiceCallOriginsRequestBuilder } from './ServiceCallOriginsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ServiceCallOrigins" of service "SAPB1".
  */
-export class ServiceCallOrigins extends Entity implements ServiceCallOriginsType {
+export class ServiceCallOrigins extends EntityV4 implements ServiceCallOriginsType {
   /**
    * Technical entity name for ServiceCallOrigins.
    */
   static _entityName = 'ServiceCallOrigins';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ServiceCallOrigins.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Origin Id.
    * @nullable
@@ -44,11 +39,11 @@ export class ServiceCallOrigins extends Entity implements ServiceCallOriginsType
   serviceCalls!: ServiceCalls[];
 
   /**
-   * Returns an entity builder to construct instances `ServiceCallOrigins`.
+   * Returns an entity builder to construct instances of `ServiceCallOrigins`.
    * @returns A builder that constructs instances of entity type `ServiceCallOrigins`.
    */
-  static builder(): EntityBuilderType<ServiceCallOrigins, ServiceCallOriginsTypeForceMandatory> {
-    return Entity.entityBuilder(ServiceCallOrigins);
+  static builder(): EntityBuilderType<ServiceCallOrigins, ServiceCallOriginsType> {
+    return EntityV4.entityBuilder(ServiceCallOrigins);
   }
 
   /**
@@ -64,8 +59,8 @@ export class ServiceCallOrigins extends Entity implements ServiceCallOriginsType
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ServiceCallOrigins`.
    */
-  static customField(fieldName: string): CustomField<ServiceCallOrigins> {
-    return Entity.customFieldSelector(fieldName, ServiceCallOrigins);
+  static customField(fieldName: string): CustomFieldV4<ServiceCallOrigins> {
+    return EntityV4.customFieldSelector(fieldName, ServiceCallOrigins);
   }
 
   /**
@@ -80,16 +75,9 @@ export class ServiceCallOrigins extends Entity implements ServiceCallOriginsType
 import { ServiceCalls, ServiceCallsType } from './ServiceCalls';
 
 export interface ServiceCallOriginsType {
-  originId?: number;
-  name?: string;
-  description?: string;
-  serviceCalls: ServiceCallsType[];
-}
-
-export interface ServiceCallOriginsTypeForceMandatory {
-  originId: number;
-  name: string;
-  description: string;
+  originId?: number | null;
+  name?: string | null;
+  description?: string | null;
   serviceCalls: ServiceCallsType[];
 }
 

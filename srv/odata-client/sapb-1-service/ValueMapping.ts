@@ -4,26 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ValueMappingRequestBuilder } from './ValueMappingRequestBuilder';
-import { VmThirdPartyValuesData, VmThirdPartyValuesDataField } from './VmThirdPartyValuesData';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { VmThirdPartyValuesData } from './VmThirdPartyValuesData';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ValueMapping" of service "SAPB1".
  */
-export class ValueMapping extends Entity implements ValueMappingType {
+export class ValueMapping extends EntityV4 implements ValueMappingType {
   /**
    * Technical entity name for ValueMapping.
    */
   static _entityName = 'ValueMapping';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ValueMapping.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Abs Entry.
    * @nullable
@@ -46,11 +41,11 @@ export class ValueMapping extends Entity implements ValueMappingType {
   vmThirdPartyValuesCollection?: VmThirdPartyValuesData[];
 
   /**
-   * Returns an entity builder to construct instances `ValueMapping`.
+   * Returns an entity builder to construct instances of `ValueMapping`.
    * @returns A builder that constructs instances of entity type `ValueMapping`.
    */
-  static builder(): EntityBuilderType<ValueMapping, ValueMappingTypeForceMandatory> {
-    return Entity.entityBuilder(ValueMapping);
+  static builder(): EntityBuilderType<ValueMapping, ValueMappingType> {
+    return EntityV4.entityBuilder(ValueMapping);
   }
 
   /**
@@ -66,8 +61,8 @@ export class ValueMapping extends Entity implements ValueMappingType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ValueMapping`.
    */
-  static customField(fieldName: string): CustomField<ValueMapping> {
-    return Entity.customFieldSelector(fieldName, ValueMapping);
+  static customField(fieldName: string): CustomFieldV4<ValueMapping> {
+    return EntityV4.customFieldSelector(fieldName, ValueMapping);
   }
 
   /**
@@ -80,17 +75,10 @@ export class ValueMapping extends Entity implements ValueMappingType {
 }
 
 export interface ValueMappingType {
-  absEntry?: number;
-  objectId?: number;
-  objectAbsEntry?: string;
-  vmThirdPartyValuesCollection?: VmThirdPartyValuesData[];
-}
-
-export interface ValueMappingTypeForceMandatory {
-  absEntry: number;
-  objectId: number;
-  objectAbsEntry: string;
-  vmThirdPartyValuesCollection: VmThirdPartyValuesData[];
+  absEntry?: number | null;
+  objectId?: number | null;
+  objectAbsEntry?: string | null;
+  vmThirdPartyValuesCollection?: VmThirdPartyValuesData[] | null;
 }
 
 export namespace ValueMapping {
@@ -113,11 +101,11 @@ export namespace ValueMapping {
    * Static representation of the [[vmThirdPartyValuesCollection]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const VM_THIRD_PARTY_VALUES_COLLECTION: CollectionField<ValueMapping> = new CollectionField('VM_ThirdPartyValuesCollection', ValueMapping, new VmThirdPartyValuesDataField('', ValueMapping));
+  export const VM_THIRD_PARTY_VALUES_COLLECTION: CollectionField<ValueMapping, VmThirdPartyValuesData> = new CollectionField('VM_ThirdPartyValuesCollection', ValueMapping, VmThirdPartyValuesData);
   /**
    * All fields of the ValueMapping entity.
    */
-  export const _allFields: Array<NumberField<ValueMapping> | StringField<ValueMapping> | CollectionField<ValueMapping>> = [
+  export const _allFields: Array<NumberField<ValueMapping> | StringField<ValueMapping> | CollectionField<ValueMapping, VmThirdPartyValuesData>> = [
     ValueMapping.ABS_ENTRY,
     ValueMapping.OBJECT_ID,
     ValueMapping.OBJECT_ABS_ENTRY,

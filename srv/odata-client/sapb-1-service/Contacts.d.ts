@@ -1,19 +1,18 @@
 import { ContactsRequestBuilder } from './ContactsRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoMsgPriorities } from './BoMsgPriorities';
+import { BoActivities } from './BoActivities';
+import { BoDurations } from './BoDurations';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "Contacts" of service "SAPB1".
  */
-export declare class Contacts extends Entity implements ContactsType {
+export declare class Contacts extends EntityV4 implements ContactsType {
     /**
      * Technical entity name for Contacts.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Contacts.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -43,6 +42,11 @@ export declare class Contacts extends Entity implements ContactsType {
      * @nullable
      */
     recontact?: Moment;
+    /**
+     * Closed.
+     * @nullable
+     */
+    closed?: BoYesNoEnum;
     /**
      * Close Date.
      * @nullable
@@ -84,10 +88,20 @@ export declare class Contacts extends Entity implements ContactsType {
      */
     contactCode?: number;
     /**
+     * Priority.
+     * @nullable
+     */
+    priority?: BoMsgPriorities;
+    /**
      * Details.
      * @nullable
      */
     details?: string;
+    /**
+     * Activity.
+     * @nullable
+     */
+    activity?: BoActivities;
     /**
      * Activity Type.
      * @nullable
@@ -114,6 +128,11 @@ export declare class Contacts extends Entity implements ContactsType {
      */
     duration?: number;
     /**
+     * Duration Type.
+     * @nullable
+     */
+    durationType?: BoDurations;
+    /**
      * Sales Employee.
      * @nullable
      */
@@ -129,15 +148,30 @@ export declare class Contacts extends Entity implements ContactsType {
      */
     handledBy?: number;
     /**
+     * Reminder.
+     * @nullable
+     */
+    reminder?: BoYesNoEnum;
+    /**
      * Reminder Period.
      * @nullable
      */
     reminderPeriod?: number;
     /**
+     * Reminder Type.
+     * @nullable
+     */
+    reminderType?: BoDurations;
+    /**
      * City.
      * @nullable
      */
     city?: string;
+    /**
+     * Personalflag.
+     * @nullable
+     */
+    personalflag?: BoYesNoEnum;
     /**
      * Street.
      * @nullable
@@ -159,6 +193,11 @@ export declare class Contacts extends Entity implements ContactsType {
      */
     room?: string;
     /**
+     * Inactiveflag.
+     * @nullable
+     */
+    inactiveflag?: BoYesNoEnum;
+    /**
      * State.
      * @nullable
      */
@@ -178,6 +217,11 @@ export declare class Contacts extends Entity implements ContactsType {
      * @nullable
      */
     status?: number;
+    /**
+     * Tentativeflag.
+     * @nullable
+     */
+    tentativeflag?: BoYesNoEnum;
     /**
      * End Duedate.
      * @nullable
@@ -227,10 +271,10 @@ export declare class Contacts extends Entity implements ContactsType {
      */
     activityStatus: ActivityStatuses;
     /**
-     * Returns an entity builder to construct instances `Contacts`.
+     * Returns an entity builder to construct instances of `Contacts`.
      * @returns A builder that constructs instances of entity type `Contacts`.
      */
-    static builder(): EntityBuilderType<Contacts, ContactsTypeForceMandatory>;
+    static builder(): EntityBuilderType<Contacts, ContactsType>;
     /**
      * Returns a request builder to construct requests for operations on the `Contacts` entity type.
      * @returns A `Contacts` request builder.
@@ -241,7 +285,7 @@ export declare class Contacts extends Entity implements ContactsType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `Contacts`.
      */
-    static customField(fieldName: string): CustomField<Contacts>;
+    static customField(fieldName: string): CustomFieldV4<Contacts>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -258,87 +302,51 @@ import { Users, UsersType } from './Users';
 import { Countries, CountriesType } from './Countries';
 import { ActivityStatuses, ActivityStatusesType } from './ActivityStatuses';
 export interface ContactsType {
-    cardCode?: string;
-    notes?: string;
-    contactDate?: Moment;
-    contactTime?: Time;
-    recontact?: Moment;
-    closeDate?: Moment;
-    phone?: string;
-    fax?: string;
-    subject?: number;
-    docType?: string;
-    docNum?: string;
-    docEntry?: string;
-    contactCode?: number;
-    details?: string;
-    activityType?: number;
-    location?: number;
-    startTime?: Time;
-    endTime?: Time;
-    duration?: number;
-    salesEmployee?: number;
-    contactPersonCode?: number;
-    handledBy?: number;
-    reminderPeriod?: number;
-    city?: string;
-    street?: string;
-    parentobjectId?: number;
-    parentobjecttype?: string;
-    room?: string;
-    state?: string;
-    previousActivity?: number;
-    country?: string;
-    status?: number;
-    endDuedate?: Moment;
-    docTypeEx?: string;
-    attachmentEntry?: number;
-    startDate?: Moment;
-    businessPartner: BusinessPartnersType;
-    activityType2: ActivityTypesType;
-    activityLocation: ActivityLocationsType;
-    salesPerson: SalesPersonsType;
-    user: UsersType;
-    country2: CountriesType;
-    activityStatus: ActivityStatusesType;
-}
-export interface ContactsTypeForceMandatory {
-    cardCode: string;
-    notes: string;
-    contactDate: Moment;
-    contactTime: Time;
-    recontact: Moment;
-    closeDate: Moment;
-    phone: string;
-    fax: string;
-    subject: number;
-    docType: string;
-    docNum: string;
-    docEntry: string;
-    contactCode: number;
-    details: string;
-    activityType: number;
-    location: number;
-    startTime: Time;
-    endTime: Time;
-    duration: number;
-    salesEmployee: number;
-    contactPersonCode: number;
-    handledBy: number;
-    reminderPeriod: number;
-    city: string;
-    street: string;
-    parentobjectId: number;
-    parentobjecttype: string;
-    room: string;
-    state: string;
-    previousActivity: number;
-    country: string;
-    status: number;
-    endDuedate: Moment;
-    docTypeEx: string;
-    attachmentEntry: number;
-    startDate: Moment;
+    cardCode?: string | null;
+    notes?: string | null;
+    contactDate?: Moment | null;
+    contactTime?: Time | null;
+    recontact?: Moment | null;
+    closed?: BoYesNoEnum | null;
+    closeDate?: Moment | null;
+    phone?: string | null;
+    fax?: string | null;
+    subject?: number | null;
+    docType?: string | null;
+    docNum?: string | null;
+    docEntry?: string | null;
+    contactCode?: number | null;
+    priority?: BoMsgPriorities | null;
+    details?: string | null;
+    activity?: BoActivities | null;
+    activityType?: number | null;
+    location?: number | null;
+    startTime?: Time | null;
+    endTime?: Time | null;
+    duration?: number | null;
+    durationType?: BoDurations | null;
+    salesEmployee?: number | null;
+    contactPersonCode?: number | null;
+    handledBy?: number | null;
+    reminder?: BoYesNoEnum | null;
+    reminderPeriod?: number | null;
+    reminderType?: BoDurations | null;
+    city?: string | null;
+    personalflag?: BoYesNoEnum | null;
+    street?: string | null;
+    parentobjectId?: number | null;
+    parentobjecttype?: string | null;
+    room?: string | null;
+    inactiveflag?: BoYesNoEnum | null;
+    state?: string | null;
+    previousActivity?: number | null;
+    country?: string | null;
+    status?: number | null;
+    tentativeflag?: BoYesNoEnum | null;
+    endDuedate?: Moment | null;
+    docTypeEx?: string | null;
+    attachmentEntry?: number | null;
+    startDate?: Moment | null;
     businessPartner: BusinessPartnersType;
     activityType2: ActivityTypesType;
     activityLocation: ActivityLocationsType;
@@ -373,6 +381,11 @@ export declare namespace Contacts {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const RECONTACT: DateField<Contacts>;
+    /**
+     * Static representation of the [[closed]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CLOSED: EnumField<Contacts>;
     /**
      * Static representation of the [[closeDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -414,10 +427,20 @@ export declare namespace Contacts {
      */
     const CONTACT_CODE: NumberField<Contacts>;
     /**
+     * Static representation of the [[priority]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PRIORITY: EnumField<Contacts>;
+    /**
      * Static representation of the [[details]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DETAILS: StringField<Contacts>;
+    /**
+     * Static representation of the [[activity]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ACTIVITY: EnumField<Contacts>;
     /**
      * Static representation of the [[activityType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -444,6 +467,11 @@ export declare namespace Contacts {
      */
     const DURATION: NumberField<Contacts>;
     /**
+     * Static representation of the [[durationType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DURATION_TYPE: EnumField<Contacts>;
+    /**
      * Static representation of the [[salesEmployee]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -459,15 +487,30 @@ export declare namespace Contacts {
      */
     const HANDLED_BY: NumberField<Contacts>;
     /**
+     * Static representation of the [[reminder]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REMINDER: EnumField<Contacts>;
+    /**
      * Static representation of the [[reminderPeriod]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const REMINDER_PERIOD: NumberField<Contacts>;
     /**
+     * Static representation of the [[reminderType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REMINDER_TYPE: EnumField<Contacts>;
+    /**
      * Static representation of the [[city]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const CITY: StringField<Contacts>;
+    /**
+     * Static representation of the [[personalflag]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PERSONALFLAG: EnumField<Contacts>;
     /**
      * Static representation of the [[street]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -489,6 +532,11 @@ export declare namespace Contacts {
      */
     const ROOM: StringField<Contacts>;
     /**
+     * Static representation of the [[inactiveflag]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const INACTIVEFLAG: EnumField<Contacts>;
+    /**
      * Static representation of the [[state]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -508,6 +556,11 @@ export declare namespace Contacts {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const STATUS: NumberField<Contacts>;
+    /**
+     * Static representation of the [[tentativeflag]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TENTATIVEFLAG: EnumField<Contacts>;
     /**
      * Static representation of the [[endDuedate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -566,7 +619,7 @@ export declare namespace Contacts {
     /**
      * All fields of the Contacts entity.
      */
-    const _allFields: Array<StringField<Contacts> | DateField<Contacts> | TimeField<Contacts> | NumberField<Contacts> | OneToOneLink<Contacts, BusinessPartners> | OneToOneLink<Contacts, ActivityTypes> | OneToOneLink<Contacts, ActivityLocations> | OneToOneLink<Contacts, SalesPersons> | OneToOneLink<Contacts, Users> | OneToOneLink<Contacts, Countries> | OneToOneLink<Contacts, ActivityStatuses>>;
+    const _allFields: Array<StringField<Contacts> | DateField<Contacts> | TimeField<Contacts> | EnumField<Contacts> | NumberField<Contacts> | OneToOneLink<Contacts, BusinessPartners> | OneToOneLink<Contacts, ActivityTypes> | OneToOneLink<Contacts, ActivityLocations> | OneToOneLink<Contacts, SalesPersons> | OneToOneLink<Contacts, Users> | OneToOneLink<Contacts, Countries> | OneToOneLink<Contacts, ActivityStatuses>>;
     /**
      * All fields selector.
      */

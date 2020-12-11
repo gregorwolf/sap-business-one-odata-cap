@@ -1,5 +1,8 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, Entity, FieldType, Time } from '@sap-cloud-sdk/core/v4';
+import { BoDurations } from './BoDurations';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoAddressType } from './BoAddressType';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, Time } from '@sap-cloud-sdk/core';
 /**
  * ServiceCallScheduling
  */
@@ -50,10 +53,30 @@ export interface ServiceCallScheduling {
      */
     actualDuration?: number;
     /**
+     * Duration Type.
+     * @nullable
+     */
+    durationType?: BoDurations;
+    /**
+     * Reminder.
+     * @nullable
+     */
+    reminder?: BoYesNoEnum;
+    /**
      * Reminder Period.
      * @nullable
      */
     reminderPeriod?: number;
+    /**
+     * Reminder Type.
+     * @nullable
+     */
+    reminderType?: BoDurations;
+    /**
+     * Reminder Sent.
+     * @nullable
+     */
+    reminderSent?: BoYesNoEnum;
     /**
      * Reminder Date.
      * @nullable
@@ -64,6 +87,16 @@ export interface ServiceCallScheduling {
      * @nullable
      */
     reminderTime?: Time;
+    /**
+     * Display In Calendar.
+     * @nullable
+     */
+    displayInCalendar?: BoYesNoEnum;
+    /**
+     * Is Unscheduled.
+     * @nullable
+     */
+    isUnscheduled?: BoYesNoEnum;
     /**
      * Location.
      * @nullable
@@ -150,10 +183,20 @@ export interface ServiceCallScheduling {
      */
     globalLocNum?: string;
     /**
+     * Is Closed.
+     * @nullable
+     */
+    isClosed?: BoYesNoEnum;
+    /**
      * Remark.
      * @nullable
      */
     remark?: string;
+    /**
+     * Address Type Bs.
+     * @nullable
+     */
+    addressTypeBs?: BoAddressType;
     /**
      * Signature Name.
      * @nullable
@@ -208,7 +251,7 @@ export declare function createServiceCallScheduling(json: any): ServiceCallSched
  * ServiceCallSchedulingField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class ServiceCallSchedulingField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class ServiceCallSchedulingField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, ServiceCallScheduling> {
     /**
      * Representation of the [[ServiceCallScheduling.lineNum]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -255,10 +298,30 @@ export declare class ServiceCallSchedulingField<EntityT extends Entity> extends 
      */
     actualDuration: ComplexTypeNumberPropertyField<EntityT>;
     /**
+     * Representation of the [[ServiceCallScheduling.durationType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    durationType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ServiceCallScheduling.reminder]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    reminder: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ServiceCallScheduling.reminderPeriod]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     reminderPeriod: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Representation of the [[ServiceCallScheduling.reminderType]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    reminderType: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ServiceCallScheduling.reminderSent]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    reminderSent: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[ServiceCallScheduling.reminderDate]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -269,6 +332,16 @@ export declare class ServiceCallSchedulingField<EntityT extends Entity> extends 
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     reminderTime: ComplexTypeTimePropertyField<EntityT>;
+    /**
+     * Representation of the [[ServiceCallScheduling.displayInCalendar]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    displayInCalendar: ComplexTypeEnumPropertyField<EntityT>;
+    /**
+     * Representation of the [[ServiceCallScheduling.isUnscheduled]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    isUnscheduled: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[ServiceCallScheduling.location]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -355,10 +428,20 @@ export declare class ServiceCallSchedulingField<EntityT extends Entity> extends 
      */
     globalLocNum: ComplexTypeStringPropertyField<EntityT>;
     /**
+     * Representation of the [[ServiceCallScheduling.isClosed]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    isClosed: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[ServiceCallScheduling.remark]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     remark: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Representation of the [[ServiceCallScheduling.addressTypeBs]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    addressTypeBs: ComplexTypeEnumPropertyField<EntityT>;
     /**
      * Representation of the [[ServiceCallScheduling.signatureName]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -404,8 +487,22 @@ export declare class ServiceCallSchedulingField<EntityT extends Entity> extends 
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     checkOutTime: ComplexTypeTimePropertyField<EntityT>;
+    /**
+     * Creates an instance of ServiceCallSchedulingField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace ServiceCallScheduling {
+    /**
+     * Metadata information on all properties of the `ServiceCallScheduling` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<ServiceCallScheduling>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): ServiceCallScheduling;

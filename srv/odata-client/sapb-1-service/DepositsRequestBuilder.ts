@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { Deposits } from './Deposits';
 
 /**
@@ -15,16 +15,16 @@ export class DepositsRequestBuilder extends RequestBuilder<Deposits> {
    * @param absEntry Key property. See [[Deposits.absEntry]].
    * @returns A request builder for creating requests to retrieve one `Deposits` entity based on its keys.
    */
-  getByKey(absEntry: number): GetByKeyRequestBuilder<Deposits> {
-    return new GetByKeyRequestBuilder(Deposits, { AbsEntry: absEntry });
+  getByKey(absEntry: number): GetByKeyRequestBuilderV4<Deposits> {
+    return new GetByKeyRequestBuilderV4(Deposits, { AbsEntry: absEntry });
   }
 
   /**
    * Returns a request builder for querying all `Deposits` entities.
    * @returns A request builder for creating requests to retrieve all `Deposits` entities.
    */
-  getAll(): GetAllRequestBuilder<Deposits> {
-    return new GetAllRequestBuilder(Deposits);
+  getAll(): GetAllRequestBuilderV4<Deposits> {
+    return new GetAllRequestBuilderV4(Deposits);
   }
 
   /**
@@ -32,8 +32,8 @@ export class DepositsRequestBuilder extends RequestBuilder<Deposits> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `Deposits`.
    */
-  create(entity: Deposits): CreateRequestBuilder<Deposits> {
-    return new CreateRequestBuilder(Deposits, entity);
+  create(entity: Deposits): CreateRequestBuilderV4<Deposits> {
+    return new CreateRequestBuilderV4(Deposits, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class DepositsRequestBuilder extends RequestBuilder<Deposits> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `Deposits`.
    */
-  update(entity: Deposits): UpdateRequestBuilder<Deposits> {
-    return new UpdateRequestBuilder(Deposits, entity);
+  update(entity: Deposits): UpdateRequestBuilderV4<Deposits> {
+    return new UpdateRequestBuilderV4(Deposits, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class DepositsRequestBuilder extends RequestBuilder<Deposits> {
    * @param absEntry Key property. See [[Deposits.absEntry]].
    * @returns A request builder for creating requests that delete an entity of type `Deposits`.
    */
-  delete(absEntry: number): DeleteRequestBuilder<Deposits>;
+  delete(absEntry: number): DeleteRequestBuilderV4<Deposits>;
   /**
    * Returns a request builder for deleting an entity of type `Deposits`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `Deposits` by taking the entity as a parameter.
    */
-  delete(entity: Deposits): DeleteRequestBuilder<Deposits>;
-  delete(absEntryOrEntity: any): DeleteRequestBuilder<Deposits> {
-    return new DeleteRequestBuilder(Deposits, absEntryOrEntity instanceof Deposits ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
+  delete(entity: Deposits): DeleteRequestBuilderV4<Deposits>;
+  delete(absEntryOrEntity: any): DeleteRequestBuilderV4<Deposits> {
+    return new DeleteRequestBuilderV4(Deposits, absEntryOrEntity instanceof Deposits ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
   }
 }

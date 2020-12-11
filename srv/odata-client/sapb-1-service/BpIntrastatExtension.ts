@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * BpIntrastatExtension
@@ -49,6 +50,11 @@ export interface BpIntrastatExtension {
    * @nullable
    */
   domesticOrForeignId?: string;
+  /**
+   * Intrastat Relevant.
+   * @nullable
+   */
+  intrastatRelevant?: BoYesNoEnum;
 }
 
 /**
@@ -62,7 +68,7 @@ export function createBpIntrastatExtension(json: any): BpIntrastatExtension {
  * BpIntrastatExtensionField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class BpIntrastatExtensionField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class BpIntrastatExtensionField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BpIntrastatExtension> {
   /**
    * Representation of the [[BpIntrastatExtension.cardCode]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -103,19 +109,78 @@ export class BpIntrastatExtensionField<EntityT extends Entity> extends ComplexTy
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   domesticOrForeignId: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('DomesticOrForeignID', this, 'Edm.String');
+  /**
+   * Representation of the [[BpIntrastatExtension.intrastatRelevant]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  intrastatRelevant: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('IntrastatRelevant', this);
+
+  /**
+   * Creates an instance of BpIntrastatExtensionField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, BpIntrastatExtension);
+  }
 }
 
 export namespace BpIntrastatExtension {
+  /**
+   * Metadata information on all properties of the `BpIntrastatExtension` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<BpIntrastatExtension>[] = [{
+    originalName: 'CardCode',
+    name: 'cardCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TransportMode',
+    name: 'transportMode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Incoterms',
+    name: 'incoterms',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'NatureOfTransactions',
+    name: 'natureOfTransactions',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'StatisticalProcedure',
+    name: 'statisticalProcedure',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'CustomsProcedure',
+    name: 'customsProcedure',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'PortOfEntryOrExit',
+    name: 'portOfEntryOrExit',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DomesticOrForeignID',
+    name: 'domesticOrForeignId',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'IntrastatRelevant',
+    name: 'intrastatRelevant',
+    type: 'Edm.Enum',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): BpIntrastatExtension {
-    return createComplexType(json, {
-      CardCode: (cardCode: string) => ({ cardCode: edmToTs(cardCode, 'Edm.String') }),
-      TransportMode: (transportMode: number) => ({ transportMode: edmToTs(transportMode, 'Edm.Int32') }),
-      Incoterms: (incoterms: number) => ({ incoterms: edmToTs(incoterms, 'Edm.Int32') }),
-      NatureOfTransactions: (natureOfTransactions: number) => ({ natureOfTransactions: edmToTs(natureOfTransactions, 'Edm.Int32') }),
-      StatisticalProcedure: (statisticalProcedure: number) => ({ statisticalProcedure: edmToTs(statisticalProcedure, 'Edm.Int32') }),
-      CustomsProcedure: (customsProcedure: number) => ({ customsProcedure: edmToTs(customsProcedure, 'Edm.Int32') }),
-      PortOfEntryOrExit: (portOfEntryOrExit: number) => ({ portOfEntryOrExit: edmToTs(portOfEntryOrExit, 'Edm.Int32') }),
-      DomesticOrForeignID: (domesticOrForeignId: string) => ({ domesticOrForeignId: edmToTs(domesticOrForeignId, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, BpIntrastatExtension);
   }
 }

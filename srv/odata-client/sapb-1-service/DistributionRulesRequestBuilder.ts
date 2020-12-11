@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { DistributionRules } from './DistributionRules';
 
 /**
@@ -15,16 +15,16 @@ export class DistributionRulesRequestBuilder extends RequestBuilder<Distribution
    * @param factorCode Key property. See [[DistributionRules.factorCode]].
    * @returns A request builder for creating requests to retrieve one `DistributionRules` entity based on its keys.
    */
-  getByKey(factorCode: string): GetByKeyRequestBuilder<DistributionRules> {
-    return new GetByKeyRequestBuilder(DistributionRules, { FactorCode: factorCode });
+  getByKey(factorCode: string): GetByKeyRequestBuilderV4<DistributionRules> {
+    return new GetByKeyRequestBuilderV4(DistributionRules, { FactorCode: factorCode });
   }
 
   /**
    * Returns a request builder for querying all `DistributionRules` entities.
    * @returns A request builder for creating requests to retrieve all `DistributionRules` entities.
    */
-  getAll(): GetAllRequestBuilder<DistributionRules> {
-    return new GetAllRequestBuilder(DistributionRules);
+  getAll(): GetAllRequestBuilderV4<DistributionRules> {
+    return new GetAllRequestBuilderV4(DistributionRules);
   }
 
   /**
@@ -32,8 +32,8 @@ export class DistributionRulesRequestBuilder extends RequestBuilder<Distribution
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `DistributionRules`.
    */
-  create(entity: DistributionRules): CreateRequestBuilder<DistributionRules> {
-    return new CreateRequestBuilder(DistributionRules, entity);
+  create(entity: DistributionRules): CreateRequestBuilderV4<DistributionRules> {
+    return new CreateRequestBuilderV4(DistributionRules, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class DistributionRulesRequestBuilder extends RequestBuilder<Distribution
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `DistributionRules`.
    */
-  update(entity: DistributionRules): UpdateRequestBuilder<DistributionRules> {
-    return new UpdateRequestBuilder(DistributionRules, entity);
+  update(entity: DistributionRules): UpdateRequestBuilderV4<DistributionRules> {
+    return new UpdateRequestBuilderV4(DistributionRules, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class DistributionRulesRequestBuilder extends RequestBuilder<Distribution
    * @param factorCode Key property. See [[DistributionRules.factorCode]].
    * @returns A request builder for creating requests that delete an entity of type `DistributionRules`.
    */
-  delete(factorCode: string): DeleteRequestBuilder<DistributionRules>;
+  delete(factorCode: string): DeleteRequestBuilderV4<DistributionRules>;
   /**
    * Returns a request builder for deleting an entity of type `DistributionRules`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `DistributionRules` by taking the entity as a parameter.
    */
-  delete(entity: DistributionRules): DeleteRequestBuilder<DistributionRules>;
-  delete(factorCodeOrEntity: any): DeleteRequestBuilder<DistributionRules> {
-    return new DeleteRequestBuilder(DistributionRules, factorCodeOrEntity instanceof DistributionRules ? factorCodeOrEntity : { FactorCode: factorCodeOrEntity! });
+  delete(entity: DistributionRules): DeleteRequestBuilderV4<DistributionRules>;
+  delete(factorCodeOrEntity: any): DeleteRequestBuilderV4<DistributionRules> {
+    return new DeleteRequestBuilderV4(DistributionRules, factorCodeOrEntity instanceof DistributionRules ? factorCodeOrEntity : { FactorCode: factorCodeOrEntity! });
   }
 }

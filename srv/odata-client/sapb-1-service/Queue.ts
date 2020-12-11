@@ -4,26 +4,22 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { QueueRequestBuilder } from './QueueRequestBuilder';
-import { QueueMember, QueueMemberField } from './QueueMember';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { QueueMember } from './QueueMember';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "Queue" of service "SAPB1".
  */
-export class Queue extends Entity implements QueueType {
+export class Queue extends EntityV4 implements QueueType {
   /**
    * Technical entity name for Queue.
    */
   static _entityName = 'Queue';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for Queue.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Queue Id.
    * @nullable
@@ -34,6 +30,11 @@ export class Queue extends Entity implements QueueType {
    * @nullable
    */
   description?: string;
+  /**
+   * Inactive.
+   * @nullable
+   */
+  inactive?: BoYesNoEnum;
   /**
    * Queue Manager.
    * @nullable
@@ -59,11 +60,11 @@ export class Queue extends Entity implements QueueType {
   serviceCalls!: ServiceCalls[];
 
   /**
-   * Returns an entity builder to construct instances `Queue`.
+   * Returns an entity builder to construct instances of `Queue`.
    * @returns A builder that constructs instances of entity type `Queue`.
    */
-  static builder(): EntityBuilderType<Queue, QueueTypeForceMandatory> {
-    return Entity.entityBuilder(Queue);
+  static builder(): EntityBuilderType<Queue, QueueType> {
+    return EntityV4.entityBuilder(Queue);
   }
 
   /**
@@ -79,8 +80,8 @@ export class Queue extends Entity implements QueueType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `Queue`.
    */
-  static customField(fieldName: string): CustomField<Queue> {
-    return Entity.customFieldSelector(fieldName, Queue);
+  static customField(fieldName: string): CustomFieldV4<Queue> {
+    return EntityV4.customFieldSelector(fieldName, Queue);
   }
 
   /**
@@ -96,21 +97,12 @@ import { Users, UsersType } from './Users';
 import { ServiceCalls, ServiceCallsType } from './ServiceCalls';
 
 export interface QueueType {
-  queueId?: string;
-  description?: string;
-  queueManager?: number;
-  queueEmail?: string;
-  queueMembers?: QueueMember[];
-  user: UsersType;
-  serviceCalls: ServiceCallsType[];
-}
-
-export interface QueueTypeForceMandatory {
-  queueId: string;
-  description: string;
-  queueManager: number;
-  queueEmail: string;
-  queueMembers: QueueMember[];
+  queueId?: string | null;
+  description?: string | null;
+  inactive?: BoYesNoEnum | null;
+  queueManager?: number | null;
+  queueEmail?: string | null;
+  queueMembers?: QueueMember[] | null;
   user: UsersType;
   serviceCalls: ServiceCallsType[];
 }
@@ -127,6 +119,11 @@ export namespace Queue {
    */
   export const DESCRIPTION: StringField<Queue> = new StringField('Description', Queue, 'Edm.String');
   /**
+   * Static representation of the [[inactive]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const INACTIVE: EnumField<Queue> = new EnumField('Inactive', Queue);
+  /**
    * Static representation of the [[queueManager]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -140,7 +137,7 @@ export namespace Queue {
    * Static representation of the [[queueMembers]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const QUEUE_MEMBERS: CollectionField<Queue> = new CollectionField('QueueMembers', Queue, new QueueMemberField('', Queue));
+  export const QUEUE_MEMBERS: CollectionField<Queue, QueueMember> = new CollectionField('QueueMembers', Queue, QueueMember);
   /**
    * Static representation of the one-to-one navigation property [[user]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -154,9 +151,10 @@ export namespace Queue {
   /**
    * All fields of the Queue entity.
    */
-  export const _allFields: Array<StringField<Queue> | NumberField<Queue> | CollectionField<Queue> | OneToOneLink<Queue, Users> | OneToManyLink<Queue, ServiceCalls>> = [
+  export const _allFields: Array<StringField<Queue> | EnumField<Queue> | NumberField<Queue> | CollectionField<Queue, QueueMember> | OneToOneLink<Queue, Users> | OneToManyLink<Queue, ServiceCalls>> = [
     Queue.QUEUE_ID,
     Queue.DESCRIPTION,
+    Queue.INACTIVE,
     Queue.QUEUE_MANAGER,
     Queue.QUEUE_EMAIL,
     Queue.QUEUE_MEMBERS,

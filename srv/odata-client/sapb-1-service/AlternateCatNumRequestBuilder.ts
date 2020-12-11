@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { AlternateCatNum } from './AlternateCatNum';
 
 /**
@@ -17,8 +17,8 @@ export class AlternateCatNumRequestBuilder extends RequestBuilder<AlternateCatNu
    * @param substitute Key property. See [[AlternateCatNum.substitute]].
    * @returns A request builder for creating requests to retrieve one `AlternateCatNum` entity based on its keys.
    */
-  getByKey(itemCode: string, cardCode: string, substitute: string): GetByKeyRequestBuilder<AlternateCatNum> {
-    return new GetByKeyRequestBuilder(AlternateCatNum, {
+  getByKey(itemCode: string, cardCode: string, substitute: string): GetByKeyRequestBuilderV4<AlternateCatNum> {
+    return new GetByKeyRequestBuilderV4(AlternateCatNum, {
       ItemCode: itemCode,
       CardCode: cardCode,
       Substitute: substitute
@@ -29,8 +29,8 @@ export class AlternateCatNumRequestBuilder extends RequestBuilder<AlternateCatNu
    * Returns a request builder for querying all `AlternateCatNum` entities.
    * @returns A request builder for creating requests to retrieve all `AlternateCatNum` entities.
    */
-  getAll(): GetAllRequestBuilder<AlternateCatNum> {
-    return new GetAllRequestBuilder(AlternateCatNum);
+  getAll(): GetAllRequestBuilderV4<AlternateCatNum> {
+    return new GetAllRequestBuilderV4(AlternateCatNum);
   }
 
   /**
@@ -38,8 +38,8 @@ export class AlternateCatNumRequestBuilder extends RequestBuilder<AlternateCatNu
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `AlternateCatNum`.
    */
-  create(entity: AlternateCatNum): CreateRequestBuilder<AlternateCatNum> {
-    return new CreateRequestBuilder(AlternateCatNum, entity);
+  create(entity: AlternateCatNum): CreateRequestBuilderV4<AlternateCatNum> {
+    return new CreateRequestBuilderV4(AlternateCatNum, entity);
   }
 
   /**
@@ -47,8 +47,8 @@ export class AlternateCatNumRequestBuilder extends RequestBuilder<AlternateCatNu
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `AlternateCatNum`.
    */
-  update(entity: AlternateCatNum): UpdateRequestBuilder<AlternateCatNum> {
-    return new UpdateRequestBuilder(AlternateCatNum, entity);
+  update(entity: AlternateCatNum): UpdateRequestBuilderV4<AlternateCatNum> {
+    return new UpdateRequestBuilderV4(AlternateCatNum, entity);
   }
 
   /**
@@ -58,15 +58,15 @@ export class AlternateCatNumRequestBuilder extends RequestBuilder<AlternateCatNu
    * @param substitute Key property. See [[AlternateCatNum.substitute]].
    * @returns A request builder for creating requests that delete an entity of type `AlternateCatNum`.
    */
-  delete(itemCode: string, cardCode: string, substitute: string): DeleteRequestBuilder<AlternateCatNum>;
+  delete(itemCode: string, cardCode: string, substitute: string): DeleteRequestBuilderV4<AlternateCatNum>;
   /**
    * Returns a request builder for deleting an entity of type `AlternateCatNum`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `AlternateCatNum` by taking the entity as a parameter.
    */
-  delete(entity: AlternateCatNum): DeleteRequestBuilder<AlternateCatNum>;
-  delete(itemCodeOrEntity: any, cardCode?: string, substitute?: string): DeleteRequestBuilder<AlternateCatNum> {
-    return new DeleteRequestBuilder(AlternateCatNum, itemCodeOrEntity instanceof AlternateCatNum ? itemCodeOrEntity : {
+  delete(entity: AlternateCatNum): DeleteRequestBuilderV4<AlternateCatNum>;
+  delete(itemCodeOrEntity: any, cardCode?: string, substitute?: string): DeleteRequestBuilderV4<AlternateCatNum> {
+    return new DeleteRequestBuilderV4(AlternateCatNum, itemCodeOrEntity instanceof AlternateCatNum ? itemCodeOrEntity : {
       ItemCode: itemCodeOrEntity!,
       CardCode: cardCode!,
       Substitute: substitute!

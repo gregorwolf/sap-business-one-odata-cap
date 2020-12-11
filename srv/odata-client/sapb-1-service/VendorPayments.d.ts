@@ -9,20 +9,22 @@ import { WithholdingTaxCertificatesData } from './WithholdingTaxCertificatesData
 import { CashFlowAssignment } from './CashFlowAssignment';
 import { PaymentsApprovalRequest } from './PaymentsApprovalRequest';
 import { WithholdingTaxDataWtx } from './WithholdingTaxDataWtx';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoRcptTypes } from './BoRcptTypes';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoBoeStatus } from './BoBoeStatus';
+import { BoPaymentPriorities } from './BoPaymentPriorities';
+import { BoOrctPaymentTypeEnum } from './BoOrctPaymentTypeEnum';
+import { BoPaymentsObjectType } from './BoPaymentsObjectType';
+import { PaymentsAuthorizationStatusEnum } from './PaymentsAuthorizationStatusEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "VendorPayments" of service "SAPB1".
  */
-export declare class VendorPayments extends Entity implements VendorPaymentsType {
+export declare class VendorPayments extends EntityV4 implements VendorPaymentsType {
     /**
      * Technical entity name for VendorPayments.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for VendorPayments.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -32,6 +34,21 @@ export declare class VendorPayments extends Entity implements VendorPaymentsType
      * @nullable
      */
     docNum?: number;
+    /**
+     * Doc Type.
+     * @nullable
+     */
+    docType?: BoRcptTypes;
+    /**
+     * Hand Written.
+     * @nullable
+     */
+    handWritten?: BoYesNoEnum;
+    /**
+     * Printed.
+     * @nullable
+     */
+    printed?: BoYesNoEnum;
     /**
      * Doc Date.
      * @nullable
@@ -93,6 +110,11 @@ export declare class VendorPayments extends Entity implements VendorPaymentsType
      */
     transferReference?: string;
     /**
+     * Local Currency.
+     * @nullable
+     */
+    localCurrency?: BoYesNoEnum;
+    /**
      * Doc Rate.
      * @nullable
      */
@@ -123,10 +145,20 @@ export declare class VendorPayments extends Entity implements VendorPaymentsType
      */
     journalRemarks?: string;
     /**
+     * Split Transaction.
+     * @nullable
+     */
+    splitTransaction?: BoYesNoEnum;
+    /**
      * Contact Person Code.
      * @nullable
      */
     contactPersonCode?: number;
+    /**
+     * Apply Vat.
+     * @nullable
+     */
+    applyVat?: BoYesNoEnum;
     /**
      * Tax Date.
      * @nullable
@@ -158,6 +190,11 @@ export declare class VendorPayments extends Entity implements VendorPaymentsType
      */
     projectCode?: string;
     /**
+     * Currency Is Local.
+     * @nullable
+     */
+    currencyIsLocal?: BoYesNoEnum;
+    /**
      * Deduction Percent.
      * @nullable
      */
@@ -187,6 +224,11 @@ export declare class VendorPayments extends Entity implements VendorPaymentsType
      * @nullable
      */
     billOfExchangeAmount?: number;
+    /**
+     * Billof Exchange Status.
+     * @nullable
+     */
+    billofExchangeStatus?: BoBoeStatus;
     /**
      * Bill Of Exchange Amount Fc.
      * @nullable
@@ -233,6 +275,11 @@ export declare class VendorPayments extends Entity implements VendorPaymentsType
      */
     wtTaxableAmount?: number;
     /**
+     * Proforma.
+     * @nullable
+     */
+    proforma?: BoYesNoEnum;
+    /**
      * Pay To Bank Code.
      * @nullable
      */
@@ -258,10 +305,20 @@ export declare class VendorPayments extends Entity implements VendorPaymentsType
      */
     payToBankCountry?: string;
     /**
+     * Is Pay To Bank.
+     * @nullable
+     */
+    isPayToBank?: BoYesNoEnum;
+    /**
      * Doc Entry.
      * @nullable
      */
     docEntry?: number;
+    /**
+     * Payment Priority.
+     * @nullable
+     */
+    paymentPriority?: BoPaymentPriorities;
     /**
      * Tax Group.
      * @nullable
@@ -318,10 +375,25 @@ export declare class VendorPayments extends Entity implements VendorPaymentsType
      */
     transactionCode?: string;
     /**
+     * Payment Type.
+     * @nullable
+     */
+    paymentType?: BoOrctPaymentTypeEnum;
+    /**
      * Transfer Real Amount.
      * @nullable
      */
     transferRealAmount?: number;
+    /**
+     * Doc Object Code.
+     * @nullable
+     */
+    docObjectCode?: BoPaymentsObjectType;
+    /**
+     * Doc Typte.
+     * @nullable
+     */
+    docTypte?: BoRcptTypes;
     /**
      * Due Date.
      * @nullable
@@ -333,6 +405,11 @@ export declare class VendorPayments extends Entity implements VendorPaymentsType
      */
     locationCode?: number;
     /**
+     * Cancelled.
+     * @nullable
+     */
+    cancelled?: BoYesNoEnum;
+    /**
      * Control Account.
      * @nullable
      */
@@ -342,6 +419,11 @@ export declare class VendorPayments extends Entity implements VendorPaymentsType
      * @nullable
      */
     underOverpaymentdiffFc?: number;
+    /**
+     * Authorization Status.
+     * @nullable
+     */
+    authorizationStatus?: PaymentsAuthorizationStatusEnum;
     /**
      * Bplid.
      * @nullable
@@ -448,10 +530,10 @@ export declare class VendorPayments extends Entity implements VendorPaymentsType
      */
     blanketAgreement2: BlanketAgreements;
     /**
-     * Returns an entity builder to construct instances `VendorPayments`.
+     * Returns an entity builder to construct instances of `VendorPayments`.
      * @returns A builder that constructs instances of entity type `VendorPayments`.
      */
-    static builder(): EntityBuilderType<VendorPayments, VendorPaymentsTypeForceMandatory>;
+    static builder(): EntityBuilderType<VendorPayments, VendorPaymentsType>;
     /**
      * Returns a request builder to construct requests for operations on the `VendorPayments` entity type.
      * @returns A `VendorPayments` request builder.
@@ -462,7 +544,7 @@ export declare class VendorPayments extends Entity implements VendorPaymentsType
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `VendorPayments`.
      */
-    static customField(fieldName: string): CustomField<VendorPayments>;
+    static customField(fieldName: string): CustomFieldV4<VendorPayments>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -482,170 +564,98 @@ import { WarehouseLocations, WarehouseLocationsType } from './WarehouseLocations
 import { BusinessPlaces, BusinessPlacesType } from './BusinessPlaces';
 import { BlanketAgreements, BlanketAgreementsType } from './BlanketAgreements';
 export interface VendorPaymentsType {
-    docNum?: number;
-    docDate?: Moment;
-    cardCode?: string;
-    cardName?: string;
-    address?: string;
-    cashAccount?: string;
-    docCurrency?: string;
-    cashSum?: number;
-    checkAccount?: string;
-    transferAccount?: string;
-    transferSum?: number;
-    transferDate?: Moment;
-    transferReference?: string;
-    docRate?: number;
-    reference1?: string;
-    reference2?: string;
-    counterReference?: string;
-    remarks?: string;
-    journalRemarks?: string;
-    contactPersonCode?: number;
-    taxDate?: Moment;
-    series?: number;
-    bankCode?: string;
-    bankAccount?: string;
-    discountPercent?: number;
-    projectCode?: string;
-    deductionPercent?: number;
-    deductionSum?: number;
-    cashSumFc?: number;
-    cashSumSys?: number;
-    boeAccount?: string;
-    billOfExchangeAmount?: number;
-    billOfExchangeAmountFc?: number;
-    billOfExchangeAmountSc?: number;
-    billOfExchangeAgent?: string;
-    wtCode?: string;
-    wtAmount?: number;
-    wtAmountFc?: number;
-    wtAmountSc?: number;
-    wtAccount?: string;
-    wtTaxableAmount?: number;
-    payToBankCode?: string;
-    payToBankBranch?: string;
-    payToBankAccountNo?: string;
-    payToCode?: string;
-    payToBankCountry?: string;
-    docEntry?: number;
-    taxGroup?: string;
-    bankChargeAmount?: number;
-    bankChargeAmountInFc?: number;
-    bankChargeAmountInSc?: number;
-    underOverpaymentdifference?: number;
-    underOverpaymentdiffSc?: number;
-    wtBaseSum?: number;
-    wtBaseSumFc?: number;
-    wtBaseSumSc?: number;
-    vatDate?: Moment;
-    transactionCode?: string;
-    transferRealAmount?: number;
-    dueDate?: Moment;
-    locationCode?: number;
-    controlAccount?: string;
-    underOverpaymentdiffFc?: number;
-    bplid?: number;
-    bplName?: string;
-    vatRegNum?: string;
-    blanketAgreement?: number;
-    paymentChecks?: PaymentCheck[];
-    paymentInvoices?: PaymentInvoice[];
-    paymentCreditCards?: PaymentCreditCard[];
-    paymentAccounts?: PaymentAccount[];
-    billOfExchange?: BillOfExchange;
-    withholdingTaxCertificatesCollection?: WithholdingTaxCertificatesData[];
-    cashFlowAssignments?: CashFlowAssignment[];
-    paymentsApprovalRequests?: PaymentsApprovalRequest[];
-    withholdingTaxDataWtxCollection?: WithholdingTaxDataWtx[];
-    chartOfAccount: ChartOfAccountsType;
-    currency: CurrenciesType;
-    project: ProjectsType;
-    withholdingTaxCode: WithholdingTaxCodesType;
-    country: CountriesType;
-    vatGroup: VatGroupsType;
-    transactionCode2: TransactionCodesType;
-    warehouseLocation: WarehouseLocationsType;
-    businessPlace: BusinessPlacesType;
-    blanketAgreement2: BlanketAgreementsType;
-}
-export interface VendorPaymentsTypeForceMandatory {
-    docNum: number;
-    docDate: Moment;
-    cardCode: string;
-    cardName: string;
-    address: string;
-    cashAccount: string;
-    docCurrency: string;
-    cashSum: number;
-    checkAccount: string;
-    transferAccount: string;
-    transferSum: number;
-    transferDate: Moment;
-    transferReference: string;
-    docRate: number;
-    reference1: string;
-    reference2: string;
-    counterReference: string;
-    remarks: string;
-    journalRemarks: string;
-    contactPersonCode: number;
-    taxDate: Moment;
-    series: number;
-    bankCode: string;
-    bankAccount: string;
-    discountPercent: number;
-    projectCode: string;
-    deductionPercent: number;
-    deductionSum: number;
-    cashSumFc: number;
-    cashSumSys: number;
-    boeAccount: string;
-    billOfExchangeAmount: number;
-    billOfExchangeAmountFc: number;
-    billOfExchangeAmountSc: number;
-    billOfExchangeAgent: string;
-    wtCode: string;
-    wtAmount: number;
-    wtAmountFc: number;
-    wtAmountSc: number;
-    wtAccount: string;
-    wtTaxableAmount: number;
-    payToBankCode: string;
-    payToBankBranch: string;
-    payToBankAccountNo: string;
-    payToCode: string;
-    payToBankCountry: string;
-    docEntry: number;
-    taxGroup: string;
-    bankChargeAmount: number;
-    bankChargeAmountInFc: number;
-    bankChargeAmountInSc: number;
-    underOverpaymentdifference: number;
-    underOverpaymentdiffSc: number;
-    wtBaseSum: number;
-    wtBaseSumFc: number;
-    wtBaseSumSc: number;
-    vatDate: Moment;
-    transactionCode: string;
-    transferRealAmount: number;
-    dueDate: Moment;
-    locationCode: number;
-    controlAccount: string;
-    underOverpaymentdiffFc: number;
-    bplid: number;
-    bplName: string;
-    vatRegNum: string;
-    blanketAgreement: number;
-    paymentChecks: PaymentCheck[];
-    paymentInvoices: PaymentInvoice[];
-    paymentCreditCards: PaymentCreditCard[];
-    paymentAccounts: PaymentAccount[];
-    billOfExchange: BillOfExchange;
-    withholdingTaxCertificatesCollection: WithholdingTaxCertificatesData[];
-    cashFlowAssignments: CashFlowAssignment[];
-    paymentsApprovalRequests: PaymentsApprovalRequest[];
-    withholdingTaxDataWtxCollection: WithholdingTaxDataWtx[];
+    docNum?: number | null;
+    docType?: BoRcptTypes | null;
+    handWritten?: BoYesNoEnum | null;
+    printed?: BoYesNoEnum | null;
+    docDate?: Moment | null;
+    cardCode?: string | null;
+    cardName?: string | null;
+    address?: string | null;
+    cashAccount?: string | null;
+    docCurrency?: string | null;
+    cashSum?: number | null;
+    checkAccount?: string | null;
+    transferAccount?: string | null;
+    transferSum?: number | null;
+    transferDate?: Moment | null;
+    transferReference?: string | null;
+    localCurrency?: BoYesNoEnum | null;
+    docRate?: number | null;
+    reference1?: string | null;
+    reference2?: string | null;
+    counterReference?: string | null;
+    remarks?: string | null;
+    journalRemarks?: string | null;
+    splitTransaction?: BoYesNoEnum | null;
+    contactPersonCode?: number | null;
+    applyVat?: BoYesNoEnum | null;
+    taxDate?: Moment | null;
+    series?: number | null;
+    bankCode?: string | null;
+    bankAccount?: string | null;
+    discountPercent?: number | null;
+    projectCode?: string | null;
+    currencyIsLocal?: BoYesNoEnum | null;
+    deductionPercent?: number | null;
+    deductionSum?: number | null;
+    cashSumFc?: number | null;
+    cashSumSys?: number | null;
+    boeAccount?: string | null;
+    billOfExchangeAmount?: number | null;
+    billofExchangeStatus?: BoBoeStatus | null;
+    billOfExchangeAmountFc?: number | null;
+    billOfExchangeAmountSc?: number | null;
+    billOfExchangeAgent?: string | null;
+    wtCode?: string | null;
+    wtAmount?: number | null;
+    wtAmountFc?: number | null;
+    wtAmountSc?: number | null;
+    wtAccount?: string | null;
+    wtTaxableAmount?: number | null;
+    proforma?: BoYesNoEnum | null;
+    payToBankCode?: string | null;
+    payToBankBranch?: string | null;
+    payToBankAccountNo?: string | null;
+    payToCode?: string | null;
+    payToBankCountry?: string | null;
+    isPayToBank?: BoYesNoEnum | null;
+    docEntry?: number | null;
+    paymentPriority?: BoPaymentPriorities | null;
+    taxGroup?: string | null;
+    bankChargeAmount?: number | null;
+    bankChargeAmountInFc?: number | null;
+    bankChargeAmountInSc?: number | null;
+    underOverpaymentdifference?: number | null;
+    underOverpaymentdiffSc?: number | null;
+    wtBaseSum?: number | null;
+    wtBaseSumFc?: number | null;
+    wtBaseSumSc?: number | null;
+    vatDate?: Moment | null;
+    transactionCode?: string | null;
+    paymentType?: BoOrctPaymentTypeEnum | null;
+    transferRealAmount?: number | null;
+    docObjectCode?: BoPaymentsObjectType | null;
+    docTypte?: BoRcptTypes | null;
+    dueDate?: Moment | null;
+    locationCode?: number | null;
+    cancelled?: BoYesNoEnum | null;
+    controlAccount?: string | null;
+    underOverpaymentdiffFc?: number | null;
+    authorizationStatus?: PaymentsAuthorizationStatusEnum | null;
+    bplid?: number | null;
+    bplName?: string | null;
+    vatRegNum?: string | null;
+    blanketAgreement?: number | null;
+    paymentChecks?: PaymentCheck[] | null;
+    paymentInvoices?: PaymentInvoice[] | null;
+    paymentCreditCards?: PaymentCreditCard[] | null;
+    paymentAccounts?: PaymentAccount[] | null;
+    billOfExchange?: BillOfExchange | null;
+    withholdingTaxCertificatesCollection?: WithholdingTaxCertificatesData[] | null;
+    cashFlowAssignments?: CashFlowAssignment[] | null;
+    paymentsApprovalRequests?: PaymentsApprovalRequest[] | null;
+    withholdingTaxDataWtxCollection?: WithholdingTaxDataWtx[] | null;
     chartOfAccount: ChartOfAccountsType;
     currency: CurrenciesType;
     project: ProjectsType;
@@ -663,6 +673,21 @@ export declare namespace VendorPayments {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DOC_NUM: NumberField<VendorPayments>;
+    /**
+     * Static representation of the [[docType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DOC_TYPE: EnumField<VendorPayments>;
+    /**
+     * Static representation of the [[handWritten]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const HAND_WRITTEN: EnumField<VendorPayments>;
+    /**
+     * Static representation of the [[printed]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PRINTED: EnumField<VendorPayments>;
     /**
      * Static representation of the [[docDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -724,6 +749,11 @@ export declare namespace VendorPayments {
      */
     const TRANSFER_REFERENCE: StringField<VendorPayments>;
     /**
+     * Static representation of the [[localCurrency]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const LOCAL_CURRENCY: EnumField<VendorPayments>;
+    /**
      * Static representation of the [[docRate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -754,10 +784,20 @@ export declare namespace VendorPayments {
      */
     const JOURNAL_REMARKS: StringField<VendorPayments>;
     /**
+     * Static representation of the [[splitTransaction]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SPLIT_TRANSACTION: EnumField<VendorPayments>;
+    /**
      * Static representation of the [[contactPersonCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const CONTACT_PERSON_CODE: NumberField<VendorPayments>;
+    /**
+     * Static representation of the [[applyVat]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const APPLY_VAT: EnumField<VendorPayments>;
     /**
      * Static representation of the [[taxDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -789,6 +829,11 @@ export declare namespace VendorPayments {
      */
     const PROJECT_CODE: StringField<VendorPayments>;
     /**
+     * Static representation of the [[currencyIsLocal]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CURRENCY_IS_LOCAL: EnumField<VendorPayments>;
+    /**
      * Static representation of the [[deductionPercent]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -818,6 +863,11 @@ export declare namespace VendorPayments {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const BILL_OF_EXCHANGE_AMOUNT: NumberField<VendorPayments>;
+    /**
+     * Static representation of the [[billofExchangeStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BILLOF_EXCHANGE_STATUS: EnumField<VendorPayments>;
     /**
      * Static representation of the [[billOfExchangeAmountFc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -864,6 +914,11 @@ export declare namespace VendorPayments {
      */
     const WT_TAXABLE_AMOUNT: NumberField<VendorPayments>;
     /**
+     * Static representation of the [[proforma]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROFORMA: EnumField<VendorPayments>;
+    /**
      * Static representation of the [[payToBankCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -889,10 +944,20 @@ export declare namespace VendorPayments {
      */
     const PAY_TO_BANK_COUNTRY: StringField<VendorPayments>;
     /**
+     * Static representation of the [[isPayToBank]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IS_PAY_TO_BANK: EnumField<VendorPayments>;
+    /**
      * Static representation of the [[docEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DOC_ENTRY: NumberField<VendorPayments>;
+    /**
+     * Static representation of the [[paymentPriority]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PAYMENT_PRIORITY: EnumField<VendorPayments>;
     /**
      * Static representation of the [[taxGroup]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -949,10 +1014,25 @@ export declare namespace VendorPayments {
      */
     const TRANSACTION_CODE: StringField<VendorPayments>;
     /**
+     * Static representation of the [[paymentType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PAYMENT_TYPE: EnumField<VendorPayments>;
+    /**
      * Static representation of the [[transferRealAmount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const TRANSFER_REAL_AMOUNT: NumberField<VendorPayments>;
+    /**
+     * Static representation of the [[docObjectCode]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DOC_OBJECT_CODE: EnumField<VendorPayments>;
+    /**
+     * Static representation of the [[docTypte]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DOC_TYPTE: EnumField<VendorPayments>;
     /**
      * Static representation of the [[dueDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -964,6 +1044,11 @@ export declare namespace VendorPayments {
      */
     const LOCATION_CODE: NumberField<VendorPayments>;
     /**
+     * Static representation of the [[cancelled]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CANCELLED: EnumField<VendorPayments>;
+    /**
      * Static representation of the [[controlAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -973,6 +1058,11 @@ export declare namespace VendorPayments {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const UNDER_OVERPAYMENTDIFF_FC: NumberField<VendorPayments>;
+    /**
+     * Static representation of the [[authorizationStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const AUTHORIZATION_STATUS: EnumField<VendorPayments>;
     /**
      * Static representation of the [[bplid]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -997,22 +1087,22 @@ export declare namespace VendorPayments {
      * Static representation of the [[paymentChecks]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const PAYMENT_CHECKS: CollectionField<VendorPayments>;
+    const PAYMENT_CHECKS: CollectionField<VendorPayments, PaymentCheck>;
     /**
      * Static representation of the [[paymentInvoices]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const PAYMENT_INVOICES: CollectionField<VendorPayments>;
+    const PAYMENT_INVOICES: CollectionField<VendorPayments, PaymentInvoice>;
     /**
      * Static representation of the [[paymentCreditCards]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const PAYMENT_CREDIT_CARDS: CollectionField<VendorPayments>;
+    const PAYMENT_CREDIT_CARDS: CollectionField<VendorPayments, PaymentCreditCard>;
     /**
      * Static representation of the [[paymentAccounts]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const PAYMENT_ACCOUNTS: CollectionField<VendorPayments>;
+    const PAYMENT_ACCOUNTS: CollectionField<VendorPayments, PaymentAccount>;
     /**
      * Static representation of the [[billOfExchange]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1022,22 +1112,22 @@ export declare namespace VendorPayments {
      * Static representation of the [[withholdingTaxCertificatesCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const WITHHOLDING_TAX_CERTIFICATES_COLLECTION: CollectionField<VendorPayments>;
+    const WITHHOLDING_TAX_CERTIFICATES_COLLECTION: CollectionField<VendorPayments, WithholdingTaxCertificatesData>;
     /**
      * Static representation of the [[cashFlowAssignments]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const CASH_FLOW_ASSIGNMENTS: CollectionField<VendorPayments>;
+    const CASH_FLOW_ASSIGNMENTS: CollectionField<VendorPayments, CashFlowAssignment>;
     /**
      * Static representation of the [[paymentsApprovalRequests]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const PAYMENTS_APPROVAL_REQUESTS: CollectionField<VendorPayments>;
+    const PAYMENTS_APPROVAL_REQUESTS: CollectionField<VendorPayments, PaymentsApprovalRequest>;
     /**
      * Static representation of the [[withholdingTaxDataWtxCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const WITHHOLDING_TAX_DATA_WTX_COLLECTION: CollectionField<VendorPayments>;
+    const WITHHOLDING_TAX_DATA_WTX_COLLECTION: CollectionField<VendorPayments, WithholdingTaxDataWtx>;
     /**
      * Static representation of the one-to-one navigation property [[chartOfAccount]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -1091,7 +1181,7 @@ export declare namespace VendorPayments {
     /**
      * All fields of the VendorPayments entity.
      */
-    const _allFields: Array<NumberField<VendorPayments> | DateField<VendorPayments> | StringField<VendorPayments> | CollectionField<VendorPayments> | BillOfExchangeField<VendorPayments> | OneToOneLink<VendorPayments, ChartOfAccounts> | OneToOneLink<VendorPayments, Currencies> | OneToOneLink<VendorPayments, Projects> | OneToOneLink<VendorPayments, WithholdingTaxCodes> | OneToOneLink<VendorPayments, Countries> | OneToOneLink<VendorPayments, VatGroups> | OneToOneLink<VendorPayments, TransactionCodes> | OneToOneLink<VendorPayments, WarehouseLocations> | OneToOneLink<VendorPayments, BusinessPlaces> | OneToOneLink<VendorPayments, BlanketAgreements>>;
+    const _allFields: Array<NumberField<VendorPayments> | EnumField<VendorPayments> | DateField<VendorPayments> | StringField<VendorPayments> | CollectionField<VendorPayments, PaymentCheck> | CollectionField<VendorPayments, PaymentInvoice> | CollectionField<VendorPayments, PaymentCreditCard> | CollectionField<VendorPayments, PaymentAccount> | BillOfExchangeField<VendorPayments> | CollectionField<VendorPayments, WithholdingTaxCertificatesData> | CollectionField<VendorPayments, CashFlowAssignment> | CollectionField<VendorPayments, PaymentsApprovalRequest> | CollectionField<VendorPayments, WithholdingTaxDataWtx> | OneToOneLink<VendorPayments, ChartOfAccounts> | OneToOneLink<VendorPayments, Currencies> | OneToOneLink<VendorPayments, Projects> | OneToOneLink<VendorPayments, WithholdingTaxCodes> | OneToOneLink<VendorPayments, Countries> | OneToOneLink<VendorPayments, VatGroups> | OneToOneLink<VendorPayments, TransactionCodes> | OneToOneLink<VendorPayments, WarehouseLocations> | OneToOneLink<VendorPayments, BusinessPlaces> | OneToOneLink<VendorPayments, BlanketAgreements>>;
     /**
      * All fields selector.
      */

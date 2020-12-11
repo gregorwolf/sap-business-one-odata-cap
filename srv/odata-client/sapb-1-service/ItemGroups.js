@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.ItemGroups = void 0;
  */
 var ItemGroupsRequestBuilder_1 = require("./ItemGroupsRequestBuilder");
 var ItemGroupsWarehouseInfo_1 = require("./ItemGroupsWarehouseInfo");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "ItemGroups" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var ItemGroups = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `ItemGroups`.
+     * Returns an entity builder to construct instances of `ItemGroups`.
      * @returns A builder that constructs instances of entity type `ItemGroups`.
      */
     ItemGroups.builder = function () {
-        return v4_1.Entity.entityBuilder(ItemGroups);
+        return core_1.EntityV4.entityBuilder(ItemGroups);
     };
     /**
      * Returns a request builder to construct requests for operations on the `ItemGroups` entity type.
@@ -61,7 +61,7 @@ var ItemGroups = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `ItemGroups`.
      */
     ItemGroups.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, ItemGroups);
+        return core_1.EntityV4.customFieldSelector(fieldName, ItemGroups);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,16 +75,11 @@ var ItemGroups = /** @class */ (function (_super) {
      */
     ItemGroups._entityName = 'ItemGroups';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ItemGroups.
-     */
-    ItemGroups._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    ItemGroups._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    ItemGroups._defaultServicePath = '/b1s/v2/';
     return ItemGroups;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.ItemGroups = ItemGroups;
 var ChartOfAccounts_1 = require("./ChartOfAccounts");
 var InventoryCycles_1 = require("./InventoryCycles");
@@ -99,327 +94,357 @@ var ServiceCalls_1 = require("./ServiceCalls");
      * Static representation of the [[priceDifferencesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.PRICE_DIFFERENCES_ACCOUNT = new v4_1.StringField('PriceDifferencesAccount', ItemGroups, 'Edm.String');
+    ItemGroups.PRICE_DIFFERENCES_ACCOUNT = new core_1.StringField('PriceDifferencesAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[stockInflationAdjustAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.STOCK_INFLATION_ADJUST_ACCOUNT = new v4_1.StringField('StockInflationAdjustAccount', ItemGroups, 'Edm.String');
+    ItemGroups.STOCK_INFLATION_ADJUST_ACCOUNT = new core_1.StringField('StockInflationAdjustAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[minimumOrderQuantity]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.MINIMUM_ORDER_QUANTITY = new v4_1.NumberField('MinimumOrderQuantity', ItemGroups, 'Edm.Double');
+    ItemGroups.MINIMUM_ORDER_QUANTITY = new core_1.NumberField('MinimumOrderQuantity', ItemGroups, 'Edm.Double');
     /**
      * Static representation of the [[orderInterval]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.ORDER_INTERVAL = new v4_1.NumberField('OrderInterval', ItemGroups, 'Edm.Int32');
+    ItemGroups.ORDER_INTERVAL = new core_1.NumberField('OrderInterval', ItemGroups, 'Edm.Int32');
     /**
      * Static representation of the [[exchangeRateDifferencesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.EXCHANGE_RATE_DIFFERENCES_ACCOUNT = new v4_1.StringField('ExchangeRateDifferencesAccount', ItemGroups, 'Edm.String');
+    ItemGroups.EXCHANGE_RATE_DIFFERENCES_ACCOUNT = new core_1.StringField('ExchangeRateDifferencesAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[increasingAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.INCREASING_ACCOUNT = new v4_1.StringField('IncreasingAccount', ItemGroups, 'Edm.String');
+    ItemGroups.INCREASING_ACCOUNT = new core_1.StringField('IncreasingAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[stockInflationOffsetAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.STOCK_INFLATION_OFFSET_ACCOUNT = new v4_1.StringField('StockInflationOffsetAccount', ItemGroups, 'Edm.String');
+    ItemGroups.STOCK_INFLATION_OFFSET_ACCOUNT = new core_1.StringField('StockInflationOffsetAccount', ItemGroups, 'Edm.String');
+    /**
+     * Static representation of the [[procurementMethod]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ItemGroups.PROCUREMENT_METHOD = new core_1.EnumField('ProcurementMethod', ItemGroups);
+    /**
+     * Static representation of the [[componentWarehouse]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ItemGroups.COMPONENT_WAREHOUSE = new core_1.EnumField('ComponentWarehouse', ItemGroups);
     /**
      * Static representation of the [[purchaseOffsetAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.PURCHASE_OFFSET_ACCOUNT = new v4_1.StringField('PurchaseOffsetAccount', ItemGroups, 'Edm.String');
+    ItemGroups.PURCHASE_OFFSET_ACCOUNT = new core_1.StringField('PurchaseOffsetAccount', ItemGroups, 'Edm.String');
+    /**
+     * Static representation of the [[inventorySystem]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ItemGroups.INVENTORY_SYSTEM = new core_1.EnumField('InventorySystem', ItemGroups);
     /**
      * Static representation of the [[wipMaterialVarianceAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.WIP_MATERIAL_VARIANCE_ACCOUNT = new v4_1.StringField('WIPMaterialVarianceAccount', ItemGroups, 'Edm.String');
+    ItemGroups.WIP_MATERIAL_VARIANCE_ACCOUNT = new core_1.StringField('WIPMaterialVarianceAccount', ItemGroups, 'Edm.String');
+    /**
+     * Static representation of the [[planningSystem]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ItemGroups.PLANNING_SYSTEM = new core_1.EnumField('PlanningSystem', ItemGroups);
     /**
      * Static representation of the [[purchaseAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.PURCHASE_ACCOUNT = new v4_1.StringField('PurchaseAccount', ItemGroups, 'Edm.String');
+    ItemGroups.PURCHASE_ACCOUNT = new core_1.StringField('PurchaseAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[returningAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.RETURNING_ACCOUNT = new v4_1.StringField('ReturningAccount', ItemGroups, 'Edm.String');
+    ItemGroups.RETURNING_ACCOUNT = new core_1.StringField('ReturningAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[costInflationAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.COST_INFLATION_ACCOUNT = new v4_1.StringField('CostInflationAccount', ItemGroups, 'Edm.String');
+    ItemGroups.COST_INFLATION_ACCOUNT = new core_1.StringField('CostInflationAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[expensesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.EXPENSES_ACCOUNT = new v4_1.StringField('ExpensesAccount', ItemGroups, 'Edm.String');
+    ItemGroups.EXPENSES_ACCOUNT = new core_1.StringField('ExpensesAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[revenuesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.REVENUES_ACCOUNT = new v4_1.StringField('RevenuesAccount', ItemGroups, 'Edm.String');
+    ItemGroups.REVENUES_ACCOUNT = new core_1.StringField('RevenuesAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[transfersAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.TRANSFERS_ACCOUNT = new v4_1.StringField('TransfersAccount', ItemGroups, 'Edm.String');
+    ItemGroups.TRANSFERS_ACCOUNT = new core_1.StringField('TransfersAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[leadTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.LEAD_TIME = new v4_1.NumberField('LeadTime', ItemGroups, 'Edm.Int32');
+    ItemGroups.LEAD_TIME = new core_1.NumberField('LeadTime', ItemGroups, 'Edm.Int32');
     /**
      * Static representation of the [[orderMultiple]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.ORDER_MULTIPLE = new v4_1.NumberField('OrderMultiple', ItemGroups, 'Edm.Double');
+    ItemGroups.ORDER_MULTIPLE = new core_1.NumberField('OrderMultiple', ItemGroups, 'Edm.Double');
     /**
      * Static representation of the [[costInflationOffsetAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.COST_INFLATION_OFFSET_ACCOUNT = new v4_1.StringField('CostInflationOffsetAccount', ItemGroups, 'Edm.String');
+    ItemGroups.COST_INFLATION_OFFSET_ACCOUNT = new core_1.StringField('CostInflationOffsetAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[inventoryAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.INVENTORY_ACCOUNT = new v4_1.StringField('InventoryAccount', ItemGroups, 'Edm.String');
+    ItemGroups.INVENTORY_ACCOUNT = new core_1.StringField('InventoryAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[decreaseGlAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.DECREASE_GL_ACCOUNT = new v4_1.StringField('DecreaseGLAccount', ItemGroups, 'Edm.String');
+    ItemGroups.DECREASE_GL_ACCOUNT = new core_1.StringField('DecreaseGLAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[number]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.NUMBER = new v4_1.NumberField('Number', ItemGroups, 'Edm.Int32');
+    ItemGroups.NUMBER = new core_1.NumberField('Number', ItemGroups, 'Edm.Int32');
     /**
      * Static representation of the [[goodsClearingAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.GOODS_CLEARING_ACCOUNT = new v4_1.StringField('GoodsClearingAccount', ItemGroups, 'Edm.String');
+    ItemGroups.GOODS_CLEARING_ACCOUNT = new core_1.StringField('GoodsClearingAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[increaseGlAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.INCREASE_GL_ACCOUNT = new v4_1.StringField('IncreaseGLAccount', ItemGroups, 'Edm.String');
+    ItemGroups.INCREASE_GL_ACCOUNT = new core_1.StringField('IncreaseGLAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[foreignRevenuesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.FOREIGN_REVENUES_ACCOUNT = new v4_1.StringField('ForeignRevenuesAccount', ItemGroups, 'Edm.String');
+    ItemGroups.FOREIGN_REVENUES_ACCOUNT = new core_1.StringField('ForeignRevenuesAccount', ItemGroups, 'Edm.String');
+    /**
+     * Static representation of the [[alert]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ItemGroups.ALERT = new core_1.EnumField('Alert', ItemGroups);
     /**
      * Static representation of the [[wipMaterialAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.WIP_MATERIAL_ACCOUNT = new v4_1.StringField('WIPMaterialAccount', ItemGroups, 'Edm.String');
+    ItemGroups.WIP_MATERIAL_ACCOUNT = new core_1.StringField('WIPMaterialAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[shippedGoodsAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.SHIPPED_GOODS_ACCOUNT = new v4_1.StringField('ShippedGoodsAccount', ItemGroups, 'Edm.String');
+    ItemGroups.SHIPPED_GOODS_ACCOUNT = new core_1.StringField('ShippedGoodsAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[exemptRevenuesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.EXEMPT_REVENUES_ACCOUNT = new v4_1.StringField('ExemptRevenuesAccount', ItemGroups, 'Edm.String');
+    ItemGroups.EXEMPT_REVENUES_ACCOUNT = new core_1.StringField('ExemptRevenuesAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[decreasingAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.DECREASING_ACCOUNT = new v4_1.StringField('DecreasingAccount', ItemGroups, 'Edm.String');
+    ItemGroups.DECREASING_ACCOUNT = new core_1.StringField('DecreasingAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[vatInRevenueAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.VAT_IN_REVENUE_ACCOUNT = new v4_1.StringField('VATInRevenueAccount', ItemGroups, 'Edm.String');
+    ItemGroups.VAT_IN_REVENUE_ACCOUNT = new core_1.StringField('VATInRevenueAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[varianceAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.VARIANCE_ACCOUNT = new v4_1.StringField('VarianceAccount', ItemGroups, 'Edm.String');
+    ItemGroups.VARIANCE_ACCOUNT = new core_1.StringField('VarianceAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[euExpensesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.EU_EXPENSES_ACCOUNT = new v4_1.StringField('EUExpensesAccount', ItemGroups, 'Edm.String');
+    ItemGroups.EU_EXPENSES_ACCOUNT = new core_1.StringField('EUExpensesAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[foreignExpensesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.FOREIGN_EXPENSES_ACCOUNT = new v4_1.StringField('ForeignExpensesAccount', ItemGroups, 'Edm.String');
+    ItemGroups.FOREIGN_EXPENSES_ACCOUNT = new core_1.StringField('ForeignExpensesAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[cycleCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.CYCLE_CODE = new v4_1.NumberField('CycleCode', ItemGroups, 'Edm.Int32');
+    ItemGroups.CYCLE_CODE = new core_1.NumberField('CycleCode', ItemGroups, 'Edm.Int32');
     /**
      * Static representation of the [[costAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.COST_ACCOUNT = new v4_1.StringField('CostAccount', ItemGroups, 'Edm.String');
+    ItemGroups.COST_ACCOUNT = new core_1.StringField('CostAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[euRevenuesAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.EU_REVENUES_ACCOUNT = new v4_1.StringField('EURevenuesAccount', ItemGroups, 'Edm.String');
+    ItemGroups.EU_REVENUES_ACCOUNT = new core_1.StringField('EURevenuesAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[paReturnAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.PA_RETURN_ACCOUNT = new v4_1.StringField('PAReturnAccount', ItemGroups, 'Edm.String');
+    ItemGroups.PA_RETURN_ACCOUNT = new core_1.StringField('PAReturnAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[groupName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.GROUP_NAME = new v4_1.StringField('GroupName', ItemGroups, 'Edm.String');
+    ItemGroups.GROUP_NAME = new core_1.StringField('GroupName', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[expenseClearingAct]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.EXPENSE_CLEARING_ACT = new v4_1.StringField('ExpenseClearingAct', ItemGroups, 'Edm.String');
+    ItemGroups.EXPENSE_CLEARING_ACT = new core_1.StringField('ExpenseClearingAct', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[purchaseCreditAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.PURCHASE_CREDIT_ACC = new v4_1.StringField('PurchaseCreditAcc', ItemGroups, 'Edm.String');
+    ItemGroups.PURCHASE_CREDIT_ACC = new core_1.StringField('PurchaseCreditAcc', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[euPurchaseCreditAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.EU_PURCHASE_CREDIT_ACC = new v4_1.StringField('EUPurchaseCreditAcc', ItemGroups, 'Edm.String');
+    ItemGroups.EU_PURCHASE_CREDIT_ACC = new core_1.StringField('EUPurchaseCreditAcc', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[foreignPurchaseCreditAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.FOREIGN_PURCHASE_CREDIT_ACC = new v4_1.StringField('ForeignPurchaseCreditAcc', ItemGroups, 'Edm.String');
+    ItemGroups.FOREIGN_PURCHASE_CREDIT_ACC = new core_1.StringField('ForeignPurchaseCreditAcc', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[salesCreditAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.SALES_CREDIT_ACC = new v4_1.StringField('SalesCreditAcc', ItemGroups, 'Edm.String');
+    ItemGroups.SALES_CREDIT_ACC = new core_1.StringField('SalesCreditAcc', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[salesCreditEuAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.SALES_CREDIT_EU_ACC = new v4_1.StringField('SalesCreditEUAcc', ItemGroups, 'Edm.String');
+    ItemGroups.SALES_CREDIT_EU_ACC = new core_1.StringField('SalesCreditEUAcc', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[exemptedCredits]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.EXEMPTED_CREDITS = new v4_1.StringField('ExemptedCredits', ItemGroups, 'Edm.String');
+    ItemGroups.EXEMPTED_CREDITS = new core_1.StringField('ExemptedCredits', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[salesCreditForeignAcc]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.SALES_CREDIT_FOREIGN_ACC = new v4_1.StringField('SalesCreditForeignAcc', ItemGroups, 'Edm.String');
+    ItemGroups.SALES_CREDIT_FOREIGN_ACC = new core_1.StringField('SalesCreditForeignAcc', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[expenseOffsetAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.EXPENSE_OFFSET_ACCOUNT = new v4_1.StringField('ExpenseOffsetAccount', ItemGroups, 'Edm.String');
+    ItemGroups.EXPENSE_OFFSET_ACCOUNT = new core_1.StringField('ExpenseOffsetAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[negativeInventoryAdjustmentAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.NEGATIVE_INVENTORY_ADJUSTMENT_ACCOUNT = new v4_1.StringField('NegativeInventoryAdjustmentAccount', ItemGroups, 'Edm.String');
+    ItemGroups.NEGATIVE_INVENTORY_ADJUSTMENT_ACCOUNT = new core_1.StringField('NegativeInventoryAdjustmentAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[whIncomingCenvatAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.WH_INCOMING_CENVAT_ACCOUNT = new v4_1.StringField('WHIncomingCenvatAccount', ItemGroups, 'Edm.String');
+    ItemGroups.WH_INCOMING_CENVAT_ACCOUNT = new core_1.StringField('WHIncomingCenvatAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[whOutgoingCenvatAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.WH_OUTGOING_CENVAT_ACCOUNT = new v4_1.StringField('WHOutgoingCenvatAccount', ItemGroups, 'Edm.String');
+    ItemGroups.WH_OUTGOING_CENVAT_ACCOUNT = new core_1.StringField('WHOutgoingCenvatAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[stockInTransitAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.STOCK_IN_TRANSIT_ACCOUNT = new v4_1.StringField('StockInTransitAccount', ItemGroups, 'Edm.String');
+    ItemGroups.STOCK_IN_TRANSIT_ACCOUNT = new core_1.StringField('StockInTransitAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[wipOffsetProfitAndLossAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.WIP_OFFSET_PROFIT_AND_LOSS_ACCOUNT = new v4_1.StringField('WipOffsetProfitAndLossAccount', ItemGroups, 'Edm.String');
+    ItemGroups.WIP_OFFSET_PROFIT_AND_LOSS_ACCOUNT = new core_1.StringField('WipOffsetProfitAndLossAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[inventoryOffsetProfitAndLossAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.INVENTORY_OFFSET_PROFIT_AND_LOSS_ACCOUNT = new v4_1.StringField('InventoryOffsetProfitAndLossAccount', ItemGroups, 'Edm.String');
+    ItemGroups.INVENTORY_OFFSET_PROFIT_AND_LOSS_ACCOUNT = new core_1.StringField('InventoryOffsetProfitAndLossAccount', ItemGroups, 'Edm.String');
     /**
      * Static representation of the [[toleranceDays]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.TOLERANCE_DAYS = new v4_1.NumberField('ToleranceDays', ItemGroups, 'Edm.Int32');
+    ItemGroups.TOLERANCE_DAYS = new core_1.NumberField('ToleranceDays', ItemGroups, 'Edm.Int32');
     /**
      * Static representation of the [[defaultUoMGroup]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.DEFAULT_UO_M_GROUP = new v4_1.NumberField('DefaultUoMGroup', ItemGroups, 'Edm.Int32');
+    ItemGroups.DEFAULT_UO_M_GROUP = new core_1.NumberField('DefaultUoMGroup', ItemGroups, 'Edm.Int32');
     /**
      * Static representation of the [[defaultInventoryUoM]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.DEFAULT_INVENTORY_UO_M = new v4_1.NumberField('DefaultInventoryUoM', ItemGroups, 'Edm.Int32');
+    ItemGroups.DEFAULT_INVENTORY_UO_M = new core_1.NumberField('DefaultInventoryUoM', ItemGroups, 'Edm.Int32');
     /**
      * Static representation of the [[purchaseBalanceAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.PURCHASE_BALANCE_ACCOUNT = new v4_1.StringField('PurchaseBalanceAccount', ItemGroups, 'Edm.String');
+    ItemGroups.PURCHASE_BALANCE_ACCOUNT = new core_1.StringField('PurchaseBalanceAccount', ItemGroups, 'Edm.String');
+    /**
+     * Static representation of the [[itemClass]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ItemGroups.ITEM_CLASS = new core_1.EnumField('ItemClass', ItemGroups);
     /**
      * Static representation of the [[itemGroupsWarehouseInfos]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.ITEM_GROUPS_WAREHOUSE_INFOS = new v4_1.CollectionField('ItemGroupsWarehouseInfos', ItemGroups, new ItemGroupsWarehouseInfo_1.ItemGroupsWarehouseInfoField('', ItemGroups));
+    ItemGroups.ITEM_GROUPS_WAREHOUSE_INFOS = new core_1.CollectionField('ItemGroupsWarehouseInfos', ItemGroups, ItemGroupsWarehouseInfo_1.ItemGroupsWarehouseInfo);
     /**
      * Static representation of the one-to-one navigation property [[chartOfAccount]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.CHART_OF_ACCOUNT = new v4_1.OneToOneLink('ChartOfAccount', ItemGroups, ChartOfAccounts_1.ChartOfAccounts);
+    ItemGroups.CHART_OF_ACCOUNT = new core_1.OneToOneLink('ChartOfAccount', ItemGroups, ChartOfAccounts_1.ChartOfAccounts);
     /**
      * Static representation of the one-to-one navigation property [[inventoryCycles]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.INVENTORY_CYCLES = new v4_1.OneToOneLink('InventoryCycles', ItemGroups, InventoryCycles_1.InventoryCycles);
+    ItemGroups.INVENTORY_CYCLES = new core_1.OneToOneLink('InventoryCycles', ItemGroups, InventoryCycles_1.InventoryCycles);
     /**
      * Static representation of the one-to-one navigation property [[unitOfMeasurementGroup]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.UNIT_OF_MEASUREMENT_GROUP = new v4_1.OneToOneLink('UnitOfMeasurementGroup', ItemGroups, UnitOfMeasurementGroups_1.UnitOfMeasurementGroups);
+    ItemGroups.UNIT_OF_MEASUREMENT_GROUP = new core_1.OneToOneLink('UnitOfMeasurementGroup', ItemGroups, UnitOfMeasurementGroups_1.UnitOfMeasurementGroups);
     /**
      * Static representation of the one-to-one navigation property [[unitOfMeasurement]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.UNIT_OF_MEASUREMENT = new v4_1.OneToOneLink('UnitOfMeasurement', ItemGroups, UnitOfMeasurements_1.UnitOfMeasurements);
+    ItemGroups.UNIT_OF_MEASUREMENT = new core_1.OneToOneLink('UnitOfMeasurement', ItemGroups, UnitOfMeasurements_1.UnitOfMeasurements);
     /**
      * Static representation of the one-to-many navigation property [[items]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.ITEMS = new v4_1.OneToManyLink('Items', ItemGroups, Items_1.Items);
+    ItemGroups.ITEMS = new core_1.OneToManyLink('Items', ItemGroups, Items_1.Items);
     /**
      * Static representation of the one-to-many navigation property [[glAccountAdvancedRules]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.GL_ACCOUNT_ADVANCED_RULES = new v4_1.OneToManyLink('GLAccountAdvancedRules', ItemGroups, GlAccountAdvancedRules_1.GlAccountAdvancedRules);
+    ItemGroups.GL_ACCOUNT_ADVANCED_RULES = new core_1.OneToManyLink('GLAccountAdvancedRules', ItemGroups, GlAccountAdvancedRules_1.GlAccountAdvancedRules);
     /**
      * Static representation of the one-to-many navigation property [[binLocations]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.BIN_LOCATIONS = new v4_1.OneToManyLink('BinLocations', ItemGroups, BinLocations_1.BinLocations);
+    ItemGroups.BIN_LOCATIONS = new core_1.OneToManyLink('BinLocations', ItemGroups, BinLocations_1.BinLocations);
     /**
      * Static representation of the one-to-many navigation property [[serviceCalls]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ItemGroups.SERVICE_CALLS = new v4_1.OneToManyLink('ServiceCalls', ItemGroups, ServiceCalls_1.ServiceCalls);
+    ItemGroups.SERVICE_CALLS = new core_1.OneToManyLink('ServiceCalls', ItemGroups, ServiceCalls_1.ServiceCalls);
     /**
      * All fields of the ItemGroups entity.
      */
@@ -431,8 +456,12 @@ var ServiceCalls_1 = require("./ServiceCalls");
         ItemGroups.EXCHANGE_RATE_DIFFERENCES_ACCOUNT,
         ItemGroups.INCREASING_ACCOUNT,
         ItemGroups.STOCK_INFLATION_OFFSET_ACCOUNT,
+        ItemGroups.PROCUREMENT_METHOD,
+        ItemGroups.COMPONENT_WAREHOUSE,
         ItemGroups.PURCHASE_OFFSET_ACCOUNT,
+        ItemGroups.INVENTORY_SYSTEM,
         ItemGroups.WIP_MATERIAL_VARIANCE_ACCOUNT,
+        ItemGroups.PLANNING_SYSTEM,
         ItemGroups.PURCHASE_ACCOUNT,
         ItemGroups.RETURNING_ACCOUNT,
         ItemGroups.COST_INFLATION_ACCOUNT,
@@ -448,6 +477,7 @@ var ServiceCalls_1 = require("./ServiceCalls");
         ItemGroups.GOODS_CLEARING_ACCOUNT,
         ItemGroups.INCREASE_GL_ACCOUNT,
         ItemGroups.FOREIGN_REVENUES_ACCOUNT,
+        ItemGroups.ALERT,
         ItemGroups.WIP_MATERIAL_ACCOUNT,
         ItemGroups.SHIPPED_GOODS_ACCOUNT,
         ItemGroups.EXEMPT_REVENUES_ACCOUNT,
@@ -480,6 +510,7 @@ var ServiceCalls_1 = require("./ServiceCalls");
         ItemGroups.DEFAULT_UO_M_GROUP,
         ItemGroups.DEFAULT_INVENTORY_UO_M,
         ItemGroups.PURCHASE_BALANCE_ACCOUNT,
+        ItemGroups.ITEM_CLASS,
         ItemGroups.ITEM_GROUPS_WAREHOUSE_INFOS,
         ItemGroups.CHART_OF_ACCOUNT,
         ItemGroups.INVENTORY_CYCLES,
@@ -493,7 +524,7 @@ var ServiceCalls_1 = require("./ServiceCalls");
     /**
      * All fields selector.
      */
-    ItemGroups.ALL_FIELDS = new v4_1.AllFields('*', ItemGroups);
+    ItemGroups.ALL_FIELDS = new core_1.AllFields('*', ItemGroups);
     /**
      * All key fields of the ItemGroups entity.
      */

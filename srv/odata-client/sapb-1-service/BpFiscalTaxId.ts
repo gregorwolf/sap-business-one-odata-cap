@@ -3,7 +3,8 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { BoAddressType } from './BoAddressType';
+import { ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * BpFiscalTaxId
@@ -85,6 +86,11 @@ export interface BpFiscalTaxId {
    */
   bpCode?: string;
   /**
+   * Addr Type.
+   * @nullable
+   */
+  addrType?: BoAddressType;
+  /**
    * Tax Id 12.
    * @nullable
    */
@@ -107,7 +113,7 @@ export function createBpFiscalTaxId(json: any): BpFiscalTaxId {
  * BpFiscalTaxIdField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class BpFiscalTaxIdField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class BpFiscalTaxIdField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, BpFiscalTaxId> {
   /**
    * Representation of the [[BpFiscalTaxId.address]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -184,6 +190,11 @@ export class BpFiscalTaxIdField<EntityT extends Entity> extends ComplexTypeField
    */
   bpCode: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('BPCode', this, 'Edm.String');
   /**
+   * Representation of the [[BpFiscalTaxId.addrType]] property for query construction.
+   * Use to reference this property in query operations such as 'filter' in the fluent request API.
+   */
+  addrType: ComplexTypeEnumPropertyField<EntityT> = new ComplexTypeEnumPropertyField('AddrType', this);
+  /**
    * Representation of the [[BpFiscalTaxId.taxId12]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
@@ -193,28 +204,118 @@ export class BpFiscalTaxIdField<EntityT extends Entity> extends ComplexTypeField
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   taxId13: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('TaxId13', this, 'Edm.String');
+
+  /**
+   * Creates an instance of BpFiscalTaxIdField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, BpFiscalTaxId);
+  }
 }
 
 export namespace BpFiscalTaxId {
+  /**
+   * Metadata information on all properties of the `BpFiscalTaxId` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<BpFiscalTaxId>[] = [{
+    originalName: 'Address',
+    name: 'address',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'CNAECode',
+    name: 'cnaeCode',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'TaxId0',
+    name: 'taxId0',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId1',
+    name: 'taxId1',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId2',
+    name: 'taxId2',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId3',
+    name: 'taxId3',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId4',
+    name: 'taxId4',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId5',
+    name: 'taxId5',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId6',
+    name: 'taxId6',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId7',
+    name: 'taxId7',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId8',
+    name: 'taxId8',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId9',
+    name: 'taxId9',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId10',
+    name: 'taxId10',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId11',
+    name: 'taxId11',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'BPCode',
+    name: 'bpCode',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'AddrType',
+    name: 'addrType',
+    type: 'Edm.Enum',
+    isCollection: false
+  }, {
+    originalName: 'TaxId12',
+    name: 'taxId12',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'TaxId13',
+    name: 'taxId13',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): BpFiscalTaxId {
-    return createComplexType(json, {
-      Address: (address: string) => ({ address: edmToTs(address, 'Edm.String') }),
-      CNAECode: (cnaeCode: number) => ({ cnaeCode: edmToTs(cnaeCode, 'Edm.Int32') }),
-      TaxId0: (taxId0: string) => ({ taxId0: edmToTs(taxId0, 'Edm.String') }),
-      TaxId1: (taxId1: string) => ({ taxId1: edmToTs(taxId1, 'Edm.String') }),
-      TaxId2: (taxId2: string) => ({ taxId2: edmToTs(taxId2, 'Edm.String') }),
-      TaxId3: (taxId3: string) => ({ taxId3: edmToTs(taxId3, 'Edm.String') }),
-      TaxId4: (taxId4: string) => ({ taxId4: edmToTs(taxId4, 'Edm.String') }),
-      TaxId5: (taxId5: string) => ({ taxId5: edmToTs(taxId5, 'Edm.String') }),
-      TaxId6: (taxId6: string) => ({ taxId6: edmToTs(taxId6, 'Edm.String') }),
-      TaxId7: (taxId7: string) => ({ taxId7: edmToTs(taxId7, 'Edm.String') }),
-      TaxId8: (taxId8: string) => ({ taxId8: edmToTs(taxId8, 'Edm.String') }),
-      TaxId9: (taxId9: string) => ({ taxId9: edmToTs(taxId9, 'Edm.String') }),
-      TaxId10: (taxId10: string) => ({ taxId10: edmToTs(taxId10, 'Edm.String') }),
-      TaxId11: (taxId11: string) => ({ taxId11: edmToTs(taxId11, 'Edm.String') }),
-      BPCode: (bpCode: string) => ({ bpCode: edmToTs(bpCode, 'Edm.String') }),
-      TaxId12: (taxId12: string) => ({ taxId12: edmToTs(taxId12, 'Edm.String') }),
-      TaxId13: (taxId13: string) => ({ taxId13: edmToTs(taxId13, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, BpFiscalTaxId);
   }
 }

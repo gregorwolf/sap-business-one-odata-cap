@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { TerminationReasonRequestBuilder } from './TerminationReasonRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "TerminationReason" of service "SAPB1".
  */
-export class TerminationReason extends Entity implements TerminationReasonType {
+export class TerminationReason extends EntityV4 implements TerminationReasonType {
   /**
    * Technical entity name for TerminationReason.
    */
   static _entityName = 'TerminationReason';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for TerminationReason.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Reason Id.
    * @nullable
@@ -44,11 +39,11 @@ export class TerminationReason extends Entity implements TerminationReasonType {
   employeesInfo!: EmployeesInfo[];
 
   /**
-   * Returns an entity builder to construct instances `TerminationReason`.
+   * Returns an entity builder to construct instances of `TerminationReason`.
    * @returns A builder that constructs instances of entity type `TerminationReason`.
    */
-  static builder(): EntityBuilderType<TerminationReason, TerminationReasonTypeForceMandatory> {
-    return Entity.entityBuilder(TerminationReason);
+  static builder(): EntityBuilderType<TerminationReason, TerminationReasonType> {
+    return EntityV4.entityBuilder(TerminationReason);
   }
 
   /**
@@ -64,8 +59,8 @@ export class TerminationReason extends Entity implements TerminationReasonType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `TerminationReason`.
    */
-  static customField(fieldName: string): CustomField<TerminationReason> {
-    return Entity.customFieldSelector(fieldName, TerminationReason);
+  static customField(fieldName: string): CustomFieldV4<TerminationReason> {
+    return EntityV4.customFieldSelector(fieldName, TerminationReason);
   }
 
   /**
@@ -80,16 +75,9 @@ export class TerminationReason extends Entity implements TerminationReasonType {
 import { EmployeesInfo, EmployeesInfoType } from './EmployeesInfo';
 
 export interface TerminationReasonType {
-  reasonId?: number;
-  name?: string;
-  description?: string;
-  employeesInfo: EmployeesInfoType[];
-}
-
-export interface TerminationReasonTypeForceMandatory {
-  reasonId: number;
-  name: string;
-  description: string;
+  reasonId?: number | null;
+  name?: string | null;
+  description?: string | null;
   employeesInfo: EmployeesInfoType[];
 }
 

@@ -1,18 +1,13 @@
 import { BrazilFuelIndexersRequestBuilder } from './BrazilFuelIndexersRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "BrazilFuelIndexers" of service "SAPB1".
  */
-export declare class BrazilFuelIndexers extends Entity implements BrazilFuelIndexersType {
+export declare class BrazilFuelIndexers extends EntityV4 implements BrazilFuelIndexersType {
     /**
      * Technical entity name for BrazilFuelIndexers.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BrazilFuelIndexers.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -42,10 +37,10 @@ export declare class BrazilFuelIndexers extends Entity implements BrazilFuelInde
      */
     items: Items[];
     /**
-     * Returns an entity builder to construct instances `BrazilFuelIndexers`.
+     * Returns an entity builder to construct instances of `BrazilFuelIndexers`.
      * @returns A builder that constructs instances of entity type `BrazilFuelIndexers`.
      */
-    static builder(): EntityBuilderType<BrazilFuelIndexers, BrazilFuelIndexersTypeForceMandatory>;
+    static builder(): EntityBuilderType<BrazilFuelIndexers, BrazilFuelIndexersType>;
     /**
      * Returns a request builder to construct requests for operations on the `BrazilFuelIndexers` entity type.
      * @returns A `BrazilFuelIndexers` request builder.
@@ -56,7 +51,7 @@ export declare class BrazilFuelIndexers extends Entity implements BrazilFuelInde
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `BrazilFuelIndexers`.
      */
-    static customField(fieldName: string): CustomField<BrazilFuelIndexers>;
+    static customField(fieldName: string): CustomFieldV4<BrazilFuelIndexers>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -67,17 +62,10 @@ export declare class BrazilFuelIndexers extends Entity implements BrazilFuelInde
 }
 import { Items, ItemsType } from './Items';
 export interface BrazilFuelIndexersType {
-    fuelId?: number;
-    fuelGroupCode?: number;
-    fuelCode?: string;
-    description?: string;
-    items: ItemsType[];
-}
-export interface BrazilFuelIndexersTypeForceMandatory {
-    fuelId: number;
-    fuelGroupCode: number;
-    fuelCode: string;
-    description: string;
+    fuelId?: number | null;
+    fuelGroupCode?: number | null;
+    fuelCode?: string | null;
+    description?: string | null;
     items: ItemsType[];
 }
 export declare namespace BrazilFuelIndexers {

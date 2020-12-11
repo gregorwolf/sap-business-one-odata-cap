@@ -1,18 +1,13 @@
 import { BarCodesRequestBuilder } from './BarCodesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "BarCodes" of service "SAPB1".
  */
-export declare class BarCodes extends Entity implements BarCodesType {
+export declare class BarCodes extends EntityV4 implements BarCodesType {
     /**
      * Technical entity name for BarCodes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BarCodes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -51,10 +46,10 @@ export declare class BarCodes extends Entity implements BarCodesType {
      */
     unitOfMeasurement: UnitOfMeasurements;
     /**
-     * Returns an entity builder to construct instances `BarCodes`.
+     * Returns an entity builder to construct instances of `BarCodes`.
      * @returns A builder that constructs instances of entity type `BarCodes`.
      */
-    static builder(): EntityBuilderType<BarCodes, BarCodesTypeForceMandatory>;
+    static builder(): EntityBuilderType<BarCodes, BarCodesType>;
     /**
      * Returns a request builder to construct requests for operations on the `BarCodes` entity type.
      * @returns A `BarCodes` request builder.
@@ -65,7 +60,7 @@ export declare class BarCodes extends Entity implements BarCodesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `BarCodes`.
      */
-    static customField(fieldName: string): CustomField<BarCodes>;
+    static customField(fieldName: string): CustomFieldV4<BarCodes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -77,20 +72,11 @@ export declare class BarCodes extends Entity implements BarCodesType {
 import { Items, ItemsType } from './Items';
 import { UnitOfMeasurements, UnitOfMeasurementsType } from './UnitOfMeasurements';
 export interface BarCodesType {
-    absEntry?: number;
-    itemNo?: string;
-    uoMEntry?: number;
-    barcode?: string;
-    freeText?: string;
-    item: ItemsType;
-    unitOfMeasurement: UnitOfMeasurementsType;
-}
-export interface BarCodesTypeForceMandatory {
-    absEntry: number;
-    itemNo: string;
-    uoMEntry: number;
-    barcode: string;
-    freeText: string;
+    absEntry?: number | null;
+    itemNo?: string | null;
+    uoMEntry?: number | null;
+    barcode?: string | null;
+    freeText?: string | null;
     item: ItemsType;
     unitOfMeasurement: UnitOfMeasurementsType;
 }

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { NcmCodesSetup } from './NcmCodesSetup';
 
 /**
@@ -15,16 +15,16 @@ export class NcmCodesSetupRequestBuilder extends RequestBuilder<NcmCodesSetup> {
    * @param absEntry Key property. See [[NcmCodesSetup.absEntry]].
    * @returns A request builder for creating requests to retrieve one `NcmCodesSetup` entity based on its keys.
    */
-  getByKey(absEntry: number): GetByKeyRequestBuilder<NcmCodesSetup> {
-    return new GetByKeyRequestBuilder(NcmCodesSetup, { AbsEntry: absEntry });
+  getByKey(absEntry: number): GetByKeyRequestBuilderV4<NcmCodesSetup> {
+    return new GetByKeyRequestBuilderV4(NcmCodesSetup, { AbsEntry: absEntry });
   }
 
   /**
    * Returns a request builder for querying all `NcmCodesSetup` entities.
    * @returns A request builder for creating requests to retrieve all `NcmCodesSetup` entities.
    */
-  getAll(): GetAllRequestBuilder<NcmCodesSetup> {
-    return new GetAllRequestBuilder(NcmCodesSetup);
+  getAll(): GetAllRequestBuilderV4<NcmCodesSetup> {
+    return new GetAllRequestBuilderV4(NcmCodesSetup);
   }
 
   /**
@@ -32,8 +32,8 @@ export class NcmCodesSetupRequestBuilder extends RequestBuilder<NcmCodesSetup> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `NcmCodesSetup`.
    */
-  create(entity: NcmCodesSetup): CreateRequestBuilder<NcmCodesSetup> {
-    return new CreateRequestBuilder(NcmCodesSetup, entity);
+  create(entity: NcmCodesSetup): CreateRequestBuilderV4<NcmCodesSetup> {
+    return new CreateRequestBuilderV4(NcmCodesSetup, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class NcmCodesSetupRequestBuilder extends RequestBuilder<NcmCodesSetup> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `NcmCodesSetup`.
    */
-  update(entity: NcmCodesSetup): UpdateRequestBuilder<NcmCodesSetup> {
-    return new UpdateRequestBuilder(NcmCodesSetup, entity);
+  update(entity: NcmCodesSetup): UpdateRequestBuilderV4<NcmCodesSetup> {
+    return new UpdateRequestBuilderV4(NcmCodesSetup, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class NcmCodesSetupRequestBuilder extends RequestBuilder<NcmCodesSetup> {
    * @param absEntry Key property. See [[NcmCodesSetup.absEntry]].
    * @returns A request builder for creating requests that delete an entity of type `NcmCodesSetup`.
    */
-  delete(absEntry: number): DeleteRequestBuilder<NcmCodesSetup>;
+  delete(absEntry: number): DeleteRequestBuilderV4<NcmCodesSetup>;
   /**
    * Returns a request builder for deleting an entity of type `NcmCodesSetup`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `NcmCodesSetup` by taking the entity as a parameter.
    */
-  delete(entity: NcmCodesSetup): DeleteRequestBuilder<NcmCodesSetup>;
-  delete(absEntryOrEntity: any): DeleteRequestBuilder<NcmCodesSetup> {
-    return new DeleteRequestBuilder(NcmCodesSetup, absEntryOrEntity instanceof NcmCodesSetup ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
+  delete(entity: NcmCodesSetup): DeleteRequestBuilderV4<NcmCodesSetup>;
+  delete(absEntryOrEntity: any): DeleteRequestBuilderV4<NcmCodesSetup> {
+    return new DeleteRequestBuilderV4(NcmCodesSetup, absEntryOrEntity instanceof NcmCodesSetup ? absEntryOrEntity : { AbsEntry: absEntryOrEntity! });
   }
 }

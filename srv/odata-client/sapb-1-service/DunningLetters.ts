@@ -4,25 +4,21 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { DunningLettersRequestBuilder } from './DunningLettersRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "DunningLetters" of service "SAPB1".
  */
-export class DunningLetters extends Entity implements DunningLettersType {
+export class DunningLetters extends EntityV4 implements DunningLettersType {
   /**
    * Technical entity name for DunningLetters.
    */
   static _entityName = 'DunningLetters';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for DunningLetters.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Fee Currency.
    * @nullable
@@ -54,6 +50,11 @@ export class DunningLetters extends Entity implements DunningLettersType {
    */
   feeperletter?: number;
   /**
+   * Calc Interest.
+   * @nullable
+   */
+  calcInterest?: BoYesNoEnum;
+  /**
    * Minimum Balance.
    * @nullable
    */
@@ -64,11 +65,11 @@ export class DunningLetters extends Entity implements DunningLettersType {
   businessPartners!: BusinessPartners[];
 
   /**
-   * Returns an entity builder to construct instances `DunningLetters`.
+   * Returns an entity builder to construct instances of `DunningLetters`.
    * @returns A builder that constructs instances of entity type `DunningLetters`.
    */
-  static builder(): EntityBuilderType<DunningLetters, DunningLettersTypeForceMandatory> {
-    return Entity.entityBuilder(DunningLetters);
+  static builder(): EntityBuilderType<DunningLetters, DunningLettersType> {
+    return EntityV4.entityBuilder(DunningLetters);
   }
 
   /**
@@ -84,8 +85,8 @@ export class DunningLetters extends Entity implements DunningLettersType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `DunningLetters`.
    */
-  static customField(fieldName: string): CustomField<DunningLetters> {
-    return Entity.customFieldSelector(fieldName, DunningLetters);
+  static customField(fieldName: string): CustomFieldV4<DunningLetters> {
+    return EntityV4.customFieldSelector(fieldName, DunningLetters);
   }
 
   /**
@@ -100,24 +101,14 @@ export class DunningLetters extends Entity implements DunningLettersType {
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 
 export interface DunningLettersType {
-  feeCurrency?: string;
-  rowNumber?: number;
-  letterFormat?: string;
-  effectiveafter?: string;
-  minimumBalanceCurrency?: string;
-  feeperletter?: number;
-  minimumBalance?: number;
-  businessPartners: BusinessPartnersType[];
-}
-
-export interface DunningLettersTypeForceMandatory {
-  feeCurrency: string;
-  rowNumber: number;
-  letterFormat: string;
-  effectiveafter: string;
-  minimumBalanceCurrency: string;
-  feeperletter: number;
-  minimumBalance: number;
+  feeCurrency?: string | null;
+  rowNumber?: number | null;
+  letterFormat?: string | null;
+  effectiveafter?: string | null;
+  minimumBalanceCurrency?: string | null;
+  feeperletter?: number | null;
+  calcInterest?: BoYesNoEnum | null;
+  minimumBalance?: number | null;
   businessPartners: BusinessPartnersType[];
 }
 
@@ -153,6 +144,11 @@ export namespace DunningLetters {
    */
   export const FEEPERLETTER: NumberField<DunningLetters> = new NumberField('Feeperletter', DunningLetters, 'Edm.Double');
   /**
+   * Static representation of the [[calcInterest]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CALC_INTEREST: EnumField<DunningLetters> = new EnumField('CalcInterest', DunningLetters);
+  /**
    * Static representation of the [[minimumBalance]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -165,13 +161,14 @@ export namespace DunningLetters {
   /**
    * All fields of the DunningLetters entity.
    */
-  export const _allFields: Array<StringField<DunningLetters> | NumberField<DunningLetters> | OneToManyLink<DunningLetters, BusinessPartners>> = [
+  export const _allFields: Array<StringField<DunningLetters> | NumberField<DunningLetters> | EnumField<DunningLetters> | OneToManyLink<DunningLetters, BusinessPartners>> = [
     DunningLetters.FEE_CURRENCY,
     DunningLetters.ROW_NUMBER,
     DunningLetters.LETTER_FORMAT,
     DunningLetters.EFFECTIVEAFTER,
     DunningLetters.MINIMUM_BALANCE_CURRENCY,
     DunningLetters.FEEPERLETTER,
+    DunningLetters.CALC_INTEREST,
     DunningLetters.MINIMUM_BALANCE,
     DunningLetters.BUSINESS_PARTNERS
   ];

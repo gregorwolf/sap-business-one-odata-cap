@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { EmployeePositionRequestBuilder } from './EmployeePositionRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "EmployeePosition" of service "SAPB1".
  */
-export class EmployeePosition extends Entity implements EmployeePositionType {
+export class EmployeePosition extends EntityV4 implements EmployeePositionType {
   /**
    * Technical entity name for EmployeePosition.
    */
   static _entityName = 'EmployeePosition';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for EmployeePosition.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Position Id.
    * @nullable
@@ -44,11 +39,11 @@ export class EmployeePosition extends Entity implements EmployeePositionType {
   employeesInfo!: EmployeesInfo[];
 
   /**
-   * Returns an entity builder to construct instances `EmployeePosition`.
+   * Returns an entity builder to construct instances of `EmployeePosition`.
    * @returns A builder that constructs instances of entity type `EmployeePosition`.
    */
-  static builder(): EntityBuilderType<EmployeePosition, EmployeePositionTypeForceMandatory> {
-    return Entity.entityBuilder(EmployeePosition);
+  static builder(): EntityBuilderType<EmployeePosition, EmployeePositionType> {
+    return EntityV4.entityBuilder(EmployeePosition);
   }
 
   /**
@@ -64,8 +59,8 @@ export class EmployeePosition extends Entity implements EmployeePositionType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `EmployeePosition`.
    */
-  static customField(fieldName: string): CustomField<EmployeePosition> {
-    return Entity.customFieldSelector(fieldName, EmployeePosition);
+  static customField(fieldName: string): CustomFieldV4<EmployeePosition> {
+    return EntityV4.customFieldSelector(fieldName, EmployeePosition);
   }
 
   /**
@@ -80,16 +75,9 @@ export class EmployeePosition extends Entity implements EmployeePositionType {
 import { EmployeesInfo, EmployeesInfoType } from './EmployeesInfo';
 
 export interface EmployeePositionType {
-  positionId?: number;
-  name?: string;
-  description?: string;
-  employeesInfo: EmployeesInfoType[];
-}
-
-export interface EmployeePositionTypeForceMandatory {
-  positionId: number;
-  name: string;
-  description: string;
+  positionId?: number | null;
+  name?: string | null;
+  description?: string | null;
   employeesInfo: EmployeesInfoType[];
 }
 

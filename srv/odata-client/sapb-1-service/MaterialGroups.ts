@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { MaterialGroupsRequestBuilder } from './MaterialGroupsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "MaterialGroups" of service "SAPB1".
  */
-export class MaterialGroups extends Entity implements MaterialGroupsType {
+export class MaterialGroups extends EntityV4 implements MaterialGroupsType {
   /**
    * Technical entity name for MaterialGroups.
    */
   static _entityName = 'MaterialGroups';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for MaterialGroups.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Abs Entry.
    * @nullable
@@ -44,11 +39,11 @@ export class MaterialGroups extends Entity implements MaterialGroupsType {
   items!: Items[];
 
   /**
-   * Returns an entity builder to construct instances `MaterialGroups`.
+   * Returns an entity builder to construct instances of `MaterialGroups`.
    * @returns A builder that constructs instances of entity type `MaterialGroups`.
    */
-  static builder(): EntityBuilderType<MaterialGroups, MaterialGroupsTypeForceMandatory> {
-    return Entity.entityBuilder(MaterialGroups);
+  static builder(): EntityBuilderType<MaterialGroups, MaterialGroupsType> {
+    return EntityV4.entityBuilder(MaterialGroups);
   }
 
   /**
@@ -64,8 +59,8 @@ export class MaterialGroups extends Entity implements MaterialGroupsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `MaterialGroups`.
    */
-  static customField(fieldName: string): CustomField<MaterialGroups> {
-    return Entity.customFieldSelector(fieldName, MaterialGroups);
+  static customField(fieldName: string): CustomFieldV4<MaterialGroups> {
+    return EntityV4.customFieldSelector(fieldName, MaterialGroups);
   }
 
   /**
@@ -80,16 +75,9 @@ export class MaterialGroups extends Entity implements MaterialGroupsType {
 import { Items, ItemsType } from './Items';
 
 export interface MaterialGroupsType {
-  absEntry?: number;
-  materialGroupCode?: string;
-  description?: string;
-  items: ItemsType[];
-}
-
-export interface MaterialGroupsTypeForceMandatory {
-  absEntry: number;
-  materialGroupCode: string;
-  description: string;
+  absEntry?: number | null;
+  materialGroupCode?: string | null;
+  description?: string | null;
   items: ItemsType[];
 }
 

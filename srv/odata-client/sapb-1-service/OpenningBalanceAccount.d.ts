@@ -1,5 +1,5 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * OpenningBalanceAccount
  */
@@ -43,7 +43,7 @@ export declare function createOpenningBalanceAccount(json: any): OpenningBalance
  * OpenningBalanceAccountField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class OpenningBalanceAccountField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class OpenningBalanceAccountField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, OpenningBalanceAccount> {
     /**
      * Representation of the [[OpenningBalanceAccount.openBalanceAccount]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -74,8 +74,22 @@ export declare class OpenningBalanceAccountField<EntityT extends Entity> extends
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     bplid: ComplexTypeNumberPropertyField<EntityT>;
+    /**
+     * Creates an instance of OpenningBalanceAccountField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace OpenningBalanceAccount {
+    /**
+     * Metadata information on all properties of the `OpenningBalanceAccount` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<OpenningBalanceAccount>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): OpenningBalanceAccount;

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { InventoryCycles } from './InventoryCycles';
 
 /**
@@ -15,16 +15,16 @@ export class InventoryCyclesRequestBuilder extends RequestBuilder<InventoryCycle
    * @param cycleCode Key property. See [[InventoryCycles.cycleCode]].
    * @returns A request builder for creating requests to retrieve one `InventoryCycles` entity based on its keys.
    */
-  getByKey(cycleCode: number): GetByKeyRequestBuilder<InventoryCycles> {
-    return new GetByKeyRequestBuilder(InventoryCycles, { CycleCode: cycleCode });
+  getByKey(cycleCode: number): GetByKeyRequestBuilderV4<InventoryCycles> {
+    return new GetByKeyRequestBuilderV4(InventoryCycles, { CycleCode: cycleCode });
   }
 
   /**
    * Returns a request builder for querying all `InventoryCycles` entities.
    * @returns A request builder for creating requests to retrieve all `InventoryCycles` entities.
    */
-  getAll(): GetAllRequestBuilder<InventoryCycles> {
-    return new GetAllRequestBuilder(InventoryCycles);
+  getAll(): GetAllRequestBuilderV4<InventoryCycles> {
+    return new GetAllRequestBuilderV4(InventoryCycles);
   }
 
   /**
@@ -32,8 +32,8 @@ export class InventoryCyclesRequestBuilder extends RequestBuilder<InventoryCycle
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `InventoryCycles`.
    */
-  create(entity: InventoryCycles): CreateRequestBuilder<InventoryCycles> {
-    return new CreateRequestBuilder(InventoryCycles, entity);
+  create(entity: InventoryCycles): CreateRequestBuilderV4<InventoryCycles> {
+    return new CreateRequestBuilderV4(InventoryCycles, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class InventoryCyclesRequestBuilder extends RequestBuilder<InventoryCycle
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `InventoryCycles`.
    */
-  update(entity: InventoryCycles): UpdateRequestBuilder<InventoryCycles> {
-    return new UpdateRequestBuilder(InventoryCycles, entity);
+  update(entity: InventoryCycles): UpdateRequestBuilderV4<InventoryCycles> {
+    return new UpdateRequestBuilderV4(InventoryCycles, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class InventoryCyclesRequestBuilder extends RequestBuilder<InventoryCycle
    * @param cycleCode Key property. See [[InventoryCycles.cycleCode]].
    * @returns A request builder for creating requests that delete an entity of type `InventoryCycles`.
    */
-  delete(cycleCode: number): DeleteRequestBuilder<InventoryCycles>;
+  delete(cycleCode: number): DeleteRequestBuilderV4<InventoryCycles>;
   /**
    * Returns a request builder for deleting an entity of type `InventoryCycles`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `InventoryCycles` by taking the entity as a parameter.
    */
-  delete(entity: InventoryCycles): DeleteRequestBuilder<InventoryCycles>;
-  delete(cycleCodeOrEntity: any): DeleteRequestBuilder<InventoryCycles> {
-    return new DeleteRequestBuilder(InventoryCycles, cycleCodeOrEntity instanceof InventoryCycles ? cycleCodeOrEntity : { CycleCode: cycleCodeOrEntity! });
+  delete(entity: InventoryCycles): DeleteRequestBuilderV4<InventoryCycles>;
+  delete(cycleCodeOrEntity: any): DeleteRequestBuilderV4<InventoryCycles> {
+    return new DeleteRequestBuilderV4(InventoryCycles, cycleCodeOrEntity instanceof InventoryCycles ? cycleCodeOrEntity : { CycleCode: cycleCodeOrEntity! });
   }
 }

@@ -1,18 +1,14 @@
 import { IntegrationPackagesConfigureRequestBuilder } from './IntegrationPackagesConfigureRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "IntegrationPackagesConfigure" of service "SAPB1".
  */
-export declare class IntegrationPackagesConfigure extends Entity implements IntegrationPackagesConfigureType {
+export declare class IntegrationPackagesConfigure extends EntityV4 implements IntegrationPackagesConfigureType {
     /**
      * Technical entity name for IntegrationPackagesConfigure.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for IntegrationPackagesConfigure.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -33,10 +29,15 @@ export declare class IntegrationPackagesConfigure extends Entity implements Inte
      */
     name?: string;
     /**
-     * Returns an entity builder to construct instances `IntegrationPackagesConfigure`.
+     * Is Enable.
+     * @nullable
+     */
+    isEnable?: BoYesNoEnum;
+    /**
+     * Returns an entity builder to construct instances of `IntegrationPackagesConfigure`.
      * @returns A builder that constructs instances of entity type `IntegrationPackagesConfigure`.
      */
-    static builder(): EntityBuilderType<IntegrationPackagesConfigure, IntegrationPackagesConfigureTypeForceMandatory>;
+    static builder(): EntityBuilderType<IntegrationPackagesConfigure, IntegrationPackagesConfigureType>;
     /**
      * Returns a request builder to construct requests for operations on the `IntegrationPackagesConfigure` entity type.
      * @returns A `IntegrationPackagesConfigure` request builder.
@@ -47,7 +48,7 @@ export declare class IntegrationPackagesConfigure extends Entity implements Inte
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `IntegrationPackagesConfigure`.
      */
-    static customField(fieldName: string): CustomField<IntegrationPackagesConfigure>;
+    static customField(fieldName: string): CustomFieldV4<IntegrationPackagesConfigure>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -57,14 +58,10 @@ export declare class IntegrationPackagesConfigure extends Entity implements Inte
     };
 }
 export interface IntegrationPackagesConfigureType {
-    absEntry?: number;
-    code?: string;
-    name?: string;
-}
-export interface IntegrationPackagesConfigureTypeForceMandatory {
-    absEntry: number;
-    code: string;
-    name: string;
+    absEntry?: number | null;
+    code?: string | null;
+    name?: string | null;
+    isEnable?: BoYesNoEnum | null;
 }
 export declare namespace IntegrationPackagesConfigure {
     /**
@@ -83,9 +80,14 @@ export declare namespace IntegrationPackagesConfigure {
      */
     const NAME: StringField<IntegrationPackagesConfigure>;
     /**
+     * Static representation of the [[isEnable]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IS_ENABLE: EnumField<IntegrationPackagesConfigure>;
+    /**
      * All fields of the IntegrationPackagesConfigure entity.
      */
-    const _allFields: Array<NumberField<IntegrationPackagesConfigure> | StringField<IntegrationPackagesConfigure>>;
+    const _allFields: Array<NumberField<IntegrationPackagesConfigure> | StringField<IntegrationPackagesConfigure> | EnumField<IntegrationPackagesConfigure>>;
     /**
      * All fields selector.
      */

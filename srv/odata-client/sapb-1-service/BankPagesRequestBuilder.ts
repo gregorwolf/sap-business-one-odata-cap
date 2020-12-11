@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { BankPages } from './BankPages';
 
 /**
@@ -16,8 +16,8 @@ export class BankPagesRequestBuilder extends RequestBuilder<BankPages> {
    * @param sequence Key property. See [[BankPages.sequence]].
    * @returns A request builder for creating requests to retrieve one `BankPages` entity based on its keys.
    */
-  getByKey(accountCode: string, sequence: number): GetByKeyRequestBuilder<BankPages> {
-    return new GetByKeyRequestBuilder(BankPages, {
+  getByKey(accountCode: string, sequence: number): GetByKeyRequestBuilderV4<BankPages> {
+    return new GetByKeyRequestBuilderV4(BankPages, {
       AccountCode: accountCode,
       Sequence: sequence
     });
@@ -27,8 +27,8 @@ export class BankPagesRequestBuilder extends RequestBuilder<BankPages> {
    * Returns a request builder for querying all `BankPages` entities.
    * @returns A request builder for creating requests to retrieve all `BankPages` entities.
    */
-  getAll(): GetAllRequestBuilder<BankPages> {
-    return new GetAllRequestBuilder(BankPages);
+  getAll(): GetAllRequestBuilderV4<BankPages> {
+    return new GetAllRequestBuilderV4(BankPages);
   }
 
   /**
@@ -36,8 +36,8 @@ export class BankPagesRequestBuilder extends RequestBuilder<BankPages> {
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `BankPages`.
    */
-  create(entity: BankPages): CreateRequestBuilder<BankPages> {
-    return new CreateRequestBuilder(BankPages, entity);
+  create(entity: BankPages): CreateRequestBuilderV4<BankPages> {
+    return new CreateRequestBuilderV4(BankPages, entity);
   }
 
   /**
@@ -45,8 +45,8 @@ export class BankPagesRequestBuilder extends RequestBuilder<BankPages> {
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `BankPages`.
    */
-  update(entity: BankPages): UpdateRequestBuilder<BankPages> {
-    return new UpdateRequestBuilder(BankPages, entity);
+  update(entity: BankPages): UpdateRequestBuilderV4<BankPages> {
+    return new UpdateRequestBuilderV4(BankPages, entity);
   }
 
   /**
@@ -55,15 +55,15 @@ export class BankPagesRequestBuilder extends RequestBuilder<BankPages> {
    * @param sequence Key property. See [[BankPages.sequence]].
    * @returns A request builder for creating requests that delete an entity of type `BankPages`.
    */
-  delete(accountCode: string, sequence: number): DeleteRequestBuilder<BankPages>;
+  delete(accountCode: string, sequence: number): DeleteRequestBuilderV4<BankPages>;
   /**
    * Returns a request builder for deleting an entity of type `BankPages`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `BankPages` by taking the entity as a parameter.
    */
-  delete(entity: BankPages): DeleteRequestBuilder<BankPages>;
-  delete(accountCodeOrEntity: any, sequence?: number): DeleteRequestBuilder<BankPages> {
-    return new DeleteRequestBuilder(BankPages, accountCodeOrEntity instanceof BankPages ? accountCodeOrEntity : {
+  delete(entity: BankPages): DeleteRequestBuilderV4<BankPages>;
+  delete(accountCodeOrEntity: any, sequence?: number): DeleteRequestBuilderV4<BankPages> {
+    return new DeleteRequestBuilderV4(BankPages, accountCodeOrEntity instanceof BankPages ? accountCodeOrEntity : {
       AccountCode: accountCodeOrEntity!,
       Sequence: sequence!
     });

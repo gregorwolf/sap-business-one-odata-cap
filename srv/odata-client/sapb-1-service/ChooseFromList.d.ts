@@ -1,19 +1,14 @@
 import { ChooseFromListRequestBuilder } from './ChooseFromListRequestBuilder';
 import { ChooseFromListLine } from './ChooseFromListLine';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, Field, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "ChooseFromList" of service "SAPB1".
  */
-export declare class ChooseFromList extends Entity implements ChooseFromListType {
+export declare class ChooseFromList extends EntityV4 implements ChooseFromListType {
     /**
      * Technical entity name for ChooseFromList.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ChooseFromList.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -29,10 +24,10 @@ export declare class ChooseFromList extends Entity implements ChooseFromListType
      */
     chooseFromListLines?: ChooseFromListLine[];
     /**
-     * Returns an entity builder to construct instances `ChooseFromList`.
+     * Returns an entity builder to construct instances of `ChooseFromList`.
      * @returns A builder that constructs instances of entity type `ChooseFromList`.
      */
-    static builder(): EntityBuilderType<ChooseFromList, ChooseFromListTypeForceMandatory>;
+    static builder(): EntityBuilderType<ChooseFromList, ChooseFromListType>;
     /**
      * Returns a request builder to construct requests for operations on the `ChooseFromList` entity type.
      * @returns A `ChooseFromList` request builder.
@@ -43,7 +38,7 @@ export declare class ChooseFromList extends Entity implements ChooseFromListType
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `ChooseFromList`.
      */
-    static customField(fieldName: string): CustomField<ChooseFromList>;
+    static customField(fieldName: string): CustomFieldV4<ChooseFromList>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -53,12 +48,8 @@ export declare class ChooseFromList extends Entity implements ChooseFromListType
     };
 }
 export interface ChooseFromListType {
-    objectName?: string;
-    chooseFromListLines?: ChooseFromListLine[];
-}
-export interface ChooseFromListTypeForceMandatory {
-    objectName: string;
-    chooseFromListLines: ChooseFromListLine[];
+    objectName?: string | null;
+    chooseFromListLines?: ChooseFromListLine[] | null;
 }
 export declare namespace ChooseFromList {
     /**
@@ -70,11 +61,11 @@ export declare namespace ChooseFromList {
      * Static representation of the [[chooseFromListLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const CHOOSE_FROM_LIST_LINES: CollectionField<ChooseFromList>;
+    const CHOOSE_FROM_LIST_LINES: CollectionField<ChooseFromList, ChooseFromListLine>;
     /**
      * All fields of the ChooseFromList entity.
      */
-    const _allFields: Array<StringField<ChooseFromList> | CollectionField<ChooseFromList>>;
+    const _allFields: Array<StringField<ChooseFromList> | CollectionField<ChooseFromList, ChooseFromListLine>>;
     /**
      * All fields selector.
      */

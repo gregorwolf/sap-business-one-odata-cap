@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ServiceCallSolutionStatusRequestBuilder } from './ServiceCallSolutionStatusRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ServiceCallSolutionStatus" of service "SAPB1".
  */
-export class ServiceCallSolutionStatus extends Entity implements ServiceCallSolutionStatusType {
+export class ServiceCallSolutionStatus extends EntityV4 implements ServiceCallSolutionStatusType {
   /**
    * Technical entity name for ServiceCallSolutionStatus.
    */
   static _entityName = 'ServiceCallSolutionStatus';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ServiceCallSolutionStatus.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Status Id.
    * @nullable
@@ -44,11 +39,11 @@ export class ServiceCallSolutionStatus extends Entity implements ServiceCallSolu
   knowledgeBaseSolutions!: KnowledgeBaseSolutions[];
 
   /**
-   * Returns an entity builder to construct instances `ServiceCallSolutionStatus`.
+   * Returns an entity builder to construct instances of `ServiceCallSolutionStatus`.
    * @returns A builder that constructs instances of entity type `ServiceCallSolutionStatus`.
    */
-  static builder(): EntityBuilderType<ServiceCallSolutionStatus, ServiceCallSolutionStatusTypeForceMandatory> {
-    return Entity.entityBuilder(ServiceCallSolutionStatus);
+  static builder(): EntityBuilderType<ServiceCallSolutionStatus, ServiceCallSolutionStatusType> {
+    return EntityV4.entityBuilder(ServiceCallSolutionStatus);
   }
 
   /**
@@ -64,8 +59,8 @@ export class ServiceCallSolutionStatus extends Entity implements ServiceCallSolu
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ServiceCallSolutionStatus`.
    */
-  static customField(fieldName: string): CustomField<ServiceCallSolutionStatus> {
-    return Entity.customFieldSelector(fieldName, ServiceCallSolutionStatus);
+  static customField(fieldName: string): CustomFieldV4<ServiceCallSolutionStatus> {
+    return EntityV4.customFieldSelector(fieldName, ServiceCallSolutionStatus);
   }
 
   /**
@@ -80,16 +75,9 @@ export class ServiceCallSolutionStatus extends Entity implements ServiceCallSolu
 import { KnowledgeBaseSolutions, KnowledgeBaseSolutionsType } from './KnowledgeBaseSolutions';
 
 export interface ServiceCallSolutionStatusType {
-  statusId?: number;
-  name?: string;
-  description?: string;
-  knowledgeBaseSolutions: KnowledgeBaseSolutionsType[];
-}
-
-export interface ServiceCallSolutionStatusTypeForceMandatory {
-  statusId: number;
-  name: string;
-  description: string;
+  statusId?: number | null;
+  name?: string | null;
+  description?: string | null;
   knowledgeBaseSolutions: KnowledgeBaseSolutionsType[];
 }
 

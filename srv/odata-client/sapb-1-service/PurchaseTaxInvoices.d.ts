@@ -2,20 +2,18 @@ import { PurchaseTaxInvoicesRequestBuilder } from './PurchaseTaxInvoicesRequestB
 import { Moment } from 'moment';
 import { PurchaseTaxInvoiceLine } from './PurchaseTaxInvoiceLine';
 import { PurchaseTaxInvoiceOperationCode } from './PurchaseTaxInvoiceOperationCode';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoTaxInvoiceTypes } from './BoTaxInvoiceTypes';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoCurrencySources } from './BoCurrencySources';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "PurchaseTaxInvoices" of service "SAPB1".
  */
-export declare class PurchaseTaxInvoices extends Entity implements PurchaseTaxInvoicesType {
+export declare class PurchaseTaxInvoices extends EntityV4 implements PurchaseTaxInvoicesType {
     /**
      * Technical entity name for PurchaseTaxInvoices.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for PurchaseTaxInvoices.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -30,6 +28,16 @@ export declare class PurchaseTaxInvoices extends Entity implements PurchaseTaxIn
      * @nullable
      */
     docNum?: number;
+    /**
+     * Doc Type.
+     * @nullable
+     */
+    docType?: BoTaxInvoiceTypes;
+    /**
+     * Printed.
+     * @nullable
+     */
+    printed?: BoYesNoEnum;
     /**
      * Doc Date.
      * @nullable
@@ -96,6 +104,11 @@ export declare class PurchaseTaxInvoices extends Entity implements PurchaseTaxIn
      */
     address2?: string;
     /**
+     * Currency Source.
+     * @nullable
+     */
+    currencySource?: BoCurrencySources;
+    /**
      * Doc Currency.
      * @nullable
      */
@@ -155,10 +168,10 @@ export declare class PurchaseTaxInvoices extends Entity implements PurchaseTaxIn
      */
     businessPartner: BusinessPartners;
     /**
-     * Returns an entity builder to construct instances `PurchaseTaxInvoices`.
+     * Returns an entity builder to construct instances of `PurchaseTaxInvoices`.
      * @returns A builder that constructs instances of entity type `PurchaseTaxInvoices`.
      */
-    static builder(): EntityBuilderType<PurchaseTaxInvoices, PurchaseTaxInvoicesTypeForceMandatory>;
+    static builder(): EntityBuilderType<PurchaseTaxInvoices, PurchaseTaxInvoicesType>;
     /**
      * Returns a request builder to construct requests for operations on the `PurchaseTaxInvoices` entity type.
      * @returns A `PurchaseTaxInvoices` request builder.
@@ -169,7 +182,7 @@ export declare class PurchaseTaxInvoices extends Entity implements PurchaseTaxIn
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `PurchaseTaxInvoices`.
      */
-    static customField(fieldName: string): CustomField<PurchaseTaxInvoices>;
+    static customField(fieldName: string): CustomFieldV4<PurchaseTaxInvoices>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -180,61 +193,35 @@ export declare class PurchaseTaxInvoices extends Entity implements PurchaseTaxIn
 }
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 export interface PurchaseTaxInvoicesType {
-    docEntry?: number;
-    docNum?: number;
-    docDate?: Moment;
-    cardCode?: string;
-    creationDate?: Moment;
-    updateDate?: Moment;
-    docDueDate?: Moment;
-    series?: number;
-    segment?: number;
-    contactPersonCode?: number;
-    taxDate?: Moment;
-    comments?: string;
-    shipToCode?: string;
-    address?: string;
-    address2?: string;
-    docCurrency?: string;
-    customerOrVendorRefNo?: string;
-    customerOrVendorName?: string;
-    cancelDate?: Moment;
-    documentTotal?: number;
-    taxTotal?: number;
-    paymentRefNo?: string;
-    paymentRefDate?: Moment;
-    alterationRevision?: number;
-    purchaseTaxInvoiceLines?: PurchaseTaxInvoiceLine[];
-    purchaseTaxInvoiceOperationCodes?: PurchaseTaxInvoiceOperationCode[];
-    businessPartner: BusinessPartnersType;
-}
-export interface PurchaseTaxInvoicesTypeForceMandatory {
-    docEntry: number;
-    docNum: number;
-    docDate: Moment;
-    cardCode: string;
-    creationDate: Moment;
-    updateDate: Moment;
-    docDueDate: Moment;
-    series: number;
-    segment: number;
-    contactPersonCode: number;
-    taxDate: Moment;
-    comments: string;
-    shipToCode: string;
-    address: string;
-    address2: string;
-    docCurrency: string;
-    customerOrVendorRefNo: string;
-    customerOrVendorName: string;
-    cancelDate: Moment;
-    documentTotal: number;
-    taxTotal: number;
-    paymentRefNo: string;
-    paymentRefDate: Moment;
-    alterationRevision: number;
-    purchaseTaxInvoiceLines: PurchaseTaxInvoiceLine[];
-    purchaseTaxInvoiceOperationCodes: PurchaseTaxInvoiceOperationCode[];
+    docEntry?: number | null;
+    docNum?: number | null;
+    docType?: BoTaxInvoiceTypes | null;
+    printed?: BoYesNoEnum | null;
+    docDate?: Moment | null;
+    cardCode?: string | null;
+    creationDate?: Moment | null;
+    updateDate?: Moment | null;
+    docDueDate?: Moment | null;
+    series?: number | null;
+    segment?: number | null;
+    contactPersonCode?: number | null;
+    taxDate?: Moment | null;
+    comments?: string | null;
+    shipToCode?: string | null;
+    address?: string | null;
+    address2?: string | null;
+    currencySource?: BoCurrencySources | null;
+    docCurrency?: string | null;
+    customerOrVendorRefNo?: string | null;
+    customerOrVendorName?: string | null;
+    cancelDate?: Moment | null;
+    documentTotal?: number | null;
+    taxTotal?: number | null;
+    paymentRefNo?: string | null;
+    paymentRefDate?: Moment | null;
+    alterationRevision?: number | null;
+    purchaseTaxInvoiceLines?: PurchaseTaxInvoiceLine[] | null;
+    purchaseTaxInvoiceOperationCodes?: PurchaseTaxInvoiceOperationCode[] | null;
     businessPartner: BusinessPartnersType;
 }
 export declare namespace PurchaseTaxInvoices {
@@ -248,6 +235,16 @@ export declare namespace PurchaseTaxInvoices {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DOC_NUM: NumberField<PurchaseTaxInvoices>;
+    /**
+     * Static representation of the [[docType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DOC_TYPE: EnumField<PurchaseTaxInvoices>;
+    /**
+     * Static representation of the [[printed]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PRINTED: EnumField<PurchaseTaxInvoices>;
     /**
      * Static representation of the [[docDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -314,6 +311,11 @@ export declare namespace PurchaseTaxInvoices {
      */
     const ADDRESS_2: StringField<PurchaseTaxInvoices>;
     /**
+     * Static representation of the [[currencySource]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CURRENCY_SOURCE: EnumField<PurchaseTaxInvoices>;
+    /**
      * Static representation of the [[docCurrency]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -362,12 +364,12 @@ export declare namespace PurchaseTaxInvoices {
      * Static representation of the [[purchaseTaxInvoiceLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const PURCHASE_TAX_INVOICE_LINES: CollectionField<PurchaseTaxInvoices>;
+    const PURCHASE_TAX_INVOICE_LINES: CollectionField<PurchaseTaxInvoices, PurchaseTaxInvoiceLine>;
     /**
      * Static representation of the [[purchaseTaxInvoiceOperationCodes]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const PURCHASE_TAX_INVOICE_OPERATION_CODES: CollectionField<PurchaseTaxInvoices>;
+    const PURCHASE_TAX_INVOICE_OPERATION_CODES: CollectionField<PurchaseTaxInvoices, PurchaseTaxInvoiceOperationCode>;
     /**
      * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -376,7 +378,7 @@ export declare namespace PurchaseTaxInvoices {
     /**
      * All fields of the PurchaseTaxInvoices entity.
      */
-    const _allFields: Array<NumberField<PurchaseTaxInvoices> | DateField<PurchaseTaxInvoices> | StringField<PurchaseTaxInvoices> | CollectionField<PurchaseTaxInvoices> | OneToOneLink<PurchaseTaxInvoices, BusinessPartners>>;
+    const _allFields: Array<NumberField<PurchaseTaxInvoices> | EnumField<PurchaseTaxInvoices> | DateField<PurchaseTaxInvoices> | StringField<PurchaseTaxInvoices> | CollectionField<PurchaseTaxInvoices, PurchaseTaxInvoiceLine> | CollectionField<PurchaseTaxInvoices, PurchaseTaxInvoiceOperationCode> | OneToOneLink<PurchaseTaxInvoices, BusinessPartners>>;
     /**
      * All fields selector.
      */

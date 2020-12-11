@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.ValueMappingCommunicationRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var ValueMappingCommunication_1 = require("./ValueMappingCommunication");
 /**
  * Request builder class for operations supported on the [[ValueMappingCommunication]] entity.
@@ -35,14 +35,14 @@ var ValueMappingCommunicationRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `ValueMappingCommunication` entity based on its keys.
      */
     ValueMappingCommunicationRequestBuilder.prototype.getByKey = function (absEntry) {
-        return new v4_1.GetByKeyRequestBuilder(ValueMappingCommunication_1.ValueMappingCommunication, { AbsEntry: absEntry });
+        return new core_1.GetByKeyRequestBuilderV4(ValueMappingCommunication_1.ValueMappingCommunication, { AbsEntry: absEntry });
     };
     /**
      * Returns a request builder for querying all `ValueMappingCommunication` entities.
      * @returns A request builder for creating requests to retrieve all `ValueMappingCommunication` entities.
      */
     ValueMappingCommunicationRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(ValueMappingCommunication_1.ValueMappingCommunication);
+        return new core_1.GetAllRequestBuilderV4(ValueMappingCommunication_1.ValueMappingCommunication);
     };
     /**
      * Returns a request builder for creating a `ValueMappingCommunication` entity.
@@ -50,7 +50,7 @@ var ValueMappingCommunicationRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `ValueMappingCommunication`.
      */
     ValueMappingCommunicationRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(ValueMappingCommunication_1.ValueMappingCommunication, entity);
+        return new core_1.CreateRequestBuilderV4(ValueMappingCommunication_1.ValueMappingCommunication, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `ValueMappingCommunication`.
@@ -58,12 +58,12 @@ var ValueMappingCommunicationRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `ValueMappingCommunication`.
      */
     ValueMappingCommunicationRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(ValueMappingCommunication_1.ValueMappingCommunication, entity);
+        return new core_1.UpdateRequestBuilderV4(ValueMappingCommunication_1.ValueMappingCommunication, entity);
     };
     ValueMappingCommunicationRequestBuilder.prototype.delete = function (absEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(ValueMappingCommunication_1.ValueMappingCommunication, absEntryOrEntity instanceof ValueMappingCommunication_1.ValueMappingCommunication ? absEntryOrEntity : { AbsEntry: absEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(ValueMappingCommunication_1.ValueMappingCommunication, absEntryOrEntity instanceof ValueMappingCommunication_1.ValueMappingCommunication ? absEntryOrEntity : { AbsEntry: absEntryOrEntity });
     };
     return ValueMappingCommunicationRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.ValueMappingCommunicationRequestBuilder = ValueMappingCommunicationRequestBuilder;
 //# sourceMappingURL=ValueMappingCommunicationRequestBuilder.js.map

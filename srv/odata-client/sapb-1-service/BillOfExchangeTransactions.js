@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -34,7 +34,7 @@ var BillOfExchangeTransactionsRequestBuilder_1 = require("./BillOfExchangeTransa
 var BillOfExchangeTransactionLine_1 = require("./BillOfExchangeTransactionLine");
 var BillOfExchangeTransDeposit_1 = require("./BillOfExchangeTransDeposit");
 var BillOfExchangeTransBankPage_1 = require("./BillOfExchangeTransBankPage");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "BillOfExchangeTransactions" of service "SAPB1".
  */
@@ -44,11 +44,11 @@ var BillOfExchangeTransactions = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `BillOfExchangeTransactions`.
+     * Returns an entity builder to construct instances of `BillOfExchangeTransactions`.
      * @returns A builder that constructs instances of entity type `BillOfExchangeTransactions`.
      */
     BillOfExchangeTransactions.builder = function () {
-        return v4_1.Entity.entityBuilder(BillOfExchangeTransactions);
+        return core_1.EntityV4.entityBuilder(BillOfExchangeTransactions);
     };
     /**
      * Returns a request builder to construct requests for operations on the `BillOfExchangeTransactions` entity type.
@@ -63,7 +63,7 @@ var BillOfExchangeTransactions = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `BillOfExchangeTransactions`.
      */
     BillOfExchangeTransactions.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, BillOfExchangeTransactions);
+        return core_1.EntityV4.customFieldSelector(fieldName, BillOfExchangeTransactions);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -77,75 +77,88 @@ var BillOfExchangeTransactions = /** @class */ (function (_super) {
      */
     BillOfExchangeTransactions._entityName = 'BillOfExchangeTransactions';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BillOfExchangeTransactions.
-     */
-    BillOfExchangeTransactions._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    BillOfExchangeTransactions._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    BillOfExchangeTransactions._defaultServicePath = '/b1s/v2/';
     return BillOfExchangeTransactions;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.BillOfExchangeTransactions = BillOfExchangeTransactions;
 var JournalEntries_1 = require("./JournalEntries");
 (function (BillOfExchangeTransactions) {
     /**
+     * Static representation of the [[statusFrom]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    BillOfExchangeTransactions.STATUS_FROM = new core_1.EnumField('StatusFrom', BillOfExchangeTransactions);
+    /**
+     * Static representation of the [[statusTo]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    BillOfExchangeTransactions.STATUS_TO = new core_1.EnumField('StatusTo', BillOfExchangeTransactions);
+    /**
      * Static representation of the [[transactionDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BillOfExchangeTransactions.TRANSACTION_DATE = new v4_1.DateField('TransactionDate', BillOfExchangeTransactions, 'Edm.DateTimeOffset');
+    BillOfExchangeTransactions.TRANSACTION_DATE = new core_1.DateField('TransactionDate', BillOfExchangeTransactions, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[transactionTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BillOfExchangeTransactions.TRANSACTION_TIME = new v4_1.TimeField('TransactionTime', BillOfExchangeTransactions, 'Edm.TimeOfDay');
+    BillOfExchangeTransactions.TRANSACTION_TIME = new core_1.TimeField('TransactionTime', BillOfExchangeTransactions, 'Edm.TimeOfDay');
+    /**
+     * Static representation of the [[isBoeReconciled]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    BillOfExchangeTransactions.IS_BOE_RECONCILED = new core_1.EnumField('IsBoeReconciled', BillOfExchangeTransactions);
     /**
      * Static representation of the [[transactionNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BillOfExchangeTransactions.TRANSACTION_NUMBER = new v4_1.NumberField('TransactionNumber', BillOfExchangeTransactions, 'Edm.Int32');
+    BillOfExchangeTransactions.TRANSACTION_NUMBER = new core_1.NumberField('TransactionNumber', BillOfExchangeTransactions, 'Edm.Int32');
     /**
      * Static representation of the [[postingDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BillOfExchangeTransactions.POSTING_DATE = new v4_1.DateField('PostingDate', BillOfExchangeTransactions, 'Edm.DateTimeOffset');
+    BillOfExchangeTransactions.POSTING_DATE = new core_1.DateField('PostingDate', BillOfExchangeTransactions, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[taxDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BillOfExchangeTransactions.TAX_DATE = new v4_1.DateField('TaxDate', BillOfExchangeTransactions, 'Edm.DateTimeOffset');
+    BillOfExchangeTransactions.TAX_DATE = new core_1.DateField('TaxDate', BillOfExchangeTransactions, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[boeTransactionkey]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BillOfExchangeTransactions.BOE_TRANSACTIONKEY = new v4_1.NumberField('BOETransactionkey', BillOfExchangeTransactions, 'Edm.Int32');
+    BillOfExchangeTransactions.BOE_TRANSACTIONKEY = new core_1.NumberField('BOETransactionkey', BillOfExchangeTransactions, 'Edm.Int32');
     /**
      * Static representation of the [[billOfExchangeTransactionLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BillOfExchangeTransactions.BILL_OF_EXCHANGE_TRANSACTION_LINES = new v4_1.CollectionField('BillOfExchangeTransactionLines', BillOfExchangeTransactions, new BillOfExchangeTransactionLine_1.BillOfExchangeTransactionLineField('', BillOfExchangeTransactions));
+    BillOfExchangeTransactions.BILL_OF_EXCHANGE_TRANSACTION_LINES = new core_1.CollectionField('BillOfExchangeTransactionLines', BillOfExchangeTransactions, BillOfExchangeTransactionLine_1.BillOfExchangeTransactionLine);
     /**
      * Static representation of the [[billOfExchangeTransDeposits]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BillOfExchangeTransactions.BILL_OF_EXCHANGE_TRANS_DEPOSITS = new v4_1.CollectionField('BillOfExchangeTransDeposits', BillOfExchangeTransactions, new BillOfExchangeTransDeposit_1.BillOfExchangeTransDepositField('', BillOfExchangeTransactions));
+    BillOfExchangeTransactions.BILL_OF_EXCHANGE_TRANS_DEPOSITS = new core_1.CollectionField('BillOfExchangeTransDeposits', BillOfExchangeTransactions, BillOfExchangeTransDeposit_1.BillOfExchangeTransDeposit);
     /**
      * Static representation of the [[billOfExchangeTransBankPages]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BillOfExchangeTransactions.BILL_OF_EXCHANGE_TRANS_BANK_PAGES = new v4_1.CollectionField('BillOfExchangeTransBankPages', BillOfExchangeTransactions, new BillOfExchangeTransBankPage_1.BillOfExchangeTransBankPageField('', BillOfExchangeTransactions));
+    BillOfExchangeTransactions.BILL_OF_EXCHANGE_TRANS_BANK_PAGES = new core_1.CollectionField('BillOfExchangeTransBankPages', BillOfExchangeTransactions, BillOfExchangeTransBankPage_1.BillOfExchangeTransBankPage);
     /**
      * Static representation of the one-to-one navigation property [[journalEntry]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    BillOfExchangeTransactions.JOURNAL_ENTRY = new v4_1.OneToOneLink('JournalEntry', BillOfExchangeTransactions, JournalEntries_1.JournalEntries);
+    BillOfExchangeTransactions.JOURNAL_ENTRY = new core_1.OneToOneLink('JournalEntry', BillOfExchangeTransactions, JournalEntries_1.JournalEntries);
     /**
      * All fields of the BillOfExchangeTransactions entity.
      */
     BillOfExchangeTransactions._allFields = [
+        BillOfExchangeTransactions.STATUS_FROM,
+        BillOfExchangeTransactions.STATUS_TO,
         BillOfExchangeTransactions.TRANSACTION_DATE,
         BillOfExchangeTransactions.TRANSACTION_TIME,
+        BillOfExchangeTransactions.IS_BOE_RECONCILED,
         BillOfExchangeTransactions.TRANSACTION_NUMBER,
         BillOfExchangeTransactions.POSTING_DATE,
         BillOfExchangeTransactions.TAX_DATE,
@@ -158,7 +171,7 @@ var JournalEntries_1 = require("./JournalEntries");
     /**
      * All fields selector.
      */
-    BillOfExchangeTransactions.ALL_FIELDS = new v4_1.AllFields('*', BillOfExchangeTransactions);
+    BillOfExchangeTransactions.ALL_FIELDS = new core_1.AllFields('*', BillOfExchangeTransactions);
     /**
      * All key fields of the BillOfExchangeTransactions entity.
      */

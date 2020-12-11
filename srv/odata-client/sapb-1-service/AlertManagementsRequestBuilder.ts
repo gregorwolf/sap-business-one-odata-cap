@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { AlertManagements } from './AlertManagements';
 
 /**
@@ -15,16 +15,16 @@ export class AlertManagementsRequestBuilder extends RequestBuilder<AlertManageme
    * @param code Key property. See [[AlertManagements.code]].
    * @returns A request builder for creating requests to retrieve one `AlertManagements` entity based on its keys.
    */
-  getByKey(code: number): GetByKeyRequestBuilder<AlertManagements> {
-    return new GetByKeyRequestBuilder(AlertManagements, { Code: code });
+  getByKey(code: number): GetByKeyRequestBuilderV4<AlertManagements> {
+    return new GetByKeyRequestBuilderV4(AlertManagements, { Code: code });
   }
 
   /**
    * Returns a request builder for querying all `AlertManagements` entities.
    * @returns A request builder for creating requests to retrieve all `AlertManagements` entities.
    */
-  getAll(): GetAllRequestBuilder<AlertManagements> {
-    return new GetAllRequestBuilder(AlertManagements);
+  getAll(): GetAllRequestBuilderV4<AlertManagements> {
+    return new GetAllRequestBuilderV4(AlertManagements);
   }
 
   /**
@@ -32,8 +32,8 @@ export class AlertManagementsRequestBuilder extends RequestBuilder<AlertManageme
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `AlertManagements`.
    */
-  create(entity: AlertManagements): CreateRequestBuilder<AlertManagements> {
-    return new CreateRequestBuilder(AlertManagements, entity);
+  create(entity: AlertManagements): CreateRequestBuilderV4<AlertManagements> {
+    return new CreateRequestBuilderV4(AlertManagements, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class AlertManagementsRequestBuilder extends RequestBuilder<AlertManageme
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `AlertManagements`.
    */
-  update(entity: AlertManagements): UpdateRequestBuilder<AlertManagements> {
-    return new UpdateRequestBuilder(AlertManagements, entity);
+  update(entity: AlertManagements): UpdateRequestBuilderV4<AlertManagements> {
+    return new UpdateRequestBuilderV4(AlertManagements, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class AlertManagementsRequestBuilder extends RequestBuilder<AlertManageme
    * @param code Key property. See [[AlertManagements.code]].
    * @returns A request builder for creating requests that delete an entity of type `AlertManagements`.
    */
-  delete(code: number): DeleteRequestBuilder<AlertManagements>;
+  delete(code: number): DeleteRequestBuilderV4<AlertManagements>;
   /**
    * Returns a request builder for deleting an entity of type `AlertManagements`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `AlertManagements` by taking the entity as a parameter.
    */
-  delete(entity: AlertManagements): DeleteRequestBuilder<AlertManagements>;
-  delete(codeOrEntity: any): DeleteRequestBuilder<AlertManagements> {
-    return new DeleteRequestBuilder(AlertManagements, codeOrEntity instanceof AlertManagements ? codeOrEntity : { Code: codeOrEntity! });
+  delete(entity: AlertManagements): DeleteRequestBuilderV4<AlertManagements>;
+  delete(codeOrEntity: any): DeleteRequestBuilderV4<AlertManagements> {
+    return new DeleteRequestBuilderV4(AlertManagements, codeOrEntity instanceof AlertManagements ? codeOrEntity : { Code: codeOrEntity! });
   }
 }

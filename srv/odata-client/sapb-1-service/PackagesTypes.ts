@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { PackagesTypesRequestBuilder } from './PackagesTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "PackagesTypes" of service "SAPB1".
  */
-export class PackagesTypes extends Entity implements PackagesTypesType {
+export class PackagesTypes extends EntityV4 implements PackagesTypesType {
   /**
    * Technical entity name for PackagesTypes.
    */
   static _entityName = 'PackagesTypes';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for PackagesTypes.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Type.
    * @nullable
@@ -125,11 +120,11 @@ export class PackagesTypes extends Entity implements PackagesTypesType {
   weight2Unit?: number;
 
   /**
-   * Returns an entity builder to construct instances `PackagesTypes`.
+   * Returns an entity builder to construct instances of `PackagesTypes`.
    * @returns A builder that constructs instances of entity type `PackagesTypes`.
    */
-  static builder(): EntityBuilderType<PackagesTypes, PackagesTypesTypeForceMandatory> {
-    return Entity.entityBuilder(PackagesTypes);
+  static builder(): EntityBuilderType<PackagesTypes, PackagesTypesType> {
+    return EntityV4.entityBuilder(PackagesTypes);
   }
 
   /**
@@ -145,8 +140,8 @@ export class PackagesTypes extends Entity implements PackagesTypesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `PackagesTypes`.
    */
-  static customField(fieldName: string): CustomField<PackagesTypes> {
-    return Entity.customFieldSelector(fieldName, PackagesTypes);
+  static customField(fieldName: string): CustomFieldV4<PackagesTypes> {
+    return EntityV4.customFieldSelector(fieldName, PackagesTypes);
   }
 
   /**
@@ -159,49 +154,26 @@ export class PackagesTypes extends Entity implements PackagesTypesType {
 }
 
 export interface PackagesTypesType {
-  type?: string;
-  code?: number;
-  length1?: number;
-  length1Unit?: number;
-  length2?: number;
-  length2Unit?: number;
-  width1?: number;
-  width1Unit?: number;
-  width2?: number;
-  width2Unit?: number;
-  height1?: number;
-  height1Unit?: number;
-  height2?: number;
-  height2Unit?: number;
-  volume?: number;
-  volumeUnit?: number;
-  weight1?: number;
-  weight1Unit?: number;
-  weight2?: number;
-  weight2Unit?: number;
-}
-
-export interface PackagesTypesTypeForceMandatory {
-  type: string;
-  code: number;
-  length1: number;
-  length1Unit: number;
-  length2: number;
-  length2Unit: number;
-  width1: number;
-  width1Unit: number;
-  width2: number;
-  width2Unit: number;
-  height1: number;
-  height1Unit: number;
-  height2: number;
-  height2Unit: number;
-  volume: number;
-  volumeUnit: number;
-  weight1: number;
-  weight1Unit: number;
-  weight2: number;
-  weight2Unit: number;
+  type?: string | null;
+  code?: number | null;
+  length1?: number | null;
+  length1Unit?: number | null;
+  length2?: number | null;
+  length2Unit?: number | null;
+  width1?: number | null;
+  width1Unit?: number | null;
+  width2?: number | null;
+  width2Unit?: number | null;
+  height1?: number | null;
+  height1Unit?: number | null;
+  height2?: number | null;
+  height2Unit?: number | null;
+  volume?: number | null;
+  volumeUnit?: number | null;
+  weight1?: number | null;
+  weight1Unit?: number | null;
+  weight2?: number | null;
+  weight2Unit?: number | null;
 }
 
 export namespace PackagesTypes {

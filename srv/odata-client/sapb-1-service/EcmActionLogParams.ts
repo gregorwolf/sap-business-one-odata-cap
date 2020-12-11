@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * EcmActionLogParams
@@ -32,7 +32,7 @@ export function createEcmActionLogParams(json: any): EcmActionLogParams {
  * EcmActionLogParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class EcmActionLogParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class EcmActionLogParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, EcmActionLogParams> {
   /**
    * Representation of the [[EcmActionLogParams.actionId]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -43,13 +43,38 @@ export class EcmActionLogParamsField<EntityT extends Entity> extends ComplexType
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   logId: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('LogID', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of EcmActionLogParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, EcmActionLogParams);
+  }
 }
 
 export namespace EcmActionLogParams {
+  /**
+   * Metadata information on all properties of the `EcmActionLogParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<EcmActionLogParams>[] = [{
+    originalName: 'ActionID',
+    name: 'actionId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LogID',
+    name: 'logId',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): EcmActionLogParams {
-    return createComplexType(json, {
-      ActionID: (actionId: number) => ({ actionId: edmToTs(actionId, 'Edm.Int32') }),
-      LogID: (logId: number) => ({ logId: edmToTs(logId, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, EcmActionLogParams);
   }
 }

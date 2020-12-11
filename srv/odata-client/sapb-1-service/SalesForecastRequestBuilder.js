@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.SalesForecastRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var SalesForecast_1 = require("./SalesForecast");
 /**
  * Request builder class for operations supported on the [[SalesForecast]] entity.
@@ -35,14 +35,14 @@ var SalesForecastRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `SalesForecast` entity based on its keys.
      */
     SalesForecastRequestBuilder.prototype.getByKey = function (numerator) {
-        return new v4_1.GetByKeyRequestBuilder(SalesForecast_1.SalesForecast, { Numerator: numerator });
+        return new core_1.GetByKeyRequestBuilderV4(SalesForecast_1.SalesForecast, { Numerator: numerator });
     };
     /**
      * Returns a request builder for querying all `SalesForecast` entities.
      * @returns A request builder for creating requests to retrieve all `SalesForecast` entities.
      */
     SalesForecastRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(SalesForecast_1.SalesForecast);
+        return new core_1.GetAllRequestBuilderV4(SalesForecast_1.SalesForecast);
     };
     /**
      * Returns a request builder for creating a `SalesForecast` entity.
@@ -50,7 +50,7 @@ var SalesForecastRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `SalesForecast`.
      */
     SalesForecastRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(SalesForecast_1.SalesForecast, entity);
+        return new core_1.CreateRequestBuilderV4(SalesForecast_1.SalesForecast, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `SalesForecast`.
@@ -58,12 +58,12 @@ var SalesForecastRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `SalesForecast`.
      */
     SalesForecastRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(SalesForecast_1.SalesForecast, entity);
+        return new core_1.UpdateRequestBuilderV4(SalesForecast_1.SalesForecast, entity);
     };
     SalesForecastRequestBuilder.prototype.delete = function (numeratorOrEntity) {
-        return new v4_1.DeleteRequestBuilder(SalesForecast_1.SalesForecast, numeratorOrEntity instanceof SalesForecast_1.SalesForecast ? numeratorOrEntity : { Numerator: numeratorOrEntity });
+        return new core_1.DeleteRequestBuilderV4(SalesForecast_1.SalesForecast, numeratorOrEntity instanceof SalesForecast_1.SalesForecast ? numeratorOrEntity : { Numerator: numeratorOrEntity });
     };
     return SalesForecastRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.SalesForecastRequestBuilder = SalesForecastRequestBuilder;
 //# sourceMappingURL=SalesForecastRequestBuilder.js.map

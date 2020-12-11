@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.ValueMappingCommunication = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var ValueMappingCommunicationRequestBuilder_1 = require("./ValueMappingCommunicationRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "ValueMappingCommunication" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var ValueMappingCommunication = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `ValueMappingCommunication`.
+     * Returns an entity builder to construct instances of `ValueMappingCommunication`.
      * @returns A builder that constructs instances of entity type `ValueMappingCommunication`.
      */
     ValueMappingCommunication.builder = function () {
-        return v4_1.Entity.entityBuilder(ValueMappingCommunication);
+        return core_1.EntityV4.entityBuilder(ValueMappingCommunication);
     };
     /**
      * Returns a request builder to construct requests for operations on the `ValueMappingCommunication` entity type.
@@ -60,7 +60,7 @@ var ValueMappingCommunication = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `ValueMappingCommunication`.
      */
     ValueMappingCommunication.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, ValueMappingCommunication);
+        return core_1.EntityV4.customFieldSelector(fieldName, ValueMappingCommunication);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,58 +74,63 @@ var ValueMappingCommunication = /** @class */ (function (_super) {
      */
     ValueMappingCommunication._entityName = 'ValueMappingCommunication';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for ValueMappingCommunication.
-     */
-    ValueMappingCommunication._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    ValueMappingCommunication._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    ValueMappingCommunication._defaultServicePath = '/b1s/v2/';
     return ValueMappingCommunication;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.ValueMappingCommunication = ValueMappingCommunication;
 (function (ValueMappingCommunication) {
     /**
      * Static representation of the [[absEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ValueMappingCommunication.ABS_ENTRY = new v4_1.NumberField('AbsEntry', ValueMappingCommunication, 'Edm.Int32');
+    ValueMappingCommunication.ABS_ENTRY = new core_1.NumberField('AbsEntry', ValueMappingCommunication, 'Edm.Int32');
     /**
      * Static representation of the [[thirdPartySystemId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ValueMappingCommunication.THIRD_PARTY_SYSTEM_ID = new v4_1.NumberField('ThirdPartySystemId', ValueMappingCommunication, 'Edm.Int32');
+    ValueMappingCommunication.THIRD_PARTY_SYSTEM_ID = new core_1.NumberField('ThirdPartySystemId', ValueMappingCommunication, 'Edm.Int32');
     /**
      * Static representation of the [[objectId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ValueMappingCommunication.OBJECT_ID = new v4_1.NumberField('ObjectId', ValueMappingCommunication, 'Edm.Int32');
+    ValueMappingCommunication.OBJECT_ID = new core_1.NumberField('ObjectId', ValueMappingCommunication, 'Edm.Int32');
+    /**
+     * Static representation of the [[communicationType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ValueMappingCommunication.COMMUNICATION_TYPE = new core_1.EnumField('CommunicationType', ValueMappingCommunication);
     /**
      * Static representation of the [[startDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ValueMappingCommunication.START_DATE = new v4_1.DateField('StartDate', ValueMappingCommunication, 'Edm.DateTimeOffset');
+    ValueMappingCommunication.START_DATE = new core_1.DateField('StartDate', ValueMappingCommunication, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[startTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ValueMappingCommunication.START_TIME = new v4_1.NumberField('StartTime', ValueMappingCommunication, 'Edm.Int32');
+    ValueMappingCommunication.START_TIME = new core_1.NumberField('StartTime', ValueMappingCommunication, 'Edm.Int32');
     /**
      * Static representation of the [[endDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ValueMappingCommunication.END_DATE = new v4_1.DateField('EndDate', ValueMappingCommunication, 'Edm.DateTimeOffset');
+    ValueMappingCommunication.END_DATE = new core_1.DateField('EndDate', ValueMappingCommunication, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[endTime]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ValueMappingCommunication.END_TIME = new v4_1.NumberField('EndTime', ValueMappingCommunication, 'Edm.Int32');
+    ValueMappingCommunication.END_TIME = new core_1.NumberField('EndTime', ValueMappingCommunication, 'Edm.Int32');
     /**
      * Static representation of the [[message]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    ValueMappingCommunication.MESSAGE = new v4_1.StringField('Message', ValueMappingCommunication, 'Edm.String');
+    ValueMappingCommunication.MESSAGE = new core_1.StringField('Message', ValueMappingCommunication, 'Edm.String');
+    /**
+     * Static representation of the [[status]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    ValueMappingCommunication.STATUS = new core_1.EnumField('Status', ValueMappingCommunication);
     /**
      * All fields of the ValueMappingCommunication entity.
      */
@@ -133,16 +138,18 @@ exports.ValueMappingCommunication = ValueMappingCommunication;
         ValueMappingCommunication.ABS_ENTRY,
         ValueMappingCommunication.THIRD_PARTY_SYSTEM_ID,
         ValueMappingCommunication.OBJECT_ID,
+        ValueMappingCommunication.COMMUNICATION_TYPE,
         ValueMappingCommunication.START_DATE,
         ValueMappingCommunication.START_TIME,
         ValueMappingCommunication.END_DATE,
         ValueMappingCommunication.END_TIME,
-        ValueMappingCommunication.MESSAGE
+        ValueMappingCommunication.MESSAGE,
+        ValueMappingCommunication.STATUS
     ];
     /**
      * All fields selector.
      */
-    ValueMappingCommunication.ALL_FIELDS = new v4_1.AllFields('*', ValueMappingCommunication);
+    ValueMappingCommunication.ALL_FIELDS = new core_1.AllFields('*', ValueMappingCommunication);
     /**
      * All key fields of the ValueMappingCommunication entity.
      */

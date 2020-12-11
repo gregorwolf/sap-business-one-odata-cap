@@ -4,7 +4,7 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * EmployeeReviewsInfo
@@ -58,7 +58,7 @@ export function createEmployeeReviewsInfo(json: any): EmployeeReviewsInfo {
  * EmployeeReviewsInfoField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class EmployeeReviewsInfoField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class EmployeeReviewsInfoField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, EmployeeReviewsInfo> {
   /**
    * Representation of the [[EmployeeReviewsInfo.employeeNo]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -94,18 +94,63 @@ export class EmployeeReviewsInfoField<EntityT extends Entity> extends ComplexTyp
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   remarks: ComplexTypeStringPropertyField<EntityT> = new ComplexTypeStringPropertyField('Remarks', this, 'Edm.String');
+
+  /**
+   * Creates an instance of EmployeeReviewsInfoField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, EmployeeReviewsInfo);
+  }
 }
 
 export namespace EmployeeReviewsInfo {
+  /**
+   * Metadata information on all properties of the `EmployeeReviewsInfo` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<EmployeeReviewsInfo>[] = [{
+    originalName: 'EmployeeNo',
+    name: 'employeeNo',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'LineNum',
+    name: 'lineNum',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Date',
+    name: 'date',
+    type: 'Edm.DateTimeOffset',
+    isCollection: false
+  }, {
+    originalName: 'ReviewDescription',
+    name: 'reviewDescription',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Manager',
+    name: 'manager',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'Grade',
+    name: 'grade',
+    type: 'Edm.String',
+    isCollection: false
+  }, {
+    originalName: 'Remarks',
+    name: 'remarks',
+    type: 'Edm.String',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): EmployeeReviewsInfo {
-    return createComplexType(json, {
-      EmployeeNo: (employeeNo: number) => ({ employeeNo: edmToTs(employeeNo, 'Edm.Int32') }),
-      LineNum: (lineNum: number) => ({ lineNum: edmToTs(lineNum, 'Edm.Int32') }),
-      Date: (date: Moment) => ({ date: edmToTs(date, 'Edm.DateTimeOffset') }),
-      ReviewDescription: (reviewDescription: string) => ({ reviewDescription: edmToTs(reviewDescription, 'Edm.String') }),
-      Manager: (manager: number) => ({ manager: edmToTs(manager, 'Edm.Int32') }),
-      Grade: (grade: string) => ({ grade: edmToTs(grade, 'Edm.String') }),
-      Remarks: (remarks: string) => ({ remarks: edmToTs(remarks, 'Edm.String') })
-    });
+    return deserializeComplexTypeV4(json, EmployeeReviewsInfo);
   }
 }

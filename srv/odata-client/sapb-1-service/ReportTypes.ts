@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { ReportTypesRequestBuilder } from './ReportTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ReportTypes" of service "SAPB1".
  */
-export class ReportTypes extends Entity implements ReportTypesType {
+export class ReportTypes extends EntityV4 implements ReportTypesType {
   /**
    * Technical entity name for ReportTypes.
    */
   static _entityName = 'ReportTypes';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ReportTypes.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Type Code.
    * @nullable
@@ -55,11 +50,11 @@ export class ReportTypes extends Entity implements ReportTypesType {
   menuId?: string;
 
   /**
-   * Returns an entity builder to construct instances `ReportTypes`.
+   * Returns an entity builder to construct instances of `ReportTypes`.
    * @returns A builder that constructs instances of entity type `ReportTypes`.
    */
-  static builder(): EntityBuilderType<ReportTypes, ReportTypesTypeForceMandatory> {
-    return Entity.entityBuilder(ReportTypes);
+  static builder(): EntityBuilderType<ReportTypes, ReportTypesType> {
+    return EntityV4.entityBuilder(ReportTypes);
   }
 
   /**
@@ -75,8 +70,8 @@ export class ReportTypes extends Entity implements ReportTypesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ReportTypes`.
    */
-  static customField(fieldName: string): CustomField<ReportTypes> {
-    return Entity.customFieldSelector(fieldName, ReportTypes);
+  static customField(fieldName: string): CustomFieldV4<ReportTypes> {
+    return EntityV4.customFieldSelector(fieldName, ReportTypes);
   }
 
   /**
@@ -89,21 +84,12 @@ export class ReportTypes extends Entity implements ReportTypesType {
 }
 
 export interface ReportTypesType {
-  typeCode?: string;
-  typeName?: string;
-  defaultReportLayout?: string;
-  addonName?: string;
-  addonFormType?: string;
-  menuId?: string;
-}
-
-export interface ReportTypesTypeForceMandatory {
-  typeCode: string;
-  typeName: string;
-  defaultReportLayout: string;
-  addonName: string;
-  addonFormType: string;
-  menuId: string;
+  typeCode?: string | null;
+  typeName?: string | null;
+  defaultReportLayout?: string | null;
+  addonName?: string | null;
+  addonFormType?: string | null;
+  menuId?: string | null;
 }
 
 export namespace ReportTypes {

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.TaxWebSites = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var TaxWebSitesRequestBuilder_1 = require("./TaxWebSitesRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "TaxWebSites" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var TaxWebSites = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `TaxWebSites`.
+     * Returns an entity builder to construct instances of `TaxWebSites`.
      * @returns A builder that constructs instances of entity type `TaxWebSites`.
      */
     TaxWebSites.builder = function () {
-        return v4_1.Entity.entityBuilder(TaxWebSites);
+        return core_1.EntityV4.entityBuilder(TaxWebSites);
     };
     /**
      * Returns a request builder to construct requests for operations on the `TaxWebSites` entity type.
@@ -60,7 +60,7 @@ var TaxWebSites = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `TaxWebSites`.
      */
     TaxWebSites.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, TaxWebSites);
+        return core_1.EntityV4.customFieldSelector(fieldName, TaxWebSites);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var TaxWebSites = /** @class */ (function (_super) {
      */
     TaxWebSites._entityName = 'TaxWebSites';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for TaxWebSites.
-     */
-    TaxWebSites._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    TaxWebSites._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    TaxWebSites._defaultServicePath = '/b1s/v2/';
     return TaxWebSites;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.TaxWebSites = TaxWebSites;
 var InventoryGenEntries_1 = require("./InventoryGenEntries");
 var PurchaseQuotations_1 = require("./PurchaseQuotations");
@@ -116,152 +111,152 @@ var GoodsReturnRequest_1 = require("./GoodsReturnRequest");
      * Static representation of the [[absEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.ABS_ENTRY = new v4_1.NumberField('AbsEntry', TaxWebSites, 'Edm.Int32');
+    TaxWebSites.ABS_ENTRY = new core_1.NumberField('AbsEntry', TaxWebSites, 'Edm.Int32');
     /**
      * Static representation of the [[webSiteName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.WEB_SITE_NAME = new v4_1.StringField('WebSiteName', TaxWebSites, 'Edm.String');
+    TaxWebSites.WEB_SITE_NAME = new core_1.StringField('WebSiteName', TaxWebSites, 'Edm.String');
     /**
      * Static representation of the [[webSiteUrl]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.WEB_SITE_URL = new v4_1.StringField('WebSiteURL', TaxWebSites, 'Edm.String');
+    TaxWebSites.WEB_SITE_URL = new core_1.StringField('WebSiteURL', TaxWebSites, 'Edm.String');
     /**
      * Static representation of the [[description]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.DESCRIPTION = new v4_1.StringField('Description', TaxWebSites, 'Edm.String');
+    TaxWebSites.DESCRIPTION = new core_1.StringField('Description', TaxWebSites, 'Edm.String');
     /**
      * Static representation of the one-to-many navigation property [[inventoryGenEntries]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.INVENTORY_GEN_ENTRIES = new v4_1.OneToManyLink('InventoryGenEntries', TaxWebSites, InventoryGenEntries_1.InventoryGenEntries);
+    TaxWebSites.INVENTORY_GEN_ENTRIES = new core_1.OneToManyLink('InventoryGenEntries', TaxWebSites, InventoryGenEntries_1.InventoryGenEntries);
     /**
      * Static representation of the one-to-many navigation property [[purchaseQuotations]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.PURCHASE_QUOTATIONS = new v4_1.OneToManyLink('PurchaseQuotations', TaxWebSites, PurchaseQuotations_1.PurchaseQuotations);
+    TaxWebSites.PURCHASE_QUOTATIONS = new core_1.OneToManyLink('PurchaseQuotations', TaxWebSites, PurchaseQuotations_1.PurchaseQuotations);
     /**
      * Static representation of the one-to-many navigation property [[deliveryNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.DELIVERY_NOTES = new v4_1.OneToManyLink('DeliveryNotes', TaxWebSites, DeliveryNotes_1.DeliveryNotes);
+    TaxWebSites.DELIVERY_NOTES = new core_1.OneToManyLink('DeliveryNotes', TaxWebSites, DeliveryNotes_1.DeliveryNotes);
     /**
      * Static representation of the one-to-many navigation property [[businessPartners]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.BUSINESS_PARTNERS = new v4_1.OneToManyLink('BusinessPartners', TaxWebSites, BusinessPartners_1.BusinessPartners);
+    TaxWebSites.BUSINESS_PARTNERS = new core_1.OneToManyLink('BusinessPartners', TaxWebSites, BusinessPartners_1.BusinessPartners);
     /**
      * Static representation of the one-to-many navigation property [[quotations]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.QUOTATIONS = new v4_1.OneToManyLink('Quotations', TaxWebSites, Quotations_1.Quotations);
+    TaxWebSites.QUOTATIONS = new core_1.OneToManyLink('Quotations', TaxWebSites, Quotations_1.Quotations);
     /**
      * Static representation of the one-to-many navigation property [[taxInvoiceReport]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.TAX_INVOICE_REPORT = new v4_1.OneToManyLink('TaxInvoiceReport', TaxWebSites, TaxInvoiceReport_1.TaxInvoiceReport);
+    TaxWebSites.TAX_INVOICE_REPORT = new core_1.OneToManyLink('TaxInvoiceReport', TaxWebSites, TaxInvoiceReport_1.TaxInvoiceReport);
     /**
      * Static representation of the one-to-many navigation property [[inventoryGenExits]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.INVENTORY_GEN_EXITS = new v4_1.OneToManyLink('InventoryGenExits', TaxWebSites, InventoryGenExits_1.InventoryGenExits);
+    TaxWebSites.INVENTORY_GEN_EXITS = new core_1.OneToManyLink('InventoryGenExits', TaxWebSites, InventoryGenExits_1.InventoryGenExits);
     /**
      * Static representation of the one-to-many navigation property [[purchaseRequests]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.PURCHASE_REQUESTS = new v4_1.OneToManyLink('PurchaseRequests', TaxWebSites, PurchaseRequests_1.PurchaseRequests);
+    TaxWebSites.PURCHASE_REQUESTS = new core_1.OneToManyLink('PurchaseRequests', TaxWebSites, PurchaseRequests_1.PurchaseRequests);
     /**
      * Static representation of the one-to-many navigation property [[returnRequest]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.RETURN_REQUEST = new v4_1.OneToManyLink('ReturnRequest', TaxWebSites, ReturnRequest_1.ReturnRequest);
+    TaxWebSites.RETURN_REQUEST = new core_1.OneToManyLink('ReturnRequest', TaxWebSites, ReturnRequest_1.ReturnRequest);
     /**
      * Static representation of the one-to-many navigation property [[purchaseReturns]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.PURCHASE_RETURNS = new v4_1.OneToManyLink('PurchaseReturns', TaxWebSites, PurchaseReturns_1.PurchaseReturns);
+    TaxWebSites.PURCHASE_RETURNS = new core_1.OneToManyLink('PurchaseReturns', TaxWebSites, PurchaseReturns_1.PurchaseReturns);
     /**
      * Static representation of the one-to-many navigation property [[invoices]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.INVOICES = new v4_1.OneToManyLink('Invoices', TaxWebSites, Invoices_1.Invoices);
+    TaxWebSites.INVOICES = new core_1.OneToManyLink('Invoices', TaxWebSites, Invoices_1.Invoices);
     /**
      * Static representation of the one-to-many navigation property [[creditNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.CREDIT_NOTES = new v4_1.OneToManyLink('CreditNotes', TaxWebSites, CreditNotes_1.CreditNotes);
+    TaxWebSites.CREDIT_NOTES = new core_1.OneToManyLink('CreditNotes', TaxWebSites, CreditNotes_1.CreditNotes);
     /**
      * Static representation of the one-to-many navigation property [[orders]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.ORDERS = new v4_1.OneToManyLink('Orders', TaxWebSites, Orders_1.Orders);
+    TaxWebSites.ORDERS = new core_1.OneToManyLink('Orders', TaxWebSites, Orders_1.Orders);
     /**
      * Static representation of the one-to-many navigation property [[downPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.DOWN_PAYMENTS = new v4_1.OneToManyLink('DownPayments', TaxWebSites, DownPayments_1.DownPayments);
+    TaxWebSites.DOWN_PAYMENTS = new core_1.OneToManyLink('DownPayments', TaxWebSites, DownPayments_1.DownPayments);
     /**
      * Static representation of the one-to-many navigation property [[drafts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.DRAFTS = new v4_1.OneToManyLink('Drafts', TaxWebSites, Drafts_1.Drafts);
+    TaxWebSites.DRAFTS = new core_1.OneToManyLink('Drafts', TaxWebSites, Drafts_1.Drafts);
     /**
      * Static representation of the one-to-many navigation property [[returns]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.RETURNS = new v4_1.OneToManyLink('Returns', TaxWebSites, Returns_1.Returns);
+    TaxWebSites.RETURNS = new core_1.OneToManyLink('Returns', TaxWebSites, Returns_1.Returns);
     /**
      * Static representation of the one-to-many navigation property [[correctionInvoiceReversal]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.CORRECTION_INVOICE_REVERSAL = new v4_1.OneToManyLink('CorrectionInvoiceReversal', TaxWebSites, CorrectionInvoiceReversal_1.CorrectionInvoiceReversal);
+    TaxWebSites.CORRECTION_INVOICE_REVERSAL = new core_1.OneToManyLink('CorrectionInvoiceReversal', TaxWebSites, CorrectionInvoiceReversal_1.CorrectionInvoiceReversal);
     /**
      * Static representation of the one-to-many navigation property [[correctionPurchaseInvoice]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.CORRECTION_PURCHASE_INVOICE = new v4_1.OneToManyLink('CorrectionPurchaseInvoice', TaxWebSites, CorrectionPurchaseInvoice_1.CorrectionPurchaseInvoice);
+    TaxWebSites.CORRECTION_PURCHASE_INVOICE = new core_1.OneToManyLink('CorrectionPurchaseInvoice', TaxWebSites, CorrectionPurchaseInvoice_1.CorrectionPurchaseInvoice);
     /**
      * Static representation of the one-to-many navigation property [[correctionPurchaseInvoiceReversal]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.CORRECTION_PURCHASE_INVOICE_REVERSAL = new v4_1.OneToManyLink('CorrectionPurchaseInvoiceReversal', TaxWebSites, CorrectionPurchaseInvoiceReversal_1.CorrectionPurchaseInvoiceReversal);
+    TaxWebSites.CORRECTION_PURCHASE_INVOICE_REVERSAL = new core_1.OneToManyLink('CorrectionPurchaseInvoiceReversal', TaxWebSites, CorrectionPurchaseInvoiceReversal_1.CorrectionPurchaseInvoiceReversal);
     /**
      * Static representation of the one-to-many navigation property [[purchaseInvoices]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.PURCHASE_INVOICES = new v4_1.OneToManyLink('PurchaseInvoices', TaxWebSites, PurchaseInvoices_1.PurchaseInvoices);
+    TaxWebSites.PURCHASE_INVOICES = new core_1.OneToManyLink('PurchaseInvoices', TaxWebSites, PurchaseInvoices_1.PurchaseInvoices);
     /**
      * Static representation of the one-to-many navigation property [[purchaseDeliveryNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.PURCHASE_DELIVERY_NOTES = new v4_1.OneToManyLink('PurchaseDeliveryNotes', TaxWebSites, PurchaseDeliveryNotes_1.PurchaseDeliveryNotes);
+    TaxWebSites.PURCHASE_DELIVERY_NOTES = new core_1.OneToManyLink('PurchaseDeliveryNotes', TaxWebSites, PurchaseDeliveryNotes_1.PurchaseDeliveryNotes);
     /**
      * Static representation of the one-to-many navigation property [[correctionInvoice]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.CORRECTION_INVOICE = new v4_1.OneToManyLink('CorrectionInvoice', TaxWebSites, CorrectionInvoice_1.CorrectionInvoice);
+    TaxWebSites.CORRECTION_INVOICE = new core_1.OneToManyLink('CorrectionInvoice', TaxWebSites, CorrectionInvoice_1.CorrectionInvoice);
     /**
      * Static representation of the one-to-many navigation property [[purchaseCreditNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.PURCHASE_CREDIT_NOTES = new v4_1.OneToManyLink('PurchaseCreditNotes', TaxWebSites, PurchaseCreditNotes_1.PurchaseCreditNotes);
+    TaxWebSites.PURCHASE_CREDIT_NOTES = new core_1.OneToManyLink('PurchaseCreditNotes', TaxWebSites, PurchaseCreditNotes_1.PurchaseCreditNotes);
     /**
      * Static representation of the one-to-many navigation property [[purchaseDownPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.PURCHASE_DOWN_PAYMENTS = new v4_1.OneToManyLink('PurchaseDownPayments', TaxWebSites, PurchaseDownPayments_1.PurchaseDownPayments);
+    TaxWebSites.PURCHASE_DOWN_PAYMENTS = new core_1.OneToManyLink('PurchaseDownPayments', TaxWebSites, PurchaseDownPayments_1.PurchaseDownPayments);
     /**
      * Static representation of the one-to-many navigation property [[purchaseOrders]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.PURCHASE_ORDERS = new v4_1.OneToManyLink('PurchaseOrders', TaxWebSites, PurchaseOrders_1.PurchaseOrders);
+    TaxWebSites.PURCHASE_ORDERS = new core_1.OneToManyLink('PurchaseOrders', TaxWebSites, PurchaseOrders_1.PurchaseOrders);
     /**
      * Static representation of the one-to-many navigation property [[goodsReturnRequest]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxWebSites.GOODS_RETURN_REQUEST = new v4_1.OneToManyLink('GoodsReturnRequest', TaxWebSites, GoodsReturnRequest_1.GoodsReturnRequest);
+    TaxWebSites.GOODS_RETURN_REQUEST = new core_1.OneToManyLink('GoodsReturnRequest', TaxWebSites, GoodsReturnRequest_1.GoodsReturnRequest);
     /**
      * All fields of the TaxWebSites entity.
      */
@@ -300,7 +295,7 @@ var GoodsReturnRequest_1 = require("./GoodsReturnRequest");
     /**
      * All fields selector.
      */
-    TaxWebSites.ALL_FIELDS = new v4_1.AllFields('*', TaxWebSites);
+    TaxWebSites.ALL_FIELDS = new core_1.AllFields('*', TaxWebSites);
     /**
      * All key fields of the TaxWebSites entity.
      */

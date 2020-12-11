@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { BrazilMultiIndexers } from './BrazilMultiIndexers';
 
 /**
@@ -15,16 +15,16 @@ export class BrazilMultiIndexersRequestBuilder extends RequestBuilder<BrazilMult
    * @param id Key property. See [[BrazilMultiIndexers.id]].
    * @returns A request builder for creating requests to retrieve one `BrazilMultiIndexers` entity based on its keys.
    */
-  getByKey(id: number): GetByKeyRequestBuilder<BrazilMultiIndexers> {
-    return new GetByKeyRequestBuilder(BrazilMultiIndexers, { ID: id });
+  getByKey(id: number): GetByKeyRequestBuilderV4<BrazilMultiIndexers> {
+    return new GetByKeyRequestBuilderV4(BrazilMultiIndexers, { ID: id });
   }
 
   /**
    * Returns a request builder for querying all `BrazilMultiIndexers` entities.
    * @returns A request builder for creating requests to retrieve all `BrazilMultiIndexers` entities.
    */
-  getAll(): GetAllRequestBuilder<BrazilMultiIndexers> {
-    return new GetAllRequestBuilder(BrazilMultiIndexers);
+  getAll(): GetAllRequestBuilderV4<BrazilMultiIndexers> {
+    return new GetAllRequestBuilderV4(BrazilMultiIndexers);
   }
 
   /**
@@ -32,8 +32,8 @@ export class BrazilMultiIndexersRequestBuilder extends RequestBuilder<BrazilMult
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `BrazilMultiIndexers`.
    */
-  create(entity: BrazilMultiIndexers): CreateRequestBuilder<BrazilMultiIndexers> {
-    return new CreateRequestBuilder(BrazilMultiIndexers, entity);
+  create(entity: BrazilMultiIndexers): CreateRequestBuilderV4<BrazilMultiIndexers> {
+    return new CreateRequestBuilderV4(BrazilMultiIndexers, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class BrazilMultiIndexersRequestBuilder extends RequestBuilder<BrazilMult
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `BrazilMultiIndexers`.
    */
-  update(entity: BrazilMultiIndexers): UpdateRequestBuilder<BrazilMultiIndexers> {
-    return new UpdateRequestBuilder(BrazilMultiIndexers, entity);
+  update(entity: BrazilMultiIndexers): UpdateRequestBuilderV4<BrazilMultiIndexers> {
+    return new UpdateRequestBuilderV4(BrazilMultiIndexers, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class BrazilMultiIndexersRequestBuilder extends RequestBuilder<BrazilMult
    * @param id Key property. See [[BrazilMultiIndexers.id]].
    * @returns A request builder for creating requests that delete an entity of type `BrazilMultiIndexers`.
    */
-  delete(id: number): DeleteRequestBuilder<BrazilMultiIndexers>;
+  delete(id: number): DeleteRequestBuilderV4<BrazilMultiIndexers>;
   /**
    * Returns a request builder for deleting an entity of type `BrazilMultiIndexers`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `BrazilMultiIndexers` by taking the entity as a parameter.
    */
-  delete(entity: BrazilMultiIndexers): DeleteRequestBuilder<BrazilMultiIndexers>;
-  delete(idOrEntity: any): DeleteRequestBuilder<BrazilMultiIndexers> {
-    return new DeleteRequestBuilder(BrazilMultiIndexers, idOrEntity instanceof BrazilMultiIndexers ? idOrEntity : { ID: idOrEntity! });
+  delete(entity: BrazilMultiIndexers): DeleteRequestBuilderV4<BrazilMultiIndexers>;
+  delete(idOrEntity: any): DeleteRequestBuilderV4<BrazilMultiIndexers> {
+    return new DeleteRequestBuilderV4(BrazilMultiIndexers, idOrEntity instanceof BrazilMultiIndexers ? idOrEntity : { ID: idOrEntity! });
   }
 }

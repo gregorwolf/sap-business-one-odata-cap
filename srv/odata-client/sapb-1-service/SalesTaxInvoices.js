@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -33,7 +33,7 @@ exports.SalesTaxInvoices = void 0;
 var SalesTaxInvoicesRequestBuilder_1 = require("./SalesTaxInvoicesRequestBuilder");
 var SalesTaxInvoiceLine_1 = require("./SalesTaxInvoiceLine");
 var SalesTaxInvoiceOperationCode_1 = require("./SalesTaxInvoiceOperationCode");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "SalesTaxInvoices" of service "SAPB1".
  */
@@ -43,11 +43,11 @@ var SalesTaxInvoices = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `SalesTaxInvoices`.
+     * Returns an entity builder to construct instances of `SalesTaxInvoices`.
      * @returns A builder that constructs instances of entity type `SalesTaxInvoices`.
      */
     SalesTaxInvoices.builder = function () {
-        return v4_1.Entity.entityBuilder(SalesTaxInvoices);
+        return core_1.EntityV4.entityBuilder(SalesTaxInvoices);
     };
     /**
      * Returns a request builder to construct requests for operations on the `SalesTaxInvoices` entity type.
@@ -62,7 +62,7 @@ var SalesTaxInvoices = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `SalesTaxInvoices`.
      */
     SalesTaxInvoices.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, SalesTaxInvoices);
+        return core_1.EntityV4.customFieldSelector(fieldName, SalesTaxInvoices);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -76,16 +76,11 @@ var SalesTaxInvoices = /** @class */ (function (_super) {
      */
     SalesTaxInvoices._entityName = 'SalesTaxInvoices';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for SalesTaxInvoices.
-     */
-    SalesTaxInvoices._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    SalesTaxInvoices._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    SalesTaxInvoices._defaultServicePath = '/b1s/v2/';
     return SalesTaxInvoices;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.SalesTaxInvoices = SalesTaxInvoices;
 var BusinessPartners_1 = require("./BusinessPartners");
 (function (SalesTaxInvoices) {
@@ -93,143 +88,160 @@ var BusinessPartners_1 = require("./BusinessPartners");
      * Static representation of the [[docEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.DOC_ENTRY = new v4_1.NumberField('DocEntry', SalesTaxInvoices, 'Edm.Int32');
+    SalesTaxInvoices.DOC_ENTRY = new core_1.NumberField('DocEntry', SalesTaxInvoices, 'Edm.Int32');
     /**
      * Static representation of the [[docNum]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.DOC_NUM = new v4_1.NumberField('DocNum', SalesTaxInvoices, 'Edm.Int32');
+    SalesTaxInvoices.DOC_NUM = new core_1.NumberField('DocNum', SalesTaxInvoices, 'Edm.Int32');
+    /**
+     * Static representation of the [[docType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    SalesTaxInvoices.DOC_TYPE = new core_1.EnumField('DocType', SalesTaxInvoices);
+    /**
+     * Static representation of the [[printed]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    SalesTaxInvoices.PRINTED = new core_1.EnumField('Printed', SalesTaxInvoices);
     /**
      * Static representation of the [[docDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.DOC_DATE = new v4_1.DateField('DocDate', SalesTaxInvoices, 'Edm.DateTimeOffset');
+    SalesTaxInvoices.DOC_DATE = new core_1.DateField('DocDate', SalesTaxInvoices, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[cardCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.CARD_CODE = new v4_1.StringField('CardCode', SalesTaxInvoices, 'Edm.String');
+    SalesTaxInvoices.CARD_CODE = new core_1.StringField('CardCode', SalesTaxInvoices, 'Edm.String');
     /**
      * Static representation of the [[creationDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.CREATION_DATE = new v4_1.DateField('CreationDate', SalesTaxInvoices, 'Edm.DateTimeOffset');
+    SalesTaxInvoices.CREATION_DATE = new core_1.DateField('CreationDate', SalesTaxInvoices, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[updateDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.UPDATE_DATE = new v4_1.DateField('UpdateDate', SalesTaxInvoices, 'Edm.DateTimeOffset');
+    SalesTaxInvoices.UPDATE_DATE = new core_1.DateField('UpdateDate', SalesTaxInvoices, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[docDueDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.DOC_DUE_DATE = new v4_1.DateField('DocDueDate', SalesTaxInvoices, 'Edm.DateTimeOffset');
+    SalesTaxInvoices.DOC_DUE_DATE = new core_1.DateField('DocDueDate', SalesTaxInvoices, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[series]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.SERIES = new v4_1.NumberField('Series', SalesTaxInvoices, 'Edm.Int32');
+    SalesTaxInvoices.SERIES = new core_1.NumberField('Series', SalesTaxInvoices, 'Edm.Int32');
     /**
      * Static representation of the [[segment]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.SEGMENT = new v4_1.NumberField('Segment', SalesTaxInvoices, 'Edm.Int32');
+    SalesTaxInvoices.SEGMENT = new core_1.NumberField('Segment', SalesTaxInvoices, 'Edm.Int32');
     /**
      * Static representation of the [[contactPersonCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.CONTACT_PERSON_CODE = new v4_1.NumberField('ContactPersonCode', SalesTaxInvoices, 'Edm.Int32');
+    SalesTaxInvoices.CONTACT_PERSON_CODE = new core_1.NumberField('ContactPersonCode', SalesTaxInvoices, 'Edm.Int32');
     /**
      * Static representation of the [[taxDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.TAX_DATE = new v4_1.DateField('TaxDate', SalesTaxInvoices, 'Edm.DateTimeOffset');
+    SalesTaxInvoices.TAX_DATE = new core_1.DateField('TaxDate', SalesTaxInvoices, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[comments]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.COMMENTS = new v4_1.StringField('Comments', SalesTaxInvoices, 'Edm.String');
+    SalesTaxInvoices.COMMENTS = new core_1.StringField('Comments', SalesTaxInvoices, 'Edm.String');
     /**
      * Static representation of the [[shipToCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.SHIP_TO_CODE = new v4_1.StringField('ShipToCode', SalesTaxInvoices, 'Edm.String');
+    SalesTaxInvoices.SHIP_TO_CODE = new core_1.StringField('ShipToCode', SalesTaxInvoices, 'Edm.String');
     /**
      * Static representation of the [[address]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.ADDRESS = new v4_1.StringField('Address', SalesTaxInvoices, 'Edm.String');
+    SalesTaxInvoices.ADDRESS = new core_1.StringField('Address', SalesTaxInvoices, 'Edm.String');
     /**
      * Static representation of the [[address2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.ADDRESS_2 = new v4_1.StringField('Address2', SalesTaxInvoices, 'Edm.String');
+    SalesTaxInvoices.ADDRESS_2 = new core_1.StringField('Address2', SalesTaxInvoices, 'Edm.String');
+    /**
+     * Static representation of the [[currencySource]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    SalesTaxInvoices.CURRENCY_SOURCE = new core_1.EnumField('CurrencySource', SalesTaxInvoices);
     /**
      * Static representation of the [[docCurrency]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.DOC_CURRENCY = new v4_1.StringField('DocCurrency', SalesTaxInvoices, 'Edm.String');
+    SalesTaxInvoices.DOC_CURRENCY = new core_1.StringField('DocCurrency', SalesTaxInvoices, 'Edm.String');
     /**
      * Static representation of the [[customerOrVendorRefNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.CUSTOMER_OR_VENDOR_REF_NO = new v4_1.StringField('CustomerOrVendorRefNo', SalesTaxInvoices, 'Edm.String');
+    SalesTaxInvoices.CUSTOMER_OR_VENDOR_REF_NO = new core_1.StringField('CustomerOrVendorRefNo', SalesTaxInvoices, 'Edm.String');
     /**
      * Static representation of the [[customerOrVendorName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.CUSTOMER_OR_VENDOR_NAME = new v4_1.StringField('CustomerOrVendorName', SalesTaxInvoices, 'Edm.String');
+    SalesTaxInvoices.CUSTOMER_OR_VENDOR_NAME = new core_1.StringField('CustomerOrVendorName', SalesTaxInvoices, 'Edm.String');
     /**
      * Static representation of the [[cancelDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.CANCEL_DATE = new v4_1.DateField('CancelDate', SalesTaxInvoices, 'Edm.DateTimeOffset');
+    SalesTaxInvoices.CANCEL_DATE = new core_1.DateField('CancelDate', SalesTaxInvoices, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[documentTotal]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.DOCUMENT_TOTAL = new v4_1.NumberField('DocumentTotal', SalesTaxInvoices, 'Edm.Double');
+    SalesTaxInvoices.DOCUMENT_TOTAL = new core_1.NumberField('DocumentTotal', SalesTaxInvoices, 'Edm.Double');
     /**
      * Static representation of the [[taxTotal]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.TAX_TOTAL = new v4_1.NumberField('TaxTotal', SalesTaxInvoices, 'Edm.Double');
+    SalesTaxInvoices.TAX_TOTAL = new core_1.NumberField('TaxTotal', SalesTaxInvoices, 'Edm.Double');
     /**
      * Static representation of the [[paymentRefNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.PAYMENT_REF_NO = new v4_1.StringField('PaymentRefNo', SalesTaxInvoices, 'Edm.String');
+    SalesTaxInvoices.PAYMENT_REF_NO = new core_1.StringField('PaymentRefNo', SalesTaxInvoices, 'Edm.String');
     /**
      * Static representation of the [[paymentRefDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.PAYMENT_REF_DATE = new v4_1.DateField('PaymentRefDate', SalesTaxInvoices, 'Edm.DateTimeOffset');
+    SalesTaxInvoices.PAYMENT_REF_DATE = new core_1.DateField('PaymentRefDate', SalesTaxInvoices, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[alterationRevision]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.ALTERATION_REVISION = new v4_1.NumberField('AlterationRevision', SalesTaxInvoices, 'Edm.Int32');
+    SalesTaxInvoices.ALTERATION_REVISION = new core_1.NumberField('AlterationRevision', SalesTaxInvoices, 'Edm.Int32');
     /**
      * Static representation of the [[salesTaxInvoiceLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.SALES_TAX_INVOICE_LINES = new v4_1.CollectionField('SalesTaxInvoiceLines', SalesTaxInvoices, new SalesTaxInvoiceLine_1.SalesTaxInvoiceLineField('', SalesTaxInvoices));
+    SalesTaxInvoices.SALES_TAX_INVOICE_LINES = new core_1.CollectionField('SalesTaxInvoiceLines', SalesTaxInvoices, SalesTaxInvoiceLine_1.SalesTaxInvoiceLine);
     /**
      * Static representation of the [[salesTaxInvoiceOperationCodes]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.SALES_TAX_INVOICE_OPERATION_CODES = new v4_1.CollectionField('SalesTaxInvoiceOperationCodes', SalesTaxInvoices, new SalesTaxInvoiceOperationCode_1.SalesTaxInvoiceOperationCodeField('', SalesTaxInvoices));
+    SalesTaxInvoices.SALES_TAX_INVOICE_OPERATION_CODES = new core_1.CollectionField('SalesTaxInvoiceOperationCodes', SalesTaxInvoices, SalesTaxInvoiceOperationCode_1.SalesTaxInvoiceOperationCode);
     /**
      * Static representation of the one-to-one navigation property [[businessPartner]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    SalesTaxInvoices.BUSINESS_PARTNER = new v4_1.OneToOneLink('BusinessPartner', SalesTaxInvoices, BusinessPartners_1.BusinessPartners);
+    SalesTaxInvoices.BUSINESS_PARTNER = new core_1.OneToOneLink('BusinessPartner', SalesTaxInvoices, BusinessPartners_1.BusinessPartners);
     /**
      * All fields of the SalesTaxInvoices entity.
      */
     SalesTaxInvoices._allFields = [
         SalesTaxInvoices.DOC_ENTRY,
         SalesTaxInvoices.DOC_NUM,
+        SalesTaxInvoices.DOC_TYPE,
+        SalesTaxInvoices.PRINTED,
         SalesTaxInvoices.DOC_DATE,
         SalesTaxInvoices.CARD_CODE,
         SalesTaxInvoices.CREATION_DATE,
@@ -243,6 +255,7 @@ var BusinessPartners_1 = require("./BusinessPartners");
         SalesTaxInvoices.SHIP_TO_CODE,
         SalesTaxInvoices.ADDRESS,
         SalesTaxInvoices.ADDRESS_2,
+        SalesTaxInvoices.CURRENCY_SOURCE,
         SalesTaxInvoices.DOC_CURRENCY,
         SalesTaxInvoices.CUSTOMER_OR_VENDOR_REF_NO,
         SalesTaxInvoices.CUSTOMER_OR_VENDOR_NAME,
@@ -259,7 +272,7 @@ var BusinessPartners_1 = require("./BusinessPartners");
     /**
      * All fields selector.
      */
-    SalesTaxInvoices.ALL_FIELDS = new v4_1.AllFields('*', SalesTaxInvoices);
+    SalesTaxInvoices.ALL_FIELDS = new core_1.AllFields('*', SalesTaxInvoices);
     /**
      * All key fields of the SalesTaxInvoices entity.
      */

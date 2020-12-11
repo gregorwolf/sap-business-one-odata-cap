@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.NfModels = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var NfModelsRequestBuilder_1 = require("./NfModelsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "NFModels" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var NfModels = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `NfModels`.
+     * Returns an entity builder to construct instances of `NfModels`.
      * @returns A builder that constructs instances of entity type `NfModels`.
      */
     NfModels.builder = function () {
-        return v4_1.Entity.entityBuilder(NfModels);
+        return core_1.EntityV4.entityBuilder(NfModels);
     };
     /**
      * Returns a request builder to construct requests for operations on the `NfModels` entity type.
@@ -60,7 +60,7 @@ var NfModels = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `NfModels`.
      */
     NfModels.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, NfModels);
+        return core_1.EntityV4.customFieldSelector(fieldName, NfModels);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,16 +74,11 @@ var NfModels = /** @class */ (function (_super) {
      */
     NfModels._entityName = 'NFModels';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for NfModels.
-     */
-    NfModels._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    NfModels._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    NfModels._defaultServicePath = '/b1s/v2/';
     return NfModels;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.NfModels = NfModels;
 var InventoryGenEntries_1 = require("./InventoryGenEntries");
 var FiscalPrinter_1 = require("./FiscalPrinter");
@@ -115,147 +110,147 @@ var GoodsReturnRequest_1 = require("./GoodsReturnRequest");
      * Static representation of the [[absEntry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.ABS_ENTRY = new v4_1.StringField('AbsEntry', NfModels, 'Edm.String');
+    NfModels.ABS_ENTRY = new core_1.StringField('AbsEntry', NfModels, 'Edm.String');
     /**
      * Static representation of the [[nfmName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.NFM_NAME = new v4_1.StringField('NFMName', NfModels, 'Edm.String');
+    NfModels.NFM_NAME = new core_1.StringField('NFMName', NfModels, 'Edm.String');
     /**
      * Static representation of the [[nfmDescription]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.NFM_DESCRIPTION = new v4_1.StringField('NFMDescription', NfModels, 'Edm.String');
+    NfModels.NFM_DESCRIPTION = new core_1.StringField('NFMDescription', NfModels, 'Edm.String');
     /**
      * Static representation of the [[nfmCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.NFM_CODE = new v4_1.StringField('NFMCode', NfModels, 'Edm.String');
+    NfModels.NFM_CODE = new core_1.StringField('NFMCode', NfModels, 'Edm.String');
     /**
      * Static representation of the one-to-many navigation property [[inventoryGenEntries]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.INVENTORY_GEN_ENTRIES = new v4_1.OneToManyLink('InventoryGenEntries', NfModels, InventoryGenEntries_1.InventoryGenEntries);
+    NfModels.INVENTORY_GEN_ENTRIES = new core_1.OneToManyLink('InventoryGenEntries', NfModels, InventoryGenEntries_1.InventoryGenEntries);
     /**
      * Static representation of the one-to-many navigation property [[fiscalPrinter]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.FISCAL_PRINTER = new v4_1.OneToManyLink('FiscalPrinter', NfModels, FiscalPrinter_1.FiscalPrinter);
+    NfModels.FISCAL_PRINTER = new core_1.OneToManyLink('FiscalPrinter', NfModels, FiscalPrinter_1.FiscalPrinter);
     /**
      * Static representation of the one-to-many navigation property [[purchaseQuotations]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.PURCHASE_QUOTATIONS = new v4_1.OneToManyLink('PurchaseQuotations', NfModels, PurchaseQuotations_1.PurchaseQuotations);
+    NfModels.PURCHASE_QUOTATIONS = new core_1.OneToManyLink('PurchaseQuotations', NfModels, PurchaseQuotations_1.PurchaseQuotations);
     /**
      * Static representation of the one-to-many navigation property [[deliveryNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.DELIVERY_NOTES = new v4_1.OneToManyLink('DeliveryNotes', NfModels, DeliveryNotes_1.DeliveryNotes);
+    NfModels.DELIVERY_NOTES = new core_1.OneToManyLink('DeliveryNotes', NfModels, DeliveryNotes_1.DeliveryNotes);
     /**
      * Static representation of the one-to-many navigation property [[quotations]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.QUOTATIONS = new v4_1.OneToManyLink('Quotations', NfModels, Quotations_1.Quotations);
+    NfModels.QUOTATIONS = new core_1.OneToManyLink('Quotations', NfModels, Quotations_1.Quotations);
     /**
      * Static representation of the one-to-many navigation property [[inventoryGenExits]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.INVENTORY_GEN_EXITS = new v4_1.OneToManyLink('InventoryGenExits', NfModels, InventoryGenExits_1.InventoryGenExits);
+    NfModels.INVENTORY_GEN_EXITS = new core_1.OneToManyLink('InventoryGenExits', NfModels, InventoryGenExits_1.InventoryGenExits);
     /**
      * Static representation of the one-to-many navigation property [[purchaseRequests]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.PURCHASE_REQUESTS = new v4_1.OneToManyLink('PurchaseRequests', NfModels, PurchaseRequests_1.PurchaseRequests);
+    NfModels.PURCHASE_REQUESTS = new core_1.OneToManyLink('PurchaseRequests', NfModels, PurchaseRequests_1.PurchaseRequests);
     /**
      * Static representation of the one-to-many navigation property [[returnRequest]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.RETURN_REQUEST = new v4_1.OneToManyLink('ReturnRequest', NfModels, ReturnRequest_1.ReturnRequest);
+    NfModels.RETURN_REQUEST = new core_1.OneToManyLink('ReturnRequest', NfModels, ReturnRequest_1.ReturnRequest);
     /**
      * Static representation of the one-to-many navigation property [[purchaseReturns]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.PURCHASE_RETURNS = new v4_1.OneToManyLink('PurchaseReturns', NfModels, PurchaseReturns_1.PurchaseReturns);
+    NfModels.PURCHASE_RETURNS = new core_1.OneToManyLink('PurchaseReturns', NfModels, PurchaseReturns_1.PurchaseReturns);
     /**
      * Static representation of the one-to-many navigation property [[invoices]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.INVOICES = new v4_1.OneToManyLink('Invoices', NfModels, Invoices_1.Invoices);
+    NfModels.INVOICES = new core_1.OneToManyLink('Invoices', NfModels, Invoices_1.Invoices);
     /**
      * Static representation of the one-to-many navigation property [[creditNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.CREDIT_NOTES = new v4_1.OneToManyLink('CreditNotes', NfModels, CreditNotes_1.CreditNotes);
+    NfModels.CREDIT_NOTES = new core_1.OneToManyLink('CreditNotes', NfModels, CreditNotes_1.CreditNotes);
     /**
      * Static representation of the one-to-many navigation property [[orders]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.ORDERS = new v4_1.OneToManyLink('Orders', NfModels, Orders_1.Orders);
+    NfModels.ORDERS = new core_1.OneToManyLink('Orders', NfModels, Orders_1.Orders);
     /**
      * Static representation of the one-to-many navigation property [[downPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.DOWN_PAYMENTS = new v4_1.OneToManyLink('DownPayments', NfModels, DownPayments_1.DownPayments);
+    NfModels.DOWN_PAYMENTS = new core_1.OneToManyLink('DownPayments', NfModels, DownPayments_1.DownPayments);
     /**
      * Static representation of the one-to-many navigation property [[drafts]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.DRAFTS = new v4_1.OneToManyLink('Drafts', NfModels, Drafts_1.Drafts);
+    NfModels.DRAFTS = new core_1.OneToManyLink('Drafts', NfModels, Drafts_1.Drafts);
     /**
      * Static representation of the one-to-many navigation property [[returns]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.RETURNS = new v4_1.OneToManyLink('Returns', NfModels, Returns_1.Returns);
+    NfModels.RETURNS = new core_1.OneToManyLink('Returns', NfModels, Returns_1.Returns);
     /**
      * Static representation of the one-to-many navigation property [[correctionInvoiceReversal]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.CORRECTION_INVOICE_REVERSAL = new v4_1.OneToManyLink('CorrectionInvoiceReversal', NfModels, CorrectionInvoiceReversal_1.CorrectionInvoiceReversal);
+    NfModels.CORRECTION_INVOICE_REVERSAL = new core_1.OneToManyLink('CorrectionInvoiceReversal', NfModels, CorrectionInvoiceReversal_1.CorrectionInvoiceReversal);
     /**
      * Static representation of the one-to-many navigation property [[correctionPurchaseInvoice]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.CORRECTION_PURCHASE_INVOICE = new v4_1.OneToManyLink('CorrectionPurchaseInvoice', NfModels, CorrectionPurchaseInvoice_1.CorrectionPurchaseInvoice);
+    NfModels.CORRECTION_PURCHASE_INVOICE = new core_1.OneToManyLink('CorrectionPurchaseInvoice', NfModels, CorrectionPurchaseInvoice_1.CorrectionPurchaseInvoice);
     /**
      * Static representation of the one-to-many navigation property [[correctionPurchaseInvoiceReversal]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.CORRECTION_PURCHASE_INVOICE_REVERSAL = new v4_1.OneToManyLink('CorrectionPurchaseInvoiceReversal', NfModels, CorrectionPurchaseInvoiceReversal_1.CorrectionPurchaseInvoiceReversal);
+    NfModels.CORRECTION_PURCHASE_INVOICE_REVERSAL = new core_1.OneToManyLink('CorrectionPurchaseInvoiceReversal', NfModels, CorrectionPurchaseInvoiceReversal_1.CorrectionPurchaseInvoiceReversal);
     /**
      * Static representation of the one-to-many navigation property [[purchaseInvoices]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.PURCHASE_INVOICES = new v4_1.OneToManyLink('PurchaseInvoices', NfModels, PurchaseInvoices_1.PurchaseInvoices);
+    NfModels.PURCHASE_INVOICES = new core_1.OneToManyLink('PurchaseInvoices', NfModels, PurchaseInvoices_1.PurchaseInvoices);
     /**
      * Static representation of the one-to-many navigation property [[purchaseDeliveryNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.PURCHASE_DELIVERY_NOTES = new v4_1.OneToManyLink('PurchaseDeliveryNotes', NfModels, PurchaseDeliveryNotes_1.PurchaseDeliveryNotes);
+    NfModels.PURCHASE_DELIVERY_NOTES = new core_1.OneToManyLink('PurchaseDeliveryNotes', NfModels, PurchaseDeliveryNotes_1.PurchaseDeliveryNotes);
     /**
      * Static representation of the one-to-many navigation property [[correctionInvoice]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.CORRECTION_INVOICE = new v4_1.OneToManyLink('CorrectionInvoice', NfModels, CorrectionInvoice_1.CorrectionInvoice);
+    NfModels.CORRECTION_INVOICE = new core_1.OneToManyLink('CorrectionInvoice', NfModels, CorrectionInvoice_1.CorrectionInvoice);
     /**
      * Static representation of the one-to-many navigation property [[purchaseCreditNotes]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.PURCHASE_CREDIT_NOTES = new v4_1.OneToManyLink('PurchaseCreditNotes', NfModels, PurchaseCreditNotes_1.PurchaseCreditNotes);
+    NfModels.PURCHASE_CREDIT_NOTES = new core_1.OneToManyLink('PurchaseCreditNotes', NfModels, PurchaseCreditNotes_1.PurchaseCreditNotes);
     /**
      * Static representation of the one-to-many navigation property [[purchaseDownPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.PURCHASE_DOWN_PAYMENTS = new v4_1.OneToManyLink('PurchaseDownPayments', NfModels, PurchaseDownPayments_1.PurchaseDownPayments);
+    NfModels.PURCHASE_DOWN_PAYMENTS = new core_1.OneToManyLink('PurchaseDownPayments', NfModels, PurchaseDownPayments_1.PurchaseDownPayments);
     /**
      * Static representation of the one-to-many navigation property [[purchaseOrders]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.PURCHASE_ORDERS = new v4_1.OneToManyLink('PurchaseOrders', NfModels, PurchaseOrders_1.PurchaseOrders);
+    NfModels.PURCHASE_ORDERS = new core_1.OneToManyLink('PurchaseOrders', NfModels, PurchaseOrders_1.PurchaseOrders);
     /**
      * Static representation of the one-to-many navigation property [[goodsReturnRequest]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    NfModels.GOODS_RETURN_REQUEST = new v4_1.OneToManyLink('GoodsReturnRequest', NfModels, GoodsReturnRequest_1.GoodsReturnRequest);
+    NfModels.GOODS_RETURN_REQUEST = new core_1.OneToManyLink('GoodsReturnRequest', NfModels, GoodsReturnRequest_1.GoodsReturnRequest);
     /**
      * All fields of the NfModels entity.
      */
@@ -293,7 +288,7 @@ var GoodsReturnRequest_1 = require("./GoodsReturnRequest");
     /**
      * All fields selector.
      */
-    NfModels.ALL_FIELDS = new v4_1.AllFields('*', NfModels);
+    NfModels.ALL_FIELDS = new core_1.AllFields('*', NfModels);
     /**
      * All key fields of the NfModels entity.
      */

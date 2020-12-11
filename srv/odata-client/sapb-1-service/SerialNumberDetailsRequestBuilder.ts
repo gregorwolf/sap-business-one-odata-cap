@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { SerialNumberDetails } from './SerialNumberDetails';
 
 /**
@@ -15,16 +15,16 @@ export class SerialNumberDetailsRequestBuilder extends RequestBuilder<SerialNumb
    * @param docEntry Key property. See [[SerialNumberDetails.docEntry]].
    * @returns A request builder for creating requests to retrieve one `SerialNumberDetails` entity based on its keys.
    */
-  getByKey(docEntry: number): GetByKeyRequestBuilder<SerialNumberDetails> {
-    return new GetByKeyRequestBuilder(SerialNumberDetails, { DocEntry: docEntry });
+  getByKey(docEntry: number): GetByKeyRequestBuilderV4<SerialNumberDetails> {
+    return new GetByKeyRequestBuilderV4(SerialNumberDetails, { DocEntry: docEntry });
   }
 
   /**
    * Returns a request builder for querying all `SerialNumberDetails` entities.
    * @returns A request builder for creating requests to retrieve all `SerialNumberDetails` entities.
    */
-  getAll(): GetAllRequestBuilder<SerialNumberDetails> {
-    return new GetAllRequestBuilder(SerialNumberDetails);
+  getAll(): GetAllRequestBuilderV4<SerialNumberDetails> {
+    return new GetAllRequestBuilderV4(SerialNumberDetails);
   }
 
   /**
@@ -32,8 +32,8 @@ export class SerialNumberDetailsRequestBuilder extends RequestBuilder<SerialNumb
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `SerialNumberDetails`.
    */
-  create(entity: SerialNumberDetails): CreateRequestBuilder<SerialNumberDetails> {
-    return new CreateRequestBuilder(SerialNumberDetails, entity);
+  create(entity: SerialNumberDetails): CreateRequestBuilderV4<SerialNumberDetails> {
+    return new CreateRequestBuilderV4(SerialNumberDetails, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class SerialNumberDetailsRequestBuilder extends RequestBuilder<SerialNumb
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `SerialNumberDetails`.
    */
-  update(entity: SerialNumberDetails): UpdateRequestBuilder<SerialNumberDetails> {
-    return new UpdateRequestBuilder(SerialNumberDetails, entity);
+  update(entity: SerialNumberDetails): UpdateRequestBuilderV4<SerialNumberDetails> {
+    return new UpdateRequestBuilderV4(SerialNumberDetails, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class SerialNumberDetailsRequestBuilder extends RequestBuilder<SerialNumb
    * @param docEntry Key property. See [[SerialNumberDetails.docEntry]].
    * @returns A request builder for creating requests that delete an entity of type `SerialNumberDetails`.
    */
-  delete(docEntry: number): DeleteRequestBuilder<SerialNumberDetails>;
+  delete(docEntry: number): DeleteRequestBuilderV4<SerialNumberDetails>;
   /**
    * Returns a request builder for deleting an entity of type `SerialNumberDetails`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `SerialNumberDetails` by taking the entity as a parameter.
    */
-  delete(entity: SerialNumberDetails): DeleteRequestBuilder<SerialNumberDetails>;
-  delete(docEntryOrEntity: any): DeleteRequestBuilder<SerialNumberDetails> {
-    return new DeleteRequestBuilder(SerialNumberDetails, docEntryOrEntity instanceof SerialNumberDetails ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
+  delete(entity: SerialNumberDetails): DeleteRequestBuilderV4<SerialNumberDetails>;
+  delete(docEntryOrEntity: any): DeleteRequestBuilderV4<SerialNumberDetails> {
+    return new DeleteRequestBuilderV4(SerialNumberDetails, docEntryOrEntity instanceof SerialNumberDetails ? docEntryOrEntity : { DocEntry: docEntryOrEntity! });
   }
 }

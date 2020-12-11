@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -31,7 +31,7 @@ exports.B1Sessions = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 var B1SessionsRequestBuilder_1 = require("./B1SessionsRequestBuilder");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "B1Sessions" of service "SAPB1".
  */
@@ -41,11 +41,11 @@ var B1Sessions = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `B1Sessions`.
+     * Returns an entity builder to construct instances of `B1Sessions`.
      * @returns A builder that constructs instances of entity type `B1Sessions`.
      */
     B1Sessions.builder = function () {
-        return v4_1.Entity.entityBuilder(B1Sessions);
+        return core_1.EntityV4.entityBuilder(B1Sessions);
     };
     /**
      * Returns a request builder to construct requests for operations on the `B1Sessions` entity type.
@@ -60,7 +60,7 @@ var B1Sessions = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `B1Sessions`.
      */
     B1Sessions.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, B1Sessions);
+        return core_1.EntityV4.customFieldSelector(fieldName, B1Sessions);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -74,33 +74,28 @@ var B1Sessions = /** @class */ (function (_super) {
      */
     B1Sessions._entityName = 'B1Sessions';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for B1Sessions.
-     */
-    B1Sessions._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    B1Sessions._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    B1Sessions._defaultServicePath = '/b1s/v2/';
     return B1Sessions;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.B1Sessions = B1Sessions;
 (function (B1Sessions) {
     /**
      * Static representation of the [[version]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    B1Sessions.VERSION = new v4_1.StringField('Version', B1Sessions, 'Edm.String');
+    B1Sessions.VERSION = new core_1.StringField('Version', B1Sessions, 'Edm.String');
     /**
      * Static representation of the [[sessionTimeout]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    B1Sessions.SESSION_TIMEOUT = new v4_1.NumberField('SessionTimeout', B1Sessions, 'Edm.Int32');
+    B1Sessions.SESSION_TIMEOUT = new core_1.NumberField('SessionTimeout', B1Sessions, 'Edm.Int32');
     /**
      * Static representation of the [[sessionId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    B1Sessions.SESSION_ID = new v4_1.StringField('SessionId', B1Sessions, 'Edm.String');
+    B1Sessions.SESSION_ID = new core_1.StringField('SessionId', B1Sessions, 'Edm.String');
     /**
      * All fields of the B1Sessions entity.
      */
@@ -112,7 +107,7 @@ exports.B1Sessions = B1Sessions;
     /**
      * All fields selector.
      */
-    B1Sessions.ALL_FIELDS = new v4_1.AllFields('*', B1Sessions);
+    B1Sessions.ALL_FIELDS = new core_1.AllFields('*', B1Sessions);
     /**
      * All key fields of the B1Sessions entity.
      */

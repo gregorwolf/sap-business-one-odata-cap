@@ -4,26 +4,22 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { TargetGroupsRequestBuilder } from './TargetGroupsRequestBuilder';
-import { TargetGroupsDetail, TargetGroupsDetailField } from './TargetGroupsDetail';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { TargetGroupsDetail } from './TargetGroupsDetail';
+import { TargetGroupTypeEnum } from './TargetGroupTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "TargetGroups" of service "SAPB1".
  */
-export class TargetGroups extends Entity implements TargetGroupsType {
+export class TargetGroups extends EntityV4 implements TargetGroupsType {
   /**
    * Technical entity name for TargetGroups.
    */
   static _entityName = 'TargetGroups';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for TargetGroups.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Target Group Code.
    * @nullable
@@ -35,6 +31,11 @@ export class TargetGroups extends Entity implements TargetGroupsType {
    */
   targetGroupName?: string;
   /**
+   * Target Group Type.
+   * @nullable
+   */
+  targetGroupType?: TargetGroupTypeEnum;
+  /**
    * Target Groups Details.
    * @nullable
    */
@@ -45,11 +46,11 @@ export class TargetGroups extends Entity implements TargetGroupsType {
   campaigns!: Campaigns[];
 
   /**
-   * Returns an entity builder to construct instances `TargetGroups`.
+   * Returns an entity builder to construct instances of `TargetGroups`.
    * @returns A builder that constructs instances of entity type `TargetGroups`.
    */
-  static builder(): EntityBuilderType<TargetGroups, TargetGroupsTypeForceMandatory> {
-    return Entity.entityBuilder(TargetGroups);
+  static builder(): EntityBuilderType<TargetGroups, TargetGroupsType> {
+    return EntityV4.entityBuilder(TargetGroups);
   }
 
   /**
@@ -65,8 +66,8 @@ export class TargetGroups extends Entity implements TargetGroupsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `TargetGroups`.
    */
-  static customField(fieldName: string): CustomField<TargetGroups> {
-    return Entity.customFieldSelector(fieldName, TargetGroups);
+  static customField(fieldName: string): CustomFieldV4<TargetGroups> {
+    return EntityV4.customFieldSelector(fieldName, TargetGroups);
   }
 
   /**
@@ -81,16 +82,10 @@ export class TargetGroups extends Entity implements TargetGroupsType {
 import { Campaigns, CampaignsType } from './Campaigns';
 
 export interface TargetGroupsType {
-  targetGroupCode?: string;
-  targetGroupName?: string;
-  targetGroupsDetails?: TargetGroupsDetail[];
-  campaigns: CampaignsType[];
-}
-
-export interface TargetGroupsTypeForceMandatory {
-  targetGroupCode: string;
-  targetGroupName: string;
-  targetGroupsDetails: TargetGroupsDetail[];
+  targetGroupCode?: string | null;
+  targetGroupName?: string | null;
+  targetGroupType?: TargetGroupTypeEnum | null;
+  targetGroupsDetails?: TargetGroupsDetail[] | null;
   campaigns: CampaignsType[];
 }
 
@@ -106,10 +101,15 @@ export namespace TargetGroups {
    */
   export const TARGET_GROUP_NAME: StringField<TargetGroups> = new StringField('TargetGroupName', TargetGroups, 'Edm.String');
   /**
+   * Static representation of the [[targetGroupType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const TARGET_GROUP_TYPE: EnumField<TargetGroups> = new EnumField('TargetGroupType', TargetGroups);
+  /**
    * Static representation of the [[targetGroupsDetails]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const TARGET_GROUPS_DETAILS: CollectionField<TargetGroups> = new CollectionField('TargetGroupsDetails', TargetGroups, new TargetGroupsDetailField('', TargetGroups));
+  export const TARGET_GROUPS_DETAILS: CollectionField<TargetGroups, TargetGroupsDetail> = new CollectionField('TargetGroupsDetails', TargetGroups, TargetGroupsDetail);
   /**
    * Static representation of the one-to-many navigation property [[campaigns]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -118,9 +118,10 @@ export namespace TargetGroups {
   /**
    * All fields of the TargetGroups entity.
    */
-  export const _allFields: Array<StringField<TargetGroups> | CollectionField<TargetGroups> | OneToManyLink<TargetGroups, Campaigns>> = [
+  export const _allFields: Array<StringField<TargetGroups> | EnumField<TargetGroups> | CollectionField<TargetGroups, TargetGroupsDetail> | OneToManyLink<TargetGroups, Campaigns>> = [
     TargetGroups.TARGET_GROUP_CODE,
     TargetGroups.TARGET_GROUP_NAME,
+    TargetGroups.TARGET_GROUP_TYPE,
     TargetGroups.TARGET_GROUPS_DETAILS,
     TargetGroups.CAMPAIGNS
   ];

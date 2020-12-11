@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { BusinessPartners } from './BusinessPartners';
 
 /**
@@ -15,16 +15,16 @@ export class BusinessPartnersRequestBuilder extends RequestBuilder<BusinessPartn
    * @param cardCode Key property. See [[BusinessPartners.cardCode]].
    * @returns A request builder for creating requests to retrieve one `BusinessPartners` entity based on its keys.
    */
-  getByKey(cardCode: string): GetByKeyRequestBuilder<BusinessPartners> {
-    return new GetByKeyRequestBuilder(BusinessPartners, { CardCode: cardCode });
+  getByKey(cardCode: string): GetByKeyRequestBuilderV4<BusinessPartners> {
+    return new GetByKeyRequestBuilderV4(BusinessPartners, { CardCode: cardCode });
   }
 
   /**
    * Returns a request builder for querying all `BusinessPartners` entities.
    * @returns A request builder for creating requests to retrieve all `BusinessPartners` entities.
    */
-  getAll(): GetAllRequestBuilder<BusinessPartners> {
-    return new GetAllRequestBuilder(BusinessPartners);
+  getAll(): GetAllRequestBuilderV4<BusinessPartners> {
+    return new GetAllRequestBuilderV4(BusinessPartners);
   }
 
   /**
@@ -32,8 +32,8 @@ export class BusinessPartnersRequestBuilder extends RequestBuilder<BusinessPartn
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `BusinessPartners`.
    */
-  create(entity: BusinessPartners): CreateRequestBuilder<BusinessPartners> {
-    return new CreateRequestBuilder(BusinessPartners, entity);
+  create(entity: BusinessPartners): CreateRequestBuilderV4<BusinessPartners> {
+    return new CreateRequestBuilderV4(BusinessPartners, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class BusinessPartnersRequestBuilder extends RequestBuilder<BusinessPartn
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `BusinessPartners`.
    */
-  update(entity: BusinessPartners): UpdateRequestBuilder<BusinessPartners> {
-    return new UpdateRequestBuilder(BusinessPartners, entity);
+  update(entity: BusinessPartners): UpdateRequestBuilderV4<BusinessPartners> {
+    return new UpdateRequestBuilderV4(BusinessPartners, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class BusinessPartnersRequestBuilder extends RequestBuilder<BusinessPartn
    * @param cardCode Key property. See [[BusinessPartners.cardCode]].
    * @returns A request builder for creating requests that delete an entity of type `BusinessPartners`.
    */
-  delete(cardCode: string): DeleteRequestBuilder<BusinessPartners>;
+  delete(cardCode: string): DeleteRequestBuilderV4<BusinessPartners>;
   /**
    * Returns a request builder for deleting an entity of type `BusinessPartners`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `BusinessPartners` by taking the entity as a parameter.
    */
-  delete(entity: BusinessPartners): DeleteRequestBuilder<BusinessPartners>;
-  delete(cardCodeOrEntity: any): DeleteRequestBuilder<BusinessPartners> {
-    return new DeleteRequestBuilder(BusinessPartners, cardCodeOrEntity instanceof BusinessPartners ? cardCodeOrEntity : { CardCode: cardCodeOrEntity! });
+  delete(entity: BusinessPartners): DeleteRequestBuilderV4<BusinessPartners>;
+  delete(cardCodeOrEntity: any): DeleteRequestBuilderV4<BusinessPartners> {
+    return new DeleteRequestBuilderV4(BusinessPartners, cardCodeOrEntity instanceof BusinessPartners ? cardCodeOrEntity : { CardCode: cardCodeOrEntity! });
   }
 }

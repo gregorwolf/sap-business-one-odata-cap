@@ -1,18 +1,13 @@
 import { IndustriesRequestBuilder } from './IndustriesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "Industries" of service "SAPB1".
  */
-export declare class Industries extends Entity implements IndustriesType {
+export declare class Industries extends EntityV4 implements IndustriesType {
     /**
      * Technical entity name for Industries.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for Industries.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -45,10 +40,10 @@ export declare class Industries extends Entity implements IndustriesType {
      */
     projectManagements: ProjectManagements[];
     /**
-     * Returns an entity builder to construct instances `Industries`.
+     * Returns an entity builder to construct instances of `Industries`.
      * @returns A builder that constructs instances of entity type `Industries`.
      */
-    static builder(): EntityBuilderType<Industries, IndustriesTypeForceMandatory>;
+    static builder(): EntityBuilderType<Industries, IndustriesType>;
     /**
      * Returns a request builder to construct requests for operations on the `Industries` entity type.
      * @returns A `Industries` request builder.
@@ -59,7 +54,7 @@ export declare class Industries extends Entity implements IndustriesType {
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `Industries`.
      */
-    static customField(fieldName: string): CustomField<Industries>;
+    static customField(fieldName: string): CustomFieldV4<Industries>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -72,17 +67,9 @@ import { SalesOpportunities, SalesOpportunitiesType } from './SalesOpportunities
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 import { ProjectManagements, ProjectManagementsType } from './ProjectManagements';
 export interface IndustriesType {
-    industryDescription?: string;
-    industryName?: string;
-    industryCode?: number;
-    salesOpportunities: SalesOpportunitiesType[];
-    businessPartners: BusinessPartnersType[];
-    projectManagements: ProjectManagementsType[];
-}
-export interface IndustriesTypeForceMandatory {
-    industryDescription: string;
-    industryName: string;
-    industryCode: number;
+    industryDescription?: string | null;
+    industryName?: string | null;
+    industryCode?: number | null;
     salesOpportunities: SalesOpportunitiesType[];
     businessPartners: BusinessPartnersType[];
     projectManagements: ProjectManagementsType[];

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.TranslationsInUserLanguage = exports.TranslationsInUserLanguageField = e
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[TranslationsInUserLanguage.build]] instead.
  */
@@ -33,36 +33,60 @@ exports.createTranslationsInUserLanguage = createTranslationsInUserLanguage;
  */
 var TranslationsInUserLanguageField = /** @class */ (function (_super) {
     __extends(TranslationsInUserLanguageField, _super);
-    function TranslationsInUserLanguageField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of TranslationsInUserLanguageField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function TranslationsInUserLanguageField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, TranslationsInUserLanguage) || this;
         /**
          * Representation of the [[TranslationsInUserLanguage.keyFromHeaderTable]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.keyFromHeaderTable = new v4_1.ComplexTypeNumberPropertyField('KeyFromHeaderTable', _this, 'Edm.Int32');
+        _this.keyFromHeaderTable = new core_1.ComplexTypeNumberPropertyField('KeyFromHeaderTable', _this, 'Edm.Int32');
         /**
          * Representation of the [[TranslationsInUserLanguage.languageCodeOfUserLanguage]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.languageCodeOfUserLanguage = new v4_1.ComplexTypeNumberPropertyField('LanguageCodeOfUserLanguage', _this, 'Edm.Int32');
+        _this.languageCodeOfUserLanguage = new core_1.ComplexTypeNumberPropertyField('LanguageCodeOfUserLanguage', _this, 'Edm.Int32');
         /**
          * Representation of the [[TranslationsInUserLanguage.translationscontent]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.translationscontent = new v4_1.ComplexTypeStringPropertyField('Translationscontent', _this, 'Edm.String');
+        _this.translationscontent = new core_1.ComplexTypeStringPropertyField('Translationscontent', _this, 'Edm.String');
         return _this;
     }
     return TranslationsInUserLanguageField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.TranslationsInUserLanguageField = TranslationsInUserLanguageField;
 var TranslationsInUserLanguage;
 (function (TranslationsInUserLanguage) {
+    /**
+     * Metadata information on all properties of the `TranslationsInUserLanguage` complex type.
+     */
+    TranslationsInUserLanguage._propertyMetadata = [{
+            originalName: 'KeyFromHeaderTable',
+            name: 'keyFromHeaderTable',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'LanguageCodeOfUserLanguage',
+            name: 'languageCodeOfUserLanguage',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'Translationscontent',
+            name: 'translationscontent',
+            type: 'Edm.String',
+            isCollection: false
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            KeyFromHeaderTable: function (keyFromHeaderTable) { return ({ keyFromHeaderTable: v4_1.edmToTs(keyFromHeaderTable, 'Edm.Int32') }); },
-            LanguageCodeOfUserLanguage: function (languageCodeOfUserLanguage) { return ({ languageCodeOfUserLanguage: v4_1.edmToTs(languageCodeOfUserLanguage, 'Edm.Int32') }); },
-            Translationscontent: function (translationscontent) { return ({ translationscontent: v4_1.edmToTs(translationscontent, 'Edm.String') }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, TranslationsInUserLanguage);
     }
     TranslationsInUserLanguage.build = build;
 })(TranslationsInUserLanguage = exports.TranslationsInUserLanguage || (exports.TranslationsInUserLanguage = {}));

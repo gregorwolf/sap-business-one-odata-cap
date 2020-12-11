@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -32,7 +32,7 @@ exports.TaxInvoiceReport = void 0;
  */
 var TaxInvoiceReportRequestBuilder_1 = require("./TaxInvoiceReportRequestBuilder");
 var TaxInvoiceReportLine_1 = require("./TaxInvoiceReportLine");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * This class represents the entity "TaxInvoiceReport" of service "SAPB1".
  */
@@ -42,11 +42,11 @@ var TaxInvoiceReport = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Returns an entity builder to construct instances `TaxInvoiceReport`.
+     * Returns an entity builder to construct instances of `TaxInvoiceReport`.
      * @returns A builder that constructs instances of entity type `TaxInvoiceReport`.
      */
     TaxInvoiceReport.builder = function () {
-        return v4_1.Entity.entityBuilder(TaxInvoiceReport);
+        return core_1.EntityV4.entityBuilder(TaxInvoiceReport);
     };
     /**
      * Returns a request builder to construct requests for operations on the `TaxInvoiceReport` entity type.
@@ -61,7 +61,7 @@ var TaxInvoiceReport = /** @class */ (function (_super) {
      * @returns A builder that constructs instances of entity type `TaxInvoiceReport`.
      */
     TaxInvoiceReport.customField = function (fieldName) {
-        return v4_1.Entity.customFieldSelector(fieldName, TaxInvoiceReport);
+        return core_1.EntityV4.customFieldSelector(fieldName, TaxInvoiceReport);
     };
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
@@ -75,103 +75,104 @@ var TaxInvoiceReport = /** @class */ (function (_super) {
      */
     TaxInvoiceReport._entityName = 'TaxInvoiceReport';
     /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for TaxInvoiceReport.
-     */
-    TaxInvoiceReport._serviceName = 'SAPB1';
-    /**
      * Default url path for the according service.
      */
-    TaxInvoiceReport._defaultServicePath = 'VALUE_IS_UNDEFINED';
+    TaxInvoiceReport._defaultServicePath = '/b1s/v2/';
     return TaxInvoiceReport;
-}(v4_1.Entity));
+}(core_1.EntityV4));
 exports.TaxInvoiceReport = TaxInvoiceReport;
 var TaxWebSites_1 = require("./TaxWebSites");
 (function (TaxInvoiceReport) {
     /**
+     * Static representation of the [[ntsApproval]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    TaxInvoiceReport.NTS_APPROVAL = new core_1.EnumField('NTSApproval', TaxInvoiceReport);
+    /**
      * Static representation of the [[eTaxWebSite]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxInvoiceReport.E_TAX_WEB_SITE = new v4_1.NumberField('ETaxWebSite', TaxInvoiceReport, 'Edm.Int32');
+    TaxInvoiceReport.E_TAX_WEB_SITE = new core_1.NumberField('ETaxWebSite', TaxInvoiceReport, 'Edm.Int32');
     /**
      * Static representation of the [[eTaxNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxInvoiceReport.E_TAX_NO = new v4_1.StringField('ETaxNo', TaxInvoiceReport, 'Edm.String');
+    TaxInvoiceReport.E_TAX_NO = new core_1.StringField('ETaxNo', TaxInvoiceReport, 'Edm.String');
     /**
      * Static representation of the [[ntsApprovalNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxInvoiceReport.NTS_APPROVAL_NO = new v4_1.StringField('NTSApprovalNo', TaxInvoiceReport, 'Edm.String');
+    TaxInvoiceReport.NTS_APPROVAL_NO = new core_1.StringField('NTSApprovalNo', TaxInvoiceReport, 'Edm.String');
     /**
      * Static representation of the [[originalNtsApprovalNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxInvoiceReport.ORIGINAL_NTS_APPROVAL_NO = new v4_1.StringField('OriginalNTSApprovalNo', TaxInvoiceReport, 'Edm.String');
+    TaxInvoiceReport.ORIGINAL_NTS_APPROVAL_NO = new core_1.StringField('OriginalNTSApprovalNo', TaxInvoiceReport, 'Edm.String');
     /**
      * Static representation of the [[remarks]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxInvoiceReport.REMARKS = new v4_1.StringField('Remarks', TaxInvoiceReport, 'Edm.String');
+    TaxInvoiceReport.REMARKS = new core_1.StringField('Remarks', TaxInvoiceReport, 'Edm.String');
     /**
      * Static representation of the [[taxInvoiceReportNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxInvoiceReport.TAX_INVOICE_REPORT_NUMBER = new v4_1.StringField('TaxInvoiceReportNumber', TaxInvoiceReport, 'Edm.String');
+    TaxInvoiceReport.TAX_INVOICE_REPORT_NUMBER = new core_1.StringField('TaxInvoiceReportNumber', TaxInvoiceReport, 'Edm.String');
     /**
      * Static representation of the [[date]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxInvoiceReport.DATE = new v4_1.DateField('Date', TaxInvoiceReport, 'Edm.DateTimeOffset');
+    TaxInvoiceReport.DATE = new core_1.DateField('Date', TaxInvoiceReport, 'Edm.DateTimeOffset');
     /**
      * Static representation of the [[businessPlace]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxInvoiceReport.BUSINESS_PLACE = new v4_1.NumberField('BusinessPlace', TaxInvoiceReport, 'Edm.Int32');
+    TaxInvoiceReport.BUSINESS_PLACE = new core_1.NumberField('BusinessPlace', TaxInvoiceReport, 'Edm.Int32');
     /**
      * Static representation of the [[bpCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxInvoiceReport.BP_CODE = new v4_1.StringField('BPCode', TaxInvoiceReport, 'Edm.String');
+    TaxInvoiceReport.BP_CODE = new core_1.StringField('BPCode', TaxInvoiceReport, 'Edm.String');
     /**
      * Static representation of the [[bpName]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxInvoiceReport.BP_NAME = new v4_1.StringField('BPName', TaxInvoiceReport, 'Edm.String');
+    TaxInvoiceReport.BP_NAME = new core_1.StringField('BPName', TaxInvoiceReport, 'Edm.String');
     /**
      * Static representation of the [[baseAmount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxInvoiceReport.BASE_AMOUNT = new v4_1.NumberField('BaseAmount', TaxInvoiceReport, 'Edm.Double');
+    TaxInvoiceReport.BASE_AMOUNT = new core_1.NumberField('BaseAmount', TaxInvoiceReport, 'Edm.Double');
     /**
      * Static representation of the [[taxAmount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxInvoiceReport.TAX_AMOUNT = new v4_1.NumberField('TaxAmount', TaxInvoiceReport, 'Edm.Double');
+    TaxInvoiceReport.TAX_AMOUNT = new core_1.NumberField('TaxAmount', TaxInvoiceReport, 'Edm.Double');
     /**
      * Static representation of the [[canceled]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxInvoiceReport.CANCELED = new v4_1.StringField('Canceled', TaxInvoiceReport, 'Edm.String');
+    TaxInvoiceReport.CANCELED = new core_1.StringField('Canceled', TaxInvoiceReport, 'Edm.String');
     /**
      * Static representation of the [[reportType]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxInvoiceReport.REPORT_TYPE = new v4_1.NumberField('ReportType', TaxInvoiceReport, 'Edm.Int32');
+    TaxInvoiceReport.REPORT_TYPE = new core_1.NumberField('ReportType', TaxInvoiceReport, 'Edm.Int32');
     /**
      * Static representation of the [[taxInvoiceReportLineCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxInvoiceReport.TAX_INVOICE_REPORT_LINE_COLLECTION = new v4_1.CollectionField('TaxInvoiceReportLineCollection', TaxInvoiceReport, new TaxInvoiceReportLine_1.TaxInvoiceReportLineField('', TaxInvoiceReport));
+    TaxInvoiceReport.TAX_INVOICE_REPORT_LINE_COLLECTION = new core_1.CollectionField('TaxInvoiceReportLineCollection', TaxInvoiceReport, TaxInvoiceReportLine_1.TaxInvoiceReportLine);
     /**
      * Static representation of the one-to-one navigation property [[taxWebSite]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    TaxInvoiceReport.TAX_WEB_SITE = new v4_1.OneToOneLink('TaxWebSite', TaxInvoiceReport, TaxWebSites_1.TaxWebSites);
+    TaxInvoiceReport.TAX_WEB_SITE = new core_1.OneToOneLink('TaxWebSite', TaxInvoiceReport, TaxWebSites_1.TaxWebSites);
     /**
      * All fields of the TaxInvoiceReport entity.
      */
     TaxInvoiceReport._allFields = [
+        TaxInvoiceReport.NTS_APPROVAL,
         TaxInvoiceReport.E_TAX_WEB_SITE,
         TaxInvoiceReport.E_TAX_NO,
         TaxInvoiceReport.NTS_APPROVAL_NO,
@@ -192,7 +193,7 @@ var TaxWebSites_1 = require("./TaxWebSites");
     /**
      * All fields selector.
      */
-    TaxInvoiceReport.ALL_FIELDS = new v4_1.AllFields('*', TaxInvoiceReport);
+    TaxInvoiceReport.ALL_FIELDS = new core_1.AllFields('*', TaxInvoiceReport);
     /**
      * All key fields of the TaxInvoiceReport entity.
      */

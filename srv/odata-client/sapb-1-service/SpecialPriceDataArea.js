@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -15,7 +15,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SpecialPriceDataArea = exports.SpecialPriceDataAreaField = exports.createSpecialPriceDataArea = void 0;
 var SpecialPriceQuantityArea_1 = require("./SpecialPriceQuantityArea");
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 /**
  * @deprecated Since v1.6.0. Use [[SpecialPriceDataArea.build]] instead.
  */
@@ -29,78 +29,140 @@ exports.createSpecialPriceDataArea = createSpecialPriceDataArea;
  */
 var SpecialPriceDataAreaField = /** @class */ (function (_super) {
     __extends(SpecialPriceDataAreaField, _super);
-    function SpecialPriceDataAreaField() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    /**
+     * Creates an instance of SpecialPriceDataAreaField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    function SpecialPriceDataAreaField(fieldName, fieldOf) {
+        var _this = _super.call(this, fieldName, fieldOf, SpecialPriceDataArea) || this;
         /**
          * Representation of the [[SpecialPriceDataArea.priceCurrency]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.priceCurrency = new v4_1.ComplexTypeStringPropertyField('PriceCurrency', _this, 'Edm.String');
+        _this.priceCurrency = new core_1.ComplexTypeStringPropertyField('PriceCurrency', _this, 'Edm.String');
+        /**
+         * Representation of the [[SpecialPriceDataArea.autoUpdate]] property for query construction.
+         * Use to reference this property in query operations such as 'filter' in the fluent request API.
+         */
+        _this.autoUpdate = new core_1.ComplexTypeEnumPropertyField('AutoUpdate', _this);
         /**
          * Representation of the [[SpecialPriceDataArea.dateto]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.dateto = new v4_1.ComplexTypeDatePropertyField('Dateto', _this, 'Edm.DateTimeOffset');
+        _this.dateto = new core_1.ComplexTypeDatePropertyField('Dateto', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[SpecialPriceDataArea.discount]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.discount = new v4_1.ComplexTypeNumberPropertyField('Discount', _this, 'Edm.Double');
+        _this.discount = new core_1.ComplexTypeNumberPropertyField('Discount', _this, 'Edm.Double');
         /**
          * Representation of the [[SpecialPriceDataArea.specialPrice]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.specialPrice = new v4_1.ComplexTypeNumberPropertyField('SpecialPrice', _this, 'Edm.Double');
+        _this.specialPrice = new core_1.ComplexTypeNumberPropertyField('SpecialPrice', _this, 'Edm.Double');
         /**
          * Representation of the [[SpecialPriceDataArea.dateFrom]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.dateFrom = new v4_1.ComplexTypeDatePropertyField('DateFrom', _this, 'Edm.DateTimeOffset');
+        _this.dateFrom = new core_1.ComplexTypeDatePropertyField('DateFrom', _this, 'Edm.DateTimeOffset');
         /**
          * Representation of the [[SpecialPriceDataArea.bpCode]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.bpCode = new v4_1.ComplexTypeStringPropertyField('BPCode', _this, 'Edm.String');
+        _this.bpCode = new core_1.ComplexTypeStringPropertyField('BPCode', _this, 'Edm.String');
         /**
          * Representation of the [[SpecialPriceDataArea.priceListNo]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.priceListNo = new v4_1.ComplexTypeNumberPropertyField('PriceListNo', _this, 'Edm.Int32');
+        _this.priceListNo = new core_1.ComplexTypeNumberPropertyField('PriceListNo', _this, 'Edm.Int32');
         /**
          * Representation of the [[SpecialPriceDataArea.itemNo]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.itemNo = new v4_1.ComplexTypeStringPropertyField('ItemNo', _this, 'Edm.String');
+        _this.itemNo = new core_1.ComplexTypeStringPropertyField('ItemNo', _this, 'Edm.String');
         /**
          * Representation of the [[SpecialPriceDataArea.rowNumber]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.rowNumber = new v4_1.ComplexTypeNumberPropertyField('RowNumber', _this, 'Edm.Int32');
+        _this.rowNumber = new core_1.ComplexTypeNumberPropertyField('RowNumber', _this, 'Edm.Int32');
         /**
          * Representation of the [[SpecialPriceDataArea.specialPriceQuantityAreas]] property for query construction.
          * Use to reference this property in query operations such as 'filter' in the fluent request API.
          */
-        _this.specialPriceQuantityAreas = new SpecialPriceQuantityArea_1.SpecialPriceQuantityAreaField('SpecialPriceQuantityAreas', _this);
+        _this.specialPriceQuantityAreas = new core_1.CollectionField('SpecialPriceQuantityAreas', _this, SpecialPriceQuantityArea_1.SpecialPriceQuantityArea);
         return _this;
     }
     return SpecialPriceDataAreaField;
-}(v4_1.ComplexTypeField));
+}(core_1.ComplexTypeField));
 exports.SpecialPriceDataAreaField = SpecialPriceDataAreaField;
 var SpecialPriceDataArea;
 (function (SpecialPriceDataArea) {
+    /**
+     * Metadata information on all properties of the `SpecialPriceDataArea` complex type.
+     */
+    SpecialPriceDataArea._propertyMetadata = [{
+            originalName: 'PriceCurrency',
+            name: 'priceCurrency',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'AutoUpdate',
+            name: 'autoUpdate',
+            type: 'Edm.Enum',
+            isCollection: false
+        }, {
+            originalName: 'Dateto',
+            name: 'dateto',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'Discount',
+            name: 'discount',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'SpecialPrice',
+            name: 'specialPrice',
+            type: 'Edm.Double',
+            isCollection: false
+        }, {
+            originalName: 'DateFrom',
+            name: 'dateFrom',
+            type: 'Edm.DateTimeOffset',
+            isCollection: false
+        }, {
+            originalName: 'BPCode',
+            name: 'bpCode',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'PriceListNo',
+            name: 'priceListNo',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'ItemNo',
+            name: 'itemNo',
+            type: 'Edm.String',
+            isCollection: false
+        }, {
+            originalName: 'RowNumber',
+            name: 'rowNumber',
+            type: 'Edm.Int32',
+            isCollection: false
+        }, {
+            originalName: 'SpecialPriceQuantityAreas',
+            name: 'specialPriceQuantityAreas',
+            type: SpecialPriceQuantityArea_1.SpecialPriceQuantityArea,
+            isCollection: true
+        }];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json) {
-        return v4_1.createComplexType(json, {
-            PriceCurrency: function (priceCurrency) { return ({ priceCurrency: v4_1.edmToTs(priceCurrency, 'Edm.String') }); },
-            Dateto: function (dateto) { return ({ dateto: v4_1.edmToTs(dateto, 'Edm.DateTimeOffset') }); },
-            Discount: function (discount) { return ({ discount: v4_1.edmToTs(discount, 'Edm.Double') }); },
-            SpecialPrice: function (specialPrice) { return ({ specialPrice: v4_1.edmToTs(specialPrice, 'Edm.Double') }); },
-            DateFrom: function (dateFrom) { return ({ dateFrom: v4_1.edmToTs(dateFrom, 'Edm.DateTimeOffset') }); },
-            BPCode: function (bpCode) { return ({ bpCode: v4_1.edmToTs(bpCode, 'Edm.String') }); },
-            PriceListNo: function (priceListNo) { return ({ priceListNo: v4_1.edmToTs(priceListNo, 'Edm.Int32') }); },
-            ItemNo: function (itemNo) { return ({ itemNo: v4_1.edmToTs(itemNo, 'Edm.String') }); },
-            RowNumber: function (rowNumber) { return ({ rowNumber: v4_1.edmToTs(rowNumber, 'Edm.Int32') }); },
-            SpecialPriceQuantityAreas: function (specialPriceQuantityAreas) { return ({ specialPriceQuantityAreas: SpecialPriceQuantityArea_1.SpecialPriceQuantityArea.build(specialPriceQuantityAreas) }); }
-        });
+        return core_1.deserializeComplexTypeV4(json, SpecialPriceDataArea);
     }
     SpecialPriceDataArea.build = build;
 })(SpecialPriceDataArea = exports.SpecialPriceDataArea || (exports.SpecialPriceDataArea = {}));

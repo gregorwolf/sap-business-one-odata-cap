@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * InventoryCountingParams
@@ -32,7 +32,7 @@ export function createInventoryCountingParams(json: any): InventoryCountingParam
  * InventoryCountingParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class InventoryCountingParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class InventoryCountingParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, InventoryCountingParams> {
   /**
    * Representation of the [[InventoryCountingParams.documentEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -43,13 +43,38 @@ export class InventoryCountingParamsField<EntityT extends Entity> extends Comple
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   documentNumber: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('DocumentNumber', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of InventoryCountingParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, InventoryCountingParams);
+  }
 }
 
 export namespace InventoryCountingParams {
+  /**
+   * Metadata information on all properties of the `InventoryCountingParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<InventoryCountingParams>[] = [{
+    originalName: 'DocumentEntry',
+    name: 'documentEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }, {
+    originalName: 'DocumentNumber',
+    name: 'documentNumber',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): InventoryCountingParams {
-    return createComplexType(json, {
-      DocumentEntry: (documentEntry: number) => ({ documentEntry: edmToTs(documentEntry, 'Edm.Int32') }),
-      DocumentNumber: (documentNumber: number) => ({ documentNumber: edmToTs(documentNumber, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, InventoryCountingParams);
   }
 }

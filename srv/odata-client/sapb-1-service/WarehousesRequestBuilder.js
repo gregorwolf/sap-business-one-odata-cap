@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.WarehousesRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var Warehouses_1 = require("./Warehouses");
 /**
  * Request builder class for operations supported on the [[Warehouses]] entity.
@@ -35,14 +35,14 @@ var WarehousesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `Warehouses` entity based on its keys.
      */
     WarehousesRequestBuilder.prototype.getByKey = function (warehouseCode) {
-        return new v4_1.GetByKeyRequestBuilder(Warehouses_1.Warehouses, { WarehouseCode: warehouseCode });
+        return new core_1.GetByKeyRequestBuilderV4(Warehouses_1.Warehouses, { WarehouseCode: warehouseCode });
     };
     /**
      * Returns a request builder for querying all `Warehouses` entities.
      * @returns A request builder for creating requests to retrieve all `Warehouses` entities.
      */
     WarehousesRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(Warehouses_1.Warehouses);
+        return new core_1.GetAllRequestBuilderV4(Warehouses_1.Warehouses);
     };
     /**
      * Returns a request builder for creating a `Warehouses` entity.
@@ -50,7 +50,7 @@ var WarehousesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `Warehouses`.
      */
     WarehousesRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(Warehouses_1.Warehouses, entity);
+        return new core_1.CreateRequestBuilderV4(Warehouses_1.Warehouses, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `Warehouses`.
@@ -58,12 +58,12 @@ var WarehousesRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `Warehouses`.
      */
     WarehousesRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(Warehouses_1.Warehouses, entity);
+        return new core_1.UpdateRequestBuilderV4(Warehouses_1.Warehouses, entity);
     };
     WarehousesRequestBuilder.prototype.delete = function (warehouseCodeOrEntity) {
-        return new v4_1.DeleteRequestBuilder(Warehouses_1.Warehouses, warehouseCodeOrEntity instanceof Warehouses_1.Warehouses ? warehouseCodeOrEntity : { WarehouseCode: warehouseCodeOrEntity });
+        return new core_1.DeleteRequestBuilderV4(Warehouses_1.Warehouses, warehouseCodeOrEntity instanceof Warehouses_1.Warehouses ? warehouseCodeOrEntity : { WarehouseCode: warehouseCodeOrEntity });
     };
     return WarehousesRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.WarehousesRequestBuilder = WarehousesRequestBuilder;
 //# sourceMappingURL=WarehousesRequestBuilder.js.map

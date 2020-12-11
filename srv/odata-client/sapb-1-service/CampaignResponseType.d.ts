@@ -1,18 +1,14 @@
 import { CampaignResponseTypeRequestBuilder } from './CampaignResponseTypeRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "CampaignResponseType" of service "SAPB1".
  */
-export declare class CampaignResponseType extends Entity implements CampaignResponseTypeType {
+export declare class CampaignResponseType extends EntityV4 implements CampaignResponseTypeType {
     /**
      * Technical entity name for CampaignResponseType.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for CampaignResponseType.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -28,10 +24,15 @@ export declare class CampaignResponseType extends Entity implements CampaignResp
      */
     responseType?: string;
     /**
-     * Returns an entity builder to construct instances `CampaignResponseType`.
+     * Is Active.
+     * @nullable
+     */
+    isActive?: BoYesNoEnum;
+    /**
+     * Returns an entity builder to construct instances of `CampaignResponseType`.
      * @returns A builder that constructs instances of entity type `CampaignResponseType`.
      */
-    static builder(): EntityBuilderType<CampaignResponseType, CampaignResponseTypeTypeForceMandatory>;
+    static builder(): EntityBuilderType<CampaignResponseType, CampaignResponseTypeType>;
     /**
      * Returns a request builder to construct requests for operations on the `CampaignResponseType` entity type.
      * @returns A `CampaignResponseType` request builder.
@@ -42,7 +43,7 @@ export declare class CampaignResponseType extends Entity implements CampaignResp
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `CampaignResponseType`.
      */
-    static customField(fieldName: string): CustomField<CampaignResponseType>;
+    static customField(fieldName: string): CustomFieldV4<CampaignResponseType>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -52,12 +53,9 @@ export declare class CampaignResponseType extends Entity implements CampaignResp
     };
 }
 export interface CampaignResponseTypeType {
-    responseTypeDescription?: string;
-    responseType?: string;
-}
-export interface CampaignResponseTypeTypeForceMandatory {
-    responseTypeDescription: string;
-    responseType: string;
+    responseTypeDescription?: string | null;
+    responseType?: string | null;
+    isActive?: BoYesNoEnum | null;
 }
 export declare namespace CampaignResponseType {
     /**
@@ -71,9 +69,14 @@ export declare namespace CampaignResponseType {
      */
     const RESPONSE_TYPE: StringField<CampaignResponseType>;
     /**
+     * Static representation of the [[isActive]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IS_ACTIVE: EnumField<CampaignResponseType>;
+    /**
      * All fields of the CampaignResponseType entity.
      */
-    const _allFields: Array<StringField<CampaignResponseType>>;
+    const _allFields: Array<StringField<CampaignResponseType> | EnumField<CampaignResponseType>>;
     /**
      * All fields selector.
      */

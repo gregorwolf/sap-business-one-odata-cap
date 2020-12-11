@@ -1,18 +1,13 @@
 import { AccountSegmentationCategoriesRequestBuilder } from './AccountSegmentationCategoriesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "AccountSegmentationCategories" of service "SAPB1".
  */
-export declare class AccountSegmentationCategories extends Entity implements AccountSegmentationCategoriesType {
+export declare class AccountSegmentationCategories extends EntityV4 implements AccountSegmentationCategoriesType {
     /**
      * Technical entity name for AccountSegmentationCategories.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for AccountSegmentationCategories.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -42,10 +37,10 @@ export declare class AccountSegmentationCategories extends Entity implements Acc
      */
     accountSegmentation: AccountSegmentations;
     /**
-     * Returns an entity builder to construct instances `AccountSegmentationCategories`.
+     * Returns an entity builder to construct instances of `AccountSegmentationCategories`.
      * @returns A builder that constructs instances of entity type `AccountSegmentationCategories`.
      */
-    static builder(): EntityBuilderType<AccountSegmentationCategories, AccountSegmentationCategoriesTypeForceMandatory>;
+    static builder(): EntityBuilderType<AccountSegmentationCategories, AccountSegmentationCategoriesType>;
     /**
      * Returns a request builder to construct requests for operations on the `AccountSegmentationCategories` entity type.
      * @returns A `AccountSegmentationCategories` request builder.
@@ -56,7 +51,7 @@ export declare class AccountSegmentationCategories extends Entity implements Acc
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `AccountSegmentationCategories`.
      */
-    static customField(fieldName: string): CustomField<AccountSegmentationCategories>;
+    static customField(fieldName: string): CustomFieldV4<AccountSegmentationCategories>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -67,17 +62,10 @@ export declare class AccountSegmentationCategories extends Entity implements Acc
 }
 import { AccountSegmentations, AccountSegmentationsType } from './AccountSegmentations';
 export interface AccountSegmentationCategoriesType {
-    segmentId?: number;
-    code?: string;
-    name?: string;
-    shortName?: string;
-    accountSegmentation: AccountSegmentationsType;
-}
-export interface AccountSegmentationCategoriesTypeForceMandatory {
-    segmentId: number;
-    code: string;
-    name: string;
-    shortName: string;
+    segmentId?: number | null;
+    code?: string | null;
+    name?: string | null;
+    shortName?: string | null;
     accountSegmentation: AccountSegmentationsType;
 }
 export declare namespace AccountSegmentationCategories {

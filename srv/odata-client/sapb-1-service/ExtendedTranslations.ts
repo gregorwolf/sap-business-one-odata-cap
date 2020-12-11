@@ -5,31 +5,32 @@
  */
 import { ExtendedTranslationsRequestBuilder } from './ExtendedTranslationsRequestBuilder';
 import { Moment } from 'moment';
-import { ExtendedTranslationItemLine, ExtendedTranslationItemLineField } from './ExtendedTranslationItemLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { ExtendedTranslationItemLine } from './ExtendedTranslationItemLine';
+import { TranslationCategoryEnum } from './TranslationCategoryEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "ExtendedTranslations" of service "SAPB1".
  */
-export class ExtendedTranslations extends Entity implements ExtendedTranslationsType {
+export class ExtendedTranslations extends EntityV4 implements ExtendedTranslationsType {
   /**
    * Technical entity name for ExtendedTranslations.
    */
   static _entityName = 'ExtendedTranslations';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for ExtendedTranslations.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Doc Entry.
    * @nullable
    */
   docEntry?: number;
+  /**
+   * Category.
+   * @nullable
+   */
+  category?: TranslationCategoryEnum;
   /**
    * Id.
    * @nullable
@@ -62,11 +63,11 @@ export class ExtendedTranslations extends Entity implements ExtendedTranslations
   extendedTranslationItemLines?: ExtendedTranslationItemLine[];
 
   /**
-   * Returns an entity builder to construct instances `ExtendedTranslations`.
+   * Returns an entity builder to construct instances of `ExtendedTranslations`.
    * @returns A builder that constructs instances of entity type `ExtendedTranslations`.
    */
-  static builder(): EntityBuilderType<ExtendedTranslations, ExtendedTranslationsTypeForceMandatory> {
-    return Entity.entityBuilder(ExtendedTranslations);
+  static builder(): EntityBuilderType<ExtendedTranslations, ExtendedTranslationsType> {
+    return EntityV4.entityBuilder(ExtendedTranslations);
   }
 
   /**
@@ -82,8 +83,8 @@ export class ExtendedTranslations extends Entity implements ExtendedTranslations
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `ExtendedTranslations`.
    */
-  static customField(fieldName: string): CustomField<ExtendedTranslations> {
-    return Entity.customFieldSelector(fieldName, ExtendedTranslations);
+  static customField(fieldName: string): CustomFieldV4<ExtendedTranslations> {
+    return EntityV4.customFieldSelector(fieldName, ExtendedTranslations);
   }
 
   /**
@@ -96,23 +97,14 @@ export class ExtendedTranslations extends Entity implements ExtendedTranslations
 }
 
 export interface ExtendedTranslationsType {
-  docEntry?: number;
-  id?: string;
-  secondaryId?: string;
-  sourceLanguage?: number;
-  updateDate?: Moment;
-  createDate?: Moment;
-  extendedTranslationItemLines?: ExtendedTranslationItemLine[];
-}
-
-export interface ExtendedTranslationsTypeForceMandatory {
-  docEntry: number;
-  id: string;
-  secondaryId: string;
-  sourceLanguage: number;
-  updateDate: Moment;
-  createDate: Moment;
-  extendedTranslationItemLines: ExtendedTranslationItemLine[];
+  docEntry?: number | null;
+  category?: TranslationCategoryEnum | null;
+  id?: string | null;
+  secondaryId?: string | null;
+  sourceLanguage?: number | null;
+  updateDate?: Moment | null;
+  createDate?: Moment | null;
+  extendedTranslationItemLines?: ExtendedTranslationItemLine[] | null;
 }
 
 export namespace ExtendedTranslations {
@@ -121,6 +113,11 @@ export namespace ExtendedTranslations {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const DOC_ENTRY: NumberField<ExtendedTranslations> = new NumberField('DocEntry', ExtendedTranslations, 'Edm.Int32');
+  /**
+   * Static representation of the [[category]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const CATEGORY: EnumField<ExtendedTranslations> = new EnumField('Category', ExtendedTranslations);
   /**
    * Static representation of the [[id]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -150,12 +147,13 @@ export namespace ExtendedTranslations {
    * Static representation of the [[extendedTranslationItemLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const EXTENDED_TRANSLATION_ITEM_LINES: CollectionField<ExtendedTranslations> = new CollectionField('ExtendedTranslation_ItemLines', ExtendedTranslations, new ExtendedTranslationItemLineField('', ExtendedTranslations));
+  export const EXTENDED_TRANSLATION_ITEM_LINES: CollectionField<ExtendedTranslations, ExtendedTranslationItemLine> = new CollectionField('ExtendedTranslation_ItemLines', ExtendedTranslations, ExtendedTranslationItemLine);
   /**
    * All fields of the ExtendedTranslations entity.
    */
-  export const _allFields: Array<NumberField<ExtendedTranslations> | StringField<ExtendedTranslations> | DateField<ExtendedTranslations> | CollectionField<ExtendedTranslations>> = [
+  export const _allFields: Array<NumberField<ExtendedTranslations> | EnumField<ExtendedTranslations> | StringField<ExtendedTranslations> | DateField<ExtendedTranslations> | CollectionField<ExtendedTranslations, ExtendedTranslationItemLine>> = [
     ExtendedTranslations.DOC_ENTRY,
+    ExtendedTranslations.CATEGORY,
     ExtendedTranslations.ID,
     ExtendedTranslations.SECONDARY_ID,
     ExtendedTranslations.SOURCE_LANGUAGE,

@@ -1,18 +1,16 @@
 import { TaxCodeDeterminationsRequestBuilder } from './TaxCodeDeterminationsRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoTcdDocumentTypeEnum } from './BoTcdDocumentTypeEnum';
+import { BoBusinessAreaEnum } from './BoBusinessAreaEnum';
+import { BoTcdConditionEnum } from './BoTcdConditionEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "TaxCodeDeterminations" of service "SAPB1".
  */
-export declare class TaxCodeDeterminations extends Entity implements TaxCodeDeterminationsType {
+export declare class TaxCodeDeterminations extends EntityV4 implements TaxCodeDeterminationsType {
     /**
      * Technical entity name for TaxCodeDeterminations.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for TaxCodeDeterminations.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -27,6 +25,21 @@ export declare class TaxCodeDeterminations extends Entity implements TaxCodeDete
      * @nullable
      */
     lineNumber?: number;
+    /**
+     * Document Type.
+     * @nullable
+     */
+    documentType?: BoTcdDocumentTypeEnum;
+    /**
+     * Business Area.
+     * @nullable
+     */
+    businessArea?: BoBusinessAreaEnum;
+    /**
+     * Condition 1.
+     * @nullable
+     */
+    condition1?: BoTcdConditionEnum;
     /**
      * Udf Table 1.
      * @nullable
@@ -48,6 +61,11 @@ export declare class TaxCodeDeterminations extends Entity implements TaxCodeDete
      */
     moneyValue1?: number;
     /**
+     * Condition 2.
+     * @nullable
+     */
+    condition2?: BoTcdConditionEnum;
+    /**
      * Udf Table 2.
      * @nullable
      */
@@ -67,6 +85,11 @@ export declare class TaxCodeDeterminations extends Entity implements TaxCodeDete
      * @nullable
      */
     moneyValue2?: number;
+    /**
+     * Condition 3.
+     * @nullable
+     */
+    condition3?: BoTcdConditionEnum;
     /**
      * Udf Table 3.
      * @nullable
@@ -88,6 +111,11 @@ export declare class TaxCodeDeterminations extends Entity implements TaxCodeDete
      */
     moneyValue3?: number;
     /**
+     * Condition 4.
+     * @nullable
+     */
+    condition4?: BoTcdConditionEnum;
+    /**
      * Udf Table 4.
      * @nullable
      */
@@ -107,6 +135,11 @@ export declare class TaxCodeDeterminations extends Entity implements TaxCodeDete
      * @nullable
      */
     moneyValue4?: number;
+    /**
+     * Condition 5.
+     * @nullable
+     */
+    condition5?: BoTcdConditionEnum;
     /**
      * Udf Table 5.
      * @nullable
@@ -173,10 +206,10 @@ export declare class TaxCodeDeterminations extends Entity implements TaxCodeDete
      */
     udfAlias5?: string;
     /**
-     * Returns an entity builder to construct instances `TaxCodeDeterminations`.
+     * Returns an entity builder to construct instances of `TaxCodeDeterminations`.
      * @returns A builder that constructs instances of entity type `TaxCodeDeterminations`.
      */
-    static builder(): EntityBuilderType<TaxCodeDeterminations, TaxCodeDeterminationsTypeForceMandatory>;
+    static builder(): EntityBuilderType<TaxCodeDeterminations, TaxCodeDeterminationsType>;
     /**
      * Returns a request builder to construct requests for operations on the `TaxCodeDeterminations` entity type.
      * @returns A `TaxCodeDeterminations` request builder.
@@ -187,7 +220,7 @@ export declare class TaxCodeDeterminations extends Entity implements TaxCodeDete
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `TaxCodeDeterminations`.
      */
-    static customField(fieldName: string): CustomField<TaxCodeDeterminations>;
+    static customField(fieldName: string): CustomFieldV4<TaxCodeDeterminations>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -197,70 +230,44 @@ export declare class TaxCodeDeterminations extends Entity implements TaxCodeDete
     };
 }
 export interface TaxCodeDeterminationsType {
-    docEntry?: number;
-    lineNumber?: number;
-    udfTable1?: string;
-    numberValue1?: number;
-    stringValue1?: string;
-    moneyValue1?: number;
-    udfTable2?: string;
-    numberValue2?: number;
-    stringValue2?: string;
-    moneyValue2?: number;
-    udfTable3?: string;
-    numberValue3?: number;
-    stringValue3?: string;
-    moneyValue3?: number;
-    udfTable4?: string;
-    numberValue4?: number;
-    stringValue4?: string;
-    moneyValue4?: number;
-    udfTable5?: string;
-    numberValue5?: number;
-    stringValue5?: string;
-    moneyValue5?: number;
-    description?: string;
-    taxCode?: string;
-    freightRowTax?: string;
-    freightHeaderTax?: string;
-    udfAlias1?: string;
-    udfAlias2?: string;
-    udfAlias3?: string;
-    udfAlias4?: string;
-    udfAlias5?: string;
-}
-export interface TaxCodeDeterminationsTypeForceMandatory {
-    docEntry: number;
-    lineNumber: number;
-    udfTable1: string;
-    numberValue1: number;
-    stringValue1: string;
-    moneyValue1: number;
-    udfTable2: string;
-    numberValue2: number;
-    stringValue2: string;
-    moneyValue2: number;
-    udfTable3: string;
-    numberValue3: number;
-    stringValue3: string;
-    moneyValue3: number;
-    udfTable4: string;
-    numberValue4: number;
-    stringValue4: string;
-    moneyValue4: number;
-    udfTable5: string;
-    numberValue5: number;
-    stringValue5: string;
-    moneyValue5: number;
-    description: string;
-    taxCode: string;
-    freightRowTax: string;
-    freightHeaderTax: string;
-    udfAlias1: string;
-    udfAlias2: string;
-    udfAlias3: string;
-    udfAlias4: string;
-    udfAlias5: string;
+    docEntry?: number | null;
+    lineNumber?: number | null;
+    documentType?: BoTcdDocumentTypeEnum | null;
+    businessArea?: BoBusinessAreaEnum | null;
+    condition1?: BoTcdConditionEnum | null;
+    udfTable1?: string | null;
+    numberValue1?: number | null;
+    stringValue1?: string | null;
+    moneyValue1?: number | null;
+    condition2?: BoTcdConditionEnum | null;
+    udfTable2?: string | null;
+    numberValue2?: number | null;
+    stringValue2?: string | null;
+    moneyValue2?: number | null;
+    condition3?: BoTcdConditionEnum | null;
+    udfTable3?: string | null;
+    numberValue3?: number | null;
+    stringValue3?: string | null;
+    moneyValue3?: number | null;
+    condition4?: BoTcdConditionEnum | null;
+    udfTable4?: string | null;
+    numberValue4?: number | null;
+    stringValue4?: string | null;
+    moneyValue4?: number | null;
+    condition5?: BoTcdConditionEnum | null;
+    udfTable5?: string | null;
+    numberValue5?: number | null;
+    stringValue5?: string | null;
+    moneyValue5?: number | null;
+    description?: string | null;
+    taxCode?: string | null;
+    freightRowTax?: string | null;
+    freightHeaderTax?: string | null;
+    udfAlias1?: string | null;
+    udfAlias2?: string | null;
+    udfAlias3?: string | null;
+    udfAlias4?: string | null;
+    udfAlias5?: string | null;
 }
 export declare namespace TaxCodeDeterminations {
     /**
@@ -273,6 +280,21 @@ export declare namespace TaxCodeDeterminations {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const LINE_NUMBER: NumberField<TaxCodeDeterminations>;
+    /**
+     * Static representation of the [[documentType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DOCUMENT_TYPE: EnumField<TaxCodeDeterminations>;
+    /**
+     * Static representation of the [[businessArea]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BUSINESS_AREA: EnumField<TaxCodeDeterminations>;
+    /**
+     * Static representation of the [[condition1]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CONDITION_1: EnumField<TaxCodeDeterminations>;
     /**
      * Static representation of the [[udfTable1]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -294,6 +316,11 @@ export declare namespace TaxCodeDeterminations {
      */
     const MONEY_VALUE_1: NumberField<TaxCodeDeterminations>;
     /**
+     * Static representation of the [[condition2]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CONDITION_2: EnumField<TaxCodeDeterminations>;
+    /**
      * Static representation of the [[udfTable2]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -313,6 +340,11 @@ export declare namespace TaxCodeDeterminations {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const MONEY_VALUE_2: NumberField<TaxCodeDeterminations>;
+    /**
+     * Static representation of the [[condition3]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CONDITION_3: EnumField<TaxCodeDeterminations>;
     /**
      * Static representation of the [[udfTable3]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -334,6 +366,11 @@ export declare namespace TaxCodeDeterminations {
      */
     const MONEY_VALUE_3: NumberField<TaxCodeDeterminations>;
     /**
+     * Static representation of the [[condition4]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CONDITION_4: EnumField<TaxCodeDeterminations>;
+    /**
      * Static representation of the [[udfTable4]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -353,6 +390,11 @@ export declare namespace TaxCodeDeterminations {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const MONEY_VALUE_4: NumberField<TaxCodeDeterminations>;
+    /**
+     * Static representation of the [[condition5]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CONDITION_5: EnumField<TaxCodeDeterminations>;
     /**
      * Static representation of the [[udfTable5]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -421,7 +463,7 @@ export declare namespace TaxCodeDeterminations {
     /**
      * All fields of the TaxCodeDeterminations entity.
      */
-    const _allFields: Array<NumberField<TaxCodeDeterminations> | StringField<TaxCodeDeterminations>>;
+    const _allFields: Array<NumberField<TaxCodeDeterminations> | EnumField<TaxCodeDeterminations> | StringField<TaxCodeDeterminations>>;
     /**
      * All fields selector.
      */

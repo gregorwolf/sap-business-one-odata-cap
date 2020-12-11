@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.BinLocationsRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var BinLocations_1 = require("./BinLocations");
 /**
  * Request builder class for operations supported on the [[BinLocations]] entity.
@@ -35,14 +35,14 @@ var BinLocationsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `BinLocations` entity based on its keys.
      */
     BinLocationsRequestBuilder.prototype.getByKey = function (absEntry) {
-        return new v4_1.GetByKeyRequestBuilder(BinLocations_1.BinLocations, { AbsEntry: absEntry });
+        return new core_1.GetByKeyRequestBuilderV4(BinLocations_1.BinLocations, { AbsEntry: absEntry });
     };
     /**
      * Returns a request builder for querying all `BinLocations` entities.
      * @returns A request builder for creating requests to retrieve all `BinLocations` entities.
      */
     BinLocationsRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(BinLocations_1.BinLocations);
+        return new core_1.GetAllRequestBuilderV4(BinLocations_1.BinLocations);
     };
     /**
      * Returns a request builder for creating a `BinLocations` entity.
@@ -50,7 +50,7 @@ var BinLocationsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `BinLocations`.
      */
     BinLocationsRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(BinLocations_1.BinLocations, entity);
+        return new core_1.CreateRequestBuilderV4(BinLocations_1.BinLocations, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `BinLocations`.
@@ -58,12 +58,12 @@ var BinLocationsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `BinLocations`.
      */
     BinLocationsRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(BinLocations_1.BinLocations, entity);
+        return new core_1.UpdateRequestBuilderV4(BinLocations_1.BinLocations, entity);
     };
     BinLocationsRequestBuilder.prototype.delete = function (absEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(BinLocations_1.BinLocations, absEntryOrEntity instanceof BinLocations_1.BinLocations ? absEntryOrEntity : { AbsEntry: absEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(BinLocations_1.BinLocations, absEntryOrEntity instanceof BinLocations_1.BinLocations ? absEntryOrEntity : { AbsEntry: absEntryOrEntity });
     };
     return BinLocationsRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.BinLocationsRequestBuilder = BinLocationsRequestBuilder;
 //# sourceMappingURL=BinLocationsRequestBuilder.js.map

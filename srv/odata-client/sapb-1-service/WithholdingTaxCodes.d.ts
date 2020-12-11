@@ -1,20 +1,22 @@
 import { WithholdingTaxCodesRequestBuilder } from './WithholdingTaxCodesRequestBuilder';
 import { Moment } from 'moment';
 import { WithholdingTaxCodesLine } from './WithholdingTaxCodesLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { WithholdingTaxCodeCategoryEnum } from './WithholdingTaxCodeCategoryEnum';
+import { WithholdingTaxCodeBaseTypeEnum } from './WithholdingTaxCodeBaseTypeEnum';
+import { WithholdingTypeEnum } from './WithholdingTypeEnum';
+import { RoundingTypeEnum } from './RoundingTypeEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { ReturnTypeEnum } from './ReturnTypeEnum';
+import { TdsTypeEnum } from './TdsTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "WithholdingTaxCodes" of service "SAPB1".
  */
-export declare class WithholdingTaxCodes extends Entity implements WithholdingTaxCodesType {
+export declare class WithholdingTaxCodes extends EntityV4 implements WithholdingTaxCodesType {
     /**
      * Technical entity name for WithholdingTaxCodes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for WithholdingTaxCodes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -29,6 +31,16 @@ export declare class WithholdingTaxCodes extends Entity implements WithholdingTa
      * @nullable
      */
     wtName?: string;
+    /**
+     * Category.
+     * @nullable
+     */
+    category?: WithholdingTaxCodeCategoryEnum;
+    /**
+     * Base Type.
+     * @nullable
+     */
+    baseType?: WithholdingTaxCodeBaseTypeEnum;
     /**
      * Base Amount.
      * @nullable
@@ -45,6 +57,16 @@ export declare class WithholdingTaxCodes extends Entity implements WithholdingTa
      */
     account?: string;
     /**
+     * Withholding Type.
+     * @nullable
+     */
+    withholdingType?: WithholdingTypeEnum;
+    /**
+     * Rounding Type.
+     * @nullable
+     */
+    roundingType?: RoundingTypeEnum;
+    /**
      * Section.
      * @nullable
      */
@@ -59,6 +81,11 @@ export declare class WithholdingTaxCodes extends Entity implements WithholdingTa
      * @nullable
      */
     surcharge?: number;
+    /**
+     * Concessional.
+     * @nullable
+     */
+    concessional?: BoYesNoEnum;
     /**
      * Assessee.
      * @nullable
@@ -160,6 +187,16 @@ export declare class WithholdingTaxCodes extends Entity implements WithholdingTa
      */
     location?: number;
     /**
+     * Return Type.
+     * @nullable
+     */
+    returnType?: ReturnTypeEnum;
+    /**
+     * Inactive.
+     * @nullable
+     */
+    inactive?: BoYesNoEnum;
+    /**
      * Cst Code Incoming Id.
      * @nullable
      */
@@ -195,10 +232,20 @@ export declare class WithholdingTaxCodes extends Entity implements WithholdingTa
      */
     minimumTaxableAmount?: number;
     /**
+     * Is Progressive Tax.
+     * @nullable
+     */
+    isProgressiveTax?: BoYesNoEnum;
+    /**
      * Currency.
      * @nullable
      */
     currency?: string;
+    /**
+     * Tds Type.
+     * @nullable
+     */
+    tdsType?: TdsTypeEnum;
     /**
      * Withholding Tax Codes Lines.
      * @nullable
@@ -245,10 +292,10 @@ export declare class WithholdingTaxCodes extends Entity implements WithholdingTa
      */
     incomingPayments: IncomingPayments[];
     /**
-     * Returns an entity builder to construct instances `WithholdingTaxCodes`.
+     * Returns an entity builder to construct instances of `WithholdingTaxCodes`.
      * @returns A builder that constructs instances of entity type `WithholdingTaxCodes`.
      */
-    static builder(): EntityBuilderType<WithholdingTaxCodes, WithholdingTaxCodesTypeForceMandatory>;
+    static builder(): EntityBuilderType<WithholdingTaxCodes, WithholdingTaxCodesType>;
     /**
      * Returns a request builder to construct requests for operations on the `WithholdingTaxCodes` entity type.
      * @returns A `WithholdingTaxCodes` request builder.
@@ -259,7 +306,7 @@ export declare class WithholdingTaxCodes extends Entity implements WithholdingTa
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `WithholdingTaxCodes`.
      */
-    static customField(fieldName: string): CustomField<WithholdingTaxCodes>;
+    static customField(fieldName: string): CustomFieldV4<WithholdingTaxCodes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -279,92 +326,52 @@ import { BrazilStringIndexers, BrazilStringIndexersType } from './BrazilStringIn
 import { Currencies, CurrenciesType } from './Currencies';
 import { IncomingPayments, IncomingPaymentsType } from './IncomingPayments';
 export interface WithholdingTaxCodesType {
-    wtCode?: string;
-    wtName?: string;
-    baseAmount?: number;
-    officialCode?: string;
-    account?: string;
-    section?: number;
-    threshold?: number;
-    surcharge?: number;
-    assessee?: number;
-    aptdsAccount?: string;
-    apSurchargeAccount?: string;
-    apCessAccount?: string;
-    aphscAccount?: string;
-    apigstAccount?: string;
-    apcgstAccount?: string;
-    apsgstAccount?: string;
-    aputgstAccount?: string;
-    apCessGstAccount?: string;
-    artdsAccount?: string;
-    arSurchargeAccount?: string;
-    arCessAccount?: string;
-    arhscAccount?: string;
-    arigstAccount?: string;
-    arcgstAccount?: string;
-    arsgstAccount?: string;
-    arutgstAccount?: string;
-    arCessGstAccount?: string;
-    location?: number;
-    cstCodeIncomingId?: number;
-    cstCodeOutgoingId?: number;
-    natureOfCalculationBaseCode?: string;
-    typeId?: number;
-    rate?: number;
-    effectiveFrom?: Moment;
-    minimumTaxableAmount?: number;
-    currency?: string;
-    withholdingTaxCodesLines?: WithholdingTaxCodesLine[];
-    vendorPayments: VendorPaymentsType[];
-    businessPartners: BusinessPartnersType[];
-    paymentDrafts: PaymentDraftsType[];
-    chartOfAccount: ChartOfAccountsType;
-    section2: SectionsType;
-    natureOfAssessee: NatureOfAssesseesType;
-    warehouseLocation: WarehouseLocationsType;
-    brazilStringIndexer: BrazilStringIndexersType;
-    currency2: CurrenciesType;
-    incomingPayments: IncomingPaymentsType[];
-}
-export interface WithholdingTaxCodesTypeForceMandatory {
-    wtCode: string;
-    wtName: string;
-    baseAmount: number;
-    officialCode: string;
-    account: string;
-    section: number;
-    threshold: number;
-    surcharge: number;
-    assessee: number;
-    aptdsAccount: string;
-    apSurchargeAccount: string;
-    apCessAccount: string;
-    aphscAccount: string;
-    apigstAccount: string;
-    apcgstAccount: string;
-    apsgstAccount: string;
-    aputgstAccount: string;
-    apCessGstAccount: string;
-    artdsAccount: string;
-    arSurchargeAccount: string;
-    arCessAccount: string;
-    arhscAccount: string;
-    arigstAccount: string;
-    arcgstAccount: string;
-    arsgstAccount: string;
-    arutgstAccount: string;
-    arCessGstAccount: string;
-    location: number;
-    cstCodeIncomingId: number;
-    cstCodeOutgoingId: number;
-    natureOfCalculationBaseCode: string;
-    typeId: number;
-    rate: number;
-    effectiveFrom: Moment;
-    minimumTaxableAmount: number;
-    currency: string;
-    withholdingTaxCodesLines: WithholdingTaxCodesLine[];
+    wtCode?: string | null;
+    wtName?: string | null;
+    category?: WithholdingTaxCodeCategoryEnum | null;
+    baseType?: WithholdingTaxCodeBaseTypeEnum | null;
+    baseAmount?: number | null;
+    officialCode?: string | null;
+    account?: string | null;
+    withholdingType?: WithholdingTypeEnum | null;
+    roundingType?: RoundingTypeEnum | null;
+    section?: number | null;
+    threshold?: number | null;
+    surcharge?: number | null;
+    concessional?: BoYesNoEnum | null;
+    assessee?: number | null;
+    aptdsAccount?: string | null;
+    apSurchargeAccount?: string | null;
+    apCessAccount?: string | null;
+    aphscAccount?: string | null;
+    apigstAccount?: string | null;
+    apcgstAccount?: string | null;
+    apsgstAccount?: string | null;
+    aputgstAccount?: string | null;
+    apCessGstAccount?: string | null;
+    artdsAccount?: string | null;
+    arSurchargeAccount?: string | null;
+    arCessAccount?: string | null;
+    arhscAccount?: string | null;
+    arigstAccount?: string | null;
+    arcgstAccount?: string | null;
+    arsgstAccount?: string | null;
+    arutgstAccount?: string | null;
+    arCessGstAccount?: string | null;
+    location?: number | null;
+    returnType?: ReturnTypeEnum | null;
+    inactive?: BoYesNoEnum | null;
+    cstCodeIncomingId?: number | null;
+    cstCodeOutgoingId?: number | null;
+    natureOfCalculationBaseCode?: string | null;
+    typeId?: number | null;
+    rate?: number | null;
+    effectiveFrom?: Moment | null;
+    minimumTaxableAmount?: number | null;
+    isProgressiveTax?: BoYesNoEnum | null;
+    currency?: string | null;
+    tdsType?: TdsTypeEnum | null;
+    withholdingTaxCodesLines?: WithholdingTaxCodesLine[] | null;
     vendorPayments: VendorPaymentsType[];
     businessPartners: BusinessPartnersType[];
     paymentDrafts: PaymentDraftsType[];
@@ -388,6 +395,16 @@ export declare namespace WithholdingTaxCodes {
      */
     const WT_NAME: StringField<WithholdingTaxCodes>;
     /**
+     * Static representation of the [[category]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CATEGORY: EnumField<WithholdingTaxCodes>;
+    /**
+     * Static representation of the [[baseType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BASE_TYPE: EnumField<WithholdingTaxCodes>;
+    /**
      * Static representation of the [[baseAmount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -403,6 +420,16 @@ export declare namespace WithholdingTaxCodes {
      */
     const ACCOUNT: StringField<WithholdingTaxCodes>;
     /**
+     * Static representation of the [[withholdingType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const WITHHOLDING_TYPE: EnumField<WithholdingTaxCodes>;
+    /**
+     * Static representation of the [[roundingType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ROUNDING_TYPE: EnumField<WithholdingTaxCodes>;
+    /**
      * Static representation of the [[section]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -417,6 +444,11 @@ export declare namespace WithholdingTaxCodes {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const SURCHARGE: NumberField<WithholdingTaxCodes>;
+    /**
+     * Static representation of the [[concessional]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CONCESSIONAL: EnumField<WithholdingTaxCodes>;
     /**
      * Static representation of the [[assessee]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -518,6 +550,16 @@ export declare namespace WithholdingTaxCodes {
      */
     const LOCATION: NumberField<WithholdingTaxCodes>;
     /**
+     * Static representation of the [[returnType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RETURN_TYPE: EnumField<WithholdingTaxCodes>;
+    /**
+     * Static representation of the [[inactive]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const INACTIVE: EnumField<WithholdingTaxCodes>;
+    /**
      * Static representation of the [[cstCodeIncomingId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -553,15 +595,25 @@ export declare namespace WithholdingTaxCodes {
      */
     const MINIMUM_TAXABLE_AMOUNT: NumberField<WithholdingTaxCodes>;
     /**
+     * Static representation of the [[isProgressiveTax]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IS_PROGRESSIVE_TAX: EnumField<WithholdingTaxCodes>;
+    /**
      * Static representation of the [[currency]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const CURRENCY: StringField<WithholdingTaxCodes>;
     /**
+     * Static representation of the [[tdsType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TDS_TYPE: EnumField<WithholdingTaxCodes>;
+    /**
      * Static representation of the [[withholdingTaxCodesLines]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const WITHHOLDING_TAX_CODES_LINES: CollectionField<WithholdingTaxCodes>;
+    const WITHHOLDING_TAX_CODES_LINES: CollectionField<WithholdingTaxCodes, WithholdingTaxCodesLine>;
     /**
      * Static representation of the one-to-many navigation property [[vendorPayments]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -615,7 +667,7 @@ export declare namespace WithholdingTaxCodes {
     /**
      * All fields of the WithholdingTaxCodes entity.
      */
-    const _allFields: Array<StringField<WithholdingTaxCodes> | NumberField<WithholdingTaxCodes> | DateField<WithholdingTaxCodes> | CollectionField<WithholdingTaxCodes> | OneToManyLink<WithholdingTaxCodes, VendorPayments> | OneToManyLink<WithholdingTaxCodes, BusinessPartners> | OneToManyLink<WithholdingTaxCodes, PaymentDrafts> | OneToOneLink<WithholdingTaxCodes, ChartOfAccounts> | OneToOneLink<WithholdingTaxCodes, Sections> | OneToOneLink<WithholdingTaxCodes, NatureOfAssessees> | OneToOneLink<WithholdingTaxCodes, WarehouseLocations> | OneToOneLink<WithholdingTaxCodes, BrazilStringIndexers> | OneToOneLink<WithholdingTaxCodes, Currencies> | OneToManyLink<WithholdingTaxCodes, IncomingPayments>>;
+    const _allFields: Array<StringField<WithholdingTaxCodes> | EnumField<WithholdingTaxCodes> | NumberField<WithholdingTaxCodes> | DateField<WithholdingTaxCodes> | CollectionField<WithholdingTaxCodes, WithholdingTaxCodesLine> | OneToManyLink<WithholdingTaxCodes, VendorPayments> | OneToManyLink<WithholdingTaxCodes, BusinessPartners> | OneToManyLink<WithholdingTaxCodes, PaymentDrafts> | OneToOneLink<WithholdingTaxCodes, ChartOfAccounts> | OneToOneLink<WithholdingTaxCodes, Sections> | OneToOneLink<WithholdingTaxCodes, NatureOfAssessees> | OneToOneLink<WithholdingTaxCodes, WarehouseLocations> | OneToOneLink<WithholdingTaxCodes, BrazilStringIndexers> | OneToOneLink<WithholdingTaxCodes, Currencies> | OneToManyLink<WithholdingTaxCodes, IncomingPayments>>;
     /**
      * All fields selector.
      */

@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { ResourceCapacities } from './ResourceCapacities';
 
 /**
@@ -15,16 +15,16 @@ export class ResourceCapacitiesRequestBuilder extends RequestBuilder<ResourceCap
    * @param id Key property. See [[ResourceCapacities.id]].
    * @returns A request builder for creating requests to retrieve one `ResourceCapacities` entity based on its keys.
    */
-  getByKey(id: number): GetByKeyRequestBuilder<ResourceCapacities> {
-    return new GetByKeyRequestBuilder(ResourceCapacities, { Id: id });
+  getByKey(id: number): GetByKeyRequestBuilderV4<ResourceCapacities> {
+    return new GetByKeyRequestBuilderV4(ResourceCapacities, { Id: id });
   }
 
   /**
    * Returns a request builder for querying all `ResourceCapacities` entities.
    * @returns A request builder for creating requests to retrieve all `ResourceCapacities` entities.
    */
-  getAll(): GetAllRequestBuilder<ResourceCapacities> {
-    return new GetAllRequestBuilder(ResourceCapacities);
+  getAll(): GetAllRequestBuilderV4<ResourceCapacities> {
+    return new GetAllRequestBuilderV4(ResourceCapacities);
   }
 
   /**
@@ -32,8 +32,8 @@ export class ResourceCapacitiesRequestBuilder extends RequestBuilder<ResourceCap
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `ResourceCapacities`.
    */
-  create(entity: ResourceCapacities): CreateRequestBuilder<ResourceCapacities> {
-    return new CreateRequestBuilder(ResourceCapacities, entity);
+  create(entity: ResourceCapacities): CreateRequestBuilderV4<ResourceCapacities> {
+    return new CreateRequestBuilderV4(ResourceCapacities, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class ResourceCapacitiesRequestBuilder extends RequestBuilder<ResourceCap
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `ResourceCapacities`.
    */
-  update(entity: ResourceCapacities): UpdateRequestBuilder<ResourceCapacities> {
-    return new UpdateRequestBuilder(ResourceCapacities, entity);
+  update(entity: ResourceCapacities): UpdateRequestBuilderV4<ResourceCapacities> {
+    return new UpdateRequestBuilderV4(ResourceCapacities, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class ResourceCapacitiesRequestBuilder extends RequestBuilder<ResourceCap
    * @param id Key property. See [[ResourceCapacities.id]].
    * @returns A request builder for creating requests that delete an entity of type `ResourceCapacities`.
    */
-  delete(id: number): DeleteRequestBuilder<ResourceCapacities>;
+  delete(id: number): DeleteRequestBuilderV4<ResourceCapacities>;
   /**
    * Returns a request builder for deleting an entity of type `ResourceCapacities`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `ResourceCapacities` by taking the entity as a parameter.
    */
-  delete(entity: ResourceCapacities): DeleteRequestBuilder<ResourceCapacities>;
-  delete(idOrEntity: any): DeleteRequestBuilder<ResourceCapacities> {
-    return new DeleteRequestBuilder(ResourceCapacities, idOrEntity instanceof ResourceCapacities ? idOrEntity : { Id: idOrEntity! });
+  delete(entity: ResourceCapacities): DeleteRequestBuilderV4<ResourceCapacities>;
+  delete(idOrEntity: any): DeleteRequestBuilderV4<ResourceCapacities> {
+    return new DeleteRequestBuilderV4(ResourceCapacities, idOrEntity instanceof ResourceCapacities ? idOrEntity : { Id: idOrEntity! });
   }
 }

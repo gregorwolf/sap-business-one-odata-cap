@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { BarCodesRequestBuilder } from './BarCodesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "BarCodes" of service "SAPB1".
  */
-export class BarCodes extends Entity implements BarCodesType {
+export class BarCodes extends EntityV4 implements BarCodesType {
   /**
    * Technical entity name for BarCodes.
    */
   static _entityName = 'BarCodes';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for BarCodes.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Abs Entry.
    * @nullable
@@ -58,11 +53,11 @@ export class BarCodes extends Entity implements BarCodesType {
   unitOfMeasurement!: UnitOfMeasurements;
 
   /**
-   * Returns an entity builder to construct instances `BarCodes`.
+   * Returns an entity builder to construct instances of `BarCodes`.
    * @returns A builder that constructs instances of entity type `BarCodes`.
    */
-  static builder(): EntityBuilderType<BarCodes, BarCodesTypeForceMandatory> {
-    return Entity.entityBuilder(BarCodes);
+  static builder(): EntityBuilderType<BarCodes, BarCodesType> {
+    return EntityV4.entityBuilder(BarCodes);
   }
 
   /**
@@ -78,8 +73,8 @@ export class BarCodes extends Entity implements BarCodesType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `BarCodes`.
    */
-  static customField(fieldName: string): CustomField<BarCodes> {
-    return Entity.customFieldSelector(fieldName, BarCodes);
+  static customField(fieldName: string): CustomFieldV4<BarCodes> {
+    return EntityV4.customFieldSelector(fieldName, BarCodes);
   }
 
   /**
@@ -95,21 +90,11 @@ import { Items, ItemsType } from './Items';
 import { UnitOfMeasurements, UnitOfMeasurementsType } from './UnitOfMeasurements';
 
 export interface BarCodesType {
-  absEntry?: number;
-  itemNo?: string;
-  uoMEntry?: number;
-  barcode?: string;
-  freeText?: string;
-  item: ItemsType;
-  unitOfMeasurement: UnitOfMeasurementsType;
-}
-
-export interface BarCodesTypeForceMandatory {
-  absEntry: number;
-  itemNo: string;
-  uoMEntry: number;
-  barcode: string;
-  freeText: string;
+  absEntry?: number | null;
+  itemNo?: string | null;
+  uoMEntry?: number | null;
+  barcode?: string | null;
+  freeText?: string | null;
   item: ItemsType;
   unitOfMeasurement: UnitOfMeasurementsType;
 }

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.OrdersRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var Orders_1 = require("./Orders");
 /**
  * Request builder class for operations supported on the [[Orders]] entity.
@@ -35,14 +35,14 @@ var OrdersRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `Orders` entity based on its keys.
      */
     OrdersRequestBuilder.prototype.getByKey = function (docEntry) {
-        return new v4_1.GetByKeyRequestBuilder(Orders_1.Orders, { DocEntry: docEntry });
+        return new core_1.GetByKeyRequestBuilderV4(Orders_1.Orders, { DocEntry: docEntry });
     };
     /**
      * Returns a request builder for querying all `Orders` entities.
      * @returns A request builder for creating requests to retrieve all `Orders` entities.
      */
     OrdersRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(Orders_1.Orders);
+        return new core_1.GetAllRequestBuilderV4(Orders_1.Orders);
     };
     /**
      * Returns a request builder for creating a `Orders` entity.
@@ -50,7 +50,7 @@ var OrdersRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `Orders`.
      */
     OrdersRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(Orders_1.Orders, entity);
+        return new core_1.CreateRequestBuilderV4(Orders_1.Orders, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `Orders`.
@@ -58,12 +58,12 @@ var OrdersRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `Orders`.
      */
     OrdersRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(Orders_1.Orders, entity);
+        return new core_1.UpdateRequestBuilderV4(Orders_1.Orders, entity);
     };
     OrdersRequestBuilder.prototype.delete = function (docEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(Orders_1.Orders, docEntryOrEntity instanceof Orders_1.Orders ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(Orders_1.Orders, docEntryOrEntity instanceof Orders_1.Orders ? docEntryOrEntity : { DocEntry: docEntryOrEntity });
     };
     return OrdersRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.OrdersRequestBuilder = OrdersRequestBuilder;
 //# sourceMappingURL=OrdersRequestBuilder.js.map

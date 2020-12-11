@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { ComplexTypeField, ComplexTypeNumberPropertyField, Entity, FieldType, createComplexType, edmToTs } from '@sap-cloud-sdk/core/v4';
+import { ComplexTypeField, ComplexTypeNumberPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, deserializeComplexTypeV4 } from '@sap-cloud-sdk/core';
 
 /**
  * HouseBankAccountParams
@@ -27,18 +27,39 @@ export function createHouseBankAccountParams(json: any): HouseBankAccountParams 
  * HouseBankAccountParamsField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export class HouseBankAccountParamsField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export class HouseBankAccountParamsField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, HouseBankAccountParams> {
   /**
    * Representation of the [[HouseBankAccountParams.absoluteEntry]] property for query construction.
    * Use to reference this property in query operations such as 'filter' in the fluent request API.
    */
   absoluteEntry: ComplexTypeNumberPropertyField<EntityT> = new ComplexTypeNumberPropertyField('AbsoluteEntry', this, 'Edm.Int32');
+
+  /**
+   * Creates an instance of HouseBankAccountParamsField.
+   *
+   * @param fieldName - Actual name of the field as used in the OData request.
+   * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+   */
+  constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>) {
+    super(fieldName, fieldOf, HouseBankAccountParams);
+  }
 }
 
 export namespace HouseBankAccountParams {
+  /**
+   * Metadata information on all properties of the `HouseBankAccountParams` complex type.
+   */
+  export const _propertyMetadata: PropertyMetadata<HouseBankAccountParams>[] = [{
+    originalName: 'AbsoluteEntry',
+    name: 'absoluteEntry',
+    type: 'Edm.Int32',
+    isCollection: false
+  }];
+
+  /**
+   * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+   */
   export function build(json: { [keys: string]: FieldType }): HouseBankAccountParams {
-    return createComplexType(json, {
-      AbsoluteEntry: (absoluteEntry: number) => ({ absoluteEntry: edmToTs(absoluteEntry, 'Edm.Int32') })
-    });
+    return deserializeComplexTypeV4(json, HouseBankAccountParams);
   }
 }

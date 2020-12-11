@@ -1,18 +1,13 @@
 import { BoeDocumentTypesRequestBuilder } from './BoeDocumentTypesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "BOEDocumentTypes" of service "SAPB1".
  */
-export declare class BoeDocumentTypes extends Entity implements BoeDocumentTypesType {
+export declare class BoeDocumentTypes extends EntityV4 implements BoeDocumentTypesType {
     /**
      * Technical entity name for BoeDocumentTypes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BoeDocumentTypes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -33,10 +28,10 @@ export declare class BoeDocumentTypes extends Entity implements BoeDocumentTypes
      */
     docDescription?: string;
     /**
-     * Returns an entity builder to construct instances `BoeDocumentTypes`.
+     * Returns an entity builder to construct instances of `BoeDocumentTypes`.
      * @returns A builder that constructs instances of entity type `BoeDocumentTypes`.
      */
-    static builder(): EntityBuilderType<BoeDocumentTypes, BoeDocumentTypesTypeForceMandatory>;
+    static builder(): EntityBuilderType<BoeDocumentTypes, BoeDocumentTypesType>;
     /**
      * Returns a request builder to construct requests for operations on the `BoeDocumentTypes` entity type.
      * @returns A `BoeDocumentTypes` request builder.
@@ -47,7 +42,7 @@ export declare class BoeDocumentTypes extends Entity implements BoeDocumentTypes
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `BoeDocumentTypes`.
      */
-    static customField(fieldName: string): CustomField<BoeDocumentTypes>;
+    static customField(fieldName: string): CustomFieldV4<BoeDocumentTypes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -57,14 +52,9 @@ export declare class BoeDocumentTypes extends Entity implements BoeDocumentTypes
     };
 }
 export interface BoeDocumentTypesType {
-    docEntry?: number;
-    docType?: string;
-    docDescription?: string;
-}
-export interface BoeDocumentTypesTypeForceMandatory {
-    docEntry: number;
-    docType: string;
-    docDescription: string;
+    docEntry?: number | null;
+    docType?: string | null;
+    docDescription?: string | null;
 }
 export declare namespace BoeDocumentTypes {
     /**

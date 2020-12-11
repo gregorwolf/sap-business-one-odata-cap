@@ -1,6 +1,6 @@
 import { Moment } from 'moment';
-import { WtGroups, WtGroupsField } from './WtGroups';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, Entity, FieldType } from '@sap-cloud-sdk/core/v4';
+import { WtGroups } from './WtGroups';
+import { CollectionField, ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata } from '@sap-cloud-sdk/core';
 /**
  * WithholdingTaxCertificatesData
  */
@@ -79,7 +79,7 @@ export interface WithholdingTaxCertificatesData {
      * Wt Groups Collection.
      * @nullable
      */
-    wtGroupsCollection?: WtGroups;
+    wtGroupsCollection?: WtGroups[];
 }
 /**
  * @deprecated Since v1.6.0. Use [[WithholdingTaxCertificatesData.build]] instead.
@@ -89,7 +89,7 @@ export declare function createWithholdingTaxCertificatesData(json: any): Withhol
  * WithholdingTaxCertificatesDataField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class WithholdingTaxCertificatesDataField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class WithholdingTaxCertificatesDataField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, WithholdingTaxCertificatesData> {
     /**
      * Representation of the [[WithholdingTaxCertificatesData.poiCodeRef]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -164,9 +164,23 @@ export declare class WithholdingTaxCertificatesDataField<EntityT extends Entity>
      * Representation of the [[WithholdingTaxCertificatesData.wtGroupsCollection]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
-    wtGroupsCollection: WtGroupsField<EntityT>;
+    wtGroupsCollection: CollectionField<EntityT, WtGroups>;
+    /**
+     * Creates an instance of WithholdingTaxCertificatesDataField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace WithholdingTaxCertificatesData {
+    /**
+     * Metadata information on all properties of the `WithholdingTaxCertificatesData` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<WithholdingTaxCertificatesData>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType | WtGroups;
     }): WithholdingTaxCertificatesData;

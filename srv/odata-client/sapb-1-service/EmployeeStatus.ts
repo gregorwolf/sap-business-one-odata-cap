@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { EmployeeStatusRequestBuilder } from './EmployeeStatusRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "EmployeeStatus" of service "SAPB1".
  */
-export class EmployeeStatus extends Entity implements EmployeeStatusType {
+export class EmployeeStatus extends EntityV4 implements EmployeeStatusType {
   /**
    * Technical entity name for EmployeeStatus.
    */
   static _entityName = 'EmployeeStatus';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for EmployeeStatus.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Status Id.
    * @nullable
@@ -44,11 +39,11 @@ export class EmployeeStatus extends Entity implements EmployeeStatusType {
   employeesInfo!: EmployeesInfo[];
 
   /**
-   * Returns an entity builder to construct instances `EmployeeStatus`.
+   * Returns an entity builder to construct instances of `EmployeeStatus`.
    * @returns A builder that constructs instances of entity type `EmployeeStatus`.
    */
-  static builder(): EntityBuilderType<EmployeeStatus, EmployeeStatusTypeForceMandatory> {
-    return Entity.entityBuilder(EmployeeStatus);
+  static builder(): EntityBuilderType<EmployeeStatus, EmployeeStatusType> {
+    return EntityV4.entityBuilder(EmployeeStatus);
   }
 
   /**
@@ -64,8 +59,8 @@ export class EmployeeStatus extends Entity implements EmployeeStatusType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `EmployeeStatus`.
    */
-  static customField(fieldName: string): CustomField<EmployeeStatus> {
-    return Entity.customFieldSelector(fieldName, EmployeeStatus);
+  static customField(fieldName: string): CustomFieldV4<EmployeeStatus> {
+    return EntityV4.customFieldSelector(fieldName, EmployeeStatus);
   }
 
   /**
@@ -80,16 +75,9 @@ export class EmployeeStatus extends Entity implements EmployeeStatusType {
 import { EmployeesInfo, EmployeesInfoType } from './EmployeesInfo';
 
 export interface EmployeeStatusType {
-  statusId?: number;
-  name?: string;
-  description?: string;
-  employeesInfo: EmployeesInfoType[];
-}
-
-export interface EmployeeStatusTypeForceMandatory {
-  statusId: number;
-  name: string;
-  description: string;
+  statusId?: number | null;
+  name?: string | null;
+  description?: string | null;
   employeesInfo: EmployeesInfoType[];
 }
 

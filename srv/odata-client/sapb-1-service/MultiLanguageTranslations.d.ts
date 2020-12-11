@@ -1,19 +1,14 @@
 import { MultiLanguageTranslationsRequestBuilder } from './MultiLanguageTranslationsRequestBuilder';
 import { TranslationsInUserLanguage } from './TranslationsInUserLanguage';
-import { AllFields, CollectionField, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CollectionField, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "MultiLanguageTranslations" of service "SAPB1".
  */
-export declare class MultiLanguageTranslations extends Entity implements MultiLanguageTranslationsType {
+export declare class MultiLanguageTranslations extends EntityV4 implements MultiLanguageTranslationsType {
     /**
      * Technical entity name for MultiLanguageTranslations.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for MultiLanguageTranslations.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -44,10 +39,10 @@ export declare class MultiLanguageTranslations extends Entity implements MultiLa
      */
     translationsInUserLanguages?: TranslationsInUserLanguage[];
     /**
-     * Returns an entity builder to construct instances `MultiLanguageTranslations`.
+     * Returns an entity builder to construct instances of `MultiLanguageTranslations`.
      * @returns A builder that constructs instances of entity type `MultiLanguageTranslations`.
      */
-    static builder(): EntityBuilderType<MultiLanguageTranslations, MultiLanguageTranslationsTypeForceMandatory>;
+    static builder(): EntityBuilderType<MultiLanguageTranslations, MultiLanguageTranslationsType>;
     /**
      * Returns a request builder to construct requests for operations on the `MultiLanguageTranslations` entity type.
      * @returns A `MultiLanguageTranslations` request builder.
@@ -58,7 +53,7 @@ export declare class MultiLanguageTranslations extends Entity implements MultiLa
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `MultiLanguageTranslations`.
      */
-    static customField(fieldName: string): CustomField<MultiLanguageTranslations>;
+    static customField(fieldName: string): CustomFieldV4<MultiLanguageTranslations>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -68,18 +63,11 @@ export declare class MultiLanguageTranslations extends Entity implements MultiLa
     };
 }
 export interface MultiLanguageTranslationsType {
-    numerator?: number;
-    tableName?: string;
-    fieldAlias?: string;
-    primaryKeyofobject?: string;
-    translationsInUserLanguages?: TranslationsInUserLanguage[];
-}
-export interface MultiLanguageTranslationsTypeForceMandatory {
-    numerator: number;
-    tableName: string;
-    fieldAlias: string;
-    primaryKeyofobject: string;
-    translationsInUserLanguages: TranslationsInUserLanguage[];
+    numerator?: number | null;
+    tableName?: string | null;
+    fieldAlias?: string | null;
+    primaryKeyofobject?: string | null;
+    translationsInUserLanguages?: TranslationsInUserLanguage[] | null;
 }
 export declare namespace MultiLanguageTranslations {
     /**
@@ -106,11 +94,11 @@ export declare namespace MultiLanguageTranslations {
      * Static representation of the [[translationsInUserLanguages]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const TRANSLATIONS_IN_USER_LANGUAGES: CollectionField<MultiLanguageTranslations>;
+    const TRANSLATIONS_IN_USER_LANGUAGES: CollectionField<MultiLanguageTranslations, TranslationsInUserLanguage>;
     /**
      * All fields of the MultiLanguageTranslations entity.
      */
-    const _allFields: Array<NumberField<MultiLanguageTranslations> | StringField<MultiLanguageTranslations> | CollectionField<MultiLanguageTranslations>>;
+    const _allFields: Array<NumberField<MultiLanguageTranslations> | StringField<MultiLanguageTranslations> | CollectionField<MultiLanguageTranslations, TranslationsInUserLanguage>>;
     /**
      * All fields selector.
      */

@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.ProjectManagementsRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var ProjectManagements_1 = require("./ProjectManagements");
 /**
  * Request builder class for operations supported on the [[ProjectManagements]] entity.
@@ -35,14 +35,14 @@ var ProjectManagementsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `ProjectManagements` entity based on its keys.
      */
     ProjectManagementsRequestBuilder.prototype.getByKey = function (absEntry) {
-        return new v4_1.GetByKeyRequestBuilder(ProjectManagements_1.ProjectManagements, { AbsEntry: absEntry });
+        return new core_1.GetByKeyRequestBuilderV4(ProjectManagements_1.ProjectManagements, { AbsEntry: absEntry });
     };
     /**
      * Returns a request builder for querying all `ProjectManagements` entities.
      * @returns A request builder for creating requests to retrieve all `ProjectManagements` entities.
      */
     ProjectManagementsRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(ProjectManagements_1.ProjectManagements);
+        return new core_1.GetAllRequestBuilderV4(ProjectManagements_1.ProjectManagements);
     };
     /**
      * Returns a request builder for creating a `ProjectManagements` entity.
@@ -50,7 +50,7 @@ var ProjectManagementsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `ProjectManagements`.
      */
     ProjectManagementsRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(ProjectManagements_1.ProjectManagements, entity);
+        return new core_1.CreateRequestBuilderV4(ProjectManagements_1.ProjectManagements, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `ProjectManagements`.
@@ -58,12 +58,12 @@ var ProjectManagementsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `ProjectManagements`.
      */
     ProjectManagementsRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(ProjectManagements_1.ProjectManagements, entity);
+        return new core_1.UpdateRequestBuilderV4(ProjectManagements_1.ProjectManagements, entity);
     };
     ProjectManagementsRequestBuilder.prototype.delete = function (absEntryOrEntity) {
-        return new v4_1.DeleteRequestBuilder(ProjectManagements_1.ProjectManagements, absEntryOrEntity instanceof ProjectManagements_1.ProjectManagements ? absEntryOrEntity : { AbsEntry: absEntryOrEntity });
+        return new core_1.DeleteRequestBuilderV4(ProjectManagements_1.ProjectManagements, absEntryOrEntity instanceof ProjectManagements_1.ProjectManagements ? absEntryOrEntity : { AbsEntry: absEntryOrEntity });
     };
     return ProjectManagementsRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.ProjectManagementsRequestBuilder = ProjectManagementsRequestBuilder;
 //# sourceMappingURL=ProjectManagementsRequestBuilder.js.map

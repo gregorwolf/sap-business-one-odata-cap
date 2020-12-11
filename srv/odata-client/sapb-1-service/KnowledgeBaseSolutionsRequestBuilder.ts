@@ -3,7 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import { RequestBuilder, GetAllRequestBuilder, GetByKeyRequestBuilder, CreateRequestBuilder, UpdateRequestBuilder, DeleteRequestBuilder } from '@sap-cloud-sdk/core/v4';
+import { RequestBuilder, GetAllRequestBuilderV4, GetByKeyRequestBuilderV4, CreateRequestBuilderV4, UpdateRequestBuilderV4, DeleteRequestBuilderV4 } from '@sap-cloud-sdk/core';
 import { KnowledgeBaseSolutions } from './KnowledgeBaseSolutions';
 
 /**
@@ -15,16 +15,16 @@ export class KnowledgeBaseSolutionsRequestBuilder extends RequestBuilder<Knowled
    * @param solutionCode Key property. See [[KnowledgeBaseSolutions.solutionCode]].
    * @returns A request builder for creating requests to retrieve one `KnowledgeBaseSolutions` entity based on its keys.
    */
-  getByKey(solutionCode: number): GetByKeyRequestBuilder<KnowledgeBaseSolutions> {
-    return new GetByKeyRequestBuilder(KnowledgeBaseSolutions, { SolutionCode: solutionCode });
+  getByKey(solutionCode: number): GetByKeyRequestBuilderV4<KnowledgeBaseSolutions> {
+    return new GetByKeyRequestBuilderV4(KnowledgeBaseSolutions, { SolutionCode: solutionCode });
   }
 
   /**
    * Returns a request builder for querying all `KnowledgeBaseSolutions` entities.
    * @returns A request builder for creating requests to retrieve all `KnowledgeBaseSolutions` entities.
    */
-  getAll(): GetAllRequestBuilder<KnowledgeBaseSolutions> {
-    return new GetAllRequestBuilder(KnowledgeBaseSolutions);
+  getAll(): GetAllRequestBuilderV4<KnowledgeBaseSolutions> {
+    return new GetAllRequestBuilderV4(KnowledgeBaseSolutions);
   }
 
   /**
@@ -32,8 +32,8 @@ export class KnowledgeBaseSolutionsRequestBuilder extends RequestBuilder<Knowled
    * @param entity The entity to be created
    * @returns A request builder for creating requests that create an entity of type `KnowledgeBaseSolutions`.
    */
-  create(entity: KnowledgeBaseSolutions): CreateRequestBuilder<KnowledgeBaseSolutions> {
-    return new CreateRequestBuilder(KnowledgeBaseSolutions, entity);
+  create(entity: KnowledgeBaseSolutions): CreateRequestBuilderV4<KnowledgeBaseSolutions> {
+    return new CreateRequestBuilderV4(KnowledgeBaseSolutions, entity);
   }
 
   /**
@@ -41,8 +41,8 @@ export class KnowledgeBaseSolutionsRequestBuilder extends RequestBuilder<Knowled
    * @param entity The entity to be updated
    * @returns A request builder for creating requests that update an entity of type `KnowledgeBaseSolutions`.
    */
-  update(entity: KnowledgeBaseSolutions): UpdateRequestBuilder<KnowledgeBaseSolutions> {
-    return new UpdateRequestBuilder(KnowledgeBaseSolutions, entity);
+  update(entity: KnowledgeBaseSolutions): UpdateRequestBuilderV4<KnowledgeBaseSolutions> {
+    return new UpdateRequestBuilderV4(KnowledgeBaseSolutions, entity);
   }
 
   /**
@@ -50,14 +50,14 @@ export class KnowledgeBaseSolutionsRequestBuilder extends RequestBuilder<Knowled
    * @param solutionCode Key property. See [[KnowledgeBaseSolutions.solutionCode]].
    * @returns A request builder for creating requests that delete an entity of type `KnowledgeBaseSolutions`.
    */
-  delete(solutionCode: number): DeleteRequestBuilder<KnowledgeBaseSolutions>;
+  delete(solutionCode: number): DeleteRequestBuilderV4<KnowledgeBaseSolutions>;
   /**
    * Returns a request builder for deleting an entity of type `KnowledgeBaseSolutions`.
    * @param entity Pass the entity to be deleted.
    * @returns A request builder for creating requests that delete an entity of type `KnowledgeBaseSolutions` by taking the entity as a parameter.
    */
-  delete(entity: KnowledgeBaseSolutions): DeleteRequestBuilder<KnowledgeBaseSolutions>;
-  delete(solutionCodeOrEntity: any): DeleteRequestBuilder<KnowledgeBaseSolutions> {
-    return new DeleteRequestBuilder(KnowledgeBaseSolutions, solutionCodeOrEntity instanceof KnowledgeBaseSolutions ? solutionCodeOrEntity : { SolutionCode: solutionCodeOrEntity! });
+  delete(entity: KnowledgeBaseSolutions): DeleteRequestBuilderV4<KnowledgeBaseSolutions>;
+  delete(solutionCodeOrEntity: any): DeleteRequestBuilderV4<KnowledgeBaseSolutions> {
+    return new DeleteRequestBuilderV4(KnowledgeBaseSolutions, solutionCodeOrEntity instanceof KnowledgeBaseSolutions ? solutionCodeOrEntity : { SolutionCode: solutionCodeOrEntity! });
   }
 }

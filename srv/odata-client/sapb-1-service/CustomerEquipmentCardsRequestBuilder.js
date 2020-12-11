@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
@@ -19,7 +19,7 @@ exports.CustomerEquipmentCardsRequestBuilder = void 0;
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-var v4_1 = require("@sap-cloud-sdk/core/v4");
+var core_1 = require("@sap-cloud-sdk/core");
 var CustomerEquipmentCards_1 = require("./CustomerEquipmentCards");
 /**
  * Request builder class for operations supported on the [[CustomerEquipmentCards]] entity.
@@ -35,14 +35,14 @@ var CustomerEquipmentCardsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests to retrieve one `CustomerEquipmentCards` entity based on its keys.
      */
     CustomerEquipmentCardsRequestBuilder.prototype.getByKey = function (equipmentCardNum) {
-        return new v4_1.GetByKeyRequestBuilder(CustomerEquipmentCards_1.CustomerEquipmentCards, { EquipmentCardNum: equipmentCardNum });
+        return new core_1.GetByKeyRequestBuilderV4(CustomerEquipmentCards_1.CustomerEquipmentCards, { EquipmentCardNum: equipmentCardNum });
     };
     /**
      * Returns a request builder for querying all `CustomerEquipmentCards` entities.
      * @returns A request builder for creating requests to retrieve all `CustomerEquipmentCards` entities.
      */
     CustomerEquipmentCardsRequestBuilder.prototype.getAll = function () {
-        return new v4_1.GetAllRequestBuilder(CustomerEquipmentCards_1.CustomerEquipmentCards);
+        return new core_1.GetAllRequestBuilderV4(CustomerEquipmentCards_1.CustomerEquipmentCards);
     };
     /**
      * Returns a request builder for creating a `CustomerEquipmentCards` entity.
@@ -50,7 +50,7 @@ var CustomerEquipmentCardsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that create an entity of type `CustomerEquipmentCards`.
      */
     CustomerEquipmentCardsRequestBuilder.prototype.create = function (entity) {
-        return new v4_1.CreateRequestBuilder(CustomerEquipmentCards_1.CustomerEquipmentCards, entity);
+        return new core_1.CreateRequestBuilderV4(CustomerEquipmentCards_1.CustomerEquipmentCards, entity);
     };
     /**
      * Returns a request builder for updating an entity of type `CustomerEquipmentCards`.
@@ -58,12 +58,12 @@ var CustomerEquipmentCardsRequestBuilder = /** @class */ (function (_super) {
      * @returns A request builder for creating requests that update an entity of type `CustomerEquipmentCards`.
      */
     CustomerEquipmentCardsRequestBuilder.prototype.update = function (entity) {
-        return new v4_1.UpdateRequestBuilder(CustomerEquipmentCards_1.CustomerEquipmentCards, entity);
+        return new core_1.UpdateRequestBuilderV4(CustomerEquipmentCards_1.CustomerEquipmentCards, entity);
     };
     CustomerEquipmentCardsRequestBuilder.prototype.delete = function (equipmentCardNumOrEntity) {
-        return new v4_1.DeleteRequestBuilder(CustomerEquipmentCards_1.CustomerEquipmentCards, equipmentCardNumOrEntity instanceof CustomerEquipmentCards_1.CustomerEquipmentCards ? equipmentCardNumOrEntity : { EquipmentCardNum: equipmentCardNumOrEntity });
+        return new core_1.DeleteRequestBuilderV4(CustomerEquipmentCards_1.CustomerEquipmentCards, equipmentCardNumOrEntity instanceof CustomerEquipmentCards_1.CustomerEquipmentCards ? equipmentCardNumOrEntity : { EquipmentCardNum: equipmentCardNumOrEntity });
     };
     return CustomerEquipmentCardsRequestBuilder;
-}(v4_1.RequestBuilder));
+}(core_1.RequestBuilder));
 exports.CustomerEquipmentCardsRequestBuilder = CustomerEquipmentCardsRequestBuilder;
 //# sourceMappingURL=CustomerEquipmentCardsRequestBuilder.js.map

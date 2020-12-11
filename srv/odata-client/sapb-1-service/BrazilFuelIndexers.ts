@@ -4,25 +4,20 @@
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 import { BrazilFuelIndexersRequestBuilder } from './BrazilFuelIndexersRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, Field, NumberField, OneToManyLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "BrazilFuelIndexers" of service "SAPB1".
  */
-export class BrazilFuelIndexers extends Entity implements BrazilFuelIndexersType {
+export class BrazilFuelIndexers extends EntityV4 implements BrazilFuelIndexersType {
   /**
    * Technical entity name for BrazilFuelIndexers.
    */
   static _entityName = 'BrazilFuelIndexers';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for BrazilFuelIndexers.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Fuel Id.
    * @nullable
@@ -49,11 +44,11 @@ export class BrazilFuelIndexers extends Entity implements BrazilFuelIndexersType
   items!: Items[];
 
   /**
-   * Returns an entity builder to construct instances `BrazilFuelIndexers`.
+   * Returns an entity builder to construct instances of `BrazilFuelIndexers`.
    * @returns A builder that constructs instances of entity type `BrazilFuelIndexers`.
    */
-  static builder(): EntityBuilderType<BrazilFuelIndexers, BrazilFuelIndexersTypeForceMandatory> {
-    return Entity.entityBuilder(BrazilFuelIndexers);
+  static builder(): EntityBuilderType<BrazilFuelIndexers, BrazilFuelIndexersType> {
+    return EntityV4.entityBuilder(BrazilFuelIndexers);
   }
 
   /**
@@ -69,8 +64,8 @@ export class BrazilFuelIndexers extends Entity implements BrazilFuelIndexersType
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `BrazilFuelIndexers`.
    */
-  static customField(fieldName: string): CustomField<BrazilFuelIndexers> {
-    return Entity.customFieldSelector(fieldName, BrazilFuelIndexers);
+  static customField(fieldName: string): CustomFieldV4<BrazilFuelIndexers> {
+    return EntityV4.customFieldSelector(fieldName, BrazilFuelIndexers);
   }
 
   /**
@@ -85,18 +80,10 @@ export class BrazilFuelIndexers extends Entity implements BrazilFuelIndexersType
 import { Items, ItemsType } from './Items';
 
 export interface BrazilFuelIndexersType {
-  fuelId?: number;
-  fuelGroupCode?: number;
-  fuelCode?: string;
-  description?: string;
-  items: ItemsType[];
-}
-
-export interface BrazilFuelIndexersTypeForceMandatory {
-  fuelId: number;
-  fuelGroupCode: number;
-  fuelCode: string;
-  description: string;
+  fuelId?: number | null;
+  fuelGroupCode?: number | null;
+  fuelCode?: string | null;
+  description?: string | null;
   items: ItemsType[];
 }
 

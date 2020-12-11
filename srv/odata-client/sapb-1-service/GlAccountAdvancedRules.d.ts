@@ -1,19 +1,18 @@
 import { GlAccountAdvancedRulesRequestBuilder } from './GlAccountAdvancedRulesRequestBuilder';
 import { Moment } from 'moment';
-import { AllFields, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoSubPeriodTypeEnum } from './BoSubPeriodTypeEnum';
+import { GetGlAccountByEnum } from './GetGlAccountByEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoBusinessPartnerTypes } from './BoBusinessPartnerTypes';
+import { AllFields, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "GLAccountAdvancedRules" of service "SAPB1".
  */
-export declare class GlAccountAdvancedRules extends Entity implements GlAccountAdvancedRulesType {
+export declare class GlAccountAdvancedRules extends EntityV4 implements GlAccountAdvancedRulesType {
     /**
      * Technical entity name for GlAccountAdvancedRules.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for GlAccountAdvancedRules.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -43,6 +42,11 @@ export declare class GlAccountAdvancedRules extends Entity implements GlAccountA
      * @nullable
      */
     periodName?: string;
+    /**
+     * Sub Period Type.
+     * @nullable
+     */
+    subPeriodType?: BoSubPeriodTypeEnum;
     /**
      * Number Of Periods.
      * @nullable
@@ -123,6 +127,11 @@ export declare class GlAccountAdvancedRules extends Entity implements GlAccountA
      * @nullable
      */
     code?: string;
+    /**
+     * Get Gl Account By.
+     * @nullable
+     */
+    getGlAccountBy?: GetGlAccountByEnum;
     /**
      * From Date.
      * @nullable
@@ -364,6 +373,16 @@ export declare class GlAccountAdvancedRules extends Entity implements GlAccountA
      */
     whOutgoingCenvatAccount?: string;
     /**
+     * Is Active.
+     * @nullable
+     */
+    isActive?: BoYesNoEnum;
+    /**
+     * Business Partner Type.
+     * @nullable
+     */
+    businessPartnerType?: BoBusinessPartnerTypes;
+    /**
      * Vat Group.
      * @nullable
      */
@@ -436,10 +455,10 @@ export declare class GlAccountAdvancedRules extends Entity implements GlAccountA
      */
     businessPartner: BusinessPartners;
     /**
-     * Returns an entity builder to construct instances `GlAccountAdvancedRules`.
+     * Returns an entity builder to construct instances of `GlAccountAdvancedRules`.
      * @returns A builder that constructs instances of entity type `GlAccountAdvancedRules`.
      */
-    static builder(): EntityBuilderType<GlAccountAdvancedRules, GlAccountAdvancedRulesTypeForceMandatory>;
+    static builder(): EntityBuilderType<GlAccountAdvancedRules, GlAccountAdvancedRulesType>;
     /**
      * Returns a request builder to construct requests for operations on the `GlAccountAdvancedRules` entity type.
      * @returns A `GlAccountAdvancedRules` request builder.
@@ -450,7 +469,7 @@ export declare class GlAccountAdvancedRules extends Entity implements GlAccountA
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `GlAccountAdvancedRules`.
      */
-    static customField(fieldName: string): CustomField<GlAccountAdvancedRules>;
+    static customField(fieldName: string): CustomFieldV4<GlAccountAdvancedRules>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -468,170 +487,87 @@ import { ChartOfAccounts, ChartOfAccountsType } from './ChartOfAccounts';
 import { VatGroups, VatGroupsType } from './VatGroups';
 import { BusinessPartners, BusinessPartnersType } from './BusinessPartners';
 export interface GlAccountAdvancedRulesType {
-    absoluteEntry?: number;
-    period?: string;
-    beginningofFinancialYear?: Moment;
-    financialYear?: number;
-    periodName?: string;
-    numberOfPeriods?: number;
-    fromPostingDate?: Moment;
-    toPostingDate?: Moment;
-    fromDueDate?: Moment;
-    toDueDate?: Moment;
-    fromDocumentDate?: Moment;
-    toDocumentDate?: Moment;
-    itemCode?: string;
-    itemGroup?: number;
-    warehouse?: string;
-    bpGroup?: number;
-    federalTaxId?: string;
-    shipToCountry?: string;
-    shipToState?: string;
-    description?: string;
-    code?: string;
-    fromDate?: Moment;
-    toDate?: Moment;
-    expensesAccount?: string;
-    revenuesAccount?: string;
-    exemptIncomeAcc?: string;
-    inventoryAccount?: string;
-    costAccount?: string;
-    transferAccount?: string;
-    varienceAccount?: string;
-    priceDifferenceAcc?: string;
-    negativeInventoryAdjustmentAccount?: string;
-    decreasingAccount?: string;
-    increasingAccount?: string;
-    returningAccount?: string;
-    euRevenuesAccount?: string;
-    euExpensesAccount?: string;
-    foreignRevenueAcc?: string;
-    foreignExpensAcc?: string;
-    purchaseAcct?: string;
-    paReturnAcct?: string;
-    purchaseOffsetAcct?: string;
-    exchangeRateDifferencesAcct?: string;
-    goodsClearingAcct?: string;
-    glDecreaseAcct?: string;
-    glIncreaseAcct?: string;
-    wipAccount?: string;
-    wipVarianceAccount?: string;
-    wipOffsetProfitAndLossAccount?: string;
-    inventoryOffsetProfitAndLossAccount?: string;
-    stockInflationAdjustAccount?: string;
-    stockInflationOffsetAccount?: string;
-    costInflationAccount?: string;
-    costInflationOffsetAccount?: string;
-    expenseClearingAct?: string;
-    expenseOffsettingAccount?: string;
-    stockInTransitAccount?: string;
-    shippedGoodsAccount?: string;
-    vatInRevenueAccount?: string;
-    salesCreditAcc?: string;
-    purchaseCreditAcc?: string;
-    exemptedCredits?: string;
-    salesCreditForeignAcc?: string;
-    foreignPurchaseCreditAcc?: string;
-    salesCreditEuAcc?: string;
-    euPurchaseCreditAcc?: string;
-    purchaseBalanceAccount?: string;
-    whIncomingCenvatAccount?: string;
-    whOutgoingCenvatAccount?: string;
-    vatGroup?: string;
-    bpCode?: string;
-    usage?: number;
-    udf1?: string;
-    udf2?: string;
-    udf3?: string;
-    udf4?: string;
-    udf5?: string;
-    item: ItemsType;
-    itemGroups: ItemGroupsType;
-    warehouse2: WarehousesType;
-    businessPartnerGroup: BusinessPartnerGroupsType;
-    country: CountriesType;
-    chartOfAccount: ChartOfAccountsType;
-    vatGroup_1: VatGroupsType;
-    businessPartner: BusinessPartnersType;
-}
-export interface GlAccountAdvancedRulesTypeForceMandatory {
-    absoluteEntry: number;
-    period: string;
-    beginningofFinancialYear: Moment;
-    financialYear: number;
-    periodName: string;
-    numberOfPeriods: number;
-    fromPostingDate: Moment;
-    toPostingDate: Moment;
-    fromDueDate: Moment;
-    toDueDate: Moment;
-    fromDocumentDate: Moment;
-    toDocumentDate: Moment;
-    itemCode: string;
-    itemGroup: number;
-    warehouse: string;
-    bpGroup: number;
-    federalTaxId: string;
-    shipToCountry: string;
-    shipToState: string;
-    description: string;
-    code: string;
-    fromDate: Moment;
-    toDate: Moment;
-    expensesAccount: string;
-    revenuesAccount: string;
-    exemptIncomeAcc: string;
-    inventoryAccount: string;
-    costAccount: string;
-    transferAccount: string;
-    varienceAccount: string;
-    priceDifferenceAcc: string;
-    negativeInventoryAdjustmentAccount: string;
-    decreasingAccount: string;
-    increasingAccount: string;
-    returningAccount: string;
-    euRevenuesAccount: string;
-    euExpensesAccount: string;
-    foreignRevenueAcc: string;
-    foreignExpensAcc: string;
-    purchaseAcct: string;
-    paReturnAcct: string;
-    purchaseOffsetAcct: string;
-    exchangeRateDifferencesAcct: string;
-    goodsClearingAcct: string;
-    glDecreaseAcct: string;
-    glIncreaseAcct: string;
-    wipAccount: string;
-    wipVarianceAccount: string;
-    wipOffsetProfitAndLossAccount: string;
-    inventoryOffsetProfitAndLossAccount: string;
-    stockInflationAdjustAccount: string;
-    stockInflationOffsetAccount: string;
-    costInflationAccount: string;
-    costInflationOffsetAccount: string;
-    expenseClearingAct: string;
-    expenseOffsettingAccount: string;
-    stockInTransitAccount: string;
-    shippedGoodsAccount: string;
-    vatInRevenueAccount: string;
-    salesCreditAcc: string;
-    purchaseCreditAcc: string;
-    exemptedCredits: string;
-    salesCreditForeignAcc: string;
-    foreignPurchaseCreditAcc: string;
-    salesCreditEuAcc: string;
-    euPurchaseCreditAcc: string;
-    purchaseBalanceAccount: string;
-    whIncomingCenvatAccount: string;
-    whOutgoingCenvatAccount: string;
-    vatGroup: string;
-    bpCode: string;
-    usage: number;
-    udf1: string;
-    udf2: string;
-    udf3: string;
-    udf4: string;
-    udf5: string;
+    absoluteEntry?: number | null;
+    period?: string | null;
+    beginningofFinancialYear?: Moment | null;
+    financialYear?: number | null;
+    periodName?: string | null;
+    subPeriodType?: BoSubPeriodTypeEnum | null;
+    numberOfPeriods?: number | null;
+    fromPostingDate?: Moment | null;
+    toPostingDate?: Moment | null;
+    fromDueDate?: Moment | null;
+    toDueDate?: Moment | null;
+    fromDocumentDate?: Moment | null;
+    toDocumentDate?: Moment | null;
+    itemCode?: string | null;
+    itemGroup?: number | null;
+    warehouse?: string | null;
+    bpGroup?: number | null;
+    federalTaxId?: string | null;
+    shipToCountry?: string | null;
+    shipToState?: string | null;
+    description?: string | null;
+    code?: string | null;
+    getGlAccountBy?: GetGlAccountByEnum | null;
+    fromDate?: Moment | null;
+    toDate?: Moment | null;
+    expensesAccount?: string | null;
+    revenuesAccount?: string | null;
+    exemptIncomeAcc?: string | null;
+    inventoryAccount?: string | null;
+    costAccount?: string | null;
+    transferAccount?: string | null;
+    varienceAccount?: string | null;
+    priceDifferenceAcc?: string | null;
+    negativeInventoryAdjustmentAccount?: string | null;
+    decreasingAccount?: string | null;
+    increasingAccount?: string | null;
+    returningAccount?: string | null;
+    euRevenuesAccount?: string | null;
+    euExpensesAccount?: string | null;
+    foreignRevenueAcc?: string | null;
+    foreignExpensAcc?: string | null;
+    purchaseAcct?: string | null;
+    paReturnAcct?: string | null;
+    purchaseOffsetAcct?: string | null;
+    exchangeRateDifferencesAcct?: string | null;
+    goodsClearingAcct?: string | null;
+    glDecreaseAcct?: string | null;
+    glIncreaseAcct?: string | null;
+    wipAccount?: string | null;
+    wipVarianceAccount?: string | null;
+    wipOffsetProfitAndLossAccount?: string | null;
+    inventoryOffsetProfitAndLossAccount?: string | null;
+    stockInflationAdjustAccount?: string | null;
+    stockInflationOffsetAccount?: string | null;
+    costInflationAccount?: string | null;
+    costInflationOffsetAccount?: string | null;
+    expenseClearingAct?: string | null;
+    expenseOffsettingAccount?: string | null;
+    stockInTransitAccount?: string | null;
+    shippedGoodsAccount?: string | null;
+    vatInRevenueAccount?: string | null;
+    salesCreditAcc?: string | null;
+    purchaseCreditAcc?: string | null;
+    exemptedCredits?: string | null;
+    salesCreditForeignAcc?: string | null;
+    foreignPurchaseCreditAcc?: string | null;
+    salesCreditEuAcc?: string | null;
+    euPurchaseCreditAcc?: string | null;
+    purchaseBalanceAccount?: string | null;
+    whIncomingCenvatAccount?: string | null;
+    whOutgoingCenvatAccount?: string | null;
+    isActive?: BoYesNoEnum | null;
+    businessPartnerType?: BoBusinessPartnerTypes | null;
+    vatGroup?: string | null;
+    bpCode?: string | null;
+    usage?: number | null;
+    udf1?: string | null;
+    udf2?: string | null;
+    udf3?: string | null;
+    udf4?: string | null;
+    udf5?: string | null;
     item: ItemsType;
     itemGroups: ItemGroupsType;
     warehouse2: WarehousesType;
@@ -667,6 +603,11 @@ export declare namespace GlAccountAdvancedRules {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const PERIOD_NAME: StringField<GlAccountAdvancedRules>;
+    /**
+     * Static representation of the [[subPeriodType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SUB_PERIOD_TYPE: EnumField<GlAccountAdvancedRules>;
     /**
      * Static representation of the [[numberOfPeriods]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -747,6 +688,11 @@ export declare namespace GlAccountAdvancedRules {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const CODE: StringField<GlAccountAdvancedRules>;
+    /**
+     * Static representation of the [[getGlAccountBy]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const GET_GL_ACCOUNT_BY: EnumField<GlAccountAdvancedRules>;
     /**
      * Static representation of the [[fromDate]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -988,6 +934,16 @@ export declare namespace GlAccountAdvancedRules {
      */
     const WH_OUTGOING_CENVAT_ACCOUNT: StringField<GlAccountAdvancedRules>;
     /**
+     * Static representation of the [[isActive]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IS_ACTIVE: EnumField<GlAccountAdvancedRules>;
+    /**
+     * Static representation of the [[businessPartnerType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BUSINESS_PARTNER_TYPE: EnumField<GlAccountAdvancedRules>;
+    /**
      * Static representation of the [[vatGroup]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -1070,7 +1026,7 @@ export declare namespace GlAccountAdvancedRules {
     /**
      * All fields of the GlAccountAdvancedRules entity.
      */
-    const _allFields: Array<NumberField<GlAccountAdvancedRules> | StringField<GlAccountAdvancedRules> | DateField<GlAccountAdvancedRules> | OneToOneLink<GlAccountAdvancedRules, Items> | OneToOneLink<GlAccountAdvancedRules, ItemGroups> | OneToOneLink<GlAccountAdvancedRules, Warehouses> | OneToOneLink<GlAccountAdvancedRules, BusinessPartnerGroups> | OneToOneLink<GlAccountAdvancedRules, Countries> | OneToOneLink<GlAccountAdvancedRules, ChartOfAccounts> | OneToOneLink<GlAccountAdvancedRules, VatGroups> | OneToOneLink<GlAccountAdvancedRules, BusinessPartners>>;
+    const _allFields: Array<NumberField<GlAccountAdvancedRules> | StringField<GlAccountAdvancedRules> | DateField<GlAccountAdvancedRules> | EnumField<GlAccountAdvancedRules> | OneToOneLink<GlAccountAdvancedRules, Items> | OneToOneLink<GlAccountAdvancedRules, ItemGroups> | OneToOneLink<GlAccountAdvancedRules, Warehouses> | OneToOneLink<GlAccountAdvancedRules, BusinessPartnerGroups> | OneToOneLink<GlAccountAdvancedRules, Countries> | OneToOneLink<GlAccountAdvancedRules, ChartOfAccounts> | OneToOneLink<GlAccountAdvancedRules, VatGroups> | OneToOneLink<GlAccountAdvancedRules, BusinessPartners>>;
     /**
      * All fields selector.
      */

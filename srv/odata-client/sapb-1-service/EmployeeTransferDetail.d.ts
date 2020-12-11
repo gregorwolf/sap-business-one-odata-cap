@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
-import { ComplexTypeDatePropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, Entity, FieldType, Time } from '@sap-cloud-sdk/core/v4';
+import { EmployeeTransferProcessingStatusEnum } from './EmployeeTransferProcessingStatusEnum';
+import { ComplexTypeDatePropertyField, ComplexTypeEnumPropertyField, ComplexTypeField, ComplexTypeNumberPropertyField, ComplexTypeStringPropertyField, ComplexTypeTimePropertyField, ConstructorOrField, EntityV4, FieldType, PropertyMetadata, Time } from '@sap-cloud-sdk/core';
 /**
  * EmployeeTransferDetail
  */
@@ -25,6 +26,11 @@ export interface EmployeeTransferDetail {
      */
     transferedTime?: Time;
     /**
+     * Status.
+     * @nullable
+     */
+    status?: EmployeeTransferProcessingStatusEnum;
+    /**
      * Comment.
      * @nullable
      */
@@ -38,7 +44,7 @@ export declare function createEmployeeTransferDetail(json: any): EmployeeTransfe
  * EmployeeTransferDetailField
  * @typeparam EntityT - Type of the entity the complex type field belongs to.
  */
-export declare class EmployeeTransferDetailField<EntityT extends Entity> extends ComplexTypeField<EntityT> {
+export declare class EmployeeTransferDetailField<EntityT extends EntityV4> extends ComplexTypeField<EntityT, EmployeeTransferDetail> {
     /**
      * Representation of the [[EmployeeTransferDetail.transferId]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
@@ -60,12 +66,31 @@ export declare class EmployeeTransferDetailField<EntityT extends Entity> extends
      */
     transferedTime: ComplexTypeTimePropertyField<EntityT>;
     /**
+     * Representation of the [[EmployeeTransferDetail.status]] property for query construction.
+     * Use to reference this property in query operations such as 'filter' in the fluent request API.
+     */
+    status: ComplexTypeEnumPropertyField<EntityT>;
+    /**
      * Representation of the [[EmployeeTransferDetail.comment]] property for query construction.
      * Use to reference this property in query operations such as 'filter' in the fluent request API.
      */
     comment: ComplexTypeStringPropertyField<EntityT>;
+    /**
+     * Creates an instance of EmployeeTransferDetailField.
+     *
+     * @param fieldName - Actual name of the field as used in the OData request.
+     * @param fieldOf - Either the parent entity constructor of the parent complex type this field belongs to.
+     */
+    constructor(fieldName: string, fieldOf: ConstructorOrField<EntityT>);
 }
 export declare namespace EmployeeTransferDetail {
+    /**
+     * Metadata information on all properties of the `EmployeeTransferDetail` complex type.
+     */
+    const _propertyMetadata: PropertyMetadata<EmployeeTransferDetail>[];
+    /**
+     * @deprecated Since v1.25.0. Use `deserializeComplexTypeV2` or `deserializeComplexTypeV4` of the `@sap-cloud-sdk/core` package instead.
+     */
     function build(json: {
         [keys: string]: FieldType;
     }): EmployeeTransferDetail;

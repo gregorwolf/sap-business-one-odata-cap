@@ -1,18 +1,15 @@
 import { OccurrenceCodesRequestBuilder } from './OccurrenceCodesRequestBuilder';
-import { AllFields, CustomField, Entity, EntityBuilderType, Field, NumberField, StringField } from '@sap-cloud-sdk/core/v4';
+import { BoBoeStatus } from './BoBoeStatus';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { AllFields, CustomFieldV4, EntityBuilderType, EntityV4, EnumField, Field, NumberField, StringField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "OccurrenceCodes" of service "SAPB1".
  */
-export declare class OccurrenceCodes extends Entity implements OccurrenceCodesType {
+export declare class OccurrenceCodes extends EntityV4 implements OccurrenceCodesType {
     /**
      * Technical entity name for OccurrenceCodes.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for OccurrenceCodes.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -38,10 +35,20 @@ export declare class OccurrenceCodes extends Entity implements OccurrenceCodesTy
      */
     note?: string;
     /**
-     * Returns an entity builder to construct instances `OccurrenceCodes`.
+     * Requested Boe Status.
+     * @nullable
+     */
+    requestedBoeStatus?: BoBoeStatus;
+    /**
+     * Is Movement.
+     * @nullable
+     */
+    isMovement?: BoYesNoEnum;
+    /**
+     * Returns an entity builder to construct instances of `OccurrenceCodes`.
      * @returns A builder that constructs instances of entity type `OccurrenceCodes`.
      */
-    static builder(): EntityBuilderType<OccurrenceCodes, OccurrenceCodesTypeForceMandatory>;
+    static builder(): EntityBuilderType<OccurrenceCodes, OccurrenceCodesType>;
     /**
      * Returns a request builder to construct requests for operations on the `OccurrenceCodes` entity type.
      * @returns A `OccurrenceCodes` request builder.
@@ -52,7 +59,7 @@ export declare class OccurrenceCodes extends Entity implements OccurrenceCodesTy
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `OccurrenceCodes`.
      */
-    static customField(fieldName: string): CustomField<OccurrenceCodes>;
+    static customField(fieldName: string): CustomFieldV4<OccurrenceCodes>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -62,16 +69,12 @@ export declare class OccurrenceCodes extends Entity implements OccurrenceCodesTy
     };
 }
 export interface OccurrenceCodesType {
-    absEntry?: number;
-    code?: string;
-    description?: string;
-    note?: string;
-}
-export interface OccurrenceCodesTypeForceMandatory {
-    absEntry: number;
-    code: string;
-    description: string;
-    note: string;
+    absEntry?: number | null;
+    code?: string | null;
+    description?: string | null;
+    note?: string | null;
+    requestedBoeStatus?: BoBoeStatus | null;
+    isMovement?: BoYesNoEnum | null;
 }
 export declare namespace OccurrenceCodes {
     /**
@@ -95,9 +98,19 @@ export declare namespace OccurrenceCodes {
      */
     const NOTE: StringField<OccurrenceCodes>;
     /**
+     * Static representation of the [[requestedBoeStatus]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const REQUESTED_BOE_STATUS: EnumField<OccurrenceCodes>;
+    /**
+     * Static representation of the [[isMovement]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const IS_MOVEMENT: EnumField<OccurrenceCodes>;
+    /**
      * All fields of the OccurrenceCodes entity.
      */
-    const _allFields: Array<NumberField<OccurrenceCodes> | StringField<OccurrenceCodes>>;
+    const _allFields: Array<NumberField<OccurrenceCodes> | StringField<OccurrenceCodes> | EnumField<OccurrenceCodes>>;
     /**
      * All fields selector.
      */

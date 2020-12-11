@@ -5,26 +5,27 @@
  */
 import { BlanketAgreementsRequestBuilder } from './BlanketAgreementsRequestBuilder';
 import { Moment } from 'moment';
-import { BlanketAgreementsItemsLine, BlanketAgreementsItemsLineField } from './BlanketAgreementsItemsLine';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core/v4';
+import { BlanketAgreementsItemsLine } from './BlanketAgreementsItemsLine';
+import { BlanketAgreementTypeEnum } from './BlanketAgreementTypeEnum';
+import { BlanketAgreementStatusEnum } from './BlanketAgreementStatusEnum';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoRemindUnits } from './BoRemindUnits';
+import { BlanketAgreementMethodEnum } from './BlanketAgreementMethodEnum';
+import { PriceModeEnum } from './PriceModeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField } from '@sap-cloud-sdk/core';
 
 /**
  * This class represents the entity "BlanketAgreements" of service "SAPB1".
  */
-export class BlanketAgreements extends Entity implements BlanketAgreementsType {
+export class BlanketAgreements extends EntityV4 implements BlanketAgreementsType {
   /**
    * Technical entity name for BlanketAgreements.
    */
   static _entityName = 'BlanketAgreements';
   /**
-   * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-   * Technical service name for BlanketAgreements.
-   */
-  static _serviceName = 'SAPB1';
-  /**
    * Default url path for the according service.
    */
-  static _defaultServicePath = 'VALUE_IS_UNDEFINED';
+  static _defaultServicePath = '/b1s/v2/';
   /**
    * Agreement No.
    * @nullable
@@ -66,10 +67,35 @@ export class BlanketAgreements extends Entity implements BlanketAgreementsType {
    */
   description?: string;
   /**
+   * Agreement Type.
+   * @nullable
+   */
+  agreementType?: BlanketAgreementTypeEnum;
+  /**
+   * Status.
+   * @nullable
+   */
+  status?: BlanketAgreementStatusEnum;
+  /**
    * Owner.
    * @nullable
    */
   owner?: number;
+  /**
+   * Ignore Prices In Agreement.
+   * @nullable
+   */
+  ignorePricesInAgreement?: BoYesNoEnum;
+  /**
+   * Renewal.
+   * @nullable
+   */
+  renewal?: BoYesNoEnum;
+  /**
+   * Remind Unit.
+   * @nullable
+   */
+  remindUnit?: BoRemindUnits;
   /**
    * Remind Time.
    * @nullable
@@ -90,6 +116,11 @@ export class BlanketAgreements extends Entity implements BlanketAgreementsType {
    * @nullable
    */
   settlementProbability?: number;
+  /**
+   * Agreement Method.
+   * @nullable
+   */
+  agreementMethod?: BlanketAgreementMethodEnum;
   /**
    * Payment Terms.
    * @nullable
@@ -121,6 +152,11 @@ export class BlanketAgreements extends Entity implements BlanketAgreementsType {
    */
   docNum?: number;
   /**
+   * Hand Written.
+   * @nullable
+   */
+  handWritten?: BoYesNoEnum;
+  /**
    * Period Indicator.
    * @nullable
    */
@@ -150,6 +186,11 @@ export class BlanketAgreements extends Entity implements BlanketAgreementsType {
    * @nullable
    */
   project?: string;
+  /**
+   * Price Mode.
+   * @nullable
+   */
+  priceMode?: PriceModeEnum;
   /**
    * Bp Currency.
    * @nullable
@@ -218,11 +259,11 @@ export class BlanketAgreements extends Entity implements BlanketAgreementsType {
   incomingPayments!: IncomingPayments[];
 
   /**
-   * Returns an entity builder to construct instances `BlanketAgreements`.
+   * Returns an entity builder to construct instances of `BlanketAgreements`.
    * @returns A builder that constructs instances of entity type `BlanketAgreements`.
    */
-  static builder(): EntityBuilderType<BlanketAgreements, BlanketAgreementsTypeForceMandatory> {
-    return Entity.entityBuilder(BlanketAgreements);
+  static builder(): EntityBuilderType<BlanketAgreements, BlanketAgreementsType> {
+    return EntityV4.entityBuilder(BlanketAgreements);
   }
 
   /**
@@ -238,8 +279,8 @@ export class BlanketAgreements extends Entity implements BlanketAgreementsType {
    * @param fieldName Name of the custom field to select
    * @returns A builder that constructs instances of entity type `BlanketAgreements`.
    */
-  static customField(fieldName: string): CustomField<BlanketAgreements> {
-    return Entity.customFieldSelector(fieldName, BlanketAgreements);
+  static customField(fieldName: string): CustomFieldV4<BlanketAgreements> {
+    return EntityV4.customFieldSelector(fieldName, BlanketAgreements);
   }
 
   /**
@@ -266,77 +307,41 @@ import { PaymentDrafts, PaymentDraftsType } from './PaymentDrafts';
 import { IncomingPayments, IncomingPaymentsType } from './IncomingPayments';
 
 export interface BlanketAgreementsType {
-  agreementNo?: number;
-  bpCode?: string;
-  bpName?: string;
-  contactPersonCode?: number;
-  startDate?: Moment;
-  endDate?: Moment;
-  terminateDate?: Moment;
-  description?: string;
-  owner?: number;
-  remindTime?: number;
-  remarks?: string;
-  attachmentEntry?: number;
-  settlementProbability?: number;
-  paymentTerms?: number;
-  priceList?: number;
-  signingDate?: Moment;
-  amendmentTo?: number;
-  series?: number;
-  docNum?: number;
-  periodIndicator?: string;
-  paymentMethod?: string;
-  exchangeRate?: number;
-  shippingType?: number;
-  numAtCard?: string;
-  project?: string;
-  bpCurrency?: string;
-  blanketAgreementsItemsLines?: BlanketAgreementsItemsLine[];
-  vendorPayments: VendorPaymentsType[];
-  journalEntries: JournalEntriesType[];
-  businessPartners: BusinessPartnersType[];
-  businessPartner: BusinessPartnersType;
-  employeeInfo: EmployeesInfoType;
-  attachments2: Attachments2Type;
-  paymentTermsType: PaymentTermsTypesType;
-  priceList2: PriceListsType;
-  wizardPaymentMethod: WizardPaymentMethodsType;
-  shippingType2: ShippingTypesType;
-  project2: ProjectsType;
-  currency: CurrenciesType;
-  paymentDrafts: PaymentDraftsType[];
-  incomingPayments: IncomingPaymentsType[];
-}
-
-export interface BlanketAgreementsTypeForceMandatory {
-  agreementNo: number;
-  bpCode: string;
-  bpName: string;
-  contactPersonCode: number;
-  startDate: Moment;
-  endDate: Moment;
-  terminateDate: Moment;
-  description: string;
-  owner: number;
-  remindTime: number;
-  remarks: string;
-  attachmentEntry: number;
-  settlementProbability: number;
-  paymentTerms: number;
-  priceList: number;
-  signingDate: Moment;
-  amendmentTo: number;
-  series: number;
-  docNum: number;
-  periodIndicator: string;
-  paymentMethod: string;
-  exchangeRate: number;
-  shippingType: number;
-  numAtCard: string;
-  project: string;
-  bpCurrency: string;
-  blanketAgreementsItemsLines: BlanketAgreementsItemsLine[];
+  agreementNo?: number | null;
+  bpCode?: string | null;
+  bpName?: string | null;
+  contactPersonCode?: number | null;
+  startDate?: Moment | null;
+  endDate?: Moment | null;
+  terminateDate?: Moment | null;
+  description?: string | null;
+  agreementType?: BlanketAgreementTypeEnum | null;
+  status?: BlanketAgreementStatusEnum | null;
+  owner?: number | null;
+  ignorePricesInAgreement?: BoYesNoEnum | null;
+  renewal?: BoYesNoEnum | null;
+  remindUnit?: BoRemindUnits | null;
+  remindTime?: number | null;
+  remarks?: string | null;
+  attachmentEntry?: number | null;
+  settlementProbability?: number | null;
+  agreementMethod?: BlanketAgreementMethodEnum | null;
+  paymentTerms?: number | null;
+  priceList?: number | null;
+  signingDate?: Moment | null;
+  amendmentTo?: number | null;
+  series?: number | null;
+  docNum?: number | null;
+  handWritten?: BoYesNoEnum | null;
+  periodIndicator?: string | null;
+  paymentMethod?: string | null;
+  exchangeRate?: number | null;
+  shippingType?: number | null;
+  numAtCard?: string | null;
+  project?: string | null;
+  priceMode?: PriceModeEnum | null;
+  bpCurrency?: string | null;
+  blanketAgreementsItemsLines?: BlanketAgreementsItemsLine[] | null;
   vendorPayments: VendorPaymentsType[];
   journalEntries: JournalEntriesType[];
   businessPartners: BusinessPartnersType[];
@@ -395,10 +400,35 @@ export namespace BlanketAgreements {
    */
   export const DESCRIPTION: StringField<BlanketAgreements> = new StringField('Description', BlanketAgreements, 'Edm.String');
   /**
+   * Static representation of the [[agreementType]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const AGREEMENT_TYPE: EnumField<BlanketAgreements> = new EnumField('AgreementType', BlanketAgreements);
+  /**
+   * Static representation of the [[status]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const STATUS: EnumField<BlanketAgreements> = new EnumField('Status', BlanketAgreements);
+  /**
    * Static representation of the [[owner]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const OWNER: NumberField<BlanketAgreements> = new NumberField('Owner', BlanketAgreements, 'Edm.Int32');
+  /**
+   * Static representation of the [[ignorePricesInAgreement]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const IGNORE_PRICES_IN_AGREEMENT: EnumField<BlanketAgreements> = new EnumField('IgnorePricesInAgreement', BlanketAgreements);
+  /**
+   * Static representation of the [[renewal]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const RENEWAL: EnumField<BlanketAgreements> = new EnumField('Renewal', BlanketAgreements);
+  /**
+   * Static representation of the [[remindUnit]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const REMIND_UNIT: EnumField<BlanketAgreements> = new EnumField('RemindUnit', BlanketAgreements);
   /**
    * Static representation of the [[remindTime]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -419,6 +449,11 @@ export namespace BlanketAgreements {
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
   export const SETTLEMENT_PROBABILITY: NumberField<BlanketAgreements> = new NumberField('SettlementProbability', BlanketAgreements, 'Edm.Double');
+  /**
+   * Static representation of the [[agreementMethod]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const AGREEMENT_METHOD: EnumField<BlanketAgreements> = new EnumField('AgreementMethod', BlanketAgreements);
   /**
    * Static representation of the [[paymentTerms]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -450,6 +485,11 @@ export namespace BlanketAgreements {
    */
   export const DOC_NUM: NumberField<BlanketAgreements> = new NumberField('DocNum', BlanketAgreements, 'Edm.Int32');
   /**
+   * Static representation of the [[handWritten]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const HAND_WRITTEN: EnumField<BlanketAgreements> = new EnumField('HandWritten', BlanketAgreements);
+  /**
    * Static representation of the [[periodIndicator]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -480,6 +520,11 @@ export namespace BlanketAgreements {
    */
   export const PROJECT: StringField<BlanketAgreements> = new StringField('Project', BlanketAgreements, 'Edm.String');
   /**
+   * Static representation of the [[priceMode]] property for query construction.
+   * Use to reference this property in query operations such as 'select' in the fluent request API.
+   */
+  export const PRICE_MODE: EnumField<BlanketAgreements> = new EnumField('PriceMode', BlanketAgreements);
+  /**
    * Static representation of the [[bpCurrency]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
@@ -488,7 +533,7 @@ export namespace BlanketAgreements {
    * Static representation of the [[blanketAgreementsItemsLines]] property for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
    */
-  export const BLANKET_AGREEMENTS_ITEMS_LINES: CollectionField<BlanketAgreements> = new CollectionField('BlanketAgreements_ItemsLines', BlanketAgreements, new BlanketAgreementsItemsLineField('', BlanketAgreements));
+  export const BLANKET_AGREEMENTS_ITEMS_LINES: CollectionField<BlanketAgreements, BlanketAgreementsItemsLine> = new CollectionField('BlanketAgreements_ItemsLines', BlanketAgreements, BlanketAgreementsItemsLine);
   /**
    * Static representation of the one-to-many navigation property [[vendorPayments]] for query construction.
    * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -562,7 +607,7 @@ export namespace BlanketAgreements {
   /**
    * All fields of the BlanketAgreements entity.
    */
-  export const _allFields: Array<NumberField<BlanketAgreements> | StringField<BlanketAgreements> | DateField<BlanketAgreements> | CollectionField<BlanketAgreements> | OneToManyLink<BlanketAgreements, VendorPayments> | OneToManyLink<BlanketAgreements, JournalEntries> | OneToManyLink<BlanketAgreements, BusinessPartners> | OneToOneLink<BlanketAgreements, BusinessPartners> | OneToOneLink<BlanketAgreements, EmployeesInfo> | OneToOneLink<BlanketAgreements, Attachments2> | OneToOneLink<BlanketAgreements, PaymentTermsTypes> | OneToOneLink<BlanketAgreements, PriceLists> | OneToOneLink<BlanketAgreements, WizardPaymentMethods> | OneToOneLink<BlanketAgreements, ShippingTypes> | OneToOneLink<BlanketAgreements, Projects> | OneToOneLink<BlanketAgreements, Currencies> | OneToManyLink<BlanketAgreements, PaymentDrafts> | OneToManyLink<BlanketAgreements, IncomingPayments>> = [
+  export const _allFields: Array<NumberField<BlanketAgreements> | StringField<BlanketAgreements> | DateField<BlanketAgreements> | EnumField<BlanketAgreements> | CollectionField<BlanketAgreements, BlanketAgreementsItemsLine> | OneToManyLink<BlanketAgreements, VendorPayments> | OneToManyLink<BlanketAgreements, JournalEntries> | OneToManyLink<BlanketAgreements, BusinessPartners> | OneToOneLink<BlanketAgreements, BusinessPartners> | OneToOneLink<BlanketAgreements, EmployeesInfo> | OneToOneLink<BlanketAgreements, Attachments2> | OneToOneLink<BlanketAgreements, PaymentTermsTypes> | OneToOneLink<BlanketAgreements, PriceLists> | OneToOneLink<BlanketAgreements, WizardPaymentMethods> | OneToOneLink<BlanketAgreements, ShippingTypes> | OneToOneLink<BlanketAgreements, Projects> | OneToOneLink<BlanketAgreements, Currencies> | OneToManyLink<BlanketAgreements, PaymentDrafts> | OneToManyLink<BlanketAgreements, IncomingPayments>> = [
     BlanketAgreements.AGREEMENT_NO,
     BlanketAgreements.BP_CODE,
     BlanketAgreements.BP_NAME,
@@ -571,23 +616,31 @@ export namespace BlanketAgreements {
     BlanketAgreements.END_DATE,
     BlanketAgreements.TERMINATE_DATE,
     BlanketAgreements.DESCRIPTION,
+    BlanketAgreements.AGREEMENT_TYPE,
+    BlanketAgreements.STATUS,
     BlanketAgreements.OWNER,
+    BlanketAgreements.IGNORE_PRICES_IN_AGREEMENT,
+    BlanketAgreements.RENEWAL,
+    BlanketAgreements.REMIND_UNIT,
     BlanketAgreements.REMIND_TIME,
     BlanketAgreements.REMARKS,
     BlanketAgreements.ATTACHMENT_ENTRY,
     BlanketAgreements.SETTLEMENT_PROBABILITY,
+    BlanketAgreements.AGREEMENT_METHOD,
     BlanketAgreements.PAYMENT_TERMS,
     BlanketAgreements.PRICE_LIST,
     BlanketAgreements.SIGNING_DATE,
     BlanketAgreements.AMENDMENT_TO,
     BlanketAgreements.SERIES,
     BlanketAgreements.DOC_NUM,
+    BlanketAgreements.HAND_WRITTEN,
     BlanketAgreements.PERIOD_INDICATOR,
     BlanketAgreements.PAYMENT_METHOD,
     BlanketAgreements.EXCHANGE_RATE,
     BlanketAgreements.SHIPPING_TYPE,
     BlanketAgreements.NUM_AT_CARD,
     BlanketAgreements.PROJECT,
+    BlanketAgreements.PRICE_MODE,
     BlanketAgreements.BP_CURRENCY,
     BlanketAgreements.BLANKET_AGREEMENTS_ITEMS_LINES,
     BlanketAgreements.VENDOR_PAYMENTS,

@@ -12,20 +12,33 @@ import { BpFiscalTaxId } from './BpFiscalTaxId';
 import { DiscountGroup } from './DiscountGroup';
 import { BpIntrastatExtension, BpIntrastatExtensionField } from './BpIntrastatExtension';
 import { BpBlockSendingMarketingContent } from './BpBlockSendingMarketingContent';
-import { AllFields, CollectionField, CustomField, DateField, Entity, EntityBuilderType, Field, NumberField, OneToManyLink, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core/v4';
+import { BoCardTypes } from './BoCardTypes';
+import { BoVatStatus } from './BoVatStatus';
+import { BoYesNoEnum } from './BoYesNoEnum';
+import { BoFatherCardTypes } from './BoFatherCardTypes';
+import { BoCardCompanyTypes } from './BoCardCompanyTypes';
+import { BoTaxRoundingRuleTypes } from './BoTaxRoundingRuleTypes';
+import { DiscountGroupBaseObjectEnum } from './DiscountGroupBaseObjectEnum';
+import { DiscountGroupRelationsEnum } from './DiscountGroupRelationsEnum';
+import { AssesseeTypeEnum } from './AssesseeTypeEnum';
+import { OperationCode347Enum } from './OperationCode347Enum';
+import { ShaamGroupEnum } from './ShaamGroupEnum';
+import { AutomaticPostingEnum } from './AutomaticPostingEnum';
+import { EffectivePriceEnum } from './EffectivePriceEnum';
+import { ResidenceNumberTypeEnum } from './ResidenceNumberTypeEnum';
+import { TypeOfOperationEnum } from './TypeOfOperationEnum';
+import { PriceModeEnum } from './PriceModeEnum';
+import { EDocGenerationTypeEnum } from './EDocGenerationTypeEnum';
+import { ExemptionMaxAmountValidationTypeEnum } from './ExemptionMaxAmountValidationTypeEnum';
+import { AllFields, CollectionField, CustomFieldV4, DateField, EntityBuilderType, EntityV4, EnumField, Field, NumberField, OneToManyLink, OneToOneLink, StringField, Time, TimeField } from '@sap-cloud-sdk/core';
 /**
  * This class represents the entity "BusinessPartners" of service "SAPB1".
  */
-export declare class BusinessPartners extends Entity implements BusinessPartnersType {
+export declare class BusinessPartners extends EntityV4 implements BusinessPartnersType {
     /**
      * Technical entity name for BusinessPartners.
      */
     static _entityName: string;
-    /**
-     * @deprecated Since v1.0.1 Use [[_defaultServicePath]] instead.
-     * Technical service name for BusinessPartners.
-     */
-    static _serviceName: string;
     /**
      * Default url path for the according service.
      */
@@ -40,6 +53,11 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      * @nullable
      */
     cardName?: string;
+    /**
+     * Card Type.
+     * @nullable
+     */
+    cardType?: BoCardTypes;
     /**
      * Group Code.
      * @nullable
@@ -111,10 +129,20 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      */
     discountPercent?: number;
     /**
+     * Vat Liable.
+     * @nullable
+     */
+    vatLiable?: BoVatStatus;
+    /**
      * Federal Tax Id.
      * @nullable
      */
     federalTaxId?: string;
+    /**
+     * Deductible At Source.
+     * @nullable
+     */
+    deductibleAtSource?: BoYesNoEnum;
     /**
      * Deduction Percent.
      * @nullable
@@ -251,6 +279,11 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      */
     cardForeignName?: string;
     /**
+     * Father Type.
+     * @nullable
+     */
+    fatherType?: BoFatherCardTypes;
+    /**
      * Deduction Office.
      * @nullable
      */
@@ -331,6 +364,11 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      */
     openOpportunities?: number;
     /**
+     * Valid.
+     * @nullable
+     */
+    valid?: BoYesNoEnum;
+    /**
      * Valid From.
      * @nullable
      */
@@ -345,6 +383,11 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      * @nullable
      */
     validRemarks?: string;
+    /**
+     * Frozen.
+     * @nullable
+     */
+    frozen?: BoYesNoEnum;
     /**
      * Frozen From.
      * @nullable
@@ -396,6 +439,21 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      */
     peymentMethodCode?: string;
     /**
+     * Back Order.
+     * @nullable
+     */
+    backOrder?: BoYesNoEnum;
+    /**
+     * Partial Delivery.
+     * @nullable
+     */
+    partialDelivery?: BoYesNoEnum;
+    /**
+     * Block Dunning.
+     * @nullable
+     */
+    blockDunning?: BoYesNoEnum;
+    /**
      * Bank Country.
      * @nullable
      */
@@ -431,6 +489,11 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      */
     dunningDate?: Moment;
     /**
+     * Collection Authorization.
+     * @nullable
+     */
+    collectionAuthorization?: BoYesNoEnum;
+    /**
      * Dme.
      * @nullable
      */
@@ -441,10 +504,20 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      */
     instructionKey?: string;
     /**
+     * Single Payment.
+     * @nullable
+     */
+    singlePayment?: BoYesNoEnum;
+    /**
      * Isr Biller Id.
      * @nullable
      */
     isrBillerId?: string;
+    /**
+     * Payment Block.
+     * @nullable
+     */
+    paymentBlock?: BoYesNoEnum;
     /**
      * Reference Details.
      * @nullable
@@ -496,6 +569,21 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      */
     lastMultiReconciliationNum?: number;
     /**
+     * Deferred Tax.
+     * @nullable
+     */
+    deferredTax?: BoYesNoEnum;
+    /**
+     * Equalization.
+     * @nullable
+     */
+    equalization?: BoYesNoEnum;
+    /**
+     * Subject To Withholding Tax.
+     * @nullable
+     */
+    subjectToWithholdingTax?: BoYesNoEnum;
+    /**
      * Certificate Number.
      * @nullable
      */
@@ -510,6 +598,11 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      * @nullable
      */
     nationalInsuranceNum?: string;
+    /**
+     * Accrual Criteria.
+     * @nullable
+     */
+    accrualCriteria?: BoYesNoEnum;
     /**
      * Wt Code.
      * @nullable
@@ -591,6 +684,11 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      */
     billofExchangeonCollection?: string;
     /**
+     * Company Private.
+     * @nullable
+     */
+    companyPrivate?: BoCardCompanyTypes;
+    /**
      * Language Code.
      * @nullable
      */
@@ -621,6 +719,331 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      */
     bankChargesAllocationCode?: string;
     /**
+     * Tax Rounding Rule.
+     * @nullable
+     */
+    taxRoundingRule?: BoTaxRoundingRuleTypes;
+    /**
+     * Properties 1.
+     * @nullable
+     */
+    properties1?: BoYesNoEnum;
+    /**
+     * Properties 2.
+     * @nullable
+     */
+    properties2?: BoYesNoEnum;
+    /**
+     * Properties 3.
+     * @nullable
+     */
+    properties3?: BoYesNoEnum;
+    /**
+     * Properties 4.
+     * @nullable
+     */
+    properties4?: BoYesNoEnum;
+    /**
+     * Properties 5.
+     * @nullable
+     */
+    properties5?: BoYesNoEnum;
+    /**
+     * Properties 6.
+     * @nullable
+     */
+    properties6?: BoYesNoEnum;
+    /**
+     * Properties 7.
+     * @nullable
+     */
+    properties7?: BoYesNoEnum;
+    /**
+     * Properties 8.
+     * @nullable
+     */
+    properties8?: BoYesNoEnum;
+    /**
+     * Properties 9.
+     * @nullable
+     */
+    properties9?: BoYesNoEnum;
+    /**
+     * Properties 10.
+     * @nullable
+     */
+    properties10?: BoYesNoEnum;
+    /**
+     * Properties 11.
+     * @nullable
+     */
+    properties11?: BoYesNoEnum;
+    /**
+     * Properties 12.
+     * @nullable
+     */
+    properties12?: BoYesNoEnum;
+    /**
+     * Properties 13.
+     * @nullable
+     */
+    properties13?: BoYesNoEnum;
+    /**
+     * Properties 14.
+     * @nullable
+     */
+    properties14?: BoYesNoEnum;
+    /**
+     * Properties 15.
+     * @nullable
+     */
+    properties15?: BoYesNoEnum;
+    /**
+     * Properties 16.
+     * @nullable
+     */
+    properties16?: BoYesNoEnum;
+    /**
+     * Properties 17.
+     * @nullable
+     */
+    properties17?: BoYesNoEnum;
+    /**
+     * Properties 18.
+     * @nullable
+     */
+    properties18?: BoYesNoEnum;
+    /**
+     * Properties 19.
+     * @nullable
+     */
+    properties19?: BoYesNoEnum;
+    /**
+     * Properties 20.
+     * @nullable
+     */
+    properties20?: BoYesNoEnum;
+    /**
+     * Properties 21.
+     * @nullable
+     */
+    properties21?: BoYesNoEnum;
+    /**
+     * Properties 22.
+     * @nullable
+     */
+    properties22?: BoYesNoEnum;
+    /**
+     * Properties 23.
+     * @nullable
+     */
+    properties23?: BoYesNoEnum;
+    /**
+     * Properties 24.
+     * @nullable
+     */
+    properties24?: BoYesNoEnum;
+    /**
+     * Properties 25.
+     * @nullable
+     */
+    properties25?: BoYesNoEnum;
+    /**
+     * Properties 26.
+     * @nullable
+     */
+    properties26?: BoYesNoEnum;
+    /**
+     * Properties 27.
+     * @nullable
+     */
+    properties27?: BoYesNoEnum;
+    /**
+     * Properties 28.
+     * @nullable
+     */
+    properties28?: BoYesNoEnum;
+    /**
+     * Properties 29.
+     * @nullable
+     */
+    properties29?: BoYesNoEnum;
+    /**
+     * Properties 30.
+     * @nullable
+     */
+    properties30?: BoYesNoEnum;
+    /**
+     * Properties 31.
+     * @nullable
+     */
+    properties31?: BoYesNoEnum;
+    /**
+     * Properties 32.
+     * @nullable
+     */
+    properties32?: BoYesNoEnum;
+    /**
+     * Properties 33.
+     * @nullable
+     */
+    properties33?: BoYesNoEnum;
+    /**
+     * Properties 34.
+     * @nullable
+     */
+    properties34?: BoYesNoEnum;
+    /**
+     * Properties 35.
+     * @nullable
+     */
+    properties35?: BoYesNoEnum;
+    /**
+     * Properties 36.
+     * @nullable
+     */
+    properties36?: BoYesNoEnum;
+    /**
+     * Properties 37.
+     * @nullable
+     */
+    properties37?: BoYesNoEnum;
+    /**
+     * Properties 38.
+     * @nullable
+     */
+    properties38?: BoYesNoEnum;
+    /**
+     * Properties 39.
+     * @nullable
+     */
+    properties39?: BoYesNoEnum;
+    /**
+     * Properties 40.
+     * @nullable
+     */
+    properties40?: BoYesNoEnum;
+    /**
+     * Properties 41.
+     * @nullable
+     */
+    properties41?: BoYesNoEnum;
+    /**
+     * Properties 42.
+     * @nullable
+     */
+    properties42?: BoYesNoEnum;
+    /**
+     * Properties 43.
+     * @nullable
+     */
+    properties43?: BoYesNoEnum;
+    /**
+     * Properties 44.
+     * @nullable
+     */
+    properties44?: BoYesNoEnum;
+    /**
+     * Properties 45.
+     * @nullable
+     */
+    properties45?: BoYesNoEnum;
+    /**
+     * Properties 46.
+     * @nullable
+     */
+    properties46?: BoYesNoEnum;
+    /**
+     * Properties 47.
+     * @nullable
+     */
+    properties47?: BoYesNoEnum;
+    /**
+     * Properties 48.
+     * @nullable
+     */
+    properties48?: BoYesNoEnum;
+    /**
+     * Properties 49.
+     * @nullable
+     */
+    properties49?: BoYesNoEnum;
+    /**
+     * Properties 50.
+     * @nullable
+     */
+    properties50?: BoYesNoEnum;
+    /**
+     * Properties 51.
+     * @nullable
+     */
+    properties51?: BoYesNoEnum;
+    /**
+     * Properties 52.
+     * @nullable
+     */
+    properties52?: BoYesNoEnum;
+    /**
+     * Properties 53.
+     * @nullable
+     */
+    properties53?: BoYesNoEnum;
+    /**
+     * Properties 54.
+     * @nullable
+     */
+    properties54?: BoYesNoEnum;
+    /**
+     * Properties 55.
+     * @nullable
+     */
+    properties55?: BoYesNoEnum;
+    /**
+     * Properties 56.
+     * @nullable
+     */
+    properties56?: BoYesNoEnum;
+    /**
+     * Properties 57.
+     * @nullable
+     */
+    properties57?: BoYesNoEnum;
+    /**
+     * Properties 58.
+     * @nullable
+     */
+    properties58?: BoYesNoEnum;
+    /**
+     * Properties 59.
+     * @nullable
+     */
+    properties59?: BoYesNoEnum;
+    /**
+     * Properties 60.
+     * @nullable
+     */
+    properties60?: BoYesNoEnum;
+    /**
+     * Properties 61.
+     * @nullable
+     */
+    properties61?: BoYesNoEnum;
+    /**
+     * Properties 62.
+     * @nullable
+     */
+    properties62?: BoYesNoEnum;
+    /**
+     * Properties 63.
+     * @nullable
+     */
+    properties63?: BoYesNoEnum;
+    /**
+     * Properties 64.
+     * @nullable
+     */
+    properties64?: BoYesNoEnum;
+    /**
      * Company Registration Number.
      * @nullable
      */
@@ -631,15 +1054,75 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      */
     verificationNumber?: string;
     /**
+     * Discount Base Object.
+     * @nullable
+     */
+    discountBaseObject?: DiscountGroupBaseObjectEnum;
+    /**
+     * Discount Relations.
+     * @nullable
+     */
+    discountRelations?: DiscountGroupRelationsEnum;
+    /**
+     * Type Report.
+     * @nullable
+     */
+    typeReport?: AssesseeTypeEnum;
+    /**
+     * Threshold Overlook.
+     * @nullable
+     */
+    thresholdOverlook?: BoYesNoEnum;
+    /**
+     * Surcharge Overlook.
+     * @nullable
+     */
+    surchargeOverlook?: BoYesNoEnum;
+    /**
      * Down Payment Interim Account.
      * @nullable
      */
     downPaymentInterimAccount?: string;
     /**
+     * Operation Code 347.
+     * @nullable
+     */
+    operationCode347?: OperationCode347Enum;
+    /**
+     * Insurance Operation 347.
+     * @nullable
+     */
+    insuranceOperation347?: BoYesNoEnum;
+    /**
+     * Hierarchical Deduction.
+     * @nullable
+     */
+    hierarchicalDeduction?: BoYesNoEnum;
+    /**
+     * Shaam Group.
+     * @nullable
+     */
+    shaamGroup?: ShaamGroupEnum;
+    /**
+     * Withholding Tax Certified.
+     * @nullable
+     */
+    withholdingTaxCertified?: BoYesNoEnum;
+    /**
+     * Bookkeeping Certified.
+     * @nullable
+     */
+    bookkeepingCertified?: BoYesNoEnum;
+    /**
      * Planning Group.
      * @nullable
      */
     planningGroup?: string;
+    /**
+     * Affiliate.
+     * @nullable
+     */
+    affiliate?: BoYesNoEnum;
     /**
      * Industry.
      * @nullable
@@ -655,6 +1138,11 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      * @nullable
      */
     datevAccount?: string;
+    /**
+     * Datev First Data Entry.
+     * @nullable
+     */
+    datevFirstDataEntry?: BoYesNoEnum;
     /**
      * Gts Reg No.
      * @nullable
@@ -706,6 +1194,11 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      */
     series?: number;
     /**
+     * Automatic Posting.
+     * @nullable
+     */
+    automaticPosting?: AutomaticPostingEnum;
+    /**
      * Interest Account.
      * @nullable
      */
@@ -731,6 +1224,21 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      */
     defaultBlanketAgreementNumber?: number;
     /**
+     * Effective Discount.
+     * @nullable
+     */
+    effectiveDiscount?: DiscountGroupRelationsEnum;
+    /**
+     * No Discounts.
+     * @nullable
+     */
+    noDiscounts?: BoYesNoEnum;
+    /**
+     * Effective Price.
+     * @nullable
+     */
+    effectivePrice?: EffectivePriceEnum;
+    /**
      * Global Location Number.
      * @nullable
      */
@@ -745,6 +1253,11 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      * @nullable
      */
     ediRecipientId?: string;
+    /**
+     * Residen Number.
+     * @nullable
+     */
+    residenNumber?: ResidenceNumberTypeEnum;
     /**
      * Relationship Code.
      * @nullable
@@ -771,15 +1284,45 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      */
     attachmentEntry?: number;
     /**
+     * Type Of Operation.
+     * @nullable
+     */
+    typeOfOperation?: TypeOfOperationEnum;
+    /**
+     * Endorsable Checks From Bp.
+     * @nullable
+     */
+    endorsableChecksFromBp?: BoYesNoEnum;
+    /**
+     * Accepts Endorsed Checks.
+     * @nullable
+     */
+    acceptsEndorsedChecks?: BoYesNoEnum;
+    /**
      * Owner Code.
      * @nullable
      */
     ownerCode?: number;
     /**
+     * Block Sending Marketing Content.
+     * @nullable
+     */
+    blockSendingMarketingContent?: BoYesNoEnum;
+    /**
      * Agent Code.
      * @nullable
      */
     agentCode?: string;
+    /**
+     * Price Mode.
+     * @nullable
+     */
+    priceMode?: PriceModeEnum;
+    /**
+     * E Doc Generation Type.
+     * @nullable
+     */
+    eDocGenerationType?: EDocGenerationTypeEnum;
     /**
      * E Doc Street.
      * @nullable
@@ -861,10 +1404,20 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      */
     updateTime?: Time;
     /**
+     * Exemption Max Amount Validation Type.
+     * @nullable
+     */
+    exemptionMaxAmountValidationType?: ExemptionMaxAmountValidationTypeEnum;
+    /**
      * E Commerce Merchant Id.
      * @nullable
      */
     eCommerceMerchantId?: string;
+    /**
+     * Use Bill To Addr To Determine Tax.
+     * @nullable
+     */
+    useBillToAddrToDetermineTax?: BoYesNoEnum;
     /**
      * Bp Addresses.
      * @nullable
@@ -1258,10 +1811,10 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      */
     purchaseTaxInvoices: PurchaseTaxInvoices[];
     /**
-     * Returns an entity builder to construct instances `BusinessPartners`.
+     * Returns an entity builder to construct instances of `BusinessPartners`.
      * @returns A builder that constructs instances of entity type `BusinessPartners`.
      */
-    static builder(): EntityBuilderType<BusinessPartners, BusinessPartnersTypeForceMandatory>;
+    static builder(): EntityBuilderType<BusinessPartners, BusinessPartnersType>;
     /**
      * Returns a request builder to construct requests for operations on the `BusinessPartners` entity type.
      * @returns A `BusinessPartners` request builder.
@@ -1272,7 +1825,7 @@ export declare class BusinessPartners extends Entity implements BusinessPartners
      * @param fieldName Name of the custom field to select
      * @returns A builder that constructs instances of entity type `BusinessPartners`.
      */
-    static customField(fieldName: string): CustomField<BusinessPartners>;
+    static customField(fieldName: string): CustomFieldV4<BusinessPartners>;
     /**
      * Overwrites the default toJSON method so that all instance variables as well as all custom fields of the entity are returned.
      * @returns An object containing all instance variables + custom fields.
@@ -1363,449 +1916,293 @@ import { GoodsReturnRequest, GoodsReturnRequestType } from './GoodsReturnRequest
 import { SalesTaxInvoices, SalesTaxInvoicesType } from './SalesTaxInvoices';
 import { PurchaseTaxInvoices, PurchaseTaxInvoicesType } from './PurchaseTaxInvoices';
 export interface BusinessPartnersType {
-    cardCode?: string;
-    cardName?: string;
-    groupCode?: number;
-    address?: string;
-    zipCode?: string;
-    mailAddress?: string;
-    mailZipCode?: string;
-    phone1?: string;
-    phone2?: string;
-    fax?: string;
-    contactPerson?: string;
-    notes?: string;
-    payTermsGrpCode?: number;
-    creditLimit?: number;
-    maxCommitment?: number;
-    discountPercent?: number;
-    federalTaxId?: string;
-    deductionPercent?: number;
-    deductionValidUntil?: Moment;
-    priceListNum?: number;
-    intrestRatePercent?: number;
-    commissionPercent?: number;
-    commissionGroupCode?: number;
-    freeText?: string;
-    salesPersonCode?: number;
-    currency?: string;
-    rateDiffAccount?: string;
-    cellular?: string;
-    avarageLate?: number;
-    city?: string;
-    county?: string;
-    country?: string;
-    mailCity?: string;
-    mailCounty?: string;
-    mailCountry?: string;
-    emailAddress?: string;
-    picture?: string;
-    defaultAccount?: string;
-    defaultBranch?: string;
-    defaultBankCode?: string;
-    additionalId?: string;
-    pager?: string;
-    fatherCard?: string;
-    cardForeignName?: string;
-    deductionOffice?: string;
-    exportCode?: string;
-    minIntrest?: number;
-    currentAccountBalance?: number;
-    openDeliveryNotesBalance?: number;
-    openOrdersBalance?: number;
-    vatGroup?: string;
-    shippingType?: number;
-    password?: string;
-    indicator?: string;
-    iban?: string;
-    creditCardCode?: number;
-    creditCardNum?: string;
-    creditCardExpiration?: Moment;
-    debitorAccount?: string;
-    openOpportunities?: number;
-    validFrom?: Moment;
-    validTo?: Moment;
-    validRemarks?: string;
-    frozenFrom?: Moment;
-    frozenTo?: Moment;
-    frozenRemarks?: string;
-    block?: string;
-    billToState?: string;
-    exemptNum?: string;
-    priority?: number;
-    formCode1099?: number;
-    box1099?: string;
-    peymentMethodCode?: string;
-    bankCountry?: string;
-    houseBank?: string;
-    houseBankCountry?: string;
-    houseBankAccount?: string;
-    shipToDefault?: string;
-    dunningLevel?: number;
-    dunningDate?: Moment;
-    dme?: string;
-    instructionKey?: string;
-    isrBillerId?: string;
-    referenceDetails?: string;
-    houseBankBranch?: string;
-    ownerIdNumber?: string;
-    paymentBlockDescription?: number;
-    taxExemptionLetterNum?: string;
-    maxAmountOfExemption?: number;
-    exemptionValidityDateFrom?: Moment;
-    exemptionValidityDateTo?: Moment;
-    linkedBusinessPartner?: string;
-    lastMultiReconciliationNum?: number;
-    certificateNumber?: string;
-    expirationDate?: Moment;
-    nationalInsuranceNum?: string;
-    wtCode?: string;
-    billToBuildingFloorRoom?: string;
-    downPaymentClearAct?: string;
-    channelBp?: string;
-    defaultTechnician?: number;
-    billtoDefault?: string;
-    customerBillofExchangDisc?: string;
-    territory?: number;
-    shipToBuildingFloorRoom?: string;
-    customerBillofExchangPres?: string;
-    projectCode?: string;
-    vatGroupLatinAmerica?: string;
-    dunningTerm?: string;
-    website?: string;
-    otherReceivablePayable?: string;
-    billofExchangeonCollection?: string;
-    languageCode?: number;
-    unpaidBillofExchange?: string;
-    withholdingTaxDeductionGroup?: number;
-    closingDateProcedureNumber?: number;
-    profession?: string;
-    bankChargesAllocationCode?: string;
-    companyRegistrationNumber?: string;
-    verificationNumber?: string;
-    downPaymentInterimAccount?: string;
-    planningGroup?: string;
-    industry?: number;
-    vatIdNum?: string;
-    datevAccount?: string;
-    gtsRegNo?: string;
-    gtsBankAccountNo?: string;
-    gtsBillingAddrTel?: string;
-    eTaxWebSite?: number;
-    houseBankIban?: string;
-    vatRegistrationNumber?: string;
-    representativeName?: string;
-    industryType?: string;
-    businessType?: string;
-    series?: number;
-    interestAccount?: string;
-    feeAccount?: string;
-    campaignNumber?: number;
-    aliasName?: string;
-    defaultBlanketAgreementNumber?: number;
-    globalLocationNumber?: string;
-    ediSenderId?: string;
-    ediRecipientId?: string;
-    relationshipCode?: string;
-    relationshipDateFrom?: Moment;
-    relationshipDateTill?: Moment;
-    unifiedFederalTaxId?: string;
-    attachmentEntry?: number;
-    ownerCode?: number;
-    agentCode?: string;
-    eDocStreet?: string;
-    eDocStreetNumber?: string;
-    eDocBuildingNumber?: number;
-    eDocZipCode?: string;
-    eDocCity?: string;
-    eDocCountry?: string;
-    eDocDistrict?: string;
-    eDocRepresentativeFirstName?: string;
-    eDocRepresentativeSurname?: string;
-    eDocRepresentativeCompany?: string;
-    eDocRepresentativeFiscalCode?: string;
-    eDocRepresentativeAdditionalId?: string;
-    eDocPecAddress?: string;
-    ipaCodeForPa?: string;
-    updateDate?: Moment;
-    updateTime?: Time;
-    eCommerceMerchantId?: string;
-    bpAddresses?: BpAddress[];
-    contactEmployees?: ContactEmployee[];
-    bpAccountReceivablePaybleCollection?: BpAccountReceivablePayble[];
-    bpPaymentMethods?: BpPaymentMethod[];
-    bpWithholdingTaxCollection?: BpWithholdingTax[];
-    bpPaymentDates?: BpPaymentDate[];
-    bpBranchAssignment?: BpBranchAssignmentItem[];
-    bpBankAccounts?: BpBankAccount[];
-    bpFiscalTaxIdCollection?: BpFiscalTaxId[];
-    discountGroups?: DiscountGroup[];
-    bpIntrastatExtension?: BpIntrastatExtension;
-    bpBlockSendingMarketingContents?: BpBlockSendingMarketingContent[];
-    salesOpportunities: SalesOpportunitiesType[];
-    userDefaultGroups: UserDefaultGroupsType[];
-    specialPrices: SpecialPricesType[];
-    landedCosts: LandedCostsType[];
-    workOrders: WorkOrdersType[];
-    warehouses: WarehousesType[];
-    inventoryGenEntries: InventoryGenEntriesType[];
-    purchaseQuotations: PurchaseQuotationsType[];
-    bankPages: BankPagesType[];
-    items: ItemsType[];
-    contacts: ContactsType[];
-    productionOrders: ProductionOrdersType[];
-    depreciationAreas: DepreciationAreasType[];
-    deliveryNotes: DeliveryNotesType[];
-    businessPartnerGroup: BusinessPartnerGroupsType;
-    paymentTermsType: PaymentTermsTypesType;
-    priceList: PriceListsType;
-    commissionGroup: CommissionGroupsType;
-    salesPerson: SalesPersonsType;
-    currency2: CurrenciesType;
-    chartOfAccount: ChartOfAccountsType;
-    country2: CountriesType;
-    vatGroup2: VatGroupsType;
-    shippingType2: ShippingTypesType;
-    factoringIndicator: FactoringIndicatorsType;
-    creditCard: CreditCardsType;
-    bpPriority: BpPrioritiesType;
-    forms1099: Forms1099Type;
-    wizardPaymentMethod: WizardPaymentMethodsType;
-    dunningLetter: DunningLettersType;
-    paymentBlock2: PaymentBlocksType;
-    withholdingTaxCode: WithholdingTaxCodesType;
-    employeeInfo: EmployeesInfoType;
-    territory2: TerritoriesType;
-    project: ProjectsType;
-    salesTaxCode: SalesTaxCodesType;
-    dunningTerm2: DunningTermsType;
-    userLanguage: UserLanguagesType;
-    deductionTaxGroup: DeductionTaxGroupsType;
-    bankChargesAllocationCode2: BankChargesAllocationCodesType;
-    industry2: IndustriesType;
-    taxWebSite: TaxWebSitesType;
-    campaign: CampaignsType;
-    blanketAgreement: BlanketAgreementsType;
-    quotations: QuotationsType[];
-    serviceContracts: ServiceContractsType[];
-    inventoryGenExits: InventoryGenExitsType[];
-    purchaseRequests: PurchaseRequestsType[];
-    deductionTaxHierarchies: DeductionTaxHierarchiesType[];
-    returnRequest: ReturnRequestType[];
-    blanketAgreements: BlanketAgreementsType[];
-    glAccountAdvancedRules: GlAccountAdvancedRulesType[];
-    purchaseReturns: PurchaseReturnsType[];
-    invoices: InvoicesType[];
-    creditNotes: CreditNotesType[];
-    stockTransfers: StockTransfersType[];
-    businessPlaces: BusinessPlacesType[];
-    orders: OrdersType[];
-    partnersSetups: PartnersSetupsType[];
-    inventoryTransferRequests: InventoryTransferRequestsType[];
-    activities: ActivitiesType[];
-    downPayments: DownPaymentsType[];
-    drafts: DraftsType[];
-    stockTransferDrafts: StockTransferDraftsType[];
-    returns: ReturnsType[];
-    materialRevaluation: MaterialRevaluationType[];
-    correctionInvoiceReversal: CorrectionInvoiceReversalType[];
-    correctionPurchaseInvoice: CorrectionPurchaseInvoiceType[];
-    correctionPurchaseInvoiceReversal: CorrectionPurchaseInvoiceReversalType[];
-    customerEquipmentCards: CustomerEquipmentCardsType[];
-    purchaseInvoices: PurchaseInvoicesType[];
-    purchaseDeliveryNotes: PurchaseDeliveryNotesType[];
-    correctionInvoice: CorrectionInvoiceType[];
-    purchaseCreditNotes: PurchaseCreditNotesType[];
-    serviceCalls: ServiceCallsType[];
-    purchaseDownPayments: PurchaseDownPaymentsType[];
-    employeesInfo: EmployeesInfoType[];
-    purchaseOrders: PurchaseOrdersType[];
-    alternateCatNum: AlternateCatNumType[];
-    projectManagements: ProjectManagementsType[];
-    goodsReturnRequest: GoodsReturnRequestType[];
-    salesTaxInvoices: SalesTaxInvoicesType[];
-    purchaseTaxInvoices: PurchaseTaxInvoicesType[];
-}
-export interface BusinessPartnersTypeForceMandatory {
-    cardCode: string;
-    cardName: string;
-    groupCode: number;
-    address: string;
-    zipCode: string;
-    mailAddress: string;
-    mailZipCode: string;
-    phone1: string;
-    phone2: string;
-    fax: string;
-    contactPerson: string;
-    notes: string;
-    payTermsGrpCode: number;
-    creditLimit: number;
-    maxCommitment: number;
-    discountPercent: number;
-    federalTaxId: string;
-    deductionPercent: number;
-    deductionValidUntil: Moment;
-    priceListNum: number;
-    intrestRatePercent: number;
-    commissionPercent: number;
-    commissionGroupCode: number;
-    freeText: string;
-    salesPersonCode: number;
-    currency: string;
-    rateDiffAccount: string;
-    cellular: string;
-    avarageLate: number;
-    city: string;
-    county: string;
-    country: string;
-    mailCity: string;
-    mailCounty: string;
-    mailCountry: string;
-    emailAddress: string;
-    picture: string;
-    defaultAccount: string;
-    defaultBranch: string;
-    defaultBankCode: string;
-    additionalId: string;
-    pager: string;
-    fatherCard: string;
-    cardForeignName: string;
-    deductionOffice: string;
-    exportCode: string;
-    minIntrest: number;
-    currentAccountBalance: number;
-    openDeliveryNotesBalance: number;
-    openOrdersBalance: number;
-    vatGroup: string;
-    shippingType: number;
-    password: string;
-    indicator: string;
-    iban: string;
-    creditCardCode: number;
-    creditCardNum: string;
-    creditCardExpiration: Moment;
-    debitorAccount: string;
-    openOpportunities: number;
-    validFrom: Moment;
-    validTo: Moment;
-    validRemarks: string;
-    frozenFrom: Moment;
-    frozenTo: Moment;
-    frozenRemarks: string;
-    block: string;
-    billToState: string;
-    exemptNum: string;
-    priority: number;
-    formCode1099: number;
-    box1099: string;
-    peymentMethodCode: string;
-    bankCountry: string;
-    houseBank: string;
-    houseBankCountry: string;
-    houseBankAccount: string;
-    shipToDefault: string;
-    dunningLevel: number;
-    dunningDate: Moment;
-    dme: string;
-    instructionKey: string;
-    isrBillerId: string;
-    referenceDetails: string;
-    houseBankBranch: string;
-    ownerIdNumber: string;
-    paymentBlockDescription: number;
-    taxExemptionLetterNum: string;
-    maxAmountOfExemption: number;
-    exemptionValidityDateFrom: Moment;
-    exemptionValidityDateTo: Moment;
-    linkedBusinessPartner: string;
-    lastMultiReconciliationNum: number;
-    certificateNumber: string;
-    expirationDate: Moment;
-    nationalInsuranceNum: string;
-    wtCode: string;
-    billToBuildingFloorRoom: string;
-    downPaymentClearAct: string;
-    channelBp: string;
-    defaultTechnician: number;
-    billtoDefault: string;
-    customerBillofExchangDisc: string;
-    territory: number;
-    shipToBuildingFloorRoom: string;
-    customerBillofExchangPres: string;
-    projectCode: string;
-    vatGroupLatinAmerica: string;
-    dunningTerm: string;
-    website: string;
-    otherReceivablePayable: string;
-    billofExchangeonCollection: string;
-    languageCode: number;
-    unpaidBillofExchange: string;
-    withholdingTaxDeductionGroup: number;
-    closingDateProcedureNumber: number;
-    profession: string;
-    bankChargesAllocationCode: string;
-    companyRegistrationNumber: string;
-    verificationNumber: string;
-    downPaymentInterimAccount: string;
-    planningGroup: string;
-    industry: number;
-    vatIdNum: string;
-    datevAccount: string;
-    gtsRegNo: string;
-    gtsBankAccountNo: string;
-    gtsBillingAddrTel: string;
-    eTaxWebSite: number;
-    houseBankIban: string;
-    vatRegistrationNumber: string;
-    representativeName: string;
-    industryType: string;
-    businessType: string;
-    series: number;
-    interestAccount: string;
-    feeAccount: string;
-    campaignNumber: number;
-    aliasName: string;
-    defaultBlanketAgreementNumber: number;
-    globalLocationNumber: string;
-    ediSenderId: string;
-    ediRecipientId: string;
-    relationshipCode: string;
-    relationshipDateFrom: Moment;
-    relationshipDateTill: Moment;
-    unifiedFederalTaxId: string;
-    attachmentEntry: number;
-    ownerCode: number;
-    agentCode: string;
-    eDocStreet: string;
-    eDocStreetNumber: string;
-    eDocBuildingNumber: number;
-    eDocZipCode: string;
-    eDocCity: string;
-    eDocCountry: string;
-    eDocDistrict: string;
-    eDocRepresentativeFirstName: string;
-    eDocRepresentativeSurname: string;
-    eDocRepresentativeCompany: string;
-    eDocRepresentativeFiscalCode: string;
-    eDocRepresentativeAdditionalId: string;
-    eDocPecAddress: string;
-    ipaCodeForPa: string;
-    updateDate: Moment;
-    updateTime: Time;
-    eCommerceMerchantId: string;
-    bpAddresses: BpAddress[];
-    contactEmployees: ContactEmployee[];
-    bpAccountReceivablePaybleCollection: BpAccountReceivablePayble[];
-    bpPaymentMethods: BpPaymentMethod[];
-    bpWithholdingTaxCollection: BpWithholdingTax[];
-    bpPaymentDates: BpPaymentDate[];
-    bpBranchAssignment: BpBranchAssignmentItem[];
-    bpBankAccounts: BpBankAccount[];
-    bpFiscalTaxIdCollection: BpFiscalTaxId[];
-    discountGroups: DiscountGroup[];
-    bpIntrastatExtension: BpIntrastatExtension;
-    bpBlockSendingMarketingContents: BpBlockSendingMarketingContent[];
+    cardCode?: string | null;
+    cardName?: string | null;
+    cardType?: BoCardTypes | null;
+    groupCode?: number | null;
+    address?: string | null;
+    zipCode?: string | null;
+    mailAddress?: string | null;
+    mailZipCode?: string | null;
+    phone1?: string | null;
+    phone2?: string | null;
+    fax?: string | null;
+    contactPerson?: string | null;
+    notes?: string | null;
+    payTermsGrpCode?: number | null;
+    creditLimit?: number | null;
+    maxCommitment?: number | null;
+    discountPercent?: number | null;
+    vatLiable?: BoVatStatus | null;
+    federalTaxId?: string | null;
+    deductibleAtSource?: BoYesNoEnum | null;
+    deductionPercent?: number | null;
+    deductionValidUntil?: Moment | null;
+    priceListNum?: number | null;
+    intrestRatePercent?: number | null;
+    commissionPercent?: number | null;
+    commissionGroupCode?: number | null;
+    freeText?: string | null;
+    salesPersonCode?: number | null;
+    currency?: string | null;
+    rateDiffAccount?: string | null;
+    cellular?: string | null;
+    avarageLate?: number | null;
+    city?: string | null;
+    county?: string | null;
+    country?: string | null;
+    mailCity?: string | null;
+    mailCounty?: string | null;
+    mailCountry?: string | null;
+    emailAddress?: string | null;
+    picture?: string | null;
+    defaultAccount?: string | null;
+    defaultBranch?: string | null;
+    defaultBankCode?: string | null;
+    additionalId?: string | null;
+    pager?: string | null;
+    fatherCard?: string | null;
+    cardForeignName?: string | null;
+    fatherType?: BoFatherCardTypes | null;
+    deductionOffice?: string | null;
+    exportCode?: string | null;
+    minIntrest?: number | null;
+    currentAccountBalance?: number | null;
+    openDeliveryNotesBalance?: number | null;
+    openOrdersBalance?: number | null;
+    vatGroup?: string | null;
+    shippingType?: number | null;
+    password?: string | null;
+    indicator?: string | null;
+    iban?: string | null;
+    creditCardCode?: number | null;
+    creditCardNum?: string | null;
+    creditCardExpiration?: Moment | null;
+    debitorAccount?: string | null;
+    openOpportunities?: number | null;
+    valid?: BoYesNoEnum | null;
+    validFrom?: Moment | null;
+    validTo?: Moment | null;
+    validRemarks?: string | null;
+    frozen?: BoYesNoEnum | null;
+    frozenFrom?: Moment | null;
+    frozenTo?: Moment | null;
+    frozenRemarks?: string | null;
+    block?: string | null;
+    billToState?: string | null;
+    exemptNum?: string | null;
+    priority?: number | null;
+    formCode1099?: number | null;
+    box1099?: string | null;
+    peymentMethodCode?: string | null;
+    backOrder?: BoYesNoEnum | null;
+    partialDelivery?: BoYesNoEnum | null;
+    blockDunning?: BoYesNoEnum | null;
+    bankCountry?: string | null;
+    houseBank?: string | null;
+    houseBankCountry?: string | null;
+    houseBankAccount?: string | null;
+    shipToDefault?: string | null;
+    dunningLevel?: number | null;
+    dunningDate?: Moment | null;
+    collectionAuthorization?: BoYesNoEnum | null;
+    dme?: string | null;
+    instructionKey?: string | null;
+    singlePayment?: BoYesNoEnum | null;
+    isrBillerId?: string | null;
+    paymentBlock?: BoYesNoEnum | null;
+    referenceDetails?: string | null;
+    houseBankBranch?: string | null;
+    ownerIdNumber?: string | null;
+    paymentBlockDescription?: number | null;
+    taxExemptionLetterNum?: string | null;
+    maxAmountOfExemption?: number | null;
+    exemptionValidityDateFrom?: Moment | null;
+    exemptionValidityDateTo?: Moment | null;
+    linkedBusinessPartner?: string | null;
+    lastMultiReconciliationNum?: number | null;
+    deferredTax?: BoYesNoEnum | null;
+    equalization?: BoYesNoEnum | null;
+    subjectToWithholdingTax?: BoYesNoEnum | null;
+    certificateNumber?: string | null;
+    expirationDate?: Moment | null;
+    nationalInsuranceNum?: string | null;
+    accrualCriteria?: BoYesNoEnum | null;
+    wtCode?: string | null;
+    billToBuildingFloorRoom?: string | null;
+    downPaymentClearAct?: string | null;
+    channelBp?: string | null;
+    defaultTechnician?: number | null;
+    billtoDefault?: string | null;
+    customerBillofExchangDisc?: string | null;
+    territory?: number | null;
+    shipToBuildingFloorRoom?: string | null;
+    customerBillofExchangPres?: string | null;
+    projectCode?: string | null;
+    vatGroupLatinAmerica?: string | null;
+    dunningTerm?: string | null;
+    website?: string | null;
+    otherReceivablePayable?: string | null;
+    billofExchangeonCollection?: string | null;
+    companyPrivate?: BoCardCompanyTypes | null;
+    languageCode?: number | null;
+    unpaidBillofExchange?: string | null;
+    withholdingTaxDeductionGroup?: number | null;
+    closingDateProcedureNumber?: number | null;
+    profession?: string | null;
+    bankChargesAllocationCode?: string | null;
+    taxRoundingRule?: BoTaxRoundingRuleTypes | null;
+    properties1?: BoYesNoEnum | null;
+    properties2?: BoYesNoEnum | null;
+    properties3?: BoYesNoEnum | null;
+    properties4?: BoYesNoEnum | null;
+    properties5?: BoYesNoEnum | null;
+    properties6?: BoYesNoEnum | null;
+    properties7?: BoYesNoEnum | null;
+    properties8?: BoYesNoEnum | null;
+    properties9?: BoYesNoEnum | null;
+    properties10?: BoYesNoEnum | null;
+    properties11?: BoYesNoEnum | null;
+    properties12?: BoYesNoEnum | null;
+    properties13?: BoYesNoEnum | null;
+    properties14?: BoYesNoEnum | null;
+    properties15?: BoYesNoEnum | null;
+    properties16?: BoYesNoEnum | null;
+    properties17?: BoYesNoEnum | null;
+    properties18?: BoYesNoEnum | null;
+    properties19?: BoYesNoEnum | null;
+    properties20?: BoYesNoEnum | null;
+    properties21?: BoYesNoEnum | null;
+    properties22?: BoYesNoEnum | null;
+    properties23?: BoYesNoEnum | null;
+    properties24?: BoYesNoEnum | null;
+    properties25?: BoYesNoEnum | null;
+    properties26?: BoYesNoEnum | null;
+    properties27?: BoYesNoEnum | null;
+    properties28?: BoYesNoEnum | null;
+    properties29?: BoYesNoEnum | null;
+    properties30?: BoYesNoEnum | null;
+    properties31?: BoYesNoEnum | null;
+    properties32?: BoYesNoEnum | null;
+    properties33?: BoYesNoEnum | null;
+    properties34?: BoYesNoEnum | null;
+    properties35?: BoYesNoEnum | null;
+    properties36?: BoYesNoEnum | null;
+    properties37?: BoYesNoEnum | null;
+    properties38?: BoYesNoEnum | null;
+    properties39?: BoYesNoEnum | null;
+    properties40?: BoYesNoEnum | null;
+    properties41?: BoYesNoEnum | null;
+    properties42?: BoYesNoEnum | null;
+    properties43?: BoYesNoEnum | null;
+    properties44?: BoYesNoEnum | null;
+    properties45?: BoYesNoEnum | null;
+    properties46?: BoYesNoEnum | null;
+    properties47?: BoYesNoEnum | null;
+    properties48?: BoYesNoEnum | null;
+    properties49?: BoYesNoEnum | null;
+    properties50?: BoYesNoEnum | null;
+    properties51?: BoYesNoEnum | null;
+    properties52?: BoYesNoEnum | null;
+    properties53?: BoYesNoEnum | null;
+    properties54?: BoYesNoEnum | null;
+    properties55?: BoYesNoEnum | null;
+    properties56?: BoYesNoEnum | null;
+    properties57?: BoYesNoEnum | null;
+    properties58?: BoYesNoEnum | null;
+    properties59?: BoYesNoEnum | null;
+    properties60?: BoYesNoEnum | null;
+    properties61?: BoYesNoEnum | null;
+    properties62?: BoYesNoEnum | null;
+    properties63?: BoYesNoEnum | null;
+    properties64?: BoYesNoEnum | null;
+    companyRegistrationNumber?: string | null;
+    verificationNumber?: string | null;
+    discountBaseObject?: DiscountGroupBaseObjectEnum | null;
+    discountRelations?: DiscountGroupRelationsEnum | null;
+    typeReport?: AssesseeTypeEnum | null;
+    thresholdOverlook?: BoYesNoEnum | null;
+    surchargeOverlook?: BoYesNoEnum | null;
+    downPaymentInterimAccount?: string | null;
+    operationCode347?: OperationCode347Enum | null;
+    insuranceOperation347?: BoYesNoEnum | null;
+    hierarchicalDeduction?: BoYesNoEnum | null;
+    shaamGroup?: ShaamGroupEnum | null;
+    withholdingTaxCertified?: BoYesNoEnum | null;
+    bookkeepingCertified?: BoYesNoEnum | null;
+    planningGroup?: string | null;
+    affiliate?: BoYesNoEnum | null;
+    industry?: number | null;
+    vatIdNum?: string | null;
+    datevAccount?: string | null;
+    datevFirstDataEntry?: BoYesNoEnum | null;
+    gtsRegNo?: string | null;
+    gtsBankAccountNo?: string | null;
+    gtsBillingAddrTel?: string | null;
+    eTaxWebSite?: number | null;
+    houseBankIban?: string | null;
+    vatRegistrationNumber?: string | null;
+    representativeName?: string | null;
+    industryType?: string | null;
+    businessType?: string | null;
+    series?: number | null;
+    automaticPosting?: AutomaticPostingEnum | null;
+    interestAccount?: string | null;
+    feeAccount?: string | null;
+    campaignNumber?: number | null;
+    aliasName?: string | null;
+    defaultBlanketAgreementNumber?: number | null;
+    effectiveDiscount?: DiscountGroupRelationsEnum | null;
+    noDiscounts?: BoYesNoEnum | null;
+    effectivePrice?: EffectivePriceEnum | null;
+    globalLocationNumber?: string | null;
+    ediSenderId?: string | null;
+    ediRecipientId?: string | null;
+    residenNumber?: ResidenceNumberTypeEnum | null;
+    relationshipCode?: string | null;
+    relationshipDateFrom?: Moment | null;
+    relationshipDateTill?: Moment | null;
+    unifiedFederalTaxId?: string | null;
+    attachmentEntry?: number | null;
+    typeOfOperation?: TypeOfOperationEnum | null;
+    endorsableChecksFromBp?: BoYesNoEnum | null;
+    acceptsEndorsedChecks?: BoYesNoEnum | null;
+    ownerCode?: number | null;
+    blockSendingMarketingContent?: BoYesNoEnum | null;
+    agentCode?: string | null;
+    priceMode?: PriceModeEnum | null;
+    eDocGenerationType?: EDocGenerationTypeEnum | null;
+    eDocStreet?: string | null;
+    eDocStreetNumber?: string | null;
+    eDocBuildingNumber?: number | null;
+    eDocZipCode?: string | null;
+    eDocCity?: string | null;
+    eDocCountry?: string | null;
+    eDocDistrict?: string | null;
+    eDocRepresentativeFirstName?: string | null;
+    eDocRepresentativeSurname?: string | null;
+    eDocRepresentativeCompany?: string | null;
+    eDocRepresentativeFiscalCode?: string | null;
+    eDocRepresentativeAdditionalId?: string | null;
+    eDocPecAddress?: string | null;
+    ipaCodeForPa?: string | null;
+    updateDate?: Moment | null;
+    updateTime?: Time | null;
+    exemptionMaxAmountValidationType?: ExemptionMaxAmountValidationTypeEnum | null;
+    eCommerceMerchantId?: string | null;
+    useBillToAddrToDetermineTax?: BoYesNoEnum | null;
+    bpAddresses?: BpAddress[] | null;
+    contactEmployees?: ContactEmployee[] | null;
+    bpAccountReceivablePaybleCollection?: BpAccountReceivablePayble[] | null;
+    bpPaymentMethods?: BpPaymentMethod[] | null;
+    bpWithholdingTaxCollection?: BpWithholdingTax[] | null;
+    bpPaymentDates?: BpPaymentDate[] | null;
+    bpBranchAssignment?: BpBranchAssignmentItem[] | null;
+    bpBankAccounts?: BpBankAccount[] | null;
+    bpFiscalTaxIdCollection?: BpFiscalTaxId[] | null;
+    discountGroups?: DiscountGroup[] | null;
+    bpIntrastatExtension?: BpIntrastatExtension | null;
+    bpBlockSendingMarketingContents?: BpBlockSendingMarketingContent[] | null;
     salesOpportunities: SalesOpportunitiesType[];
     userDefaultGroups: UserDefaultGroupsType[];
     specialPrices: SpecialPricesType[];
@@ -1902,6 +2299,11 @@ export declare namespace BusinessPartners {
      */
     const CARD_NAME: StringField<BusinessPartners>;
     /**
+     * Static representation of the [[cardType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const CARD_TYPE: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[groupCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -1972,10 +2374,20 @@ export declare namespace BusinessPartners {
      */
     const DISCOUNT_PERCENT: NumberField<BusinessPartners>;
     /**
+     * Static representation of the [[vatLiable]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const VAT_LIABLE: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[federalTaxId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const FEDERAL_TAX_ID: StringField<BusinessPartners>;
+    /**
+     * Static representation of the [[deductibleAtSource]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DEDUCTIBLE_AT_SOURCE: EnumField<BusinessPartners>;
     /**
      * Static representation of the [[deductionPercent]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2112,6 +2524,11 @@ export declare namespace BusinessPartners {
      */
     const CARD_FOREIGN_NAME: StringField<BusinessPartners>;
     /**
+     * Static representation of the [[fatherType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const FATHER_TYPE: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[deductionOffice]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2192,6 +2609,11 @@ export declare namespace BusinessPartners {
      */
     const OPEN_OPPORTUNITIES: NumberField<BusinessPartners>;
     /**
+     * Static representation of the [[valid]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const VALID: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[validFrom]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2206,6 +2628,11 @@ export declare namespace BusinessPartners {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const VALID_REMARKS: StringField<BusinessPartners>;
+    /**
+     * Static representation of the [[frozen]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const FROZEN: EnumField<BusinessPartners>;
     /**
      * Static representation of the [[frozenFrom]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2257,6 +2684,21 @@ export declare namespace BusinessPartners {
      */
     const PEYMENT_METHOD_CODE: StringField<BusinessPartners>;
     /**
+     * Static representation of the [[backOrder]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BACK_ORDER: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[partialDelivery]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PARTIAL_DELIVERY: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[blockDunning]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BLOCK_DUNNING: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[bankCountry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2292,6 +2734,11 @@ export declare namespace BusinessPartners {
      */
     const DUNNING_DATE: DateField<BusinessPartners>;
     /**
+     * Static representation of the [[collectionAuthorization]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COLLECTION_AUTHORIZATION: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[dme]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2302,10 +2749,20 @@ export declare namespace BusinessPartners {
      */
     const INSTRUCTION_KEY: StringField<BusinessPartners>;
     /**
+     * Static representation of the [[singlePayment]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SINGLE_PAYMENT: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[isrBillerId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const ISR_BILLER_ID: StringField<BusinessPartners>;
+    /**
+     * Static representation of the [[paymentBlock]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PAYMENT_BLOCK: EnumField<BusinessPartners>;
     /**
      * Static representation of the [[referenceDetails]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2357,6 +2814,21 @@ export declare namespace BusinessPartners {
      */
     const LAST_MULTI_RECONCILIATION_NUM: NumberField<BusinessPartners>;
     /**
+     * Static representation of the [[deferredTax]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DEFERRED_TAX: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[equalization]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const EQUALIZATION: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[subjectToWithholdingTax]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SUBJECT_TO_WITHHOLDING_TAX: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[certificateNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2371,6 +2843,11 @@ export declare namespace BusinessPartners {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const NATIONAL_INSURANCE_NUM: StringField<BusinessPartners>;
+    /**
+     * Static representation of the [[accrualCriteria]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ACCRUAL_CRITERIA: EnumField<BusinessPartners>;
     /**
      * Static representation of the [[wtCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2452,6 +2929,11 @@ export declare namespace BusinessPartners {
      */
     const BILLOF_EXCHANGEON_COLLECTION: StringField<BusinessPartners>;
     /**
+     * Static representation of the [[companyPrivate]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const COMPANY_PRIVATE: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[languageCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2482,6 +2964,331 @@ export declare namespace BusinessPartners {
      */
     const BANK_CHARGES_ALLOCATION_CODE: StringField<BusinessPartners>;
     /**
+     * Static representation of the [[taxRoundingRule]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TAX_ROUNDING_RULE: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties1]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_1: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties2]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_2: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties3]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_3: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties4]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_4: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties5]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_5: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties6]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_6: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties7]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_7: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties8]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_8: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties9]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_9: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties10]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_10: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties11]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_11: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties12]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_12: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties13]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_13: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties14]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_14: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties15]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_15: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties16]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_16: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties17]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_17: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties18]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_18: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties19]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_19: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties20]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_20: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties21]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_21: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties22]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_22: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties23]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_23: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties24]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_24: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties25]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_25: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties26]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_26: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties27]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_27: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties28]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_28: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties29]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_29: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties30]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_30: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties31]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_31: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties32]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_32: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties33]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_33: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties34]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_34: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties35]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_35: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties36]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_36: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties37]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_37: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties38]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_38: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties39]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_39: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties40]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_40: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties41]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_41: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties42]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_42: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties43]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_43: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties44]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_44: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties45]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_45: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties46]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_46: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties47]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_47: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties48]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_48: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties49]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_49: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties50]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_50: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties51]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_51: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties52]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_52: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties53]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_53: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties54]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_54: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties55]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_55: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties56]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_56: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties57]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_57: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties58]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_58: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties59]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_59: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties60]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_60: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties61]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_61: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties62]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_62: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties63]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_63: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[properties64]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PROPERTIES_64: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[companyRegistrationNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2492,15 +3299,75 @@ export declare namespace BusinessPartners {
      */
     const VERIFICATION_NUMBER: StringField<BusinessPartners>;
     /**
+     * Static representation of the [[discountBaseObject]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DISCOUNT_BASE_OBJECT: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[discountRelations]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DISCOUNT_RELATIONS: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[typeReport]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TYPE_REPORT: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[thresholdOverlook]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const THRESHOLD_OVERLOOK: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[surchargeOverlook]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SURCHARGE_OVERLOOK: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[downPaymentInterimAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DOWN_PAYMENT_INTERIM_ACCOUNT: StringField<BusinessPartners>;
     /**
+     * Static representation of the [[operationCode347]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const OPERATION_CODE_347: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[insuranceOperation347]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const INSURANCE_OPERATION_347: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[hierarchicalDeduction]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const HIERARCHICAL_DEDUCTION: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[shaamGroup]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const SHAAM_GROUP: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[withholdingTaxCertified]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const WITHHOLDING_TAX_CERTIFIED: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[bookkeepingCertified]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BOOKKEEPING_CERTIFIED: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[planningGroup]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const PLANNING_GROUP: StringField<BusinessPartners>;
+    /**
+     * Static representation of the [[affiliate]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const AFFILIATE: EnumField<BusinessPartners>;
     /**
      * Static representation of the [[industry]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2516,6 +3383,11 @@ export declare namespace BusinessPartners {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const DATEV_ACCOUNT: StringField<BusinessPartners>;
+    /**
+     * Static representation of the [[datevFirstDataEntry]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const DATEV_FIRST_DATA_ENTRY: EnumField<BusinessPartners>;
     /**
      * Static representation of the [[gtsRegNo]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2567,6 +3439,11 @@ export declare namespace BusinessPartners {
      */
     const SERIES: NumberField<BusinessPartners>;
     /**
+     * Static representation of the [[automaticPosting]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const AUTOMATIC_POSTING: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[interestAccount]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2592,6 +3469,21 @@ export declare namespace BusinessPartners {
      */
     const DEFAULT_BLANKET_AGREEMENT_NUMBER: NumberField<BusinessPartners>;
     /**
+     * Static representation of the [[effectiveDiscount]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const EFFECTIVE_DISCOUNT: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[noDiscounts]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const NO_DISCOUNTS: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[effectivePrice]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const EFFECTIVE_PRICE: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[globalLocationNumber]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
@@ -2606,6 +3498,11 @@ export declare namespace BusinessPartners {
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const EDI_RECIPIENT_ID: StringField<BusinessPartners>;
+    /**
+     * Static representation of the [[residenNumber]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const RESIDEN_NUMBER: EnumField<BusinessPartners>;
     /**
      * Static representation of the [[relationshipCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2632,15 +3529,45 @@ export declare namespace BusinessPartners {
      */
     const ATTACHMENT_ENTRY: NumberField<BusinessPartners>;
     /**
+     * Static representation of the [[typeOfOperation]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const TYPE_OF_OPERATION: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[endorsableChecksFromBp]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ENDORSABLE_CHECKS_FROM_BP: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[acceptsEndorsedChecks]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const ACCEPTS_ENDORSED_CHECKS: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[ownerCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const OWNER_CODE: NumberField<BusinessPartners>;
     /**
+     * Static representation of the [[blockSendingMarketingContent]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const BLOCK_SENDING_MARKETING_CONTENT: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[agentCode]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const AGENT_CODE: StringField<BusinessPartners>;
+    /**
+     * Static representation of the [[priceMode]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const PRICE_MODE: EnumField<BusinessPartners>;
+    /**
+     * Static representation of the [[eDocGenerationType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const E_DOC_GENERATION_TYPE: EnumField<BusinessPartners>;
     /**
      * Static representation of the [[eDocStreet]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2722,60 +3649,70 @@ export declare namespace BusinessPartners {
      */
     const UPDATE_TIME: TimeField<BusinessPartners>;
     /**
+     * Static representation of the [[exemptionMaxAmountValidationType]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const EXEMPTION_MAX_AMOUNT_VALIDATION_TYPE: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[eCommerceMerchantId]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
     const E_COMMERCE_MERCHANT_ID: StringField<BusinessPartners>;
     /**
+     * Static representation of the [[useBillToAddrToDetermineTax]] property for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    const USE_BILL_TO_ADDR_TO_DETERMINE_TAX: EnumField<BusinessPartners>;
+    /**
      * Static representation of the [[bpAddresses]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const BP_ADDRESSES: CollectionField<BusinessPartners>;
+    const BP_ADDRESSES: CollectionField<BusinessPartners, BpAddress>;
     /**
      * Static representation of the [[contactEmployees]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const CONTACT_EMPLOYEES: CollectionField<BusinessPartners>;
+    const CONTACT_EMPLOYEES: CollectionField<BusinessPartners, ContactEmployee>;
     /**
      * Static representation of the [[bpAccountReceivablePaybleCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const BP_ACCOUNT_RECEIVABLE_PAYBLE_COLLECTION: CollectionField<BusinessPartners>;
+    const BP_ACCOUNT_RECEIVABLE_PAYBLE_COLLECTION: CollectionField<BusinessPartners, BpAccountReceivablePayble>;
     /**
      * Static representation of the [[bpPaymentMethods]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const BP_PAYMENT_METHODS: CollectionField<BusinessPartners>;
+    const BP_PAYMENT_METHODS: CollectionField<BusinessPartners, BpPaymentMethod>;
     /**
      * Static representation of the [[bpWithholdingTaxCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const BP_WITHHOLDING_TAX_COLLECTION: CollectionField<BusinessPartners>;
+    const BP_WITHHOLDING_TAX_COLLECTION: CollectionField<BusinessPartners, BpWithholdingTax>;
     /**
      * Static representation of the [[bpPaymentDates]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const BP_PAYMENT_DATES: CollectionField<BusinessPartners>;
+    const BP_PAYMENT_DATES: CollectionField<BusinessPartners, BpPaymentDate>;
     /**
      * Static representation of the [[bpBranchAssignment]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const BP_BRANCH_ASSIGNMENT: CollectionField<BusinessPartners>;
+    const BP_BRANCH_ASSIGNMENT: CollectionField<BusinessPartners, BpBranchAssignmentItem>;
     /**
      * Static representation of the [[bpBankAccounts]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const BP_BANK_ACCOUNTS: CollectionField<BusinessPartners>;
+    const BP_BANK_ACCOUNTS: CollectionField<BusinessPartners, BpBankAccount>;
     /**
      * Static representation of the [[bpFiscalTaxIdCollection]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const BP_FISCAL_TAX_ID_COLLECTION: CollectionField<BusinessPartners>;
+    const BP_FISCAL_TAX_ID_COLLECTION: CollectionField<BusinessPartners, BpFiscalTaxId>;
     /**
      * Static representation of the [[discountGroups]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const DISCOUNT_GROUPS: CollectionField<BusinessPartners>;
+    const DISCOUNT_GROUPS: CollectionField<BusinessPartners, DiscountGroup>;
     /**
      * Static representation of the [[bpIntrastatExtension]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -2785,7 +3722,7 @@ export declare namespace BusinessPartners {
      * Static representation of the [[bpBlockSendingMarketingContents]] property for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
      */
-    const BP_BLOCK_SENDING_MARKETING_CONTENTS: CollectionField<BusinessPartners>;
+    const BP_BLOCK_SENDING_MARKETING_CONTENTS: CollectionField<BusinessPartners, BpBlockSendingMarketingContent>;
     /**
      * Static representation of the one-to-many navigation property [[salesOpportunities]] for query construction.
      * Use to reference this property in query operations such as 'select' in the fluent request API.
@@ -3204,7 +4141,7 @@ export declare namespace BusinessPartners {
     /**
      * All fields of the BusinessPartners entity.
      */
-    const _allFields: Array<StringField<BusinessPartners> | NumberField<BusinessPartners> | DateField<BusinessPartners> | TimeField<BusinessPartners> | CollectionField<BusinessPartners> | BpIntrastatExtensionField<BusinessPartners> | OneToManyLink<BusinessPartners, SalesOpportunities> | OneToManyLink<BusinessPartners, UserDefaultGroups> | OneToManyLink<BusinessPartners, SpecialPrices> | OneToManyLink<BusinessPartners, LandedCosts> | OneToManyLink<BusinessPartners, WorkOrders> | OneToManyLink<BusinessPartners, Warehouses> | OneToManyLink<BusinessPartners, InventoryGenEntries> | OneToManyLink<BusinessPartners, PurchaseQuotations> | OneToManyLink<BusinessPartners, BankPages> | OneToManyLink<BusinessPartners, Items> | OneToManyLink<BusinessPartners, Contacts> | OneToManyLink<BusinessPartners, ProductionOrders> | OneToManyLink<BusinessPartners, DepreciationAreas> | OneToManyLink<BusinessPartners, DeliveryNotes> | OneToOneLink<BusinessPartners, BusinessPartnerGroups> | OneToOneLink<BusinessPartners, PaymentTermsTypes> | OneToOneLink<BusinessPartners, PriceLists> | OneToOneLink<BusinessPartners, CommissionGroups> | OneToOneLink<BusinessPartners, SalesPersons> | OneToOneLink<BusinessPartners, Currencies> | OneToOneLink<BusinessPartners, ChartOfAccounts> | OneToOneLink<BusinessPartners, Countries> | OneToOneLink<BusinessPartners, VatGroups> | OneToOneLink<BusinessPartners, ShippingTypes> | OneToOneLink<BusinessPartners, FactoringIndicators> | OneToOneLink<BusinessPartners, CreditCards> | OneToOneLink<BusinessPartners, BpPriorities> | OneToOneLink<BusinessPartners, Forms1099> | OneToOneLink<BusinessPartners, WizardPaymentMethods> | OneToOneLink<BusinessPartners, DunningLetters> | OneToOneLink<BusinessPartners, PaymentBlocks> | OneToOneLink<BusinessPartners, WithholdingTaxCodes> | OneToOneLink<BusinessPartners, EmployeesInfo> | OneToOneLink<BusinessPartners, Territories> | OneToOneLink<BusinessPartners, Projects> | OneToOneLink<BusinessPartners, SalesTaxCodes> | OneToOneLink<BusinessPartners, DunningTerms> | OneToOneLink<BusinessPartners, UserLanguages> | OneToOneLink<BusinessPartners, DeductionTaxGroups> | OneToOneLink<BusinessPartners, BankChargesAllocationCodes> | OneToOneLink<BusinessPartners, Industries> | OneToOneLink<BusinessPartners, TaxWebSites> | OneToOneLink<BusinessPartners, Campaigns> | OneToOneLink<BusinessPartners, BlanketAgreements> | OneToManyLink<BusinessPartners, Quotations> | OneToManyLink<BusinessPartners, ServiceContracts> | OneToManyLink<BusinessPartners, InventoryGenExits> | OneToManyLink<BusinessPartners, PurchaseRequests> | OneToManyLink<BusinessPartners, DeductionTaxHierarchies> | OneToManyLink<BusinessPartners, ReturnRequest> | OneToManyLink<BusinessPartners, BlanketAgreements> | OneToManyLink<BusinessPartners, GlAccountAdvancedRules> | OneToManyLink<BusinessPartners, PurchaseReturns> | OneToManyLink<BusinessPartners, Invoices> | OneToManyLink<BusinessPartners, CreditNotes> | OneToManyLink<BusinessPartners, StockTransfers> | OneToManyLink<BusinessPartners, BusinessPlaces> | OneToManyLink<BusinessPartners, Orders> | OneToManyLink<BusinessPartners, PartnersSetups> | OneToManyLink<BusinessPartners, InventoryTransferRequests> | OneToManyLink<BusinessPartners, Activities> | OneToManyLink<BusinessPartners, DownPayments> | OneToManyLink<BusinessPartners, Drafts> | OneToManyLink<BusinessPartners, StockTransferDrafts> | OneToManyLink<BusinessPartners, Returns> | OneToManyLink<BusinessPartners, MaterialRevaluation> | OneToManyLink<BusinessPartners, CorrectionInvoiceReversal> | OneToManyLink<BusinessPartners, CorrectionPurchaseInvoice> | OneToManyLink<BusinessPartners, CorrectionPurchaseInvoiceReversal> | OneToManyLink<BusinessPartners, CustomerEquipmentCards> | OneToManyLink<BusinessPartners, PurchaseInvoices> | OneToManyLink<BusinessPartners, PurchaseDeliveryNotes> | OneToManyLink<BusinessPartners, CorrectionInvoice> | OneToManyLink<BusinessPartners, PurchaseCreditNotes> | OneToManyLink<BusinessPartners, ServiceCalls> | OneToManyLink<BusinessPartners, PurchaseDownPayments> | OneToManyLink<BusinessPartners, EmployeesInfo> | OneToManyLink<BusinessPartners, PurchaseOrders> | OneToManyLink<BusinessPartners, AlternateCatNum> | OneToManyLink<BusinessPartners, ProjectManagements> | OneToManyLink<BusinessPartners, GoodsReturnRequest> | OneToManyLink<BusinessPartners, SalesTaxInvoices> | OneToManyLink<BusinessPartners, PurchaseTaxInvoices>>;
+    const _allFields: Array<StringField<BusinessPartners> | EnumField<BusinessPartners> | NumberField<BusinessPartners> | DateField<BusinessPartners> | TimeField<BusinessPartners> | CollectionField<BusinessPartners, BpAddress> | CollectionField<BusinessPartners, ContactEmployee> | CollectionField<BusinessPartners, BpAccountReceivablePayble> | CollectionField<BusinessPartners, BpPaymentMethod> | CollectionField<BusinessPartners, BpWithholdingTax> | CollectionField<BusinessPartners, BpPaymentDate> | CollectionField<BusinessPartners, BpBranchAssignmentItem> | CollectionField<BusinessPartners, BpBankAccount> | CollectionField<BusinessPartners, BpFiscalTaxId> | CollectionField<BusinessPartners, DiscountGroup> | BpIntrastatExtensionField<BusinessPartners> | CollectionField<BusinessPartners, BpBlockSendingMarketingContent> | OneToManyLink<BusinessPartners, SalesOpportunities> | OneToManyLink<BusinessPartners, UserDefaultGroups> | OneToManyLink<BusinessPartners, SpecialPrices> | OneToManyLink<BusinessPartners, LandedCosts> | OneToManyLink<BusinessPartners, WorkOrders> | OneToManyLink<BusinessPartners, Warehouses> | OneToManyLink<BusinessPartners, InventoryGenEntries> | OneToManyLink<BusinessPartners, PurchaseQuotations> | OneToManyLink<BusinessPartners, BankPages> | OneToManyLink<BusinessPartners, Items> | OneToManyLink<BusinessPartners, Contacts> | OneToManyLink<BusinessPartners, ProductionOrders> | OneToManyLink<BusinessPartners, DepreciationAreas> | OneToManyLink<BusinessPartners, DeliveryNotes> | OneToOneLink<BusinessPartners, BusinessPartnerGroups> | OneToOneLink<BusinessPartners, PaymentTermsTypes> | OneToOneLink<BusinessPartners, PriceLists> | OneToOneLink<BusinessPartners, CommissionGroups> | OneToOneLink<BusinessPartners, SalesPersons> | OneToOneLink<BusinessPartners, Currencies> | OneToOneLink<BusinessPartners, ChartOfAccounts> | OneToOneLink<BusinessPartners, Countries> | OneToOneLink<BusinessPartners, VatGroups> | OneToOneLink<BusinessPartners, ShippingTypes> | OneToOneLink<BusinessPartners, FactoringIndicators> | OneToOneLink<BusinessPartners, CreditCards> | OneToOneLink<BusinessPartners, BpPriorities> | OneToOneLink<BusinessPartners, Forms1099> | OneToOneLink<BusinessPartners, WizardPaymentMethods> | OneToOneLink<BusinessPartners, DunningLetters> | OneToOneLink<BusinessPartners, PaymentBlocks> | OneToOneLink<BusinessPartners, WithholdingTaxCodes> | OneToOneLink<BusinessPartners, EmployeesInfo> | OneToOneLink<BusinessPartners, Territories> | OneToOneLink<BusinessPartners, Projects> | OneToOneLink<BusinessPartners, SalesTaxCodes> | OneToOneLink<BusinessPartners, DunningTerms> | OneToOneLink<BusinessPartners, UserLanguages> | OneToOneLink<BusinessPartners, DeductionTaxGroups> | OneToOneLink<BusinessPartners, BankChargesAllocationCodes> | OneToOneLink<BusinessPartners, Industries> | OneToOneLink<BusinessPartners, TaxWebSites> | OneToOneLink<BusinessPartners, Campaigns> | OneToOneLink<BusinessPartners, BlanketAgreements> | OneToManyLink<BusinessPartners, Quotations> | OneToManyLink<BusinessPartners, ServiceContracts> | OneToManyLink<BusinessPartners, InventoryGenExits> | OneToManyLink<BusinessPartners, PurchaseRequests> | OneToManyLink<BusinessPartners, DeductionTaxHierarchies> | OneToManyLink<BusinessPartners, ReturnRequest> | OneToManyLink<BusinessPartners, BlanketAgreements> | OneToManyLink<BusinessPartners, GlAccountAdvancedRules> | OneToManyLink<BusinessPartners, PurchaseReturns> | OneToManyLink<BusinessPartners, Invoices> | OneToManyLink<BusinessPartners, CreditNotes> | OneToManyLink<BusinessPartners, StockTransfers> | OneToManyLink<BusinessPartners, BusinessPlaces> | OneToManyLink<BusinessPartners, Orders> | OneToManyLink<BusinessPartners, PartnersSetups> | OneToManyLink<BusinessPartners, InventoryTransferRequests> | OneToManyLink<BusinessPartners, Activities> | OneToManyLink<BusinessPartners, DownPayments> | OneToManyLink<BusinessPartners, Drafts> | OneToManyLink<BusinessPartners, StockTransferDrafts> | OneToManyLink<BusinessPartners, Returns> | OneToManyLink<BusinessPartners, MaterialRevaluation> | OneToManyLink<BusinessPartners, CorrectionInvoiceReversal> | OneToManyLink<BusinessPartners, CorrectionPurchaseInvoice> | OneToManyLink<BusinessPartners, CorrectionPurchaseInvoiceReversal> | OneToManyLink<BusinessPartners, CustomerEquipmentCards> | OneToManyLink<BusinessPartners, PurchaseInvoices> | OneToManyLink<BusinessPartners, PurchaseDeliveryNotes> | OneToManyLink<BusinessPartners, CorrectionInvoice> | OneToManyLink<BusinessPartners, PurchaseCreditNotes> | OneToManyLink<BusinessPartners, ServiceCalls> | OneToManyLink<BusinessPartners, PurchaseDownPayments> | OneToManyLink<BusinessPartners, EmployeesInfo> | OneToManyLink<BusinessPartners, PurchaseOrders> | OneToManyLink<BusinessPartners, AlternateCatNum> | OneToManyLink<BusinessPartners, ProjectManagements> | OneToManyLink<BusinessPartners, GoodsReturnRequest> | OneToManyLink<BusinessPartners, SalesTaxInvoices> | OneToManyLink<BusinessPartners, PurchaseTaxInvoices>>;
     /**
      * All fields selector.
      */
