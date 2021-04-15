@@ -6,7 +6,7 @@
   "license": "Apache 2.0",
   "private": false,
   "dependencies": {
-    "@sap/cds": "^4.2.8",
+    "@sap/cds": "^5.0.4",
     "express": "^4.17.1"
   },
   "scripts": {
@@ -22,6 +22,6 @@
     }
   },
   "devDependencies": {
-    "@sap-cloud-sdk/generator": "^1.30.0"
+    "@sap-cloud-sdk/generator": "^1.41.0"
   }
 }
