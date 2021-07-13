@@ -6,10 +6,11 @@
   "license": "Apache 2.0",
   "private": false,
   "dependencies": {
-    "@sap/cds": "^5.0.4",
+    "@sap/cds": "^5.3.0",
     "express": "^4.17.1"
   },
   "scripts": {
+    "start:write-logs": "cds run > build.log 2>  error.log",
     "generate-odata-client": "generate-odata-client --inputDir srv/external --outputDir srv/odata-client --forceOverwrite",
     "start": "cds watch"
   },
@@ -22,6 +23,6 @@
     }
   },
   "devDependencies": {
-    "@sap-cloud-sdk/generator": "^1.41.0"
+    "@sap-cloud-sdk/generator": "^1.46.0"
   }
 }
