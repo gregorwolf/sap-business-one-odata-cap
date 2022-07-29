@@ -6,11 +6,12 @@
   "license": "Apache 2.0",
   "private": false,
   "dependencies": {
-    "@sap/cds": "^5.3.0",
-    "express": "^4.17.1"
+    "@sap/cds": "^6.0.4",
+    "express": "^4.18.1"
   },
   "scripts": {
     "start:write-logs": "cds run > build.log 2>  error.log",
+    "cds-import": "cds import srv/external/SAPB1.edmx",
     "generate-odata-client": "generate-odata-client --inputDir srv/external --outputDir srv/odata-client --forceOverwrite",
     "start": "cds watch"
   },
