@@ -11,7 +11,8 @@
   },
   "scripts": {
     "start:write-logs": "cds run > build.log 2>  error.log",
-    "cds-import": "cds import srv/external/SAPB1.edmx",
+    "cds-import-csn": "cds import srv/external/SAPB1.edmx",
+    "cds-import-cds": "cds import srv/external/SAPB1.edmx --as cds",
     "generate-odata-client": "generate-odata-client --inputDir srv/external --outputDir srv/odata-client --forceOverwrite",
     "start": "cds watch"
   },
