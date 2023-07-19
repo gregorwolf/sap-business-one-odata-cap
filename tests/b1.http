@@ -1,0 +1,7 @@
+###
+GET {{$dotenv backend_url}}/b1s/v2/
+###
+GET {{$dotenv backend_url}}/b1s/v2/$metadata
+###
+GET {{$dotenv backend_url}}/b1s/v2/Orders?$top=2&$orderby=DocDate%20desc
+#&$expand=BusinessPartner
