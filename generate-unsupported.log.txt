@@ -1,0 +1,966 @@
+[2023-08-18T04:12:45.694Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'BOELinesService_GetBOELine'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.BOELineParams'].
+[2023-08-18T04:12:45.694Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CompanyService_RoundDecimal'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.DecimalData'].
+[2023-08-18T04:12:45.694Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ExportDeterminationService_GetDeterminations'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ExportDeterminationsParams'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CompanyService_CreatePeriodWithFinanceParams'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.PeriodCategory', 'SAPB1.FinancePeriodParams'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicDocumentService_UpdateEntry'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EDFEntry'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicDocumentService_GetEntry'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EDFEntryInputParams'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicCommunicationActionsService_AddEcmActionLog'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EcmActionLog'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseQuotationsService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicCommunicationActionsService_GetEcmActionByDoc'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EcmActionDocParams'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ImportDeterminationService_GetDeterminations'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ImportDeterminationsParams'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ReportLayoutsService_SetDefaultReport'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.DefaultReportParams'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicCommunicationActionsService_AddEcmAction'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EcmAction'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicCommunicationActionsService_GetEcmAction'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EcmActionParams'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'OrdersService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CompanyService_GetItemPrice'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ItemPriceParams'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'OrdersService_Preview'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicCommunicationActionService_UpdateAction'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ECMActionStatusData'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ExternalReconciliationsService_GetReconciliationList'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ExternalReconciliationFilterParams'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CorrectionPurchaseInvoiceReversalService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'DashboardPackagesService_ImportDashboardPackage'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.DashboardPackageImportParams'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CorrectionPurchaseInvoiceService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'WorkflowTaskService_GetApprovalTaskList'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.WorkflowApprovalTaskListParams'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'WorkflowTaskService_Complete'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.WorkflowTaskCompleteParams'].
+[2023-08-18T04:12:45.695Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'DraftsService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_SetDefaultSeriesForUser'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.DocumentSeriesUserParams'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ReturnsService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CheckLinesService_GetCheckLine'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.CheckLineParams'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ReportFilterService_GetTaxReportFilterList'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.TaxReportFilterParams'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ExternalCallsService_GetCall'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ExternalCallParams'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PickListsService_Close'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.PickList'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ServiceTaxPostingService_PostServiceTax'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ServiceTaxPostingParams'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ReturnsService_Cancel2'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseRequestService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicDocumentService_GetLogs'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EDFEntryLogInputParams'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'AddressService_GetFullAddress'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.AddressParams'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_UpdateSubprojectTypes'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_SubprojectTypeData)'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ReportLayoutsService_DeleteReportLayout'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ReportLayoutParams'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_UpdateTasks'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_TaskData)'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'MobileAppService_UpdateServiceAppReportContent'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ServiceAppReportParams', 'SAPB1.ServiceAppReportContent'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'AssetManualDepreciationService_Cancel'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.AssetDocumentParams'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'MobileAppService_UpdateTechnicianSettings'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.TechnicianSettings'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CorrectionInvoiceReversalService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'FixedAssetItemsService_UpdateAssetEndBalance'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.FixedAssetValuesParams', 'SAPB1.FixedAssetEndBalance'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseRequestService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'FixedAssetItemsService_GetAssetEndBalance'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.FixedAssetValuesParams'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'FixedAssetItemsService_GetAssetValuesList'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.FixedAssetValuesParams'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_UpdateActivities'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_ActivityData)'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicCommunicationActionService_ReportErrorAndStop'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ECMCodeParams'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CreditNotesService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.696Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CorrectionInvoiceService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'StockTransferDraftService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.StockTransfer'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PickListsService_UpdateReleasedAllocation'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.PickList'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'AssetCapitalizationCreditMemoService_Cancel'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.AssetDocumentParams'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicDocumentService_GetEntryList'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EDFEntryListInputParams'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicCommunicationActionsService_GetEcmActionLogList'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EcmAction'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'DeliveryNotesService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementService_AddSubproject'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.PM_SubprojectDocumentData'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'DepositsService_CancelCheckRow'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.CancelCheckRowParams'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_UpdateElectronicSeries'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ElectronicSeries'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CompanyService_LogLoginAction'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.UserAccessLog', 'SAPB1.SupportUserLoginRecord'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'OrdersService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicCommunicationActionsService_UpdateEcmAction'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EcmAction'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'RoutingDateCalculationService_Calculate'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.RoutingDateCalculationInput'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'InvoicesService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'BPOpeningBalanceService_CreateOpenBalance'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.OpenningBalanceAccount', 'Collection(SAPB1.BPCode)'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ResourceCapacitiesService_GetListWithFilter'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ResourceCapacityWithFilterParams'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CompanyService_RemoveFinancePeriod'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.FinancePeriodParams'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CorrectionPurchaseInvoiceReversalService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ActivitiesService_DeleteSingleInstanceFromSeries'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ActivityInstanceParams'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'AddressService_GetAddressFormat'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.AddressFormatParams'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ActivitySubjectService_GetListByTypeCode'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ActivitySubject'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CorrectionInvoiceReversalService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicDocumentService_AddLog'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EDFEntryAddLogInputParams'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'AlternativeItemsService_DeleteItem'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.OriginalItemParams'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CompanyService_LogLogoffAction'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.UserAccessLog', 'SAPB1.SupportUserLoginRecord'].
+[2023-08-18T04:12:45.697Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicDocumentService_GetDocMappingList'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EDFDocMappingInputParams'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'MaterialRevaluationFIFOService_GetMaterialRevaluationFIFO'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.MaterialRevaluationFIFOParams'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementService_DeleteSubproject'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.PM_SubprojectDocumentParams'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CompanyService_UpdateAdminInfo'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.AdminInfo'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CreditNotesService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'AssetCapitalizationService_Cancel'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.AssetDocumentParams'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CompanyService_UpdatePeriod'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.PeriodCategory'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'MaterialRevaluationSNBService_GetList'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.MaterialRevaluationSNBParam'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicDocumentService_GetLastLog'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EDFEntryLogInputParams'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CompanyService_GetFinancePeriod'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.FinancePeriodParams'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseInvoicesService_Cancel2'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CompanyService_CreatePeriod'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.PeriodCategory'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'DraftsService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_AddActivities'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_ActivityData)'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicDocumentService_AddImportEntry'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EDFImportEntry'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'AlternativeItemsService_GetItem'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.OriginalItemParams'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ReturnsService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'GTIsService_Import'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.GTIParams'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ActivitiesService_UpdateSingleInstanceInSeries'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Activity'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ExternalCallsService_SendCall'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ExternalCall'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'InventoryPostingsService_SetCopyOption'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.InventoryPostingCopyOption'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'AlternativeItemsService_AddItem'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.OriginalItem'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CompanyService_GetAdvancedGLAccount'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.AdvancedGLAccountParams'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'StockTransferService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.StockTransfer'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ExternalCallsService_UpdateCall'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ExternalCall'].
+[2023-08-18T04:12:45.698Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'InvoicesService_RequestApproveCancellation'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicCommunicationActionsService_GetEcmActionLog'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EcmActionLogParams'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'GoodsReturnRequestService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CompanyService_GetFinancePeriods'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.PeriodCategoryParams'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CompanyService_UpdateCompanyInfo'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.CompanyInfo'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'AlternativeItemsService_UpdateItem'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.OriginalItem'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CompanyService_GetPeriod'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.PeriodCategoryParams'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicCommunicationActionService_GetAction'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ECMCodeParams'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'DraftsService_SaveDraftToDocument'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_UnattachSeriesFromDocument'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.DocumentSeriesParams'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'MobileAppService_GetTechnicianSettingsGroup'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.TechnicianSettingsGroupParams'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'MobileAppService_GetSalesAppSetting'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.SalesAppSettingParams'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ActivitiesService_GetTopNActivityInstances'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ActivityInstancesListParams'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_AddElectronicSeries'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ElectronicSeries'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'DeliveryNotesService_Cancel2'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'InventoryTransferRequestsService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.StockTransfer'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ReportLayoutsService_UpdateLanguageReport'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ReportLayout'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ReportLayoutsService_AddReportLayout'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ReportLayout'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'InvoicesService_Cancel2'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicDocumentService_ExportEntryLog'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EDFEntryLogInputParams'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_UpdateAreas'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_AreaData)'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CreditNotesService_Cancel2'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicDocumentService_GetMappingByHash'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EDFMappingInputParams'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CorrectionPurchaseInvoiceService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'GoodsReturnRequestService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PaymentCalculationService_GetPaymentAmount'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.PaymentBPCode', 'Collection(SAPB1.PaymentInvoiceEntry)'].
+[2023-08-18T04:12:45.699Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ChangeLogsService_GetChangeLogDifferences'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ShowDifferenceParams'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseInvoicesService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CreditNotesService_RequestApproveCancellation'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'InternalReconciliationsService_GetOpenTransactions'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.InternalReconciliationOpenTransParams'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ReturnRequestService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CorrectionInvoiceService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CockpitsService_PublishCockpit'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Cockpit'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'MobileAppService_UpdateSalesAppSetting'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.SalesAppSetting'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_DeletePriorities'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_PriorityData)'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'InvoicesService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseDeliveryNotesService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseInvoicesService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ChangeLogsService_GetChangeLog'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.GetChangeLogParams'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementService_UpdateSubproject'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.PM_SubprojectDocumentData'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'AssetTransferService_Cancel'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.AssetDocumentParams'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicCommunicationActionService_ConfirmSuccessOfCommunication'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ECMCodeParams'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'AssetRetirementService_Cancel'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.AssetDocumentParams'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'AccountsService_CreateOpenBalance'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.OpenningBalanceAccount', 'Collection(SAPB1.GLAccount)'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseCreditNotesService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseCreditNotesService_Cancel2'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ExternalReconciliationsService_CancelReconciliation'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ExternalReconciliationParams'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'InventoryGenEntryService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'BusinessPartnersService_CreateOpenBalance'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.OpenningBalanceAccount', 'Collection(SAPB1.BPCode)'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseDeliveryNotesService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseDeliveryNotesService_Cancel2'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'UserMenuService_UpdateCurrentUserMenu'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.UserMenuItem)'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'DeliveryNotesService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.700Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'UserMenuService_GetUserMenu'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.UserMenuParams'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_DeleteActivities'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_ActivityData)'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'DownPaymentsService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ActivitiesService_GetSingleInstanceFromSeries'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ActivityInstanceParams'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'DownPaymentsService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'InventoryGenEntryService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ExternalReconciliationsService_GetReconciliation'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ExternalReconciliationParams'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ActivitiesService_GetListByAttendUser'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Activity'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_SetDefaultSeriesForAllUsers'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.DocumentSeriesParams'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseReturnsService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_DeleteTasks'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_TaskData)'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseReturnsService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseReturnsService_Cancel2'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SensitiveDataAccessService_Access'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.SensitiveDataAccess'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseOrdersService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ReportLayoutsService_GetReportLayout'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ReportLayoutParams'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_DeleteStageTypes'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_StageTypeData)'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_GetDocumentSeries'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.DocumentTypeParams'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'QuotationsService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'QuotationsService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SensitiveDataAccessService_IsDataSensitive'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.SensitiveDataAccess'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseCreditNotesService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ReportLayoutsService_GetDefaultReport'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ReportParams'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CompanyService_UpdatePathAdmin'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.PathAdmin'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ReportLayoutsService_UpdatePrinterSettings'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ReportLayout'].
+[2023-08-18T04:12:45.701Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ReportLayoutsService_GetDefaultReportLayout'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ReportParams'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ReportLayoutsService_GetReportLayoutList'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ReportParams'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ReportLayoutsService_AddReportLayoutToMenu'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ReportLayout', 'SAPB1.ReportInputParams'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ReportLayoutsService_DeleteReportLayoutAndMenu'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ReportLayoutParams'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'MobileAppService_UpdateServiceAppReport'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ServiceAppReport'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ExternalReconciliationsService_Reconcile'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ExternalReconciliation'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_AddPriorities'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_PriorityData)'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementService_GetSubprojectsList'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.PM_SubprojectParams'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementService_GetSubproject'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.PM_SubprojectDocumentParams'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_AddSubprojectTypes'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_SubprojectTypeData)'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'DepositsService_CancelCheckRowbyCurrentSystemDate'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.CancelCheckRowParams'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_DeleteSubprojectTypes'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_SubprojectTypeData)'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_AddStageTypes'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_StageTypeData)'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_UpdateStageTypes'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_StageTypeData)'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseDownPaymentsService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_AddAreas'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_AreaData)'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_DeleteAreas'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_AreaData)'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_UpdatePriorities'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_PriorityData)'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseQuotationsService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ProjectManagementConfigurationService_AddTasks'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.PMC_TaskData)'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicCommunicationActionsService_DeleteEcmAction'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EcmAction'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ReturnRequestService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'RecurringTransactionService_GetRecurringTransaction'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.RclRecurringTransactionParams'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ValueMappingService_GetMappedB1Value'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.VM_B1ValuesData'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'BankStatementsService_GetBankStatementList'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.BankStatementsFilter'].
+[2023-08-18T04:12:45.702Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'QRCodeService_AddOrUpdateQRCode'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.QRCodeData'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicDocumentService_CreateEntry'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.EDFEntry'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'MobileAppService_GetServiceAppReport'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ServiceAppReportParams'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_AddSeries'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Series'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseOrdersService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PurchaseDownPaymentsService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'MobileAppService_GetTechnicianSchedulings'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.TechnicianSchedulingsParams'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'MobileAppService_GetEmployeeFullNames'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.EmployeeFullNamesParams)'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'MobileAppService_UpdateTechnicianSettingsGroup'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.TechnicianSettingsGroup'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'MobileAppService_GetServiceAppReportContent'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ServiceAppReportParams'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_SetDefaultElectronicSeries'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.DefaultElectronicSeriesParams'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'MobileAppService_GetDppChangeParams'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.DppChangeParams'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'InternalReconciliationsService_RequestApproveCancellation'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.InternalReconciliation'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ValueMappingService_GetThirdPartyValuesForB1Value'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.VM_B1ValuesData'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ValueMappingService_RemoveMappedValue'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.VM_ThirdPartyValuesData'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'UserMenuService_UpdateUserMenu'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.UserMenuParams', 'Collection(SAPB1.UserMenuItem)'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'JournalVouchersService_Add'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.JournalEntry)'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CompanyService_UpdateFinancePeriod'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.FinancePeriod'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'MaterialRevaluationSNBService_Add'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.MaterialRevaluationSNBParam'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_RemoveSeries'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.SeriesParams'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_AttachSeriesToDocument'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.DocumentSeriesParams'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_SetDefaultSeriesForCurrentUser'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.DocumentSeriesParams'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_UpdateSeries'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Series'].
+[2023-08-18T04:12:45.703Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_GetDefaultSeries'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.DocumentTypeParams'].
+[2023-08-18T04:12:45.704Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_GetSeries'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.SeriesParams'].
+[2023-08-18T04:12:45.704Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_GetDocumentChangedMenuName'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.DocumentTypeParams'].
+[2023-08-18T04:12:45.704Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_GetElectronicSeries'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ElectronicSeriesParams'].
+[2023-08-18T04:12:45.704Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'ElectronicCommunicationActionService_ReportErrorAndContinue'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ECMCodeParams'].
+[2023-08-18T04:12:45.704Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_RemoveElectronicSeries'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.ElectronicSeriesParams'].
+[2023-08-18T04:12:45.704Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_GetDefaultElectronicSeries'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.SeriesParams'].
+[2023-08-18T04:12:45.704Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'PaymentTermsTypesService_UpdateWithBPs'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.PaymentTermsType'].
+[2023-08-18T04:12:45.704Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'RecurringTransactionService_DeleteRecurringTransactions'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.RclRecurringTransactionParams)'].
+[2023-08-18T04:12:45.704Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'RecurringTransactionService_ExecuteRecurringTransactions'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['Collection(SAPB1.RclRecurringTransactionParams)', 'SAPB1.RclRecurringExecutionParams'].
+[2023-08-18T04:12:45.704Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'SeriesService_ChangeDocumentMenuName'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.DocumentChangeMenuName'].
+[2023-08-18T04:12:45.704Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'InventoryGenExitService_GetApprovalTemplates'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.704Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'InventoryGenExitService_ExportEWayBill'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.Document'].
+[2023-08-18T04:12:45.704Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'CreditLinesService_GetCreditLine'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.CreditLineParams'].
+[2023-08-18T04:12:45.704Z] [33mWARN[39m     (edmx-to-vdm-util): Found unsupported parameter types for function or action 'MobileAppService_GetTechnicianSettings'.
+The SAP Cloud SDK only supports EDM types in parameters.
+Skipping code generation for function/action.
+Unsupported parameter types: ['SAPB1.TechnicianSettingsParams'].
+[2023-08-18T04:12:45.729Z] [33mWARN[39m     (options-per-service): [ SAPB1 ] No base path could be determined from available metadata! Setting "basePath" to "/" as default value. Consider using 'optionsPerService' configuration to explicitly set a value.
+[2023-08-18T04:13:21.683Z] [32mINFO[39m     (cli): Generation of services finished successfully.
