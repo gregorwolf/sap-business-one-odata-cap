@@ -1,0 +1,82 @@
+/*
+ * Copyright (c) 2023 SAP SE or an SAP affiliate company. All rights reserved.
+ *
+ * This is a generated file powered by the SAP Cloud SDK for JavaScript.
+ */
+import {
+  DefaultDeSerializers,
+  DeSerializers,
+  GetAllRequestBuilder,
+  GetByKeyRequestBuilder,
+  CreateRequestBuilder,
+  UpdateRequestBuilder,
+  DeleteRequestBuilder,
+  DeserializedType,
+  RequestBuilder
+} from '@sap-cloud-sdk/odata-v4';
+import { U_Bcesett } from './U_Bcesett';
+
+/**
+ * Request builder class for operations supported on the {@link U_Bcesett} entity.
+ */
+export class U_BcesettRequestBuilder<
+  T extends DeSerializers = DefaultDeSerializers
+> extends RequestBuilder<U_Bcesett<T>, T> {
+  /**
+   * Returns a request builder for retrieving one `U_Bcesett` entity based on its keys.
+   * @param code Key property. See {@link U_Bcesett.code}.
+   * @returns A request builder for creating requests to retrieve one `U_Bcesett` entity based on its keys.
+   */
+  getByKey(
+    code: DeserializedType<T, 'Edm.String'>
+  ): GetByKeyRequestBuilder<U_Bcesett<T>, T> {
+    return new GetByKeyRequestBuilder<U_Bcesett<T>, T>(this.entityApi, {
+      Code: code
+    });
+  }
+
+  /**
+   * Returns a request builder for querying all `U_Bcesett` entities.
+   * @returns A request builder for creating requests to retrieve all `U_Bcesett` entities.
+   */
+  getAll(): GetAllRequestBuilder<U_Bcesett<T>, T> {
+    return new GetAllRequestBuilder<U_Bcesett<T>, T>(this.entityApi);
+  }
+
+  /**
+   * Returns a request builder for creating a `U_Bcesett` entity.
+   * @param entity The entity to be created
+   * @returns A request builder for creating requests that create an entity of type `U_Bcesett`.
+   */
+  create(entity: U_Bcesett<T>): CreateRequestBuilder<U_Bcesett<T>, T> {
+    return new CreateRequestBuilder<U_Bcesett<T>, T>(this.entityApi, entity);
+  }
+
+  /**
+   * Returns a request builder for updating an entity of type `U_Bcesett`.
+   * @param entity The entity to be updated
+   * @returns A request builder for creating requests that update an entity of type `U_Bcesett`.
+   */
+  update(entity: U_Bcesett<T>): UpdateRequestBuilder<U_Bcesett<T>, T> {
+    return new UpdateRequestBuilder<U_Bcesett<T>, T>(this.entityApi, entity);
+  }
+
+  /**
+   * Returns a request builder for deleting an entity of type `U_Bcesett`.
+   * @param code Key property. See {@link U_Bcesett.code}.
+   * @returns A request builder for creating requests that delete an entity of type `U_Bcesett`.
+   */
+  delete(code: string): DeleteRequestBuilder<U_Bcesett<T>, T>;
+  /**
+   * Returns a request builder for deleting an entity of type `U_Bcesett`.
+   * @param entity Pass the entity to be deleted.
+   * @returns A request builder for creating requests that delete an entity of type `U_Bcesett` by taking the entity as a parameter.
+   */
+  delete(entity: U_Bcesett<T>): DeleteRequestBuilder<U_Bcesett<T>, T>;
+  delete(codeOrEntity: any): DeleteRequestBuilder<U_Bcesett<T>, T> {
+    return new DeleteRequestBuilder<U_Bcesett<T>, T>(
+      this.entityApi,
+      codeOrEntity instanceof U_Bcesett ? codeOrEntity : { Code: codeOrEntity! }
+    );
+  }
+}

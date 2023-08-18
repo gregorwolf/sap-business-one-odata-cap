@@ -1,0 +1,96 @@
+/*
+ * Copyright (c) 2023 SAP SE or an SAP affiliate company. All rights reserved.
+ *
+ * This is a generated file powered by the SAP Cloud SDK for JavaScript.
+ */
+import {
+  DefaultDeSerializers,
+  DeSerializers,
+  GetAllRequestBuilder,
+  GetByKeyRequestBuilder,
+  CreateRequestBuilder,
+  UpdateRequestBuilder,
+  DeleteRequestBuilder,
+  DeserializedType,
+  RequestBuilder
+} from '@sap-cloud-sdk/odata-v4';
+import { PredefinedTexts } from './PredefinedTexts';
+
+/**
+ * Request builder class for operations supported on the {@link PredefinedTexts} entity.
+ */
+export class PredefinedTextsRequestBuilder<
+  T extends DeSerializers = DefaultDeSerializers
+> extends RequestBuilder<PredefinedTexts<T>, T> {
+  /**
+   * Returns a request builder for retrieving one `PredefinedTexts` entity based on its keys.
+   * @param numerator Key property. See {@link PredefinedTexts.numerator}.
+   * @returns A request builder for creating requests to retrieve one `PredefinedTexts` entity based on its keys.
+   */
+  getByKey(
+    numerator: DeserializedType<T, 'Edm.Int32'>
+  ): GetByKeyRequestBuilder<PredefinedTexts<T>, T> {
+    return new GetByKeyRequestBuilder<PredefinedTexts<T>, T>(this.entityApi, {
+      Numerator: numerator
+    });
+  }
+
+  /**
+   * Returns a request builder for querying all `PredefinedTexts` entities.
+   * @returns A request builder for creating requests to retrieve all `PredefinedTexts` entities.
+   */
+  getAll(): GetAllRequestBuilder<PredefinedTexts<T>, T> {
+    return new GetAllRequestBuilder<PredefinedTexts<T>, T>(this.entityApi);
+  }
+
+  /**
+   * Returns a request builder for creating a `PredefinedTexts` entity.
+   * @param entity The entity to be created
+   * @returns A request builder for creating requests that create an entity of type `PredefinedTexts`.
+   */
+  create(
+    entity: PredefinedTexts<T>
+  ): CreateRequestBuilder<PredefinedTexts<T>, T> {
+    return new CreateRequestBuilder<PredefinedTexts<T>, T>(
+      this.entityApi,
+      entity
+    );
+  }
+
+  /**
+   * Returns a request builder for updating an entity of type `PredefinedTexts`.
+   * @param entity The entity to be updated
+   * @returns A request builder for creating requests that update an entity of type `PredefinedTexts`.
+   */
+  update(
+    entity: PredefinedTexts<T>
+  ): UpdateRequestBuilder<PredefinedTexts<T>, T> {
+    return new UpdateRequestBuilder<PredefinedTexts<T>, T>(
+      this.entityApi,
+      entity
+    );
+  }
+
+  /**
+   * Returns a request builder for deleting an entity of type `PredefinedTexts`.
+   * @param numerator Key property. See {@link PredefinedTexts.numerator}.
+   * @returns A request builder for creating requests that delete an entity of type `PredefinedTexts`.
+   */
+  delete(numerator: number): DeleteRequestBuilder<PredefinedTexts<T>, T>;
+  /**
+   * Returns a request builder for deleting an entity of type `PredefinedTexts`.
+   * @param entity Pass the entity to be deleted.
+   * @returns A request builder for creating requests that delete an entity of type `PredefinedTexts` by taking the entity as a parameter.
+   */
+  delete(
+    entity: PredefinedTexts<T>
+  ): DeleteRequestBuilder<PredefinedTexts<T>, T>;
+  delete(numeratorOrEntity: any): DeleteRequestBuilder<PredefinedTexts<T>, T> {
+    return new DeleteRequestBuilder<PredefinedTexts<T>, T>(
+      this.entityApi,
+      numeratorOrEntity instanceof PredefinedTexts
+        ? numeratorOrEntity
+        : { Numerator: numeratorOrEntity! }
+    );
+  }
+}

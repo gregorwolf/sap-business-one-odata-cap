@@ -14,6 +14,7 @@
     "@sap/cds-dk": "^7.1.1"
   },
   "scripts": {
+    "generate:log": "npx generate-odata-client --input srv/external/SAPB1.edmx --outputDir srv/odata-client --overwrite --skipValidation > generate.log 2> generate-error.log",
     "generate-odata-client": "npx generate-odata-client --input srv/external/SAPB1.edmx --outputDir srv/odata-client --overwrite",
     "import": "cds import srv/external/SAPB1.edmx",
     "build": "npx -p @sap/cds-dk cds build --production",

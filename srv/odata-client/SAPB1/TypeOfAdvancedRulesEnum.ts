@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2023 SAP SE or an SAP affiliate company. All rights reserved.
+ *
+ * This is a generated file powered by the SAP Cloud SDK for JavaScript.
+ */
+/**
+ * This enum represents the enum type "{@link TypeOfAdvancedRulesEnum}".
+ * The members represent values of EDM type Edm.Int32.
+ */
+export enum TypeOfAdvancedRulesEnum {
+  /**
+   * Original value: 0
+   */
+  toarGeneral = 'toarGeneral',
+  /**
+   * Original value: 1
+   */
+  toarWarehouse = 'toarWarehouse',
+  /**
+   * Original value: 2
+   */
+  toarItemGroup = 'toarItemGroup'
+}
